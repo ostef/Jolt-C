@@ -1,0 +1,273 @@
+#ifndef DATABASE_H
+#define DATABASE_H
+
+#include <clang-c/Index.h>
+
+#include "Core.h"
+
+// Ast-like representation, only for what we need
+
+struct CppDatabase;
+struct CppType;
+struct CppSourceCodeLocation;
+struct CppSourceCodeRange;
+struct CppEntity;
+struct CppNamespace;
+struct CppValueDefine;
+struct CppEnum;
+struct CppEnumConstant;
+struct CppAggregate;
+struct CppVariable;
+struct CppFunction;
+
+typedef struct CppDatabase {
+    struct CppNamespace *global_namespace;
+    Array all_namespaces;
+    Array all_value_defines;
+    Array all_enums;
+    Array all_aggregates;
+    Array all_functions;
+    Array all_entities;
+    HashMap cursor_to_entity;
+} CppDatabase;
+
+void InitCppDatabase(CppDatabase *db);
+struct CppEntity *GetCppEntityFromCursor(CppDatabase *db, CXCursor cursor);
+
+typedef uint8_t CppTypeKind;
+enum {
+    CppType_Invalid,
+    CppType_Unknown,
+    CppType_Void,
+    CppType_Bool,
+    CppType_Char,
+    CppType_UChar,
+    CppType_Short,
+    CppType_UShort,
+    CppType_Int,
+    CppType_UInt,
+    CppType_Long,
+    CppType_ULong,
+    CppType_LongLong,
+    CppType_ULongLong,
+    CppType_Int128,
+    CppType_UInt128,
+    CppType_Float,
+    CppType_Double,
+    CppType_Pointer,
+    CppType_Reference,
+    CppType_RValueReference,
+    CppType_Array,
+    CppType_Named,
+    CppType_Function,
+    CppType_Auto,
+};
+
+static const char *CppTypeKind_Str[] = {
+    "invalid",
+    "unknown",
+    "void",
+    "bool",
+    "char",
+    "unsigned char",
+    "short",
+    "unsigned short",
+    "int",
+    "unsigned int",
+    "long",
+    "unsigned long",
+    "long long",
+    "unsigned long long",
+    "int128_t",
+    "uint128_t",
+    "float",
+    "double",
+    "pointer",
+    "reference",
+    "r-value reference",
+    "array",
+    "named",
+    "function",
+    "auto",
+};
+
+typedef uint32_t CppTypeFlags;
+enum {
+    CppTypeFlag_Const    = 1 << 0,
+    CppTypeFlag_Volatile = 1 << 1,
+    CppTypeFlag_Restrict = 1 << 2,
+    CppTypeFlag_IsPOD    = 1 << 3,
+};
+
+typedef struct CppTypePointer {
+    struct CppType *pointee_type;
+} CppTypePointer;
+
+typedef struct CppTypeArray {
+    struct CppType *element_type;
+    int64_t num_elements;
+} CppTypeArray;
+
+typedef struct CppTypeNamed {
+    const char *name;
+    CXCursor cursor;
+    struct CppEntity *entity;
+} CppTypeNamed;
+
+typedef struct CppTypeFunction {
+    bool is_variadic;
+    struct CppType *result_type;
+    Array parameter_types;
+} CppTypeFunction;
+
+typedef struct CppType {
+    CppTypeKind kind;
+    CppTypeFlags flags;
+    CXType cx_type;
+    union {
+        CppTypePointer type_pointer;
+        CppTypeArray type_array;
+        CppTypeNamed type_named;
+        CppTypeFunction type_function;
+    };
+} CppType;
+
+typedef struct CppSourceCodeLocation {
+    const char *filename;
+    int64_t line;
+    int64_t character;
+    int64_t offset;
+} CppSourceCodeLocation;
+
+typedef struct CppSourceCodeRange {
+    const char *filename;
+    int64_t start_line, end_line;
+    int64_t start_character, end_character;
+    int64_t start_offset, end_offset;
+} CppSourceCodeRange;
+
+typedef uint8_t CppVisibility;
+enum {
+    CppVisibility_Public,
+    CppVisibility_Protected,
+    CppVisibility_Private,
+};
+
+typedef uint8_t CppEntityKind;
+enum {
+    CppEntity_Invalid,
+    CppEntity_Namespace,
+    CppEntity_ValueDefine,
+    CppEntity_Enum,
+    CppEntity_EnumConstant,
+    CppEntity_Aggregate,
+    CppEntity_Variable,
+    CppEntity_Function,
+};
+
+static const char *CppEntityKind_Str[] = {
+    "invalid",
+    "namespace",
+    "value define",
+    "enum",
+    "enum constant",
+    "aggregate",
+    "function",
+};
+
+typedef uint32_t CppEntityFlags;
+enum {
+    CppEntityFlag_Static = 1 << 0,
+};
+
+typedef struct CppEntity {
+    CppEntityKind kind;
+    CppEntityFlags flags;
+    CppVisibility visibility;
+    CXCursor cursor;
+    CppSourceCodeRange source_code_range;
+    struct CppEntity *parent;
+    const char *comment;
+    const char *name;
+    const char *fully_qualified_name;
+    const char *fully_qualified_c_name;
+} CppEntity;
+
+CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
+
+#define AllocCppEntity(kind, cursor) ((Cpp##kind *)AllocCppEntityOfKind(CppEntity_##kind, sizeof(Cpp##kind), (cursor)))
+
+void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity);
+
+typedef struct CppNamespace {
+    CppEntity base;
+    Array entities;
+} CppNamespace;
+
+typedef uint8_t CppAggregateKind;
+enum {
+    CppAggregate_Class,
+    CppAggregate_Struct,
+    CppAggregate_Union,
+};
+
+static const char *CppAggregateKind_Str[] = {
+    "class",
+    "struct",
+    "union",
+};
+
+typedef struct CppBaseClass {
+    bool is_virtual;
+    CppEntity *entity;
+} CppBaseClass;
+
+typedef struct CppAggregate {
+    CppEntity base;
+    Array entities;
+    CppAggregateKind kind;
+    Array base_classes;
+} CppAggregate;
+
+typedef struct CppValueDefine {
+    CppEntity base;
+    const char *value;
+} CppValueDefine;
+
+typedef uint8_t CppEnumFlags;
+enum {
+    CppEnumFlag_EnumClass = 1 << 0,
+};
+
+typedef struct CppEnum {
+    CppEntity base;
+    CppEnumFlags flags;
+    CppType *base_type;
+    Array constants;
+} CppEnum;
+
+typedef struct CppEnumConstant {
+    CppEntity base;
+    uint64_t value;
+} CppEnumConstant;
+
+typedef struct CppVariable {
+    CppEntity base;
+    CppType *type;
+} CppVariable;
+
+typedef uint32_t CppFunctionFlags;
+enum {
+    CppFunctionFlag_Constructor = 1 << 0,
+    CppFunctionFlag_Destructor  = 1 << 1,
+    CppFunctionFlag_Method      = 1 << 2,
+};
+
+typedef struct CppFunction {
+    CppEntity base;
+    CppFunctionFlags flags;
+    CppType *result;
+    Array parameters;
+} CppFunction;
+
+#endif
