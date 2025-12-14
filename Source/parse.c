@@ -27,6 +27,7 @@ void VisitRecurse(CXCursor cursor, CXCursorVisitor visitor, CppParseContext *ctx
     if (in_system_header) { \
         return CXChildVisit_Continue; \
     } \
+    enum CXCursorKind parent_kind = clang_getCursorKind(parent); \
     enum CXCursorKind kind = clang_getCursorKind(cursor);
 
 static
@@ -37,9 +38,9 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
 
     const char *name = clang_getCString(clang_getCursorSpelling(cursor));
     if (name && name[0]) {
-        printf("%s %d %s (%s) at %s:%d:%d\n", GetDeclName(parent), kind, clang_getCString(clang_getCursorKindSpelling(kind)), name, range.filename, range.start_line, range.start_character);
+        printf("%s %d %s (%s) at %s:%d:%d\n", GetDeclName(parent), kind, clang_getCString(clang_getCursorKindSpelling(kind)), name, range.filename, (int)range.start_line, (int)range.start_character);
     } else {
-        printf("%s %d %s at %s:%d:%d\n", GetDeclName(parent), kind, clang_getCString(clang_getCursorKindSpelling(kind)), range.filename, range.start_line, range.start_character);
+        printf("%s %d %s at %s:%d:%d\n", GetDeclName(parent), kind, clang_getCString(clang_getCursorKindSpelling(kind)), range.filename, (int)range.start_line, (int)range.start_character);
     }
 
     switch (kind) {
@@ -48,8 +49,12 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
         case CXCursor_CXXAccessSpecifier: { // public, protected, private
             // Nothing to do, access specifier is stored on each cursor
         } break;
+        case CXCursor_VarDecl:
         case CXCursor_FieldDecl: {
             CppVariable *var = AllocCppEntity(Variable, cursor);
+            if (clang_Cursor_getStorageClass(cursor) == CX_SC_Static) {
+                var->base.flags |= CppEntityFlag_Static;
+            }
             PushCppEntity(ctx->db, ctx->parent_entity, &var->base);
 
             var->type = GetCppType(ctx->db, clang_getCursorType(cursor));
@@ -57,6 +62,7 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
 
         case CXCursor_Constructor:
         case CXCursor_Destructor:
+        case CXCursor_FunctionDecl:
         case CXCursor_CXXMethod: {
             CppFunction *func = AllocCppEntity(Function, cursor);
             if (kind == CXCursor_Constructor) {
@@ -68,11 +74,41 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
             if (kind == CXCursor_CXXMethod) {
                 func->flags |= CppFunctionFlag_Method;
             }
+            if (clang_Cursor_getStorageClass(cursor) == CX_SC_Static) {
+                func->base.flags |= CppEntityFlag_Static;
+            }
 
             PushCppEntity(ctx->db, ctx->parent_entity, &func->base);
         } break;
 
         case CXCursor_TypeAliasDecl: { // using A = B for types
+        } break;
+
+        case CXCursor_StructDecl:
+        case CXCursor_UnionDecl:
+        case CXCursor_ClassDecl: {
+            CppAggregate *aggr = AllocCppEntity(Aggregate, cursor);
+            if (kind == CXCursor_StructDecl) {
+                aggr->kind = CppAggregate_Struct;
+            } else if (kind == CXCursor_UnionDecl) {
+                aggr->kind = CppAggregate_Union;
+            } else {
+                aggr->kind = CppAggregate_Class;
+            }
+
+            if (clang_Cursor_isAnonymous(cursor)) {
+                CppVariable *var = AllocCppEntity(Variable, cursor);
+                var->type = Alloc(CppType);
+                var->type->kind = CppType_Aggregate;
+                var->type->type_aggregate.cursor = cursor;
+                var->type->type_aggregate.aggr = aggr;
+
+                PushCppEntity(ctx->db, ctx->parent_entity, &var->base);
+            } else {
+                PushCppEntity(ctx->db, ctx->parent_entity, &aggr->base);
+            }
+
+            VisitRecurse(cursor, AggregateVisitor, ctx, &aggr->base);
         } break;
     }
 
@@ -105,10 +141,31 @@ enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClie
         case CXCursor_StructDecl:
         case CXCursor_UnionDecl:
         case CXCursor_ClassDecl: {
+            if (!clang_isCursorDefinition(cursor)) {
+                break;
+            }
+
             CppAggregate *aggr = AllocCppEntity(Aggregate, cursor);
+            if (kind == CXCursor_StructDecl) {
+                aggr->kind = CppAggregate_Struct;
+            } else if (kind == CXCursor_UnionDecl) {
+                aggr->kind = CppAggregate_Union;
+            } else {
+                aggr->kind = CppAggregate_Class;
+            }
+
             PushCppEntity(ctx->db, ctx->parent_entity, &aggr->base);
 
             VisitRecurse(cursor, AggregateVisitor, ctx, &aggr->base);
+        } break;
+
+        case CXCursor_FunctionDecl: {
+            CppFunction *func = AllocCppEntity(Function, cursor);
+            if (clang_Cursor_getStorageClass(cursor) == CX_SC_Static) {
+                func->base.flags |= CppEntityFlag_Static;
+            }
+
+            PushCppEntity(ctx->db, ctx->parent_entity, &func->base);
         } break;
     }
 

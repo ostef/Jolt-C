@@ -37,6 +37,7 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor) {
     e->name = GetDeclName(cursor);
     e->source_code_range = GetCppSourceCodeRange(cursor);
     e->cursor = cursor;
+    e->visibility = GetCursorCppVisibility(cursor);
 
     return e;
 }

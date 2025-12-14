@@ -17,5 +17,5 @@ int main() {
     GenerateCode(&builder, &db);
 
     char *str = SBBuild(&builder);
-    printf("%s", str);
+    WriteEntireFile("JoltC.h", str, strlen(str));
 }

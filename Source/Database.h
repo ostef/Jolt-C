@@ -58,6 +58,7 @@ enum {
     CppType_Reference,
     CppType_RValueReference,
     CppType_Array,
+    CppType_Aggregate,
     CppType_Named,
     CppType_Function,
     CppType_Auto,
@@ -86,6 +87,7 @@ static const char *CppTypeKind_Str[] = {
     "reference",
     "r-value reference",
     "array",
+    "aggregate",
     "named",
     "function",
     "auto",
@@ -108,6 +110,11 @@ typedef struct CppTypeArray {
     int64_t num_elements;
 } CppTypeArray;
 
+typedef struct CppTypeAggregate {
+    CXCursor cursor;
+    struct CppAggregate *aggr;
+} CppTypeAggregate;
+
 typedef struct CppTypeNamed {
     const char *name;
     CXCursor cursor;
@@ -127,6 +134,7 @@ typedef struct CppType {
     union {
         CppTypePointer type_pointer;
         CppTypeArray type_array;
+        CppTypeAggregate type_aggregate;
         CppTypeNamed type_named;
         CppTypeFunction type_function;
     };

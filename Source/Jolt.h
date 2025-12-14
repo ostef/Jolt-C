@@ -1,10 +1,12 @@
+// WARNING, @Todo: the order of the includes is important
+
+#include "Jolt/Core/Core.h"
 #include "Jolt/Core/Mutex.h"
 #include "Jolt/Core/Memory.h"
 #include "Jolt/Core/HashTable.h"
 #include "Jolt/Core/ARMNeon.h"
 #include "Jolt/Core/STLAllocator.h"
 #include "Jolt/Core/JobSystem.h"
-#include "Jolt/Core/Core.h"
 #include "Jolt/Core/InsertionSort.h"
 #include "Jolt/Core/ByteBuffer.h"
 #include "Jolt/Core/Array.h"

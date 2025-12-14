@@ -11,7 +11,10 @@ const char *GetDeclName(CXCursor cursor) {
         return "";
     }
 
-    return clang_getCString(clang_getCursorSpelling(cursor));
+    CXString spelling = clang_getCursorSpelling(cursor);
+    const char *str = clang_getCString(spelling);
+
+    return str;
 }
 
 static inline
