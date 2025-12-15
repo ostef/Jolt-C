@@ -161,6 +161,16 @@ typedef struct CppSourceCodeRange {
     int64_t start_offset, end_offset;
 } CppSourceCodeRange;
 
+static inline
+CppSourceCodeLocation GetStartLocation(CppSourceCodeRange range) {
+    return (CppSourceCodeLocation){range.filename, range.start_line, range.start_character, range.start_offset};
+}
+
+static inline
+CppSourceCodeLocation GetEndLocation(CppSourceCodeRange range) {
+    return (CppSourceCodeLocation){range.filename, range.end_line, range.end_character, range.end_offset};
+}
+
 typedef uint8_t CppVisibility;
 enum {
     CppVisibility_Public,
@@ -195,7 +205,8 @@ static const char *CppEntityKind_Str[] = {
 
 typedef uint32_t CppEntityFlags;
 enum {
-    CppEntityFlag_Static = 1 << 0,
+    CppEntityFlag_Static      = 1 << 0,
+    CppEntityFlag_ForwardDecl = 1 << 1,
 };
 
 typedef struct CppEntity {

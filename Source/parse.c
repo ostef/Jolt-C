@@ -112,12 +112,9 @@ static
 enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data) {
     VISITOR_PREAMBLE();
 
-    CppSourceCodeRange range = GetCppSourceCodeRange(cursor);
-
-    const char *name = clang_getCString(clang_getCursorSpelling(cursor));
-    if (StrEq(name, "uint32")) {
-        printf("%s(%d) %s::%s at %s:%d:%d\n", clang_getCString(clang_getCursorKindSpelling(kind)), kind, GetDeclName(parent), name, range.filename, (int)range.start_line, (int)range.start_character);
-    }
+    // CppSourceCodeRange range = GetCppSourceCodeRange(cursor);
+    // const char *name = clang_getCString(clang_getCursorSpelling(cursor));
+    // printf("%s(%d) %s::%s at %s:%d:%d\n", clang_getCString(clang_getCursorKindSpelling(kind)), kind, GetDeclName(parent), name, range.filename, (int)range.start_line, (int)range.start_character);
 
     switch (kind) {
         case CXCursor_InclusionDirective: {
@@ -280,7 +277,98 @@ CppTypedef *ParseCppTypeAliasDecl(CppParseContext *ctx, CXCursor cursor) {
     return ty;
 }
 
+typedef struct CppParseIncludeContext {
+    Array *inclusions;
+    CXTranslationUnit unit;
+} CppParseIncludeContext;
+
+void InclusionVisitor(CXFile included_file, CXSourceLocation *inclusion_stack, unsigned include_len, CXClientData client_data) {
+    CppParseIncludeContext *ctx = (CppParseIncludeContext *)client_data;
+
+    if (included_file == NULL) {
+        return;
+    }
+
+    if (clang_Location_isInSystemHeader(clang_getLocation(ctx->unit, included_file, 1, 1))) {
+        return;
+    }
+
+    CXString path = clang_getFileName(included_file);
+    const char *c_path = clang_getCString(path);
+
+    if (!StrEndsWith(c_path, ".h") && !StrEndsWith(c_path, ".hpp")) {
+        return;
+    }
+
+    bool found = false;
+    foreach (i, *ctx->inclusions) {
+        const char *header = ArrayGet(*ctx->inclusions, i);
+        if (StrEq(header, c_path)) {
+            found = true;
+            break;
+        }
+    }
+
+    if (!found) {
+        printf("%s\n", c_path);
+        ArrayPush(ctx->inclusions, (char *)c_path);
+    }
+}
+
+Array PreParseCppFilesForIncludes(CppParseOptions options) {
+    Array inclusions = {};
+
+    Array args = {};
+    foreach (i, options.include_dirs) {
+        char *dir = ArrayGet(options.include_dirs, i);
+        ArrayPush(&args, StrJoin("-I", dir));
+    }
+    foreach (i, options.defines) {
+        char *def = ArrayGet(options.defines, i);
+        ArrayPush(&args, StrJoin("-D", def));
+    }
+    foreach (i, options.extra_options) {
+        char *opt = ArrayGet(options.extra_options, i);
+        ArrayPush(&args, opt);
+    }
+
+    CXIndex index = clang_createIndex(0, 0);
+
+    foreach (i, options.files) {
+        CXTranslationUnit unit = clang_parseTranslationUnit(index, ArrayGet(options.files, i), (const char *const *)args.data, args.count, NULL, 0, CXTranslationUnit_DetailedPreprocessingRecord);
+        if (!unit) {
+            ErrorExit("Could not parse translation unit");
+        }
+
+        CppParseIncludeContext ctx = {};
+        ctx.inclusions = &inclusions;
+        ctx.unit = unit;
+
+        clang_getInclusions(unit, InclusionVisitor, &ctx);
+    }
+
+    return inclusions;
+}
+
 void ParseCppFiles(CppParseOptions options, CppDatabase *db) {
+    Array files;
+    if (options.preparse_files_for_correct_include_order) {
+        files = PreParseCppFilesForIncludes(options);
+        foreach (i, files) {
+            printf("%s\n", (const char *)ArrayGet(files, i));
+        }
+
+        StringBuilder builder = {};
+        foreach (i, files) {
+            SBAppend(&builder, "#include \"%s\";\n", ArrayGet(files, i));
+        }
+
+        const char *str = SBBuild(&builder);
+        WriteEntireFile("Source/JoltHeaders.h", str, strlen(str));
+    } else {
+        files = options.files;
+    }
+
     CXIndex index = clang_createIndex(0, 0);
 
     Array args = {};
@@ -307,8 +395,8 @@ void ParseCppFiles(CppParseOptions options, CppDatabase *db) {
     temp_file.Filename = "temp.h";
 
     StringBuilder builder = {};
-    foreach (i, options.files) {
-        const char *file = ArrayGet(options.files, i);
+    foreach (i, files) {
+        const char *file = ArrayGet(files, i);
         SBAppend(&builder, "#include \"%s\"\n", file);
     }
 

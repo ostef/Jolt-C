@@ -9,6 +9,7 @@ typedef struct CppParseOptions {
     Array defines;
     Array files;
     Array extra_options;
+    bool preparse_files_for_correct_include_order;
     bool strip_comments;
 } CppParseOptions;
 
