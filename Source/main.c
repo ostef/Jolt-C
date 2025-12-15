@@ -9,7 +9,7 @@
 // in JoltPhysics/Build/.build/compile_commands.json and update the CppParseOptions
 
 static const char *Jolt_Source_Files[] = {
-    #include "JoltSourceFiles.inl"
+    #include "JoltSourceFiles.txt"
 };
 
 int main() {
