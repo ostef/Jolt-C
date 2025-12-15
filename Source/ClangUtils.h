@@ -36,9 +36,21 @@ CppVisibility GetCursorCppVisibility(CXCursor cursor) {
 }
 
 static
+enum CXChildVisitResult TypeVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data) {
+    enum CXCursorKind kind = clang_getCursorKind(cursor);
+    const char *kind_str = clang_getCString(clang_getCursorKindSpelling(kind));
+    const char *str = clang_getCString(clang_getCursorSpelling(cursor));
+
+    printf("%s (%d) %s\n", kind_str, kind, str);
+
+    return CXChildVisit_Recurse;
+}
+
+static
 CppType *GetCppType(CppDatabase *db, CXType type) {
     CppType *result = Alloc(CppType);
     result->cx_type = type;
+    result->size = clang_Type_getSizeOf(type);
 
     if (clang_isConstQualifiedType(type)) {
         result->flags |= CppTypeFlag_Const;
@@ -56,6 +68,14 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
     switch (type.kind) {
         default: {
             result->kind = CppType_Unknown;
+        } break;
+        case CXType_Unexposed: {
+            CXCursor cursor = clang_getTypeDeclaration(type);
+            if (!clang_Cursor_isNull(cursor)) {
+                printf("Unexposed is not null: %s, %u\n", clang_getCString(clang_getCursorSpelling(cursor)), clang_hashCursor(cursor));
+                TypeVisitor(cursor, clang_getNullCursor(), NULL);
+                clang_visitChildren(cursor, TypeVisitor, NULL);
+            }
         } break;
         case CXType_Invalid: {
             result->kind = CppType_Invalid;
