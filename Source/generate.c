@@ -8,6 +8,10 @@ void SBAppendIndentation(StringBuilder *builder, int indentation) {
     }
 }
 
+void AppendCppSourceCodeLocation(StringBuilder *builder, CppSourceCodeLocation loc) {
+    SBAppend(builder, "%s:%d:%d", loc.filename, (int)loc.line, (int)loc.character);
+}
+
 void AppendCppType(StringBuilder *builder, CppType *type, int indentation) {
     AppendCppTypePrefix(builder, type, indentation);
     AppendCppTypePostfix(builder, type, indentation);
@@ -255,11 +259,21 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
         switch (entity->kind) {
             case CppEntity_Enum: {
                 CppEnum *e = (CppEnum *)entity;
+
+                SBAppendString(builder, "// ");
+                AppendCppSourceCodeLocation(builder, GetStartLocation(entity->source_code_range));
+                SBAppendString(builder, "\n");
+
                 AppendCppEnumDecl(builder, e, 0);
             } break;
 
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)entity;
+
+                SBAppendString(builder, "// ");
+                AppendCppSourceCodeLocation(builder, GetStartLocation(entity->source_code_range));
+                SBAppendString(builder, "\n");
+
                 SBAppendString(builder, "typedef ");
                 AppendCppAggregate(builder, aggr, 0);
                 SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
@@ -267,6 +281,11 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
 
             case CppEntity_Typedef: {
                 CppTypedef *ty = (CppTypedef *)entity;
+
+                SBAppendString(builder, "// ");
+                AppendCppSourceCodeLocation(builder, GetStartLocation(entity->source_code_range));
+                SBAppendString(builder, "\n");
+
                 SBAppendString(builder, "typedef ");
                 AppendCppTypePrefix(builder, ty->type, 0);
                 SBAppend(builder, " %s", ty->base.fully_qualified_c_name);
