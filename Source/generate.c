@@ -76,6 +76,9 @@ void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation)
         } break;
         case CppType_Pointer: {
             AppendCppTypePrefix(builder, type->type_pointer.pointee_type, indentation);
+            if (type->type_pointer.pointee_type->kind == CppType_Function) {
+                SBAppendString(builder, " (");
+            }
             SBAppendString(builder, "*");
         } break;
         case CppType_Reference: {
@@ -130,7 +133,14 @@ void AppendCppTypePostfix(StringBuilder *builder, CppType *type, int indentation
             }
             SBAppendString(builder, ")");
         } break;
+        case CppType_Pointer: {
+            if (type->type_pointer.pointee_type->kind == CppType_Function) {
+                SBAppendString(builder, ")");
+            }
+            AppendCppTypePostfix(builder, type->type_pointer.pointee_type, indentation);
+        } break;
         case CppType_Array: {
+            AppendCppTypePostfix(builder, type->type_array.element_type, indentation);
             if (type->type_array.num_elements >= 0) {
                 SBAppend(builder, "[%u]", type->type_array.num_elements);
             } else {
@@ -179,17 +189,44 @@ void AppendCppAggregate(StringBuilder *builder, CppAggregate *aggr, int indentat
 
     SBAppendString(builder, " {\n");
 
-    foreach (i, aggr->entities) {
-        CppEntity *e = ArrayGet(aggr->entities, i);
-        if (e->kind != CppEntity_Variable) {
-            continue;
+    foreach (i, aggr->base_classes) {
+        CppBaseClass *base = ArrayGet(aggr->base_classes, i);
+        assert(!base->is_virtual && "Virtual base classes are not supported");
+
+        CppAggregate *base_aggr = NULL;
+        if (base->type->kind == CppType_Named && base->type->type_named.entity != NULL && base->type->type_named.entity->kind == CppEntity_Aggregate) {
+            base_aggr = (CppAggregate *)base->type->type_named.entity;
         }
 
-        if (e->flags & CppEntityFlag_Static) {
-            continue;
+        // Inherited base classes with no fields size 0 because of EBO, so don't include them
+        if (base_aggr && base_aggr->fields.count == 0) {
+            SBAppendIndentation(builder, indentation + 1);
+            SBAppendString(builder, "// ");
+            AppendCppType(builder, base->type, indentation + 1);
+            SBAppendString(builder, " base class has size 0, so it is not included\n");
+        } else {
+            SBAppendIndentation(builder, indentation + 1);
+            AppendCppTypePrefix(builder, base->type, indentation + 1);
+
+            if (aggr->base_classes.count == 1) {
+                SBAppendString(builder, " base");
+            } else if (base->type->kind == CppType_Named && base->type->type_named.entity != NULL) {
+                SBAppend(builder, " base%s", base->type->type_named.entity->name);
+            } else {
+                SBAppend(builder, " base%d", i);
+            }
+
+            AppendCppTypePostfix(builder, base->type, indentation + 1);
+            SBAppendString(builder, ";\n");
+        }
+    }
+
+    foreach (i, aggr->fields) {
+        if (i == 0 && aggr->base_classes.count > 0) {
+            SBAppendString(builder, "\n");
         }
 
-        CppVariable *var = (CppVariable *)e;
+        CppVariable *var = ArrayGet(aggr->fields, i);
 
         SBAppendIndentation(builder, indentation + 1);
         AppendCppTypePrefix(builder, var->type, indentation + 1);

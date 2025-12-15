@@ -51,6 +51,13 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
 
     switch (kind) {
         case CXCursor_CXXBaseSpecifier: { // base class
+            CppBaseClass *base = Alloc(CppBaseClass);
+            base->visibility = GetCursorCppVisibility(cursor);
+            base->is_virtual = clang_isVirtualBase(cursor);
+            base->type = GetCppType(ctx->db, clang_getCursorType(cursor));
+
+            CppAggregate *aggr = (CppAggregate *)ctx->parent_entity;
+            ArrayPush(&aggr->base_classes, base);
         } break;
         case CXCursor_CXXAccessSpecifier: { // public, protected, private
             // Nothing to do, access specifier is stored on each cursor
@@ -158,6 +165,10 @@ CppEnum *ParseCppEnum(CppParseContext *ctx, CXCursor cursor) {
     base_type = clang_getCanonicalType(base_type);
     e->base_type = GetCppType(ctx->db, base_type);
 
+    if (clang_EnumDecl_isScoped(cursor)) {
+        e->flags |= CppEnumFlag_Scoped;
+    }
+
     if (clang_Cursor_isAnonymous(cursor)) {
         CppVariable *var = AllocCppEntity(Variable, cursor);
         var->type = Alloc(CppType);
@@ -191,6 +202,10 @@ CppAggregate *ParseCppAggregate(CppParseContext *ctx, CXCursor cursor) {
         aggr->kind = CppAggregate_Class;
     }
 
+    if (clang_CXXRecord_isAbstract(cursor)) {
+        aggr->flags |= CppAggregateFlag_Abstract;
+    }
+
     if (clang_Cursor_isAnonymous(cursor)) {
         CppVariable *var = AllocCppEntity(Variable, cursor);
         var->type = Alloc(CppType);
@@ -220,6 +235,18 @@ CppFunction *ParseCppFunction(CppParseContext *ctx, CXCursor cursor) {
     }
     if (kind == CXCursor_CXXMethod) {
         func->flags |= CppFunctionFlag_Method;
+    }
+    if (clang_CXXMethod_isVirtual(cursor)) {
+        func->flags |= CppFunctionFlag_Virtual;
+    }
+    if (clang_CXXMethod_isPureVirtual(cursor)) {
+        func->flags |= CppFunctionFlag_PureVirtual;
+    }
+    if (clang_CXXMethod_isStatic(cursor)) {
+        func->base.flags |= CppEntityFlag_Static;
+    }
+    if (clang_CXXMethod_isConst(cursor)) {
+        func->flags |= CppFunctionFlag_Const;
     }
     if (clang_Cursor_getStorageClass(cursor) == CX_SC_Static) {
         func->base.flags |= CppEntityFlag_Static;

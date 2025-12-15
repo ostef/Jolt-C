@@ -56,6 +56,17 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)parent;
                 ArrayPush(&aggr->entities, entity);
+
+                if (entity->kind == CppEntity_Variable && !(entity->flags & CppEntityFlag_Static)) {
+                    ArrayPush(&aggr->fields, entity);
+                }
+
+                if (entity->kind == CppEntity_Function) {
+                    CppFunction *func = (CppFunction *)entity;
+                    if (func->flags & CppFunctionFlag_Virtual) {
+                        ArrayPush(&aggr->virtual_methods, entity);
+                    }
+                }
             } break;
             case CppEntity_Enum: {
                 assert(entity->kind == CppEntity_EnumConstant);

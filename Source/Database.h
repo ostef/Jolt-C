@@ -230,12 +230,21 @@ static const char *CppAggregateKind_Str[] = {
 };
 
 typedef struct CppBaseClass {
+    CppVisibility visibility;
     bool is_virtual;
-    CppEntity *entity;
+    CppType *type;
 } CppBaseClass;
+
+typedef uint32_t CppAggregateFlags;
+enum {
+    CppAggregateFlag_Abstract = 1 << 0,
+};
 
 typedef struct CppAggregate {
     CppEntity base;
+    CppAggregateFlags flags;
+    Array fields;
+    Array virtual_methods;
     Array entities;
     CppAggregateKind kind;
     Array base_classes;
@@ -253,7 +262,7 @@ typedef struct CppValueDefine {
 
 typedef uint8_t CppEnumFlags;
 enum {
-    CppEnumFlag_EnumClass = 1 << 0,
+    CppEnumFlag_Scoped = 1 << 0,
 };
 
 typedef struct CppEnum {
@@ -278,6 +287,9 @@ enum {
     CppFunctionFlag_Constructor = 1 << 0,
     CppFunctionFlag_Destructor  = 1 << 1,
     CppFunctionFlag_Method      = 1 << 2,
+    CppFunctionFlag_Virtual     = 1 << 3,
+    CppFunctionFlag_PureVirtual = 1 << 4,
+    CppFunctionFlag_Const       = 1 << 5,
 };
 
 typedef struct CppFunction {
