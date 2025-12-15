@@ -488,8 +488,12 @@ char *SPrintf(const char *fmt, ...) {
     va_list va;
 
     va_start(va, fmt);
-    char *buff = malloc(1024);
-    vsnprintf(buff, 1024, fmt, va);
+    int to_append = vsnprintf(NULL, 0, fmt, va);
+    va_end(va);
+
+    char *buff = malloc(to_append + 1);
+    va_start(va, fmt);
+    vsnprintf(buff, to_append + 1, fmt, va);
     va_end(va);
 
     return buff;
@@ -605,7 +609,7 @@ void SBReserve(StringBuilder *builder, int64_t capacity) {
         return;
     }
 
-    builder->data = realloc(builder->data, capacity * sizeof(void *));
+    builder->data = realloc(builder->data, capacity);
     builder->capacity = capacity;
 }
 
@@ -629,36 +633,30 @@ void SBAppendString(StringBuilder *builder, const char *str) {
 
 static inline
 void SBAppend(StringBuilder *builder, const char *fmt, ...) {
-    if (builder->count + 2000 >= builder->capacity) {
-        int cap = builder->capacity * 2 + 8 < 2000 ? 2000 : builder->capacity * 2 + 8;
-        SBReserve(builder, cap);
-    }
-
     va_list va;
 
     va_start(va, fmt);
-    int appended = vsnprintf(builder->data + builder->count, builder->capacity - builder->count, fmt, va);
+    int to_append = vsnprintf(NULL, 0, fmt, va);
     va_end(va);
 
-    builder->count += appended;
-}
-
-static inline
-void SBAppendln(StringBuilder *builder, const char *fmt, ...) {
-    if (builder->count + 2000 >= builder->capacity) {
-        int cap = builder->capacity * 2 + 8 < 2000 ? 2000 : builder->capacity * 2 + 8;
-        SBReserve(builder, cap);
+    if (builder->count + to_append + 1000 >= builder->capacity) {
+        int64_t total = builder->count + to_append + 1000;
+        if (total > builder->capacity * 2 + 8) {
+            SBReserve(builder, total);
+        } else {
+            SBReserve(builder, builder->capacity * 2 + 8);
+        }
     }
 
-    va_list va;
-
     va_start(va, fmt);
-    int appended = vsnprintf(builder->data + builder->count, builder->capacity - builder->count, fmt, va);
+    vsnprintf(builder->data + builder->count, builder->capacity - builder->count, fmt, va);
     va_end(va);
 
-    builder->count += appended;
-
-    SBAppendByte(builder, '\n');
+    if (to_append > builder->capacity - builder->count) {
+        builder->count = builder->capacity;
+    } else {
+        builder->count += to_append;
+    }
 }
 
 static
