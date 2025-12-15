@@ -177,7 +177,7 @@ CppSourceCodeRange GetCppSourceCodeRange(CXCursor cursor) {
     clang_getSpellingLocation(range_start, &file, &start_line, &start_character, &start_offset);
 
     unsigned int end_line, end_character, end_offset;
-    clang_getSpellingLocation(range_start, NULL, &end_line, &end_character, &end_offset);
+    clang_getSpellingLocation(range_end, NULL, &end_line, &end_character, &end_offset);
 
     const char *filename = clang_getCString(clang_getFileName(file));
 
