@@ -51,6 +51,8 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
 
     entity->parent = parent;
 
+    int64_t parent_aggregate_index = db->all_aggregates.count;
+    int64_t parent_entity_index = db->all_entities.count;
     if (parent) {
         switch (parent->kind) {
             case CppEntity_Namespace: {
@@ -59,6 +61,27 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
             } break;
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)parent;
+
+                // We want to insert this entity before the parent for typedefs, enums and
+                // aggregates, because the parent aggregate can have references to them
+                parent_aggregate_index = db->all_aggregates.count - 1;
+                while (parent_aggregate_index > 0) {
+                    if (ArrayGet(db->all_aggregates, parent_aggregate_index) == aggr) {
+                        break;
+                    }
+
+                    parent_aggregate_index -= 1;
+                }
+
+                parent_entity_index = db->all_entities.count - 1;
+                while (parent_entity_index > 0) {
+                    if (ArrayGet(db->all_entities, parent_entity_index) == aggr) {
+                        break;
+                    }
+
+                    parent_entity_index -= 1;
+                }
+
                 ArrayPush(&aggr->entities, entity);
 
                 if (entity->kind == CppEntity_Variable && !(entity->flags & CppEntityFlag_Static)) {
@@ -91,15 +114,15 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
         } break;
         case CppEntity_Enum: {
             ArrayPush(&db->all_enums, entity);
-            ArrayPush(&db->all_entities, entity);
+            ArrayOrderedInsert(&db->all_entities, entity, parent_entity_index);
         } break;
         case CppEntity_Aggregate: {
-            ArrayPush(&db->all_aggregates, entity);
-            ArrayPush(&db->all_entities, entity);
+            ArrayOrderedInsert(&db->all_aggregates, entity, parent_aggregate_index);
+            ArrayOrderedInsert(&db->all_entities, entity, parent_entity_index);
         } break;
         case CppEntity_Typedef: {
             ArrayPush(&db->all_typedefs, entity);
-            ArrayPush(&db->all_entities, entity);
+            ArrayOrderedInsert(&db->all_entities, entity, parent_entity_index);
         } break;
         case CppEntity_Function: {
             ArrayPush(&db->all_functions, entity);

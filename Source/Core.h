@@ -82,6 +82,23 @@ void ArrayRemove(Array *array, int64_t index) {
     array->count -= 1;
 }
 
+static inline
+void ArrayOrderedInsert(Array *array, void *elem, int64_t index) {
+    assert(index >= 0 && index <= array->count && "Array bounds check failed");
+
+    if (array->count >= array->capacity) {
+        ArrayReserve(array, array->capacity * 2 + 8);
+    }
+
+    for (int64_t i = array->count; i > index; i -= 1) {
+        array->data[i] = array->data[i - 1];
+    }
+
+    array->count += 1;
+
+    array->data[index] = elem;
+}
+
 static
 void ArraySortHelper(Array *array, int64_t left, int64_t right, int (*compare)(void *a, void *b)) {
     if (left < 0 || right <= left) {
