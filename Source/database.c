@@ -25,7 +25,7 @@ void InitCppDatabase(CppDatabase *db) {
     PushCppEntity(db, NULL, &db->global_namespace->base);
 }
 
-struct CppEntity *GetCppEntityFromCursor(CppDatabase *db, CXCursor cursor){
+CppEntity *GetCppEntityFromCursor(CppDatabase *db, CXCursor cursor){
     return HashMapFind(&db->cursor_to_entity, &cursor, NULL);
 }
 
@@ -95,4 +95,19 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
         entity->fully_qualified_name = entity->name;
         entity->fully_qualified_c_name = entity->name;
     }
+}
+
+CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, const char *name) {
+    foreach (i, db->all_namespaces) {
+        CppNamespace *ns = ArrayGet(db->all_namespaces, i);
+        if (StrEq(ns->base.name, name)) {
+            return ns;
+        }
+    }
+
+    CppNamespace *ns = AllocCppEntity(Namespace, clang_getNullCursor());
+    ns->base.name = name;
+    PushCppEntity(db, parent, &ns->base);
+
+    return ns;
 }

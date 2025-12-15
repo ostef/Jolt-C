@@ -1,12 +1,14 @@
+LLVM_DIR=/usr/lib/llvm-14
+
 TARGET=generate
 SRC_FILES=main.c parse.c generate.c database.c
 SRC_DIR=Source
 OBJ_DIR=.build
 OBJ_FILES=$(SRC_FILES:.c=.o)
 DEP_FILES := $(OBJ_FILES:.o=.d)
-INCLUDE_DIRS=Source /usr/lib/llvm-20/include
+INCLUDE_DIRS=Source $(LLVM_DIR)/include
 LIBS=clang
-LIB_DIRS=/usr/lib/llvm-20/lib .
+LIB_DIRS=$(LLVM_DIR)/lib .
 CC=gcc
 C_FLAGS=-g -O0 -Wextra
 

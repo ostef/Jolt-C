@@ -31,9 +31,6 @@ typedef struct CppDatabase {
     HashMap cursor_to_entity;
 } CppDatabase;
 
-void InitCppDatabase(CppDatabase *db);
-struct CppEntity *GetCppEntityFromCursor(CppDatabase *db, CXCursor cursor);
-
 typedef uint8_t CppTypeKind;
 enum {
     CppType_Invalid,
@@ -201,12 +198,6 @@ typedef struct CppEntity {
     const char *fully_qualified_c_name;
 } CppEntity;
 
-CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
-
-#define AllocCppEntity(kind, cursor) ((Cpp##kind *)AllocCppEntityOfKind(CppEntity_##kind, sizeof(Cpp##kind), (cursor)))
-
-void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity);
-
 typedef struct CppNamespace {
     CppEntity base;
     Array entities;
@@ -277,5 +268,14 @@ typedef struct CppFunction {
     CppType *result;
     Array parameters;
 } CppFunction;
+
+void InitCppDatabase(CppDatabase *db);
+CppEntity *GetCppEntityFromCursor(CppDatabase *db, CXCursor cursor);
+void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity);
+
+CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
+#define AllocCppEntity(kind, cursor) ((Cpp##kind *)AllocCppEntityOfKind(CppEntity_##kind, sizeof(Cpp##kind), (cursor)))
+
+CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, const char *name);
 
 #endif

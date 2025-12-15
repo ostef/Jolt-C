@@ -24,7 +24,7 @@ void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation)
             SBAppendString(builder, "<invalid>");
         } break;
         case CppType_Unknown: {
-            SBAppend(builder, "< %s >", clang_getCString(clang_getTypeSpelling(type->cx_type)));
+            SBAppend(builder, "< %s >", clang_getCString(clang_getTypeKindSpelling(type->cx_type.kind)));
         } break;
         case CppType_Void: {
             SBAppendString(builder, "void");
@@ -109,7 +109,7 @@ void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation)
         case CppType_Auto: {
             SBAppendString(builder, "auto");
         } break;
-        }
+    }
 }
 
 void AppendCppTypePostfix(StringBuilder *builder, CppType *type, int indentation) {
@@ -176,6 +176,13 @@ void AppendCppAggregate(StringBuilder *builder, CppAggregate *aggr, int indentat
 }
 
 void GenerateCode(StringBuilder *builder, CppDatabase *db) {
+    foreach (i, db->all_namespaces) {
+        CppNamespace *ns = ArrayGet(db->all_namespaces, i);
+        SBAppend(builder, "// Namespace %s\n", ns->base.fully_qualified_name);
+    }
+
+    SBAppendString(builder, "\n");
+
     foreach (i, db->all_entities) {
         CppEntity *entity = ArrayGet(db->all_entities, i);
 
@@ -184,7 +191,7 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
                 CppAggregate *aggr = (CppAggregate *)entity;
                 SBAppendString(builder, "typedef ");
                 AppendCppAggregate(builder, aggr, 0);
-                SBAppend(builder, " %s;\n", aggr->base.fully_qualified_c_name);
+                SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
             } break;
         }
     }
