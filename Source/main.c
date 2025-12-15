@@ -17,14 +17,14 @@ int main() {
     InitCppDatabase(&db);
 
     CppParseOptions options = {};
-    options.preparse_files_for_correct_include_order = true;
+    options.preparse_files_for_correct_include_order = false;
 
     if (options.preparse_files_for_correct_include_order) {
-        for (int i = 0; i < StaticArraySize(Jolt_Source_Files); i += 1) {
-            ArrayPush(&options.files, Jolt_Source_Files[i]);
+        for (uint64_t i = 0; i < StaticArraySize(Jolt_Source_Files); i += 1) {
+            ArrayPush(&options.files, (char *)Jolt_Source_Files[i]);
         }
     } else {
-        ArrayPush(&options.files, "Source/Jolt.h");
+        ArrayPush(&options.files, "Source/JoltHeaders.h");
     }
 
     ArrayPush(&options.include_dirs, "JoltPhysics");

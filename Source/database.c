@@ -39,6 +39,10 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor) {
     e->cursor = cursor;
     e->visibility = GetCursorCppVisibility(cursor);
 
+    if (!clang_isCursorDefinition(cursor)) {
+        e->flags |= CppEntityFlag_ForwardDecl;
+    }
+
     return e;
 }
 

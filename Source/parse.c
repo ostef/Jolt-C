@@ -145,18 +145,10 @@ enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClie
         } break;
     }
 
-    // ctx->indentation += 1;
-    // clang_visitChildren(cursor, TopLevelVisitor, ctx);
-    // ctx->indentation -= 1;
-
     return CXChildVisit_Continue;
 }
 
 CppEnum *ParseCppEnum(CppParseContext *ctx, CXCursor cursor) {
-    if (!clang_isCursorDefinition(cursor)) {
-        return NULL;
-    }
-
     CppEnum *e = AllocCppEntity(Enum, cursor);
     CXType base_type = clang_getEnumDeclIntegerType(cursor);
     base_type = clang_getCanonicalType(base_type);
@@ -184,10 +176,6 @@ CppEnum *ParseCppEnum(CppParseContext *ctx, CXCursor cursor) {
 }
 
 CppAggregate *ParseCppAggregate(CppParseContext *ctx, CXCursor cursor) {
-    if (!clang_isCursorDefinition(cursor)) {
-        return NULL;
-    }
-
     enum CXCursorKind kind = clang_getCursorKind(cursor);
 
     CppAggregate *aggr = AllocCppEntity(Aggregate, cursor);
@@ -289,6 +277,10 @@ void InclusionVisitor(CXFile included_file, CXSourceLocation *inclusion_stack, u
         return;
     }
 
+    if (!clang_isFileMultipleIncludeGuarded(ctx->unit, included_file)) {
+        return;
+    }
+
     if (clang_Location_isInSystemHeader(clang_getLocation(ctx->unit, included_file, 1, 1))) {
         return;
     }
@@ -335,7 +327,7 @@ Array PreParseCppFilesForIncludes(CppParseOptions options) {
     CXIndex index = clang_createIndex(0, 0);
 
     foreach (i, options.files) {
-        CXTranslationUnit unit = clang_parseTranslationUnit(index, ArrayGet(options.files, i), (const char *const *)args.data, args.count, NULL, 0, CXTranslationUnit_DetailedPreprocessingRecord);
+        CXTranslationUnit unit = clang_parseTranslationUnit(index, ArrayGet(options.files, i), (const char *const *)args.data, args.count, NULL, 0, 0);
         if (!unit) {
             ErrorExit("Could not parse translation unit");
         }
@@ -360,7 +352,20 @@ void ParseCppFiles(CppParseOptions options, CppDatabase *db) {
 
         StringBuilder builder = {};
         foreach (i, files) {
-            SBAppend(&builder, "#include \"%s\";\n", ArrayGet(files, i));
+            const char *file = ArrayGet(files, i);
+            foreach (i, options.include_dirs) {
+                const char *include_dir = ArrayGet(options.include_dirs, i);
+                if (StrStartsWith(file, include_dir)) {
+                    file += strlen(include_dir);
+                    if (file[0] == '/' || file[0] == '\\') {
+                        file += 1;
+                    }
+
+                    break;
+                }
+            }
+
+            SBAppend(&builder, "#include \"%s\"\n", file);
         }
 
         const char *str = SBBuild(&builder);
@@ -403,9 +408,29 @@ void ParseCppFiles(CppParseOptions options, CppDatabase *db) {
     temp_file.Contents = SBBuild(&builder);
     temp_file.Length = strlen(temp_file.Contents);
 
-    CXTranslationUnit unit = clang_parseTranslationUnit(index, NULL, (const char *const *)args.data, args.count, &temp_file, 1, CXTranslationUnit_DetailedPreprocessingRecord);
-    if (!unit) {
-        ErrorExit("Could not parse translation unit");
+    CXTranslationUnit unit;
+    enum CXErrorCode error_code = clang_parseTranslationUnit2(index, NULL, (const char *const *)args.data, args.count, &temp_file, 1, CXTranslationUnit_DetailedPreprocessingRecord, &unit);
+    if (error_code != CXError_Success) {
+        ErrorExit("Could not parse translation unit (error code %d)", error_code);
+    }
+
+    int num_diagnostics = clang_getNumDiagnostics(unit);
+    if (num_diagnostics > 0) {
+        printf("Clang diagnostics:\n");
+
+        for (int i = 0; i < num_diagnostics; i += 1) {
+            CXDiagnostic diag = clang_getDiagnostic(unit, i);
+            enum CXDiagnosticSeverity severity = clang_getDiagnosticSeverity(diag);
+            switch (severity) {
+                case CXDiagnostic_Fatal:
+                case CXDiagnostic_Error:
+                case CXDiagnostic_Warning: {
+                    CXString str = clang_formatDiagnostic(diag, clang_defaultDiagnosticDisplayOptions());
+                    const char *cstr = clang_getCString(str);
+                    printf("%s\n", str);
+                } break;
+            }
+        }
     }
 
     CXCursor cursor = clang_getTranslationUnitCursor(unit);

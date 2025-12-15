@@ -105,8 +105,6 @@ void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation)
         case CppType_Named: {
             if (type->type_named.entity) {
                 SBAppendString(builder, type->type_named.entity->fully_qualified_c_name);
-            } else if (!clang_Cursor_isNull(type->type_named.cursor)) {
-                SBAppendString(builder, GetDeclName(type->type_named.cursor));
             } else if (type->type_named.name) {
                 SBAppendString(builder, type->type_named.name);
             } else {
