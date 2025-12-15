@@ -257,7 +257,19 @@ void AppendCppAggregateForwardDecl(StringBuilder *builder, CppAggregate *aggr) {
     SBAppend(builder, " %s;\n", aggr->base.fully_qualified_c_name);
 }
 
-void GenerateCode(StringBuilder *builder, CppDatabase *db) {
+static
+bool ShouldExclude(GenerateOptions options, const char *entity_name) {
+    foreach (i, options.declarations_to_exclude) {
+        const char *name = ArrayGet(options.declarations_to_exclude, i);
+        if (StrEq(entity_name, name)) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *db) {
     foreach (i, db->all_namespaces) {
         CppNamespace *ns = ArrayGet(db->all_namespaces, i);
         SBAppend(builder, "// Namespace %s\n", ns->base.fully_qualified_name);
@@ -267,6 +279,10 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
 
     foreach (i, db->all_aggregates) {
         CppAggregate *aggr = ArrayGet(db->all_aggregates, i);
+
+        if (ShouldExclude(options, aggr->base.fully_qualified_name)) {
+            continue;
+        }
 
         if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
             continue;
@@ -279,6 +295,10 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
 
     foreach (i, db->all_enums) {
         CppEnum *e = ArrayGet(db->all_enums, i);
+
+        if (ShouldExclude(options, e->base.fully_qualified_name)) {
+            continue;
+        }
 
         if (e->base.flags & CppEntityFlag_ForwardDecl) {
             continue;
@@ -293,8 +313,14 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
 
     SBAppendString(builder, "\n");
 
+    SBAppendString(builder, "\n// Classes and typedefs\n\n");
+
     foreach (i, db->all_entities) {
         CppEntity *entity = ArrayGet(db->all_entities, i);
+
+        if (ShouldExclude(options, entity->fully_qualified_name)) {
+            continue;
+        }
 
         switch (entity->kind) {
             case CppEntity_Aggregate: {

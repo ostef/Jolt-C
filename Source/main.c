@@ -12,43 +12,53 @@ static const char *Jolt_Source_Files[] = {
     #include "JoltSourceFiles.txt"
 };
 
+static const char *Declarations_To_Exclude[] = {
+    "std::hash",
+    "JPH::Hash",
+};
+
 int main() {
     CppDatabase db = {};
     InitCppDatabase(&db);
 
-    CppParseOptions options = {};
-    options.preparse_files_for_correct_include_order = false;
+    CppParseOptions parse_options = {};
+    parse_options.preparse_files_for_correct_include_order = false;
 
-    if (options.preparse_files_for_correct_include_order) {
+    if (parse_options.preparse_files_for_correct_include_order) {
         for (uint64_t i = 0; i < StaticArraySize(Jolt_Source_Files); i += 1) {
-            ArrayPush(&options.files, (char *)Jolt_Source_Files[i]);
+            ArrayPush(&parse_options.files, (char *)Jolt_Source_Files[i]);
         }
     } else {
-        ArrayPush(&options.files, "Source/JoltHeaders.h");
+        ArrayPush(&parse_options.files, "Source/JoltHeaders.h");
     }
 
-    ArrayPush(&options.include_dirs, "JoltPhysics");
+    ArrayPush(&parse_options.include_dirs, "JoltPhysics");
 
     // Avoid Windows.h bloat
-    ArrayPush(&options.defines, "WIN32_LEAN_AND_MEAN");
+    ArrayPush(&parse_options.defines, "WIN32_LEAN_AND_MEAN");
 
-    ArrayPush(&options.defines, "JPH_OBJECT_STREAM");
-    ArrayPush(&options.defines, "JPH_USE_AVX");
-    ArrayPush(&options.defines, "JPH_USE_AVX2");
-    ArrayPush(&options.defines, "JPH_USE_F16C");
-    ArrayPush(&options.defines, "JPH_USE_FMADD");
-    ArrayPush(&options.defines, "JPH_USE_LZCNT");
-    ArrayPush(&options.defines, "JPH_USE_SSE4_1");
-    ArrayPush(&options.defines, "JPH_USE_SSE4_2");
-    ArrayPush(&options.defines, "JPH_USE_TZCNT");
+    ArrayPush(&parse_options.defines, "JPH_OBJECT_STREAM");
+    ArrayPush(&parse_options.defines, "JPH_USE_AVX");
+    ArrayPush(&parse_options.defines, "JPH_USE_AVX2");
+    ArrayPush(&parse_options.defines, "JPH_USE_F16C");
+    ArrayPush(&parse_options.defines, "JPH_USE_FMADD");
+    ArrayPush(&parse_options.defines, "JPH_USE_LZCNT");
+    ArrayPush(&parse_options.defines, "JPH_USE_SSE4_1");
+    ArrayPush(&parse_options.defines, "JPH_USE_SSE4_2");
+    ArrayPush(&parse_options.defines, "JPH_USE_TZCNT");
 
-    ArrayPush(&options.extra_options, "-xc++");
-    ArrayPush(&options.extra_options, "-std=c++17");
+    ArrayPush(&parse_options.extra_options, "-xc++");
+    ArrayPush(&parse_options.extra_options, "-std=c++17");
 
-    ParseCppFiles(options, &db);
+    ParseCppFiles(parse_options, &db);
+
+    GenerateOptions gen_options = {};
+    for (uint64_t i = 0; i < StaticArraySize(Declarations_To_Exclude); i += 1) {
+        ArrayPush(&gen_options.declarations_to_exclude, (void *)Declarations_To_Exclude[i]);
+    }
 
     StringBuilder builder = {};
-    GenerateCode(&builder, &db);
+    GenerateCode(gen_options, &builder, &db);
 
     char *str = SBBuild(&builder);
     WriteEntireFile("JoltC.h", str, strlen(str));
