@@ -82,6 +82,10 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
             ArrayPush(&db->all_aggregates, entity);
             ArrayPush(&db->all_entities, entity);
         } break;
+        case CppEntity_Typedef: {
+            ArrayPush(&db->all_typedefs, entity);
+            ArrayPush(&db->all_entities, entity);
+        } break;
         case CppEntity_Function: {
             ArrayPush(&db->all_functions, entity);
             ArrayPush(&db->all_entities, entity);
@@ -100,7 +104,7 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
 CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, const char *name) {
     foreach (i, db->all_namespaces) {
         CppNamespace *ns = ArrayGet(db->all_namespaces, i);
-        if (StrEq(ns->base.name, name)) {
+        if (ns->base.parent == parent && StrEq(ns->base.name, name)) {
             return ns;
         }
     }

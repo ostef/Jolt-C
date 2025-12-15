@@ -17,6 +17,7 @@ struct CppValueDefine;
 struct CppEnum;
 struct CppEnumConstant;
 struct CppAggregate;
+struct CppTypedef;
 struct CppVariable;
 struct CppFunction;
 
@@ -26,6 +27,7 @@ typedef struct CppDatabase {
     Array all_value_defines;
     Array all_enums;
     Array all_aggregates;
+    Array all_typedefs;
     Array all_functions;
     Array all_entities;
     HashMap cursor_to_entity;
@@ -56,6 +58,7 @@ enum {
     CppType_RValueReference,
     CppType_Array,
     CppType_Aggregate,
+    CppType_Enum,
     CppType_Named,
     CppType_Function,
     CppType_Auto,
@@ -85,6 +88,7 @@ static const char *CppTypeKind_Str[] = {
     "r-value reference",
     "array",
     "aggregate",
+    "enum",
     "named",
     "function",
     "auto",
@@ -112,6 +116,11 @@ typedef struct CppTypeAggregate {
     struct CppAggregate *aggr;
 } CppTypeAggregate;
 
+typedef struct CppTypeEnum {
+    CXCursor cursor;
+    struct CppEnum *e;
+} CppTypeEnum;
+
 typedef struct CppTypeNamed {
     const char *name;
     CXCursor cursor;
@@ -132,6 +141,7 @@ typedef struct CppType {
         CppTypePointer type_pointer;
         CppTypeArray type_array;
         CppTypeAggregate type_aggregate;
+        CppTypeEnum type_enum;
         CppTypeNamed type_named;
         CppTypeFunction type_function;
     };
@@ -166,6 +176,7 @@ enum {
     CppEntity_Enum,
     CppEntity_EnumConstant,
     CppEntity_Aggregate,
+    CppEntity_Typedef,
     CppEntity_Variable,
     CppEntity_Function,
 };
@@ -177,6 +188,8 @@ static const char *CppEntityKind_Str[] = {
     "enum",
     "enum constant",
     "aggregate",
+    "typedef",
+    "variable",
     "function",
 };
 
@@ -227,6 +240,11 @@ typedef struct CppAggregate {
     CppAggregateKind kind;
     Array base_classes;
 } CppAggregate;
+
+typedef struct CppTypedef {
+    CppEntity base;
+    CppType *type;
+} CppTypedef;
 
 typedef struct CppValueDefine {
     CppEntity base;

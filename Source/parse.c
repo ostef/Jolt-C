@@ -11,9 +11,11 @@ typedef struct CppParseContext {
     CppEntity *parent_entity;
 } CppParseContext;
 
+CppEnum *ParseCppEnum(CppParseContext *ctx, CXCursor cursor);
 CppAggregate *ParseCppAggregate(CppParseContext *ctx, CXCursor cursor);
 CppFunction *ParseCppFunction(CppParseContext *ctx, CXCursor cursor);
 CppVariable *ParseCppVariable(CppParseContext *ctx, CXCursor cursor);
+CppTypedef *ParseCppTypeAliasDecl(CppParseContext *ctx, CXCursor cursor);
 
 static inline
 void VisitRecurse(CXCursor cursor, CXCursorVisitor visitor, CppParseContext *ctx, CppEntity *parent) {
@@ -53,6 +55,7 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
         case CXCursor_CXXAccessSpecifier: { // public, protected, private
             // Nothing to do, access specifier is stored on each cursor
         } break;
+
         case CXCursor_VarDecl:
         case CXCursor_FieldDecl: {
             ParseCppVariable(ctx, cursor);
@@ -66,6 +69,11 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
         } break;
 
         case CXCursor_TypeAliasDecl: { // using A = B for types
+            ParseCppTypeAliasDecl(ctx, cursor);
+        } break;
+
+        case CXCursor_EnumDecl: {
+            ParseCppEnum(ctx, cursor);
         } break;
 
         case CXCursor_StructDecl:
@@ -79,13 +87,30 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
 }
 
 static
+enum CXChildVisitResult EnumVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data) {
+    VISITOR_PREAMBLE();
+
+    switch (kind) {
+        case CXCursor_EnumConstantDecl: {
+            CppEnumConstant *value = AllocCppEntity(EnumConstant, cursor);
+            value->value = clang_getEnumConstantDeclUnsignedValue(cursor);
+            PushCppEntity(ctx->db, ctx->parent_entity, &value->base);
+        } break;
+    }
+
+    return CXChildVisit_Continue;
+}
+
+static
 enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data) {
     VISITOR_PREAMBLE();
 
     CppSourceCodeRange range = GetCppSourceCodeRange(cursor);
 
     const char *name = clang_getCString(clang_getCursorSpelling(cursor));
-    printf("%s(%d) %s::%s at %s:%d:%d\n", clang_getCString(clang_getCursorKindSpelling(kind)), kind, GetDeclName(parent), name, range.filename, (int)range.start_line, (int)range.start_character);
+    if (StrEq(name, "uint32")) {
+        printf("%s(%d) %s::%s at %s:%d:%d\n", clang_getCString(clang_getCursorKindSpelling(kind)), kind, GetDeclName(parent), name, range.filename, (int)range.start_line, (int)range.start_character);
+    }
 
     switch (kind) {
         case CXCursor_InclusionDirective: {
@@ -97,10 +122,18 @@ enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClie
             VisitRecurse(cursor, TopLevelVisitor, ctx, &ns->base);
         } break;
 
+        case CXCursor_EnumDecl: {
+            ParseCppEnum(ctx, cursor);
+        } break;
+
         case CXCursor_StructDecl:
         case CXCursor_UnionDecl:
         case CXCursor_ClassDecl: {
             ParseCppAggregate(ctx, cursor);
+        } break;
+
+        case CXCursor_TypeAliasDecl: { // using A = B for types
+            ParseCppTypeAliasDecl(ctx, cursor);
         } break;
 
         case CXCursor_FunctionDecl: {
@@ -113,6 +146,33 @@ enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClie
     // ctx->indentation -= 1;
 
     return CXChildVisit_Continue;
+}
+
+CppEnum *ParseCppEnum(CppParseContext *ctx, CXCursor cursor) {
+    if (!clang_isCursorDefinition(cursor)) {
+        return NULL;
+    }
+
+    CppEnum *e = AllocCppEntity(Enum, cursor);
+    CXType base_type = clang_getEnumDeclIntegerType(cursor);
+    base_type = clang_getCanonicalType(base_type);
+    e->base_type = GetCppType(ctx->db, base_type);
+
+    if (clang_Cursor_isAnonymous(cursor)) {
+        CppVariable *var = AllocCppEntity(Variable, cursor);
+        var->type = Alloc(CppType);
+        var->type->kind = CppType_Enum;
+        var->type->type_enum.cursor = cursor;
+        var->type->type_enum.e = e;
+
+        PushCppEntity(ctx->db, ctx->parent_entity, &var->base);
+    } else {
+        PushCppEntity(ctx->db, ctx->parent_entity, &e->base);
+    }
+
+    VisitRecurse(cursor, EnumVisitor, ctx, &e->base);
+
+    return e;
 }
 
 CppAggregate *ParseCppAggregate(CppParseContext *ctx, CXCursor cursor) {
@@ -180,6 +240,17 @@ CppVariable *ParseCppVariable(CppParseContext *ctx, CXCursor cursor) {
     var->type = GetCppType(ctx->db, clang_getCursorType(cursor));
 
     return var;
+}
+
+CppTypedef *ParseCppTypeAliasDecl(CppParseContext *ctx, CXCursor cursor) {
+    CppTypedef *ty = AllocCppEntity(Typedef, cursor);
+    PushCppEntity(ctx->db, ctx->parent_entity, &ty->base);
+
+    CXType cx_type = clang_getCursorType(cursor);
+    cx_type = clang_getCanonicalType(cx_type);
+    ty->type = GetCppType(ctx->db, cx_type);
+
+    return ty;
 }
 
 void ParseCppFiles(CppParseOptions options, CppDatabase *db) {

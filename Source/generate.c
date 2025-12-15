@@ -89,6 +89,9 @@ void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation)
         case CppType_Array: {
             AppendCppTypePrefix(builder, type->type_array.element_type, indentation);
         } break;
+        case CppType_Enum: {
+            AppendCppEnum(builder, type->type_enum.e, indentation);
+        } break;
         case CppType_Aggregate: {
             AppendCppAggregate(builder, type->type_aggregate.aggr, indentation);
         } break;
@@ -135,6 +138,32 @@ void AppendCppTypePostfix(StringBuilder *builder, CppType *type, int indentation
             }
         } break;
     }
+}
+
+void AppendCppEnum(StringBuilder *builder, CppEnum *e, int indentation) {
+    SBAppendString(builder, "enum {\n");
+
+    foreach (i, e->constants) {
+        CppEnumConstant *value = ArrayGet(e->constants, i);
+        SBAppendIndentation(builder, indentation + 1);
+        SBAppendString(builder, value->base.fully_qualified_c_name);
+        SBAppend(builder, " = %llu,\n", value->value);
+    }
+
+    SBAppendIndentation(builder, indentation);
+    SBAppendString(builder, "}");
+}
+
+void AppendCppEnumDecl(StringBuilder *builder, CppEnum *e, int indentation) {
+    SBAppendString(builder, "typedef ");
+    AppendCppTypePrefix(builder, e->base_type, indentation);
+    SBAppend(builder, " %s", e->base.fully_qualified_c_name);
+    AppendCppTypePostfix(builder, e->base_type, indentation);
+    SBAppendString(builder, ";\n");
+
+    SBAppendIndentation(builder, indentation);
+    AppendCppEnum(builder, e, indentation);
+    SBAppendString(builder, ";\n\n");
 }
 
 void AppendCppAggregate(StringBuilder *builder, CppAggregate *aggr, int indentation) {
@@ -187,11 +216,25 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
         CppEntity *entity = ArrayGet(db->all_entities, i);
 
         switch (entity->kind) {
+            case CppEntity_Enum: {
+                CppEnum *e = (CppEnum *)entity;
+                AppendCppEnumDecl(builder, e, 0);
+            } break;
+
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)entity;
                 SBAppendString(builder, "typedef ");
                 AppendCppAggregate(builder, aggr, 0);
                 SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
+            } break;
+
+            case CppEntity_Typedef: {
+                CppTypedef *ty = (CppTypedef *)entity;
+                SBAppendString(builder, "typedef ");
+                AppendCppTypePrefix(builder, ty->type, 0);
+                SBAppend(builder, " %s", ty->base.fully_qualified_c_name);
+                AppendCppTypePostfix(builder, ty->type, 0);
+                SBAppend(builder, ";\n\n");
             } break;
         }
     }
