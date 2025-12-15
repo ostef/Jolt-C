@@ -105,7 +105,7 @@ void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation)
         case CppType_Named: {
             if (type->type_named.entity) {
                 SBAppendString(builder, type->type_named.entity->fully_qualified_c_name);
-            } else if (type->type_named.name) {
+            } else if (type->type_named.name && type->type_named.name[0]) {
                 SBAppendString(builder, type->type_named.name);
             } else {
                 SBAppendString(builder, "< ? named>");
@@ -243,10 +243,52 @@ void AppendCppAggregate(StringBuilder *builder, CppAggregate *aggr, int indentat
     SBAppendString(builder, "}");
 }
 
+void AppendCppAggregateForwardDecl(StringBuilder *builder, CppAggregate *aggr) {
+    switch (aggr->kind) {
+        case CppAggregate_Class:
+        case CppAggregate_Struct: {
+            SBAppendString(builder, "struct");
+        } break;
+        case CppAggregate_Union: {
+            SBAppendString(builder, "union");
+        } break;
+    }
+
+    SBAppend(builder, " %s;\n", aggr->base.fully_qualified_c_name);
+}
+
 void GenerateCode(StringBuilder *builder, CppDatabase *db) {
     foreach (i, db->all_namespaces) {
         CppNamespace *ns = ArrayGet(db->all_namespaces, i);
         SBAppend(builder, "// Namespace %s\n", ns->base.fully_qualified_name);
+    }
+
+    SBAppendString(builder, "\n// Forward declarations\n\n");
+
+    foreach (i, db->all_aggregates) {
+        CppAggregate *aggr = ArrayGet(db->all_aggregates, i);
+
+        if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
+            continue;
+        }
+
+        AppendCppAggregateForwardDecl(builder, aggr);
+    }
+
+    SBAppendString(builder, "\n// Enums\n\n");
+
+    foreach (i, db->all_enums) {
+        CppEnum *e = ArrayGet(db->all_enums, i);
+
+        if (e->base.flags & CppEntityFlag_ForwardDecl) {
+            continue;
+        }
+
+        SBAppendString(builder, "// ");
+        AppendCppSourceCodeLocation(builder, GetStartLocation(e->base.source_code_range));
+        SBAppendString(builder, "\n");
+
+        AppendCppEnumDecl(builder, e, 0);
     }
 
     SBAppendString(builder, "\n");
@@ -255,18 +297,12 @@ void GenerateCode(StringBuilder *builder, CppDatabase *db) {
         CppEntity *entity = ArrayGet(db->all_entities, i);
 
         switch (entity->kind) {
-            case CppEntity_Enum: {
-                CppEnum *e = (CppEnum *)entity;
-
-                SBAppendString(builder, "// ");
-                AppendCppSourceCodeLocation(builder, GetStartLocation(entity->source_code_range));
-                SBAppendString(builder, "\n");
-
-                AppendCppEnumDecl(builder, e, 0);
-            } break;
-
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)entity;
+
+                if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
+                    continue;
+                }
 
                 SBAppendString(builder, "// ");
                 AppendCppSourceCodeLocation(builder, GetStartLocation(entity->source_code_range));

@@ -434,6 +434,16 @@ bool StrEndsWith(const char *a, const char *b) {
 }
 
 static inline
+uint64_t StringHashFunc(void *str) {
+    return HashString(str);
+}
+
+static inline
+bool StringCompareFunc(void *a, void *b) {
+    return StrEq(a, b);
+}
+
+static inline
 char *PathJoin(const char *a, const char *b) {
     int64_t a_len = strlen(a);
     int64_t b_len = strlen(b);
