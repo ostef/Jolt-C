@@ -136,6 +136,7 @@ typedef struct CppType {
     CppTypeFlags flags;
     CXType cx_type;
     int64_t size;
+    int64_t alignment;
     union {
         CppTypePointer type_pointer;
         CppTypeArray type_array;

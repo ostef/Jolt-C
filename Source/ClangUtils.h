@@ -40,6 +40,7 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
     CppType *result = Alloc(CppType);
     result->cx_type = type;
     result->size = clang_Type_getSizeOf(type);
+    result->alignment = clang_Type_getAlignOf(type);
 
     if (clang_isConstQualifiedType(type)) {
         result->flags |= CppTypeFlag_Const;

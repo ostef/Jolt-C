@@ -43,7 +43,7 @@ void AppendCppTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
             SBAppendString(ctx->builder, "<invalid>");
         } break;
         case CppType_Unknown: {
-            SBAppend(ctx->builder, "< %s >", clang_getCString(clang_getTypeKindSpelling(type->cx_type.kind)));
+            SBAppend(ctx->builder, "< %s (size=%d, align=%d)>", clang_getCString(clang_getTypeKindSpelling(type->cx_type.kind)), (int)type->size, (int)type->alignment);
         } break;
         default: {
             SBAppendString(ctx->builder, CppTypeKind_Str[type->kind]);
@@ -94,7 +94,7 @@ void AppendCppTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
             } else if (type->type_named.name && type->type_named.name[0]) {
                 SBAppendString(ctx->builder, type->type_named.name);
             } else {
-                SBAppendString(ctx->builder, "< ? named>");
+                SBAppend(ctx->builder, "< ? named (size=%d, align=%d)>", (int)type->size, (int)type->alignment);
             }
         } break;
         case CppType_Function: {
@@ -349,6 +349,12 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
                 AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
                 SBAppendString(builder, "\n");
 
+                if (aggr->flags & CppAggregateFlag_Abstract) {
+                    SBAppendString(builder, "// Abstract\n");
+                }
+                if (aggr->virtual_methods.count > 0) {
+                    SBAppendString(builder, "// Has vtable type\n");
+                }
                 SBAppendString(builder, "typedef ");
                 AppendCppAggregate(&ctx, aggr, 0);
                 SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
