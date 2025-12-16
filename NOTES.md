@@ -97,7 +97,7 @@ A very important consideration when making C bindings for Jolt is the heavy usag
 
 Here are all the templates that we would need to support:
 * **JPH::Array**: the nice thing about this template is that T is used by pointer, so we could provide a non specialized JPH_Array struct. Furthermore, the default STLAllocator does not contain any fields and is just a simple static interface to external allocator functions, so we don't have to worry about it (unless another allocator is used sometimes)
-* **JPH::Vector**, **JPH::Matrix**: only one instantiation of Vector<2> and Matrix<2,2> are used, so this one is easy.
+* **JPH::Vector**, **JPH::Matrix**: only a few instantiation of Vector<2>, Vector<3> and Matrix<2,2>, Matrix<3,3> are used, so this one is easy.
 * **JPH::Result**: not that hard to support with macros/codegen since I don't think we need to implement any function for it.
 * **JPH::StaticArray**: same as result, and the functions are optional because operations are easy to write inline (e.g. `array.data[array.count++] = value`)
 * **JPH::StridedPtr**: the layout does not change and the underlying type is always *uint8_t \**
