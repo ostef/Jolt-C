@@ -1,4 +1,4 @@
-LLVM_DIR=/usr/lib/llvm-14
+LLVM_DIR=/usr/lib/llvm-20
 
 TARGET=generate
 SRC_FILES=main.c parse.c generate.c database.c

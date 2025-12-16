@@ -22,6 +22,6 @@ void AppendCppEnum(GenerateContext *ctx, CppEnum *e, int indentation);
 void AppendCppEnumDecl(GenerateContext *ctx, CppEnum *e, int indentation);
 void AppendCppAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation);
 
-void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *db);
+void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabase *db);
 
 #endif

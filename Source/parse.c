@@ -231,14 +231,8 @@ CppFunction *ParseCppFunction(CppParseContext *ctx, CXCursor cursor) {
     enum CXCursorKind kind = clang_getCursorKind(cursor);
 
     CppFunction *func = AllocCppEntity(Function, cursor);
-    if (kind == CXCursor_Constructor) {
-        func->flags |= CppFunctionFlag_Constructor;
-    }
-    if (kind == CXCursor_Destructor) {
-        func->flags |= CppFunctionFlag_Destructor;
-    }
-    if (kind == CXCursor_CXXMethod) {
-        func->flags |= CppFunctionFlag_Method;
+    if (StrStartsWith(func->base.name, "operator")) {
+        func->flags |= CppFunctionFlag_Operator;
     }
     if (clang_CXXMethod_isVirtual(cursor)) {
         func->flags |= CppFunctionFlag_Virtual;
@@ -254,6 +248,19 @@ CppFunction *ParseCppFunction(CppParseContext *ctx, CXCursor cursor) {
     }
     if (clang_Cursor_getStorageClass(cursor) == CX_SC_Static) {
         func->base.flags |= CppEntityFlag_Static;
+    }
+    if (kind == CXCursor_Constructor) {
+        func->flags |= CppFunctionFlag_Constructor;
+        func->flags |= CppFunctionFlag_Method;
+        func->base.c_name = "Construct";
+    }
+    if (kind == CXCursor_Destructor) {
+        func->flags |= CppFunctionFlag_Destructor;
+        func->flags |= CppFunctionFlag_Method;
+        func->base.c_name = "Destroy";
+    }
+    if (kind == CXCursor_CXXMethod && !(func->base.flags & CppEntityFlag_Static)) {
+        func->flags |= CppFunctionFlag_Method;
     }
 
     PushCppEntity(ctx->db, ctx->parent_entity, &func->base);

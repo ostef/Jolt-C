@@ -218,6 +218,7 @@ typedef struct CppEntity {
     struct CppEntity *parent;
     const char *comment;
     char *name;
+    char *c_name;
     char *fully_qualified_name;
     char *fully_qualified_c_name;
 } CppEntity;
@@ -257,6 +258,7 @@ typedef struct CppAggregate {
     CppType *type;
     Array fields;
     Array virtual_methods;
+    Array functions;
     Array entities;
     CppAggregateKind kind;
     Array base_classes;
@@ -302,6 +304,8 @@ enum {
     CppFunctionFlag_Virtual     = 1 << 3,
     CppFunctionFlag_PureVirtual = 1 << 4,
     CppFunctionFlag_Const       = 1 << 5,
+    CppFunctionFlag_Operator    = 1 << 6,
+    CppFunctionFlag_Overladed   = 1 << 7,
 };
 
 typedef struct CppFunction {

@@ -19,6 +19,7 @@ void InitCppDatabase(CppDatabase *db) {
 
     db->global_namespace = Alloc(CppNamespace);
     db->global_namespace->base.name = "";
+    db->global_namespace->base.c_name = "";
     db->global_namespace->base.kind = CppEntity_Namespace;
     db->global_namespace->base.cursor = clang_getNullCursor();
 
@@ -35,6 +36,14 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor) {
 
     e->kind = kind;
     e->name = GetDeclName(cursor);
+    e->c_name = strdup(e->name);
+
+    for (int i = 0; e->c_name[i]; i += 1) {
+        if (e->c_name[i] == ' ') {
+            e->c_name[i] = '_';
+        }
+    }
+
     e->source_code_range = GetCppSourceCodeRange(cursor);
     e->cursor = cursor;
     e->visibility = GetCursorCppVisibility(cursor);
@@ -50,6 +59,15 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
     HashMapInsert(&db->cursor_to_entity, &entity->cursor, entity);
 
     entity->parent = parent;
+
+    assert(entity->c_name != NULL);
+    if (parent && parent->fully_qualified_name && parent->fully_qualified_name[0]) {
+        entity->fully_qualified_name = SPrintf("%s::%s", parent->fully_qualified_name, entity->name);
+        entity->fully_qualified_c_name = SPrintf("%s_%s", parent->fully_qualified_c_name, entity->c_name);
+    } else {
+        entity->fully_qualified_name = entity->name;
+        entity->fully_qualified_c_name = entity->c_name;
+    }
 
     int64_t parent_aggregate_index = db->all_aggregates.count;
     int64_t parent_entity_index = db->all_entities.count;
@@ -92,6 +110,8 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
                     CppFunction *func = (CppFunction *)entity;
                     if (func->flags & CppFunctionFlag_Virtual) {
                         ArrayPush(&aggr->virtual_methods, entity);
+                    } else {
+                        ArrayPush(&aggr->functions, entity);
                     }
                 }
             } break;
@@ -129,20 +149,6 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
             ArrayPush(&db->all_entities, entity);
         } break;
     }
-
-    if (parent && parent->fully_qualified_name && parent->fully_qualified_name[0]) {
-        entity->fully_qualified_name = SPrintf("%s::%s", parent->fully_qualified_name, entity->name);
-        entity->fully_qualified_c_name = SPrintf("%s_%s", parent->fully_qualified_c_name, entity->name);
-    } else {
-        entity->fully_qualified_name = entity->name;
-        entity->fully_qualified_c_name = entity->name;
-    }
-
-    for (int i = 0; entity->fully_qualified_c_name[i]; i += 1) {
-        if (entity->fully_qualified_c_name[i] == ' ') {
-            entity->fully_qualified_c_name[i] = '_';
-        }
-    }
 }
 
 CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name) {
@@ -155,6 +161,7 @@ CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name) {
 
     CppNamespace *ns = AllocCppEntity(Namespace, clang_getNullCursor());
     ns->base.name = name;
+    ns->base.c_name = strdup(name);
     PushCppEntity(db, parent, &ns->base);
 
     return ns;

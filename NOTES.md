@@ -161,7 +161,7 @@ void DoSomeConstraintStuff() {
     base_data->mDrawConstraintSize = 1.3;
 }
 ```
-It is very verbose, but I think we can reduce this verbosity by providing convenience functions where it makes sense as well as, for bindings to higher level languages of this C interface, use methods, namespacing or other convenient language specific features.
+It is very verbose, but I think we can reduce this verbosity by providing convenience functions where it makes sense as well as, for bindings to higher level languages of this C interface, use methods, namespacing or other convenient language specific features. On big pain point is that this approach propagates opacity to any class that includes the class without using a pointer. In practice I am unsure if this will cause real problems.
 
 ## Templates
 A very important consideration when making C bindings for Jolt is the heavy usage of templates. I am not sure what the strategy should be for templates; I think we need a per case solution. A fallback to the brute force approach could work for certain templates: gather all template instantiations and generate code for each of them. The thing to consider with this approach is how we handle template arguments of non obvious types (e.g. **Array<StridedPtr<RefTarget<Body> > >**)

@@ -157,7 +157,7 @@ void AppendCppTypePostfix(GenerateContext *ctx, CppType *type, int indentation) 
 void AppendCppVariable(GenerateContext *ctx, CppVariable *var, bool full_name, int indentation) {
     AppendCppTypePrefix(ctx, var->type, indentation);
 
-    const char *name = full_name ? var->base.fully_qualified_c_name : var->base.name;
+    const char *name = full_name ? var->base.fully_qualified_c_name : var->base.c_name;
     if (name && name[0]) {
         if (ShouldPrintSpaceAfterType(var->type)) {
             SBAppendString(ctx->builder, " ");
@@ -243,7 +243,7 @@ void AppendCppAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentatio
             if (aggr->base_classes.count == 1) {
                 SBAppendString(ctx->builder, "base");
             } else if (base->type->kind == CppType_Named && base->type->type_named.entity != NULL) {
-                SBAppend(ctx->builder, "base%s", base->type->type_named.entity->name);
+                SBAppend(ctx->builder, "base%s", base->type->type_named.entity->c_name);
             } else {
                 SBAppend(ctx->builder, "base%d", i);
             }
@@ -291,6 +291,22 @@ void AppendCppFunction(GenerateContext *ctx, CppFunction *func, int indentation)
     SBAppendString(ctx->builder, func->base.fully_qualified_c_name);
     SBAppendString(ctx->builder, "(");
 
+    if (func->flags & CppFunctionFlag_Method) {
+        CppAggregate *aggr = (CppAggregate *)func->base.parent;
+        assert(aggr->base.kind == CppEntity_Aggregate);
+
+        if (func->flags & CppFunctionFlag_Const) {
+            SBAppendString(ctx->builder, "const ");
+        }
+
+        SBAppendString(ctx->builder, aggr->base.fully_qualified_c_name);
+        SBAppendString(ctx->builder, " *self");
+
+        if (func->parameters.count > 0) {
+            SBAppendString(ctx->builder, ", ");
+        }
+    }
+
     foreach (i, func->parameters) {
         if (i > 0) {
             SBAppendString(ctx->builder, ", ");
@@ -303,7 +319,7 @@ void AppendCppFunction(GenerateContext *ctx, CppFunction *func, int indentation)
     SBAppendString(ctx->builder, ")");
 }
 
-void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *db) {
+void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabase *db) {
     GenerateContext ctx = {};
     ctx.options = options;
     ctx.builder = builder;
@@ -369,6 +385,15 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
 
     SBAppendString(builder, "\n// Classes and typedefs\n\n");
 
+    int opaques = 0;
+    foreach (i, db->all_aggregates) {
+        if (ShouldBeOpaque(ArrayGet(db->all_aggregates, i))) {
+            opaques += 1;
+        }
+    }
+
+    printf("%d/%d opaque structs\n", opaques, (int)db->all_aggregates.count);
+
     foreach (i, db->all_entities) {
         CppEntity *entity = ArrayGet(db->all_entities, i);
 
@@ -397,15 +422,21 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
                 AppendCppAggregate(&ctx, aggr, 0);
                 SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
 
-                foreach (j, aggr->entities) {
-                    CppEntity *e = ArrayGet(aggr->entities, j);
-                    if (e->kind != CppEntity_Function) {
+                int num_functions = 0;
+                foreach (j, aggr->functions) {
+                    CppFunction *func = ArrayGet(aggr->functions, j);
+
+                    if (func->flags & CppFunctionFlag_Operator) {
                         continue;
                     }
 
-                    CppFunction *func = (CppFunction *)e;
+                    num_functions += 1;
                     AppendCppFunction(&ctx, func, 0);
                     SBAppendString(ctx.builder, ";\n");
+                }
+
+                if (num_functions > 0) {
+                    SBAppendString(ctx.builder, "\n");
                 }
             } break;
 
