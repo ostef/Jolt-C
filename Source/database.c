@@ -2,12 +2,12 @@
 #include "ClangUtils.h"
 
 static
-uint64_t HashCXCursor(void *a) {
+uint64_t HashCXCursor(const void *a) {
     return clang_hashCursor(*(CXCursor *)a);
 }
 
 static
-bool CompareCXCursors(void *a, void *b) {
+bool CompareCXCursors(const void *a, const void *b) {
     return clang_equalCursors(*(CXCursor *)a, *(CXCursor *)b);
 }
 

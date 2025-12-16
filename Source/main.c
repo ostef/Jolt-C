@@ -57,6 +57,12 @@ int main() {
         ArrayPush(&gen_options.declarations_to_exclude, (void *)Declarations_To_Exclude[i]);
     }
 
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint8");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint16");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint32");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint64");
+
     StringBuilder builder = {};
     GenerateCode(gen_options, &builder, &db);
 

@@ -1,6 +1,16 @@
 #include "Generate.h"
 #include "ClangUtils.h"
 
+static
+bool ShouldExclude(GenerateOptions options, const char *entity_name) {
+    return ArrayFindFirstPredicate(options.declarations_to_exclude, entity_name, StringCompareFunc) >= 0;
+}
+
+static
+bool ShouldUnwrap(GenerateOptions options, const char *entity_name) {
+    return ArrayFindFirstPredicate(options.typedefs_to_unwrap, entity_name, StringCompareFunc) >= 0;
+}
+
 static inline
 void SBAppendIndentation(StringBuilder *builder, int indentation) {
     for (int i = 0; i < indentation; i += 1) {
@@ -8,140 +18,157 @@ void SBAppendIndentation(StringBuilder *builder, int indentation) {
     }
 }
 
-void AppendCppSourceCodeLocation(StringBuilder *builder, CppSourceCodeLocation loc) {
-    SBAppend(builder, "%s:%d:%d", loc.filename, (int)loc.line, (int)loc.character);
+void AppendCppSourceCodeLocation(GenerateContext *ctx, CppSourceCodeLocation loc) {
+    SBAppend(ctx->builder, "%s:%d:%d", loc.filename, (int)loc.line, (int)loc.character);
 }
 
-void AppendCppType(StringBuilder *builder, CppType *type, int indentation) {
-    AppendCppTypePrefix(builder, type, indentation);
-    AppendCppTypePostfix(builder, type, indentation);
+void AppendCppType(GenerateContext *ctx, CppType *type, int indentation) {
+    AppendCppTypePrefix(ctx, type, indentation);
+    AppendCppTypePostfix(ctx, type, indentation);
 }
 
-void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation) {
+void AppendCppTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
     if (!type) {
-        SBAppendString(builder, "<null>");
+        SBAppendString(ctx->builder, "<null>");
         return;
     }
 
     switch (type->kind) {
         case CppType_Invalid: {
-            SBAppendString(builder, "<invalid>");
+            SBAppendString(ctx->builder, "<invalid>");
         } break;
         case CppType_Unknown: {
-            SBAppend(builder, "< %s >", clang_getCString(clang_getTypeKindSpelling(type->cx_type.kind)));
+            SBAppend(ctx->builder, "< %s >", clang_getCString(clang_getTypeKindSpelling(type->cx_type.kind)));
         } break;
         default: {
-            SBAppendString(builder, CppTypeKind_Str[type->kind]);
+            SBAppendString(ctx->builder, CppTypeKind_Str[type->kind]);
         } break;
         case CppType_Reference: // Append references as pointers
         case CppType_Pointer: {
-            AppendCppTypePrefix(builder, type->type_pointer.pointee_type, indentation);
+            AppendCppTypePrefix(ctx, type->type_pointer.pointee_type, indentation);
             if (type->type_pointer.pointee_type->kind == CppType_Function) {
-                SBAppendString(builder, " (");
+                SBAppendString(ctx->builder, " (");
             }
-            SBAppendString(builder, "*");
+            SBAppendString(ctx->builder, "*");
         } break;
         case CppType_RValueReference: {
-            AppendCppTypePrefix(builder, type->type_pointer.pointee_type, indentation);
-            SBAppendString(builder, "&&");
+            AppendCppTypePrefix(ctx, type->type_pointer.pointee_type, indentation);
+            SBAppendString(ctx->builder, "&&");
         } break;
         case CppType_Array: {
-            AppendCppTypePrefix(builder, type->type_array.element_type, indentation);
+            AppendCppTypePrefix(ctx, type->type_array.element_type, indentation);
         } break;
         case CppType_Enum: {
-            AppendCppEnum(builder, type->type_enum.e, indentation);
+            AppendCppEnum(ctx, type->type_enum.e, indentation);
         } break;
         case CppType_Aggregate: {
-            AppendCppAggregate(builder, type->type_aggregate.aggr, indentation);
+            AppendCppAggregate(ctx, type->type_aggregate.aggr, indentation);
         } break;
         case CppType_Named: {
             if (type->type_named.entity) {
-                SBAppendString(builder, type->type_named.entity->fully_qualified_c_name);
+                CppEntity *e = type->type_named.entity;
+                if (e->kind == CppEntity_Typedef && ShouldUnwrap(ctx->options, e->fully_qualified_name)) {
+                    CppTypedef *ty = (CppTypedef *)e;
+                    AppendCppTypePrefix(ctx, ty->type, indentation);
+                    return;
+                }
+
+                SBAppendString(ctx->builder, type->type_named.entity->fully_qualified_c_name);
             } else if (type->type_named.name && type->type_named.name[0]) {
-                SBAppendString(builder, type->type_named.name);
+                SBAppendString(ctx->builder, type->type_named.name);
             } else {
-                SBAppendString(builder, "< ? named>");
+                SBAppendString(ctx->builder, "< ? named>");
             }
         } break;
         case CppType_Function: {
-            AppendCppType(builder, type->type_function.result_type, indentation);
+            AppendCppType(ctx, type->type_function.result_type, indentation);
         } break;
         case CppType_Auto: {
-            SBAppendString(builder, "auto");
+            SBAppendString(ctx->builder, "auto");
         } break;
     }
 }
 
-void AppendCppTypePostfix(StringBuilder *builder, CppType *type, int indentation) {
+void AppendCppTypePostfix(GenerateContext *ctx, CppType *type, int indentation) {
     switch (type->kind) {
+        case CppType_Named: {
+            if (type->type_named.entity) {
+                CppEntity *e = type->type_named.entity;
+                if (e->kind == CppEntity_Typedef && ShouldUnwrap(ctx->options, e->fully_qualified_name)) {
+                    CppTypedef *ty = (CppTypedef *)e;
+                    AppendCppTypePostfix(ctx, ty->type, indentation);
+                    return;
+                }
+            }
+        } break;
         case CppType_Function: {
-            SBAppendString(builder, "(");
+            SBAppendString(ctx->builder, "(");
             foreach (i, type->type_function.parameter_types) {
                 CppType *param = ArrayGet(type->type_function.parameter_types, i);
 
                 if (i > 0) {
-                    SBAppendString(builder, ", ");
+                    SBAppendString(ctx->builder, ", ");
                 }
 
-                AppendCppType(builder, param, indentation);
+                AppendCppType(ctx, param, indentation);
             }
-            SBAppendString(builder, ")");
+            SBAppendString(ctx->builder, ")");
         } break;
         case CppType_Pointer: {
             if (type->type_pointer.pointee_type->kind == CppType_Function) {
-                SBAppendString(builder, ")");
+                SBAppendString(ctx->builder, ")");
             }
-            AppendCppTypePostfix(builder, type->type_pointer.pointee_type, indentation);
+            AppendCppTypePostfix(ctx, type->type_pointer.pointee_type, indentation);
         } break;
         case CppType_Array: {
-            AppendCppTypePostfix(builder, type->type_array.element_type, indentation);
+            AppendCppTypePostfix(ctx, type->type_array.element_type, indentation);
             if (type->type_array.num_elements >= 0) {
-                SBAppend(builder, "[%u]", type->type_array.num_elements);
+                SBAppend(ctx->builder, "[%u]", type->type_array.num_elements);
             } else {
-                SBAppendString(builder, "[]");
+                SBAppendString(ctx->builder, "[]");
             }
         } break;
     }
 }
 
-void AppendCppEnum(StringBuilder *builder, CppEnum *e, int indentation) {
-    SBAppendString(builder, "enum {\n");
+void AppendCppEnum(GenerateContext *ctx, CppEnum *e, int indentation) {
+    SBAppendString(ctx->builder, "enum {\n");
 
     foreach (i, e->constants) {
         CppEnumConstant *value = ArrayGet(e->constants, i);
-        SBAppendIndentation(builder, indentation + 1);
-        SBAppendString(builder, value->base.fully_qualified_c_name);
-        SBAppend(builder, " = %llu,\n", value->value);
+        SBAppendIndentation(ctx->builder, indentation + 1);
+        SBAppendString(ctx->builder, value->base.fully_qualified_c_name);
+        SBAppend(ctx->builder, " = %llu,\n", value->value);
     }
 
-    SBAppendIndentation(builder, indentation);
-    SBAppendString(builder, "}");
+    SBAppendIndentation(ctx->builder, indentation);
+    SBAppendString(ctx->builder, "}");
 }
 
-void AppendCppEnumDecl(StringBuilder *builder, CppEnum *e, int indentation) {
-    SBAppendString(builder, "typedef ");
-    AppendCppTypePrefix(builder, e->base_type, indentation);
-    SBAppend(builder, " %s", e->base.fully_qualified_c_name);
-    AppendCppTypePostfix(builder, e->base_type, indentation);
-    SBAppendString(builder, ";\n");
+void AppendCppEnumDecl(GenerateContext *ctx, CppEnum *e, int indentation) {
+    SBAppendString(ctx->builder, "typedef ");
+    AppendCppTypePrefix(ctx, e->base_type, indentation);
+    SBAppend(ctx->builder, " %s", e->base.fully_qualified_c_name);
+    AppendCppTypePostfix(ctx, e->base_type, indentation);
+    SBAppendString(ctx->builder, ";\n");
 
-    SBAppendIndentation(builder, indentation);
-    AppendCppEnum(builder, e, indentation);
-    SBAppendString(builder, ";\n\n");
+    SBAppendIndentation(ctx->builder, indentation);
+    AppendCppEnum(ctx, e, indentation);
+    SBAppendString(ctx->builder, ";\n\n");
 }
 
-void AppendCppAggregate(StringBuilder *builder, CppAggregate *aggr, int indentation) {
+void AppendCppAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation) {
     if (aggr->kind == CppAggregate_Union) {
-        SBAppend(builder, "union");
+        SBAppend(ctx->builder, "union");
     } else {
-        SBAppend(builder, "struct");
+        SBAppend(ctx->builder, "struct");
     }
 
     if (aggr->base.fully_qualified_c_name) {
-        SBAppend(builder, " %s", aggr->base.fully_qualified_c_name);
+        SBAppend(ctx->builder, " %s", aggr->base.fully_qualified_c_name);
     }
 
-    SBAppendString(builder, " {\n");
+    SBAppendString(ctx->builder, " {\n");
 
     foreach (i, aggr->base_classes) {
         CppBaseClass *base = ArrayGet(aggr->base_classes, i);
@@ -154,74 +181,66 @@ void AppendCppAggregate(StringBuilder *builder, CppAggregate *aggr, int indentat
 
         // Inherited base classes with no fields size 0 because of EBO, so don't include them
         if (base_aggr && base_aggr->fields.count == 0) {
-            SBAppendIndentation(builder, indentation + 1);
-            SBAppendString(builder, "// ");
-            AppendCppType(builder, base->type, indentation + 1);
-            SBAppendString(builder, " base class has size 0, so it is not included\n");
+            SBAppendIndentation(ctx->builder, indentation + 1);
+            SBAppendString(ctx->builder, "// ");
+            AppendCppType(ctx, base->type, indentation + 1);
+            SBAppendString(ctx->builder, " base class has size 0, so it is not included\n");
         } else {
-            SBAppendIndentation(builder, indentation + 1);
-            AppendCppTypePrefix(builder, base->type, indentation + 1);
+            SBAppendIndentation(ctx->builder, indentation + 1);
+            AppendCppTypePrefix(ctx, base->type, indentation + 1);
 
             if (aggr->base_classes.count == 1) {
-                SBAppendString(builder, " base");
+                SBAppendString(ctx->builder, " base");
             } else if (base->type->kind == CppType_Named && base->type->type_named.entity != NULL) {
-                SBAppend(builder, " base%s", base->type->type_named.entity->name);
+                SBAppend(ctx->builder, " base%s", base->type->type_named.entity->name);
             } else {
-                SBAppend(builder, " base%d", i);
+                SBAppend(ctx->builder, " base%d", i);
             }
 
-            AppendCppTypePostfix(builder, base->type, indentation + 1);
-            SBAppendString(builder, ";\n");
+            AppendCppTypePostfix(ctx, base->type, indentation + 1);
+            SBAppendString(ctx->builder, ";\n");
         }
     }
 
     foreach (i, aggr->fields) {
         if (i == 0 && aggr->base_classes.count > 0) {
-            SBAppendString(builder, "\n");
+            SBAppendString(ctx->builder, "\n");
         }
 
         CppVariable *var = ArrayGet(aggr->fields, i);
 
-        SBAppendIndentation(builder, indentation + 1);
-        AppendCppTypePrefix(builder, var->type, indentation + 1);
+        SBAppendIndentation(ctx->builder, indentation + 1);
+        AppendCppTypePrefix(ctx, var->type, indentation + 1);
         if (var->base.name && var->base.name[0]) {
-            SBAppend(builder, " %s", var->base.name);
+            SBAppend(ctx->builder, " %s", var->base.name);
         }
-        AppendCppTypePostfix(builder, var->type, indentation + 1);
-        SBAppendString(builder, ";\n");
+        AppendCppTypePostfix(ctx, var->type, indentation + 1);
+        SBAppendString(ctx->builder, ";\n");
     }
 
-    SBAppendIndentation(builder, indentation);
-    SBAppendString(builder, "}");
+    SBAppendIndentation(ctx->builder, indentation);
+    SBAppendString(ctx->builder, "}");
 }
 
-void AppendCppAggregateForwardDecl(StringBuilder *builder, CppAggregate *aggr) {
+void AppendCppAggregateForwardDecl(GenerateContext *ctx, CppAggregate *aggr) {
     switch (aggr->kind) {
         case CppAggregate_Class:
         case CppAggregate_Struct: {
-            SBAppendString(builder, "struct");
+            SBAppendString(ctx->builder, "struct");
         } break;
         case CppAggregate_Union: {
-            SBAppendString(builder, "union");
+            SBAppendString(ctx->builder, "union");
         } break;
     }
 
-    SBAppend(builder, " %s;\n", aggr->base.fully_qualified_c_name);
-}
-
-static
-bool ShouldExclude(GenerateOptions options, const char *entity_name) {
-    foreach (i, options.declarations_to_exclude) {
-        const char *name = ArrayGet(options.declarations_to_exclude, i);
-        if (StrEq(entity_name, name)) {
-            return true;
-        }
-    }
-
-    return false;
+    SBAppend(ctx->builder, " %s;\n", aggr->base.fully_qualified_c_name);
 }
 
 void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *db) {
+    GenerateContext ctx = {};
+    ctx.options = options;
+    ctx.builder = builder;
+
     SBAppendString(builder, "// This file was autogenerated by parsing the C++ headers using libclang\n\n");
 
     SBAppendString(builder, "#include <stddef.h>\n");
@@ -249,7 +268,7 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
             continue;
         }
 
-        AppendCppAggregateForwardDecl(builder, aggr);
+        AppendCppAggregateForwardDecl(&ctx, aggr);
     }
 
     SBAppendString(builder, "\n// Enums\n\n");
@@ -266,10 +285,10 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
         }
 
         SBAppendString(builder, "// ");
-        AppendCppSourceCodeLocation(builder, GetStartLocation(e->base.source_code_range));
+        AppendCppSourceCodeLocation(&ctx, GetStartLocation(e->base.source_code_range));
         SBAppendString(builder, "\n");
 
-        AppendCppEnumDecl(builder, e, 0);
+        AppendCppEnumDecl(&ctx, e, 0);
     }
 
     SBAppendString(builder, "\n");
@@ -292,25 +311,29 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
                 }
 
                 SBAppendString(builder, "// ");
-                AppendCppSourceCodeLocation(builder, GetStartLocation(entity->source_code_range));
+                AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
                 SBAppendString(builder, "\n");
 
                 SBAppendString(builder, "typedef ");
-                AppendCppAggregate(builder, aggr, 0);
+                AppendCppAggregate(&ctx, aggr, 0);
                 SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
             } break;
 
             case CppEntity_Typedef: {
                 CppTypedef *ty = (CppTypedef *)entity;
 
+                if (ShouldUnwrap(options, ty->base.fully_qualified_name)) {
+                    continue;
+                }
+
                 SBAppendString(builder, "// ");
-                AppendCppSourceCodeLocation(builder, GetStartLocation(entity->source_code_range));
+                AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
                 SBAppendString(builder, "\n");
 
                 SBAppendString(builder, "typedef ");
-                AppendCppTypePrefix(builder, ty->type, 0);
+                AppendCppTypePrefix(&ctx, ty->type, 0);
                 SBAppend(builder, " %s", ty->base.fully_qualified_c_name);
-                AppendCppTypePostfix(builder, ty->type, 0);
+                AppendCppTypePostfix(&ctx, ty->type, 0);
                 SBAppend(builder, ";\n\n");
             } break;
         }

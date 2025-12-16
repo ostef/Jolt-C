@@ -100,7 +100,31 @@ void ArrayOrderedInsert(Array *array, void *elem, int64_t index) {
 }
 
 static
-void ArraySortHelper(Array *array, int64_t left, int64_t right, int (*compare)(void *a, void *b)) {
+int64_t ArrayFindFirst(Array array, const void *elem) {
+    foreach (i, array) {
+        void *e = ArrayGet(array, i);
+        if (e == elem) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+static
+int64_t ArrayFindFirstPredicate(Array array, const void *elem, bool (*compare)(const void *, const void*)) {
+    foreach (i, array) {
+        void *e = ArrayGet(array, i);
+        if (compare(e, elem)) {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+static
+void ArraySortHelper(Array *array, int64_t left, int64_t right, int (*compare)(const void *a, const void *b)) {
     if (left < 0 || right <= left) {
         return;
     }
@@ -135,7 +159,7 @@ void ArraySortHelper(Array *array, int64_t left, int64_t right, int (*compare)(v
 }
 
 static inline
-void ArraySort(Array *array, int (*compare)(void *a, void *b)) {
+void ArraySort(Array *array, int (*compare)(const void *a, const void *b)) {
     if (array->count < 2) {
         return;
     }
@@ -143,15 +167,15 @@ void ArraySort(Array *array, int (*compare)(void *a, void *b)) {
     ArraySortHelper(array, 0, array->count - 1, compare);
 }
 
-typedef uint64_t (*HashMapHashFunc)(void *ptr);
-typedef bool (*HashMapCompareFunc)(void *a, void *b);
+typedef uint64_t (*HashMapHashFunc)(const void *ptr);
+typedef bool (*HashMapCompareFunc)(const void *a, const void *b);
 
 // FNV-1a hash: http://www.isthe.com/chongo/tech/comp/fnv/index.html
 #define FNV_64_Prime       0x100000001b3
 #define FNV_64_Offset_Bias 0xcbf29ce484222325
 
 static
-uint64_t Fnv1aHashBase(void *ptr, int64_t size, uint64_t hash) {
+uint64_t Fnv1aHashBase(const void *ptr, int64_t size, uint64_t hash) {
     int64_t i = 0;
     while (i < size) {
         hash ^= (uint64_t)(((char *)ptr)[i]);
@@ -163,7 +187,7 @@ uint64_t Fnv1aHashBase(void *ptr, int64_t size, uint64_t hash) {
 }
 
 static inline
-uint64_t Fnv1aHash(void *ptr, int64_t size) {
+uint64_t Fnv1aHash(const void *ptr, int64_t size) {
     return Fnv1aHashBase(ptr, size, FNV_64_Offset_Bias);
 }
 
@@ -171,7 +195,7 @@ uint64_t Fnv1aHash(void *ptr, int64_t size) {
 #define Fnv1aHashBaseT(val, hash) Fnv1aHashBase(&(val), sizeof(val), hash)
 
 static
-uint64_t HashStringBase(char *str, uint64_t hash) {
+uint64_t HashStringBase(const char *str, uint64_t hash) {
     int64_t i = 0;
     while (str[i]) {
         hash ^= (uint64_t)(str[i]);
@@ -183,7 +207,7 @@ uint64_t HashStringBase(char *str, uint64_t hash) {
 }
 
 static inline
-uint64_t HashString(char *str) {
+uint64_t HashString(const char *str) {
     return HashStringBase(str, FNV_64_Offset_Bias);
 }
 
@@ -451,12 +475,12 @@ bool StrEndsWith(const char *a, const char *b) {
 }
 
 static inline
-uint64_t StringHashFunc(void *str) {
+uint64_t StringHashFunc(const void *str) {
     return HashString(str);
 }
 
 static inline
-bool StringCompareFunc(void *a, void *b) {
+bool StringCompareFunc(const void *a, const void *b) {
     return StrEq(a, b);
 }
 

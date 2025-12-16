@@ -5,14 +5,20 @@
 
 typedef struct GenerateOptions {
     Array declarations_to_exclude;
+    Array typedefs_to_unwrap;
 } GenerateOptions;
 
-void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation);
-void AppendCppTypePostfix(StringBuilder *builder, CppType *type, int indentation);
-void AppendCppType(StringBuilder *builder, CppType *type, int indentation);
-void AppendCppEnum(StringBuilder *builder, CppEnum *e, int indentation);
-void AppendCppEnumDecl(StringBuilder *builder, CppEnum *e, int indentation);
-void AppendCppAggregate(StringBuilder *builder, CppAggregate *aggr, int indentation);
+typedef struct GenerateContext {
+    GenerateOptions options;
+    StringBuilder *builder;
+} GenerateContext;
+
+void AppendCppTypePrefix(GenerateContext *ctx, CppType *type, int indentation);
+void AppendCppTypePostfix(GenerateContext *ctx, CppType *type, int indentation);
+void AppendCppType(GenerateContext *ctx, CppType *type, int indentation);
+void AppendCppEnum(GenerateContext *ctx, CppEnum *e, int indentation);
+void AppendCppEnumDecl(GenerateContext *ctx, CppEnum *e, int indentation);
+void AppendCppAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation);
 
 void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *db);
 
