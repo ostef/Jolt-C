@@ -24,6 +24,9 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(OBJ_DIR)/%.d Makefile | $(OBJ_DIR)
 $(OBJ_DIR):
 	@ mkdir $@
 
+explore: Source/explore.c Source/Core.h
+	$(CC) $(C_FLAGS) $(addprefix -L,$(LIB_DIRS)) $< $(addprefix -l,$(LIBS)) -o $@
+
 $(addprefix $(OBJ_DIR)/,$(DEP_FILES)):
 
 include $(addprefix $(OBJ_DIR)/,$(DEP_FILES))
