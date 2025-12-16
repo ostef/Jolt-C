@@ -92,9 +92,12 @@ int main() {
 ```
 The advantage with using this method is that we do not have to respect the ABI of the C++ compiler that was used to compile Jolt, while still allowing us to implement the interface from C land. Another big advantage is that it is straightforward to implement and can be generated automatically. One disadvantage of this method is its verbosity, and it's inclination to make even seemingly simple structures opaque (e.g. Settings structs).
 
-### Classes with vtables that contain fields
+## Opaque classes that contain fields
 For these type of classes, we could provide functions to access and modify their fields individually, but another maybe more convenient alternative would be to provide a function to access a direct pointer to the plain data of the class. For example:
 ```c
+// Opaque because of vtables and such
+typedef struct JPH_ConstraintSettings JPH_ConstraintSettings;
+
 typedef struct JPH_ConstraintSettingsData {
     bool mEnabled;
 	uint32_t mConstraintPriority;
@@ -103,9 +106,6 @@ typedef struct JPH_ConstraintSettingsData {
 	float mDrawConstraintSize;
 	uint64_t mUserData;
 } JPH_ConstraintSettingsData;
-
-// Opaque
-typedef struct JPH_ConstraintSettings JPH_ConstraintSettings;
 
 JPH_ConstraintSettingsData *JPH_ConstraintSettings_GetData(JPH_ConstraintSettings *settings);
 ```
@@ -123,6 +123,45 @@ JPH_ConstraintSettingsData *JPH_ConstraintSettings_GetData(JPH_ConstraintSetting
 }
 ```
 We must be careful about alignment rules though!
+
+A more complex example:
+```c
+typedef struct JPH_TwoBodyConeConstraintSettings JPH_TwoBodyConeConstraintSettings;
+
+JPH_ConstraintSettings *JPH_TwoBodyConeConstraintSettings_GetBaseConstraintSettings(JPH_TwoBodyConeConstraintSettings *settings);
+// Less verbose alternative, since there is only one base class:
+JPH_ConstraintSettings *JPH_TwoBodyConeConstraintSettings_GetBase(JPH_TwoBodyConeConstraintSettings *settings);
+
+typedef struct JPH_ConeConstraintSettings JPH_ConeConstraintSettings;
+
+typedef struct JPH_ConeConstraintSettingsData {
+	JPH_EConstraintSpace mSpace;
+	JPH_RVec3 mPoint1;
+	JPH_Vec3 mTwistAxis1;
+	JPH_RVec3 mPoint2;
+	JPH_Vec3 mTwistAxis2;
+	float mHalfConeAngle;
+} JPH_ConeConstraintSettingsData;
+
+JPH_ConeConstraintSettingsData *JPH_ConeConstraintSettings_GetData(JPH_ConeConstraintSettings *settings);
+
+JPH_TwoBodyConstraintSettings *JPH_ConeConstraintSettings_GetBase(JPH_ConeConstraintSettings *settings);
+
+// Would look like this:
+void DoSomeConstraintStuff() {
+    JPH_ConeConstraintSettings *settings = JPH_ConeConstraintSettings_New();
+    JPH_ConeConstraintSettingsData *data = JPH_ConeConstraintSettings_GetData(settings);
+    data->mSpace = JPH_EConstraintSpace_WorldSpace;
+    data->mPoint1 = {0,0,0};
+    data->mHalfConeAngle = JPH_PI * 0.2;
+
+    JPH_ConstraintSettings *base_settings = JPH_TwoBodyConstraintSettings_GetBase(JPH_ConeConstraintSettings_GetBase(settings));
+    JPH_ConstraintSettingsData *base_data = JPH_ConstraintSettings_GetData(base_settings);
+    base_data->mEnabled = true;
+    base_data->mDrawConstraintSize = 1.3;
+}
+```
+It is very verbose, but I think we can reduce this verbosity by providing convenience functions where it makes sense as well as, for bindings to higher level languages of this C interface, use methods, namespacing or other convenient language specific features.
 
 ## Templates
 A very important consideration when making C bindings for Jolt is the heavy usage of templates. I am not sure what the strategy should be for templates; I think we need a per case solution. A fallback to the brute force approach could work for certain templates: gather all template instantiations and generate code for each of them. The thing to consider with this approach is how we handle template arguments of non obvious types (e.g. **Array<StridedPtr<RefTarget<Body> > >**)
