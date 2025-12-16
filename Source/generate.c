@@ -16,6 +16,12 @@ bool ShouldPrintSpaceAfterType(CppType *type) {
     return type->kind != CppType_Pointer && type->kind != CppType_Reference;
 }
 
+// @Todo: make sure types that contain opaque types are also treated as opaque (apart from 0 size base classes)
+static
+bool ShouldBeOpaque(CppAggregate *aggr) {
+    return aggr->virtual_methods.count > 0 || aggr->fields.count == 0 || aggr->type->size == 0;
+}
+
 static inline
 void SBAppendIndentation(StringBuilder *builder, int indentation) {
     for (int i = 0; i < indentation; i += 1) {
@@ -190,6 +196,10 @@ void AppendCppAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentatio
         SBAppend(ctx->builder, " %s", aggr->base.fully_qualified_c_name);
     }
 
+    if (ShouldBeOpaque(aggr)) {
+        return;
+    }
+
     SBAppendString(ctx->builder, " {\n");
 
     foreach (i, aggr->base_classes) {
@@ -201,8 +211,8 @@ void AppendCppAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentatio
             base_aggr = (CppAggregate *)base->type->type_named.entity;
         }
 
-        // Inherited base classes with no fields size 0 because of EBO, so don't include them
-        if (base_aggr && base_aggr->fields.count == 0) {
+        // Inherited base classes with no fields and no vtable has size 0 because of EBO, so don't include them
+        if (base_aggr && base_aggr->fields.count == 0 && base_aggr->virtual_methods.count == 0) {
             SBAppendIndentation(ctx->builder, indentation + 1);
             SBAppendString(ctx->builder, "// ");
             AppendCppType(ctx, base->type, indentation + 1);
@@ -355,9 +365,8 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
 
                 if (aggr->flags & CppAggregateFlag_Abstract) {
                     SBAppendString(builder, "// Abstract\n");
-                }
-                if (aggr->virtual_methods.count > 0) {
-                    SBAppendString(builder, "// Has vtable type\n");
+                } else if (aggr->virtual_methods.count > 0) {
+                    SBAppendString(builder, "// Has vtable\n");
                 }
                 SBAppendString(builder, "typedef ");
                 AppendCppAggregate(&ctx, aggr, 0);

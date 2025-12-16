@@ -203,6 +203,8 @@ CppAggregate *ParseCppAggregate(CppParseContext *ctx, CXCursor cursor) {
         PushCppEntity(ctx->db, ctx->parent_entity, &aggr->base);
     }
 
+    aggr->type = GetCppType(ctx->db, clang_getCursorType(cursor));
+
     VisitRecurse(cursor, AggregateVisitor, ctx, &aggr->base);
 
     return aggr;

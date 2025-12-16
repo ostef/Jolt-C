@@ -254,6 +254,7 @@ enum {
 typedef struct CppAggregate {
     CppEntity base;
     CppAggregateFlags flags;
+    CppType *type;
     Array fields;
     Array virtual_methods;
     Array entities;

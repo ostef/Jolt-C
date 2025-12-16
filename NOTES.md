@@ -90,7 +90,39 @@ int main() {
     DoSomethingWithIFoo(MyFooToIFoo(&my_foo));
 }
 ```
-The advantage with using this method is that we do not have to respect the ABI of the C++ compiler that was used to compile Jolt, while still allowing us to implement the interface from C land. Another big advantage is that it is straightforward to implement and can be generated automatically. One disadvantage of this method is its verbosity.
+The advantage with using this method is that we do not have to respect the ABI of the C++ compiler that was used to compile Jolt, while still allowing us to implement the interface from C land. Another big advantage is that it is straightforward to implement and can be generated automatically. One disadvantage of this method is its verbosity, and it's inclination to make even seemingly simple structures opaque (e.g. Settings structs).
+
+### Classes with vtables that contain fields
+For these type of classes, we could provide functions to access and modify their fields individually, but another maybe more convenient alternative would be to provide a function to access a direct pointer to the plain data of the class. For example:
+```c
+typedef struct JPH_ConstraintSettingsData {
+    bool mEnabled;
+	uint32_t mConstraintPriority;
+	uint32_t mNumVelocityStepsOverride;
+	uint32_t mNumPositionStepsOverride;
+	float mDrawConstraintSize;
+	uint64_t mUserData;
+} JPH_ConstraintSettingsData;
+
+// Opaque
+typedef struct JPH_ConstraintSettings JPH_ConstraintSettings;
+
+JPH_ConstraintSettingsData *JPH_ConstraintSettings_GetData(JPH_ConstraintSettings *settings);
+```
+
+C++:
+```c++
+extern "C" {
+
+JPH_ConstraintSettingsData *JPH_ConstraintSettings_GetData(JPH_ConstraintSettings *settings) {
+    const uint64_t offset = /* Auto-generated */;
+    uint8_t *untyped = reinterpret_cast<uint8_t *>(settings);
+    return reinterpret_cast<JPH_ConstraintSettingsData *>(untyped + offset);
+}
+
+}
+```
+We must be careful about alignment rules though!
 
 ## Templates
 A very important consideration when making C bindings for Jolt is the heavy usage of templates. I am not sure what the strategy should be for templates; I think we need a per case solution. A fallback to the brute force approach could work for certain templates: gather all template instantiations and generate code for each of them. The thing to consider with this approach is how we handle template arguments of non obvious types (e.g. **Array<StridedPtr<RefTarget<Body> > >**)
