@@ -137,9 +137,15 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
         entity->fully_qualified_name = entity->name;
         entity->fully_qualified_c_name = entity->name;
     }
+
+    for (int i = 0; entity->fully_qualified_c_name[i]; i += 1) {
+        if (entity->fully_qualified_c_name[i] == ' ') {
+            entity->fully_qualified_c_name[i] = '_';
+        }
+    }
 }
 
-CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, const char *name) {
+CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name) {
     foreach (i, db->all_namespaces) {
         CppNamespace *ns = ArrayGet(db->all_namespaces, i);
         if (ns->base.parent == parent && StrEq(ns->base.name, name)) {

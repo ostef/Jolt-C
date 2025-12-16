@@ -217,9 +217,9 @@ typedef struct CppEntity {
     CppSourceCodeRange source_code_range;
     struct CppEntity *parent;
     const char *comment;
-    const char *name;
-    const char *fully_qualified_name;
-    const char *fully_qualified_c_name;
+    char *name;
+    char *fully_qualified_name;
+    char *fully_qualified_c_name;
 } CppEntity;
 
 typedef struct CppNamespace {
@@ -307,7 +307,8 @@ enum {
 typedef struct CppFunction {
     CppEntity base;
     CppFunctionFlags flags;
-    CppType *result;
+    CppType *type;
+    CppType *result_type;
     Array parameters;
 } CppFunction;
 
@@ -318,6 +319,6 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity);
 CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
 #define AllocCppEntity(kind, cursor) ((Cpp##kind *)AllocCppEntityOfKind(CppEntity_##kind, sizeof(Cpp##kind), (cursor)))
 
-CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, const char *name);
+CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name);
 
 #endif

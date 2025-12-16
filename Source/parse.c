@@ -109,6 +109,23 @@ enum CXChildVisitResult EnumVisitor(CXCursor cursor, CXCursor parent, CXClientDa
 }
 
 static
+enum CXChildVisitResult FunctionVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data) {
+    VISITOR_PREAMBLE();
+
+    CppFunction *func = (CppFunction *)ctx->parent_entity;
+
+    // printf("%s(%d) %s\n", clang_getCString(clang_getCursorKindSpelling(kind)), kind, clang_getCString(clang_getCursorSpelling(cursor)));
+    switch (kind) {
+        case CXCursor_ParmDecl: {
+            CppVariable *var = ParseCppVariable(ctx, cursor);
+            ArrayPush(&func->parameters, var);
+        } break;
+    }
+
+    return CXChildVisit_Continue;
+}
+
+static
 enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data) {
     VISITOR_PREAMBLE();
 
@@ -241,15 +258,26 @@ CppFunction *ParseCppFunction(CppParseContext *ctx, CXCursor cursor) {
 
     PushCppEntity(ctx->db, ctx->parent_entity, &func->base);
 
+    func->type = GetCppType(ctx->db, clang_getCursorType(cursor));
+    assert(func->type->kind == CppType_Function);
+
+    func->result_type = func->type->type_function.result_type;
+
+    VisitRecurse(cursor, FunctionVisitor, ctx, &func->base);
+
     return func;
 }
 
 CppVariable *ParseCppVariable(CppParseContext *ctx, CXCursor cursor) {
+    enum CXCursorKind kind = clang_getCursorKind(cursor);
     CppVariable *var = AllocCppEntity(Variable, cursor);
     if (clang_Cursor_getStorageClass(cursor) == CX_SC_Static) {
         var->base.flags |= CppEntityFlag_Static;
     }
-    PushCppEntity(ctx->db, ctx->parent_entity, &var->base);
+
+    if (kind != CXCursor_ParmDecl) {
+        PushCppEntity(ctx->db, ctx->parent_entity, &var->base);
+    }
 
     var->type = GetCppType(ctx->db, clang_getCursorType(cursor));
 

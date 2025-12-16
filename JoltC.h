@@ -1055,6 +1055,25 @@ typedef struct JPH_Float4 {
     float w;
 } JPH_Float4;
 
+void *JPH_Float4_operator_new(size_t inCount);
+void JPH_Float4_operator_delete(void *inPointer);
+void *JPH_Float4_operator_new[](size_t inCount);
+void JPH_Float4_operator_delete[](void *inPointer);
+void *JPH_Float4_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Float4_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Float4_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Float4_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Float4_operator_new(size_t inCount, void *inPointer);
+void JPH_Float4_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Float4_operator_new[](size_t inCount, void *inPointer);
+void JPH_Float4_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Float4_Float4();
+void JPH_Float4_Float4(JPH_Float4 *inRHS);
+void JPH_Float4_Float4(float inX, float inY, float inZ, float inW);
+JPH_Float4 *JPH_Float4_operator=(JPH_Float4 *inRHS);
+float JPH_Float4_operator[](int32_t inCoordinate);
+bool JPH_Float4_operator==(JPH_Float4 *inRHS);
+bool JPH_Float4_operator!=(JPH_Float4 *inRHS);
 // JoltPhysics/Jolt/Math/MathTypes.h:19:1
 typedef < ? named (size=16, align=16)> JPH_Vec3Arg;
 
@@ -1090,6 +1109,108 @@ typedef struct JPH_Vec4 {
     };
 } JPH_Vec4;
 
+void *JPH_Vec4_operator_new(size_t inCount);
+void JPH_Vec4_operator_delete(void *inPointer);
+void *JPH_Vec4_operator_new[](size_t inCount);
+void JPH_Vec4_operator_delete[](void *inPointer);
+void *JPH_Vec4_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Vec4_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Vec4_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Vec4_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Vec4_operator_new(size_t inCount, void *inPointer);
+void JPH_Vec4_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Vec4_operator_new[](size_t inCount, void *inPointer);
+void JPH_Vec4_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Vec4_Vec4();
+void JPH_Vec4_Vec4(JPH_Vec4 *inRHS);
+JPH_Vec4 *JPH_Vec4_operator=(JPH_Vec4 *inRHS);
+void JPH_Vec4_Vec4(JPH_Vec3Arg inRHS);
+void JPH_Vec4_Vec4(JPH_Vec3Arg inRHS, float inW);
+void JPH_Vec4_Vec4(JPH_Vec4_Type inRHS);
+void JPH_Vec4_Vec4(float inX, float inY, float inZ, float inW);
+JPH_Vec4 JPH_Vec4_sZero();
+JPH_Vec4 JPH_Vec4_sOne();
+JPH_Vec4 JPH_Vec4_sNaN();
+JPH_Vec4 JPH_Vec4_sReplicate(float inV);
+JPH_Vec4 JPH_Vec4_sLoadFloat4(JPH_Float4 *inV);
+JPH_Vec4 JPH_Vec4_sLoadFloat4Aligned(JPH_Float4 *inV);
+JPH_Vec4 JPH_Vec4_sMin(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_sMax(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_sClamp(JPH_Vec4Arg inV, JPH_Vec4Arg inMin, JPH_Vec4Arg inMax);
+< ? named (size=16, align=16)> JPH_Vec4_sEquals(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec4_sLess(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec4_sLessOrEqual(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec4_sGreater(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec4_sGreaterOrEqual(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_sFusedMultiplyAdd(JPH_Vec4Arg inMul1, JPH_Vec4Arg inMul2, JPH_Vec4Arg inAdd);
+JPH_Vec4 JPH_Vec4_sSelect(JPH_Vec4Arg inNotSet, JPH_Vec4Arg inSet, JPH_UVec4Arg inControl);
+JPH_Vec4 JPH_Vec4_sOr(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_sXor(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_sAnd(JPH_Vec4Arg inV1, JPH_Vec4Arg inV2);
+void JPH_Vec4_sSort4(JPH_Vec4 *ioValue, < ? named (size=16, align=16)> *ioIndex);
+void JPH_Vec4_sSort4Reverse(JPH_Vec4 *ioValue, < ? named (size=16, align=16)> *ioIndex);
+float JPH_Vec4_GetX();
+float JPH_Vec4_GetY();
+float JPH_Vec4_GetZ();
+float JPH_Vec4_GetW();
+void JPH_Vec4_SetX(float inX);
+void JPH_Vec4_SetY(float inY);
+void JPH_Vec4_SetZ(float inZ);
+void JPH_Vec4_SetW(float inW);
+void JPH_Vec4_Set(float inX, float inY, float inZ, float inW);
+float JPH_Vec4_operator[](uint32_t inCoordinate);
+float *JPH_Vec4_operator[](uint32_t inCoordinate);
+bool JPH_Vec4_operator==(JPH_Vec4Arg inV2);
+bool JPH_Vec4_operator!=(JPH_Vec4Arg inV2);
+bool JPH_Vec4_IsClose(JPH_Vec4Arg inV2, float inMaxDistSq);
+bool JPH_Vec4_IsNearZero(float inMaxDistSq);
+bool JPH_Vec4_IsNormalized(float inTolerance);
+bool JPH_Vec4_IsNaN();
+JPH_Vec4 JPH_Vec4_operator*(JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_operator*(float inV2);
+JPH_Vec4 JPH_Vec4_operator/(float inV2);
+JPH_Vec4 *JPH_Vec4_operator*=(float inV2);
+JPH_Vec4 *JPH_Vec4_operator*=(JPH_Vec4Arg inV2);
+JPH_Vec4 *JPH_Vec4_operator/=(float inV2);
+JPH_Vec4 JPH_Vec4_operator+(JPH_Vec4Arg inV2);
+JPH_Vec4 *JPH_Vec4_operator+=(JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_operator-();
+JPH_Vec4 JPH_Vec4_operator-(JPH_Vec4Arg inV2);
+JPH_Vec4 *JPH_Vec4_operator-=(JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_operator/(JPH_Vec4Arg inV2);
+JPH_Vec4 JPH_Vec4_SplatX();
+JPH_Vec4 JPH_Vec4_SplatY();
+JPH_Vec4 JPH_Vec4_SplatZ();
+JPH_Vec4 JPH_Vec4_SplatW();
+< ? named (size=16, align=16)> JPH_Vec4_SplatX3();
+< ? named (size=16, align=16)> JPH_Vec4_SplatY3();
+< ? named (size=16, align=16)> JPH_Vec4_SplatZ3();
+< ? named (size=16, align=16)> JPH_Vec4_SplatW3();
+int32_t JPH_Vec4_GetLowestComponentIndex();
+int32_t JPH_Vec4_GetHighestComponentIndex();
+JPH_Vec4 JPH_Vec4_Abs();
+JPH_Vec4 JPH_Vec4_Reciprocal();
+JPH_Vec4 JPH_Vec4_DotV(JPH_Vec4Arg inV2);
+float JPH_Vec4_Dot(JPH_Vec4Arg inV2);
+float JPH_Vec4_LengthSq();
+float JPH_Vec4_Length();
+JPH_Vec4 JPH_Vec4_Normalized();
+void JPH_Vec4_StoreFloat4(JPH_Float4 *outV);
+< ? named (size=16, align=16)> JPH_Vec4_ToInt();
+< ? named (size=16, align=16)> JPH_Vec4_ReinterpretAsInt();
+int32_t JPH_Vec4_GetSignBits();
+float JPH_Vec4_ReduceMin();
+float JPH_Vec4_ReduceMax();
+JPH_Vec4 JPH_Vec4_Sqrt();
+JPH_Vec4 JPH_Vec4_GetSign();
+void JPH_Vec4_SinCos(JPH_Vec4 *outSin, JPH_Vec4 *outCos);
+JPH_Vec4 JPH_Vec4_Tan();
+JPH_Vec4 JPH_Vec4_ASin();
+JPH_Vec4 JPH_Vec4_ACos();
+JPH_Vec4 JPH_Vec4_ATan();
+JPH_Vec4 JPH_Vec4_sATan2(JPH_Vec4Arg inY, JPH_Vec4Arg inX);
+uint32_t JPH_Vec4_CompressUnitVector();
+JPH_Vec4 JPH_Vec4_sDecompressUnitVector(uint32_t inValue);
 // JoltPhysics/Jolt/Math/Float3.h:12:1
 typedef struct JPH_Float3 {
     float x;
@@ -1097,6 +1218,25 @@ typedef struct JPH_Float3 {
     float z;
 } JPH_Float3;
 
+void *JPH_Float3_operator_new(size_t inCount);
+void JPH_Float3_operator_delete(void *inPointer);
+void *JPH_Float3_operator_new[](size_t inCount);
+void JPH_Float3_operator_delete[](void *inPointer);
+void *JPH_Float3_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Float3_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Float3_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Float3_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Float3_operator_new(size_t inCount, void *inPointer);
+void JPH_Float3_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Float3_operator_new[](size_t inCount, void *inPointer);
+void JPH_Float3_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Float3_Float3();
+void JPH_Float3_Float3(JPH_Float3 *inRHS);
+JPH_Float3 *JPH_Float3_operator=(JPH_Float3 *inRHS);
+void JPH_Float3_Float3(float inX, float inY, float inZ);
+float JPH_Float3_operator[](int32_t inCoordinate);
+bool JPH_Float3_operator==(JPH_Float3 *inRHS);
+bool JPH_Float3_operator!=(JPH_Float3 *inRHS);
 // JoltPhysics/Jolt/Math/Float3.h:43:1
 typedef < ? named (size=24, align=8)> JPH_VertexList;
 
@@ -1114,6 +1254,101 @@ typedef struct JPH_Vec3 {
     };
 } JPH_Vec3;
 
+void *JPH_Vec3_operator_new(size_t inCount);
+void JPH_Vec3_operator_delete(void *inPointer);
+void *JPH_Vec3_operator_new[](size_t inCount);
+void JPH_Vec3_operator_delete[](void *inPointer);
+void *JPH_Vec3_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Vec3_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Vec3_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Vec3_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Vec3_operator_new(size_t inCount, void *inPointer);
+void JPH_Vec3_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Vec3_operator_new[](size_t inCount, void *inPointer);
+void JPH_Vec3_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Vec3_Vec3();
+void JPH_Vec3_Vec3(JPH_Vec3 *inRHS);
+JPH_Vec3 *JPH_Vec3_operator=(JPH_Vec3 *inRHS);
+void JPH_Vec3_Vec3(JPH_Vec4Arg inRHS);
+void JPH_Vec3_Vec3(JPH_Vec3_Type inRHS);
+void JPH_Vec3_Vec3(JPH_Float3 *inV);
+void JPH_Vec3_Vec3(float inX, float inY, float inZ);
+JPH_Vec3 JPH_Vec3_sZero();
+JPH_Vec3 JPH_Vec3_sOne();
+JPH_Vec3 JPH_Vec3_sNaN();
+JPH_Vec3 JPH_Vec3_sAxisX();
+JPH_Vec3 JPH_Vec3_sAxisY();
+JPH_Vec3 JPH_Vec3_sAxisZ();
+JPH_Vec3 JPH_Vec3_sReplicate(float inV);
+JPH_Vec3 JPH_Vec3_sLoadFloat3Unsafe(JPH_Float3 *inV);
+JPH_Vec3 JPH_Vec3_sMin(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_sMax(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_sClamp(JPH_Vec3Arg inV, JPH_Vec3Arg inMin, JPH_Vec3Arg inMax);
+< ? named (size=16, align=16)> JPH_Vec3_sEquals(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec3_sLess(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec3_sLessOrEqual(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec3_sGreater(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+< ? named (size=16, align=16)> JPH_Vec3_sGreaterOrEqual(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_sFusedMultiplyAdd(JPH_Vec3Arg inMul1, JPH_Vec3Arg inMul2, JPH_Vec3Arg inAdd);
+JPH_Vec3 JPH_Vec3_sSelect(JPH_Vec3Arg inNotSet, JPH_Vec3Arg inSet, JPH_UVec4Arg inControl);
+JPH_Vec3 JPH_Vec3_sOr(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_sXor(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_sAnd(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_sUnitSpherical(float inTheta, float inPhi);
+float JPH_Vec3_GetX();
+float JPH_Vec3_GetY();
+float JPH_Vec3_GetZ();
+void JPH_Vec3_SetX(float inX);
+void JPH_Vec3_SetY(float inY);
+void JPH_Vec3_SetZ(float inZ);
+void JPH_Vec3_Set(float inX, float inY, float inZ);
+float JPH_Vec3_operator[](uint32_t inCoordinate);
+void JPH_Vec3_SetComponent(uint32_t inCoordinate, float inValue);
+bool JPH_Vec3_operator==(JPH_Vec3Arg inV2);
+bool JPH_Vec3_operator!=(JPH_Vec3Arg inV2);
+bool JPH_Vec3_IsClose(JPH_Vec3Arg inV2, float inMaxDistSq);
+bool JPH_Vec3_IsNearZero(float inMaxDistSq);
+bool JPH_Vec3_IsNormalized(float inTolerance);
+bool JPH_Vec3_IsNaN();
+JPH_Vec3 JPH_Vec3_operator*(JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_operator*(float inV2);
+JPH_Vec3 JPH_Vec3_operator/(float inV2);
+JPH_Vec3 *JPH_Vec3_operator*=(float inV2);
+JPH_Vec3 *JPH_Vec3_operator*=(JPH_Vec3Arg inV2);
+JPH_Vec3 *JPH_Vec3_operator/=(float inV2);
+JPH_Vec3 JPH_Vec3_operator+(JPH_Vec3Arg inV2);
+JPH_Vec3 *JPH_Vec3_operator+=(JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_operator-();
+JPH_Vec3 JPH_Vec3_operator-(JPH_Vec3Arg inV2);
+JPH_Vec3 *JPH_Vec3_operator-=(JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_operator/(JPH_Vec3Arg inV2);
+JPH_Vec4 JPH_Vec3_SplatX();
+JPH_Vec4 JPH_Vec3_SplatY();
+JPH_Vec4 JPH_Vec3_SplatZ();
+int32_t JPH_Vec3_GetLowestComponentIndex();
+int32_t JPH_Vec3_GetHighestComponentIndex();
+JPH_Vec3 JPH_Vec3_Abs();
+JPH_Vec3 JPH_Vec3_Reciprocal();
+JPH_Vec3 JPH_Vec3_Cross(JPH_Vec3Arg inV2);
+JPH_Vec3 JPH_Vec3_DotV(JPH_Vec3Arg inV2);
+JPH_Vec4 JPH_Vec3_DotV4(JPH_Vec3Arg inV2);
+float JPH_Vec3_Dot(JPH_Vec3Arg inV2);
+float JPH_Vec3_LengthSq();
+float JPH_Vec3_Length();
+JPH_Vec3 JPH_Vec3_Normalized();
+JPH_Vec3 JPH_Vec3_NormalizedOr(JPH_Vec3Arg inZeroValue);
+void JPH_Vec3_StoreFloat3(JPH_Float3 *outV);
+< ? named (size=16, align=16)> JPH_Vec3_ToInt();
+< ? named (size=16, align=16)> JPH_Vec3_ReinterpretAsInt();
+float JPH_Vec3_ReduceMin();
+float JPH_Vec3_ReduceMax();
+JPH_Vec3 JPH_Vec3_Sqrt();
+JPH_Vec3 JPH_Vec3_GetNormalizedPerpendicular();
+JPH_Vec3 JPH_Vec3_GetSign();
+uint32_t JPH_Vec3_CompressUnitVector();
+JPH_Vec3 JPH_Vec3_sDecompressUnitVector(uint32_t inValue);
+void JPH_Vec3_CheckW();
+JPH_Vec3_Type JPH_Vec3_sFixW(JPH_Vec3_Type inValue);
 // JoltPhysics/Jolt/Math/UVec4.h:18:2
 typedef < Vector (size=16, align=16)> JPH_UVec4_Type;
 
@@ -1125,6 +1360,77 @@ typedef struct JPH_UVec4 {
     };
 } JPH_UVec4;
 
+void *JPH_UVec4_operator_new(size_t inCount);
+void JPH_UVec4_operator_delete(void *inPointer);
+void *JPH_UVec4_operator_new[](size_t inCount);
+void JPH_UVec4_operator_delete[](void *inPointer);
+void *JPH_UVec4_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_UVec4_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_UVec4_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_UVec4_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_UVec4_operator_new(size_t inCount, void *inPointer);
+void JPH_UVec4_operator_delete(void *inPointer, void *inPlace);
+void *JPH_UVec4_operator_new[](size_t inCount, void *inPointer);
+void JPH_UVec4_operator_delete[](void *inPointer, void *inPlace);
+void JPH_UVec4_UVec4();
+void JPH_UVec4_UVec4(JPH_UVec4 *inRHS);
+JPH_UVec4 *JPH_UVec4_operator=(JPH_UVec4 *inRHS);
+void JPH_UVec4_UVec4(JPH_UVec4_Type inRHS);
+void JPH_UVec4_UVec4(uint32_t inX, uint32_t inY, uint32_t inZ, uint32_t inW);
+bool JPH_UVec4_operator==(JPH_UVec4Arg inV2);
+bool JPH_UVec4_operator!=(JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_sZero();
+JPH_UVec4 JPH_UVec4_sReplicate(uint32_t inV);
+JPH_UVec4 JPH_UVec4_sLoadInt(uint32_t *inV);
+JPH_UVec4 JPH_UVec4_sLoadInt4(uint32_t *inV);
+JPH_UVec4 JPH_UVec4_sLoadInt4Aligned(uint32_t *inV);
+JPH_UVec4 JPH_UVec4_sMin(JPH_UVec4Arg inV1, JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_sMax(JPH_UVec4Arg inV1, JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_sEquals(JPH_UVec4Arg inV1, JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_sSelect(JPH_UVec4Arg inNotSet, JPH_UVec4Arg inSet, JPH_UVec4Arg inControl);
+JPH_UVec4 JPH_UVec4_sOr(JPH_UVec4Arg inV1, JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_sXor(JPH_UVec4Arg inV1, JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_sAnd(JPH_UVec4Arg inV1, JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_sNot(JPH_UVec4Arg inV1);
+JPH_UVec4 JPH_UVec4_sSort4True(JPH_UVec4Arg inValue, JPH_UVec4Arg inIndex);
+uint32_t JPH_UVec4_GetX();
+uint32_t JPH_UVec4_GetY();
+uint32_t JPH_UVec4_GetZ();
+uint32_t JPH_UVec4_GetW();
+void JPH_UVec4_SetX(uint32_t inX);
+void JPH_UVec4_SetY(uint32_t inY);
+void JPH_UVec4_SetZ(uint32_t inZ);
+void JPH_UVec4_SetW(uint32_t inW);
+uint32_t JPH_UVec4_operator[](uint32_t inCoordinate);
+uint32_t *JPH_UVec4_operator[](uint32_t inCoordinate);
+JPH_UVec4 JPH_UVec4_operator*(JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_operator+(JPH_UVec4Arg inV2);
+JPH_UVec4 *JPH_UVec4_operator+=(JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_operator-(JPH_UVec4Arg inV2);
+JPH_UVec4 *JPH_UVec4_operator-=(JPH_UVec4Arg inV2);
+JPH_UVec4 JPH_UVec4_SplatX();
+JPH_UVec4 JPH_UVec4_SplatY();
+JPH_UVec4 JPH_UVec4_SplatZ();
+JPH_UVec4 JPH_UVec4_SplatW();
+JPH_Vec4 JPH_UVec4_ToFloat();
+JPH_Vec4 JPH_UVec4_ReinterpretAsFloat();
+JPH_UVec4 JPH_UVec4_DotV(JPH_UVec4Arg inV2);
+uint32_t JPH_UVec4_Dot(JPH_UVec4Arg inV2);
+void JPH_UVec4_StoreInt4(uint32_t *outV);
+void JPH_UVec4_StoreInt4Aligned(uint32_t *outV);
+bool JPH_UVec4_TestAnyTrue();
+bool JPH_UVec4_TestAnyXYZTrue();
+bool JPH_UVec4_TestAllTrue();
+bool JPH_UVec4_TestAllXYZTrue();
+int32_t JPH_UVec4_CountTrues();
+int32_t JPH_UVec4_GetTrues();
+JPH_UVec4 JPH_UVec4_Expand4Uint16Lo();
+JPH_UVec4 JPH_UVec4_Expand4Uint16Hi();
+JPH_UVec4 JPH_UVec4_Expand4Byte0();
+JPH_UVec4 JPH_UVec4_Expand4Byte4();
+JPH_UVec4 JPH_UVec4_Expand4Byte8();
+JPH_UVec4 JPH_UVec4_Expand4Byte12();
+JPH_UVec4 JPH_UVec4_ShiftComponents4Minus(int32_t inCount);
 // JoltPhysics/Jolt/Math/Mat44.h:18:2
 typedef < Vector (size=16, align=16)> JPH_Mat44_Type;
 
@@ -1136,11 +1442,180 @@ typedef struct JPH_Mat44 {
     JPH_Vec4 mCol[4];
 } JPH_Mat44;
 
+void *JPH_Mat44_operator_new(size_t inCount);
+void JPH_Mat44_operator_delete(void *inPointer);
+void *JPH_Mat44_operator_new[](size_t inCount);
+void JPH_Mat44_operator_delete[](void *inPointer);
+void *JPH_Mat44_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Mat44_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Mat44_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Mat44_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Mat44_operator_new(size_t inCount, void *inPointer);
+void JPH_Mat44_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Mat44_operator_new[](size_t inCount, void *inPointer);
+void JPH_Mat44_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Mat44_Mat44();
+void JPH_Mat44_Mat44(JPH_Vec4Arg inC1, JPH_Vec4Arg inC2, JPH_Vec4Arg inC3, JPH_Vec4Arg inC4);
+void JPH_Mat44_Mat44(JPH_Vec4Arg inC1, JPH_Vec4Arg inC2, JPH_Vec4Arg inC3, JPH_Vec3Arg inC4);
+void JPH_Mat44_Mat44(JPH_Mat44 *inM2);
+JPH_Mat44 *JPH_Mat44_operator=(JPH_Mat44 *inM2);
+void JPH_Mat44_Mat44(JPH_Mat44_Type inC1, JPH_Mat44_Type inC2, JPH_Mat44_Type inC3, JPH_Mat44_Type inC4);
+JPH_Mat44 JPH_Mat44_sZero();
+JPH_Mat44 JPH_Mat44_sIdentity();
+JPH_Mat44 JPH_Mat44_sNaN();
+JPH_Mat44 JPH_Mat44_sLoadFloat4x4(JPH_Float4 *inV);
+JPH_Mat44 JPH_Mat44_sLoadFloat4x4Aligned(JPH_Float4 *inV);
+JPH_Mat44 JPH_Mat44_sRotationX(float inX);
+JPH_Mat44 JPH_Mat44_sRotationY(float inY);
+JPH_Mat44 JPH_Mat44_sRotationZ(float inZ);
+JPH_Mat44 JPH_Mat44_sRotation(JPH_Vec3Arg inAxis, float inAngle);
+JPH_Mat44 JPH_Mat44_sRotation(JPH_QuatArg inQuat);
+JPH_Mat44 JPH_Mat44_sTranslation(JPH_Vec3Arg inV);
+JPH_Mat44 JPH_Mat44_sRotationTranslation(JPH_QuatArg inR, JPH_Vec3Arg inT);
+JPH_Mat44 JPH_Mat44_sInverseRotationTranslation(JPH_QuatArg inR, JPH_Vec3Arg inT);
+JPH_Mat44 JPH_Mat44_sScale(float inScale);
+JPH_Mat44 JPH_Mat44_sScale(JPH_Vec3Arg inV);
+JPH_Mat44 JPH_Mat44_sOuterProduct(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+JPH_Mat44 JPH_Mat44_sCrossProduct(JPH_Vec3Arg inV);
+JPH_Mat44 JPH_Mat44_sQuatLeftMultiply(JPH_QuatArg inQ);
+JPH_Mat44 JPH_Mat44_sQuatRightMultiply(JPH_QuatArg inQ);
+JPH_Mat44 JPH_Mat44_sLookAt(JPH_Vec3Arg inPos, JPH_Vec3Arg inTarget, JPH_Vec3Arg inUp);
+JPH_Mat44 JPH_Mat44_sPerspective(float inFovY, float inAspect, float inNear, float inFar);
+float JPH_Mat44_operator()(uint32_t inRow, uint32_t inColumn);
+float *JPH_Mat44_operator()(uint32_t inRow, uint32_t inColumn);
+bool JPH_Mat44_operator==(JPH_Mat44Arg inM2);
+bool JPH_Mat44_operator!=(JPH_Mat44Arg inM2);
+bool JPH_Mat44_IsClose(JPH_Mat44Arg inM2, float inMaxDistSq);
+JPH_Mat44 JPH_Mat44_operator*(JPH_Mat44Arg inM);
+JPH_Vec3 JPH_Mat44_operator*(JPH_Vec3Arg inV);
+JPH_Vec4 JPH_Mat44_operator*(JPH_Vec4Arg inV);
+JPH_Vec3 JPH_Mat44_Multiply3x3(JPH_Vec3Arg inV);
+JPH_Vec3 JPH_Mat44_Multiply3x3Transposed(JPH_Vec3Arg inV);
+JPH_Mat44 JPH_Mat44_Multiply3x3(JPH_Mat44Arg inM);
+JPH_Mat44 JPH_Mat44_Multiply3x3LeftTransposed(JPH_Mat44Arg inM);
+JPH_Mat44 JPH_Mat44_Multiply3x3RightTransposed(JPH_Mat44Arg inM);
+JPH_Mat44 JPH_Mat44_operator*(float inV);
+JPH_Mat44 *JPH_Mat44_operator*=(float inV);
+JPH_Mat44 JPH_Mat44_operator+(JPH_Mat44Arg inM);
+JPH_Mat44 JPH_Mat44_operator-();
+JPH_Mat44 JPH_Mat44_operator-(JPH_Mat44Arg inM);
+JPH_Mat44 *JPH_Mat44_operator+=(JPH_Mat44Arg inM);
+JPH_Vec3 JPH_Mat44_GetAxisX();
+void JPH_Mat44_SetAxisX(JPH_Vec3Arg inV);
+JPH_Vec3 JPH_Mat44_GetAxisY();
+void JPH_Mat44_SetAxisY(JPH_Vec3Arg inV);
+JPH_Vec3 JPH_Mat44_GetAxisZ();
+void JPH_Mat44_SetAxisZ(JPH_Vec3Arg inV);
+JPH_Vec3 JPH_Mat44_GetTranslation();
+void JPH_Mat44_SetTranslation(JPH_Vec3Arg inV);
+JPH_Vec3 JPH_Mat44_GetDiagonal3();
+void JPH_Mat44_SetDiagonal3(JPH_Vec3Arg inV);
+JPH_Vec4 JPH_Mat44_GetDiagonal4();
+void JPH_Mat44_SetDiagonal4(JPH_Vec4Arg inV);
+JPH_Vec3 JPH_Mat44_GetColumn3(uint32_t inCol);
+void JPH_Mat44_SetColumn3(uint32_t inCol, JPH_Vec3Arg inV);
+JPH_Vec4 JPH_Mat44_GetColumn4(uint32_t inCol);
+void JPH_Mat44_SetColumn4(uint32_t inCol, JPH_Vec4Arg inV);
+void JPH_Mat44_StoreFloat4x4(JPH_Float4 *outV);
+JPH_Mat44 JPH_Mat44_Transposed();
+JPH_Mat44 JPH_Mat44_Transposed3x3();
+JPH_Mat44 JPH_Mat44_Inversed();
+JPH_Mat44 JPH_Mat44_InversedRotationTranslation();
+float JPH_Mat44_GetDeterminant3x3();
+JPH_Mat44 JPH_Mat44_Adjointed3x3();
+JPH_Mat44 JPH_Mat44_Inversed3x3();
+bool JPH_Mat44_SetInversed3x3(JPH_Mat44Arg inM);
+JPH_Mat44 JPH_Mat44_GetRotation();
+JPH_Mat44 JPH_Mat44_GetRotationSafe();
+void JPH_Mat44_SetRotation(JPH_Mat44Arg inRotation);
+< ? named (size=16, align=16)> JPH_Mat44_GetQuaternion();
+JPH_Mat44 JPH_Mat44_GetDirectionPreservingMatrix();
+JPH_Mat44 JPH_Mat44_PreTranslated(JPH_Vec3Arg inTranslation);
+JPH_Mat44 JPH_Mat44_PostTranslated(JPH_Vec3Arg inTranslation);
+JPH_Mat44 JPH_Mat44_PreScaled(JPH_Vec3Arg inScale);
+JPH_Mat44 JPH_Mat44_PostScaled(JPH_Vec3Arg inScale);
+JPH_Mat44 JPH_Mat44_Decompose(JPH_Vec3 *outScale);
+JPH_Mat44 JPH_Mat44_ToMat44();
 // JoltPhysics/Jolt/Math/Quat.h:32:1
 typedef struct JPH_Quat {
     JPH_Vec4 mValue;
 } JPH_Quat;
 
+void *JPH_Quat_operator_new(size_t inCount);
+void JPH_Quat_operator_delete(void *inPointer);
+void *JPH_Quat_operator_new[](size_t inCount);
+void JPH_Quat_operator_delete[](void *inPointer);
+void *JPH_Quat_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Quat_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Quat_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Quat_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Quat_operator_new(size_t inCount, void *inPointer);
+void JPH_Quat_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Quat_operator_new[](size_t inCount, void *inPointer);
+void JPH_Quat_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Quat_Quat();
+void JPH_Quat_Quat(JPH_Quat *inRHS);
+JPH_Quat *JPH_Quat_operator=(JPH_Quat *inRHS);
+void JPH_Quat_Quat(float inX, float inY, float inZ, float inW);
+void JPH_Quat_Quat(JPH_Float4 *inV);
+void JPH_Quat_Quat(JPH_Vec4Arg inV);
+bool JPH_Quat_operator==(JPH_QuatArg inRHS);
+bool JPH_Quat_operator!=(JPH_QuatArg inRHS);
+bool JPH_Quat_IsClose(JPH_QuatArg inRHS, float inMaxDistSq);
+bool JPH_Quat_IsNormalized(float inTolerance);
+bool JPH_Quat_IsNaN();
+float JPH_Quat_GetX();
+float JPH_Quat_GetY();
+float JPH_Quat_GetZ();
+float JPH_Quat_GetW();
+JPH_Vec3 JPH_Quat_GetXYZ();
+JPH_Vec4 JPH_Quat_GetXYZW();
+void JPH_Quat_SetX(float inX);
+void JPH_Quat_SetY(float inY);
+void JPH_Quat_SetZ(float inZ);
+void JPH_Quat_SetW(float inW);
+void JPH_Quat_Set(float inX, float inY, float inZ, float inW);
+JPH_Quat JPH_Quat_sZero();
+JPH_Quat JPH_Quat_sIdentity();
+JPH_Quat JPH_Quat_sRotation(JPH_Vec3Arg inAxis, float inAngle);
+void JPH_Quat_GetAxisAngle(JPH_Vec3 *outAxis, float *outAngle);
+JPH_Quat JPH_Quat_sFromTo(JPH_Vec3Arg inFrom, JPH_Vec3Arg inTo);
+JPH_Quat JPH_Quat_sEulerAngles(JPH_Vec3Arg inAngles);
+JPH_Vec3 JPH_Quat_GetEulerAngles();
+float JPH_Quat_LengthSq();
+float JPH_Quat_Length();
+JPH_Quat JPH_Quat_Normalized();
+void JPH_Quat_operator+=(JPH_QuatArg inRHS);
+void JPH_Quat_operator-=(JPH_QuatArg inRHS);
+void JPH_Quat_operator*=(float inValue);
+void JPH_Quat_operator/=(float inValue);
+JPH_Quat JPH_Quat_operator-();
+JPH_Quat JPH_Quat_operator+(JPH_QuatArg inRHS);
+JPH_Quat JPH_Quat_operator-(JPH_QuatArg inRHS);
+JPH_Quat JPH_Quat_operator*(JPH_QuatArg inRHS);
+JPH_Quat JPH_Quat_operator*(float inValue);
+JPH_Quat JPH_Quat_operator/(float inValue);
+JPH_Vec3 JPH_Quat_operator*(JPH_Vec3Arg inValue);
+JPH_Quat JPH_Quat_sMultiplyImaginary(JPH_Vec3Arg inLHS, JPH_QuatArg inRHS);
+JPH_Vec3 JPH_Quat_InverseRotate(JPH_Vec3Arg inValue);
+JPH_Vec3 JPH_Quat_RotateAxisX();
+JPH_Vec3 JPH_Quat_RotateAxisY();
+JPH_Vec3 JPH_Quat_RotateAxisZ();
+float JPH_Quat_Dot(JPH_QuatArg inRHS);
+JPH_Quat JPH_Quat_Conjugated();
+JPH_Quat JPH_Quat_Inversed();
+JPH_Quat JPH_Quat_EnsureWPositive();
+JPH_Quat JPH_Quat_GetPerpendicular();
+float JPH_Quat_GetRotationAngle(JPH_Vec3Arg inAxis);
+JPH_Quat JPH_Quat_GetTwist(JPH_Vec3Arg inAxis);
+void JPH_Quat_GetSwingTwist(JPH_Quat *outSwing, JPH_Quat *outTwist);
+JPH_Quat JPH_Quat_LERP(JPH_QuatArg inDestination, float inFraction);
+JPH_Quat JPH_Quat_SLERP(JPH_QuatArg inDestination, float inFraction);
+JPH_Quat JPH_Quat_sLoadFloat3Unsafe(JPH_Float3 *inV);
+void JPH_Quat_StoreFloat3(JPH_Float3 *outV);
+void JPH_Quat_StoreFloat4(JPH_Float4 *outV);
+uint32_t JPH_Quat_CompressUnitQuat();
+JPH_Quat JPH_Quat_sDecompressUnitQuat(uint32_t inValue);
 // JoltPhysics/Jolt/Math/Double3.h:12:1
 typedef struct JPH_Double3 {
     double x;
@@ -1148,6 +1623,25 @@ typedef struct JPH_Double3 {
     double z;
 } JPH_Double3;
 
+void *JPH_Double3_operator_new(size_t inCount);
+void JPH_Double3_operator_delete(void *inPointer);
+void *JPH_Double3_operator_new[](size_t inCount);
+void JPH_Double3_operator_delete[](void *inPointer);
+void *JPH_Double3_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Double3_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Double3_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Double3_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Double3_operator_new(size_t inCount, void *inPointer);
+void JPH_Double3_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Double3_operator_new[](size_t inCount, void *inPointer);
+void JPH_Double3_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Double3_Double3();
+void JPH_Double3_Double3(JPH_Double3 *inRHS);
+JPH_Double3 *JPH_Double3_operator=(JPH_Double3 *inRHS);
+void JPH_Double3_Double3(double inX, double inY, double inZ);
+double JPH_Double3_operator[](int32_t inCoordinate);
+bool JPH_Double3_operator==(JPH_Double3 *inRHS);
+bool JPH_Double3_operator!=(JPH_Double3 *inRHS);
 // JoltPhysics/Jolt/Math/DVec3.h:20:2
 typedef < Vector (size=32, align=32)> JPH_DVec3_Type;
 
@@ -1165,6 +1659,97 @@ typedef struct JPH_DVec3 {
     };
 } JPH_DVec3;
 
+void *JPH_DVec3_operator_new(size_t inCount);
+void JPH_DVec3_operator_delete(void *inPointer);
+void *JPH_DVec3_operator_new[](size_t inCount);
+void JPH_DVec3_operator_delete[](void *inPointer);
+void *JPH_DVec3_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DVec3_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DVec3_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DVec3_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DVec3_operator_new(size_t inCount, void *inPointer);
+void JPH_DVec3_operator_delete(void *inPointer, void *inPlace);
+void *JPH_DVec3_operator_new[](size_t inCount, void *inPointer);
+void JPH_DVec3_operator_delete[](void *inPointer, void *inPlace);
+void JPH_DVec3_DVec3();
+void JPH_DVec3_DVec3(JPH_DVec3 *inRHS);
+JPH_DVec3 *JPH_DVec3_operator=(JPH_DVec3 *inRHS);
+void JPH_DVec3_DVec3(JPH_Vec3Arg inRHS);
+void JPH_DVec3_DVec3(JPH_Vec4Arg inRHS);
+void JPH_DVec3_DVec3(JPH_DVec3_TypeArg inRHS);
+void JPH_DVec3_DVec3(double inX, double inY, double inZ);
+void JPH_DVec3_DVec3(JPH_Double3 *inV);
+JPH_DVec3 JPH_DVec3_sZero();
+JPH_DVec3 JPH_DVec3_sOne();
+JPH_DVec3 JPH_DVec3_sAxisX();
+JPH_DVec3 JPH_DVec3_sAxisY();
+JPH_DVec3 JPH_DVec3_sAxisZ();
+JPH_DVec3 JPH_DVec3_sReplicate(double inV);
+JPH_DVec3 JPH_DVec3_sNaN();
+JPH_DVec3 JPH_DVec3_sLoadDouble3Unsafe(JPH_Double3 *inV);
+void JPH_DVec3_StoreDouble3(JPH_Double3 *outV);
+JPH_DVec3 JPH_DVec3_PrepareRoundToZero();
+JPH_DVec3 JPH_DVec3_PrepareRoundToInf();
+JPH_Vec3 JPH_DVec3_ToVec3RoundDown();
+JPH_Vec3 JPH_DVec3_ToVec3RoundUp();
+JPH_DVec3 JPH_DVec3_sMin(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sMax(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sClamp(JPH_DVec3Arg inV, JPH_DVec3Arg inMin, JPH_DVec3Arg inMax);
+JPH_DVec3 JPH_DVec3_sEquals(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sLess(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sLessOrEqual(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sGreater(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sGreaterOrEqual(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sFusedMultiplyAdd(JPH_DVec3Arg inMul1, JPH_DVec3Arg inMul2, JPH_DVec3Arg inAdd);
+JPH_DVec3 JPH_DVec3_sSelect(JPH_DVec3Arg inNotSet, JPH_DVec3Arg inSet, JPH_DVec3Arg inControl);
+JPH_DVec3 JPH_DVec3_sOr(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sXor(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_sAnd(JPH_DVec3Arg inV1, JPH_DVec3Arg inV2);
+int32_t JPH_DVec3_GetTrues();
+bool JPH_DVec3_TestAnyTrue();
+bool JPH_DVec3_TestAllTrue();
+double JPH_DVec3_GetX();
+double JPH_DVec3_GetY();
+double JPH_DVec3_GetZ();
+void JPH_DVec3_SetX(double inX);
+void JPH_DVec3_SetY(double inY);
+void JPH_DVec3_SetZ(double inZ);
+void JPH_DVec3_Set(double inX, double inY, double inZ);
+double JPH_DVec3_operator[](uint32_t inCoordinate);
+void JPH_DVec3_SetComponent(uint32_t inCoordinate, double inValue);
+bool JPH_DVec3_operator==(JPH_DVec3Arg inV2);
+bool JPH_DVec3_operator!=(JPH_DVec3Arg inV2);
+bool JPH_DVec3_IsClose(JPH_DVec3Arg inV2, double inMaxDistSq);
+bool JPH_DVec3_IsNearZero(double inMaxDistSq);
+bool JPH_DVec3_IsNormalized(double inTolerance);
+bool JPH_DVec3_IsNaN();
+JPH_DVec3 JPH_DVec3_operator*(JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_operator*(double inV2);
+JPH_DVec3 JPH_DVec3_operator/(double inV2);
+JPH_DVec3 *JPH_DVec3_operator*=(double inV2);
+JPH_DVec3 *JPH_DVec3_operator*=(JPH_DVec3Arg inV2);
+JPH_DVec3 *JPH_DVec3_operator/=(double inV2);
+JPH_DVec3 JPH_DVec3_operator+(JPH_Vec3Arg inV2);
+JPH_DVec3 JPH_DVec3_operator+(JPH_DVec3Arg inV2);
+JPH_DVec3 *JPH_DVec3_operator+=(JPH_Vec3Arg inV2);
+JPH_DVec3 *JPH_DVec3_operator+=(JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_operator-();
+JPH_DVec3 JPH_DVec3_operator-(JPH_Vec3Arg inV2);
+JPH_DVec3 JPH_DVec3_operator-(JPH_DVec3Arg inV2);
+JPH_DVec3 *JPH_DVec3_operator-=(JPH_Vec3Arg inV2);
+JPH_DVec3 *JPH_DVec3_operator-=(JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_operator/(JPH_DVec3Arg inV2);
+JPH_DVec3 JPH_DVec3_Abs();
+JPH_DVec3 JPH_DVec3_Reciprocal();
+JPH_DVec3 JPH_DVec3_Cross(JPH_DVec3Arg inV2);
+double JPH_DVec3_Dot(JPH_DVec3Arg inV2);
+double JPH_DVec3_LengthSq();
+double JPH_DVec3_Length();
+JPH_DVec3 JPH_DVec3_Normalized();
+JPH_DVec3 JPH_DVec3_Sqrt();
+JPH_DVec3 JPH_DVec3_GetSign();
+void JPH_DVec3_CheckW();
+JPH_DVec3_Type JPH_DVec3_sFixW(JPH_DVec3_TypeArg inValue);
 // JoltPhysics/Jolt/Math/DMat44.h:18:2
 typedef < Vector (size=16, align=16)> JPH_DMat44_Type;
 
@@ -1183,6 +1768,69 @@ typedef struct JPH_DMat44 {
     JPH_DVec3 mCol3;
 } JPH_DMat44;
 
+void *JPH_DMat44_operator_new(size_t inCount);
+void JPH_DMat44_operator_delete(void *inPointer);
+void *JPH_DMat44_operator_new[](size_t inCount);
+void JPH_DMat44_operator_delete[](void *inPointer);
+void *JPH_DMat44_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DMat44_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DMat44_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DMat44_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DMat44_operator_new(size_t inCount, void *inPointer);
+void JPH_DMat44_operator_delete(void *inPointer, void *inPlace);
+void *JPH_DMat44_operator_new[](size_t inCount, void *inPointer);
+void JPH_DMat44_operator_delete[](void *inPointer, void *inPlace);
+void JPH_DMat44_DMat44();
+void JPH_DMat44_DMat44(JPH_Vec4Arg inC1, JPH_Vec4Arg inC2, JPH_Vec4Arg inC3, JPH_DVec3Arg inC4);
+void JPH_DMat44_DMat44(JPH_DMat44 *inM2);
+JPH_DMat44 *JPH_DMat44_operator=(JPH_DMat44 *inM2);
+void JPH_DMat44_DMat44(JPH_Mat44Arg inM);
+void JPH_DMat44_DMat44(JPH_Mat44Arg inRot, JPH_DVec3Arg inT);
+void JPH_DMat44_DMat44(JPH_DMat44_Type inC1, JPH_DMat44_Type inC2, JPH_DMat44_Type inC3, JPH_DMat44_DTypeArg inC4);
+JPH_DMat44 JPH_DMat44_sZero();
+JPH_DMat44 JPH_DMat44_sIdentity();
+JPH_DMat44 JPH_DMat44_sRotation(JPH_QuatArg inQuat);
+JPH_DMat44 JPH_DMat44_sTranslation(JPH_DVec3Arg inV);
+JPH_DMat44 JPH_DMat44_sRotationTranslation(JPH_QuatArg inR, JPH_DVec3Arg inT);
+JPH_DMat44 JPH_DMat44_sInverseRotationTranslation(JPH_QuatArg inR, JPH_DVec3Arg inT);
+JPH_DMat44 JPH_DMat44_sScale(JPH_Vec3Arg inV);
+JPH_Mat44 JPH_DMat44_ToMat44();
+bool JPH_DMat44_operator==(JPH_DMat44Arg inM2);
+bool JPH_DMat44_operator!=(JPH_DMat44Arg inM2);
+bool JPH_DMat44_IsClose(JPH_DMat44Arg inM2, float inMaxDistSq);
+JPH_DMat44 JPH_DMat44_operator*(JPH_Mat44Arg inM);
+JPH_DMat44 JPH_DMat44_operator*(JPH_DMat44Arg inM);
+JPH_DVec3 JPH_DMat44_operator*(JPH_Vec3Arg inV);
+JPH_DVec3 JPH_DMat44_operator*(JPH_DVec3Arg inV);
+JPH_Vec3 JPH_DMat44_Multiply3x3(JPH_Vec3Arg inV);
+JPH_DVec3 JPH_DMat44_Multiply3x3(JPH_DVec3Arg inV);
+JPH_Vec3 JPH_DMat44_Multiply3x3Transposed(JPH_Vec3Arg inV);
+JPH_DMat44 JPH_DMat44_PreScaled(JPH_Vec3Arg inScale);
+JPH_DMat44 JPH_DMat44_PostScaled(JPH_Vec3Arg inScale);
+JPH_DMat44 JPH_DMat44_PreTranslated(JPH_Vec3Arg inTranslation);
+JPH_DMat44 JPH_DMat44_PreTranslated(JPH_DVec3Arg inTranslation);
+JPH_DMat44 JPH_DMat44_PostTranslated(JPH_Vec3Arg inTranslation);
+JPH_DMat44 JPH_DMat44_PostTranslated(JPH_DVec3Arg inTranslation);
+JPH_Vec3 JPH_DMat44_GetAxisX();
+void JPH_DMat44_SetAxisX(JPH_Vec3Arg inV);
+JPH_Vec3 JPH_DMat44_GetAxisY();
+void JPH_DMat44_SetAxisY(JPH_Vec3Arg inV);
+JPH_Vec3 JPH_DMat44_GetAxisZ();
+void JPH_DMat44_SetAxisZ(JPH_Vec3Arg inV);
+JPH_DVec3 JPH_DMat44_GetTranslation();
+void JPH_DMat44_SetTranslation(JPH_DVec3Arg inV);
+JPH_Vec3 JPH_DMat44_GetColumn3(uint32_t inCol);
+void JPH_DMat44_SetColumn3(uint32_t inCol, JPH_Vec3Arg inV);
+JPH_Vec4 JPH_DMat44_GetColumn4(uint32_t inCol);
+void JPH_DMat44_SetColumn4(uint32_t inCol, JPH_Vec4Arg inV);
+JPH_Mat44 JPH_DMat44_Transposed3x3();
+JPH_DMat44 JPH_DMat44_Inversed();
+JPH_DMat44 JPH_DMat44_InversedRotationTranslation();
+JPH_Mat44 JPH_DMat44_GetRotation();
+void JPH_DMat44_SetRotation(JPH_Mat44Arg inRotation);
+JPH_Quat JPH_DMat44_GetQuaternion();
+JPH_Mat44 JPH_DMat44_GetDirectionPreservingMatrix();
+JPH_DMat44 JPH_DMat44_Decompose(JPH_Vec3 *outScale);
 // JoltPhysics/Jolt/Math/Real.h:27:1
 typedef float JPH_Real;
 
@@ -1205,6 +1853,9 @@ typedef JPH_Mat44 *JPH_RMat44Arg;
 // Abstract
 typedef struct JPH_RefTargetVirtual JPH_RefTargetVirtual;
 
+void JPH_RefTargetVirtual_~RefTargetVirtual();
+void JPH_RefTargetVirtual_AddRef();
+void JPH_RefTargetVirtual_Release();
 // JoltPhysics/Jolt/Core/Color.h:12:1
 typedef < ? named (size=4, align=4)> JPH_ColorArg;
 
@@ -1221,9 +1872,28 @@ typedef struct JPH_Color {
     };
 } JPH_Color;
 
+void JPH_Color_Color();
+void JPH_Color_Color(JPH_Color *inRHS);
+JPH_Color *JPH_Color_operator=(JPH_Color *inRHS);
+void JPH_Color_Color(uint32_t inColor);
+void JPH_Color_Color(uint8_t inRed, uint8_t inGreen, uint8_t inBlue, uint8_t inAlpha);
+void JPH_Color_Color(JPH_ColorArg inRHS, uint8_t inAlpha);
+bool JPH_Color_operator==(JPH_ColorArg inRHS);
+bool JPH_Color_operator!=(JPH_ColorArg inRHS);
+uint32_t JPH_Color_GetUInt32();
+uint8_t JPH_Color_operator()(uint32_t inIdx);
+uint8_t *JPH_Color_operator()(uint32_t inIdx);
+JPH_Color JPH_Color_operator*(JPH_Color *inRHS);
+JPH_Color JPH_Color_operator*(float inIntensity);
+JPH_Vec4 JPH_Color_ToVec4();
+uint8_t JPH_Color_GetIntensity();
+JPH_Color JPH_Color_sGetDistinctColor(int32_t inIndex);
 // JoltPhysics/Jolt/Core/NonCopyable.h:10:1
 typedef struct JPH_NonCopyable JPH_NonCopyable;
 
+void JPH_NonCopyable_NonCopyable();
+void JPH_NonCopyable_NonCopyable(JPH_NonCopyable *);
+void JPH_NonCopyable_operator=(JPH_NonCopyable *);
 // JoltPhysics/Jolt/Math/BVec16.h:17:2
 typedef < Vector (size=16, align=16)> JPH_BVec16_Type;
 
@@ -1236,13 +1906,73 @@ typedef struct JPH_BVec16 {
     };
 } JPH_BVec16;
 
+void *JPH_BVec16_operator_new(size_t inCount);
+void JPH_BVec16_operator_delete(void *inPointer);
+void *JPH_BVec16_operator_new[](size_t inCount);
+void JPH_BVec16_operator_delete[](void *inPointer);
+void *JPH_BVec16_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BVec16_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BVec16_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BVec16_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BVec16_operator_new(size_t inCount, void *inPointer);
+void JPH_BVec16_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BVec16_operator_new[](size_t inCount, void *inPointer);
+void JPH_BVec16_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BVec16_BVec16();
+void JPH_BVec16_BVec16(JPH_BVec16 *inRHS);
+JPH_BVec16 *JPH_BVec16_operator=(JPH_BVec16 *inRHS);
+void JPH_BVec16_BVec16(JPH_BVec16_Type inRHS);
+void JPH_BVec16_BVec16(uint8_t inB0, uint8_t inB1, uint8_t inB2, uint8_t inB3, uint8_t inB4, uint8_t inB5, uint8_t inB6, uint8_t inB7, uint8_t inB8, uint8_t inB9, uint8_t inB10, uint8_t inB11, uint8_t inB12, uint8_t inB13, uint8_t inB14, uint8_t inB15);
+void JPH_BVec16_BVec16(uint64_t inV0, uint64_t inV1);
+bool JPH_BVec16_operator==(JPH_BVec16Arg inV2);
+bool JPH_BVec16_operator!=(JPH_BVec16Arg inV2);
+JPH_BVec16 JPH_BVec16_sZero();
+JPH_BVec16 JPH_BVec16_sReplicate(uint8_t inV);
+JPH_BVec16 JPH_BVec16_sLoadByte16(uint8_t *inV);
+JPH_BVec16 JPH_BVec16_sEquals(JPH_BVec16Arg inV1, JPH_BVec16Arg inV2);
+JPH_BVec16 JPH_BVec16_sOr(JPH_BVec16Arg inV1, JPH_BVec16Arg inV2);
+JPH_BVec16 JPH_BVec16_sXor(JPH_BVec16Arg inV1, JPH_BVec16Arg inV2);
+JPH_BVec16 JPH_BVec16_sAnd(JPH_BVec16Arg inV1, JPH_BVec16Arg inV2);
+JPH_BVec16 JPH_BVec16_sNot(JPH_BVec16Arg inV1);
+uint8_t JPH_BVec16_operator[](uint32_t inCoordinate);
+uint8_t *JPH_BVec16_operator[](uint32_t inCoordinate);
+bool JPH_BVec16_TestAnyTrue();
+bool JPH_BVec16_TestAllTrue();
+int32_t JPH_BVec16_GetTrues();
 // JoltPhysics/Jolt/Core/JobSystem.h:79:2
 typedef struct JPH_JobSystem_JobHandle JPH_JobSystem_JobHandle;
 
+void JPH_JobSystem_JobHandle_JobHandle();
+void JPH_JobSystem_JobHandle_JobHandle(JPH_JobSystem_JobHandle *inHandle);
+void JPH_JobSystem_JobHandle_JobHandle(JPH_JobSystem_JobHandle&& inHandle);
+void JPH_JobSystem_JobHandle_JobHandle(< ? named (size=56, align=8)> *inJob);
+JPH_JobSystem_JobHandle *JPH_JobSystem_JobHandle_operator=(JPH_JobSystem_JobHandle *inHandle);
+JPH_JobSystem_JobHandle *JPH_JobSystem_JobHandle_operator=(JPH_JobSystem_JobHandle&& inHandle);
+bool JPH_JobSystem_JobHandle_IsValid();
+bool JPH_JobSystem_JobHandle_IsDone();
+void JPH_JobSystem_JobHandle_AddDependency(int32_t inCount);
+void JPH_JobSystem_JobHandle_RemoveDependency(int32_t inCount);
+void JPH_JobSystem_JobHandle_sRemoveDependencies(JPH_JobSystem_JobHandle *inHandles, uint32_t inNumHandles, int32_t inCount);
 // JoltPhysics/Jolt/Core/JobSystem.h:122:2
 // Abstract
 typedef struct JPH_JobSystem_Barrier JPH_JobSystem_Barrier;
 
+void *JPH_JobSystem_Barrier_operator_new(size_t inCount);
+void JPH_JobSystem_Barrier_operator_delete(void *inPointer);
+void *JPH_JobSystem_Barrier_operator_new[](size_t inCount);
+void JPH_JobSystem_Barrier_operator_delete[](void *inPointer);
+void *JPH_JobSystem_Barrier_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystem_Barrier_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystem_Barrier_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystem_Barrier_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystem_Barrier_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystem_Barrier_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystem_Barrier_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystem_Barrier_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystem_Barrier_AddJob(JPH_JobSystem_JobHandle *inJob);
+void JPH_JobSystem_Barrier_AddJobs(JPH_JobSystem_JobHandle *inHandles, uint32_t inNumHandles);
+void JPH_JobSystem_Barrier_~Barrier();
+void JPH_JobSystem_Barrier_OnJobFinished(< ? named (size=56, align=8)> *inJob);
 // JoltPhysics/Jolt/Core/JobSystem.h:147:2
 typedef < ? named (size=32, align=8)> JPH_JobSystem_JobFunction;
 
@@ -1255,10 +1985,54 @@ typedef struct JPH_JobSystem_Job {
     < Unexposed (size=4, align=4)> mNumDependencies;
 } JPH_JobSystem_Job;
 
+void *JPH_JobSystem_Job_operator_new(size_t inCount);
+void JPH_JobSystem_Job_operator_delete(void *inPointer);
+void *JPH_JobSystem_Job_operator_new[](size_t inCount);
+void JPH_JobSystem_Job_operator_delete[](void *inPointer);
+void *JPH_JobSystem_Job_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystem_Job_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystem_Job_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystem_Job_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystem_Job_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystem_Job_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystem_Job_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystem_Job_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystem_Job_Job(int8_t *inJobName, JPH_ColorArg inColor, JPH_JobSystem *inJobSystem, JPH_JobSystem_JobFunction *inJobFunction, uint32_t inNumDependencies);
+JPH_JobSystem *JPH_JobSystem_Job_GetJobSystem();
+void JPH_JobSystem_Job_AddRef();
+void JPH_JobSystem_Job_Release();
+void JPH_JobSystem_Job_AddDependency(int32_t inCount);
+bool JPH_JobSystem_Job_RemoveDependency(int32_t inCount);
+void JPH_JobSystem_Job_RemoveDependencyAndQueue(int32_t inCount);
+bool JPH_JobSystem_Job_SetBarrier(JPH_JobSystem_Barrier *inBarrier);
+uint32_t JPH_JobSystem_Job_Execute();
+bool JPH_JobSystem_Job_CanBeExecuted();
+bool JPH_JobSystem_Job_IsDone();
 // JoltPhysics/Jolt/Core/JobSystem.h:69:1
 // Abstract
 typedef struct JPH_JobSystem JPH_JobSystem;
 
+void *JPH_JobSystem_operator_new(size_t inCount);
+void JPH_JobSystem_operator_delete(void *inPointer);
+void *JPH_JobSystem_operator_new[](size_t inCount);
+void JPH_JobSystem_operator_delete[](void *inPointer);
+void *JPH_JobSystem_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystem_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystem_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystem_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystem_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystem_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystem_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystem_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystem_~JobSystem();
+int32_t JPH_JobSystem_GetMaxConcurrency();
+JPH_JobSystem_JobHandle JPH_JobSystem_CreateJob(int8_t *inName, JPH_ColorArg inColor, JPH_JobSystem_JobFunction *inJobFunction, uint32_t inNumDependencies);
+JPH_JobSystem_Barrier *JPH_JobSystem_CreateBarrier();
+void JPH_JobSystem_DestroyBarrier(JPH_JobSystem_Barrier *inBarrier);
+void JPH_JobSystem_WaitForJobs(JPH_JobSystem_Barrier *inBarrier);
+void JPH_JobSystem_QueueJob(JPH_JobSystem_Job *inJob);
+void JPH_JobSystem_QueueJobs(JPH_JobSystem_Job **inJobs, uint32_t inNumJobs);
+void JPH_JobSystem_FreeJob(JPH_JobSystem_Job *inJob);
 // JoltPhysics/Jolt/Core/JobSystem.h:307:1
 typedef JPH_JobSystem_JobHandle JPH_JobHandle;
 
@@ -1271,14 +2045,57 @@ typedef struct JPH_Semaphore {
     JPH_Semaphore_SemaphoreType mSemaphore;
 } JPH_Semaphore;
 
+void JPH_Semaphore_Semaphore();
+void JPH_Semaphore_~Semaphore();
+void JPH_Semaphore_Release(uint32_t inNumber);
+void JPH_Semaphore_Acquire(uint32_t inNumber);
+int32_t JPH_Semaphore_GetValue();
 // JoltPhysics/Jolt/Core/JobSystemWithBarrier.h:44:2
 // Has vtable
 typedef struct JPH_JobSystemWithBarrier_BarrierImpl JPH_JobSystemWithBarrier_BarrierImpl;
 
+void *JPH_JobSystemWithBarrier_BarrierImpl_operator_new(size_t inCount);
+void JPH_JobSystemWithBarrier_BarrierImpl_operator_delete(void *inPointer);
+void *JPH_JobSystemWithBarrier_BarrierImpl_operator_new[](size_t inCount);
+void JPH_JobSystemWithBarrier_BarrierImpl_operator_delete[](void *inPointer);
+void *JPH_JobSystemWithBarrier_BarrierImpl_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemWithBarrier_BarrierImpl_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemWithBarrier_BarrierImpl_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemWithBarrier_BarrierImpl_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemWithBarrier_BarrierImpl_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystemWithBarrier_BarrierImpl_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystemWithBarrier_BarrierImpl_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystemWithBarrier_BarrierImpl_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystemWithBarrier_BarrierImpl_BarrierImpl();
+void JPH_JobSystemWithBarrier_BarrierImpl_~BarrierImpl();
+void JPH_JobSystemWithBarrier_BarrierImpl_AddJob(JPH_JobSystem_JobHandle *inJob);
+void JPH_JobSystemWithBarrier_BarrierImpl_AddJobs(JPH_JobSystem_JobHandle *inHandles, uint32_t inNumHandles);
+bool JPH_JobSystemWithBarrier_BarrierImpl_IsEmpty();
+void JPH_JobSystemWithBarrier_BarrierImpl_Wait();
+void JPH_JobSystemWithBarrier_BarrierImpl_OnJobFinished(JPH_JobSystem_Job *inJob);
 // JoltPhysics/Jolt/Core/JobSystemWithBarrier.h:23:1
 // Abstract
 typedef struct JPH_JobSystemWithBarrier JPH_JobSystemWithBarrier;
 
+void *JPH_JobSystemWithBarrier_operator_new(size_t inCount);
+void JPH_JobSystemWithBarrier_operator_delete(void *inPointer);
+void *JPH_JobSystemWithBarrier_operator_new[](size_t inCount);
+void JPH_JobSystemWithBarrier_operator_delete[](void *inPointer);
+void *JPH_JobSystemWithBarrier_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemWithBarrier_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemWithBarrier_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemWithBarrier_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemWithBarrier_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystemWithBarrier_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystemWithBarrier_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystemWithBarrier_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystemWithBarrier_JobSystemWithBarrier(uint32_t inMaxBarriers);
+void JPH_JobSystemWithBarrier_JobSystemWithBarrier();
+void JPH_JobSystemWithBarrier_~JobSystemWithBarrier();
+void JPH_JobSystemWithBarrier_Init(uint32_t inMaxBarriers);
+JPH_JobSystem_Barrier *JPH_JobSystemWithBarrier_CreateBarrier();
+void JPH_JobSystemWithBarrier_DestroyBarrier(JPH_JobSystem_Barrier *inBarrier);
+void JPH_JobSystemWithBarrier_WaitForJobs(JPH_JobSystem_Barrier *inBarrier);
 // JoltPhysics/Jolt/Core/Mutex.h:112:1
 typedef < ? named (size=40, align=8)> JPH_MutexBase;
 
@@ -1292,6 +2109,10 @@ typedef struct JPH_Mutex {
     < ? named (size=8, align=8)> mLockedThreadID;
 } JPH_Mutex;
 
+bool JPH_Mutex_try_lock();
+void JPH_Mutex_lock();
+void JPH_Mutex_unlock();
+bool JPH_Mutex_is_locked();
 // JoltPhysics/Jolt/Core/Mutex.h:165:1
 typedef struct JPH_SharedMutex {
     JPH_SharedMutexBase base;
@@ -1299,6 +2120,11 @@ typedef struct JPH_SharedMutex {
     < ? named (size=8, align=8)> mLockedThreadID;
 } JPH_SharedMutex;
 
+bool JPH_SharedMutex_try_lock();
+void JPH_SharedMutex_lock();
+void JPH_SharedMutex_unlock();
+bool JPH_SharedMutex_is_locked();
+void JPH_SharedMutex_lock_shared();
 // JoltPhysics/Jolt/Core/JobSystemThreadPool.h:37:2
 typedef < ? named (size=32, align=8)> JPH_JobSystemThreadPool_InitExitFunction;
 
@@ -1309,6 +2135,35 @@ typedef < ? named (size=192, align=64)> JPH_JobSystemThreadPool_AvailableJobs;
 // Has vtable
 typedef struct JPH_JobSystemThreadPool JPH_JobSystemThreadPool;
 
+void *JPH_JobSystemThreadPool_operator_new(size_t inCount);
+void JPH_JobSystemThreadPool_operator_delete(void *inPointer);
+void *JPH_JobSystemThreadPool_operator_new[](size_t inCount);
+void JPH_JobSystemThreadPool_operator_delete[](void *inPointer);
+void *JPH_JobSystemThreadPool_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemThreadPool_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemThreadPool_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemThreadPool_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemThreadPool_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystemThreadPool_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystemThreadPool_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystemThreadPool_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystemThreadPool_JobSystemThreadPool(uint32_t inMaxJobs, uint32_t inMaxBarriers, int32_t inNumThreads);
+void JPH_JobSystemThreadPool_JobSystemThreadPool();
+void JPH_JobSystemThreadPool_~JobSystemThreadPool();
+void JPH_JobSystemThreadPool_SetThreadInitFunction(JPH_JobSystemThreadPool_InitExitFunction *inInitFunction);
+void JPH_JobSystemThreadPool_SetThreadExitFunction(JPH_JobSystemThreadPool_InitExitFunction *inExitFunction);
+void JPH_JobSystemThreadPool_Init(uint32_t inMaxJobs, uint32_t inMaxBarriers, int32_t inNumThreads);
+int32_t JPH_JobSystemThreadPool_GetMaxConcurrency();
+JPH_JobSystem_JobHandle JPH_JobSystemThreadPool_CreateJob(int8_t *inName, JPH_ColorArg inColor, JPH_JobSystem_JobFunction *inJobFunction, uint32_t inNumDependencies);
+void JPH_JobSystemThreadPool_SetNumThreads(int32_t inNumThreads);
+void JPH_JobSystemThreadPool_QueueJob(JPH_JobSystem_Job *inJob);
+void JPH_JobSystemThreadPool_QueueJobs(JPH_JobSystem_Job **inJobs, uint32_t inNumJobs);
+void JPH_JobSystemThreadPool_FreeJob(JPH_JobSystem_Job *inJob);
+void JPH_JobSystemThreadPool_StartThreads(int32_t inNumThreads);
+void JPH_JobSystemThreadPool_StopThreads();
+void JPH_JobSystemThreadPool_ThreadMain(int32_t inThreadIndex);
+uint32_t JPH_JobSystemThreadPool_GetHead();
+void JPH_JobSystemThreadPool_QueueJobInternal(JPH_JobSystem_Job *inJob);
 // JoltPhysics/Jolt/Core/FPException.h:89:1
 typedef struct JPH_FPExceptionsEnable JPH_FPExceptionsEnable;
 
@@ -1347,6 +2202,15 @@ typedef struct JPH_SerializableAttribute {
     JPH_SerializableAttribute_pWriteDataType mWriteDataType;
 } JPH_SerializableAttribute;
 
+void JPH_SerializableAttribute_SerializableAttribute(int8_t *inName, uint32_t inMemberOffset, JPH_SerializableAttribute_pGetMemberPrimitiveType inGetMemberPrimitiveType, JPH_SerializableAttribute_pIsType inIsType, JPH_SerializableAttribute_pReadData inReadData, JPH_SerializableAttribute_pWriteData inWriteData, JPH_SerializableAttribute_pWriteDataType inWriteDataType);
+void JPH_SerializableAttribute_SerializableAttribute(JPH_SerializableAttribute *inOther, int32_t inBaseOffset);
+void JPH_SerializableAttribute_SetName(int8_t *inName);
+int8_t *JPH_SerializableAttribute_GetName();
+< ? named (size=1904, align=8)> *JPH_SerializableAttribute_GetMemberPrimitiveType();
+bool JPH_SerializableAttribute_IsType(int32_t inArrayDepth, JPH_EOSDataType inDataType, int8_t *inClassName);
+bool JPH_SerializableAttribute_ReadData(< ? named (size=8, align=8)> *ioStream, void *inObject);
+void JPH_SerializableAttribute_WriteData(< ? named (size=8, align=8)> *ioStream, void *inObject);
+void JPH_SerializableAttribute_WriteDataType(< ? named (size=8, align=8)> *ioStream);
 // JoltPhysics/Jolt/Core/RTTI.h:125:2
 typedef void *(*JPH_RTTI_pCreateObjectFunction)();
 
@@ -1372,10 +2236,44 @@ typedef struct JPH_RTTI {
     < Unexposed (size=1800, align=8)> mAttributes;
 } JPH_RTTI;
 
+void JPH_RTTI_RTTI(int8_t *inName, int32_t inSize, JPH_RTTI_pCreateObjectFunction inCreateObject, JPH_RTTI_pDestructObjectFunction inDestructObject);
+void JPH_RTTI_RTTI(int8_t *inName, int32_t inSize, JPH_RTTI_pCreateObjectFunction inCreateObject, JPH_RTTI_pDestructObjectFunction inDestructObject, JPH_RTTI_pCreateRTTIFunction inCreateRTTI);
+int8_t *JPH_RTTI_GetName();
+void JPH_RTTI_SetName(int8_t *inName);
+int32_t JPH_RTTI_GetSize();
+bool JPH_RTTI_IsAbstract();
+int32_t JPH_RTTI_GetBaseClassCount();
+JPH_RTTI *JPH_RTTI_GetBaseClass(int32_t inIdx);
+uint32_t JPH_RTTI_GetHash();
+void *JPH_RTTI_CreateObject();
+void JPH_RTTI_DestructObject(void *inObject);
+void JPH_RTTI_AddBaseClass(JPH_RTTI *inRTTI, int32_t inOffset);
+bool JPH_RTTI_operator==(JPH_RTTI *inRHS);
+bool JPH_RTTI_operator!=(JPH_RTTI *inRHS);
+bool JPH_RTTI_IsKindOf(JPH_RTTI *inRTTI);
+void *JPH_RTTI_CastTo(void *inObject, JPH_RTTI *inRTTI);
+void JPH_RTTI_AddAttribute(JPH_SerializableAttribute *inAttribute);
+int32_t JPH_RTTI_GetAttributeCount();
+JPH_SerializableAttribute *JPH_RTTI_GetAttribute(int32_t inIdx);
 // JoltPhysics/Jolt/Core/JobSystemSingleThreaded.h:35:2
 // Has vtable
 typedef struct JPH_JobSystemSingleThreaded_BarrierImpl JPH_JobSystemSingleThreaded_BarrierImpl;
 
+void *JPH_JobSystemSingleThreaded_BarrierImpl_operator_new(size_t inCount);
+void JPH_JobSystemSingleThreaded_BarrierImpl_operator_delete(void *inPointer);
+void *JPH_JobSystemSingleThreaded_BarrierImpl_operator_new[](size_t inCount);
+void JPH_JobSystemSingleThreaded_BarrierImpl_operator_delete[](void *inPointer);
+void *JPH_JobSystemSingleThreaded_BarrierImpl_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemSingleThreaded_BarrierImpl_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemSingleThreaded_BarrierImpl_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemSingleThreaded_BarrierImpl_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemSingleThreaded_BarrierImpl_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystemSingleThreaded_BarrierImpl_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystemSingleThreaded_BarrierImpl_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystemSingleThreaded_BarrierImpl_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystemSingleThreaded_BarrierImpl_AddJob(JPH_JobSystem_JobHandle *inJob);
+void JPH_JobSystemSingleThreaded_BarrierImpl_AddJobs(JPH_JobSystem_JobHandle *inHandles, uint32_t inNumHandles);
+void JPH_JobSystemSingleThreaded_BarrierImpl_OnJobFinished(JPH_JobSystem_Job *inJob);
 // JoltPhysics/Jolt/Core/JobSystemSingleThreaded.h:58:2
 typedef < ? named (size=192, align=64)> JPH_JobSystemSingleThreaded_AvailableJobs;
 
@@ -1383,6 +2281,29 @@ typedef < ? named (size=192, align=64)> JPH_JobSystemSingleThreaded_AvailableJob
 // Has vtable
 typedef struct JPH_JobSystemSingleThreaded JPH_JobSystemSingleThreaded;
 
+void *JPH_JobSystemSingleThreaded_operator_new(size_t inCount);
+void JPH_JobSystemSingleThreaded_operator_delete(void *inPointer);
+void *JPH_JobSystemSingleThreaded_operator_new[](size_t inCount);
+void JPH_JobSystemSingleThreaded_operator_delete[](void *inPointer);
+void *JPH_JobSystemSingleThreaded_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemSingleThreaded_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemSingleThreaded_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_JobSystemSingleThreaded_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_JobSystemSingleThreaded_operator_new(size_t inCount, void *inPointer);
+void JPH_JobSystemSingleThreaded_operator_delete(void *inPointer, void *inPlace);
+void *JPH_JobSystemSingleThreaded_operator_new[](size_t inCount, void *inPointer);
+void JPH_JobSystemSingleThreaded_operator_delete[](void *inPointer, void *inPlace);
+void JPH_JobSystemSingleThreaded_JobSystemSingleThreaded();
+void JPH_JobSystemSingleThreaded_JobSystemSingleThreaded(uint32_t inMaxJobs);
+void JPH_JobSystemSingleThreaded_Init(uint32_t inMaxJobs);
+int32_t JPH_JobSystemSingleThreaded_GetMaxConcurrency();
+JPH_JobSystem_JobHandle JPH_JobSystemSingleThreaded_CreateJob(int8_t *inName, JPH_ColorArg inColor, JPH_JobSystem_JobFunction *inJobFunction, uint32_t inNumDependencies);
+JPH_JobSystem_Barrier *JPH_JobSystemSingleThreaded_CreateBarrier();
+void JPH_JobSystemSingleThreaded_DestroyBarrier(JPH_JobSystem_Barrier *inBarrier);
+void JPH_JobSystemSingleThreaded_WaitForJobs(JPH_JobSystem_Barrier *inBarrier);
+void JPH_JobSystemSingleThreaded_QueueJob(JPH_JobSystem_Job *inJob);
+void JPH_JobSystemSingleThreaded_QueueJobs(JPH_JobSystem_Job **inJobs, uint32_t inNumJobs);
+void JPH_JobSystemSingleThreaded_FreeJob(JPH_JobSystem_Job *inJob);
 // JoltPhysics/Jolt/ObjectStream/ObjectStream.h:33:2
 typedef uint32_t JPH_ObjectStream_Identifier;
 
@@ -1390,24 +2311,110 @@ typedef uint32_t JPH_ObjectStream_Identifier;
 // Has vtable
 typedef struct JPH_ObjectStream JPH_ObjectStream;
 
+void JPH_ObjectStream_~ObjectStream();
 // JoltPhysics/Jolt/ObjectStream/ObjectStream.h:41:1
 // Abstract
 typedef struct JPH_IObjectStreamIn JPH_IObjectStreamIn;
 
+bool JPH_IObjectStreamIn_ReadDataType(JPH_EOSDataType *outType);
+bool JPH_IObjectStreamIn_ReadName(JPH_String *outName);
+bool JPH_IObjectStreamIn_ReadIdentifier(JPH_ObjectStream_Identifier *outIdentifier);
+bool JPH_IObjectStreamIn_ReadCount(uint32_t *outCount);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(uint8_t *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(uint16_t *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(int32_t *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(uint32_t *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(uint64_t *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(float *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(double *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(bool *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_String *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_Float3 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_Float4 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_Double3 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_Vec3 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_DVec3 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_Vec4 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_UVec4 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_Quat *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_Mat44 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadPrimitiveData(JPH_DMat44 *outPrimitive);
+bool JPH_IObjectStreamIn_ReadClassData(int8_t *inClassName, void *inInstance);
+bool JPH_IObjectStreamIn_ReadPointerData(JPH_RTTI *inRTTI, void **inPointer, int32_t inRefCountOffset);
 // JoltPhysics/Jolt/ObjectStream/ObjectStream.h:77:1
 // Abstract
 typedef struct JPH_IObjectStreamOut JPH_IObjectStreamOut;
 
+void JPH_IObjectStreamOut_WriteDataType(JPH_EOSDataType inType);
+void JPH_IObjectStreamOut_WriteName(int8_t *inName);
+void JPH_IObjectStreamOut_WriteIdentifier(JPH_ObjectStream_Identifier inIdentifier);
+void JPH_IObjectStreamOut_WriteCount(uint32_t inCount);
+void JPH_IObjectStreamOut_WritePrimitiveData(uint8_t *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(uint16_t *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(int32_t *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(uint32_t *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(uint64_t *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(float *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(double *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(bool *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_String *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_Float3 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_Float4 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_Double3 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_Vec3 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_DVec3 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_Vec4 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_UVec4 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_Quat *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_Mat44 *inPrimitive);
+void JPH_IObjectStreamOut_WritePrimitiveData(JPH_DMat44 *inPrimitive);
+void JPH_IObjectStreamOut_WritePointerData(JPH_RTTI *inRTTI, void *inPointer);
+void JPH_IObjectStreamOut_WriteClassData(JPH_RTTI *inRTTI, void *inInstance);
+void JPH_IObjectStreamOut_HintNextItem();
+void JPH_IObjectStreamOut_HintIndentUp();
+void JPH_IObjectStreamOut_HintIndentDown();
 // JoltPhysics/Jolt/ObjectStream/SerializableObject.h:155:1
 // Has vtable
 typedef struct JPH_SerializableObject JPH_SerializableObject;
 
+void *JPH_SerializableObject_operator_new(size_t inCount);
+void JPH_SerializableObject_operator_delete(void *inPointer);
+void *JPH_SerializableObject_operator_new[](size_t inCount);
+void JPH_SerializableObject_operator_delete[](void *inPointer);
+void *JPH_SerializableObject_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SerializableObject_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SerializableObject_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SerializableObject_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SerializableObject_operator_new(size_t inCount, void *inPointer);
+void JPH_SerializableObject_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SerializableObject_operator_new[](size_t inCount, void *inPointer);
+void JPH_SerializableObject_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_SerializableObject_GetRTTI();
+void *JPH_SerializableObject_CastTo(JPH_RTTI *inRTTI);
+void JPH_SerializableObject_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SerializableObject_~SerializableObject();
+void JPH_SerializableObject_SerializableObject();
+void JPH_SerializableObject_SerializableObject(JPH_SerializableObject *);
+JPH_SerializableObject *JPH_SerializableObject_operator=(JPH_SerializableObject *);
 // JoltPhysics/Jolt/Core/LinearCurve.h:22:2
 typedef struct JPH_LinearCurve_Point {
     float mX;
     float mY;
 } JPH_LinearCurve_Point;
 
+void *JPH_LinearCurve_Point_operator_new(size_t inCount);
+void JPH_LinearCurve_Point_operator_delete(void *inPointer);
+void *JPH_LinearCurve_Point_operator_new[](size_t inCount);
+void JPH_LinearCurve_Point_operator_delete[](void *inPointer);
+void *JPH_LinearCurve_Point_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_LinearCurve_Point_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_LinearCurve_Point_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_LinearCurve_Point_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_LinearCurve_Point_operator_new(size_t inCount, void *inPointer);
+void JPH_LinearCurve_Point_operator_delete(void *inPointer, void *inPlace);
+void *JPH_LinearCurve_Point_operator_new[](size_t inCount, void *inPointer);
+void JPH_LinearCurve_Point_operator_delete[](void *inPointer, void *inPlace);
+void JPH_LinearCurve_Point_sCreateRTTI(JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/Core/LinearCurve.h:63:2
 typedef < ? named (size=24, align=8)> JPH_LinearCurve_Points;
 
@@ -1416,14 +2423,49 @@ typedef struct JPH_LinearCurve {
     JPH_LinearCurve_Points mPoints;
 } JPH_LinearCurve;
 
+void *JPH_LinearCurve_operator_new(size_t inCount);
+void JPH_LinearCurve_operator_delete(void *inPointer);
+void *JPH_LinearCurve_operator_new[](size_t inCount);
+void JPH_LinearCurve_operator_delete[](void *inPointer);
+void *JPH_LinearCurve_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_LinearCurve_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_LinearCurve_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_LinearCurve_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_LinearCurve_operator_new(size_t inCount, void *inPointer);
+void JPH_LinearCurve_operator_delete(void *inPointer, void *inPlace);
+void *JPH_LinearCurve_operator_new[](size_t inCount, void *inPointer);
+void JPH_LinearCurve_operator_delete[](void *inPointer, void *inPlace);
+void JPH_LinearCurve_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_LinearCurve_Clear();
+void JPH_LinearCurve_Reserve(uint32_t inNumPoints);
+void JPH_LinearCurve_AddPoint(float inX, float inY);
+void JPH_LinearCurve_Sort();
+float JPH_LinearCurve_GetMinX();
+float JPH_LinearCurve_GetMaxX();
+float JPH_LinearCurve_GetValue(float inX);
+void JPH_LinearCurve_SaveBinaryState(< ? named (size=8, align=8)> *inStream);
+void JPH_LinearCurve_RestoreBinaryState(< ? named (size=8, align=8)> *inStream);
 // JoltPhysics/Jolt/Core/StreamIn.h:12:1
 // Abstract
 typedef struct JPH_StreamIn JPH_StreamIn;
 
+void JPH_StreamIn_~StreamIn();
+void JPH_StreamIn_ReadBytes(void *outData, size_t inNumBytes);
+bool JPH_StreamIn_IsEOF();
+bool JPH_StreamIn_IsFailed();
+void JPH_StreamIn_Read(JPH_Vec3 *outVec);
+void JPH_StreamIn_Read(JPH_DVec3 *outVec);
+void JPH_StreamIn_Read(JPH_DMat44 *outVec);
 // JoltPhysics/Jolt/Core/StreamOut.h:12:1
 // Abstract
 typedef struct JPH_StreamOut JPH_StreamOut;
 
+void JPH_StreamOut_~StreamOut();
+void JPH_StreamOut_WriteBytes(void *inData, size_t inNumBytes);
+bool JPH_StreamOut_IsFailed();
+void JPH_StreamOut_Write(JPH_Vec3 *inVec);
+void JPH_StreamOut_Write(JPH_DVec3 *inVec);
+void JPH_StreamOut_Write(JPH_DMat44 *inVec);
 // JoltPhysics/Jolt/Geometry/Triangle.h:10:1
 typedef struct JPH_Triangle {
     JPH_Float3 mV[3];
@@ -1431,6 +2473,22 @@ typedef struct JPH_Triangle {
     uint32_t mUserData;
 } JPH_Triangle;
 
+void *JPH_Triangle_operator_new(size_t inCount);
+void JPH_Triangle_operator_delete(void *inPointer);
+void *JPH_Triangle_operator_new[](size_t inCount);
+void JPH_Triangle_operator_delete[](void *inPointer);
+void *JPH_Triangle_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Triangle_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Triangle_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Triangle_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Triangle_operator_new(size_t inCount, void *inPointer);
+void JPH_Triangle_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Triangle_operator_new[](size_t inCount, void *inPointer);
+void JPH_Triangle_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Triangle_Triangle();
+void JPH_Triangle_Triangle(JPH_Float3 *inV1, JPH_Float3 *inV2, JPH_Float3 *inV3, uint32_t inMaterialIndex, uint32_t inUserData);
+void JPH_Triangle_Triangle(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, JPH_Vec3Arg inV3, uint32_t inMaterialIndex, uint32_t inUserData);
+JPH_Vec3 JPH_Triangle_GetCentroid();
 // JoltPhysics/Jolt/Geometry/Triangle.h:32:1
 typedef < ? named (size=-2, align=-2)> JPH_TriangleList;
 
@@ -1439,6 +2497,27 @@ typedef struct JPH_IndexedTriangleNoMaterial {
     uint32_t mIdx[3];
 } JPH_IndexedTriangleNoMaterial;
 
+void *JPH_IndexedTriangleNoMaterial_operator_new(size_t inCount);
+void JPH_IndexedTriangleNoMaterial_operator_delete(void *inPointer);
+void *JPH_IndexedTriangleNoMaterial_operator_new[](size_t inCount);
+void JPH_IndexedTriangleNoMaterial_operator_delete[](void *inPointer);
+void *JPH_IndexedTriangleNoMaterial_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_IndexedTriangleNoMaterial_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_IndexedTriangleNoMaterial_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_IndexedTriangleNoMaterial_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_IndexedTriangleNoMaterial_operator_new(size_t inCount, void *inPointer);
+void JPH_IndexedTriangleNoMaterial_operator_delete(void *inPointer, void *inPlace);
+void *JPH_IndexedTriangleNoMaterial_operator_new[](size_t inCount, void *inPointer);
+void JPH_IndexedTriangleNoMaterial_operator_delete[](void *inPointer, void *inPlace);
+void JPH_IndexedTriangleNoMaterial_IndexedTriangleNoMaterial();
+void JPH_IndexedTriangleNoMaterial_IndexedTriangleNoMaterial(uint32_t inI1, uint32_t inI2, uint32_t inI3);
+bool JPH_IndexedTriangleNoMaterial_operator==(JPH_IndexedTriangleNoMaterial *inRHS);
+bool JPH_IndexedTriangleNoMaterial_IsEquivalent(JPH_IndexedTriangleNoMaterial *inRHS);
+bool JPH_IndexedTriangleNoMaterial_IsOpposite(JPH_IndexedTriangleNoMaterial *inRHS);
+bool JPH_IndexedTriangleNoMaterial_IsDegenerate(JPH_VertexList *inVertices);
+void JPH_IndexedTriangleNoMaterial_Rotate();
+JPH_Vec3 JPH_IndexedTriangleNoMaterial_GetCentroid(JPH_VertexList *inVertices);
+uint64_t JPH_IndexedTriangleNoMaterial_GetHash();
 // JoltPhysics/Jolt/Geometry/IndexedTriangle.h:79:1
 typedef struct JPH_IndexedTriangle {
     JPH_IndexedTriangleNoMaterial base;
@@ -1447,6 +2526,10 @@ typedef struct JPH_IndexedTriangle {
     uint32_t mUserData;
 } JPH_IndexedTriangle;
 
+void JPH_IndexedTriangle_IndexedTriangle(uint32_t inI1, uint32_t inI2, uint32_t inI3, uint32_t inMaterialIndex, uint32_t inUserData);
+bool JPH_IndexedTriangle_operator==(JPH_IndexedTriangle *inRHS);
+JPH_IndexedTriangle JPH_IndexedTriangle_GetLowestIndexFirst();
+uint64_t JPH_IndexedTriangle_GetHash();
 // JoltPhysics/Jolt/Geometry/IndexedTriangle.h:123:1
 typedef < ? named (size=-2, align=-2)> JPH_IndexedTriangleNoMaterialList;
 
@@ -1458,12 +2541,89 @@ typedef struct JPH_Plane {
     JPH_Vec4 mNormalAndConstant;
 } JPH_Plane;
 
+void *JPH_Plane_operator_new(size_t inCount);
+void JPH_Plane_operator_delete(void *inPointer);
+void *JPH_Plane_operator_new[](size_t inCount);
+void JPH_Plane_operator_delete[](void *inPointer);
+void *JPH_Plane_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Plane_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Plane_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Plane_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Plane_operator_new(size_t inCount, void *inPointer);
+void JPH_Plane_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Plane_operator_new[](size_t inCount, void *inPointer);
+void JPH_Plane_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Plane_Plane();
+void JPH_Plane_Plane(JPH_Vec4Arg inNormalAndConstant);
+void JPH_Plane_Plane(JPH_Vec3Arg inNormal, float inConstant);
+JPH_Plane JPH_Plane_sFromPointAndNormal(JPH_Vec3Arg inPoint, JPH_Vec3Arg inNormal);
+JPH_Plane JPH_Plane_sFromPointAndNormal(JPH_DVec3Arg inPoint, JPH_Vec3Arg inNormal);
+JPH_Plane JPH_Plane_sFromPointsCCW(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, JPH_Vec3Arg inV3);
+JPH_Vec3 JPH_Plane_GetNormal();
+void JPH_Plane_SetNormal(JPH_Vec3Arg inNormal);
+float JPH_Plane_GetConstant();
+void JPH_Plane_SetConstant(float inConstant);
+void JPH_Plane_StoreFloat4(JPH_Float4 *outV);
+JPH_Plane JPH_Plane_Offset(float inDistance);
+JPH_Plane JPH_Plane_GetTransformed(JPH_Mat44Arg inTransform);
+JPH_Plane JPH_Plane_Scaled(JPH_Vec3Arg inScale);
+float JPH_Plane_SignedDistance(JPH_Vec3Arg inPoint);
+JPH_Vec3 JPH_Plane_ProjectPointOnPlane(JPH_Vec3Arg inPoint);
+bool JPH_Plane_sIntersectPlanes(JPH_Plane *inP1, JPH_Plane *inP2, JPH_Plane *inP3, JPH_Vec3 *outPoint);
 // JoltPhysics/Jolt/Geometry/AABox.h:15:1
 typedef struct JPH_AABox {
     JPH_Vec3 mMin;
     JPH_Vec3 mMax;
 } JPH_AABox;
 
+void *JPH_AABox_operator_new(size_t inCount);
+void JPH_AABox_operator_delete(void *inPointer);
+void *JPH_AABox_operator_new[](size_t inCount);
+void JPH_AABox_operator_delete[](void *inPointer);
+void *JPH_AABox_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_AABox_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_AABox_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_AABox_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_AABox_operator_new(size_t inCount, void *inPointer);
+void JPH_AABox_operator_delete(void *inPointer, void *inPlace);
+void *JPH_AABox_operator_new[](size_t inCount, void *inPointer);
+void JPH_AABox_operator_delete[](void *inPointer, void *inPlace);
+void JPH_AABox_AABox();
+void JPH_AABox_AABox(JPH_Vec3Arg inMin, JPH_Vec3Arg inMax);
+void JPH_AABox_AABox(JPH_DVec3Arg inMin, JPH_DVec3Arg inMax);
+void JPH_AABox_AABox(JPH_Vec3Arg inCenter, float inRadius);
+JPH_AABox JPH_AABox_sFromTwoPoints(JPH_Vec3Arg inP1, JPH_Vec3Arg inP2);
+JPH_AABox JPH_AABox_sFromTriangle(JPH_VertexList *inVertices, JPH_IndexedTriangle *inTriangle);
+JPH_AABox JPH_AABox_sBiggest();
+bool JPH_AABox_operator==(JPH_AABox *inRHS);
+bool JPH_AABox_operator!=(JPH_AABox *inRHS);
+void JPH_AABox_SetEmpty();
+bool JPH_AABox_IsValid();
+void JPH_AABox_Encapsulate(JPH_Vec3Arg inPos);
+void JPH_AABox_Encapsulate(JPH_AABox *inRHS);
+void JPH_AABox_Encapsulate(JPH_Triangle *inRHS);
+void JPH_AABox_Encapsulate(JPH_VertexList *inVertices, JPH_IndexedTriangle *inTriangle);
+JPH_AABox JPH_AABox_Intersect(JPH_AABox *inOther);
+void JPH_AABox_EnsureMinimalEdgeLength(float inMinEdgeLength);
+void JPH_AABox_ExpandBy(JPH_Vec3Arg inVector);
+JPH_Vec3 JPH_AABox_GetCenter();
+JPH_Vec3 JPH_AABox_GetExtent();
+JPH_Vec3 JPH_AABox_GetSize();
+float JPH_AABox_GetSurfaceArea();
+float JPH_AABox_GetVolume();
+bool JPH_AABox_Contains(JPH_AABox *inOther);
+bool JPH_AABox_Contains(JPH_Vec3Arg inOther);
+bool JPH_AABox_Contains(JPH_DVec3Arg inOther);
+bool JPH_AABox_Overlaps(JPH_AABox *inOther);
+bool JPH_AABox_Overlaps(JPH_Plane *inPlane);
+void JPH_AABox_Translate(JPH_Vec3Arg inTranslation);
+void JPH_AABox_Translate(JPH_DVec3Arg inTranslation);
+JPH_AABox JPH_AABox_Transformed(JPH_Mat44Arg inMatrix);
+JPH_AABox JPH_AABox_Transformed(JPH_DMat44Arg inMatrix);
+JPH_AABox JPH_AABox_Scaled(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_AABox_GetSupport(JPH_Vec3Arg inDirection);
+JPH_Vec3 JPH_AABox_GetClosestPoint(JPH_Vec3Arg inPoint);
+float JPH_AABox_GetSqDistanceTo(JPH_Vec3Arg inPoint);
 // JoltPhysics/Jolt/Core/Factory.h:43:2
 typedef < ? named (size=32, align=8)> JPH_Factory_ClassNameMap;
 
@@ -1476,6 +2636,25 @@ typedef struct JPH_Factory {
     JPH_Factory_ClassHashMap mClassHashMap;
 } JPH_Factory;
 
+void *JPH_Factory_operator_new(size_t inCount);
+void JPH_Factory_operator_delete(void *inPointer);
+void *JPH_Factory_operator_new[](size_t inCount);
+void JPH_Factory_operator_delete[](void *inPointer);
+void *JPH_Factory_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Factory_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Factory_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Factory_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Factory_operator_new(size_t inCount, void *inPointer);
+void JPH_Factory_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Factory_operator_new[](size_t inCount, void *inPointer);
+void JPH_Factory_operator_delete[](void *inPointer, void *inPlace);
+void *JPH_Factory_CreateObject(int8_t *inName);
+JPH_RTTI *JPH_Factory_Find(int8_t *inName);
+JPH_RTTI *JPH_Factory_Find(uint32_t inHash);
+bool JPH_Factory_Register(JPH_RTTI *inRTTI);
+bool JPH_Factory_Register(JPH_RTTI **inRTTIs, uint32_t inNumber);
+void JPH_Factory_Clear();
+< Unexposed (size=24, align=8)> JPH_Factory_GetAllClasses();
 // JoltPhysics/Jolt/Physics/LargeIslandSplitter.h:27:2
 typedef uint32_t JPH_LargeIslandSplitter_SplitMask;
 
@@ -1487,6 +2666,9 @@ typedef struct JPH_LargeIslandSplitter_Split {
     uint32_t mConstraintBufferEnd;
 } JPH_LargeIslandSplitter_Split;
 
+uint32_t JPH_LargeIslandSplitter_Split_GetNumContacts();
+uint32_t JPH_LargeIslandSplitter_Split_GetNumConstraints();
+uint32_t JPH_LargeIslandSplitter_Split_GetNumItems();
 // JoltPhysics/Jolt/Physics/LargeIslandSplitter.h:57:2
 typedef struct JPH_LargeIslandSplitter_Splits {
     JPH_LargeIslandSplitter_Split mSplits[32];
@@ -1499,6 +2681,16 @@ typedef struct JPH_LargeIslandSplitter_Splits {
     < Unexposed (size=4, align=4)> mItemsProcessed;
 } JPH_LargeIslandSplitter_Splits;
 
+uint32_t JPH_LargeIslandSplitter_Splits_GetNumSplits();
+void JPH_LargeIslandSplitter_Splits_GetConstraintsInSplit(uint32_t inSplitIndex, uint32_t *outConstraintsBegin, uint32_t *outConstraintsEnd);
+void JPH_LargeIslandSplitter_Splits_GetContactsInSplit(uint32_t inSplitIndex, uint32_t *outContactsBegin, uint32_t *outContactsEnd);
+void JPH_LargeIslandSplitter_Splits_ResetStatus();
+void JPH_LargeIslandSplitter_Splits_StartFirstBatch();
+JPH_LargeIslandSplitter_EStatus JPH_LargeIslandSplitter_Splits_FetchNextBatch(uint32_t *outConstraintsBegin, uint32_t *outConstraintsEnd, uint32_t *outContactsBegin, uint32_t *outContactsEnd, bool *outFirstIteration);
+void JPH_LargeIslandSplitter_Splits_MarkBatchProcessed(uint32_t inNumProcessed, bool *outLastIteration, bool *outFinalBatch);
+int32_t JPH_LargeIslandSplitter_Splits_sGetIteration(uint64_t inStatus);
+uint32_t JPH_LargeIslandSplitter_Splits_sGetSplit(uint64_t inStatus);
+uint32_t JPH_LargeIslandSplitter_Splits_sGetItem(uint64_t inStatus);
 // JoltPhysics/Jolt/Physics/LargeIslandSplitter.h:24:1
 typedef struct JPH_LargeIslandSplitter {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -1514,17 +2706,62 @@ typedef struct JPH_LargeIslandSplitter {
     < Unexposed (size=4, align=4)> mNextSplitIsland;
 } JPH_LargeIslandSplitter;
 
+void JPH_LargeIslandSplitter_~LargeIslandSplitter();
+void JPH_LargeIslandSplitter_Prepare(< ? named (size=112, align=8)> *inIslandBuilder, uint32_t inNumActiveBodies, < ? named (size=8, align=8)> *inTempAllocator);
+uint32_t JPH_LargeIslandSplitter_AssignSplit(< ? named (size=128, align=16)> *inBody1, < ? named (size=128, align=16)> *inBody2);
+uint32_t JPH_LargeIslandSplitter_AssignToNonParallelSplit(< ? named (size=128, align=16)> *inBody);
+bool JPH_LargeIslandSplitter_SplitIsland(uint32_t inIslandIndex, < ? named (size=112, align=8)> *inIslandBuilder, < ? named (size=304, align=8)> *inBodyManager, < ? named (size=248, align=8)> *inContactManager, < ? named (size=32, align=8)> **inActiveConstraints, < ? named (size=24, align=8)> *ioStepsCalculator);
+JPH_LargeIslandSplitter_EStatus JPH_LargeIslandSplitter_FetchNextBatch(uint32_t *outSplitIslandIndex, uint32_t **outConstraintsBegin, uint32_t **outConstraintsEnd, uint32_t **outContactsBegin, uint32_t **outContactsEnd, bool *outFirstIteration);
+void JPH_LargeIslandSplitter_MarkBatchProcessed(uint32_t inSplitIslandIndex, uint32_t *inConstraintsBegin, uint32_t *inConstraintsEnd, uint32_t *inContactsBegin, uint32_t *inContactsEnd, bool *outLastIteration, bool *outFinalBatch);
+uint32_t JPH_LargeIslandSplitter_GetIslandIndex(uint32_t inSplitIslandIndex);
+void JPH_LargeIslandSplitter_PrepareForSolvePositions();
+void JPH_LargeIslandSplitter_Reset(< ? named (size=8, align=8)> *inTempAllocator);
 // JoltPhysics/Jolt/Physics/Body/BodyID.h:12:1
 typedef struct JPH_BodyID {
     uint32_t mID;
 } JPH_BodyID;
 
+void *JPH_BodyID_operator_new(size_t inCount);
+void JPH_BodyID_operator_delete(void *inPointer);
+void *JPH_BodyID_operator_new[](size_t inCount);
+void JPH_BodyID_operator_delete[](void *inPointer);
+void *JPH_BodyID_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyID_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyID_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyID_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyID_operator_new(size_t inCount, void *inPointer);
+void JPH_BodyID_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BodyID_operator_new[](size_t inCount, void *inPointer);
+void JPH_BodyID_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BodyID_BodyID();
+void JPH_BodyID_BodyID(uint32_t inID);
+void JPH_BodyID_BodyID(uint32_t inID, uint8_t inSequenceNumber);
+uint32_t JPH_BodyID_GetIndex();
+uint8_t JPH_BodyID_GetSequenceNumber();
+uint32_t JPH_BodyID_GetIndexAndSequenceNumber();
+bool JPH_BodyID_IsInvalid();
+bool JPH_BodyID_operator==(JPH_BodyID *inRHS);
+bool JPH_BodyID_operator!=(JPH_BodyID *inRHS);
+bool JPH_BodyID_operator<(JPH_BodyID *inRHS);
+bool JPH_BodyID_operator>(JPH_BodyID *inRHS);
 // JoltPhysics/Jolt/Physics/IslandBuilder.h:77:2
 typedef struct JPH_IslandBuilder_BodyLink {
     < Unexposed (size=4, align=4)> mLinkedTo;
     uint32_t mIslandIndex;
 } JPH_IslandBuilder_BodyLink;
 
+void *JPH_IslandBuilder_BodyLink_operator_new(size_t inCount);
+void JPH_IslandBuilder_BodyLink_operator_delete(void *inPointer);
+void *JPH_IslandBuilder_BodyLink_operator_new[](size_t inCount);
+void JPH_IslandBuilder_BodyLink_operator_delete[](void *inPointer);
+void *JPH_IslandBuilder_BodyLink_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_IslandBuilder_BodyLink_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_IslandBuilder_BodyLink_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_IslandBuilder_BodyLink_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_IslandBuilder_BodyLink_operator_new(size_t inCount, void *inPointer);
+void JPH_IslandBuilder_BodyLink_operator_delete(void *inPointer, void *inPlace);
+void *JPH_IslandBuilder_BodyLink_operator_new[](size_t inCount, void *inPointer);
+void JPH_IslandBuilder_BodyLink_operator_delete[](void *inPointer, void *inPlace);
 // JoltPhysics/Jolt/Physics/IslandBuilder.h:18:1
 typedef struct JPH_IslandBuilder {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -1548,6 +2785,25 @@ typedef struct JPH_IslandBuilder {
     uint32_t mNumIslands;
 } JPH_IslandBuilder;
 
+void JPH_IslandBuilder_~IslandBuilder();
+void JPH_IslandBuilder_Init(uint32_t inMaxActiveBodies);
+void JPH_IslandBuilder_PrepareContactConstraints(uint32_t inMaxContactConstraints, < ? named (size=8, align=8)> *inTempAllocator);
+void JPH_IslandBuilder_PrepareNonContactConstraints(uint32_t inNumConstraints, < ? named (size=8, align=8)> *inTempAllocator);
+void JPH_IslandBuilder_LinkBodies(uint32_t inFirst, uint32_t inSecond);
+void JPH_IslandBuilder_LinkConstraint(uint32_t inConstraintIndex, uint32_t inFirst, uint32_t inSecond);
+void JPH_IslandBuilder_LinkContact(uint32_t inContactIndex, uint32_t inFirst, uint32_t inSecond);
+void JPH_IslandBuilder_Finalize(JPH_BodyID *inActiveBodies, uint32_t inNumActiveBodies, uint32_t inNumContacts, < ? named (size=8, align=8)> *inTempAllocator);
+uint32_t JPH_IslandBuilder_GetNumIslands();
+void JPH_IslandBuilder_GetBodiesInIsland(uint32_t inIslandIndex, JPH_BodyID **outBodiesBegin, JPH_BodyID **outBodiesEnd);
+bool JPH_IslandBuilder_GetConstraintsInIsland(uint32_t inIslandIndex, uint32_t **outConstraintsBegin, uint32_t **outConstraintsEnd);
+bool JPH_IslandBuilder_GetContactsInIsland(uint32_t inIslandIndex, uint32_t **outContactsBegin, uint32_t **outContactsEnd);
+void JPH_IslandBuilder_SetNumPositionSteps(uint32_t inIslandIndex, uint32_t inNumPositionSteps);
+uint32_t JPH_IslandBuilder_GetNumPositionSteps(uint32_t inIslandIndex);
+void JPH_IslandBuilder_ResetIslands(< ? named (size=8, align=8)> *inTempAllocator);
+uint32_t JPH_IslandBuilder_GetLowestBodyIndex(uint32_t inActiveBodyIndex);
+void JPH_IslandBuilder_BuildBodyIslands(JPH_BodyID *inActiveBodies, uint32_t inNumActiveBodies, < ? named (size=8, align=8)> *inTempAllocator);
+void JPH_IslandBuilder_BuildConstraintIslands(uint32_t *inConstraintToBody, uint32_t inNumConstraints, uint32_t **outConstraints, uint32_t **outConstraintsEnd, < ? named (size=8, align=8)> *inTempAllocator);
+void JPH_IslandBuilder_SortIslands(< ? named (size=8, align=8)> *inTempAllocator);
 // JoltPhysics/Jolt/Physics/PhysicsSettings.h:27:1
 typedef struct JPH_PhysicsSettings {
     int32_t mMaxInFlightBodyPairs;
@@ -1578,6 +2834,18 @@ typedef struct JPH_PhysicsSettings {
     bool mCheckActiveEdges;
 } JPH_PhysicsSettings;
 
+void *JPH_PhysicsSettings_operator_new(size_t inCount);
+void JPH_PhysicsSettings_operator_delete(void *inPointer);
+void *JPH_PhysicsSettings_operator_new[](size_t inCount);
+void JPH_PhysicsSettings_operator_delete[](void *inPointer);
+void *JPH_PhysicsSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_PhysicsSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PhysicsSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_PhysicsSettings_operator_delete[](void *inPointer, void *inPlace);
 // JoltPhysics/Jolt/Physics/Constraints/CalculateSolverSteps.h:12:1
 typedef struct JPH_CalculateSolverSteps {
     JPH_PhysicsSettings *mSettings;
@@ -1587,6 +2855,10 @@ typedef struct JPH_CalculateSolverSteps {
     bool mApplyDefaultPosition;
 } JPH_CalculateSolverSteps;
 
+void JPH_CalculateSolverSteps_CalculateSolverSteps(JPH_PhysicsSettings *inSettings);
+void JPH_CalculateSolverSteps_Finalize();
+uint32_t JPH_CalculateSolverSteps_GetNumPositionSteps();
+uint32_t JPH_CalculateSolverSteps_GetNumVelocitySteps();
 // JoltPhysics/Jolt/Physics/Constraints/CalculateSolverSteps.h:56:1
 typedef struct JPH_DummyCalculateSolverSteps JPH_DummyCalculateSolverSteps;
 
@@ -1597,10 +2869,70 @@ typedef < ? named (size=-2, align=-2)> JPH_ConstraintSettings_ConstraintResult;
 // Has vtable
 typedef struct JPH_ConstraintSettings JPH_ConstraintSettings;
 
+void *JPH_ConstraintSettings_operator_new(size_t inCount);
+void JPH_ConstraintSettings_operator_delete(void *inPointer);
+void *JPH_ConstraintSettings_operator_new[](size_t inCount);
+void JPH_ConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_ConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_ConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_ConstraintSettings_GetRTTI();
+void *JPH_ConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_ConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_ConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_ConstraintSettings_ConstraintResult JPH_ConstraintSettings_sRestoreFromBinaryState(JPH_StreamIn *inStream);
+void JPH_ConstraintSettings_ConstraintSettings();
+void JPH_ConstraintSettings_ConstraintSettings(JPH_ConstraintSettings *);
+JPH_ConstraintSettings *JPH_ConstraintSettings_operator=(JPH_ConstraintSettings *);
+void JPH_ConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/Constraint.h:107:1
 // Abstract
 typedef struct JPH_Constraint JPH_Constraint;
 
+void *JPH_Constraint_operator_new(size_t inCount);
+void JPH_Constraint_operator_delete(void *inPointer);
+void *JPH_Constraint_operator_new[](size_t inCount);
+void JPH_Constraint_operator_delete[](void *inPointer);
+void *JPH_Constraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Constraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Constraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Constraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Constraint_operator_new(size_t inCount, void *inPointer);
+void JPH_Constraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Constraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_Constraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Constraint_Constraint(JPH_ConstraintSettings *inSettings);
+void JPH_Constraint_~Constraint();
+JPH_EConstraintType JPH_Constraint_GetType();
+JPH_EConstraintSubType JPH_Constraint_GetSubType();
+uint32_t JPH_Constraint_GetConstraintPriority();
+void JPH_Constraint_SetConstraintPriority(uint32_t inPriority);
+void JPH_Constraint_SetNumVelocityStepsOverride(uint32_t inN);
+uint32_t JPH_Constraint_GetNumVelocityStepsOverride();
+void JPH_Constraint_SetNumPositionStepsOverride(uint32_t inN);
+uint32_t JPH_Constraint_GetNumPositionStepsOverride();
+void JPH_Constraint_SetEnabled(bool inEnabled);
+bool JPH_Constraint_GetEnabled();
+uint64_t JPH_Constraint_GetUserData();
+void JPH_Constraint_SetUserData(uint64_t inUserData);
+void JPH_Constraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_Constraint_ResetWarmStart();
+bool JPH_Constraint_IsActive();
+void JPH_Constraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_Constraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_Constraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_Constraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_Constraint_BuildIslands(uint32_t inConstraintIndex, JPH_IslandBuilder *ioBuilder, < ? named (size=304, align=8)> *inBodyManager);
+uint32_t JPH_Constraint_BuildIslandSplits(JPH_LargeIslandSplitter *ioSplitter);
+void JPH_Constraint_SaveState(< ? named (size=24, align=8)> *inStream);
+void JPH_Constraint_RestoreState(< ? named (size=24, align=8)> *inStream);
+< Unexposed (size=-2, align=-2)> JPH_Constraint_GetConstraintSettings();
+void JPH_Constraint_ToConstraintSettings(JPH_ConstraintSettings *outSettings);
 // JoltPhysics/Jolt/Core/LockFreeHashMap.h:13:1
 typedef struct JPH_LFHMAllocator {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -1610,6 +2942,10 @@ typedef struct JPH_LFHMAllocator {
     < Unexposed (size=4, align=4)> mWriteOffset;
 } JPH_LFHMAllocator;
 
+void JPH_LFHMAllocator_~LFHMAllocator();
+void JPH_LFHMAllocator_Init(uint32_t inObjectStoreSizeBytes);
+void JPH_LFHMAllocator_Clear();
+void JPH_LFHMAllocator_Allocate(uint32_t inBlockSize, uint32_t *ioBegin, uint32_t *ioEnd);
 // JoltPhysics/Jolt/Core/LockFreeHashMap.h:48:1
 typedef struct JPH_LFHMAllocatorContext {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -1620,12 +2956,31 @@ typedef struct JPH_LFHMAllocatorContext {
     uint32_t mEnd;
 } JPH_LFHMAllocatorContext;
 
+void JPH_LFHMAllocatorContext_LFHMAllocatorContext(JPH_LFHMAllocator *inAllocator, uint32_t inBlockSize);
+bool JPH_LFHMAllocatorContext_Allocate(uint32_t inSize, uint32_t inAlignment, uint32_t *outWriteOffset);
 // JoltPhysics/Jolt/Physics/Body/BodyPair.h:13:1
 typedef struct JPH_BodyPair {
     JPH_BodyID mBodyA;
     JPH_BodyID mBodyB;
 } JPH_BodyPair;
 
+void *JPH_BodyPair_operator_new(size_t inCount);
+void JPH_BodyPair_operator_delete(void *inPointer);
+void *JPH_BodyPair_operator_new[](size_t inCount);
+void JPH_BodyPair_operator_delete[](void *inPointer);
+void *JPH_BodyPair_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyPair_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyPair_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyPair_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyPair_operator_new(size_t inCount, void *inPointer);
+void JPH_BodyPair_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BodyPair_operator_new[](size_t inCount, void *inPointer);
+void JPH_BodyPair_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BodyPair_BodyPair();
+void JPH_BodyPair_BodyPair(JPH_BodyID inA, JPH_BodyID inB);
+bool JPH_BodyPair_operator==(JPH_BodyPair *inRHS);
+bool JPH_BodyPair_operator<(JPH_BodyPair *inRHS);
+uint64_t JPH_BodyPair_GetHash();
 // JoltPhysics/Jolt/Physics/Collision/Shape/SubShapeID.h:28:2
 typedef uint32_t JPH_SubShapeID_Type;
 
@@ -1637,12 +2992,36 @@ typedef struct JPH_SubShapeID {
     JPH_SubShapeID_Type mValue;
 } JPH_SubShapeID;
 
+void *JPH_SubShapeID_operator_new(size_t inCount);
+void JPH_SubShapeID_operator_delete(void *inPointer);
+void *JPH_SubShapeID_operator_new[](size_t inCount);
+void JPH_SubShapeID_operator_delete[](void *inPointer);
+void *JPH_SubShapeID_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SubShapeID_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SubShapeID_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SubShapeID_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SubShapeID_operator_new(size_t inCount, void *inPointer);
+void JPH_SubShapeID_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SubShapeID_operator_new[](size_t inCount, void *inPointer);
+void JPH_SubShapeID_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SubShapeID_SubShapeID();
+JPH_SubShapeID_Type JPH_SubShapeID_PopID(uint32_t inBits, JPH_SubShapeID *outRemainder);
+JPH_SubShapeID_Type JPH_SubShapeID_GetValue();
+void JPH_SubShapeID_SetValue(JPH_SubShapeID_Type inValue);
+bool JPH_SubShapeID_IsEmpty();
+bool JPH_SubShapeID_operator==(JPH_SubShapeID *inRHS);
+bool JPH_SubShapeID_operator!=(JPH_SubShapeID *inRHS);
+void JPH_SubShapeID_SubShapeID(JPH_SubShapeID_Type *inValue);
+void JPH_SubShapeID_PushID(JPH_SubShapeID_Type inValue, uint32_t inFirstBit, uint32_t inBits);
 // JoltPhysics/Jolt/Physics/Collision/Shape/SubShapeID.h:107:1
 typedef struct JPH_SubShapeIDCreator {
     JPH_SubShapeID mID;
     uint32_t mCurrentBit;
 } JPH_SubShapeIDCreator;
 
+JPH_SubShapeIDCreator JPH_SubShapeIDCreator_PushID(uint32_t inValue, uint32_t inBits);
+JPH_SubShapeID *JPH_SubShapeIDCreator_GetID();
+uint32_t JPH_SubShapeIDCreator_GetNumBitsWritten();
 // JoltPhysics/Jolt/Physics/Collision/Shape/SubShapeIDPair.h:14:1
 typedef struct JPH_SubShapeIDPair {
     JPH_BodyID mBody1ID;
@@ -1651,12 +3030,57 @@ typedef struct JPH_SubShapeIDPair {
     JPH_SubShapeID mSubShapeID2;
 } JPH_SubShapeIDPair;
 
+void *JPH_SubShapeIDPair_operator_new(size_t inCount);
+void JPH_SubShapeIDPair_operator_delete(void *inPointer);
+void *JPH_SubShapeIDPair_operator_new[](size_t inCount);
+void JPH_SubShapeIDPair_operator_delete[](void *inPointer);
+void *JPH_SubShapeIDPair_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SubShapeIDPair_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SubShapeIDPair_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SubShapeIDPair_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SubShapeIDPair_operator_new(size_t inCount, void *inPointer);
+void JPH_SubShapeIDPair_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SubShapeIDPair_operator_new[](size_t inCount, void *inPointer);
+void JPH_SubShapeIDPair_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SubShapeIDPair_SubShapeIDPair();
+void JPH_SubShapeIDPair_SubShapeIDPair(JPH_BodyID *inBody1ID, JPH_SubShapeID *inSubShapeID1, JPH_BodyID *inBody2ID, JPH_SubShapeID *inSubShapeID2);
+JPH_SubShapeIDPair *JPH_SubShapeIDPair_operator=(JPH_SubShapeIDPair *);
+void JPH_SubShapeIDPair_SubShapeIDPair(JPH_SubShapeIDPair *);
+bool JPH_SubShapeIDPair_operator==(JPH_SubShapeIDPair *inRHS);
+bool JPH_SubShapeIDPair_operator<(JPH_SubShapeIDPair *inRHS);
+JPH_BodyID *JPH_SubShapeIDPair_GetBody1ID();
+JPH_SubShapeID *JPH_SubShapeIDPair_GetSubShapeID1();
+JPH_BodyID *JPH_SubShapeIDPair_GetBody2ID();
+JPH_SubShapeID *JPH_SubShapeIDPair_GetSubShapeID2();
+uint64_t JPH_SubShapeIDPair_GetHash();
 // JoltPhysics/Jolt/Physics/Body/MassProperties.h:15:1
 typedef struct JPH_MassProperties {
     float mMass;
     JPH_Mat44 mInertia;
 } JPH_MassProperties;
 
+void *JPH_MassProperties_operator_new(size_t inCount);
+void JPH_MassProperties_operator_delete(void *inPointer);
+void *JPH_MassProperties_operator_new[](size_t inCount);
+void JPH_MassProperties_operator_delete[](void *inPointer);
+void *JPH_MassProperties_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MassProperties_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MassProperties_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MassProperties_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MassProperties_operator_new(size_t inCount, void *inPointer);
+void JPH_MassProperties_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MassProperties_operator_new[](size_t inCount, void *inPointer);
+void JPH_MassProperties_operator_delete[](void *inPointer, void *inPlace);
+void JPH_MassProperties_sCreateRTTI(JPH_RTTI *inRTTI);
+bool JPH_MassProperties_DecomposePrincipalMomentsOfInertia(JPH_Mat44 *outRotation, JPH_Vec3 *outDiagonal);
+void JPH_MassProperties_SetMassAndInertiaOfSolidBox(JPH_Vec3Arg inBoxSize, float inDensity);
+void JPH_MassProperties_ScaleToMass(float inMass);
+JPH_Vec3 JPH_MassProperties_sGetEquivalentSolidBoxSize(float inMass, JPH_Vec3Arg inInertiaDiagonal);
+void JPH_MassProperties_Rotate(JPH_Mat44Arg inRotation);
+void JPH_MassProperties_Translate(JPH_Vec3Arg inTranslation);
+void JPH_MassProperties_Scale(JPH_Vec3Arg inScale);
+void JPH_MassProperties_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_MassProperties_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/CollisionCollector.h:13:1
 typedef struct JPH_CollisionCollectorTraitsCastRay JPH_CollisionCollectorTraitsCastRay;
 
@@ -1673,10 +3097,16 @@ typedef JPH_CollisionCollectorTraitsCollideShape JPH_CollisionCollectorTraitsCol
 // Has vtable
 typedef struct JPH_ShapeFilter JPH_ShapeFilter;
 
+void JPH_ShapeFilter_~ShapeFilter();
+bool JPH_ShapeFilter_ShouldCollide(< ? named (size=32, align=8)> *inShape2, JPH_SubShapeID *inSubShapeIDOfShape2);
+bool JPH_ShapeFilter_ShouldCollide(< ? named (size=32, align=8)> *inShape1, JPH_SubShapeID *inSubShapeIDOfShape1, < ? named (size=32, align=8)> *inShape2, JPH_SubShapeID *inSubShapeIDOfShape2);
 // JoltPhysics/Jolt/Physics/Collision/ShapeFilter.h:50:1
 // Has vtable
 typedef struct JPH_ReversedShapeFilter JPH_ReversedShapeFilter;
 
+void JPH_ReversedShapeFilter_ReversedShapeFilter(JPH_ShapeFilter *inFilter);
+bool JPH_ReversedShapeFilter_ShouldCollide(< ? named (size=32, align=8)> *inShape2, JPH_SubShapeID *inSubShapeIDOfShape2);
+bool JPH_ReversedShapeFilter_ShouldCollide(< ? named (size=32, align=8)> *inShape1, JPH_SubShapeID *inSubShapeIDOfShape1, < ? named (size=32, align=8)> *inShape2, JPH_SubShapeID *inSubShapeIDOfShape2);
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:44:1
 typedef < ? named (size=24, align=8)> JPH_CastRayCollector;
 
@@ -1711,12 +3141,30 @@ typedef < ? named (size=40, align=8)> JPH_ShapeSettings_ShapeResult;
 // Abstract
 typedef struct JPH_ShapeSettings JPH_ShapeSettings;
 
+void *JPH_ShapeSettings_operator_new(size_t inCount);
+void JPH_ShapeSettings_operator_delete(void *inPointer);
+void *JPH_ShapeSettings_operator_new[](size_t inCount);
+void JPH_ShapeSettings_operator_delete[](void *inPointer);
+void *JPH_ShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_ShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_ShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_ShapeSettings_GetRTTI();
+void *JPH_ShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_ShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+JPH_ShapeSettings_ShapeResult JPH_ShapeSettings_Create();
+void JPH_ShapeSettings_ClearCachedResult();
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:168:1
 typedef struct JPH_ShapeFunctions {
     < ? named (size=32, align=8)> *(*mConstruct)();
     JPH_Color mColor;
 } JPH_ShapeFunctions;
 
+JPH_ShapeFunctions *JPH_ShapeFunctions_sGet(JPH_EShapeSubType inSubType);
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:190:2
 typedef < ? named (size=40, align=8)> JPH_Shape_ShapeResult;
 
@@ -1746,6 +3194,7 @@ typedef struct JPH_Shape_Stats {
     uint32_t mNumTriangles;
 } JPH_Shape_Stats;
 
+void JPH_Shape_Stats_Stats(size_t inSizeBytes, uint32_t inNumTriangles);
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:418:2
 typedef < ? named (size=-2, align=-2)> JPH_Shape_VisitedShapes;
 
@@ -1753,6 +3202,64 @@ typedef < ? named (size=-2, align=-2)> JPH_Shape_VisitedShapes;
 // Abstract
 typedef struct JPH_Shape JPH_Shape;
 
+void *JPH_Shape_operator_new(size_t inCount);
+void JPH_Shape_operator_delete(void *inPointer);
+void *JPH_Shape_operator_new[](size_t inCount);
+void JPH_Shape_operator_delete[](void *inPointer);
+void *JPH_Shape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Shape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Shape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Shape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Shape_operator_new(size_t inCount, void *inPointer);
+void JPH_Shape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Shape_operator_new[](size_t inCount, void *inPointer);
+void JPH_Shape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Shape_Shape(JPH_EShapeType inType, JPH_EShapeSubType inSubType);
+void JPH_Shape_Shape(JPH_EShapeType inType, JPH_EShapeSubType inSubType, JPH_ShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_Shape_~Shape();
+JPH_EShapeType JPH_Shape_GetType();
+JPH_EShapeSubType JPH_Shape_GetSubType();
+uint64_t JPH_Shape_GetUserData();
+void JPH_Shape_SetUserData(uint64_t inUserData);
+bool JPH_Shape_MustBeStatic();
+JPH_Vec3 JPH_Shape_GetCenterOfMass();
+JPH_AABox JPH_Shape_GetLocalBounds();
+uint32_t JPH_Shape_GetSubShapeIDBitsRecursive();
+JPH_AABox JPH_Shape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+JPH_AABox JPH_Shape_GetWorldSpaceBounds(JPH_DMat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_Shape_GetInnerRadius();
+JPH_MassProperties JPH_Shape_GetMassProperties();
+JPH_Shape *JPH_Shape_GetLeafShape(JPH_SubShapeID *inSubShapeID, JPH_SubShapeID *outRemainder);
+< ? named (size=16, align=8)> *JPH_Shape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+JPH_Vec3 JPH_Shape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_Shape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+uint64_t JPH_Shape_GetSubShapeUserData(JPH_SubShapeID *inSubShapeID);
+< ? named (size=64, align=16)> JPH_Shape_GetSubShapeTransformedShape(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeID *outRemainder);
+void JPH_Shape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_Shape_CastRay(< ? named (size=32, align=16)> *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, < ? named (size=12, align=4)> *ioHit);
+void JPH_Shape_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=3, align=1)> *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_Shape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_Shape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, < ? named (size=80, align=8)> *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_Shape_CollectTransformedShapes(JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_Shape_TransformShape(JPH_Mat44Arg inCenterOfMassTransform, JPH_TransformedShapeCollector *ioCollector);
+JPH_Shape_ShapeResult JPH_Shape_ScaleShape(JPH_Vec3Arg inScale);
+void JPH_Shape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_Shape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, < ? named (size=16, align=8)> **outMaterials);
+void JPH_Shape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_ShapeResult JPH_Shape_sRestoreFromBinaryState(JPH_StreamIn *inStream);
+void JPH_Shape_SaveMaterialState(JPH_PhysicsMaterialList *outMaterials);
+void JPH_Shape_RestoreMaterialState(JPH_PhysicsMaterialRefC *inMaterials, uint32_t inNumMaterials);
+void JPH_Shape_SaveSubShapeState(JPH_ShapeList *outSubShapes);
+void JPH_Shape_RestoreSubShapeState(JPH_ShapeRefC *inSubShapes, uint32_t inNumShapes);
+void JPH_Shape_SaveWithChildren(JPH_StreamOut *inStream, JPH_Shape_ShapeToIDMap *ioShapeMap, JPH_Shape_MaterialToIDMap *ioMaterialMap);
+JPH_Shape_ShapeResult JPH_Shape_sRestoreWithChildren(JPH_StreamIn *inStream, JPH_Shape_IDToShapeMap *ioShapeMap, JPH_Shape_IDToMaterialMap *ioMaterialMap);
+JPH_Shape_Stats JPH_Shape_GetStats();
+JPH_Shape_Stats JPH_Shape_GetStatsRecursive(JPH_Shape_VisitedShapes *ioVisitedShapes);
+float JPH_Shape_GetVolume();
+bool JPH_Shape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_Shape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_Shape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_Shape_sCollidePointUsingRayCast(JPH_Shape *inShape, JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
 // JoltPhysics/Jolt/Physics/Collision/PhysicsMaterial.h:41:2
 typedef < ? named (size=-2, align=-2)> JPH_PhysicsMaterial_PhysicsMaterialResult;
 
@@ -1760,6 +3267,30 @@ typedef < ? named (size=-2, align=-2)> JPH_PhysicsMaterial_PhysicsMaterialResult
 // Has vtable
 typedef struct JPH_PhysicsMaterial JPH_PhysicsMaterial;
 
+void *JPH_PhysicsMaterial_operator_new(size_t inCount);
+void JPH_PhysicsMaterial_operator_delete(void *inPointer);
+void *JPH_PhysicsMaterial_operator_new[](size_t inCount);
+void JPH_PhysicsMaterial_operator_delete[](void *inPointer);
+void *JPH_PhysicsMaterial_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsMaterial_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsMaterial_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsMaterial_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsMaterial_operator_new(size_t inCount, void *inPointer);
+void JPH_PhysicsMaterial_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PhysicsMaterial_operator_new[](size_t inCount, void *inPointer);
+void JPH_PhysicsMaterial_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PhysicsMaterial_GetRTTI();
+void *JPH_PhysicsMaterial_CastTo(JPH_RTTI *inRTTI);
+void JPH_PhysicsMaterial_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PhysicsMaterial_PhysicsMaterial();
+void JPH_PhysicsMaterial_~PhysicsMaterial();
+int8_t *JPH_PhysicsMaterial_GetDebugName();
+JPH_Color JPH_PhysicsMaterial_GetDebugColor();
+void JPH_PhysicsMaterial_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_PhysicsMaterial_PhysicsMaterialResult JPH_PhysicsMaterial_sRestoreFromBinaryState(JPH_StreamIn *inStream);
+void JPH_PhysicsMaterial_PhysicsMaterial(JPH_PhysicsMaterial *);
+JPH_PhysicsMaterial *JPH_PhysicsMaterial_operator=(JPH_PhysicsMaterial *);
+void JPH_PhysicsMaterial_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/PhysicsMaterial.h:55:1
 typedef < ? named (size=24, align=8)> JPH_PhysicsMaterialList;
 
@@ -1767,10 +3298,31 @@ typedef < ? named (size=24, align=8)> JPH_PhysicsMaterialList;
 // Abstract
 typedef struct JPH_ConvexShapeSettings JPH_ConvexShapeSettings;
 
+void *JPH_ConvexShapeSettings_operator_new(size_t inCount);
+void JPH_ConvexShapeSettings_operator_delete(void *inPointer);
+void *JPH_ConvexShapeSettings_operator_new[](size_t inCount);
+void JPH_ConvexShapeSettings_operator_delete[](void *inPointer);
+void *JPH_ConvexShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_ConvexShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConvexShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConvexShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_ConvexShapeSettings_GetRTTI();
+void *JPH_ConvexShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_ConvexShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_ConvexShapeSettings_ConvexShapeSettings();
+void JPH_ConvexShapeSettings_ConvexShapeSettings(JPH_PhysicsMaterial *inMaterial);
+void JPH_ConvexShapeSettings_SetDensity(float inDensity);
 // JoltPhysics/Jolt/Physics/Collision/Shape/ConvexShape.h:68:2
 // Abstract
 typedef struct JPH_ConvexShape_Support JPH_ConvexShape_Support;
 
+void JPH_ConvexShape_Support_~Support();
+JPH_Vec3 JPH_ConvexShape_Support_GetSupport(JPH_Vec3Arg inDirection);
+float JPH_ConvexShape_Support_GetConvexRadius();
 // JoltPhysics/Jolt/Physics/Collision/Shape/ConvexShape.h:84:2
 typedef struct JPH_ConvexShape_SupportBuffer {
     uint8_t mData[4160];
@@ -1780,6 +3332,41 @@ typedef struct JPH_ConvexShape_SupportBuffer {
 // Abstract
 typedef struct JPH_ConvexShape JPH_ConvexShape;
 
+void *JPH_ConvexShape_operator_new(size_t inCount);
+void JPH_ConvexShape_operator_delete(void *inPointer);
+void *JPH_ConvexShape_operator_new[](size_t inCount);
+void JPH_ConvexShape_operator_delete[](void *inPointer);
+void *JPH_ConvexShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexShape_operator_new(size_t inCount, void *inPointer);
+void JPH_ConvexShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConvexShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConvexShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ConvexShape_ConvexShape(JPH_EShapeSubType inSubType);
+void JPH_ConvexShape_ConvexShape(JPH_EShapeSubType inSubType, JPH_ConvexShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_ConvexShape_ConvexShape(JPH_EShapeSubType inSubType, JPH_PhysicsMaterial *inMaterial);
+uint32_t JPH_ConvexShape_GetSubShapeIDBitsRecursive();
+JPH_PhysicsMaterial *JPH_ConvexShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+bool JPH_ConvexShape_CastRay(< ? named (size=32, align=16)> *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, < ? named (size=12, align=4)> *ioHit);
+void JPH_ConvexShape_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=3, align=1)> *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ConvexShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ConvexShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_ConvexShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_ConvexShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+JPH_ConvexShape_Support *JPH_ConvexShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+void JPH_ConvexShape_SetMaterial(JPH_PhysicsMaterial *inMaterial);
+JPH_PhysicsMaterial *JPH_ConvexShape_GetMaterial();
+void JPH_ConvexShape_SetDensity(float inDensity);
+float JPH_ConvexShape_GetDensity();
+void JPH_ConvexShape_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_ConvexShape_SaveMaterialState(JPH_PhysicsMaterialList *outMaterials);
+void JPH_ConvexShape_RestoreMaterialState(JPH_PhysicsMaterialRefC *inMaterials, uint32_t inNumMaterials);
+void JPH_ConvexShape_sRegister();
+void JPH_ConvexShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_ConvexShape_sCollideConvexVsConvex(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, < ? named (size=48, align=16)> *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ConvexShape_sCastConvexVsConvex(< ? named (size=144, align=16)> *inShapeCast, < ? named (size=48, align=16)> *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/ContactListener.h:16:1
 typedef < ? named (size=1040, align=16)> JPH_ContactPoints;
 
@@ -1794,6 +3381,9 @@ typedef struct JPH_ContactManifold {
     JPH_ContactPoints mRelativeContactPointsOn2;
 } JPH_ContactManifold;
 
+JPH_ContactManifold JPH_ContactManifold_SwapShapes();
+JPH_RVec3 JPH_ContactManifold_GetWorldSpaceContactPointOn1(uint32_t inIndex);
+JPH_RVec3 JPH_ContactManifold_GetWorldSpaceContactPointOn2(uint32_t inIndex);
 // JoltPhysics/Jolt/Physics/Collision/ContactListener.h:40:1
 typedef struct JPH_ContactSettings {
     float mCombinedFriction;
@@ -1811,6 +3401,11 @@ typedef struct JPH_ContactSettings {
 // Has vtable
 typedef struct JPH_ContactListener JPH_ContactListener;
 
+void JPH_ContactListener_~ContactListener();
+JPH_ValidateResult JPH_ContactListener_OnContactValidate(< ? named (size=128, align=16)> *inBody1, < ? named (size=128, align=16)> *inBody2, JPH_RVec3Arg inBaseOffset, < ? named (size=1120, align=16)> *inCollisionResult);
+void JPH_ContactListener_OnContactAdded(< ? named (size=128, align=16)> *inBody1, < ? named (size=128, align=16)> *inBody2, JPH_ContactManifold *inManifold, JPH_ContactSettings *ioSettings);
+void JPH_ContactListener_OnContactPersisted(< ? named (size=128, align=16)> *inBody1, < ? named (size=128, align=16)> *inBody2, JPH_ContactManifold *inManifold, JPH_ContactSettings *ioSettings);
+void JPH_ContactListener_OnContactRemoved(JPH_SubShapeIDPair *inSubShapePair);
 // JoltPhysics/Jolt/Physics/Collision/ObjectLayer.h:16:2
 typedef uint16_t JPH_ObjectLayer;
 
@@ -1818,18 +3413,27 @@ typedef uint16_t JPH_ObjectLayer;
 // Has vtable
 typedef struct JPH_ObjectLayerFilter JPH_ObjectLayerFilter;
 
+void JPH_ObjectLayerFilter_~ObjectLayerFilter();
+bool JPH_ObjectLayerFilter_ShouldCollide(JPH_ObjectLayer inLayer);
 // JoltPhysics/Jolt/Physics/Collision/ObjectLayer.h:49:1
 // Has vtable
 typedef struct JPH_ObjectLayerPairFilter JPH_ObjectLayerPairFilter;
 
+void JPH_ObjectLayerPairFilter_~ObjectLayerPairFilter();
+bool JPH_ObjectLayerPairFilter_ShouldCollide(JPH_ObjectLayer inLayer1, JPH_ObjectLayer inLayer2);
 // JoltPhysics/Jolt/Physics/Collision/ObjectLayer.h:63:1
 // Has vtable
 typedef struct JPH_DefaultObjectLayerFilter JPH_DefaultObjectLayerFilter;
 
+void JPH_DefaultObjectLayerFilter_DefaultObjectLayerFilter(JPH_ObjectLayerPairFilter *inObjectLayerPairFilter, JPH_ObjectLayer inLayer);
+void JPH_DefaultObjectLayerFilter_DefaultObjectLayerFilter(JPH_DefaultObjectLayerFilter *inRHS);
+bool JPH_DefaultObjectLayerFilter_ShouldCollide(JPH_ObjectLayer inLayer);
 // JoltPhysics/Jolt/Physics/Collision/ObjectLayer.h:92:1
 // Has vtable
 typedef struct JPH_SpecifiedObjectLayerFilter JPH_SpecifiedObjectLayerFilter;
 
+void JPH_SpecifiedObjectLayerFilter_SpecifiedObjectLayerFilter(JPH_ObjectLayer inLayer);
+bool JPH_SpecifiedObjectLayerFilter_ShouldCollide(JPH_ObjectLayer inLayer);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h:20:2
 typedef uint8_t JPH_BroadPhaseLayer_Type;
 
@@ -1838,26 +3442,45 @@ typedef struct JPH_BroadPhaseLayer {
     JPH_BroadPhaseLayer_Type mValue;
 } JPH_BroadPhaseLayer;
 
+void JPH_BroadPhaseLayer_BroadPhaseLayer();
+void JPH_BroadPhaseLayer_BroadPhaseLayer(JPH_BroadPhaseLayer_Type inValue);
+void JPH_BroadPhaseLayer_BroadPhaseLayer(JPH_BroadPhaseLayer *);
+JPH_BroadPhaseLayer *JPH_BroadPhaseLayer_operator=(JPH_BroadPhaseLayer *);
+bool JPH_BroadPhaseLayer_operator==(JPH_BroadPhaseLayer *inRHS);
+bool JPH_BroadPhaseLayer_operator!=(JPH_BroadPhaseLayer *inRHS);
+bool JPH_BroadPhaseLayer_operator<(JPH_BroadPhaseLayer *inRHS);
+JPH_BroadPhaseLayer_Type JPH_BroadPhaseLayer_GetValue();
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h:60:1
 // Abstract
 typedef struct JPH_BroadPhaseLayerInterface JPH_BroadPhaseLayerInterface;
 
+void JPH_BroadPhaseLayerInterface_~BroadPhaseLayerInterface();
+uint32_t JPH_BroadPhaseLayerInterface_GetNumBroadPhaseLayers();
+JPH_BroadPhaseLayer JPH_BroadPhaseLayerInterface_GetBroadPhaseLayer(JPH_ObjectLayer inLayer);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h:79:1
 // Has vtable
 typedef struct JPH_ObjectVsBroadPhaseLayerFilter JPH_ObjectVsBroadPhaseLayerFilter;
 
+void JPH_ObjectVsBroadPhaseLayerFilter_~ObjectVsBroadPhaseLayerFilter();
+bool JPH_ObjectVsBroadPhaseLayerFilter_ShouldCollide(JPH_ObjectLayer inLayer1, JPH_BroadPhaseLayer inLayer2);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h:93:1
 // Has vtable
 typedef struct JPH_BroadPhaseLayerFilter JPH_BroadPhaseLayerFilter;
 
+void JPH_BroadPhaseLayerFilter_~BroadPhaseLayerFilter();
+bool JPH_BroadPhaseLayerFilter_ShouldCollide(JPH_BroadPhaseLayer inLayer);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h:107:1
 // Has vtable
 typedef struct JPH_DefaultBroadPhaseLayerFilter JPH_DefaultBroadPhaseLayerFilter;
 
+void JPH_DefaultBroadPhaseLayerFilter_DefaultBroadPhaseLayerFilter(JPH_ObjectVsBroadPhaseLayerFilter *inObjectVsBroadPhaseLayerFilter, JPH_ObjectLayer inLayer);
+bool JPH_DefaultBroadPhaseLayerFilter_ShouldCollide(JPH_BroadPhaseLayer inLayer);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h:129:1
 // Has vtable
 typedef struct JPH_SpecifiedBroadPhaseLayerFilter JPH_SpecifiedBroadPhaseLayerFilter;
 
+void JPH_SpecifiedBroadPhaseLayerFilter_SpecifiedBroadPhaseLayerFilter(JPH_BroadPhaseLayer inLayer);
+bool JPH_SpecifiedBroadPhaseLayerFilter_ShouldCollide(JPH_BroadPhaseLayer inLayer);
 // JoltPhysics/Jolt/Physics/Collision/GroupFilter.h:31:2
 typedef < ? named (size=-2, align=-2)> JPH_GroupFilter_GroupFilterResult;
 
@@ -1865,6 +3488,29 @@ typedef < ? named (size=-2, align=-2)> JPH_GroupFilter_GroupFilterResult;
 // Abstract
 typedef struct JPH_GroupFilter JPH_GroupFilter;
 
+void *JPH_GroupFilter_operator_new(size_t inCount);
+void JPH_GroupFilter_operator_delete(void *inPointer);
+void *JPH_GroupFilter_operator_new[](size_t inCount);
+void JPH_GroupFilter_operator_delete[](void *inPointer);
+void *JPH_GroupFilter_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GroupFilter_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GroupFilter_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GroupFilter_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GroupFilter_operator_new(size_t inCount, void *inPointer);
+void JPH_GroupFilter_operator_delete(void *inPointer, void *inPlace);
+void *JPH_GroupFilter_operator_new[](size_t inCount, void *inPointer);
+void JPH_GroupFilter_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_GroupFilter_GetRTTI();
+void *JPH_GroupFilter_CastTo(JPH_RTTI *inRTTI);
+void JPH_GroupFilter_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_GroupFilter_~GroupFilter();
+bool JPH_GroupFilter_CanCollide(< ? named (size=16, align=8)> *inGroup1, < ? named (size=16, align=8)> *inGroup2);
+void JPH_GroupFilter_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_GroupFilter_GroupFilterResult JPH_GroupFilter_sRestoreFromBinaryState(JPH_StreamIn *inStream);
+void JPH_GroupFilter_GroupFilter();
+void JPH_GroupFilter_GroupFilter(JPH_GroupFilter *);
+JPH_GroupFilter *JPH_GroupFilter_operator=(JPH_GroupFilter *);
+void JPH_GroupFilter_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/CollisionGroup.h:24:2
 typedef uint32_t JPH_CollisionGroup_GroupID;
 
@@ -1878,6 +3524,30 @@ typedef struct JPH_CollisionGroup {
     JPH_CollisionGroup_SubGroupID mSubGroupID;
 } JPH_CollisionGroup;
 
+void *JPH_CollisionGroup_operator_new(size_t inCount);
+void JPH_CollisionGroup_operator_delete(void *inPointer);
+void *JPH_CollisionGroup_operator_new[](size_t inCount);
+void JPH_CollisionGroup_operator_delete[](void *inPointer);
+void *JPH_CollisionGroup_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollisionGroup_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollisionGroup_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollisionGroup_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollisionGroup_operator_new(size_t inCount, void *inPointer);
+void JPH_CollisionGroup_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CollisionGroup_operator_new[](size_t inCount, void *inPointer);
+void JPH_CollisionGroup_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CollisionGroup_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_CollisionGroup_CollisionGroup();
+void JPH_CollisionGroup_CollisionGroup(JPH_GroupFilter *inFilter, JPH_CollisionGroup_GroupID inGroupID, JPH_CollisionGroup_SubGroupID inSubGroupID);
+void JPH_CollisionGroup_SetGroupFilter(JPH_GroupFilter *inFilter);
+JPH_GroupFilter *JPH_CollisionGroup_GetGroupFilter();
+void JPH_CollisionGroup_SetGroupID(JPH_CollisionGroup_GroupID inID);
+JPH_CollisionGroup_GroupID JPH_CollisionGroup_GetGroupID();
+void JPH_CollisionGroup_SetSubGroupID(JPH_CollisionGroup_SubGroupID inID);
+JPH_CollisionGroup_SubGroupID JPH_CollisionGroup_GetSubGroupID();
+bool JPH_CollisionGroup_CanCollide(JPH_CollisionGroup *inOther);
+void JPH_CollisionGroup_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_CollisionGroup_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/TransformedShape.h:71:2
 typedef JPH_Shape_GetTrianglesContext JPH_TransformedShape_GetTrianglesContext;
 
@@ -1891,18 +3561,81 @@ typedef struct JPH_TransformedShape {
     JPH_SubShapeIDCreator mSubShapeIDCreator;
 } JPH_TransformedShape;
 
+void *JPH_TransformedShape_operator_new(size_t inCount);
+void JPH_TransformedShape_operator_delete(void *inPointer);
+void *JPH_TransformedShape_operator_new[](size_t inCount);
+void JPH_TransformedShape_operator_delete[](void *inPointer);
+void *JPH_TransformedShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TransformedShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TransformedShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TransformedShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TransformedShape_operator_new(size_t inCount, void *inPointer);
+void JPH_TransformedShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TransformedShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_TransformedShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TransformedShape_TransformedShape();
+void JPH_TransformedShape_TransformedShape(JPH_RVec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Shape *inShape, JPH_BodyID *inBodyID, JPH_SubShapeIDCreator *inSubShapeIDCreator);
+bool JPH_TransformedShape_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=12, align=4)> *ioHit);
+void JPH_TransformedShape_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=3, align=1)> *inRayCastSettings, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TransformedShape_CollidePoint(JPH_RVec3Arg inPoint, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TransformedShape_CollideShape(JPH_Shape *inShape, JPH_Vec3Arg inShapeScale, JPH_RMat44Arg inCenterOfMassTransform, < ? named (size=48, align=16)> *inCollideShapeSettings, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TransformedShape_CastShape(< ? named (size=144, align=16)> *inShapeCast, < ? named (size=48, align=16)> *inShapeCastSettings, JPH_RVec3Arg inBaseOffset, JPH_CastShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TransformedShape_CollectTransformedShapes(JPH_AABox *inBox, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TransformedShape_GetTrianglesStart(JPH_TransformedShape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_RVec3Arg inBaseOffset);
+int32_t JPH_TransformedShape_GetTrianglesNext(JPH_TransformedShape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+JPH_Vec3 JPH_TransformedShape_GetShapeScale();
+void JPH_TransformedShape_SetShapeScale(JPH_Vec3Arg inScale);
+JPH_RMat44 JPH_TransformedShape_GetCenterOfMassTransform();
+JPH_RMat44 JPH_TransformedShape_GetInverseCenterOfMassTransform();
+void JPH_TransformedShape_SetWorldTransform(JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+void JPH_TransformedShape_SetWorldTransform(JPH_RMat44Arg inTransform);
+JPH_RMat44 JPH_TransformedShape_GetWorldTransform();
+JPH_AABox JPH_TransformedShape_GetWorldSpaceBounds();
+JPH_SubShapeID JPH_TransformedShape_MakeSubShapeIDRelativeToShape(JPH_SubShapeID *inSubShapeID);
+JPH_Vec3 JPH_TransformedShape_GetWorldSpaceSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_RVec3Arg inPosition);
+void JPH_TransformedShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_RVec3Arg inBaseOffset, JPH_Shape_SupportingFace *outVertices);
+JPH_PhysicsMaterial *JPH_TransformedShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+uint64_t JPH_TransformedShape_GetSubShapeUserData(JPH_SubShapeID *inSubShapeID);
+JPH_TransformedShape JPH_TransformedShape_GetSubShapeTransformedShape(JPH_SubShapeID *inSubShapeID, JPH_SubShapeID *outRemainder);
+JPH_BodyID JPH_TransformedShape_sGetBodyID(JPH_TransformedShape *inTS);
 // JoltPhysics/Jolt/Geometry/Sphere.h:11:1
 typedef struct JPH_Sphere {
     JPH_Float3 mCenter;
     float mRadius;
 } JPH_Sphere;
 
+void *JPH_Sphere_operator_new(size_t inCount);
+void JPH_Sphere_operator_delete(void *inPointer);
+void *JPH_Sphere_operator_new[](size_t inCount);
+void JPH_Sphere_operator_delete[](void *inPointer);
+void *JPH_Sphere_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Sphere_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Sphere_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Sphere_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Sphere_operator_new(size_t inCount, void *inPointer);
+void JPH_Sphere_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Sphere_operator_new[](size_t inCount, void *inPointer);
+void JPH_Sphere_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Sphere_Sphere();
+void JPH_Sphere_Sphere(JPH_Float3 *inCenter, float inRadius);
+void JPH_Sphere_Sphere(JPH_Vec3Arg inCenter, float inRadius);
+JPH_Vec3 JPH_Sphere_GetSupport(JPH_Vec3Arg inDirection);
+JPH_Vec3 JPH_Sphere_GetCenter();
+float JPH_Sphere_GetRadius();
+bool JPH_Sphere_Overlaps(JPH_Sphere *inB);
+bool JPH_Sphere_Overlaps(JPH_AABox *inOther);
+void JPH_Sphere_EncapsulatePoint(JPH_Vec3Arg inPoint);
 // JoltPhysics/Jolt/Physics/Body/BodyAccess.h:23:2
 typedef struct JPH_BodyAccess_Grant JPH_BodyAccess_Grant;
 
+void JPH_BodyAccess_Grant_Grant(JPH_BodyAccess_EAccess inVelocity, JPH_BodyAccess_EAccess inPosition);
+void JPH_BodyAccess_Grant_~Grant();
 // JoltPhysics/Jolt/Physics/Body/BodyAccess.h:11:1
 typedef struct JPH_BodyAccess JPH_BodyAccess;
 
+bool JPH_BodyAccess_sCheckRights(JPH_BodyAccess_EAccess inRights, JPH_BodyAccess_EAccess inDesiredRights);
+JPH_BodyAccess_EAccess *JPH_BodyAccess_sVelocityAccess();
+JPH_BodyAccess_EAccess *JPH_BodyAccess_sPositionAccess();
 // JoltPhysics/Jolt/Physics/Body/MotionProperties.h:28:1
 typedef struct JPH_MotionProperties {
     JPH_Vec3 mLinearVelocity;
@@ -1930,6 +3663,80 @@ typedef struct JPH_MotionProperties {
     JPH_EMotionType mCachedMotionType;
 } JPH_MotionProperties;
 
+void *JPH_MotionProperties_operator_new(size_t inCount);
+void JPH_MotionProperties_operator_delete(void *inPointer);
+void *JPH_MotionProperties_operator_new[](size_t inCount);
+void JPH_MotionProperties_operator_delete[](void *inPointer);
+void *JPH_MotionProperties_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotionProperties_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotionProperties_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotionProperties_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotionProperties_operator_new(size_t inCount, void *inPointer);
+void JPH_MotionProperties_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MotionProperties_operator_new[](size_t inCount, void *inPointer);
+void JPH_MotionProperties_operator_delete[](void *inPointer, void *inPlace);
+JPH_EMotionQuality JPH_MotionProperties_GetMotionQuality();
+JPH_EAllowedDOFs JPH_MotionProperties_GetAllowedDOFs();
+bool JPH_MotionProperties_GetAllowSleeping();
+JPH_Vec3 JPH_MotionProperties_GetLinearVelocity();
+void JPH_MotionProperties_SetLinearVelocity(JPH_Vec3Arg inLinearVelocity);
+void JPH_MotionProperties_SetLinearVelocityClamped(JPH_Vec3Arg inLinearVelocity);
+JPH_Vec3 JPH_MotionProperties_GetAngularVelocity();
+void JPH_MotionProperties_SetAngularVelocity(JPH_Vec3Arg inAngularVelocity);
+void JPH_MotionProperties_SetAngularVelocityClamped(JPH_Vec3Arg inAngularVelocity);
+void JPH_MotionProperties_MoveKinematic(JPH_Vec3Arg inDeltaPosition, JPH_QuatArg inDeltaRotation, float inDeltaTime);
+float JPH_MotionProperties_GetMaxLinearVelocity();
+void JPH_MotionProperties_SetMaxLinearVelocity(float inLinearVelocity);
+float JPH_MotionProperties_GetMaxAngularVelocity();
+void JPH_MotionProperties_SetMaxAngularVelocity(float inAngularVelocity);
+void JPH_MotionProperties_ClampLinearVelocity();
+void JPH_MotionProperties_ClampAngularVelocity();
+float JPH_MotionProperties_GetLinearDamping();
+void JPH_MotionProperties_SetLinearDamping(float inLinearDamping);
+float JPH_MotionProperties_GetAngularDamping();
+void JPH_MotionProperties_SetAngularDamping(float inAngularDamping);
+float JPH_MotionProperties_GetGravityFactor();
+void JPH_MotionProperties_SetGravityFactor(float inGravityFactor);
+void JPH_MotionProperties_SetMassProperties(JPH_EAllowedDOFs inAllowedDOFs, JPH_MassProperties *inMassProperties);
+float JPH_MotionProperties_GetInverseMass();
+float JPH_MotionProperties_GetInverseMassUnchecked();
+void JPH_MotionProperties_SetInverseMass(float inInverseMass);
+JPH_Vec3 JPH_MotionProperties_GetInverseInertiaDiagonal();
+JPH_Quat JPH_MotionProperties_GetInertiaRotation();
+void JPH_MotionProperties_SetInverseInertia(JPH_Vec3Arg inDiagonal, JPH_QuatArg inRot);
+void JPH_MotionProperties_ScaleToMass(float inMass);
+JPH_Mat44 JPH_MotionProperties_GetLocalSpaceInverseInertia();
+JPH_Mat44 JPH_MotionProperties_GetLocalSpaceInverseInertiaUnchecked();
+JPH_Mat44 JPH_MotionProperties_GetInverseInertiaForRotation(JPH_Mat44Arg inRotation);
+JPH_Vec3 JPH_MotionProperties_MultiplyWorldSpaceInverseInertiaByVector(JPH_QuatArg inBodyRotation, JPH_Vec3Arg inV);
+JPH_Vec3 JPH_MotionProperties_GetPointVelocityCOM(JPH_Vec3Arg inPointRelativeToCOM);
+JPH_Vec3 JPH_MotionProperties_GetAccumulatedForce();
+JPH_Vec3 JPH_MotionProperties_GetAccumulatedTorque();
+void JPH_MotionProperties_ResetForce();
+void JPH_MotionProperties_ResetTorque();
+void JPH_MotionProperties_ResetMotion();
+JPH_UVec4 JPH_MotionProperties_GetLinearDOFsMask();
+JPH_Vec3 JPH_MotionProperties_LockTranslation(JPH_Vec3Arg inV);
+JPH_UVec4 JPH_MotionProperties_GetAngularDOFsMask();
+JPH_Vec3 JPH_MotionProperties_LockAngular(JPH_Vec3Arg inV);
+void JPH_MotionProperties_SetNumVelocityStepsOverride(uint32_t inN);
+uint32_t JPH_MotionProperties_GetNumVelocityStepsOverride();
+void JPH_MotionProperties_SetNumPositionStepsOverride(uint32_t inN);
+uint32_t JPH_MotionProperties_GetNumPositionStepsOverride();
+void JPH_MotionProperties_AddLinearVelocityStep(JPH_Vec3Arg inLinearVelocityChange);
+void JPH_MotionProperties_SubLinearVelocityStep(JPH_Vec3Arg inLinearVelocityChange);
+void JPH_MotionProperties_AddAngularVelocityStep(JPH_Vec3Arg inAngularVelocityChange);
+void JPH_MotionProperties_SubAngularVelocityStep(JPH_Vec3Arg inAngularVelocityChange);
+void JPH_MotionProperties_ApplyGyroscopicForceInternal(JPH_QuatArg inBodyRotation, float inDeltaTime);
+void JPH_MotionProperties_ApplyForceTorqueAndDragInternal(JPH_QuatArg inBodyRotation, JPH_Vec3Arg inGravity, float inDeltaTime);
+uint32_t JPH_MotionProperties_GetIslandIndexInternal();
+void JPH_MotionProperties_SetIslandIndexInternal(uint32_t inIndex);
+uint32_t JPH_MotionProperties_GetIndexInActiveBodiesInternal();
+void JPH_MotionProperties_ResetSleepTestSpheres(JPH_RVec3 *inPoints);
+void JPH_MotionProperties_ResetSleepTestTimer();
+JPH_ECanSleep JPH_MotionProperties_AccumulateSleepTime(float inDeltaTime, float inTimeBeforeSleep);
+void JPH_MotionProperties_SaveState(< ? named (size=24, align=8)> *inStream);
+void JPH_MotionProperties_RestoreState(< ? named (size=24, align=8)> *inStream);
 // JoltPhysics/Jolt/Physics/Body/Body.h:34:1
 typedef struct JPH_Body {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -1951,12 +3758,130 @@ typedef struct JPH_Body {
     < Unexposed (size=1, align=1)> mFlags;
 } JPH_Body;
 
+void *JPH_Body_operator_new(size_t inCount);
+void JPH_Body_operator_delete(void *inPointer);
+void *JPH_Body_operator_new[](size_t inCount);
+void JPH_Body_operator_delete[](void *inPointer);
+void *JPH_Body_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Body_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Body_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Body_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Body_operator_new(size_t inCount, void *inPointer);
+void JPH_Body_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Body_operator_new[](size_t inCount, void *inPointer);
+void JPH_Body_operator_delete[](void *inPointer, void *inPlace);
+JPH_BodyID *JPH_Body_GetID();
+JPH_EBodyType JPH_Body_GetBodyType();
+bool JPH_Body_IsRigidBody();
+bool JPH_Body_IsSoftBody();
+bool JPH_Body_IsActive();
+bool JPH_Body_IsStatic();
+bool JPH_Body_IsKinematic();
+bool JPH_Body_IsDynamic();
+bool JPH_Body_CanBeKinematicOrDynamic();
+void JPH_Body_SetIsSensor(bool inIsSensor);
+bool JPH_Body_IsSensor();
+void JPH_Body_SetCollideKinematicVsNonDynamic(bool inCollide);
+bool JPH_Body_GetCollideKinematicVsNonDynamic();
+void JPH_Body_SetUseManifoldReduction(bool inUseReduction);
+bool JPH_Body_GetUseManifoldReduction();
+bool JPH_Body_GetUseManifoldReductionWithBody(JPH_Body *inBody2);
+void JPH_Body_SetApplyGyroscopicForce(bool inApply);
+bool JPH_Body_GetApplyGyroscopicForce();
+void JPH_Body_SetEnhancedInternalEdgeRemoval(bool inApply);
+bool JPH_Body_GetEnhancedInternalEdgeRemoval();
+bool JPH_Body_GetEnhancedInternalEdgeRemovalWithBody(JPH_Body *inBody2);
+JPH_EMotionType JPH_Body_GetMotionType();
+void JPH_Body_SetMotionType(JPH_EMotionType inMotionType);
+JPH_BroadPhaseLayer JPH_Body_GetBroadPhaseLayer();
+JPH_ObjectLayer JPH_Body_GetObjectLayer();
+JPH_CollisionGroup *JPH_Body_GetCollisionGroup();
+JPH_CollisionGroup *JPH_Body_GetCollisionGroup();
+void JPH_Body_SetCollisionGroup(JPH_CollisionGroup *inGroup);
+bool JPH_Body_GetAllowSleeping();
+void JPH_Body_SetAllowSleeping(bool inAllow);
+void JPH_Body_ResetSleepTimer();
+float JPH_Body_GetFriction();
+void JPH_Body_SetFriction(float inFriction);
+float JPH_Body_GetRestitution();
+void JPH_Body_SetRestitution(float inRestitution);
+JPH_Vec3 JPH_Body_GetLinearVelocity();
+void JPH_Body_SetLinearVelocity(JPH_Vec3Arg inLinearVelocity);
+void JPH_Body_SetLinearVelocityClamped(JPH_Vec3Arg inLinearVelocity);
+JPH_Vec3 JPH_Body_GetAngularVelocity();
+void JPH_Body_SetAngularVelocity(JPH_Vec3Arg inAngularVelocity);
+void JPH_Body_SetAngularVelocityClamped(JPH_Vec3Arg inAngularVelocity);
+JPH_Vec3 JPH_Body_GetPointVelocityCOM(JPH_Vec3Arg inPointRelativeToCOM);
+JPH_Vec3 JPH_Body_GetPointVelocity(JPH_RVec3Arg inPoint);
+void JPH_Body_AddForce(JPH_Vec3Arg inForce);
+void JPH_Body_AddForce(JPH_Vec3Arg inForce, JPH_RVec3Arg inPosition);
+void JPH_Body_AddTorque(JPH_Vec3Arg inTorque);
+JPH_Vec3 JPH_Body_GetAccumulatedForce();
+JPH_Vec3 JPH_Body_GetAccumulatedTorque();
+void JPH_Body_ResetForce();
+void JPH_Body_ResetTorque();
+void JPH_Body_ResetMotion();
+JPH_Mat44 JPH_Body_GetInverseInertia();
+void JPH_Body_AddImpulse(JPH_Vec3Arg inImpulse);
+void JPH_Body_AddImpulse(JPH_Vec3Arg inImpulse, JPH_RVec3Arg inPosition);
+void JPH_Body_AddAngularImpulse(JPH_Vec3Arg inAngularImpulse);
+void JPH_Body_MoveKinematic(JPH_RVec3Arg inTargetPosition, JPH_QuatArg inTargetRotation, float inDeltaTime);
+void JPH_Body_GetSubmergedVolume(JPH_RVec3Arg inSurfacePosition, JPH_Vec3Arg inSurfaceNormal, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outRelativeCenterOfBuoyancy);
+bool JPH_Body_ApplyBuoyancyImpulse(JPH_RVec3Arg inSurfacePosition, JPH_Vec3Arg inSurfaceNormal, float inBuoyancy, float inLinearDrag, float inAngularDrag, JPH_Vec3Arg inFluidVelocity, JPH_Vec3Arg inGravity, float inDeltaTime);
+bool JPH_Body_ApplyBuoyancyImpulse(float inTotalVolume, float inSubmergedVolume, JPH_Vec3Arg inRelativeCenterOfBuoyancy, float inBuoyancy, float inLinearDrag, float inAngularDrag, JPH_Vec3Arg inFluidVelocity, JPH_Vec3Arg inGravity, float inDeltaTime);
+bool JPH_Body_IsInBroadPhase();
+bool JPH_Body_IsCollisionCacheInvalid();
+JPH_Shape *JPH_Body_GetShape();
+JPH_RVec3 JPH_Body_GetPosition();
+JPH_Quat JPH_Body_GetRotation();
+JPH_RMat44 JPH_Body_GetWorldTransform();
+JPH_RVec3 JPH_Body_GetCenterOfMassPosition();
+JPH_RMat44 JPH_Body_GetCenterOfMassTransform();
+JPH_RMat44 JPH_Body_GetInverseCenterOfMassTransform();
+JPH_AABox *JPH_Body_GetWorldSpaceBounds();
+void JPH_Body_ValidateCachedBounds();
+JPH_MotionProperties *JPH_Body_GetMotionProperties();
+JPH_MotionProperties *JPH_Body_GetMotionProperties();
+JPH_MotionProperties *JPH_Body_GetMotionPropertiesUnchecked();
+JPH_MotionProperties *JPH_Body_GetMotionPropertiesUnchecked();
+uint64_t JPH_Body_GetUserData();
+void JPH_Body_SetUserData(uint64_t inUserData);
+JPH_Vec3 JPH_Body_GetWorldSpaceSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_RVec3Arg inPosition);
+JPH_TransformedShape JPH_Body_GetTransformedShape();
+< ? named (size=256, align=16)> JPH_Body_GetBodyCreationSettings();
+< ? named (size=128, align=16)> JPH_Body_GetSoftBodyCreationSettings();
+bool JPH_Body_sFindCollidingPairsCanCollide(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_Body_AddPositionStep(JPH_Vec3Arg inLinearVelocityTimesDeltaTime);
+void JPH_Body_SubPositionStep(JPH_Vec3Arg inLinearVelocityTimesDeltaTime);
+void JPH_Body_AddRotationStep(JPH_Vec3Arg inAngularVelocityTimesDeltaTime);
+void JPH_Body_SubRotationStep(JPH_Vec3Arg inAngularVelocityTimesDeltaTime);
+void JPH_Body_SetInBroadPhaseInternal(bool inInBroadPhase);
+bool JPH_Body_InvalidateContactCacheInternal();
+void JPH_Body_ValidateContactCacheInternal();
+void JPH_Body_CalculateWorldSpaceBoundsInternal();
+void JPH_Body_SetPositionAndRotationInternal(JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, bool inResetSleepTimer);
+void JPH_Body_UpdateCenterOfMassInternal(JPH_Vec3Arg inPreviousCenterOfMass, bool inUpdateMassProperties);
+void JPH_Body_SetShapeInternal(JPH_Shape *inShape, bool inUpdateMassProperties);
+uint32_t JPH_Body_GetIndexInActiveBodiesInternal();
+JPH_ECanSleep JPH_Body_UpdateSleepStateInternal(float inDeltaTime, float inMaxMovement, float inTimeBeforeSleep);
+void JPH_Body_SaveState(< ? named (size=24, align=8)> *inStream);
+void JPH_Body_RestoreState(< ? named (size=24, align=8)> *inStream);
+void JPH_Body_Body();
+void JPH_Body_Body(bool);
+void JPH_Body_~Body();
+void JPH_Body_GetSleepTestPoints(JPH_RVec3 *outPoints);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/SpringPart.h:13:1
 typedef struct JPH_SpringPart {
     float mBias;
     float mSoftness;
 } JPH_SpringPart;
 
+void JPH_SpringPart_CalculateSpringPropertiesHelper(float inDeltaTime, float inInvEffectiveMass, float inBias, float inC, float inStiffness, float inDamping, float *outEffectiveMass);
+void JPH_SpringPart_CalculateSpringPropertiesWithBias(float inBias);
+void JPH_SpringPart_CalculateSpringPropertiesWithFrequencyAndDamping(float inDeltaTime, float inInvEffectiveMass, float inBias, float inC, float inFrequency, float inDamping, float *outEffectiveMass);
+void JPH_SpringPart_CalculateSpringPropertiesWithStiffnessAndDamping(float inDeltaTime, float inInvEffectiveMass, float inBias, float inC, float inStiffness, float inDamping, float *outEffectiveMass);
+bool JPH_SpringPart_IsActive();
+float JPH_SpringPart_GetBias(float inTotalLambda);
 // JoltPhysics/Jolt/Physics/Constraints/SpringSettings.h:22:1
 typedef struct JPH_SpringSettings {
     JPH_ESpringMode mMode;
@@ -1967,10 +3892,35 @@ typedef struct JPH_SpringSettings {
     float mDamping;
 } JPH_SpringSettings;
 
+void *JPH_SpringSettings_operator_new(size_t inCount);
+void JPH_SpringSettings_operator_delete(void *inPointer);
+void *JPH_SpringSettings_operator_new[](size_t inCount);
+void JPH_SpringSettings_operator_delete[](void *inPointer);
+void *JPH_SpringSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SpringSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SpringSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SpringSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SpringSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_SpringSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SpringSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_SpringSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SpringSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SpringSettings_SpringSettings();
+void JPH_SpringSettings_SpringSettings(JPH_SpringSettings *);
+JPH_SpringSettings *JPH_SpringSettings_operator=(JPH_SpringSettings *);
+void JPH_SpringSettings_SpringSettings(JPH_ESpringMode inMode, float inFrequencyOrStiffness, float inDamping);
+void JPH_SpringSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_SpringSettings_RestoreBinaryState(JPH_StreamIn *inStream);
+bool JPH_SpringSettings_HasStiffness();
 // JoltPhysics/Jolt/Physics/StateRecorder.h:78:1
 // Has vtable
 typedef struct JPH_StateRecorderFilter JPH_StateRecorderFilter;
 
+void JPH_StateRecorderFilter_~StateRecorderFilter();
+bool JPH_StateRecorderFilter_ShouldSaveBody(JPH_Body *inBody);
+bool JPH_StateRecorderFilter_ShouldSaveConstraint(JPH_Constraint *inConstraint);
+bool JPH_StateRecorderFilter_ShouldSaveContact(JPH_BodyID *inBody1, JPH_BodyID *inBody2);
+bool JPH_StateRecorderFilter_ShouldRestoreContact(JPH_BodyID *inBody1, JPH_BodyID *inBody2);
 // JoltPhysics/Jolt/Physics/StateRecorder.h:109:1
 // Abstract
 typedef struct JPH_StateRecorder {
@@ -1981,6 +3931,12 @@ typedef struct JPH_StateRecorder {
     bool mIsLastPart;
 } JPH_StateRecorder;
 
+void JPH_StateRecorder_StateRecorder();
+void JPH_StateRecorder_StateRecorder(JPH_StateRecorder *inRHS);
+void JPH_StateRecorder_SetValidating(bool inValidating);
+bool JPH_StateRecorder_IsValidating();
+void JPH_StateRecorder_SetIsLastPart(bool inIsLastPart);
+bool JPH_StateRecorder_IsLastPart();
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h:42:1
 typedef struct JPH_AxisConstraintPart {
     JPH_Float3 mR1PlusUxAxis;
@@ -1992,6 +3948,24 @@ typedef struct JPH_AxisConstraintPart {
     float mTotalLambda;
 } JPH_AxisConstraintPart;
 
+float JPH_AxisConstraintPart_CalculateInverseEffectiveMass(JPH_Body *inBody1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, JPH_Vec3Arg inR2, JPH_Vec3Arg inWorldSpaceAxis);
+float JPH_AxisConstraintPart_CalculateInverseEffectiveMassWithMassOverride(JPH_Body *inBody1, float inInvMass1, float inInvInertiaScale1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, float inInvMass2, float inInvInertiaScale2, JPH_Vec3Arg inR2, JPH_Vec3Arg inWorldSpaceAxis);
+void JPH_AxisConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, JPH_Vec3Arg inR2, JPH_Vec3Arg inWorldSpaceAxis, float inBias);
+void JPH_AxisConstraintPart_CalculateConstraintPropertiesWithMassOverride(JPH_Body *inBody1, float inInvMass1, float inInvInertiaScale1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, float inInvMass2, float inInvInertiaScale2, JPH_Vec3Arg inR2, JPH_Vec3Arg inWorldSpaceAxis, float inBias);
+void JPH_AxisConstraintPart_CalculateConstraintPropertiesWithFrequencyAndDamping(float inDeltaTime, JPH_Body *inBody1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, JPH_Vec3Arg inR2, JPH_Vec3Arg inWorldSpaceAxis, float inBias, float inC, float inFrequency, float inDamping);
+void JPH_AxisConstraintPart_CalculateConstraintPropertiesWithStiffnessAndDamping(float inDeltaTime, JPH_Body *inBody1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, JPH_Vec3Arg inR2, JPH_Vec3Arg inWorldSpaceAxis, float inBias, float inC, float inStiffness, float inDamping);
+void JPH_AxisConstraintPart_CalculateConstraintPropertiesWithSettings(float inDeltaTime, JPH_Body *inBody1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, JPH_Vec3Arg inR2, JPH_Vec3Arg inWorldSpaceAxis, float inBias, float inC, JPH_SpringSettings *inSpringSettings);
+void JPH_AxisConstraintPart_Deactivate();
+bool JPH_AxisConstraintPart_IsActive();
+void JPH_AxisConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inWorldSpaceAxis, float inWarmStartImpulseRatio);
+bool JPH_AxisConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inWorldSpaceAxis, float inMinLambda, float inMaxLambda);
+bool JPH_AxisConstraintPart_SolveVelocityConstraintWithMassOverride(JPH_Body *ioBody1, float inInvMass1, JPH_Body *ioBody2, float inInvMass2, JPH_Vec3Arg inWorldSpaceAxis, float inMinLambda, float inMaxLambda);
+bool JPH_AxisConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inWorldSpaceAxis, float inC, float inBaumgarte);
+bool JPH_AxisConstraintPart_SolvePositionConstraintWithMassOverride(JPH_Body *ioBody1, float inInvMass1, JPH_Body *ioBody2, float inInvMass2, JPH_Vec3Arg inWorldSpaceAxis, float inC, float inBaumgarte);
+void JPH_AxisConstraintPart_SetTotalLambda(float inLambda);
+float JPH_AxisConstraintPart_GetTotalLambda();
+void JPH_AxisConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_AxisConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h:50:2
 typedef < ? named (size=8, align=4)> JPH_DualAxisConstraintPart_Vec2;
 
@@ -2012,6 +3986,18 @@ typedef struct JPH_DualAxisConstraintPart {
     JPH_DualAxisConstraintPart_Vec2 mTotalLambda;
 } JPH_DualAxisConstraintPart;
 
+bool JPH_DualAxisConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, JPH_DualAxisConstraintPart_Vec2 *inLambda);
+void JPH_DualAxisConstraintPart_CalculateLagrangeMultiplier(JPH_Body *inBody1, JPH_Body *inBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, JPH_DualAxisConstraintPart_Vec2 *outLambda);
+void JPH_DualAxisConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Mat44Arg inRotation1, JPH_Vec3Arg inR1PlusU, JPH_Body *inBody2, JPH_Mat44Arg inRotation2, JPH_Vec3Arg inR2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2);
+void JPH_DualAxisConstraintPart_Deactivate();
+bool JPH_DualAxisConstraintPart_IsActive();
+void JPH_DualAxisConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, float inWarmStartImpulseRatio);
+bool JPH_DualAxisConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2);
+bool JPH_DualAxisConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inU, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, float inBaumgarte);
+void JPH_DualAxisConstraintPart_SetTotalLambda(JPH_DualAxisConstraintPart_Vec2 *inLambda);
+JPH_DualAxisConstraintPart_Vec2 *JPH_DualAxisConstraintPart_GetTotalLambda();
+void JPH_DualAxisConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_DualAxisConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:48:2
 typedef float (*JPH_ContactConstraintManager_CombineFunction)(JPH_Body *, JPH_SubShapeID *, JPH_Body *, JPH_SubShapeID *);
 
@@ -2035,6 +4021,8 @@ typedef struct JPH_ContactConstraintManager_CachedContactPoint {
     < Unexposed (size=8, align=4)> mFrictionLambda;
 } JPH_ContactConstraintManager_CachedContactPoint;
 
+void JPH_ContactConstraintManager_CachedContactPoint_SaveState(JPH_StateRecorder *inStream);
+void JPH_ContactConstraintManager_CachedContactPoint_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:279:2
 typedef struct JPH_ContactConstraintManager_CachedManifold {
     uint32_t mNextWithSameBodyPair;
@@ -2044,6 +4032,10 @@ typedef struct JPH_ContactConstraintManager_CachedManifold {
     JPH_ContactConstraintManager_CachedContactPoint mContactPoints[1];
 } JPH_ContactConstraintManager_CachedManifold;
 
+int32_t JPH_ContactConstraintManager_CachedManifold_sGetRequiredExtraSize(int32_t inNumContactPoints);
+int32_t JPH_ContactConstraintManager_CachedManifold_sGetRequiredTotalSize(int32_t inNumContactPoints);
+void JPH_ContactConstraintManager_CachedManifold_SaveState(JPH_StateRecorder *inStream);
+void JPH_ContactConstraintManager_CachedManifold_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:320:2
 typedef < ? named (size=32, align=8)> JPH_ContactConstraintManager_ManifoldMap;
 
@@ -2060,6 +4052,8 @@ typedef struct JPH_ContactConstraintManager_CachedBodyPair {
     uint32_t mFirstCachedManifold;
 } JPH_ContactConstraintManager_CachedBodyPair;
 
+void JPH_ContactConstraintManager_CachedBodyPair_SaveState(JPH_StateRecorder *inStream);
+void JPH_ContactConstraintManager_CachedBodyPair_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:348:2
 typedef < ? named (size=32, align=8)> JPH_ContactConstraintManager_BodyPairMap;
 
@@ -2074,6 +4068,26 @@ typedef struct JPH_ContactConstraintManager_ManifoldCache {
     bool mIsFinalized;
 } JPH_ContactConstraintManager_ManifoldCache;
 
+void JPH_ContactConstraintManager_ManifoldCache_Init(uint32_t inMaxBodyPairs, uint32_t inMaxContactConstraints, uint32_t inCachedManifoldsSize);
+void JPH_ContactConstraintManager_ManifoldCache_Clear();
+void JPH_ContactConstraintManager_ManifoldCache_Prepare(uint32_t inExpectedNumBodyPairs, uint32_t inExpectedNumManifolds);
+JPH_ContactConstraintManager_ContactAllocator JPH_ContactConstraintManager_ManifoldCache_GetContactAllocator();
+JPH_ContactConstraintManager_MKeyValue *JPH_ContactConstraintManager_ManifoldCache_Find(JPH_SubShapeIDPair *inKey, uint64_t inKeyHash);
+JPH_ContactConstraintManager_MKeyValue *JPH_ContactConstraintManager_ManifoldCache_Create(JPH_ContactConstraintManager_ContactAllocator *ioContactAllocator, JPH_SubShapeIDPair *inKey, uint64_t inKeyHash, int32_t inNumContactPoints);
+JPH_ContactConstraintManager_MKVAndCreated JPH_ContactConstraintManager_ManifoldCache_FindOrCreate(JPH_ContactConstraintManager_ContactAllocator *ioContactAllocator, JPH_SubShapeIDPair *inKey, uint64_t inKeyHash, int32_t inNumContactPoints);
+uint32_t JPH_ContactConstraintManager_ManifoldCache_ToHandle(JPH_ContactConstraintManager_MKeyValue *inKeyValue);
+JPH_ContactConstraintManager_MKeyValue *JPH_ContactConstraintManager_ManifoldCache_FromHandle(uint32_t inHandle);
+JPH_ContactConstraintManager_BPKeyValue *JPH_ContactConstraintManager_ManifoldCache_Find(JPH_BodyPair *inKey, uint64_t inKeyHash);
+JPH_ContactConstraintManager_BPKeyValue *JPH_ContactConstraintManager_ManifoldCache_Create(JPH_ContactConstraintManager_ContactAllocator *ioContactAllocator, JPH_BodyPair *inKey, uint64_t inKeyHash);
+void JPH_ContactConstraintManager_ManifoldCache_GetAllBodyPairsSorted(< Unexposed (size=-2, align=-2)> *outAll);
+void JPH_ContactConstraintManager_ManifoldCache_GetAllManifoldsSorted(JPH_ContactConstraintManager_CachedBodyPair *inBodyPair, < Unexposed (size=-2, align=-2)> *outAll);
+void JPH_ContactConstraintManager_ManifoldCache_GetAllCCDManifoldsSorted(< Unexposed (size=-2, align=-2)> *outAll);
+void JPH_ContactConstraintManager_ManifoldCache_ContactPointRemovedCallbacks(JPH_ContactListener *inListener);
+uint32_t JPH_ContactConstraintManager_ManifoldCache_GetNumManifolds();
+uint32_t JPH_ContactConstraintManager_ManifoldCache_GetNumBodyPairs();
+void JPH_ContactConstraintManager_ManifoldCache_Finalize();
+void JPH_ContactConstraintManager_ManifoldCache_SaveState(JPH_StateRecorder *inStream, JPH_StateRecorderFilter *inFilter);
+bool JPH_ContactConstraintManager_ManifoldCache_RestoreState(JPH_ContactConstraintManager_ManifoldCache *inReadCache, JPH_StateRecorder *inStream, JPH_StateRecorderFilter *inFilter);
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:420:2
 typedef struct JPH_ContactConstraintManager_WorldContactPoint {
     JPH_AxisConstraintPart mNonPenetrationConstraint;
@@ -2082,6 +4096,7 @@ typedef struct JPH_ContactConstraintManager_WorldContactPoint {
     JPH_ContactConstraintManager_CachedContactPoint *mContactPoint;
 } JPH_ContactConstraintManager_WorldContactPoint;
 
+void JPH_ContactConstraintManager_WorldContactPoint_CalculateNonPenetrationConstraintProperties(JPH_Body *inBody1, float inInvMass1, float inInvInertiaScale1, JPH_Body *inBody2, float inInvMass2, float inInvInertiaScale2, JPH_RVec3Arg inWorldSpacePosition1, JPH_RVec3Arg inWorldSpacePosition2, JPH_Vec3Arg inWorldSpaceNormal);
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:438:2
 typedef < ? named (size=808, align=8)> JPH_ContactConstraintManager_WorldContactPoints;
 
@@ -2099,6 +4114,8 @@ typedef struct JPH_ContactConstraintManager_ContactConstraint {
     JPH_ContactConstraintManager_WorldContactPoints mContactPoints;
 } JPH_ContactConstraintManager_ContactConstraint;
 
+JPH_Vec3 JPH_ContactConstraintManager_ContactConstraint_GetWorldSpaceNormal();
+void JPH_ContactConstraintManager_ContactConstraint_GetTangents(JPH_Vec3 *outTangent1, JPH_Vec3 *outTangent2);
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:27:1
 typedef struct JPH_ContactConstraintManager {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -2115,6 +4132,48 @@ typedef struct JPH_ContactConstraintManager {
     < ? named (size=128, align=8)> *mUpdateContext;
 } JPH_ContactConstraintManager;
 
+void *JPH_ContactConstraintManager_operator_new(size_t inCount);
+void JPH_ContactConstraintManager_operator_delete(void *inPointer);
+void *JPH_ContactConstraintManager_operator_new[](size_t inCount);
+void JPH_ContactConstraintManager_operator_delete[](void *inPointer);
+void *JPH_ContactConstraintManager_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ContactConstraintManager_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ContactConstraintManager_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ContactConstraintManager_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ContactConstraintManager_operator_new(size_t inCount, void *inPointer);
+void JPH_ContactConstraintManager_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ContactConstraintManager_operator_new[](size_t inCount, void *inPointer);
+void JPH_ContactConstraintManager_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ContactConstraintManager_ContactConstraintManager(JPH_PhysicsSettings *inPhysicsSettings);
+void JPH_ContactConstraintManager_~ContactConstraintManager();
+void JPH_ContactConstraintManager_Init(uint32_t inMaxBodyPairs, uint32_t inMaxContactConstraints);
+void JPH_ContactConstraintManager_SetContactListener(JPH_ContactListener *inListener);
+JPH_ContactListener *JPH_ContactConstraintManager_GetContactListener();
+void JPH_ContactConstraintManager_SetCombineFriction(JPH_ContactConstraintManager_CombineFunction inCombineFriction);
+JPH_ContactConstraintManager_CombineFunction JPH_ContactConstraintManager_GetCombineFriction();
+void JPH_ContactConstraintManager_SetCombineRestitution(JPH_ContactConstraintManager_CombineFunction inCombineRestitution);
+JPH_ContactConstraintManager_CombineFunction JPH_ContactConstraintManager_GetCombineRestitution();
+uint32_t JPH_ContactConstraintManager_GetMaxConstraints();
+JPH_ValidateResult JPH_ContactConstraintManager_ValidateContactPoint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_RVec3Arg inBaseOffset, < ? named (size=1120, align=16)> *inCollisionResult);
+void JPH_ContactConstraintManager_PrepareConstraintBuffer(< ? named (size=128, align=8)> *inContext);
+JPH_ContactConstraintManager_ContactAllocator JPH_ContactConstraintManager_GetContactAllocator();
+void JPH_ContactConstraintManager_GetContactsFromCache(JPH_ContactConstraintManager_ContactAllocator *ioContactAllocator, JPH_Body *inBody1, JPH_Body *inBody2, bool *outPairHandled, bool *outConstraintCreated);
+JPH_ContactConstraintManager_BodyPairHandle JPH_ContactConstraintManager_AddBodyPair(JPH_ContactConstraintManager_ContactAllocator *ioContactAllocator, JPH_Body *inBody1, JPH_Body *inBody2);
+bool JPH_ContactConstraintManager_AddContactConstraint(JPH_ContactConstraintManager_ContactAllocator *ioContactAllocator, JPH_ContactConstraintManager_BodyPairHandle inBodyPair, JPH_Body *inBody1, JPH_Body *inBody2, JPH_ContactManifold *inManifold);
+void JPH_ContactConstraintManager_FinalizeContactCacheAndCallContactPointRemovedCallbacks(uint32_t inExpectedNumBodyPairs, uint32_t inExpectedNumManifolds);
+bool JPH_ContactConstraintManager_WereBodiesInContact(JPH_BodyID *inBody1ID, JPH_BodyID *inBody2ID);
+uint32_t JPH_ContactConstraintManager_GetNumConstraints();
+void JPH_ContactConstraintManager_SortContacts(uint32_t *inConstraintIdxBegin, uint32_t *inConstraintIdxEnd);
+void JPH_ContactConstraintManager_GetAffectedBodies(uint32_t inConstraintIdx, JPH_Body **outBody1, JPH_Body **outBody2);
+bool JPH_ContactConstraintManager_SolveVelocityConstraints(uint32_t *inConstraintIdxBegin, uint32_t *inConstraintIdxEnd);
+void JPH_ContactConstraintManager_StoreAppliedImpulses(uint32_t *inConstraintIdxBegin, uint32_t *inConstraintIdxEnd);
+bool JPH_ContactConstraintManager_SolvePositionConstraints(uint32_t *inConstraintIdxBegin, uint32_t *inConstraintIdxEnd);
+void JPH_ContactConstraintManager_RecycleConstraintBuffer();
+void JPH_ContactConstraintManager_FinishConstraintBuffer();
+void JPH_ContactConstraintManager_OnCCDContactAdded(JPH_ContactConstraintManager_ContactAllocator *ioContactAllocator, JPH_Body *inBody1, JPH_Body *inBody2, JPH_ContactManifold *inManifold, JPH_ContactSettings *outSettings);
+void JPH_ContactConstraintManager_SaveState(JPH_StateRecorder *inStream, JPH_StateRecorderFilter *inFilter);
+bool JPH_ContactConstraintManager_RestoreState(JPH_StateRecorder *inStream, JPH_StateRecorderFilter *inFilter);
+void JPH_ContactConstraintManager_CalculateFrictionAndNonPenetrationConstraintProperties(JPH_ContactConstraintManager_ContactConstraint *ioConstraint, JPH_ContactSettings *inSettings, float inDeltaTime, JPH_Vec3Arg inGravityDeltaTime, JPH_RMat44Arg inTransformBody1, JPH_RMat44Arg inTransformBody2, JPH_Body *inBody1, JPH_Body *inBody2);
 // JoltPhysics/Jolt/Physics/Body/BodyManager.h:37:1
 typedef < ? named (size=24, align=8)> JPH_BodyVector;
 
@@ -2140,6 +4199,8 @@ typedef uint64_t JPH_BodyManager_MutexMask;
 // JoltPhysics/Jolt/Physics/Body/BodyManager.h:267:2
 typedef struct JPH_BodyManager_GrantActiveBodiesAccess JPH_BodyManager_GrantActiveBodiesAccess;
 
+void JPH_BodyManager_GrantActiveBodiesAccess_GrantActiveBodiesAccess(bool inAllowActivation, bool inAllowDeactivation);
+void JPH_BodyManager_GrantActiveBodiesAccess_~GrantActiveBodiesAccess();
 // JoltPhysics/Jolt/Physics/Body/BodyManager.h:338:2
 typedef < ? named (size=16, align=8)> JPH_BodyManager_BodyMutexes;
 
@@ -2164,22 +4225,156 @@ typedef struct JPH_BodyManager {
     bool mActiveBodiesLocked;
 } JPH_BodyManager;
 
+void *JPH_BodyManager_operator_new(size_t inCount);
+void JPH_BodyManager_operator_delete(void *inPointer);
+void *JPH_BodyManager_operator_new[](size_t inCount);
+void JPH_BodyManager_operator_delete[](void *inPointer);
+void *JPH_BodyManager_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyManager_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyManager_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyManager_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyManager_operator_new(size_t inCount, void *inPointer);
+void JPH_BodyManager_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BodyManager_operator_new[](size_t inCount, void *inPointer);
+void JPH_BodyManager_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BodyManager_~BodyManager();
+void JPH_BodyManager_Init(uint32_t inMaxBodies, uint32_t inNumBodyMutexes, JPH_BroadPhaseLayerInterface *inLayerInterface);
+uint32_t JPH_BodyManager_GetNumBodies();
+uint32_t JPH_BodyManager_GetMaxBodies();
+JPH_BodyManager_BodyStats JPH_BodyManager_GetBodyStats();
+JPH_Body *JPH_BodyManager_AllocateBody(< ? named (size=256, align=16)> *inBodyCreationSettings);
+JPH_Body *JPH_BodyManager_AllocateSoftBody(< ? named (size=128, align=16)> *inSoftBodyCreationSettings);
+void JPH_BodyManager_FreeBody(JPH_Body *inBody);
+bool JPH_BodyManager_AddBody(JPH_Body *ioBody);
+bool JPH_BodyManager_AddBodyWithCustomID(JPH_Body *ioBody, JPH_BodyID *inBodyID);
+void JPH_BodyManager_RemoveBodies(JPH_BodyID *inBodyIDs, int32_t inNumber, JPH_Body **outBodies);
+void JPH_BodyManager_DestroyBodies(JPH_BodyID *inBodyIDs, int32_t inNumber);
+void JPH_BodyManager_ActivateBodies(JPH_BodyID *inBodyIDs, int32_t inNumber);
+void JPH_BodyManager_DeactivateBodies(JPH_BodyID *inBodyIDs, int32_t inNumber);
+void JPH_BodyManager_SetMotionQuality(JPH_Body *ioBody, JPH_EMotionQuality inMotionQuality);
+void JPH_BodyManager_GetActiveBodies(JPH_EBodyType inType, JPH_BodyIDVector *outBodyIDs);
+JPH_BodyID *JPH_BodyManager_GetActiveBodiesUnsafe(JPH_EBodyType inType);
+uint32_t JPH_BodyManager_GetNumActiveBodies(JPH_EBodyType inType);
+uint32_t JPH_BodyManager_GetNumActiveCCDBodies();
+void JPH_BodyManager_SetBodyActivationListener(< ? named (size=8, align=8)> *inListener);
+< ? named (size=8, align=8)> *JPH_BodyManager_GetBodyActivationListener();
+bool JPH_BodyManager_sIsValidBodyPointer(JPH_Body *inBody);
+JPH_BodyVector *JPH_BodyManager_GetBodies();
+JPH_BodyVector *JPH_BodyManager_GetBodies();
+void JPH_BodyManager_GetBodyIDs(JPH_BodyIDVector *outBodies);
+JPH_Body *JPH_BodyManager_GetBody(JPH_BodyID *inID);
+JPH_Body *JPH_BodyManager_GetBody(JPH_BodyID *inID);
+JPH_Body *JPH_BodyManager_TryGetBody(JPH_BodyID *inID);
+JPH_Body *JPH_BodyManager_TryGetBody(JPH_BodyID *inID);
+JPH_SharedMutex *JPH_BodyManager_GetMutexForBody(JPH_BodyID *inID);
+JPH_BodyManager_MutexMask JPH_BodyManager_GetAllBodiesMutexMask();
+JPH_BodyManager_MutexMask JPH_BodyManager_GetMutexMask(JPH_BodyID *inBodies, int32_t inNumber);
+void JPH_BodyManager_LockRead(JPH_BodyManager_MutexMask inMutexMask);
+void JPH_BodyManager_UnlockRead(JPH_BodyManager_MutexMask inMutexMask);
+void JPH_BodyManager_LockWrite(JPH_BodyManager_MutexMask inMutexMask);
+void JPH_BodyManager_UnlockWrite(JPH_BodyManager_MutexMask inMutexMask);
+void JPH_BodyManager_LockAllBodies();
+void JPH_BodyManager_UnlockAllBodies();
+void JPH_BodyManager_SetBodyObjectLayerInternal(JPH_Body *ioBody, JPH_ObjectLayer inLayer);
+void JPH_BodyManager_InvalidateContactCacheForBody(JPH_Body *ioBody);
+void JPH_BodyManager_ValidateContactCacheForAllBodies();
+void JPH_BodyManager_SaveState(JPH_StateRecorder *inStream, JPH_StateRecorderFilter *inFilter);
+bool JPH_BodyManager_RestoreState(JPH_StateRecorder *inStream);
+void JPH_BodyManager_SaveBodyState(JPH_Body *inBody, JPH_StateRecorder *inStream);
+void JPH_BodyManager_RestoreBodyState(JPH_Body *inBody, JPH_StateRecorder *inStream);
+void JPH_BodyManager_SetActiveBodiesLocked(bool inLocked);
+void JPH_BodyManager_ValidateActiveBodyBounds();
+uint8_t JPH_BodyManager_GetNextSequenceNumber(int32_t inBodyIndex);
+void JPH_BodyManager_AddBodyToActiveBodies(JPH_Body *ioBody);
+void JPH_BodyManager_RemoveBodyFromActiveBodies(JPH_Body *ioBody);
+JPH_Body *JPH_BodyManager_RemoveBodyInternal(JPH_BodyID *inBodyID);
+void JPH_BodyManager_sDeleteBody(JPH_Body *inBody);
+void JPH_BodyManager_ValidateFreeList();
+bool JPH_BodyManager_sGetOverrideAllowActivation();
+void JPH_BodyManager_sSetOverrideAllowActivation(bool inValue);
+bool JPH_BodyManager_sGetOverrideAllowDeactivation();
+void JPH_BodyManager_sSetOverrideAllowDeactivation(bool inValue);
 // JoltPhysics/Jolt/Core/TempAllocator.h:15:1
 // Abstract
 typedef struct JPH_TempAllocator JPH_TempAllocator;
 
+void *JPH_TempAllocator_operator_new(size_t inCount);
+void JPH_TempAllocator_operator_delete(void *inPointer);
+void *JPH_TempAllocator_operator_new[](size_t inCount);
+void JPH_TempAllocator_operator_delete[](void *inPointer);
+void *JPH_TempAllocator_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocator_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocator_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocator_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocator_operator_new(size_t inCount, void *inPointer);
+void JPH_TempAllocator_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TempAllocator_operator_new[](size_t inCount, void *inPointer);
+void JPH_TempAllocator_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TempAllocator_~TempAllocator();
+void *JPH_TempAllocator_Allocate(uint32_t inSize);
+void JPH_TempAllocator_Free(void *inAddress, uint32_t inSize);
 // JoltPhysics/Jolt/Core/TempAllocator.h:31:1
 // Has vtable
 typedef struct JPH_TempAllocatorImpl JPH_TempAllocatorImpl;
 
+void *JPH_TempAllocatorImpl_operator_new(size_t inCount);
+void JPH_TempAllocatorImpl_operator_delete(void *inPointer);
+void *JPH_TempAllocatorImpl_operator_new[](size_t inCount);
+void JPH_TempAllocatorImpl_operator_delete[](void *inPointer);
+void *JPH_TempAllocatorImpl_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocatorImpl_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocatorImpl_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocatorImpl_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocatorImpl_operator_new(size_t inCount, void *inPointer);
+void JPH_TempAllocatorImpl_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TempAllocatorImpl_operator_new[](size_t inCount, void *inPointer);
+void JPH_TempAllocatorImpl_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TempAllocatorImpl_TempAllocatorImpl(size_t inSize);
+void JPH_TempAllocatorImpl_~TempAllocatorImpl();
+void *JPH_TempAllocatorImpl_Allocate(uint32_t inSize);
+void JPH_TempAllocatorImpl_Free(void *inAddress, uint32_t inSize);
+bool JPH_TempAllocatorImpl_IsEmpty();
+size_t JPH_TempAllocatorImpl_GetSize();
+size_t JPH_TempAllocatorImpl_GetUsage();
+bool JPH_TempAllocatorImpl_CanAllocate(uint32_t inSize);
+bool JPH_TempAllocatorImpl_OwnsMemory(void *inAddress);
 // JoltPhysics/Jolt/Core/TempAllocator.h:127:1
 // Has vtable
 typedef struct JPH_TempAllocatorMalloc JPH_TempAllocatorMalloc;
 
+void *JPH_TempAllocatorMalloc_operator_new(size_t inCount);
+void JPH_TempAllocatorMalloc_operator_delete(void *inPointer);
+void *JPH_TempAllocatorMalloc_operator_new[](size_t inCount);
+void JPH_TempAllocatorMalloc_operator_delete[](void *inPointer);
+void *JPH_TempAllocatorMalloc_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocatorMalloc_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocatorMalloc_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocatorMalloc_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocatorMalloc_operator_new(size_t inCount, void *inPointer);
+void JPH_TempAllocatorMalloc_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TempAllocatorMalloc_operator_new[](size_t inCount, void *inPointer);
+void JPH_TempAllocatorMalloc_operator_delete[](void *inPointer, void *inPlace);
+void *JPH_TempAllocatorMalloc_Allocate(uint32_t inSize);
+void JPH_TempAllocatorMalloc_Free(void *inAddress, uint32_t inSize);
 // JoltPhysics/Jolt/Core/TempAllocator.h:147:1
 // Has vtable
 typedef struct JPH_TempAllocatorImplWithMallocFallback JPH_TempAllocatorImplWithMallocFallback;
 
+void *JPH_TempAllocatorImplWithMallocFallback_operator_new(size_t inCount);
+void JPH_TempAllocatorImplWithMallocFallback_operator_delete(void *inPointer);
+void *JPH_TempAllocatorImplWithMallocFallback_operator_new[](size_t inCount);
+void JPH_TempAllocatorImplWithMallocFallback_operator_delete[](void *inPointer);
+void *JPH_TempAllocatorImplWithMallocFallback_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocatorImplWithMallocFallback_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocatorImplWithMallocFallback_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TempAllocatorImplWithMallocFallback_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TempAllocatorImplWithMallocFallback_operator_new(size_t inCount, void *inPointer);
+void JPH_TempAllocatorImplWithMallocFallback_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TempAllocatorImplWithMallocFallback_operator_new[](size_t inCount, void *inPointer);
+void JPH_TempAllocatorImplWithMallocFallback_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TempAllocatorImplWithMallocFallback_TempAllocatorImplWithMallocFallback(uint32_t inSize);
+void *JPH_TempAllocatorImplWithMallocFallback_Allocate(uint32_t inSize);
+void JPH_TempAllocatorImplWithMallocFallback_Free(void *inAddress, uint32_t inSize);
 // JoltPhysics/Jolt/Physics/Body/BodyCreationSettings.h:63:2
 typedef < ? named (size=-2, align=-2)> JPH_BodyCreationSettings_GroupFilterToIDMap;
 
@@ -2236,6 +4431,33 @@ typedef struct JPH_BodyCreationSettings {
     < Unexposed (size=8, align=8)> mShapePtr;
 } JPH_BodyCreationSettings;
 
+void *JPH_BodyCreationSettings_operator_new(size_t inCount);
+void JPH_BodyCreationSettings_operator_delete(void *inPointer);
+void *JPH_BodyCreationSettings_operator_new[](size_t inCount);
+void JPH_BodyCreationSettings_operator_delete[](void *inPointer);
+void *JPH_BodyCreationSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyCreationSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyCreationSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BodyCreationSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BodyCreationSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_BodyCreationSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BodyCreationSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_BodyCreationSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BodyCreationSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_BodyCreationSettings_BodyCreationSettings();
+void JPH_BodyCreationSettings_BodyCreationSettings(JPH_ShapeSettings *inShape, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_EMotionType inMotionType, JPH_ObjectLayer inObjectLayer);
+void JPH_BodyCreationSettings_BodyCreationSettings(JPH_Shape *inShape, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_EMotionType inMotionType, JPH_ObjectLayer inObjectLayer);
+JPH_ShapeSettings *JPH_BodyCreationSettings_GetShapeSettings();
+void JPH_BodyCreationSettings_SetShapeSettings(JPH_ShapeSettings *inShape);
+JPH_Shape_ShapeResult JPH_BodyCreationSettings_ConvertShapeSettings();
+JPH_Shape *JPH_BodyCreationSettings_GetShape();
+void JPH_BodyCreationSettings_SetShape(JPH_Shape *inShape);
+bool JPH_BodyCreationSettings_HasMassProperties();
+JPH_MassProperties JPH_BodyCreationSettings_GetMassProperties();
+void JPH_BodyCreationSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_BodyCreationSettings_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_BodyCreationSettings_SaveWithChildren(JPH_StreamOut *inStream, JPH_BodyCreationSettings_ShapeToIDMap *ioShapeMap, JPH_BodyCreationSettings_MaterialToIDMap *ioMaterialMap, JPH_BodyCreationSettings_GroupFilterToIDMap *ioGroupFilterMap);
+JPH_BodyCreationSettings_BCSResult JPH_BodyCreationSettings_sRestoreWithChildren(JPH_StreamIn *inStream, JPH_BodyCreationSettings_IDToShapeMap *ioShapeMap, JPH_BodyCreationSettings_IDToMaterialMap *ioMaterialMap, JPH_BodyCreationSettings_IDToGroupFilterMap *ioGroupFilterMap);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:39:2
 typedef struct JPH_SoftBodySharedSettings_VertexAttributes {
     float mCompliance;
@@ -2245,6 +4467,8 @@ typedef struct JPH_SoftBodySharedSettings_VertexAttributes {
     float mLRAMaxDistanceMultiplier;
 } JPH_SoftBodySharedSettings_VertexAttributes;
 
+void JPH_SoftBodySharedSettings_VertexAttributes_VertexAttributes();
+void JPH_SoftBodySharedSettings_VertexAttributes_VertexAttributes(float inCompliance, float inShearCompliance, float inBendCompliance, JPH_SoftBodySharedSettings_ELRAType inLRAType, float inLRAMaxDistanceMultiplier);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:80:2
 typedef struct JPH_SoftBodySharedSettings_OptimizationResults {
     < Unexposed (size=24, align=8)> mEdgeRemap;
@@ -2278,12 +4502,43 @@ typedef struct JPH_SoftBodySharedSettings_Vertex {
     float mInvMass;
 } JPH_SoftBodySharedSettings_Vertex;
 
+void *JPH_SoftBodySharedSettings_Vertex_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_Vertex_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_Vertex_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_Vertex_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_Vertex_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Vertex_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Vertex_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Vertex_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Vertex_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Vertex_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_Vertex_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Vertex_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_Vertex_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_Vertex_Vertex();
+void JPH_SoftBodySharedSettings_Vertex_Vertex(JPH_Float3 *inPosition, JPH_Float3 *inVelocity, float inInvMass);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:141:2
 typedef struct JPH_SoftBodySharedSettings_Face {
     uint32_t mVertex[3];
     uint32_t mMaterialIndex;
 } JPH_SoftBodySharedSettings_Face;
 
+void *JPH_SoftBodySharedSettings_Face_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_Face_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_Face_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_Face_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_Face_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Face_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Face_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Face_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Face_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Face_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_Face_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Face_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_Face_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_Face_Face();
+void JPH_SoftBodySharedSettings_Face_Face(uint32_t inVertex1, uint32_t inVertex2, uint32_t inVertex3, uint32_t inMaterialIndex);
+bool JPH_SoftBodySharedSettings_Face_IsDegenerate();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:157:2
 typedef struct JPH_SoftBodySharedSettings_Edge {
     uint32_t mVertex[2];
@@ -2291,6 +4546,22 @@ typedef struct JPH_SoftBodySharedSettings_Edge {
     float mCompliance;
 } JPH_SoftBodySharedSettings_Edge;
 
+void *JPH_SoftBodySharedSettings_Edge_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_Edge_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_Edge_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_Edge_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_Edge_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Edge_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Edge_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Edge_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Edge_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Edge_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_Edge_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Edge_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_Edge_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_Edge_Edge();
+void JPH_SoftBodySharedSettings_Edge_Edge(uint32_t inVertex1, uint32_t inVertex2, float inCompliance);
+uint32_t JPH_SoftBodySharedSettings_Edge_GetMinVertexIndex();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:191:2
 typedef struct JPH_SoftBodySharedSettings_DihedralBend {
     uint32_t mVertex[4];
@@ -2298,6 +4569,22 @@ typedef struct JPH_SoftBodySharedSettings_DihedralBend {
     float mInitialAngle;
 } JPH_SoftBodySharedSettings_DihedralBend;
 
+void *JPH_SoftBodySharedSettings_DihedralBend_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_DihedralBend_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_DihedralBend_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_DihedralBend_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_DihedralBend_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_DihedralBend_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_DihedralBend_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_DihedralBend_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_DihedralBend_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_DihedralBend_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_DihedralBend_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_DihedralBend_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_DihedralBend_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_DihedralBend_DihedralBend();
+void JPH_SoftBodySharedSettings_DihedralBend_DihedralBend(uint32_t inVertex1, uint32_t inVertex2, uint32_t inVertex3, uint32_t inVertex4, float inCompliance);
+uint32_t JPH_SoftBodySharedSettings_DihedralBend_GetMinVertexIndex();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:208:2
 typedef struct JPH_SoftBodySharedSettings_Volume {
     uint32_t mVertex[4];
@@ -2305,18 +4592,64 @@ typedef struct JPH_SoftBodySharedSettings_Volume {
     float mCompliance;
 } JPH_SoftBodySharedSettings_Volume;
 
+void *JPH_SoftBodySharedSettings_Volume_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_Volume_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_Volume_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_Volume_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_Volume_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Volume_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Volume_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Volume_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Volume_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Volume_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_Volume_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Volume_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_Volume_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_Volume_Volume();
+void JPH_SoftBodySharedSettings_Volume_Volume(uint32_t inVertex1, uint32_t inVertex2, uint32_t inVertex3, uint32_t inVertex4, float inCompliance);
+uint32_t JPH_SoftBodySharedSettings_Volume_GetMinVertexIndex();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:225:2
 typedef struct JPH_SoftBodySharedSettings_InvBind {
     uint32_t mJointIndex;
     JPH_Mat44 mInvBind;
 } JPH_SoftBodySharedSettings_InvBind;
 
+void *JPH_SoftBodySharedSettings_InvBind_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_InvBind_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_InvBind_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_InvBind_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_InvBind_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_InvBind_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_InvBind_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_InvBind_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_InvBind_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_InvBind_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_InvBind_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_InvBind_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_InvBind_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_InvBind_InvBind();
+void JPH_SoftBodySharedSettings_InvBind_InvBind(uint32_t inJointIndex, JPH_Mat44Arg inInvBind);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:239:2
 typedef struct JPH_SoftBodySharedSettings_SkinWeight {
     uint32_t mInvBindIndex;
     float mWeight;
 } JPH_SoftBodySharedSettings_SkinWeight;
 
+void *JPH_SoftBodySharedSettings_SkinWeight_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_SkinWeight_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_SkinWeight_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_SkinWeight_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_SkinWeight_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_SkinWeight_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_SkinWeight_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_SkinWeight_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_SkinWeight_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_SkinWeight_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_SkinWeight_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_SkinWeight_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_SkinWeight_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_SkinWeight_SkinWeight();
+void JPH_SoftBodySharedSettings_SkinWeight_SkinWeight(uint32_t inInvBindIndex, float inWeight);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:253:2
 typedef struct JPH_SoftBodySharedSettings_Skinned {
     uint32_t mVertex;
@@ -2327,12 +4660,44 @@ typedef struct JPH_SoftBodySharedSettings_Skinned {
     uint32_t mNormalInfo;
 } JPH_SoftBodySharedSettings_Skinned;
 
+void *JPH_SoftBodySharedSettings_Skinned_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_Skinned_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_Skinned_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_Skinned_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_Skinned_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Skinned_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Skinned_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_Skinned_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_Skinned_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Skinned_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_Skinned_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_Skinned_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_Skinned_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_Skinned_Skinned();
+void JPH_SoftBodySharedSettings_Skinned_Skinned(uint32_t inVertex, float inMaxDistance, float inBackStopDistance, float inBackStopRadius);
+void JPH_SoftBodySharedSettings_Skinned_NormalizeWeights();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:289:2
 typedef struct JPH_SoftBodySharedSettings_LRA {
     uint32_t mVertex[2];
     float mMaxDistance;
 } JPH_SoftBodySharedSettings_LRA;
 
+void *JPH_SoftBodySharedSettings_LRA_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_LRA_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_LRA_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_LRA_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_LRA_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_LRA_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_LRA_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_LRA_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_LRA_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_LRA_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_LRA_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_LRA_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_LRA_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_LRA_LRA();
+void JPH_SoftBodySharedSettings_LRA_LRA(uint32_t inVertex1, uint32_t inVertex2, float inMaxDistance);
+uint32_t JPH_SoftBodySharedSettings_LRA_GetMinVertexIndex();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:312:2
 typedef struct JPH_SoftBodySharedSettings_RodStretchShear {
     uint32_t mVertex[2];
@@ -2342,6 +4707,22 @@ typedef struct JPH_SoftBodySharedSettings_RodStretchShear {
     JPH_Quat mBishop;
 } JPH_SoftBodySharedSettings_RodStretchShear;
 
+void *JPH_SoftBodySharedSettings_RodStretchShear_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_RodStretchShear_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_RodStretchShear_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_RodStretchShear_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_RodStretchShear_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_RodStretchShear_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_RodStretchShear_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_RodStretchShear_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_RodStretchShear_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_RodStretchShear_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_RodStretchShear_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_RodStretchShear_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_RodStretchShear_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_RodStretchShear_RodStretchShear();
+void JPH_SoftBodySharedSettings_RodStretchShear_RodStretchShear(uint32_t inVertex1, uint32_t inVertex2, float inCompliance);
+uint32_t JPH_SoftBodySharedSettings_RodStretchShear_GetMinVertexIndex();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:331:2
 typedef struct JPH_SoftBodySharedSettings_RodBendTwist {
     uint32_t mRod[2];
@@ -2349,6 +4730,21 @@ typedef struct JPH_SoftBodySharedSettings_RodBendTwist {
     JPH_Quat mOmega0;
 } JPH_SoftBodySharedSettings_RodBendTwist;
 
+void *JPH_SoftBodySharedSettings_RodBendTwist_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_RodBendTwist_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_RodBendTwist_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_RodBendTwist_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_RodBendTwist_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_RodBendTwist_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_RodBendTwist_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_RodBendTwist_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_RodBendTwist_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_RodBendTwist_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_RodBendTwist_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_RodBendTwist_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_RodBendTwist_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_RodBendTwist_RodBendTwist();
+void JPH_SoftBodySharedSettings_RodBendTwist_RodBendTwist(uint32_t inRod1, uint32_t inRod2, float inCompliance);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:366:2
 typedef struct JPH_SoftBodySharedSettings_ClosestKinematic {
     uint32_t mVertex;
@@ -2387,6 +4783,36 @@ typedef struct JPH_SoftBodySharedSettings {
     < Unexposed (size=24, align=8)> mSkinnedConstraintNormals;
 } JPH_SoftBodySharedSettings;
 
+void *JPH_SoftBodySharedSettings_operator_new(size_t inCount);
+void JPH_SoftBodySharedSettings_operator_delete(void *inPointer);
+void *JPH_SoftBodySharedSettings_operator_new[](size_t inCount);
+void JPH_SoftBodySharedSettings_operator_delete[](void *inPointer);
+void *JPH_SoftBodySharedSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodySharedSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodySharedSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodySharedSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodySharedSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodySharedSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodySharedSettings_CreateConstraints(JPH_SoftBodySharedSettings_VertexAttributes *inVertexAttributes, uint32_t inVertexAttributesLength, JPH_SoftBodySharedSettings_EBendType inBendType, float inAngleTolerance);
+void JPH_SoftBodySharedSettings_CalculateEdgeLengths();
+void JPH_SoftBodySharedSettings_CalculateRodProperties();
+void JPH_SoftBodySharedSettings_CalculateLRALengths(float inMaxDistanceMultiplier);
+void JPH_SoftBodySharedSettings_CalculateBendConstraintConstants();
+void JPH_SoftBodySharedSettings_CalculateVolumeConstraintVolumes();
+void JPH_SoftBodySharedSettings_CalculateSkinnedConstraintNormals();
+void JPH_SoftBodySharedSettings_Optimize(JPH_SoftBodySharedSettings_OptimizationResults *outResults);
+void JPH_SoftBodySharedSettings_Optimize();
+< Unexposed (size=8, align=8)> JPH_SoftBodySharedSettings_Clone();
+void JPH_SoftBodySharedSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_SoftBodySharedSettings_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_SoftBodySharedSettings_SaveWithMaterials(JPH_StreamOut *inStream, JPH_SoftBodySharedSettings_SharedSettingsToIDMap *ioSettingsMap, JPH_SoftBodySharedSettings_MaterialToIDMap *ioMaterialMap);
+JPH_SoftBodySharedSettings_SettingsResult JPH_SoftBodySharedSettings_sRestoreWithMaterials(JPH_StreamIn *inStream, JPH_SoftBodySharedSettings_IDToSharedSettingsMap *ioSettingsMap, JPH_SoftBodySharedSettings_IDToMaterialMap *ioMaterialMap);
+< Unexposed (size=8, align=8)> JPH_SoftBodySharedSettings_sCreateCube(uint32_t inGridSize, float inGridSpacing);
+void JPH_SoftBodySharedSettings_AddFace(JPH_SoftBodySharedSettings_Face *inFace);
+void JPH_SoftBodySharedSettings_CalculateClosestKinematic();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyCreationSettings.h:32:2
 typedef < ? named (size=-2, align=-2)> JPH_SoftBodyCreationSettings_GroupFilterToIDMap;
 
@@ -2430,6 +4856,25 @@ typedef struct JPH_SoftBodyCreationSettings {
     bool mFacesDoubleSided;
 } JPH_SoftBodyCreationSettings;
 
+void *JPH_SoftBodyCreationSettings_operator_new(size_t inCount);
+void JPH_SoftBodyCreationSettings_operator_delete(void *inPointer);
+void *JPH_SoftBodyCreationSettings_operator_new[](size_t inCount);
+void JPH_SoftBodyCreationSettings_operator_delete[](void *inPointer);
+void *JPH_SoftBodyCreationSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodyCreationSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodyCreationSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodyCreationSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodyCreationSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodyCreationSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodyCreationSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodyCreationSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodyCreationSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SoftBodyCreationSettings_SoftBodyCreationSettings();
+void JPH_SoftBodyCreationSettings_SoftBodyCreationSettings(JPH_SoftBodySharedSettings *inSettings, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_ObjectLayer inObjectLayer);
+void JPH_SoftBodyCreationSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_SoftBodyCreationSettings_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_SoftBodyCreationSettings_SaveWithChildren(JPH_StreamOut *inStream, JPH_SoftBodyCreationSettings_SharedSettingsToIDMap *ioSharedSettingsMap, JPH_SoftBodyCreationSettings_MaterialToIDMap *ioMaterialMap, JPH_SoftBodyCreationSettings_GroupFilterToIDMap *ioGroupFilterMap);
+JPH_SoftBodyCreationSettings_SBCSResult JPH_SoftBodyCreationSettings_sRestoreWithChildren(JPH_StreamIn *inStream, JPH_SoftBodyCreationSettings_IDToSharedSettingsMap *ioSharedSettingsMap, JPH_SoftBodyCreationSettings_IDToMaterialMap *ioMaterialMap, JPH_SoftBodyCreationSettings_IDToGroupFilterMap *ioGroupFilterMap);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyVertex.h:15:1
 typedef struct JPH_SoftBodyVertex {
     JPH_Vec3 mPreviousPosition;
@@ -2442,6 +4887,7 @@ typedef struct JPH_SoftBodyVertex {
     float mInvMass;
 } JPH_SoftBodyVertex;
 
+void JPH_SoftBodyVertex_ResetCollision();
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyUpdateContext.h:18:1
 typedef struct JPH_SoftBodyUpdateContext {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -2507,6 +4953,8 @@ typedef struct JPH_SoftBodyMotionProperties_LeafShape {
     < Unexposed (size=8, align=8)> mShape;
 } JPH_SoftBodyMotionProperties_LeafShape;
 
+void JPH_SoftBodyMotionProperties_LeafShape_LeafShape();
+void JPH_SoftBodyMotionProperties_LeafShape_LeafShape(JPH_Mat44Arg inTransform, JPH_Vec3Arg inScale, JPH_Shape *inShape);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyMotionProperties.h:195:2
 typedef struct JPH_SoftBodyMotionProperties_CollidingShape {
     JPH_Mat44 mCenterOfMassTransform;
@@ -2525,6 +4973,7 @@ typedef struct JPH_SoftBodyMotionProperties_CollidingShape {
     JPH_Vec3 mOriginalAngularVelocity;
 } JPH_SoftBodyMotionProperties_CollidingShape;
 
+JPH_Vec3 JPH_SoftBodyMotionProperties_CollidingShape_GetPointVelocity(JPH_Vec3Arg inPointRelativeToCOM);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyMotionProperties.h:220:2
 typedef struct JPH_SoftBodyMotionProperties_CollidingSensor {
     JPH_Mat44 mCenterOfMassTransform;
@@ -2573,14 +5022,109 @@ typedef struct JPH_SoftBodyMotionProperties {
     bool mSkinStatePreviousPositionValid;
 } JPH_SoftBodyMotionProperties;
 
+void JPH_SoftBodyMotionProperties_Initialize(JPH_SoftBodyCreationSettings *inSettings);
+JPH_SoftBodySharedSettings *JPH_SoftBodyMotionProperties_GetSettings();
+< Unexposed (size=24, align=8)> *JPH_SoftBodyMotionProperties_GetVertices();
+< Unexposed (size=24, align=8)> *JPH_SoftBodyMotionProperties_GetVertices();
+JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertex(uint32_t inIndex);
+JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertex(uint32_t inIndex);
+JPH_Quat JPH_SoftBodyMotionProperties_GetRodRotation(uint32_t inIndex);
+JPH_Vec3 JPH_SoftBodyMotionProperties_GetRodAngularVelocity(uint32_t inIndex);
+JPH_PhysicsMaterialList *JPH_SoftBodyMotionProperties_GetMaterials();
+< Unexposed (size=24, align=8)> *JPH_SoftBodyMotionProperties_GetFaces();
+JPH_SoftBodyMotionProperties_Face *JPH_SoftBodyMotionProperties_GetFace(uint32_t inIndex);
+uint32_t JPH_SoftBodyMotionProperties_GetNumIterations();
+void JPH_SoftBodyMotionProperties_SetNumIterations(uint32_t inNumIterations);
+float JPH_SoftBodyMotionProperties_GetPressure();
+void JPH_SoftBodyMotionProperties_SetPressure(float inPressure);
+bool JPH_SoftBodyMotionProperties_GetUpdatePosition();
+void JPH_SoftBodyMotionProperties_SetUpdatePosition(bool inUpdatePosition);
+bool JPH_SoftBodyMotionProperties_GetFacesDoubleSided();
+void JPH_SoftBodyMotionProperties_SetFacesDoubleSided(bool inDoubleSided);
+bool JPH_SoftBodyMotionProperties_GetEnableSkinConstraints();
+void JPH_SoftBodyMotionProperties_SetEnableSkinConstraints(bool inEnableSkinConstraints);
+float JPH_SoftBodyMotionProperties_GetSkinnedMaxDistanceMultiplier();
+void JPH_SoftBodyMotionProperties_SetSkinnedMaxDistanceMultiplier(float inSkinnedMaxDistanceMultiplier);
+float JPH_SoftBodyMotionProperties_GetVertexRadius();
+void JPH_SoftBodyMotionProperties_SetVertexRadius(float inVertexRadius);
+JPH_AABox *JPH_SoftBodyMotionProperties_GetLocalBounds();
+float JPH_SoftBodyMotionProperties_GetVolume();
+void JPH_SoftBodyMotionProperties_CalculateMassAndInertia();
+void JPH_SoftBodyMotionProperties_SaveState(JPH_StateRecorder *inStream);
+void JPH_SoftBodyMotionProperties_RestoreState(JPH_StateRecorder *inStream);
+void JPH_SoftBodyMotionProperties_SkinVertices(JPH_RMat44Arg inCenterOfMassTransform, JPH_Mat44 *inJointMatrices, uint32_t inNumJoints, bool inHardSkinAll, JPH_TempAllocator *ioTempAllocator);
+void JPH_SoftBodyMotionProperties_CustomUpdate(float inDeltaTime, JPH_Body *ioSoftBody, < ? named (size=1184, align=16)> *inSystem);
+void JPH_SoftBodyMotionProperties_InitializeUpdateContext(float inDeltaTime, JPH_Body *inSoftBody, < ? named (size=1184, align=16)> *inSystem, JPH_SoftBodyUpdateContext *ioContext);
+void JPH_SoftBodyMotionProperties_DetermineCollidingShapes(JPH_SoftBodyUpdateContext *inContext, < ? named (size=1184, align=16)> *inSystem, < ? named (size=16, align=8)> *inBodyLockInterface);
+JPH_SoftBodyMotionProperties_EStatus JPH_SoftBodyMotionProperties_ParallelUpdate(JPH_SoftBodyUpdateContext *ioContext, JPH_PhysicsSettings *inPhysicsSettings);
+void JPH_SoftBodyMotionProperties_UpdateRigidBodyVelocities(JPH_SoftBodyUpdateContext *inContext, < ? named (size=24, align=8)> *inBodyInterface);
+void JPH_SoftBodyMotionProperties_DetermineCollisionPlanes(uint32_t inVertexStart, uint32_t inNumVertices);
+void JPH_SoftBodyMotionProperties_DetermineSensorCollisions(JPH_SoftBodyMotionProperties_CollidingSensor *ioSensor);
+void JPH_SoftBodyMotionProperties_ApplyPressure(JPH_SoftBodyUpdateContext *inContext);
+void JPH_SoftBodyMotionProperties_IntegratePositions(JPH_SoftBodyUpdateContext *inContext);
+void JPH_SoftBodyMotionProperties_ApplyDihedralBendConstraints(JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex);
+void JPH_SoftBodyMotionProperties_ApplyVolumeConstraints(JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex);
+void JPH_SoftBodyMotionProperties_ApplySkinConstraints(JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex);
+void JPH_SoftBodyMotionProperties_ApplyEdgeConstraints(JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex);
+void JPH_SoftBodyMotionProperties_ApplyRodStretchShearConstraints(JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex);
+void JPH_SoftBodyMotionProperties_ApplyRodBendTwistConstraints(JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex);
+void JPH_SoftBodyMotionProperties_ApplyLRAConstraints(uint32_t inStartIndex, uint32_t inEndIndex);
+void JPH_SoftBodyMotionProperties_ApplyCollisionConstraintsAndUpdateVelocities(JPH_SoftBodyUpdateContext *inContext);
+void JPH_SoftBodyMotionProperties_UpdateSoftBodyState(JPH_SoftBodyUpdateContext *ioContext, JPH_PhysicsSettings *inPhysicsSettings);
+void JPH_SoftBodyMotionProperties_StartFirstIteration(JPH_SoftBodyUpdateContext *ioContext);
+void JPH_SoftBodyMotionProperties_StartNextIteration(JPH_SoftBodyUpdateContext *ioContext);
+JPH_SoftBodyMotionProperties_EStatus JPH_SoftBodyMotionProperties_ParallelDetermineCollisionPlanes(JPH_SoftBodyUpdateContext *ioContext);
+JPH_SoftBodyMotionProperties_EStatus JPH_SoftBodyMotionProperties_ParallelDetermineSensorCollisions(JPH_SoftBodyUpdateContext *ioContext);
+JPH_SoftBodyMotionProperties_EStatus JPH_SoftBodyMotionProperties_ParallelApplyConstraints(JPH_SoftBodyUpdateContext *ioContext, JPH_PhysicsSettings *inPhysicsSettings);
+void JPH_SoftBodyMotionProperties_ProcessGroup(JPH_SoftBodyUpdateContext *ioContext, uint32_t inGroupIndex);
+float JPH_SoftBodyMotionProperties_GetVolumeTimesSix();
 // JoltPhysics/Jolt/Physics/Collision/Shape/EmptyShape.h:13:1
 // Has vtable
 typedef struct JPH_EmptyShapeSettings JPH_EmptyShapeSettings;
 
+void *JPH_EmptyShapeSettings_operator_new(size_t inCount);
+void JPH_EmptyShapeSettings_operator_delete(void *inPointer);
+void *JPH_EmptyShapeSettings_operator_new[](size_t inCount);
+void JPH_EmptyShapeSettings_operator_delete[](void *inPointer);
+void *JPH_EmptyShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_EmptyShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_EmptyShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_EmptyShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_EmptyShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_EmptyShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_EmptyShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_EmptyShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_EmptyShapeSettings_GetRTTI();
+void *JPH_EmptyShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_EmptyShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_EmptyShapeSettings_EmptyShapeSettings();
+void JPH_EmptyShapeSettings_EmptyShapeSettings(JPH_Vec3Arg inCenterOfMass);
+JPH_ShapeSettings_ShapeResult JPH_EmptyShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/EmptyShape.h:34:1
 // Has vtable
 typedef struct JPH_EmptyShape JPH_EmptyShape;
 
+void JPH_EmptyShape_EmptyShape();
+void JPH_EmptyShape_EmptyShape(JPH_Vec3Arg inCenterOfMass);
+void JPH_EmptyShape_EmptyShape(JPH_EmptyShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+JPH_Vec3 JPH_EmptyShape_GetCenterOfMass();
+JPH_AABox JPH_EmptyShape_GetLocalBounds();
+uint32_t JPH_EmptyShape_GetSubShapeIDBitsRecursive();
+float JPH_EmptyShape_GetInnerRadius();
+JPH_MassProperties JPH_EmptyShape_GetMassProperties();
+JPH_PhysicsMaterial *JPH_EmptyShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+JPH_Vec3 JPH_EmptyShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_EmptyShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_EmptyShape_CastRay(< ? named (size=32, align=16)> *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, < ? named (size=12, align=4)> *ioHit);
+void JPH_EmptyShape_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=3, align=1)> *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_EmptyShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_EmptyShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, < ? named (size=80, align=8)> *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_EmptyShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_EmptyShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+JPH_Shape_Stats JPH_EmptyShape_GetStats();
+float JPH_EmptyShape_GetVolume();
+bool JPH_EmptyShape_IsValidScale(JPH_Vec3Arg inScale);
+void JPH_EmptyShape_sRegister();
 // JoltPhysics/Jolt/Physics/PhysicsLock.h:26:1
 typedef JPH_BodyManager *JPH_PhysicsLockContext;
 
@@ -2593,6 +5137,9 @@ typedef struct JPH_PhysicsLock_LockData {
 // JoltPhysics/Jolt/Physics/PhysicsLock.h:32:1
 typedef struct JPH_PhysicsLock JPH_PhysicsLock;
 
+void JPH_PhysicsLock_sCheckLock(JPH_PhysicsLockContext inContext, JPH_EPhysicsLockTypes inType);
+void JPH_PhysicsLock_sCheckUnlock(JPH_PhysicsLockContext inContext, JPH_EPhysicsLockTypes inType);
+uint32_t *JPH_PhysicsLock_sGetLockedMutexes(JPH_PhysicsLockContext inContext);
 // JoltPhysics/Jolt/Physics/Body/BodyLockInterface.h:20:2
 typedef uint64_t JPH_BodyLockInterface_MutexMask;
 
@@ -2600,14 +5147,45 @@ typedef uint64_t JPH_BodyLockInterface_MutexMask;
 // Abstract
 typedef struct JPH_BodyLockInterface JPH_BodyLockInterface;
 
+void JPH_BodyLockInterface_BodyLockInterface(JPH_BodyManager *inBodyManager);
+void JPH_BodyLockInterface_~BodyLockInterface();
+JPH_SharedMutex *JPH_BodyLockInterface_LockRead(JPH_BodyID *inBodyID);
+void JPH_BodyLockInterface_UnlockRead(JPH_SharedMutex *inMutex);
+JPH_SharedMutex *JPH_BodyLockInterface_LockWrite(JPH_BodyID *inBodyID);
+void JPH_BodyLockInterface_UnlockWrite(JPH_SharedMutex *inMutex);
+JPH_BodyLockInterface_MutexMask JPH_BodyLockInterface_GetAllBodiesMutexMask();
+JPH_BodyLockInterface_MutexMask JPH_BodyLockInterface_GetMutexMask(JPH_BodyID *inBodies, int32_t inNumber);
+void JPH_BodyLockInterface_LockRead(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterface_UnlockRead(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterface_LockWrite(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterface_UnlockWrite(JPH_BodyLockInterface_MutexMask inMutexMask);
+JPH_Body *JPH_BodyLockInterface_TryGetBody(JPH_BodyID *inBodyID);
 // JoltPhysics/Jolt/Physics/Body/BodyLockInterface.h:57:1
 // Has vtable
 typedef struct JPH_BodyLockInterfaceNoLock JPH_BodyLockInterfaceNoLock;
 
+JPH_SharedMutex *JPH_BodyLockInterfaceNoLock_LockRead(JPH_BodyID *inBodyID);
+void JPH_BodyLockInterfaceNoLock_UnlockRead(JPH_SharedMutex *inMutex);
+JPH_SharedMutex *JPH_BodyLockInterfaceNoLock_LockWrite(JPH_BodyID *inBodyID);
+void JPH_BodyLockInterfaceNoLock_UnlockWrite(JPH_SharedMutex *inMutex);
+JPH_BodyLockInterface_MutexMask JPH_BodyLockInterfaceNoLock_GetMutexMask(JPH_BodyID *inBodies, int32_t inNumber);
+void JPH_BodyLockInterfaceNoLock_LockRead(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterfaceNoLock_UnlockRead(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterfaceNoLock_LockWrite(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterfaceNoLock_UnlockWrite(JPH_BodyLockInterface_MutexMask inMutexMask);
 // JoltPhysics/Jolt/Physics/Body/BodyLockInterface.h:77:1
 // Has vtable
 typedef struct JPH_BodyLockInterfaceLocking JPH_BodyLockInterfaceLocking;
 
+JPH_SharedMutex *JPH_BodyLockInterfaceLocking_LockRead(JPH_BodyID *inBodyID);
+void JPH_BodyLockInterfaceLocking_UnlockRead(JPH_SharedMutex *inMutex);
+JPH_SharedMutex *JPH_BodyLockInterfaceLocking_LockWrite(JPH_BodyID *inBodyID);
+void JPH_BodyLockInterfaceLocking_UnlockWrite(JPH_SharedMutex *inMutex);
+JPH_BodyLockInterface_MutexMask JPH_BodyLockInterfaceLocking_GetMutexMask(JPH_BodyID *inBodies, int32_t inNumber);
+void JPH_BodyLockInterfaceLocking_LockRead(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterfaceLocking_UnlockRead(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterfaceLocking_LockWrite(JPH_BodyLockInterface_MutexMask inMutexMask);
+void JPH_BodyLockInterfaceLocking_UnlockWrite(JPH_BodyLockInterface_MutexMask inMutexMask);
 // JoltPhysics/Jolt/Physics/Body/BodyLock.h:100:1
 typedef struct JPH_BodyLockRead JPH_BodyLockRead;
 
@@ -2618,10 +5196,51 @@ typedef struct JPH_BodyLockWrite JPH_BodyLockWrite;
 // Abstract
 typedef struct JPH_BodyActivationListener JPH_BodyActivationListener;
 
+void JPH_BodyActivationListener_~BodyActivationListener();
+void JPH_BodyActivationListener_OnBodyActivated(JPH_BodyID *inBodyID, uint64_t inBodyUserData);
+void JPH_BodyActivationListener_OnBodyDeactivated(JPH_BodyID *inBodyID, uint64_t inBodyUserData);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyShape.h:15:1
 // Has vtable
 typedef struct JPH_SoftBodyShape JPH_SoftBodyShape;
 
+void *JPH_SoftBodyShape_operator_new(size_t inCount);
+void JPH_SoftBodyShape_operator_delete(void *inPointer);
+void *JPH_SoftBodyShape_operator_new[](size_t inCount);
+void JPH_SoftBodyShape_operator_delete[](void *inPointer);
+void *JPH_SoftBodyShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodyShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodyShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SoftBodyShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SoftBodyShape_operator_new(size_t inCount, void *inPointer);
+void JPH_SoftBodyShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SoftBodyShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_SoftBodyShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SoftBodyShape_SoftBodyShape();
+uint32_t JPH_SoftBodyShape_GetSubShapeIDBits();
+uint32_t JPH_SoftBodyShape_GetFaceIndex(JPH_SubShapeID *inSubShapeID);
+bool JPH_SoftBodyShape_MustBeStatic();
+JPH_Vec3 JPH_SoftBodyShape_GetCenterOfMass();
+JPH_AABox JPH_SoftBodyShape_GetLocalBounds();
+uint32_t JPH_SoftBodyShape_GetSubShapeIDBitsRecursive();
+float JPH_SoftBodyShape_GetInnerRadius();
+JPH_MassProperties JPH_SoftBodyShape_GetMassProperties();
+JPH_PhysicsMaterial *JPH_SoftBodyShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+JPH_Vec3 JPH_SoftBodyShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_SoftBodyShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+void JPH_SoftBodyShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_SoftBodyShape_CastRay(< ? named (size=32, align=16)> *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, < ? named (size=12, align=4)> *ioHit);
+void JPH_SoftBodyShape_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=3, align=1)> *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_SoftBodyShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_SoftBodyShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, < ? named (size=80, align=8)> *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_SoftBodyShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_SoftBodyShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+JPH_Shape_Stats JPH_SoftBodyShape_GetStats();
+float JPH_SoftBodyShape_GetVolume();
+void JPH_SoftBodyShape_sRegister();
+void JPH_SoftBodyShape_sCollideConvexVsSoftBody(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, < ? named (size=48, align=16)> *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_SoftBodyShape_sCollideSphereVsSoftBody(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, < ? named (size=48, align=16)> *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_SoftBodyShape_sCastConvexVsSoftBody(< ? named (size=144, align=16)> *inShapeCast, < ? named (size=48, align=16)> *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_SoftBodyShape_sCastSphereVsSoftBody(< ? named (size=144, align=16)> *inShapeCast, < ? named (size=48, align=16)> *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Body/BodyInterface.h:116:2
 typedef void *JPH_BodyInterface_AddState;
 
@@ -2634,6 +5253,100 @@ typedef struct JPH_BodyInterface {
     < ? named (size=16, align=8)> *mBroadPhase;
 } JPH_BodyInterface;
 
+void JPH_BodyInterface_Init(JPH_BodyLockInterface *inBodyLockInterface, JPH_BodyManager *inBodyManager, < ? named (size=16, align=8)> *inBroadPhase);
+JPH_Body *JPH_BodyInterface_CreateBody(JPH_BodyCreationSettings *inSettings);
+JPH_Body *JPH_BodyInterface_CreateSoftBody(JPH_SoftBodyCreationSettings *inSettings);
+JPH_Body *JPH_BodyInterface_CreateBodyWithID(JPH_BodyID *inBodyID, JPH_BodyCreationSettings *inSettings);
+JPH_Body *JPH_BodyInterface_CreateSoftBodyWithID(JPH_BodyID *inBodyID, JPH_SoftBodyCreationSettings *inSettings);
+JPH_Body *JPH_BodyInterface_CreateBodyWithoutID(JPH_BodyCreationSettings *inSettings);
+JPH_Body *JPH_BodyInterface_CreateSoftBodyWithoutID(JPH_SoftBodyCreationSettings *inSettings);
+void JPH_BodyInterface_DestroyBodyWithoutID(JPH_Body *inBody);
+bool JPH_BodyInterface_AssignBodyID(JPH_Body *ioBody);
+bool JPH_BodyInterface_AssignBodyID(JPH_Body *ioBody, JPH_BodyID *inBodyID);
+JPH_Body *JPH_BodyInterface_UnassignBodyID(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_UnassignBodyIDs(JPH_BodyID *inBodyIDs, int32_t inNumber, JPH_Body **outBodies);
+void JPH_BodyInterface_DestroyBody(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_DestroyBodies(JPH_BodyID *inBodyIDs, int32_t inNumber);
+void JPH_BodyInterface_AddBody(JPH_BodyID *inBodyID, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_RemoveBody(JPH_BodyID *inBodyID);
+bool JPH_BodyInterface_IsAdded(JPH_BodyID *inBodyID);
+JPH_BodyID JPH_BodyInterface_CreateAndAddBody(JPH_BodyCreationSettings *inSettings, JPH_EActivation inActivationMode);
+JPH_BodyID JPH_BodyInterface_CreateAndAddSoftBody(JPH_SoftBodyCreationSettings *inSettings, JPH_EActivation inActivationMode);
+JPH_BodyInterface_AddState JPH_BodyInterface_AddBodiesPrepare(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BodyInterface_AddBodiesFinalize(JPH_BodyID *ioBodies, int32_t inNumber, JPH_BodyInterface_AddState inAddState, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_AddBodiesAbort(JPH_BodyID *ioBodies, int32_t inNumber, JPH_BodyInterface_AddState inAddState);
+void JPH_BodyInterface_RemoveBodies(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BodyInterface_ActivateBody(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_ActivateBodies(JPH_BodyID *inBodyIDs, int32_t inNumber);
+void JPH_BodyInterface_ActivateBodiesInAABox(JPH_AABox *inBox, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BodyInterface_DeactivateBody(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_DeactivateBodies(JPH_BodyID *inBodyIDs, int32_t inNumber);
+bool JPH_BodyInterface_IsActive(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_ResetSleepTimer(JPH_BodyID *inBodyID);
+< ? named (size=48, align=8)> *JPH_BodyInterface_CreateConstraint(< ? named (size=40, align=8)> *inSettings, JPH_BodyID *inBodyID1, JPH_BodyID *inBodyID2);
+void JPH_BodyInterface_ActivateConstraint(< ? named (size=48, align=8)> *inConstraint);
+< Unexposed (size=8, align=8)> JPH_BodyInterface_GetShape(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetShape(JPH_BodyID *inBodyID, JPH_Shape *inShape, bool inUpdateMassProperties, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inPreviousCenterOfMass, bool inUpdateMassProperties, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_SetObjectLayer(JPH_BodyID *inBodyID, JPH_ObjectLayer inLayer);
+JPH_ObjectLayer JPH_BodyInterface_GetObjectLayer(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetPositionAndRotation(JPH_BodyID *inBodyID, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_SetPositionAndRotationWhenChanged(JPH_BodyID *inBodyID, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_GetPositionAndRotation(JPH_BodyID *inBodyID, JPH_RVec3 *outPosition, JPH_Quat *outRotation);
+void JPH_BodyInterface_SetPosition(JPH_BodyID *inBodyID, JPH_RVec3Arg inPosition, JPH_EActivation inActivationMode);
+JPH_RVec3 JPH_BodyInterface_GetPosition(JPH_BodyID *inBodyID);
+JPH_RVec3 JPH_BodyInterface_GetCenterOfMassPosition(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetRotation(JPH_BodyID *inBodyID, JPH_QuatArg inRotation, JPH_EActivation inActivationMode);
+JPH_Quat JPH_BodyInterface_GetRotation(JPH_BodyID *inBodyID);
+JPH_RMat44 JPH_BodyInterface_GetWorldTransform(JPH_BodyID *inBodyID);
+JPH_RMat44 JPH_BodyInterface_GetCenterOfMassTransform(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_MoveKinematic(JPH_BodyID *inBodyID, JPH_RVec3Arg inTargetPosition, JPH_QuatArg inTargetRotation, float inDeltaTime);
+void JPH_BodyInterface_SetLinearAndAngularVelocity(JPH_BodyID *inBodyID, JPH_Vec3Arg inLinearVelocity, JPH_Vec3Arg inAngularVelocity);
+void JPH_BodyInterface_GetLinearAndAngularVelocity(JPH_BodyID *inBodyID, JPH_Vec3 *outLinearVelocity, JPH_Vec3 *outAngularVelocity);
+void JPH_BodyInterface_SetLinearVelocity(JPH_BodyID *inBodyID, JPH_Vec3Arg inLinearVelocity);
+JPH_Vec3 JPH_BodyInterface_GetLinearVelocity(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_AddLinearVelocity(JPH_BodyID *inBodyID, JPH_Vec3Arg inLinearVelocity);
+void JPH_BodyInterface_AddLinearAndAngularVelocity(JPH_BodyID *inBodyID, JPH_Vec3Arg inLinearVelocity, JPH_Vec3Arg inAngularVelocity);
+void JPH_BodyInterface_SetAngularVelocity(JPH_BodyID *inBodyID, JPH_Vec3Arg inAngularVelocity);
+JPH_Vec3 JPH_BodyInterface_GetAngularVelocity(JPH_BodyID *inBodyID);
+JPH_Vec3 JPH_BodyInterface_GetPointVelocity(JPH_BodyID *inBodyID, JPH_RVec3Arg inPoint);
+void JPH_BodyInterface_SetPositionRotationAndVelocity(JPH_BodyID *inBodyID, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_Vec3Arg inLinearVelocity, JPH_Vec3Arg inAngularVelocity);
+void JPH_BodyInterface_AddForce(JPH_BodyID *inBodyID, JPH_Vec3Arg inForce, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_AddForce(JPH_BodyID *inBodyID, JPH_Vec3Arg inForce, JPH_RVec3Arg inPoint, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_AddTorque(JPH_BodyID *inBodyID, JPH_Vec3Arg inTorque, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_AddForceAndTorque(JPH_BodyID *inBodyID, JPH_Vec3Arg inForce, JPH_Vec3Arg inTorque, JPH_EActivation inActivationMode);
+void JPH_BodyInterface_AddImpulse(JPH_BodyID *inBodyID, JPH_Vec3Arg inImpulse);
+void JPH_BodyInterface_AddImpulse(JPH_BodyID *inBodyID, JPH_Vec3Arg inImpulse, JPH_RVec3Arg inPoint);
+void JPH_BodyInterface_AddAngularImpulse(JPH_BodyID *inBodyID, JPH_Vec3Arg inAngularImpulse);
+bool JPH_BodyInterface_ApplyBuoyancyImpulse(JPH_BodyID *inBodyID, JPH_RVec3Arg inSurfacePosition, JPH_Vec3Arg inSurfaceNormal, float inBuoyancy, float inLinearDrag, float inAngularDrag, JPH_Vec3Arg inFluidVelocity, JPH_Vec3Arg inGravity, float inDeltaTime);
+JPH_EBodyType JPH_BodyInterface_GetBodyType(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetMotionType(JPH_BodyID *inBodyID, JPH_EMotionType inMotionType, JPH_EActivation inActivationMode);
+JPH_EMotionType JPH_BodyInterface_GetMotionType(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetMotionQuality(JPH_BodyID *inBodyID, JPH_EMotionQuality inMotionQuality);
+JPH_EMotionQuality JPH_BodyInterface_GetMotionQuality(JPH_BodyID *inBodyID);
+JPH_Mat44 JPH_BodyInterface_GetInverseInertia(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetRestitution(JPH_BodyID *inBodyID, float inRestitution);
+float JPH_BodyInterface_GetRestitution(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetFriction(JPH_BodyID *inBodyID, float inFriction);
+float JPH_BodyInterface_GetFriction(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetGravityFactor(JPH_BodyID *inBodyID, float inGravityFactor);
+float JPH_BodyInterface_GetGravityFactor(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetMaxLinearVelocity(JPH_BodyID *inBodyID, float inLinearVelocity);
+float JPH_BodyInterface_GetMaxLinearVelocity(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetMaxAngularVelocity(JPH_BodyID *inBodyID, float inAngularVelocity);
+float JPH_BodyInterface_GetMaxAngularVelocity(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetUseManifoldReduction(JPH_BodyID *inBodyID, bool inUseReduction);
+bool JPH_BodyInterface_GetUseManifoldReduction(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetIsSensor(JPH_BodyID *inBodyID, bool inIsSensor);
+bool JPH_BodyInterface_IsSensor(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetCollisionGroup(JPH_BodyID *inBodyID, JPH_CollisionGroup *inCollisionGroup);
+JPH_CollisionGroup *JPH_BodyInterface_GetCollisionGroup(JPH_BodyID *inBodyID);
+JPH_TransformedShape JPH_BodyInterface_GetTransformedShape(JPH_BodyID *inBodyID);
+uint64_t JPH_BodyInterface_GetUserData(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_SetUserData(JPH_BodyID *inBodyID, uint64_t inUserData);
+JPH_PhysicsMaterial *JPH_BodyInterface_GetMaterial(JPH_BodyID *inBodyID, JPH_SubShapeID *inSubShapeID);
+void JPH_BodyInterface_InvalidateContactCache(JPH_BodyID *inBodyID);
+void JPH_BodyInterface_ActivateBodyInternal(JPH_Body *ioBody);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h:22:1
 typedef < ? named (size=-2, align=-2)> JPH_RayCastBodyCollector;
 
@@ -2647,6 +5360,13 @@ typedef < ? named (size=-2, align=-2)> JPH_CollideShapeBodyCollector;
 // Abstract
 typedef struct JPH_BroadPhaseQuery JPH_BroadPhaseQuery;
 
+void JPH_BroadPhaseQuery_~BroadPhaseQuery();
+void JPH_BroadPhaseQuery_CastRay(< ? named (size=32, align=16)> *inRay, JPH_RayCastBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuery_CollideAABox(JPH_AABox *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuery_CollideSphere(JPH_Vec3Arg inCenter, float inRadius, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuery_CollidePoint(JPH_Vec3Arg inPoint, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuery_CollideOrientedBox(< ? named (size=80, align=16)> *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuery_CastAABox(< ? named (size=48, align=16)> *inBox, JPH_CastShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhase.h:22:1
 typedef < ? named (size=-2, align=-2)> JPH_BodyPairCollector;
 
@@ -2662,6 +5382,22 @@ typedef void *JPH_BroadPhase_AddState;
 // Abstract
 typedef struct JPH_BroadPhase JPH_BroadPhase;
 
+void JPH_BroadPhase_Init(JPH_BodyManager *inBodyManager, JPH_BroadPhaseLayerInterface *inLayerInterface);
+void JPH_BroadPhase_Optimize();
+void JPH_BroadPhase_FrameSync();
+void JPH_BroadPhase_LockModifications();
+JPH_BroadPhase_UpdateState JPH_BroadPhase_UpdatePrepare();
+void JPH_BroadPhase_UpdateFinalize(JPH_BroadPhase_UpdateState *inUpdateState);
+void JPH_BroadPhase_UnlockModifications();
+JPH_BroadPhase_AddState JPH_BroadPhase_AddBodiesPrepare(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhase_AddBodiesFinalize(JPH_BodyID *ioBodies, int32_t inNumber, JPH_BroadPhase_AddState inAddState);
+void JPH_BroadPhase_AddBodiesAbort(JPH_BodyID *ioBodies, int32_t inNumber, JPH_BroadPhase_AddState inAddState);
+void JPH_BroadPhase_RemoveBodies(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhase_NotifyBodiesAABBChanged(JPH_BodyID *ioBodies, int32_t inNumber, bool inTakeLock);
+void JPH_BroadPhase_NotifyBodiesLayerChanged(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhase_FindCollidingPairs(JPH_BodyID *ioActiveBodies, int32_t inNumActiveBodies, float inSpeculativeContactDistance, JPH_ObjectVsBroadPhaseLayerFilter *inObjectVsBroadPhaseLayerFilter, JPH_ObjectLayerPairFilter *inObjectLayerPairFilter, JPH_BodyPairCollector *ioPairCollector);
+void JPH_BroadPhase_CastAABoxNoLock(< ? named (size=48, align=16)> *inBox, JPH_CastShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+JPH_AABox JPH_BroadPhase_GetBounds();
 // JoltPhysics/Jolt/Physics/Body/BodyLockMulti.h:109:1
 typedef struct JPH_BodyLockMultiRead JPH_BodyLockMultiRead;
 
@@ -2672,10 +5408,47 @@ typedef struct JPH_BodyLockMultiWrite JPH_BodyLockMultiWrite;
 // Abstract
 typedef struct JPH_TwoBodyConstraintSettings JPH_TwoBodyConstraintSettings;
 
+void *JPH_TwoBodyConstraintSettings_operator_new(size_t inCount);
+void JPH_TwoBodyConstraintSettings_operator_delete(void *inPointer);
+void *JPH_TwoBodyConstraintSettings_operator_new[](size_t inCount);
+void JPH_TwoBodyConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_TwoBodyConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TwoBodyConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TwoBodyConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TwoBodyConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TwoBodyConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_TwoBodyConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TwoBodyConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_TwoBodyConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_TwoBodyConstraintSettings_GetRTTI();
+void *JPH_TwoBodyConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_TwoBodyConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+< ? named (size=48, align=8)> *JPH_TwoBodyConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
 // JoltPhysics/Jolt/Physics/Constraints/TwoBodyConstraint.h:26:1
 // Abstract
 typedef struct JPH_TwoBodyConstraint JPH_TwoBodyConstraint;
 
+void *JPH_TwoBodyConstraint_operator_new(size_t inCount);
+void JPH_TwoBodyConstraint_operator_delete(void *inPointer);
+void *JPH_TwoBodyConstraint_operator_new[](size_t inCount);
+void JPH_TwoBodyConstraint_operator_delete[](void *inPointer);
+void *JPH_TwoBodyConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TwoBodyConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TwoBodyConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TwoBodyConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TwoBodyConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_TwoBodyConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TwoBodyConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_TwoBodyConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TwoBodyConstraint_TwoBodyConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_TwoBodyConstraintSettings *inSettings);
+JPH_EConstraintType JPH_TwoBodyConstraint_GetType();
+bool JPH_TwoBodyConstraint_IsActive();
+JPH_Body *JPH_TwoBodyConstraint_GetBody1();
+JPH_Body *JPH_TwoBodyConstraint_GetBody2();
+JPH_Mat44 JPH_TwoBodyConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_TwoBodyConstraint_GetConstraintToBody2Matrix();
+void JPH_TwoBodyConstraint_BuildIslands(uint32_t inConstraintIndex, JPH_IslandBuilder *ioBuilder, JPH_BodyManager *inBodyManager);
+uint32_t JPH_TwoBodyConstraint_BuildIslandSplits(JPH_LargeIslandSplitter *ioSplitter);
 // JoltPhysics/Jolt/Skeleton/Skeleton.h:22:2
 typedef < ? named (size=-2, align=-2)> JPH_Skeleton_SkeletonResult;
 
@@ -2686,6 +5459,21 @@ typedef struct JPH_Skeleton_Joint {
     int32_t mParentJointIndex;
 } JPH_Skeleton_Joint;
 
+void *JPH_Skeleton_Joint_operator_new(size_t inCount);
+void JPH_Skeleton_Joint_operator_delete(void *inPointer);
+void *JPH_Skeleton_Joint_operator_new[](size_t inCount);
+void JPH_Skeleton_Joint_operator_delete[](void *inPointer);
+void *JPH_Skeleton_Joint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Skeleton_Joint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Skeleton_Joint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Skeleton_Joint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Skeleton_Joint_operator_new(size_t inCount, void *inPointer);
+void JPH_Skeleton_Joint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Skeleton_Joint_operator_new[](size_t inCount, void *inPointer);
+void JPH_Skeleton_Joint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Skeleton_Joint_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_Skeleton_Joint_Joint();
+void JPH_Skeleton_Joint_Joint(< Unexposed (size=16, align=8)> *inName, < Unexposed (size=16, align=8)> *inParentName, int32_t inParentJointIndex);
 // JoltPhysics/Jolt/Skeleton/Skeleton.h:38:2
 typedef < ? named (size=24, align=8)> JPH_Skeleton_JointVector;
 
@@ -2696,12 +5484,52 @@ typedef struct JPH_Skeleton {
     JPH_Skeleton_JointVector mJoints;
 } JPH_Skeleton;
 
+void *JPH_Skeleton_operator_new(size_t inCount);
+void JPH_Skeleton_operator_delete(void *inPointer);
+void *JPH_Skeleton_operator_new[](size_t inCount);
+void JPH_Skeleton_operator_delete[](void *inPointer);
+void *JPH_Skeleton_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Skeleton_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Skeleton_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Skeleton_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Skeleton_operator_new(size_t inCount, void *inPointer);
+void JPH_Skeleton_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Skeleton_operator_new[](size_t inCount, void *inPointer);
+void JPH_Skeleton_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Skeleton_sCreateRTTI(JPH_RTTI *inRTTI);
+JPH_Skeleton_JointVector *JPH_Skeleton_GetJoints();
+JPH_Skeleton_JointVector *JPH_Skeleton_GetJoints();
+int32_t JPH_Skeleton_GetJointCount();
+JPH_Skeleton_Joint *JPH_Skeleton_GetJoint(int32_t inJoint);
+JPH_Skeleton_Joint *JPH_Skeleton_GetJoint(int32_t inJoint);
+uint32_t JPH_Skeleton_AddJoint(< Unexposed (size=16, align=8)> *inName, < Unexposed (size=16, align=8)> *inParentName);
+uint32_t JPH_Skeleton_AddJoint(< Unexposed (size=16, align=8)> *inName, int32_t inParentIndex);
+int32_t JPH_Skeleton_GetJointIndex(< Unexposed (size=16, align=8)> *inName);
+void JPH_Skeleton_CalculateParentJointIndices();
+bool JPH_Skeleton_AreJointsCorrectlyOrdered();
+void JPH_Skeleton_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Skeleton_SkeletonResult JPH_Skeleton_sRestoreFromBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Skeleton/SkeletalAnimation.h:23:2
 typedef struct JPH_SkeletalAnimation_JointState {
     JPH_Quat mRotation;
     JPH_Vec3 mTranslation;
 } JPH_SkeletalAnimation_JointState;
 
+void *JPH_SkeletalAnimation_JointState_operator_new(size_t inCount);
+void JPH_SkeletalAnimation_JointState_operator_delete(void *inPointer);
+void *JPH_SkeletalAnimation_JointState_operator_new[](size_t inCount);
+void JPH_SkeletalAnimation_JointState_operator_delete[](void *inPointer);
+void *JPH_SkeletalAnimation_JointState_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_JointState_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_JointState_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_JointState_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_JointState_operator_new(size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_JointState_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SkeletalAnimation_JointState_operator_new[](size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_JointState_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SkeletalAnimation_JointState_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SkeletalAnimation_JointState_FromMatrix(JPH_Mat44Arg inMatrix);
+JPH_Mat44 JPH_SkeletalAnimation_JointState_ToMatrix();
 // JoltPhysics/Jolt/Skeleton/SkeletalAnimation.h:39:2
 typedef struct JPH_SkeletalAnimation_Keyframe {
     JPH_SkeletalAnimation_JointState base;
@@ -2709,6 +5537,19 @@ typedef struct JPH_SkeletalAnimation_Keyframe {
     float mTime;
 } JPH_SkeletalAnimation_Keyframe;
 
+void *JPH_SkeletalAnimation_Keyframe_operator_new(size_t inCount);
+void JPH_SkeletalAnimation_Keyframe_operator_delete(void *inPointer);
+void *JPH_SkeletalAnimation_Keyframe_operator_new[](size_t inCount);
+void JPH_SkeletalAnimation_Keyframe_operator_delete[](void *inPointer);
+void *JPH_SkeletalAnimation_Keyframe_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_Keyframe_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_Keyframe_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_Keyframe_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_Keyframe_operator_new(size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_Keyframe_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SkeletalAnimation_Keyframe_operator_new[](size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_Keyframe_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SkeletalAnimation_Keyframe_sCreateRTTI(JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/Skeleton/SkeletalAnimation.h:47:2
 typedef < ? named (size=24, align=8)> JPH_SkeletalAnimation_KeyframeVector;
 
@@ -2718,6 +5559,19 @@ typedef struct JPH_SkeletalAnimation_AnimatedJoint {
     JPH_SkeletalAnimation_KeyframeVector mKeyframes;
 } JPH_SkeletalAnimation_AnimatedJoint;
 
+void *JPH_SkeletalAnimation_AnimatedJoint_operator_new(size_t inCount);
+void JPH_SkeletalAnimation_AnimatedJoint_operator_delete(void *inPointer);
+void *JPH_SkeletalAnimation_AnimatedJoint_operator_new[](size_t inCount);
+void JPH_SkeletalAnimation_AnimatedJoint_operator_delete[](void *inPointer);
+void *JPH_SkeletalAnimation_AnimatedJoint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_AnimatedJoint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_AnimatedJoint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_AnimatedJoint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_AnimatedJoint_operator_new(size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_AnimatedJoint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SkeletalAnimation_AnimatedJoint_operator_new[](size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_AnimatedJoint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SkeletalAnimation_AnimatedJoint_sCreateRTTI(JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/Skeleton/SkeletalAnimation.h:59:2
 typedef < ? named (size=24, align=8)> JPH_SkeletalAnimation_AnimatedJointVector;
 
@@ -2732,6 +5586,28 @@ typedef struct JPH_SkeletalAnimation {
     bool mIsLooping;
 } JPH_SkeletalAnimation;
 
+void *JPH_SkeletalAnimation_operator_new(size_t inCount);
+void JPH_SkeletalAnimation_operator_delete(void *inPointer);
+void *JPH_SkeletalAnimation_operator_new[](size_t inCount);
+void JPH_SkeletalAnimation_operator_delete[](void *inPointer);
+void *JPH_SkeletalAnimation_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletalAnimation_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletalAnimation_operator_new(size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SkeletalAnimation_operator_new[](size_t inCount, void *inPointer);
+void JPH_SkeletalAnimation_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SkeletalAnimation_sCreateRTTI(JPH_RTTI *inRTTI);
+float JPH_SkeletalAnimation_GetDuration();
+void JPH_SkeletalAnimation_ScaleJoints(float inScale);
+void JPH_SkeletalAnimation_SetIsLooping(bool inIsLooping);
+bool JPH_SkeletalAnimation_IsLooping();
+void JPH_SkeletalAnimation_Sample(float inTime, < ? named (size=80, align=16)> *ioPose);
+JPH_SkeletalAnimation_AnimatedJointVector *JPH_SkeletalAnimation_GetAnimatedJoints();
+JPH_SkeletalAnimation_AnimatedJointVector *JPH_SkeletalAnimation_GetAnimatedJoints();
+void JPH_SkeletalAnimation_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_SkeletalAnimation_AnimationResult JPH_SkeletalAnimation_sRestoreFromBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Skeleton/SkeletonPose.h:22:2
 typedef JPH_SkeletalAnimation_JointState JPH_SkeletonPose_JointState;
 
@@ -2749,6 +5625,34 @@ typedef struct JPH_SkeletonPose {
     JPH_SkeletonPose_Mat44Vector mJointMatrices;
 } JPH_SkeletonPose;
 
+void *JPH_SkeletonPose_operator_new(size_t inCount);
+void JPH_SkeletonPose_operator_delete(void *inPointer);
+void *JPH_SkeletonPose_operator_new[](size_t inCount);
+void JPH_SkeletonPose_operator_delete[](void *inPointer);
+void *JPH_SkeletonPose_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletonPose_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletonPose_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SkeletonPose_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SkeletonPose_operator_new(size_t inCount, void *inPointer);
+void JPH_SkeletonPose_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SkeletonPose_operator_new[](size_t inCount, void *inPointer);
+void JPH_SkeletonPose_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SkeletonPose_SetSkeleton(JPH_Skeleton *inSkeleton);
+JPH_Skeleton *JPH_SkeletonPose_GetSkeleton();
+void JPH_SkeletonPose_SetRootOffset(JPH_RVec3Arg inOffset);
+JPH_RVec3 JPH_SkeletonPose_GetRootOffset();
+uint32_t JPH_SkeletonPose_GetJointCount();
+JPH_SkeletonPose_JointStateVector *JPH_SkeletonPose_GetJoints();
+JPH_SkeletonPose_JointStateVector *JPH_SkeletonPose_GetJoints();
+JPH_SkeletonPose_JointState *JPH_SkeletonPose_GetJoint(int32_t inJoint);
+JPH_SkeletonPose_JointState *JPH_SkeletonPose_GetJoint(int32_t inJoint);
+JPH_SkeletonPose_Mat44Vector *JPH_SkeletonPose_GetJointMatrices();
+JPH_SkeletonPose_Mat44Vector *JPH_SkeletonPose_GetJointMatrices();
+JPH_Mat44 *JPH_SkeletonPose_GetJointMatrix(int32_t inJoint);
+JPH_Mat44 *JPH_SkeletonPose_GetJointMatrix(int32_t inJoint);
+void JPH_SkeletonPose_CalculateJointMatrices();
+void JPH_SkeletonPose_CalculateJointStates();
+void JPH_SkeletonPose_CalculateLocalSpaceJointMatrices(JPH_Mat44 *outMatrices);
 // JoltPhysics/Jolt/Physics/Ragdoll/Ragdoll.h:50:2
 typedef < ? named (size=-2, align=-2)> JPH_RagdollSettings_RagdollResult;
 
@@ -2762,6 +5666,19 @@ typedef struct JPH_RagdollSettings_Part {
     < Unexposed (size=8, align=8)> mToParent;
 } JPH_RagdollSettings_Part;
 
+void *JPH_RagdollSettings_Part_operator_new(size_t inCount);
+void JPH_RagdollSettings_Part_operator_delete(void *inPointer);
+void *JPH_RagdollSettings_Part_operator_new[](size_t inCount);
+void JPH_RagdollSettings_Part_operator_delete[](void *inPointer);
+void *JPH_RagdollSettings_Part_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RagdollSettings_Part_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RagdollSettings_Part_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RagdollSettings_Part_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RagdollSettings_Part_operator_new(size_t inCount, void *inPointer);
+void JPH_RagdollSettings_Part_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RagdollSettings_Part_operator_new[](size_t inCount, void *inPointer);
+void JPH_RagdollSettings_Part_operator_delete[](void *inPointer, void *inPlace);
+void JPH_RagdollSettings_Part_sCreateRTTI(JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/Physics/Ragdoll/Ragdoll.h:94:2
 typedef < ? named (size=24, align=8)> JPH_RagdollSettings_PartVector;
 
@@ -2771,6 +5688,21 @@ typedef struct JPH_RagdollSettings_AdditionalConstraint {
     < Unexposed (size=8, align=8)> mConstraint;
 } JPH_RagdollSettings_AdditionalConstraint;
 
+void *JPH_RagdollSettings_AdditionalConstraint_operator_new(size_t inCount);
+void JPH_RagdollSettings_AdditionalConstraint_operator_delete(void *inPointer);
+void *JPH_RagdollSettings_AdditionalConstraint_operator_new[](size_t inCount);
+void JPH_RagdollSettings_AdditionalConstraint_operator_delete[](void *inPointer);
+void *JPH_RagdollSettings_AdditionalConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RagdollSettings_AdditionalConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RagdollSettings_AdditionalConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RagdollSettings_AdditionalConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RagdollSettings_AdditionalConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_RagdollSettings_AdditionalConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RagdollSettings_AdditionalConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_RagdollSettings_AdditionalConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_RagdollSettings_AdditionalConstraint_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_RagdollSettings_AdditionalConstraint_AdditionalConstraint();
+void JPH_RagdollSettings_AdditionalConstraint_AdditionalConstraint(int32_t inBodyIdx1, int32_t inBodyIdx2, JPH_TwoBodyConstraintSettings *inConstraint);
 // JoltPhysics/Jolt/Physics/Ragdoll/Ragdoll.h:111:2
 typedef < ? named (size=24, align=8)> JPH_RagdollSettings_AdditionalConstraintVector;
 
@@ -2785,6 +5717,32 @@ typedef struct JPH_RagdollSettings {
     < Unexposed (size=24, align=8)> mConstraintIndexToBodyIdxPair;
 } JPH_RagdollSettings;
 
+void *JPH_RagdollSettings_operator_new(size_t inCount);
+void JPH_RagdollSettings_operator_delete(void *inPointer);
+void *JPH_RagdollSettings_operator_new[](size_t inCount);
+void JPH_RagdollSettings_operator_delete[](void *inPointer);
+void *JPH_RagdollSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RagdollSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RagdollSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RagdollSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RagdollSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_RagdollSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RagdollSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_RagdollSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_RagdollSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+bool JPH_RagdollSettings_Stabilize();
+void JPH_RagdollSettings_DisableParentChildCollisions(JPH_Mat44 *inJointMatrices, float inMinSeparationDistance);
+void JPH_RagdollSettings_SaveBinaryState(JPH_StreamOut *inStream, bool inSaveShapes, bool inSaveGroupFilter);
+JPH_RagdollSettings_RagdollResult JPH_RagdollSettings_sRestoreFromBinaryState(JPH_StreamIn *inStream);
+< ? named (size=72, align=8)> *JPH_RagdollSettings_CreateRagdoll(JPH_CollisionGroup_GroupID inCollisionGroup, uint64_t inUserData, < ? named (size=1184, align=16)> *inSystem);
+JPH_Skeleton *JPH_RagdollSettings_GetSkeleton();
+JPH_Skeleton *JPH_RagdollSettings_GetSkeleton();
+void JPH_RagdollSettings_CalculateBodyIndexToConstraintIndex();
+< Unexposed (size=24, align=8)> *JPH_RagdollSettings_GetBodyIndexToConstraintIndex();
+int32_t JPH_RagdollSettings_GetConstraintIndexForBodyIndex(int32_t inBodyIndex);
+void JPH_RagdollSettings_CalculateConstraintIndexToBodyIdxPair();
+< Unexposed (size=24, align=8)> *JPH_RagdollSettings_GetConstraintIndexToBodyIdxPair();
+JPH_RagdollSettings_BodyIdxPair JPH_RagdollSettings_GetBodyIndicesForConstraintIndex(int32_t inConstraintIndex);
 // JoltPhysics/Jolt/Physics/Ragdoll/Ragdoll.h:131:1
 typedef struct JPH_Ragdoll {
     < Unexposed (size=4, align=4)> base0;
@@ -2796,6 +5754,46 @@ typedef struct JPH_Ragdoll {
     < ? named (size=1184, align=16)> *mSystem;
 } JPH_Ragdoll;
 
+void *JPH_Ragdoll_operator_new(size_t inCount);
+void JPH_Ragdoll_operator_delete(void *inPointer);
+void *JPH_Ragdoll_operator_new[](size_t inCount);
+void JPH_Ragdoll_operator_delete[](void *inPointer);
+void *JPH_Ragdoll_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Ragdoll_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Ragdoll_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Ragdoll_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Ragdoll_operator_new(size_t inCount, void *inPointer);
+void JPH_Ragdoll_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Ragdoll_operator_new[](size_t inCount, void *inPointer);
+void JPH_Ragdoll_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Ragdoll_Ragdoll(< ? named (size=1184, align=16)> *inSystem);
+void JPH_Ragdoll_~Ragdoll();
+void JPH_Ragdoll_AddToPhysicsSystem(JPH_EActivation inActivationMode, bool inLockBodies);
+void JPH_Ragdoll_RemoveFromPhysicsSystem(bool inLockBodies);
+void JPH_Ragdoll_Activate(bool inLockBodies);
+bool JPH_Ragdoll_IsActive(bool inLockBodies);
+void JPH_Ragdoll_SetGroupID(JPH_CollisionGroup_GroupID inGroupID, bool inLockBodies);
+void JPH_Ragdoll_SetPose(JPH_SkeletonPose *inPose, bool inLockBodies);
+void JPH_Ragdoll_SetPose(JPH_RVec3Arg inRootOffset, JPH_Mat44 *inJointMatrices, bool inLockBodies);
+void JPH_Ragdoll_GetPose(JPH_SkeletonPose *outPose, bool inLockBodies);
+void JPH_Ragdoll_GetPose(JPH_RVec3 *outRootOffset, JPH_Mat44 *outJointMatrices, bool inLockBodies);
+void JPH_Ragdoll_ResetWarmStart();
+void JPH_Ragdoll_DriveToPoseUsingKinematics(JPH_SkeletonPose *inPose, float inDeltaTime, bool inLockBodies);
+void JPH_Ragdoll_DriveToPoseUsingKinematics(JPH_RVec3Arg inRootOffset, JPH_Mat44 *inJointMatrices, float inDeltaTime, bool inLockBodies);
+void JPH_Ragdoll_DriveToPoseUsingMotors(JPH_SkeletonPose *inPose);
+void JPH_Ragdoll_SetLinearAndAngularVelocity(JPH_Vec3Arg inLinearVelocity, JPH_Vec3Arg inAngularVelocity, bool inLockBodies);
+void JPH_Ragdoll_SetLinearVelocity(JPH_Vec3Arg inLinearVelocity, bool inLockBodies);
+void JPH_Ragdoll_AddLinearVelocity(JPH_Vec3Arg inLinearVelocity, bool inLockBodies);
+void JPH_Ragdoll_AddImpulse(JPH_Vec3Arg inImpulse, bool inLockBodies);
+void JPH_Ragdoll_GetRootTransform(JPH_RVec3 *outPosition, JPH_Quat *outRotation, bool inLockBodies);
+size_t JPH_Ragdoll_GetBodyCount();
+JPH_BodyID JPH_Ragdoll_GetBodyID(int32_t inBodyIndex);
+< Unexposed (size=24, align=8)> *JPH_Ragdoll_GetBodyIDs();
+size_t JPH_Ragdoll_GetConstraintCount();
+JPH_TwoBodyConstraint *JPH_Ragdoll_GetConstraint(int32_t inConstraintIndex);
+JPH_TwoBodyConstraint *JPH_Ragdoll_GetConstraint(int32_t inConstraintIndex);
+JPH_AABox JPH_Ragdoll_GetWorldSpaceBounds(bool inLockBodies);
+JPH_RagdollSettings *JPH_Ragdoll_GetRagdollSettings();
 // JoltPhysics/Jolt/Physics/Constraints/MotorSettings.h:25:1
 typedef struct JPH_MotorSettings {
     JPH_SpringSettings mSpringSettings;
@@ -2805,6 +5803,31 @@ typedef struct JPH_MotorSettings {
     float mMaxTorqueLimit;
 } JPH_MotorSettings;
 
+void *JPH_MotorSettings_operator_new(size_t inCount);
+void JPH_MotorSettings_operator_delete(void *inPointer);
+void *JPH_MotorSettings_operator_new[](size_t inCount);
+void JPH_MotorSettings_operator_delete[](void *inPointer);
+void *JPH_MotorSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotorSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotorSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotorSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotorSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_MotorSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MotorSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_MotorSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_MotorSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_MotorSettings_MotorSettings();
+void JPH_MotorSettings_MotorSettings(JPH_MotorSettings *);
+JPH_MotorSettings *JPH_MotorSettings_operator=(JPH_MotorSettings *);
+void JPH_MotorSettings_MotorSettings(float inFrequency, float inDamping);
+void JPH_MotorSettings_MotorSettings(float inFrequency, float inDamping, float inForceLimit, float inTorqueLimit);
+void JPH_MotorSettings_SetForceLimits(float inMin, float inMax);
+void JPH_MotorSettings_SetTorqueLimits(float inMin, float inMax);
+void JPH_MotorSettings_SetForceLimit(float inLimit);
+void JPH_MotorSettings_SetTorqueLimit(float inLimit);
+bool JPH_MotorSettings_IsValid();
+void JPH_MotorSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_MotorSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/PointConstraintPart.h:40:1
 typedef struct JPH_PointConstraintPart {
     JPH_Vec3 mR1;
@@ -2815,6 +5838,16 @@ typedef struct JPH_PointConstraintPart {
     JPH_Vec3 mTotalLambda;
 } JPH_PointConstraintPart;
 
+bool JPH_PointConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inLambda);
+void JPH_PointConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Mat44Arg inRotation1, JPH_Vec3Arg inR1, JPH_Body *inBody2, JPH_Mat44Arg inRotation2, JPH_Vec3Arg inR2);
+void JPH_PointConstraintPart_Deactivate();
+bool JPH_PointConstraintPart_IsActive();
+void JPH_PointConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, float inWarmStartImpulseRatio);
+bool JPH_PointConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2);
+bool JPH_PointConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, float inBaumgarte);
+JPH_Vec3 JPH_PointConstraintPart_GetTotalLambda();
+void JPH_PointConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_PointConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/AngleConstraintPart.h:36:1
 typedef struct JPH_AngleConstraintPart {
     JPH_Vec3 mInvI1_Axis;
@@ -2824,18 +5857,66 @@ typedef struct JPH_AngleConstraintPart {
     float mTotalLambda;
 } JPH_AngleConstraintPart;
 
+bool JPH_AngleConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, float inLambda);
+float JPH_AngleConstraintPart_CalculateInverseEffectiveMass(JPH_Body *inBody1, JPH_Body *inBody2, JPH_Vec3Arg inWorldSpaceAxis);
+void JPH_AngleConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Body *inBody2, JPH_Vec3Arg inWorldSpaceAxis, float inBias);
+void JPH_AngleConstraintPart_CalculateConstraintPropertiesWithFrequencyAndDamping(float inDeltaTime, JPH_Body *inBody1, JPH_Body *inBody2, JPH_Vec3Arg inWorldSpaceAxis, float inBias, float inC, float inFrequency, float inDamping);
+void JPH_AngleConstraintPart_CalculateConstraintPropertiesWithStiffnessAndDamping(float inDeltaTime, JPH_Body *inBody1, JPH_Body *inBody2, JPH_Vec3Arg inWorldSpaceAxis, float inBias, float inC, float inStiffness, float inDamping);
+void JPH_AngleConstraintPart_CalculateConstraintPropertiesWithSettings(float inDeltaTime, JPH_Body *inBody1, JPH_Body *inBody2, JPH_Vec3Arg inWorldSpaceAxis, float inBias, float inC, JPH_SpringSettings *inSpringSettings);
+void JPH_AngleConstraintPart_Deactivate();
+bool JPH_AngleConstraintPart_IsActive();
+void JPH_AngleConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, float inWarmStartImpulseRatio);
+bool JPH_AngleConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inWorldSpaceAxis, float inMinLambda, float inMaxLambda);
+float JPH_AngleConstraintPart_GetTotalLambda();
+bool JPH_AngleConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, float inC, float inBaumgarte);
+void JPH_AngleConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_AngleConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Math/Float2.h:10:1
 typedef struct JPH_Float2 {
     float x;
     float y;
 } JPH_Float2;
 
+void *JPH_Float2_operator_new(size_t inCount);
+void JPH_Float2_operator_delete(void *inPointer);
+void *JPH_Float2_operator_new[](size_t inCount);
+void JPH_Float2_operator_delete[](void *inPointer);
+void *JPH_Float2_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Float2_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Float2_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Float2_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Float2_operator_new(size_t inCount, void *inPointer);
+void JPH_Float2_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Float2_operator_new[](size_t inCount, void *inPointer);
+void JPH_Float2_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Float2_Float2();
+void JPH_Float2_Float2(JPH_Float2 *inRHS);
+JPH_Float2 *JPH_Float2_operator=(JPH_Float2 *inRHS);
+void JPH_Float2_Float2(float inX, float inY);
+bool JPH_Float2_operator==(JPH_Float2 *inRHS);
+bool JPH_Float2_operator!=(JPH_Float2 *inRHS);
 // JoltPhysics/Jolt/Geometry/Ellipse.h:13:1
 typedef struct JPH_Ellipse {
     float mA;
     float mB;
 } JPH_Ellipse;
 
+void *JPH_Ellipse_operator_new(size_t inCount);
+void JPH_Ellipse_operator_delete(void *inPointer);
+void *JPH_Ellipse_operator_new[](size_t inCount);
+void JPH_Ellipse_operator_delete[](void *inPointer);
+void *JPH_Ellipse_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Ellipse_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Ellipse_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Ellipse_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Ellipse_operator_new(size_t inCount, void *inPointer);
+void JPH_Ellipse_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Ellipse_operator_new[](size_t inCount, void *inPointer);
+void JPH_Ellipse_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Ellipse_Ellipse(float inA, float inB);
+bool JPH_Ellipse_IsInside(JPH_Float2 *inPoint);
+JPH_Float2 JPH_Ellipse_GetClosestPoint(JPH_Float2 *inPoint);
+JPH_Float2 JPH_Ellipse_GetNormal(JPH_Float2 *inPoint);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/RotationEulerConstraintPart.h:35:1
 typedef struct JPH_RotationEulerConstraintPart {
     JPH_Mat44 mInvI1;
@@ -2844,6 +5925,19 @@ typedef struct JPH_RotationEulerConstraintPart {
     JPH_Vec3 mTotalLambda;
 } JPH_RotationEulerConstraintPart;
 
+bool JPH_RotationEulerConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inLambda);
+JPH_Quat JPH_RotationEulerConstraintPart_sGetInvInitialOrientation(JPH_Body *inBody1, JPH_Body *inBody2);
+JPH_Quat JPH_RotationEulerConstraintPart_sGetInvInitialOrientationXY(JPH_Vec3Arg inAxisX1, JPH_Vec3Arg inAxisY1, JPH_Vec3Arg inAxisX2, JPH_Vec3Arg inAxisY2);
+JPH_Quat JPH_RotationEulerConstraintPart_sGetInvInitialOrientationXZ(JPH_Vec3Arg inAxisX1, JPH_Vec3Arg inAxisZ1, JPH_Vec3Arg inAxisX2, JPH_Vec3Arg inAxisZ2);
+void JPH_RotationEulerConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Mat44Arg inRotation1, JPH_Body *inBody2, JPH_Mat44Arg inRotation2);
+void JPH_RotationEulerConstraintPart_Deactivate();
+bool JPH_RotationEulerConstraintPart_IsActive();
+void JPH_RotationEulerConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, float inWarmStartImpulseRatio);
+bool JPH_RotationEulerConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2);
+bool JPH_RotationEulerConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_QuatArg inInvInitialOrientation, float inBaumgarte);
+JPH_Vec3 JPH_RotationEulerConstraintPart_GetTotalLambda();
+void JPH_RotationEulerConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_RotationEulerConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/SwingTwistConstraintPart.h:32:1
 typedef struct JPH_SwingTwistConstraintPart {
     uint8_t mRotationFlags;
@@ -2872,14 +5966,107 @@ typedef struct JPH_SwingTwistConstraintPart {
     JPH_AngleConstraintPart mTwistLimitConstraintPart;
 } JPH_SwingTwistConstraintPart;
 
+void JPH_SwingTwistConstraintPart_SetSwingType(JPH_ESwingType inSwingType);
+JPH_ESwingType JPH_SwingTwistConstraintPart_GetSwingType();
+void JPH_SwingTwistConstraintPart_SetLimits(float inTwistMinAngle, float inTwistMaxAngle, float inSwingYMinAngle, float inSwingYMaxAngle, float inSwingZMinAngle, float inSwingZMaxAngle);
+bool JPH_SwingTwistConstraintPart_sDistanceToMinShorter(float inDeltaMin, float inDeltaMax);
+void JPH_SwingTwistConstraintPart_ClampSwingTwist(JPH_Quat *ioSwing, JPH_Quat *ioTwist, uint32_t *outClampedAxis);
+void JPH_SwingTwistConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Body *inBody2, JPH_QuatArg inConstraintRotation, JPH_QuatArg inConstraintToWorld);
+void JPH_SwingTwistConstraintPart_Deactivate();
+bool JPH_SwingTwistConstraintPart_IsActive();
+void JPH_SwingTwistConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, float inWarmStartImpulseRatio);
+bool JPH_SwingTwistConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2);
+bool JPH_SwingTwistConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_QuatArg inConstraintRotation, JPH_QuatArg inConstraintToBody1, JPH_QuatArg inConstraintToBody2, float inBaumgarte);
+float JPH_SwingTwistConstraintPart_GetTotalSwingYLambda();
+float JPH_SwingTwistConstraintPart_GetTotalSwingZLambda();
+float JPH_SwingTwistConstraintPart_GetTotalTwistLambda();
+void JPH_SwingTwistConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_SwingTwistConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/SwingTwistConstraint.h:20:1
 // Has vtable
 typedef struct JPH_SwingTwistConstraintSettings JPH_SwingTwistConstraintSettings;
 
+void *JPH_SwingTwistConstraintSettings_operator_new(size_t inCount);
+void JPH_SwingTwistConstraintSettings_operator_delete(void *inPointer);
+void *JPH_SwingTwistConstraintSettings_operator_new[](size_t inCount);
+void JPH_SwingTwistConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_SwingTwistConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SwingTwistConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SwingTwistConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SwingTwistConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SwingTwistConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_SwingTwistConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SwingTwistConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_SwingTwistConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_SwingTwistConstraintSettings_GetRTTI();
+void *JPH_SwingTwistConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_SwingTwistConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SwingTwistConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_SwingTwistConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_SwingTwistConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/SwingTwistConstraint.h:70:1
 // Has vtable
 typedef struct JPH_SwingTwistConstraint JPH_SwingTwistConstraint;
 
+void *JPH_SwingTwistConstraint_operator_new(size_t inCount);
+void JPH_SwingTwistConstraint_operator_delete(void *inPointer);
+void *JPH_SwingTwistConstraint_operator_new[](size_t inCount);
+void JPH_SwingTwistConstraint_operator_delete[](void *inPointer);
+void *JPH_SwingTwistConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SwingTwistConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SwingTwistConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SwingTwistConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SwingTwistConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_SwingTwistConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SwingTwistConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_SwingTwistConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SwingTwistConstraint_SwingTwistConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_SwingTwistConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_SwingTwistConstraint_GetSubType();
+void JPH_SwingTwistConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_SwingTwistConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_SwingTwistConstraint_ResetWarmStart();
+void JPH_SwingTwistConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_SwingTwistConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_SwingTwistConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_SwingTwistConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_SwingTwistConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_SwingTwistConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_SwingTwistConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_SwingTwistConstraint_GetConstraintToBody2Matrix();
+JPH_Vec3 JPH_SwingTwistConstraint_GetLocalSpacePosition1();
+JPH_Vec3 JPH_SwingTwistConstraint_GetLocalSpacePosition2();
+JPH_Quat JPH_SwingTwistConstraint_GetConstraintToBody1();
+JPH_Quat JPH_SwingTwistConstraint_GetConstraintToBody2();
+float JPH_SwingTwistConstraint_GetNormalHalfConeAngle();
+void JPH_SwingTwistConstraint_SetNormalHalfConeAngle(float inAngle);
+float JPH_SwingTwistConstraint_GetPlaneHalfConeAngle();
+void JPH_SwingTwistConstraint_SetPlaneHalfConeAngle(float inAngle);
+float JPH_SwingTwistConstraint_GetTwistMinAngle();
+void JPH_SwingTwistConstraint_SetTwistMinAngle(float inAngle);
+float JPH_SwingTwistConstraint_GetTwistMaxAngle();
+void JPH_SwingTwistConstraint_SetTwistMaxAngle(float inAngle);
+JPH_MotorSettings *JPH_SwingTwistConstraint_GetSwingMotorSettings();
+JPH_MotorSettings *JPH_SwingTwistConstraint_GetSwingMotorSettings();
+JPH_MotorSettings *JPH_SwingTwistConstraint_GetTwistMotorSettings();
+JPH_MotorSettings *JPH_SwingTwistConstraint_GetTwistMotorSettings();
+void JPH_SwingTwistConstraint_SetMaxFrictionTorque(float inFrictionTorque);
+float JPH_SwingTwistConstraint_GetMaxFrictionTorque();
+void JPH_SwingTwistConstraint_SetSwingMotorState(JPH_EMotorState inState);
+JPH_EMotorState JPH_SwingTwistConstraint_GetSwingMotorState();
+void JPH_SwingTwistConstraint_SetTwistMotorState(JPH_EMotorState inState);
+JPH_EMotorState JPH_SwingTwistConstraint_GetTwistMotorState();
+void JPH_SwingTwistConstraint_SetTargetAngularVelocityCS(JPH_Vec3Arg inAngularVelocity);
+JPH_Vec3 JPH_SwingTwistConstraint_GetTargetAngularVelocityCS();
+void JPH_SwingTwistConstraint_SetTargetOrientationCS(JPH_QuatArg inOrientation);
+JPH_Quat JPH_SwingTwistConstraint_GetTargetOrientationCS();
+void JPH_SwingTwistConstraint_SetTargetOrientationBS(JPH_QuatArg inOrientation);
+JPH_Quat JPH_SwingTwistConstraint_GetRotationInConstraintSpace();
+JPH_Vec3 JPH_SwingTwistConstraint_GetTotalLambdaPosition();
+float JPH_SwingTwistConstraint_GetTotalLambdaTwist();
+float JPH_SwingTwistConstraint_GetTotalLambdaSwingY();
+float JPH_SwingTwistConstraint_GetTotalLambdaSwingZ();
+JPH_Vec3 JPH_SwingTwistConstraint_GetTotalLambdaMotor();
+void JPH_SwingTwistConstraint_UpdateLimits();
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/HingeRotationConstraintPart.h:46:2
 typedef < ? named (size=8, align=4)> JPH_HingeRotationConstraintPart_Vec2;
 
@@ -2899,30 +6086,128 @@ typedef struct JPH_HingeRotationConstraintPart {
     JPH_HingeRotationConstraintPart_Vec2 mTotalLambda;
 } JPH_HingeRotationConstraintPart;
 
+bool JPH_HingeRotationConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_HingeRotationConstraintPart_Vec2 *inLambda);
+void JPH_HingeRotationConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Mat44Arg inRotation1, JPH_Vec3Arg inWorldSpaceHingeAxis1, JPH_Body *inBody2, JPH_Mat44Arg inRotation2, JPH_Vec3Arg inWorldSpaceHingeAxis2);
+void JPH_HingeRotationConstraintPart_Deactivate();
+void JPH_HingeRotationConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, float inWarmStartImpulseRatio);
+bool JPH_HingeRotationConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2);
+bool JPH_HingeRotationConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, float inBaumgarte);
+JPH_HingeRotationConstraintPart_Vec2 *JPH_HingeRotationConstraintPart_GetTotalLambda();
+void JPH_HingeRotationConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_HingeRotationConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/HingeConstraint.h:16:1
 // Has vtable
 typedef struct JPH_HingeConstraintSettings JPH_HingeConstraintSettings;
 
+void *JPH_HingeConstraintSettings_operator_new(size_t inCount);
+void JPH_HingeConstraintSettings_operator_delete(void *inPointer);
+void *JPH_HingeConstraintSettings_operator_new[](size_t inCount);
+void JPH_HingeConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_HingeConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HingeConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HingeConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HingeConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HingeConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_HingeConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_HingeConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_HingeConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_HingeConstraintSettings_GetRTTI();
+void *JPH_HingeConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_HingeConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_HingeConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_HingeConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_HingeConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/HingeConstraint.h:65:1
 // Has vtable
 typedef struct JPH_HingeConstraint JPH_HingeConstraint;
 
+void *JPH_HingeConstraint_operator_new(size_t inCount);
+void JPH_HingeConstraint_operator_delete(void *inPointer);
+void *JPH_HingeConstraint_operator_new[](size_t inCount);
+void JPH_HingeConstraint_operator_delete[](void *inPointer);
+void *JPH_HingeConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HingeConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HingeConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HingeConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HingeConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_HingeConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_HingeConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_HingeConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_HingeConstraint_HingeConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_HingeConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_HingeConstraint_GetSubType();
+void JPH_HingeConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_HingeConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_HingeConstraint_ResetWarmStart();
+void JPH_HingeConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_HingeConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_HingeConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_HingeConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_HingeConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_HingeConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_HingeConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_HingeConstraint_GetConstraintToBody2Matrix();
+JPH_Vec3 JPH_HingeConstraint_GetLocalSpacePoint1();
+JPH_Vec3 JPH_HingeConstraint_GetLocalSpacePoint2();
+JPH_Vec3 JPH_HingeConstraint_GetLocalSpaceHingeAxis1();
+JPH_Vec3 JPH_HingeConstraint_GetLocalSpaceHingeAxis2();
+JPH_Vec3 JPH_HingeConstraint_GetLocalSpaceNormalAxis1();
+JPH_Vec3 JPH_HingeConstraint_GetLocalSpaceNormalAxis2();
+float JPH_HingeConstraint_GetCurrentAngle();
+void JPH_HingeConstraint_SetMaxFrictionTorque(float inFrictionTorque);
+float JPH_HingeConstraint_GetMaxFrictionTorque();
+JPH_MotorSettings *JPH_HingeConstraint_GetMotorSettings();
+JPH_MotorSettings *JPH_HingeConstraint_GetMotorSettings();
+void JPH_HingeConstraint_SetMotorState(JPH_EMotorState inState);
+JPH_EMotorState JPH_HingeConstraint_GetMotorState();
+void JPH_HingeConstraint_SetTargetAngularVelocity(float inAngularVelocity);
+float JPH_HingeConstraint_GetTargetAngularVelocity();
+void JPH_HingeConstraint_SetTargetAngle(float inAngle);
+float JPH_HingeConstraint_GetTargetAngle();
+void JPH_HingeConstraint_SetTargetOrientationBS(JPH_QuatArg inOrientation);
+void JPH_HingeConstraint_SetLimits(float inLimitsMin, float inLimitsMax);
+float JPH_HingeConstraint_GetLimitsMin();
+float JPH_HingeConstraint_GetLimitsMax();
+bool JPH_HingeConstraint_HasLimits();
+JPH_SpringSettings *JPH_HingeConstraint_GetLimitsSpringSettings();
+JPH_SpringSettings *JPH_HingeConstraint_GetLimitsSpringSettings();
+void JPH_HingeConstraint_SetLimitsSpringSettings(JPH_SpringSettings *inLimitsSpringSettings);
+JPH_Vec3 JPH_HingeConstraint_GetTotalLambdaPosition();
+< Unexposed (size=8, align=4)> JPH_HingeConstraint_GetTotalLambdaRotation();
+float JPH_HingeConstraint_GetTotalLambdaRotationLimits();
+float JPH_HingeConstraint_GetTotalLambdaMotor();
+void JPH_HingeConstraint_CalculateA1AndTheta();
+void JPH_HingeConstraint_CalculateRotationLimitsConstraintProperties(float inDeltaTime);
+void JPH_HingeConstraint_CalculateMotorConstraintProperties(float inDeltaTime);
+float JPH_HingeConstraint_GetSmallestAngleToLimit();
+bool JPH_HingeConstraint_IsMinLimitClosest();
 // JoltPhysics/Jolt/Physics/Body/BodyFilter.h:15:1
 // Has vtable
 typedef struct JPH_BodyFilter JPH_BodyFilter;
 
+void JPH_BodyFilter_~BodyFilter();
+bool JPH_BodyFilter_ShouldCollide(JPH_BodyID *inBodyID);
+bool JPH_BodyFilter_ShouldCollideLocked(JPH_Body *inBody);
 // JoltPhysics/Jolt/Physics/Body/BodyFilter.h:35:1
 // Has vtable
 typedef struct JPH_IgnoreSingleBodyFilter JPH_IgnoreSingleBodyFilter;
 
+void JPH_IgnoreSingleBodyFilter_IgnoreSingleBodyFilter(JPH_BodyID *inBodyID);
+bool JPH_IgnoreSingleBodyFilter_ShouldCollide(JPH_BodyID *inBodyID);
 // JoltPhysics/Jolt/Physics/Body/BodyFilter.h:55:1
 // Has vtable
 typedef struct JPH_IgnoreMultipleBodiesFilter JPH_IgnoreMultipleBodiesFilter;
 
+void JPH_IgnoreMultipleBodiesFilter_Clear();
+void JPH_IgnoreMultipleBodiesFilter_Reserve(uint32_t inSize);
+void JPH_IgnoreMultipleBodiesFilter_IgnoreBody(JPH_BodyID *inBodyID);
+bool JPH_IgnoreMultipleBodiesFilter_ShouldCollide(JPH_BodyID *inBodyID);
 // JoltPhysics/Jolt/Physics/Body/BodyFilter.h:87:1
 // Has vtable
 typedef struct JPH_IgnoreSingleBodyFilterChained JPH_IgnoreSingleBodyFilterChained;
 
+void JPH_IgnoreSingleBodyFilterChained_IgnoreSingleBodyFilterChained(JPH_BodyID inBodyID, JPH_BodyFilter *inFilter);
+bool JPH_IgnoreSingleBodyFilterChained_ShouldCollide(JPH_BodyID *inBodyID);
+bool JPH_IgnoreSingleBodyFilterChained_ShouldCollideLocked(JPH_Body *inBody);
 // JoltPhysics/Jolt/Physics/Collision/NarrowPhaseQuery.h:22:1
 typedef struct JPH_NarrowPhaseQuery {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -2931,6 +6216,14 @@ typedef struct JPH_NarrowPhaseQuery {
     JPH_BroadPhaseQuery *mBroadPhaseQuery;
 } JPH_NarrowPhaseQuery;
 
+void JPH_NarrowPhaseQuery_Init(JPH_BodyLockInterface *inBodyLockInterface, JPH_BroadPhaseQuery *inBroadPhaseQuery);
+bool JPH_NarrowPhaseQuery_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=12, align=4)> *ioHit, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter);
+void JPH_NarrowPhaseQuery_CastRay(< ? named (size=32, align=16)> *inRay, < ? named (size=3, align=1)> *inRayCastSettings, JPH_CastRayCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+void JPH_NarrowPhaseQuery_CollidePoint(JPH_RVec3Arg inPoint, JPH_CollidePointCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+void JPH_NarrowPhaseQuery_CollideShape(JPH_Shape *inShape, JPH_Vec3Arg inShapeScale, JPH_RMat44Arg inCenterOfMassTransform, < ? named (size=48, align=16)> *inCollideShapeSettings, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+void JPH_NarrowPhaseQuery_CollideShapeWithInternalEdgeRemoval(JPH_Shape *inShape, JPH_Vec3Arg inShapeScale, JPH_RMat44Arg inCenterOfMassTransform, < ? named (size=48, align=16)> *inCollideShapeSettings, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+void JPH_NarrowPhaseQuery_CastShape(< ? named (size=144, align=16)> *inShapeCast, < ? named (size=48, align=16)> *inShapeCastSettings, JPH_RVec3Arg inBaseOffset, JPH_CastShapeCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+void JPH_NarrowPhaseQuery_CollectTransformedShapes(JPH_AABox *inBox, JPH_TransformedShapeCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintManager.h:21:1
 typedef < ? named (size=24, align=8)> JPH_Constraints;
 
@@ -2943,6 +6236,33 @@ typedef struct JPH_ConstraintManager {
     JPH_Mutex mConstraintsMutex;
 } JPH_ConstraintManager;
 
+void *JPH_ConstraintManager_operator_new(size_t inCount);
+void JPH_ConstraintManager_operator_delete(void *inPointer);
+void *JPH_ConstraintManager_operator_new[](size_t inCount);
+void JPH_ConstraintManager_operator_delete[](void *inPointer);
+void *JPH_ConstraintManager_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConstraintManager_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConstraintManager_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConstraintManager_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConstraintManager_operator_new(size_t inCount, void *inPointer);
+void JPH_ConstraintManager_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConstraintManager_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConstraintManager_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ConstraintManager_ConstraintManager(JPH_PhysicsLockContext inContext);
+void JPH_ConstraintManager_Add(JPH_Constraint **inConstraints, int32_t inNumber);
+void JPH_ConstraintManager_Remove(JPH_Constraint **inConstraint, int32_t inNumber);
+JPH_Constraints JPH_ConstraintManager_GetConstraints();
+uint32_t JPH_ConstraintManager_GetNumConstraints();
+void JPH_ConstraintManager_GetActiveConstraints(uint32_t inStartConstraintIdx, uint32_t inEndConstraintIdx, JPH_Constraint **outActiveConstraints, uint32_t *outNumActiveConstraints);
+void JPH_ConstraintManager_sBuildIslands(JPH_Constraint **inActiveConstraints, uint32_t inNumActiveConstraints, JPH_IslandBuilder *ioBuilder, JPH_BodyManager *inBodyManager);
+void JPH_ConstraintManager_sSortConstraints(JPH_Constraint **inActiveConstraints, uint32_t *inConstraintIdxBegin, uint32_t *inConstraintIdxEnd);
+void JPH_ConstraintManager_sSetupVelocityConstraints(JPH_Constraint **inActiveConstraints, uint32_t inNumActiveConstraints, float inDeltaTime);
+bool JPH_ConstraintManager_sSolveVelocityConstraints(JPH_Constraint **inActiveConstraints, uint32_t *inConstraintIdxBegin, uint32_t *inConstraintIdxEnd, float inDeltaTime);
+bool JPH_ConstraintManager_sSolvePositionConstraints(JPH_Constraint **inActiveConstraints, uint32_t *inConstraintIdxBegin, uint32_t *inConstraintIdxEnd, float inDeltaTime, float inBaumgarte);
+void JPH_ConstraintManager_SaveState(JPH_StateRecorder *inStream, JPH_StateRecorderFilter *inFilter);
+bool JPH_ConstraintManager_RestoreState(JPH_StateRecorder *inStream);
+void JPH_ConstraintManager_LockAllConstraints();
+void JPH_ConstraintManager_UnlockAllConstraints();
 // JoltPhysics/Jolt/Physics/PhysicsUpdateContext.h:32:2
 typedef < ? named (size=264, align=8)> JPH_PhysicsUpdateContext_JobHandleArray;
 
@@ -2975,6 +6295,7 @@ typedef struct JPH_PhysicsUpdateContext_Step_CCDBody {
     JPH_ContactSettings mContactSettings;
 } JPH_PhysicsUpdateContext_Step_CCDBody;
 
+void JPH_PhysicsUpdateContext_Step_CCDBody_CCDBody(JPH_BodyID inBodyID1, JPH_Vec3Arg inDeltaPosition, float inLinearCastThresholdSq, float inMaxPenetration);
 // JoltPhysics/Jolt/Physics/PhysicsUpdateContext.h:51:2
 typedef struct JPH_PhysicsUpdateContext_Step {
     JPH_PhysicsUpdateContext *mContext;
@@ -3032,6 +6353,8 @@ typedef struct JPH_PhysicsUpdateContext_Step {
     JPH_JobHandle mStartNextStep;
 } JPH_PhysicsUpdateContext_Step;
 
+void JPH_PhysicsUpdateContext_Step_Step();
+void JPH_PhysicsUpdateContext_Step_Step(JPH_PhysicsUpdateContext_Step *);
 // JoltPhysics/Jolt/Physics/PhysicsUpdateContext.h:145:2
 typedef < ? named (size=32, align=8)> JPH_PhysicsUpdateContext_Steps;
 
@@ -3055,6 +6378,9 @@ typedef struct JPH_PhysicsUpdateContext {
     < Unexposed (size=4, align=4)> mSoftBodyToCollide;
 } JPH_PhysicsUpdateContext;
 
+void JPH_PhysicsUpdateContext_PhysicsUpdateContext(JPH_TempAllocator *inTempAllocator);
+void JPH_PhysicsUpdateContext_~PhysicsUpdateContext();
+int32_t JPH_PhysicsUpdateContext_GetMaxConcurrency();
 // JoltPhysics/Jolt/Physics/PhysicsSystem.h:100:2
 typedef < ? named (size=32, align=8)> JPH_PhysicsSystem_SimCollideBodyVsBody;
 
@@ -3098,6 +6424,98 @@ typedef struct JPH_PhysicsSystem {
     float mPreviousStepDeltaTime;
 } JPH_PhysicsSystem;
 
+void *JPH_PhysicsSystem_operator_new(size_t inCount);
+void JPH_PhysicsSystem_operator_delete(void *inPointer);
+void *JPH_PhysicsSystem_operator_new[](size_t inCount);
+void JPH_PhysicsSystem_operator_delete[](void *inPointer);
+void *JPH_PhysicsSystem_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsSystem_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsSystem_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsSystem_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsSystem_operator_new(size_t inCount, void *inPointer);
+void JPH_PhysicsSystem_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PhysicsSystem_operator_new[](size_t inCount, void *inPointer);
+void JPH_PhysicsSystem_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PhysicsSystem_PhysicsSystem();
+void JPH_PhysicsSystem_~PhysicsSystem();
+void JPH_PhysicsSystem_Init(uint32_t inMaxBodies, uint32_t inNumBodyMutexes, uint32_t inMaxBodyPairs, uint32_t inMaxContactConstraints, JPH_BroadPhaseLayerInterface *inBroadPhaseLayerInterface, JPH_ObjectVsBroadPhaseLayerFilter *inObjectVsBroadPhaseLayerFilter, JPH_ObjectLayerPairFilter *inObjectLayerPairFilter);
+void JPH_PhysicsSystem_SetBodyActivationListener(JPH_BodyActivationListener *inListener);
+JPH_BodyActivationListener *JPH_PhysicsSystem_GetBodyActivationListener();
+void JPH_PhysicsSystem_SetContactListener(JPH_ContactListener *inListener);
+JPH_ContactListener *JPH_PhysicsSystem_GetContactListener();
+void JPH_PhysicsSystem_SetSoftBodyContactListener(< ? named (size=8, align=8)> *inListener);
+< ? named (size=8, align=8)> *JPH_PhysicsSystem_GetSoftBodyContactListener();
+void JPH_PhysicsSystem_SetCombineFriction(JPH_ContactConstraintManager_CombineFunction inCombineFriction);
+JPH_ContactConstraintManager_CombineFunction JPH_PhysicsSystem_GetCombineFriction();
+void JPH_PhysicsSystem_SetCombineRestitution(JPH_ContactConstraintManager_CombineFunction inCombineRestitution);
+JPH_ContactConstraintManager_CombineFunction JPH_PhysicsSystem_GetCombineRestitution();
+void JPH_PhysicsSystem_SetSimShapeFilter(< ? named (size=8, align=8)> *inShapeFilter);
+< ? named (size=8, align=8)> *JPH_PhysicsSystem_GetSimShapeFilter();
+void JPH_PhysicsSystem_SetSimCollideBodyVsBody(JPH_PhysicsSystem_SimCollideBodyVsBody *inBodyVsBody);
+JPH_PhysicsSystem_SimCollideBodyVsBody *JPH_PhysicsSystem_GetSimCollideBodyVsBody();
+void JPH_PhysicsSystem_sDefaultSimCollideBodyVsBody(JPH_Body *inBody1, JPH_Body *inBody2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, < ? named (size=48, align=16)> *ioCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_PhysicsSystem_SetPhysicsSettings(JPH_PhysicsSettings *inSettings);
+JPH_PhysicsSettings *JPH_PhysicsSystem_GetPhysicsSettings();
+JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterface();
+JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterface();
+JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterfaceNoLock();
+JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterfaceNoLock();
+JPH_BroadPhaseQuery *JPH_PhysicsSystem_GetBroadPhaseQuery();
+JPH_NarrowPhaseQuery *JPH_PhysicsSystem_GetNarrowPhaseQuery();
+JPH_NarrowPhaseQuery *JPH_PhysicsSystem_GetNarrowPhaseQueryNoLock();
+void JPH_PhysicsSystem_AddConstraint(JPH_Constraint *inConstraint);
+void JPH_PhysicsSystem_RemoveConstraint(JPH_Constraint *inConstraint);
+void JPH_PhysicsSystem_AddConstraints(JPH_Constraint **inConstraints, int32_t inNumber);
+void JPH_PhysicsSystem_RemoveConstraints(JPH_Constraint **inConstraints, int32_t inNumber);
+JPH_Constraints JPH_PhysicsSystem_GetConstraints();
+void JPH_PhysicsSystem_OptimizeBroadPhase();
+void JPH_PhysicsSystem_AddStepListener(< ? named (size=8, align=8)> *inListener);
+void JPH_PhysicsSystem_RemoveStepListener(< ? named (size=8, align=8)> *inListener);
+JPH_EPhysicsUpdateError JPH_PhysicsSystem_Update(float inDeltaTime, int32_t inCollisionSteps, JPH_TempAllocator *inTempAllocator, JPH_JobSystem *inJobSystem);
+void JPH_PhysicsSystem_SaveState(JPH_StateRecorder *inStream, JPH_EStateRecorderState inState, JPH_StateRecorderFilter *inFilter);
+bool JPH_PhysicsSystem_RestoreState(JPH_StateRecorder *inStream, JPH_StateRecorderFilter *inFilter);
+void JPH_PhysicsSystem_SaveBodyState(JPH_Body *inBody, JPH_StateRecorder *inStream);
+void JPH_PhysicsSystem_RestoreBodyState(JPH_Body *ioBody, JPH_StateRecorder *inStream);
+void JPH_PhysicsSystem_SetGravity(JPH_Vec3Arg inGravity);
+JPH_Vec3 JPH_PhysicsSystem_GetGravity();
+JPH_BodyLockInterfaceNoLock *JPH_PhysicsSystem_GetBodyLockInterfaceNoLock();
+JPH_BodyLockInterfaceLocking *JPH_PhysicsSystem_GetBodyLockInterface();
+JPH_ObjectVsBroadPhaseLayerFilter *JPH_PhysicsSystem_GetObjectVsBroadPhaseLayerFilter();
+JPH_ObjectLayerPairFilter *JPH_PhysicsSystem_GetObjectLayerPairFilter();
+JPH_DefaultBroadPhaseLayerFilter JPH_PhysicsSystem_GetDefaultBroadPhaseLayerFilter(JPH_ObjectLayer inLayer);
+JPH_DefaultObjectLayerFilter JPH_PhysicsSystem_GetDefaultLayerFilter(JPH_ObjectLayer inLayer);
+uint32_t JPH_PhysicsSystem_GetNumBodies();
+uint32_t JPH_PhysicsSystem_GetNumActiveBodies(JPH_EBodyType inType);
+uint32_t JPH_PhysicsSystem_GetMaxBodies();
+JPH_PhysicsSystem_BodyStats JPH_PhysicsSystem_GetBodyStats();
+void JPH_PhysicsSystem_GetBodies(JPH_BodyIDVector *outBodyIDs);
+void JPH_PhysicsSystem_GetActiveBodies(JPH_EBodyType inType, JPH_BodyIDVector *outBodyIDs);
+JPH_BodyID *JPH_PhysicsSystem_GetActiveBodiesUnsafe(JPH_EBodyType inType);
+bool JPH_PhysicsSystem_WereBodiesInContact(JPH_BodyID *inBody1ID, JPH_BodyID *inBody2ID);
+JPH_AABox JPH_PhysicsSystem_GetBounds();
+void JPH_PhysicsSystem_JobStepListeners(JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobDetermineActiveConstraints(JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobApplyGravity(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobSetupVelocityConstraints(float inDeltaTime, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobBuildIslandsFromConstraints(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobFindCollisions(JPH_PhysicsUpdateContext_Step *ioStep, int32_t inJobIndex);
+void JPH_PhysicsSystem_JobFinalizeIslands(JPH_PhysicsUpdateContext *ioContext);
+void JPH_PhysicsSystem_JobBodySetIslandIndex();
+void JPH_PhysicsSystem_JobSolveVelocityConstraints(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobPreIntegrateVelocity(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobIntegrateVelocity(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobPostIntegrateVelocity(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobFindCCDContacts(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobResolveCCDContacts(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobContactRemovedCallbacks(JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobSolvePositionConstraints(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobSoftBodyPrepare(JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_JobSoftBodyCollide(JPH_PhysicsUpdateContext *ioContext);
+void JPH_PhysicsSystem_JobSoftBodySimulate(JPH_PhysicsUpdateContext *ioContext, uint32_t inThreadIndex);
+void JPH_PhysicsSystem_JobSoftBodyFinalize(JPH_PhysicsUpdateContext *ioContext);
+void JPH_PhysicsSystem_TrySpawnJobFindCollisions(JPH_PhysicsUpdateContext_Step *ioStep);
+void JPH_PhysicsSystem_ProcessBodyPair(JPH_PhysicsSystem_ContactAllocator *ioContactAllocator, JPH_BodyPair *inBodyPair);
+void JPH_PhysicsSystem_CheckSleepAndUpdateBounds(uint32_t inIslandIndex, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep, JPH_PhysicsSystem_BodiesToSleep *ioBodiesToSleep);
 // JoltPhysics/Jolt/Physics/Collision/GroupFilterTable.h:40:2
 typedef uint32_t JPH_GroupFilterTable_GroupID;
 
@@ -3108,6 +6526,30 @@ typedef uint32_t JPH_GroupFilterTable_SubGroupID;
 // Has vtable
 typedef struct JPH_GroupFilterTable JPH_GroupFilterTable;
 
+void *JPH_GroupFilterTable_operator_new(size_t inCount);
+void JPH_GroupFilterTable_operator_delete(void *inPointer);
+void *JPH_GroupFilterTable_operator_new[](size_t inCount);
+void JPH_GroupFilterTable_operator_delete[](void *inPointer);
+void *JPH_GroupFilterTable_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GroupFilterTable_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GroupFilterTable_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GroupFilterTable_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GroupFilterTable_operator_new(size_t inCount, void *inPointer);
+void JPH_GroupFilterTable_operator_delete(void *inPointer, void *inPlace);
+void *JPH_GroupFilterTable_operator_new[](size_t inCount, void *inPointer);
+void JPH_GroupFilterTable_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_GroupFilterTable_GetRTTI();
+void *JPH_GroupFilterTable_CastTo(JPH_RTTI *inRTTI);
+void JPH_GroupFilterTable_sCreateRTTI(JPH_RTTI *inRTTI);
+int32_t JPH_GroupFilterTable_GetBit(JPH_GroupFilterTable_SubGroupID inSubGroup1, JPH_GroupFilterTable_SubGroupID inSubGroup2);
+void JPH_GroupFilterTable_GroupFilterTable(uint32_t inNumSubGroups);
+void JPH_GroupFilterTable_GroupFilterTable(JPH_GroupFilterTable *inRHS);
+void JPH_GroupFilterTable_DisableCollision(JPH_GroupFilterTable_SubGroupID inSubGroup1, JPH_GroupFilterTable_SubGroupID inSubGroup2);
+void JPH_GroupFilterTable_EnableCollision(JPH_GroupFilterTable_SubGroupID inSubGroup1, JPH_GroupFilterTable_SubGroupID inSubGroup2);
+bool JPH_GroupFilterTable_IsCollisionEnabled(JPH_GroupFilterTable_SubGroupID inSubGroup1, JPH_GroupFilterTable_SubGroupID inSubGroup2);
+bool JPH_GroupFilterTable_CanCollide(JPH_CollisionGroup *inGroup1, JPH_CollisionGroup *inGroup2);
+void JPH_GroupFilterTable_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_GroupFilterTable_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/CollideShape.h:57:2
 typedef < ? named (size=528, align=16)> JPH_CollideShapeResult_Face;
 
@@ -3124,6 +6566,22 @@ typedef struct JPH_CollideShapeResult {
     JPH_CollideShapeResult_Face mShape2Face;
 } JPH_CollideShapeResult;
 
+void *JPH_CollideShapeResult_operator_new(size_t inCount);
+void JPH_CollideShapeResult_operator_delete(void *inPointer);
+void *JPH_CollideShapeResult_operator_new[](size_t inCount);
+void JPH_CollideShapeResult_operator_delete[](void *inPointer);
+void *JPH_CollideShapeResult_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollideShapeResult_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollideShapeResult_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollideShapeResult_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollideShapeResult_operator_new(size_t inCount, void *inPointer);
+void JPH_CollideShapeResult_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CollideShapeResult_operator_new[](size_t inCount, void *inPointer);
+void JPH_CollideShapeResult_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CollideShapeResult_CollideShapeResult();
+void JPH_CollideShapeResult_CollideShapeResult(JPH_Vec3Arg inContactPointOn1, JPH_Vec3Arg inContactPointOn2, JPH_Vec3Arg inPenetrationAxis, float inPenetrationDepth, JPH_SubShapeID *inSubShapeID1, JPH_SubShapeID *inSubShapeID2, JPH_BodyID *inBodyID2);
+float JPH_CollideShapeResult_GetEarlyOutFraction();
+JPH_CollideShapeResult JPH_CollideShapeResult_Reversed();
 // JoltPhysics/Jolt/Physics/Collision/CollideShape.h:71:1
 typedef struct JPH_CollideSettingsBase {
     JPH_EActiveEdgeMode mActiveEdgeMode;
@@ -3133,6 +6591,18 @@ typedef struct JPH_CollideSettingsBase {
     JPH_Vec3 mActiveEdgeMovementDirection;
 } JPH_CollideSettingsBase;
 
+void *JPH_CollideSettingsBase_operator_new(size_t inCount);
+void JPH_CollideSettingsBase_operator_delete(void *inPointer);
+void *JPH_CollideSettingsBase_operator_new[](size_t inCount);
+void JPH_CollideSettingsBase_operator_delete[](void *inPointer);
+void *JPH_CollideSettingsBase_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollideSettingsBase_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollideSettingsBase_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollideSettingsBase_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollideSettingsBase_operator_new(size_t inCount, void *inPointer);
+void JPH_CollideSettingsBase_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CollideSettingsBase_operator_new[](size_t inCount, void *inPointer);
+void JPH_CollideSettingsBase_operator_delete[](void *inPointer, void *inPlace);
 // JoltPhysics/Jolt/Physics/Collision/CollideShape.h:93:1
 typedef struct JPH_CollideShapeSettings {
     JPH_CollideSettingsBase base;
@@ -3141,12 +6611,25 @@ typedef struct JPH_CollideShapeSettings {
     JPH_EBackFaceMode mBackFaceMode;
 } JPH_CollideShapeSettings;
 
+void *JPH_CollideShapeSettings_operator_new(size_t inCount);
+void JPH_CollideShapeSettings_operator_delete(void *inPointer);
+void *JPH_CollideShapeSettings_operator_new[](size_t inCount);
+void JPH_CollideShapeSettings_operator_delete[](void *inPointer);
+void *JPH_CollideShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollideShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollideShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollideShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollideShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CollideShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CollideShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CollideShapeSettings_operator_delete[](void *inPointer, void *inPlace);
 // JoltPhysics/Jolt/Physics/Collision/ShapeCast.h:68:1
 typedef struct JPH_ShapeCast JPH_ShapeCast;
 
 // JoltPhysics/Jolt/Physics/Collision/ShapeCast.h:73:1
 typedef struct JPH_RShapeCast JPH_RShapeCast;
 
+void JPH_RShapeCast_RShapeCast(JPH_ShapeCast *inCast);
 // JoltPhysics/Jolt/Physics/Collision/ShapeCast.h:91:1
 typedef struct JPH_ShapeCastSettings {
     JPH_CollideSettingsBase base;
@@ -3157,6 +6640,19 @@ typedef struct JPH_ShapeCastSettings {
     bool mReturnDeepestPoint;
 } JPH_ShapeCastSettings;
 
+void *JPH_ShapeCastSettings_operator_new(size_t inCount);
+void JPH_ShapeCastSettings_operator_delete(void *inPointer);
+void *JPH_ShapeCastSettings_operator_new[](size_t inCount);
+void JPH_ShapeCastSettings_operator_delete[](void *inPointer);
+void *JPH_ShapeCastSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ShapeCastSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ShapeCastSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ShapeCastSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ShapeCastSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_ShapeCastSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ShapeCastSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_ShapeCastSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ShapeCastSettings_SetBackFaceMode(JPH_EBackFaceMode inMode);
 // JoltPhysics/Jolt/Physics/Collision/ShapeCast.h:113:1
 typedef struct JPH_ShapeCastResult {
     JPH_CollideShapeResult base;
@@ -3165,6 +6661,22 @@ typedef struct JPH_ShapeCastResult {
     bool mIsBackFaceHit;
 } JPH_ShapeCastResult;
 
+void *JPH_ShapeCastResult_operator_new(size_t inCount);
+void JPH_ShapeCastResult_operator_delete(void *inPointer);
+void *JPH_ShapeCastResult_operator_new[](size_t inCount);
+void JPH_ShapeCastResult_operator_delete[](void *inPointer);
+void *JPH_ShapeCastResult_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ShapeCastResult_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ShapeCastResult_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ShapeCastResult_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ShapeCastResult_operator_new(size_t inCount, void *inPointer);
+void JPH_ShapeCastResult_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ShapeCastResult_operator_new[](size_t inCount, void *inPointer);
+void JPH_ShapeCastResult_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ShapeCastResult_ShapeCastResult();
+void JPH_ShapeCastResult_ShapeCastResult(float inFraction, JPH_Vec3Arg inContactPoint1, JPH_Vec3Arg inContactPoint2, JPH_Vec3Arg inContactNormalOrPenetrationDepth, bool inBackFaceHit, JPH_SubShapeID *inSubShapeID1, JPH_SubShapeID *inSubShapeID2, JPH_BodyID *inBodyID2);
+float JPH_ShapeCastResult_GetEarlyOutFraction();
+JPH_ShapeCastResult JPH_ShapeCastResult_Reversed(JPH_Vec3Arg inWorldSpaceCastDirection);
 // JoltPhysics/Jolt/Physics/Collision/CollisionDispatch.h:72:2
 typedef void (*JPH_CollisionDispatch_CollideShape)(JPH_Shape *, JPH_Shape *, JPH_Vec3, JPH_Vec3, JPH_Mat44 *, JPH_Mat44 *, JPH_SubShapeIDCreator *, JPH_SubShapeIDCreator *, JPH_CollideShapeSettings *, < ? named (size=24, align=8)> *, JPH_ShapeFilter *);
 
@@ -3174,16 +6686,36 @@ typedef void (*JPH_CollisionDispatch_CastShape)(JPH_ShapeCast *, JPH_ShapeCastSe
 // JoltPhysics/Jolt/Physics/Collision/CollisionDispatch.h:18:1
 typedef struct JPH_CollisionDispatch JPH_CollisionDispatch;
 
+void JPH_CollisionDispatch_sCollideShapeVsShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_CollisionDispatch_sCastShapeVsShapeLocalSpace(JPH_ShapeCast *inShapeCastLocal, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_CollisionDispatch_sCastShapeVsShapeWorldSpace(JPH_ShapeCast *inShapeCastWorld, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_CollisionDispatch_sInit();
+void JPH_CollisionDispatch_sRegisterCollideShape(JPH_EShapeSubType inType1, JPH_EShapeSubType inType2, JPH_CollisionDispatch_CollideShape inFunction);
+void JPH_CollisionDispatch_sRegisterCastShape(JPH_EShapeSubType inType1, JPH_EShapeSubType inType2, JPH_CollisionDispatch_CastShape inFunction);
+void JPH_CollisionDispatch_sReversedCollideShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_CollisionDispatch_sReversedCastShape(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/StateRecorderImpl.h:12:1
 // Has vtable
 typedef struct JPH_StateRecorderImpl JPH_StateRecorderImpl;
 
+void JPH_StateRecorderImpl_StateRecorderImpl();
+void JPH_StateRecorderImpl_StateRecorderImpl(JPH_StateRecorderImpl&& inRHS);
+void JPH_StateRecorderImpl_WriteBytes(void *inData, size_t inNumBytes);
+void JPH_StateRecorderImpl_Rewind();
+void JPH_StateRecorderImpl_Clear();
+void JPH_StateRecorderImpl_ReadBytes(void *outData, size_t inNumBytes);
+bool JPH_StateRecorderImpl_IsEOF();
+bool JPH_StateRecorderImpl_IsFailed();
+bool JPH_StateRecorderImpl_IsEqual(JPH_StateRecorderImpl *inReference);
+string JPH_StateRecorderImpl_GetData();
+size_t JPH_StateRecorderImpl_GetDataSize();
 // JoltPhysics/Jolt/Physics/Collision/RayCast.h:46:1
 typedef struct JPH_RayCast JPH_RayCast;
 
 // JoltPhysics/Jolt/Physics/Collision/RayCast.h:51:1
 typedef struct JPH_RRayCast JPH_RRayCast;
 
+void JPH_RRayCast_RRayCast(JPH_RayCast *inRay);
 // JoltPhysics/Jolt/Physics/Collision/RayCast.h:69:1
 typedef struct JPH_RayCastSettings {
     JPH_EBackFaceMode mBackFaceModeTriangles;
@@ -3191,12 +6723,39 @@ typedef struct JPH_RayCastSettings {
     bool mTreatConvexAsSolid;
 } JPH_RayCastSettings;
 
+void *JPH_RayCastSettings_operator_new(size_t inCount);
+void JPH_RayCastSettings_operator_delete(void *inPointer);
+void *JPH_RayCastSettings_operator_new[](size_t inCount);
+void JPH_RayCastSettings_operator_delete[](void *inPointer);
+void *JPH_RayCastSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RayCastSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RayCastSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RayCastSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RayCastSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_RayCastSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RayCastSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_RayCastSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_RayCastSettings_SetBackFaceMode(JPH_EBackFaceMode inMode);
 // JoltPhysics/Jolt/Physics/Collision/CastResult.h:13:1
 typedef struct JPH_BroadPhaseCastResult {
     JPH_BodyID mBodyID;
     float mFraction;
 } JPH_BroadPhaseCastResult;
 
+void *JPH_BroadPhaseCastResult_operator_new(size_t inCount);
+void JPH_BroadPhaseCastResult_operator_delete(void *inPointer);
+void *JPH_BroadPhaseCastResult_operator_new[](size_t inCount);
+void JPH_BroadPhaseCastResult_operator_delete[](void *inPointer);
+void *JPH_BroadPhaseCastResult_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseCastResult_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseCastResult_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseCastResult_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseCastResult_operator_new(size_t inCount, void *inPointer);
+void JPH_BroadPhaseCastResult_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BroadPhaseCastResult_operator_new[](size_t inCount, void *inPointer);
+void JPH_BroadPhaseCastResult_operator_delete[](void *inPointer, void *inPlace);
+float JPH_BroadPhaseCastResult_GetEarlyOutFraction();
+void JPH_BroadPhaseCastResult_Reset();
 // JoltPhysics/Jolt/Physics/Collision/CastResult.h:29:1
 typedef struct JPH_RayCastResult {
     JPH_BroadPhaseCastResult base;
@@ -3204,6 +6763,18 @@ typedef struct JPH_RayCastResult {
     JPH_SubShapeID mSubShapeID2;
 } JPH_RayCastResult;
 
+void *JPH_RayCastResult_operator_new(size_t inCount);
+void JPH_RayCastResult_operator_delete(void *inPointer);
+void *JPH_RayCastResult_operator_new[](size_t inCount);
+void JPH_RayCastResult_operator_delete[](void *inPointer);
+void *JPH_RayCastResult_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RayCastResult_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RayCastResult_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RayCastResult_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RayCastResult_operator_new(size_t inCount, void *inPointer);
+void JPH_RayCastResult_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RayCastResult_operator_new[](size_t inCount, void *inPointer);
+void JPH_RayCastResult_operator_delete[](void *inPointer, void *inPlace);
 // JoltPhysics/Jolt/Physics/Collision/CastConvexVsTriangles.h:13:1
 typedef struct JPH_CastConvexVsTriangles {
     JPH_ShapeCast *mShapeCast;
@@ -3217,6 +6788,8 @@ typedef struct JPH_CastConvexVsTriangles {
     float mScaleSign;
 } JPH_CastConvexVsTriangles;
 
+void JPH_CastConvexVsTriangles_CastConvexVsTriangles(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector);
+void JPH_CastConvexVsTriangles_Cast(JPH_Vec3Arg inV0, JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, uint8_t inActiveEdges, JPH_SubShapeID *inSubShapeID2);
 // JoltPhysics/Jolt/Physics/Collision/CastSphereVsTriangles.h:12:1
 typedef struct JPH_CastSphereVsTriangles {
     JPH_Vec3 mStart;
@@ -3230,6 +6803,11 @@ typedef struct JPH_CastSphereVsTriangles {
     float mScaleSign;
 } JPH_CastSphereVsTriangles;
 
+void JPH_CastSphereVsTriangles_CastSphereVsTriangles(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector);
+void JPH_CastSphereVsTriangles_Cast(JPH_Vec3Arg inV0, JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, uint8_t inActiveEdges, JPH_SubShapeID *inSubShapeID2);
+void JPH_CastSphereVsTriangles_AddHit(bool inBackFacing, JPH_SubShapeID *inSubShapeID2, float inFraction, JPH_Vec3Arg inContactPointA, JPH_Vec3Arg inContactPointB, JPH_Vec3Arg inContactNormal);
+void JPH_CastSphereVsTriangles_AddHitWithActiveEdgeDetection(JPH_Vec3Arg inV0, JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, bool inBackFacing, JPH_Vec3Arg inTriangleNormal, uint8_t inActiveEdges, JPH_SubShapeID *inSubShapeID2, float inFraction, JPH_Vec3Arg inContactPointA, JPH_Vec3Arg inContactPointB, JPH_Vec3Arg inContactNormal);
+float JPH_CastSphereVsTriangles_RayCylinder(JPH_Vec3Arg inRayDirection, JPH_Vec3Arg inCylinderA, JPH_Vec3Arg inCylinderB, float inRadius);
 // JoltPhysics/Jolt/Physics/Collision/CollideConvexVsTriangles.h:17:1
 typedef struct JPH_CollideConvexVsTriangles {
     JPH_CollideShapeSettings *mCollideShapeSettings;
@@ -3249,14 +6827,72 @@ typedef struct JPH_CollideConvexVsTriangles {
     JPH_ConvexShape_Support *mShape1IncCvxRadius;
 } JPH_CollideConvexVsTriangles;
 
+void JPH_CollideConvexVsTriangles_CollideConvexVsTriangles(JPH_ConvexShape *inShape1, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeID *inSubShapeID1, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector);
+void JPH_CollideConvexVsTriangles_Collide(JPH_Vec3Arg inV0, JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, uint8_t inActiveEdges, JPH_SubShapeID *inSubShapeID2);
 // JoltPhysics/Jolt/Physics/Collision/Shape/SphereShape.h:12:1
 // Has vtable
 typedef struct JPH_SphereShapeSettings JPH_SphereShapeSettings;
 
+void *JPH_SphereShapeSettings_operator_new(size_t inCount);
+void JPH_SphereShapeSettings_operator_delete(void *inPointer);
+void *JPH_SphereShapeSettings_operator_new[](size_t inCount);
+void JPH_SphereShapeSettings_operator_delete[](void *inPointer);
+void *JPH_SphereShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SphereShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SphereShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SphereShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SphereShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_SphereShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SphereShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_SphereShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_SphereShapeSettings_GetRTTI();
+void *JPH_SphereShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_SphereShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SphereShapeSettings_SphereShapeSettings();
+void JPH_SphereShapeSettings_SphereShapeSettings(float inRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_ShapeSettings_ShapeResult JPH_SphereShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/SphereShape.h:31:1
 // Has vtable
 typedef struct JPH_SphereShape JPH_SphereShape;
 
+void *JPH_SphereShape_operator_new(size_t inCount);
+void JPH_SphereShape_operator_delete(void *inPointer);
+void *JPH_SphereShape_operator_new[](size_t inCount);
+void JPH_SphereShape_operator_delete[](void *inPointer);
+void *JPH_SphereShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SphereShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SphereShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SphereShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SphereShape_operator_new(size_t inCount, void *inPointer);
+void JPH_SphereShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SphereShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_SphereShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SphereShape_SphereShape();
+void JPH_SphereShape_SphereShape(JPH_SphereShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_SphereShape_SphereShape(float inRadius, JPH_PhysicsMaterial *inMaterial);
+float JPH_SphereShape_GetRadius();
+JPH_AABox JPH_SphereShape_GetLocalBounds();
+JPH_AABox JPH_SphereShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_SphereShape_GetInnerRadius();
+JPH_MassProperties JPH_SphereShape_GetMassProperties();
+JPH_Vec3 JPH_SphereShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_SphereShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_SphereShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+void JPH_SphereShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_SphereShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_SphereShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_SphereShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_SphereShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, < ? named (size=80, align=8)> *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_SphereShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_SphereShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_SphereShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_SphereShape_GetStats();
+float JPH_SphereShape_GetVolume();
+bool JPH_SphereShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_SphereShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_SphereShape_sRegister();
+void JPH_SphereShape_RestoreBinaryState(JPH_StreamIn *inStream);
+float JPH_SphereShape_GetScaledRadius(JPH_Vec3Arg inScale);
 // JoltPhysics/Jolt/Physics/Collision/CollideSphereVsTriangles.h:16:1
 typedef struct JPH_CollideSphereVsTriangles {
     JPH_CollideShapeSettings *mCollideShapeSettings;
@@ -3271,6 +6907,8 @@ typedef struct JPH_CollideSphereVsTriangles {
     float mRadiusPlusMaxSeparationSq;
 } JPH_CollideSphereVsTriangles;
 
+void JPH_CollideSphereVsTriangles_CollideSphereVsTriangles(JPH_SphereShape *inShape1, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeID *inSubShapeID1, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector);
+void JPH_CollideSphereVsTriangles_Collide(JPH_Vec3Arg inV0, JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, uint8_t inActiveEdges, JPH_SubShapeID *inSubShapeID2);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyContactListener.h:21:1
 typedef struct JPH_SoftBodyContactSettings {
     float mInvMassScale1;
@@ -3283,6 +6921,9 @@ typedef struct JPH_SoftBodyContactSettings {
 // Has vtable
 typedef struct JPH_SoftBodyContactListener JPH_SoftBodyContactListener;
 
+void JPH_SoftBodyContactListener_~SoftBodyContactListener();
+JPH_SoftBodyValidateResult JPH_SoftBodyContactListener_OnSoftBodyContactValidate(JPH_Body *inSoftBody, JPH_Body *inOtherBody, JPH_SoftBodyContactSettings *ioSettings);
+void JPH_SoftBodyContactListener_OnSoftBodyContactAdded(JPH_Body *inSoftBody, < ? named (size=24, align=8)> *inManifold);
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodyManifold.h:66:2
 typedef JPH_SoftBodyMotionProperties_CollidingShape JPH_SoftBodyManifold_CollidingShape;
 
@@ -3296,6 +6937,14 @@ typedef struct JPH_SoftBodyManifold {
     < Unexposed (size=24, align=8)> *mCollidingSensors;
 } JPH_SoftBodyManifold;
 
+< Unexposed (size=24, align=8)> *JPH_SoftBodyManifold_GetVertices();
+bool JPH_SoftBodyManifold_HasContact(JPH_SoftBodyVertex *inVertex);
+JPH_Vec3 JPH_SoftBodyManifold_GetLocalContactPoint(JPH_SoftBodyVertex *inVertex);
+JPH_Vec3 JPH_SoftBodyManifold_GetContactNormal(JPH_SoftBodyVertex *inVertex);
+JPH_BodyID JPH_SoftBodyManifold_GetContactBodyID(JPH_SoftBodyVertex *inVertex);
+uint32_t JPH_SoftBodyManifold_GetNumSensorContacts();
+JPH_BodyID JPH_SoftBodyManifold_GetSensorContactBodyID(uint32_t inIndex);
+void JPH_SoftBodyManifold_SoftBodyManifold(JPH_SoftBodyMotionProperties *inMotionProperties);
 // JoltPhysics/Jolt/Physics/Collision/CollideSoftBodyVertexIterator.h:14:1
 typedef struct JPH_CollideSoftBodyVertexIterator {
     < Unexposed (size=16, align=8)> mPosition;
@@ -3305,24 +6954,76 @@ typedef struct JPH_CollideSoftBodyVertexIterator {
     < Unexposed (size=16, align=8)> mCollidingShapeIndex;
 } JPH_CollideSoftBodyVertexIterator;
 
+void JPH_CollideSoftBodyVertexIterator_CollideSoftBodyVertexIterator();
+void JPH_CollideSoftBodyVertexIterator_CollideSoftBodyVertexIterator(JPH_CollideSoftBodyVertexIterator *);
+void JPH_CollideSoftBodyVertexIterator_CollideSoftBodyVertexIterator(< Unexposed (size=16, align=8)> *inPosition, < Unexposed (size=16, align=8)> *inInvMass, < Unexposed (size=16, align=8)> *inCollisionPlane, < Unexposed (size=16, align=8)> *inLargestPenetration, < Unexposed (size=16, align=8)> *inCollidingShapeIndex);
+void JPH_CollideSoftBodyVertexIterator_CollideSoftBodyVertexIterator(JPH_SoftBodyVertex *inVertices);
+JPH_CollideSoftBodyVertexIterator *JPH_CollideSoftBodyVertexIterator_operator=(JPH_CollideSoftBodyVertexIterator *);
+bool JPH_CollideSoftBodyVertexIterator_operator!=(JPH_CollideSoftBodyVertexIterator *inRHS);
+JPH_CollideSoftBodyVertexIterator *JPH_CollideSoftBodyVertexIterator_operator++();
+JPH_CollideSoftBodyVertexIterator JPH_CollideSoftBodyVertexIterator_operator+(int32_t inOffset);
+JPH_Vec3 JPH_CollideSoftBodyVertexIterator_GetPosition();
+float JPH_CollideSoftBodyVertexIterator_GetInvMass();
+bool JPH_CollideSoftBodyVertexIterator_UpdatePenetration(float inLargestPenetration);
+void JPH_CollideSoftBodyVertexIterator_SetCollision(JPH_Plane *inCollisionPlane, int32_t inCollidingShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/SimShapeFilter.h:16:1
 // Has vtable
 typedef struct JPH_SimShapeFilter JPH_SimShapeFilter;
 
+void JPH_SimShapeFilter_~SimShapeFilter();
+bool JPH_SimShapeFilter_ShouldCollide(JPH_Body *inBody1, JPH_Shape *inShape1, JPH_SubShapeID *inSubShapeIDOfShape1, JPH_Body *inBody2, JPH_Shape *inShape2, JPH_SubShapeID *inSubShapeIDOfShape2);
 // JoltPhysics/Jolt/Physics/Collision/SimShapeFilterWrapper.h:14:1
 // Has vtable
 typedef struct JPH_SimShapeFilterWrapper JPH_SimShapeFilterWrapper;
 
+void JPH_SimShapeFilterWrapper_SimShapeFilterWrapper(JPH_SimShapeFilter *inFilter, JPH_Body *inBody1);
+bool JPH_SimShapeFilterWrapper_ShouldCollide(JPH_Shape *inShape1, JPH_SubShapeID *inSubShapeIDOfShape1, JPH_Shape *inShape2, JPH_SubShapeID *inSubShapeIDOfShape2);
+bool JPH_SimShapeFilterWrapper_ShouldCollide(JPH_Shape *inShape2, JPH_SubShapeID *inSubShapeIDOfShape2);
+void JPH_SimShapeFilterWrapper_SetBody2(JPH_Body *inBody2);
+JPH_ShapeFilter *JPH_SimShapeFilterWrapper_GetFilter();
 // JoltPhysics/Jolt/Physics/Collision/PhysicsMaterialSimple.h:12:1
 // Has vtable
 typedef struct JPH_PhysicsMaterialSimple JPH_PhysicsMaterialSimple;
 
+void *JPH_PhysicsMaterialSimple_operator_new(size_t inCount);
+void JPH_PhysicsMaterialSimple_operator_delete(void *inPointer);
+void *JPH_PhysicsMaterialSimple_operator_new[](size_t inCount);
+void JPH_PhysicsMaterialSimple_operator_delete[](void *inPointer);
+void *JPH_PhysicsMaterialSimple_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsMaterialSimple_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsMaterialSimple_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsMaterialSimple_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsMaterialSimple_operator_new(size_t inCount, void *inPointer);
+void JPH_PhysicsMaterialSimple_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PhysicsMaterialSimple_operator_new[](size_t inCount, void *inPointer);
+void JPH_PhysicsMaterialSimple_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PhysicsMaterialSimple_GetRTTI();
+void *JPH_PhysicsMaterialSimple_CastTo(JPH_RTTI *inRTTI);
+void JPH_PhysicsMaterialSimple_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PhysicsMaterialSimple_PhysicsMaterialSimple();
+void JPH_PhysicsMaterialSimple_PhysicsMaterialSimple(< Unexposed (size=16, align=8)> *inName, JPH_ColorArg inColor);
+int8_t *JPH_PhysicsMaterialSimple_GetDebugName();
+JPH_Color JPH_PhysicsMaterialSimple_GetDebugColor();
+void JPH_PhysicsMaterialSimple_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_PhysicsMaterialSimple_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/AABoxCast.h:12:1
 typedef struct JPH_AABoxCast {
     JPH_AABox mBox;
     JPH_Vec3 mDirection;
 } JPH_AABoxCast;
 
+void *JPH_AABoxCast_operator_new(size_t inCount);
+void JPH_AABoxCast_operator_delete(void *inPointer);
+void *JPH_AABoxCast_operator_new[](size_t inCount);
+void JPH_AABoxCast_operator_delete[](void *inPointer);
+void *JPH_AABoxCast_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_AABoxCast_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_AABoxCast_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_AABoxCast_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_AABoxCast_operator_new(size_t inCount, void *inPointer);
+void JPH_AABoxCast_operator_delete(void *inPointer, void *inPlace);
+void *JPH_AABoxCast_operator_new[](size_t inCount, void *inPointer);
+void JPH_AABoxCast_operator_delete[](void *inPointer, void *inPlace);
 // JoltPhysics/Jolt/Physics/Collision/InternalEdgeRemovingCollector.h:265:2
 typedef struct JPH_InternalEdgeRemovingCollector_Voided {
     JPH_Float3 mFeature;
@@ -3333,11 +7034,23 @@ typedef struct JPH_InternalEdgeRemovingCollector_Voided {
 // Has vtable
 typedef struct JPH_InternalEdgeRemovingCollector JPH_InternalEdgeRemovingCollector;
 
+bool JPH_InternalEdgeRemovingCollector_IsVoided(JPH_SubShapeID *inSubShapeID, JPH_Vec3 inV);
+void JPH_InternalEdgeRemovingCollector_VoidFeatures(JPH_CollideShapeResult *inResult);
+void JPH_InternalEdgeRemovingCollector_Chain(JPH_CollideShapeResult *inResult);
+void JPH_InternalEdgeRemovingCollector_ChainAndVoid(JPH_CollideShapeResult *inResult);
+void JPH_InternalEdgeRemovingCollector_InternalEdgeRemovingCollector(JPH_CollideShapeCollector *inChainedCollector);
+void JPH_InternalEdgeRemovingCollector_Reset();
+void JPH_InternalEdgeRemovingCollector_OnBody(JPH_Body *inBody);
+void JPH_InternalEdgeRemovingCollector_AddHit(JPH_CollideShapeResult *inResult);
+void JPH_InternalEdgeRemovingCollector_Flush();
+void JPH_InternalEdgeRemovingCollector_OnBodyEnd();
+void JPH_InternalEdgeRemovingCollector_sCollideShapeVsShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
 // JoltPhysics/Jolt/Geometry/ConvexSupport.h:85:1
 typedef struct JPH_PointConvexSupport {
     JPH_Vec3 mPoint;
 } JPH_PointConvexSupport;
 
+JPH_Vec3 JPH_PointConvexSupport_GetSupport(JPH_Vec3Arg inDirection);
 // JoltPhysics/Jolt/Geometry/ConvexSupport.h:97:1
 typedef struct JPH_TriangleConvexSupport {
     JPH_Vec3 mV1;
@@ -3345,6 +7058,8 @@ typedef struct JPH_TriangleConvexSupport {
     JPH_Vec3 mV3;
 } JPH_TriangleConvexSupport;
 
+void JPH_TriangleConvexSupport_TriangleConvexSupport(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, JPH_Vec3Arg inV3);
+JPH_Vec3 JPH_TriangleConvexSupport_GetSupport(JPH_Vec3Arg inDirection);
 // JoltPhysics/Jolt/Geometry/GJKClosestPoint.h:21:1
 typedef struct JPH_GJKClosestPoint {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -3355,6 +7070,13 @@ typedef struct JPH_GJKClosestPoint {
     int32_t mNumPoints;
 } JPH_GJKClosestPoint;
 
+float JPH_GJKClosestPoint_GetMaxYLengthSq();
+void JPH_GJKClosestPoint_UpdatePointSetY(uint32_t inSet);
+void JPH_GJKClosestPoint_UpdatePointSetP(uint32_t inSet);
+void JPH_GJKClosestPoint_UpdatePointSetPQ(uint32_t inSet);
+void JPH_GJKClosestPoint_UpdatePointSetYPQ(uint32_t inSet);
+void JPH_GJKClosestPoint_CalculatePointAAndB(JPH_Vec3 *outPointA, JPH_Vec3 *outPointB);
+void JPH_GJKClosestPoint_GetClosestPointsSimplex(JPH_Vec3 *outY, JPH_Vec3 *outP, JPH_Vec3 *outQ, uint32_t *outNumPoints);
 // JoltPhysics/Jolt/Geometry/EPAConvexHullBuilder.h:48:2
 typedef struct JPH_EPAConvexHullBuilder_Edge {
     < ? named (size=96, align=16)> *mNeighbourTriangle;
@@ -3383,6 +7105,10 @@ typedef struct JPH_EPAConvexHullBuilder_Triangle {
     bool mInQueue;
 } JPH_EPAConvexHullBuilder_Triangle;
 
+void JPH_EPAConvexHullBuilder_Triangle_Triangle(int32_t inIdx0, int32_t inIdx1, int32_t inIdx2, JPH_Vec3 *inPositions);
+bool JPH_EPAConvexHullBuilder_Triangle_IsFacing(JPH_Vec3Arg inPosition);
+bool JPH_EPAConvexHullBuilder_Triangle_IsFacingOrigin();
+JPH_EPAConvexHullBuilder_Edge *JPH_EPAConvexHullBuilder_Triangle_GetNextEdge(int32_t inIndex);
 // JoltPhysics/Jolt/Geometry/EPAConvexHullBuilder.h:107:3
 typedef union JPH_EPAConvexHullBuilder_TriangleFactory_Block {
     uint8_t mTriangle[96];
@@ -3398,6 +7124,9 @@ typedef struct JPH_EPAConvexHullBuilder_TriangleFactory {
     int32_t mHighWatermark;
 } JPH_EPAConvexHullBuilder_TriangleFactory;
 
+void JPH_EPAConvexHullBuilder_TriangleFactory_Clear();
+JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_TriangleFactory_CreateTriangle(int32_t inIdx0, int32_t inIdx1, int32_t inIdx2, JPH_Vec3 *inPositions);
+void JPH_EPAConvexHullBuilder_TriangleFactory_FreeTriangle(JPH_EPAConvexHullBuilder_Triangle *inT);
 // JoltPhysics/Jolt/Geometry/EPAConvexHullBuilder.h:168:2
 typedef < ? named (size=2064, align=16)> JPH_EPAConvexHullBuilder_PointsBase;
 
@@ -3407,9 +7136,14 @@ typedef < ? named (size=2056, align=8)> JPH_EPAConvexHullBuilder_Triangles;
 // JoltPhysics/Jolt/Geometry/EPAConvexHullBuilder.h:172:2
 typedef struct JPH_EPAConvexHullBuilder_Points JPH_EPAConvexHullBuilder_Points;
 
+size_type *JPH_EPAConvexHullBuilder_Points_GetSizeRef();
 // JoltPhysics/Jolt/Geometry/EPAConvexHullBuilder.h:182:2
 typedef struct JPH_EPAConvexHullBuilder_TriangleQueue JPH_EPAConvexHullBuilder_TriangleQueue;
 
+bool JPH_EPAConvexHullBuilder_TriangleQueue_sTriangleSorter(JPH_EPAConvexHullBuilder_Triangle *inT1, JPH_EPAConvexHullBuilder_Triangle *inT2);
+void JPH_EPAConvexHullBuilder_TriangleQueue_push_back(JPH_EPAConvexHullBuilder_Triangle *inT);
+JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_TriangleQueue_PeekClosest();
+JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_TriangleQueue_PopClosest();
 // JoltPhysics/Jolt/Geometry/EPAConvexHullBuilder.h:24:1
 typedef struct JPH_EPAConvexHullBuilder {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -3419,6 +7153,18 @@ typedef struct JPH_EPAConvexHullBuilder {
     JPH_EPAConvexHullBuilder_TriangleQueue mTriangleQueue;
 } JPH_EPAConvexHullBuilder;
 
+void JPH_EPAConvexHullBuilder_EPAConvexHullBuilder(JPH_EPAConvexHullBuilder_Points *inPositions);
+void JPH_EPAConvexHullBuilder_Initialize(int32_t inIdx1, int32_t inIdx2, int32_t inIdx3);
+bool JPH_EPAConvexHullBuilder_HasNextTriangle();
+JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_PeekClosestTriangleInQueue();
+JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_PopClosestTriangleFromQueue();
+JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_FindFacingTriangle(JPH_Vec3Arg inPosition, float *outBestDistSq);
+bool JPH_EPAConvexHullBuilder_AddPoint(JPH_EPAConvexHullBuilder_Triangle *inFacingTriangle, int32_t inIdx, float inClosestDistSq, JPH_EPAConvexHullBuilder_NewTriangles *outTriangles);
+void JPH_EPAConvexHullBuilder_FreeTriangle(JPH_EPAConvexHullBuilder_Triangle *inT);
+JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_CreateTriangle(int32_t inIdx1, int32_t inIdx2, int32_t inIdx3);
+void JPH_EPAConvexHullBuilder_sLinkTriangle(JPH_EPAConvexHullBuilder_Triangle *inT1, int32_t inEdge1, JPH_EPAConvexHullBuilder_Triangle *inT2, int32_t inEdge2);
+void JPH_EPAConvexHullBuilder_UnlinkTriangle(JPH_EPAConvexHullBuilder_Triangle *inT);
+bool JPH_EPAConvexHullBuilder_FindEdge(JPH_EPAConvexHullBuilder_Triangle *inFacingTriangle, JPH_Vec3Arg inVertex, JPH_EPAConvexHullBuilder_Edges *outEdges);
 // JoltPhysics/Jolt/Geometry/EPAPenetrationDepth.h:44:2
 typedef JPH_EPAConvexHullBuilder_Triangle JPH_EPAPenetrationDepth_Triangle;
 
@@ -3444,26 +7190,102 @@ typedef struct JPH_OrientedBox {
     JPH_Vec3 mHalfExtents;
 } JPH_OrientedBox;
 
+void *JPH_OrientedBox_operator_new(size_t inCount);
+void JPH_OrientedBox_operator_delete(void *inPointer);
+void *JPH_OrientedBox_operator_new[](size_t inCount);
+void JPH_OrientedBox_operator_delete[](void *inPointer);
+void *JPH_OrientedBox_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_OrientedBox_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_OrientedBox_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_OrientedBox_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_OrientedBox_operator_new(size_t inCount, void *inPointer);
+void JPH_OrientedBox_operator_delete(void *inPointer, void *inPlace);
+void *JPH_OrientedBox_operator_new[](size_t inCount, void *inPointer);
+void JPH_OrientedBox_operator_delete[](void *inPointer, void *inPlace);
+void JPH_OrientedBox_OrientedBox();
+void JPH_OrientedBox_OrientedBox(JPH_Mat44Arg inOrientation, JPH_Vec3Arg inHalfExtents);
+void JPH_OrientedBox_OrientedBox(JPH_Mat44Arg inOrientation, JPH_AABox *inBox);
+bool JPH_OrientedBox_Overlaps(JPH_AABox *inBox, float inEpsilon);
+bool JPH_OrientedBox_Overlaps(JPH_OrientedBox *inBox, float inEpsilon);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseBruteForce.h:13:1
 // Has vtable
 typedef struct JPH_BroadPhaseBruteForce JPH_BroadPhaseBruteForce;
 
+void *JPH_BroadPhaseBruteForce_operator_new(size_t inCount);
+void JPH_BroadPhaseBruteForce_operator_delete(void *inPointer);
+void *JPH_BroadPhaseBruteForce_operator_new[](size_t inCount);
+void JPH_BroadPhaseBruteForce_operator_delete[](void *inPointer);
+void *JPH_BroadPhaseBruteForce_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseBruteForce_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseBruteForce_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseBruteForce_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseBruteForce_operator_new(size_t inCount, void *inPointer);
+void JPH_BroadPhaseBruteForce_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BroadPhaseBruteForce_operator_new[](size_t inCount, void *inPointer);
+void JPH_BroadPhaseBruteForce_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BroadPhaseBruteForce_AddBodiesFinalize(JPH_BodyID *ioBodies, int32_t inNumber, JPH_BroadPhase_AddState inAddState);
+void JPH_BroadPhaseBruteForce_RemoveBodies(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhaseBruteForce_NotifyBodiesAABBChanged(JPH_BodyID *ioBodies, int32_t inNumber, bool inTakeLock);
+void JPH_BroadPhaseBruteForce_NotifyBodiesLayerChanged(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhaseBruteForce_CastRay(JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseBruteForce_CollideAABox(JPH_AABox *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseBruteForce_CollideSphere(JPH_Vec3Arg inCenter, float inRadius, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseBruteForce_CollidePoint(JPH_Vec3Arg inPoint, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseBruteForce_CollideOrientedBox(JPH_OrientedBox *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseBruteForce_CastAABoxNoLock(JPH_AABoxCast *inBox, JPH_CastShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseBruteForce_CastAABox(JPH_AABoxCast *inBox, JPH_CastShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseBruteForce_FindCollidingPairs(JPH_BodyID *ioActiveBodies, int32_t inNumActiveBodies, float inSpeculativeContactDistance, JPH_ObjectVsBroadPhaseLayerFilter *inObjectVsBroadPhaseLayerFilter, JPH_ObjectLayerPairFilter *inObjectLayerPairFilter, JPH_BodyPairCollector *ioPairCollector);
+JPH_AABox JPH_BroadPhaseBruteForce_GetBounds();
 // JoltPhysics/Jolt/Geometry/RayAABox.h:10:1
 typedef struct JPH_RayInvDirection {
     JPH_Vec3 mInvDirection;
     JPH_UVec4 mIsParallel;
 } JPH_RayInvDirection;
 
+void JPH_RayInvDirection_RayInvDirection();
+void JPH_RayInvDirection_RayInvDirection(JPH_Vec3Arg inDirection);
+void JPH_RayInvDirection_Set(JPH_Vec3Arg inDirection);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/QuadTree.h:30:2
 typedef struct JPH_QuadTree_NodeID {
     uint32_t mID;
 } JPH_QuadTree_NodeID;
 
+void *JPH_QuadTree_NodeID_operator_new(size_t inCount);
+void JPH_QuadTree_NodeID_operator_delete(void *inPointer);
+void *JPH_QuadTree_NodeID_operator_new[](size_t inCount);
+void JPH_QuadTree_NodeID_operator_delete[](void *inPointer);
+void *JPH_QuadTree_NodeID_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_QuadTree_NodeID_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_QuadTree_NodeID_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_QuadTree_NodeID_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_QuadTree_NodeID_operator_new(size_t inCount, void *inPointer);
+void JPH_QuadTree_NodeID_operator_delete(void *inPointer, void *inPlace);
+void *JPH_QuadTree_NodeID_operator_new[](size_t inCount, void *inPointer);
+void JPH_QuadTree_NodeID_operator_delete[](void *inPointer, void *inPlace);
+void JPH_QuadTree_NodeID_NodeID();
+JPH_QuadTree_NodeID JPH_QuadTree_NodeID_sInvalid();
+JPH_QuadTree_NodeID JPH_QuadTree_NodeID_sFromBodyID(JPH_BodyID inID);
+JPH_QuadTree_NodeID JPH_QuadTree_NodeID_sFromNodeIndex(uint32_t inIdx);
+bool JPH_QuadTree_NodeID_IsValid();
+bool JPH_QuadTree_NodeID_IsBody();
+bool JPH_QuadTree_NodeID_IsNode();
+JPH_BodyID JPH_QuadTree_NodeID_GetBodyID();
+uint32_t JPH_QuadTree_NodeID_GetNodeIndex();
+bool JPH_QuadTree_NodeID_operator==(JPH_BodyID *inRHS);
+bool JPH_QuadTree_NodeID_operator==(JPH_QuadTree_NodeID *inRHS);
+void JPH_QuadTree_NodeID_NodeID(uint32_t inID);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/QuadTree.h:69:2
 typedef struct JPH_QuadTree_AtomicNodeID {
     < Unexposed (size=4, align=4)> mID;
 } JPH_QuadTree_AtomicNodeID;
 
+void JPH_QuadTree_AtomicNodeID_AtomicNodeID();
+void JPH_QuadTree_AtomicNodeID_AtomicNodeID(JPH_QuadTree_NodeID *inRHS);
+void JPH_QuadTree_AtomicNodeID_operator=(JPH_QuadTree_NodeID *inRHS);
+bool JPH_QuadTree_AtomicNodeID_IsValid();
+bool JPH_QuadTree_AtomicNodeID_operator==(JPH_BodyID *inRHS);
+bool JPH_QuadTree_AtomicNodeID_operator==(JPH_QuadTree_NodeID *inRHS);
+bool JPH_QuadTree_AtomicNodeID_CompareExchange(JPH_QuadTree_NodeID inOld, JPH_QuadTree_NodeID inNew);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/QuadTree.h:97:2
 typedef struct JPH_QuadTree_Node {
     < Unexposed (size=4, align=4)> mBoundsMinX[4];
@@ -3478,6 +7300,12 @@ typedef struct JPH_QuadTree_Node {
     uint32_t mPadding;
 } JPH_QuadTree_Node;
 
+void JPH_QuadTree_Node_Node(bool inIsChanged);
+void JPH_QuadTree_Node_GetNodeBounds(JPH_AABox *outBounds);
+void JPH_QuadTree_Node_GetChildBounds(int32_t inChildIndex, JPH_AABox *outBounds);
+void JPH_QuadTree_Node_SetChildBounds(int32_t inChildIndex, JPH_AABox *inBounds);
+void JPH_QuadTree_Node_InvalidateChildBounds(int32_t inChildIndex);
+bool JPH_QuadTree_Node_EncapsulateChildBounds(int32_t inChildIndex, JPH_AABox *inBounds);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/QuadTree.h:150:2
 typedef < ? named (size=192, align=64)> JPH_QuadTree_Allocator;
 
@@ -3488,6 +7316,8 @@ typedef struct JPH_QuadTree_Tracking {
     < Unexposed (size=4, align=4)> mBodyLocation;
 } JPH_QuadTree_Tracking;
 
+void JPH_QuadTree_Tracking_Tracking();
+void JPH_QuadTree_Tracking_Tracking(JPH_QuadTree_Tracking *inRHS);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/QuadTree.h:169:2
 typedef < ? named (size=24, align=8)> JPH_QuadTree_TrackingVector;
 
@@ -3507,6 +7337,7 @@ typedef struct JPH_QuadTree_RootNode {
     < Unexposed (size=4, align=4)> mIndex;
 } JPH_QuadTree_RootNode;
 
+JPH_QuadTree_NodeID JPH_QuadTree_RootNode_GetNodeID();
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/QuadTree.h:20:1
 typedef struct JPH_QuadTree {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -3519,6 +7350,55 @@ typedef struct JPH_QuadTree {
     < Unexposed (size=1, align=1)> mIsDirty;
 } JPH_QuadTree;
 
+void *JPH_QuadTree_operator_new(size_t inCount);
+void JPH_QuadTree_operator_delete(void *inPointer);
+void *JPH_QuadTree_operator_new[](size_t inCount);
+void JPH_QuadTree_operator_delete[](void *inPointer);
+void *JPH_QuadTree_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_QuadTree_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_QuadTree_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_QuadTree_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_QuadTree_operator_new(size_t inCount, void *inPointer);
+void JPH_QuadTree_operator_delete(void *inPointer, void *inPlace);
+void *JPH_QuadTree_operator_new[](size_t inCount, void *inPointer);
+void JPH_QuadTree_operator_delete[](void *inPointer, void *inPlace);
+void JPH_QuadTree_~QuadTree();
+bool JPH_QuadTree_HasBodies();
+bool JPH_QuadTree_IsDirty();
+bool JPH_QuadTree_CanBeUpdated();
+void JPH_QuadTree_Init(JPH_QuadTree_Allocator *inAllocator);
+void JPH_QuadTree_DiscardOldTree();
+JPH_AABox JPH_QuadTree_GetBounds();
+void JPH_QuadTree_UpdatePrepare(JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *ioTracking, JPH_QuadTree_UpdateState *outUpdateState, bool inFullRebuild);
+void JPH_QuadTree_UpdateFinalize(JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *inTracking, JPH_QuadTree_UpdateState *inUpdateState);
+void JPH_QuadTree_AddBodiesPrepare(JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *ioTracking, JPH_BodyID *ioBodyIDs, int32_t inNumber, JPH_QuadTree_AddState *outState);
+void JPH_QuadTree_AddBodiesFinalize(JPH_QuadTree_TrackingVector *ioTracking, int32_t inNumberBodies, JPH_QuadTree_AddState *inState);
+void JPH_QuadTree_AddBodiesAbort(JPH_QuadTree_TrackingVector *ioTracking, JPH_QuadTree_AddState *inState);
+void JPH_QuadTree_RemoveBodies(JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *ioTracking, JPH_BodyID *ioBodyIDs, int32_t inNumber);
+void JPH_QuadTree_NotifyBodiesAABBChanged(JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *inTracking, JPH_BodyID *ioBodyIDs, int32_t inNumber);
+void JPH_QuadTree_CastRay(JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_QuadTree_TrackingVector *inTracking);
+void JPH_QuadTree_CollideAABox(JPH_AABox *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_QuadTree_TrackingVector *inTracking);
+void JPH_QuadTree_CollideSphere(JPH_Vec3Arg inCenter, float inRadius, JPH_CollideShapeBodyCollector *ioCollector, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_QuadTree_TrackingVector *inTracking);
+void JPH_QuadTree_CollidePoint(JPH_Vec3Arg inPoint, JPH_CollideShapeBodyCollector *ioCollector, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_QuadTree_TrackingVector *inTracking);
+void JPH_QuadTree_CollideOrientedBox(JPH_OrientedBox *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_QuadTree_TrackingVector *inTracking);
+void JPH_QuadTree_CastAABox(JPH_AABoxCast *inBox, JPH_CastShapeBodyCollector *ioCollector, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_QuadTree_TrackingVector *inTracking);
+void JPH_QuadTree_FindCollidingPairs(JPH_BodyVector *inBodies, JPH_BodyID *inActiveBodies, int32_t inNumActiveBodies, float inSpeculativeContactDistance, JPH_BodyPairCollector *ioPairCollector, JPH_ObjectLayerPairFilter *inObjectLayerPairFilter);
+void JPH_QuadTree_GetBodyLocation(JPH_QuadTree_TrackingVector *inTracking, JPH_BodyID inBodyID, uint32_t *outNodeIdx, uint32_t *outChildIdx);
+void JPH_QuadTree_SetBodyLocation(JPH_QuadTree_TrackingVector *ioTracking, JPH_BodyID inBodyID, uint32_t inNodeIdx, uint32_t inChildIdx);
+void JPH_QuadTree_sInvalidateBodyLocation(JPH_QuadTree_TrackingVector *ioTracking, JPH_BodyID inBodyID);
+JPH_QuadTree_RootNode *JPH_QuadTree_GetCurrentRoot();
+JPH_QuadTree_RootNode *JPH_QuadTree_GetCurrentRoot();
+JPH_AABox JPH_QuadTree_GetNodeOrBodyBounds(JPH_BodyVector *inBodies, JPH_QuadTree_NodeID inNodeID);
+void JPH_QuadTree_MarkNodeAndParentsChanged(uint32_t inNodeIndex);
+void JPH_QuadTree_WidenAndMarkNodeAndParentsChanged(uint32_t inNodeIndex, JPH_AABox *inNewBounds);
+uint32_t JPH_QuadTree_AllocateNode(bool inIsChanged);
+bool JPH_QuadTree_TryInsertLeaf(JPH_QuadTree_TrackingVector *ioTracking, int32_t inNodeIndex, JPH_QuadTree_NodeID inLeafID, JPH_AABox *inLeafBounds, int32_t inLeafNumBodies);
+bool JPH_QuadTree_TryCreateNewRoot(JPH_QuadTree_TrackingVector *ioTracking, < Unexposed (size=4, align=4)> *ioRootNodeIndex, JPH_QuadTree_NodeID inLeafID, JPH_AABox *inLeafBounds, int32_t inLeafNumBodies);
+JPH_QuadTree_NodeID JPH_QuadTree_BuildTree(JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *ioTracking, JPH_QuadTree_NodeID *ioNodeIDs, int32_t inNumber, uint32_t inMaxDepthMarkChanged, JPH_AABox *outBounds);
+void JPH_QuadTree_sPartition(JPH_QuadTree_NodeID *ioNodeIDs, JPH_Vec3 *ioNodeCenters, int32_t inNumber, int32_t *outMidPoint);
+void JPH_QuadTree_sPartition4(JPH_QuadTree_NodeID *ioNodeIDs, JPH_Vec3 *ioNodeCenters, int32_t inBegin, int32_t inEnd, int32_t *outSplit);
+void JPH_QuadTree_ValidateTree(JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *inTracking, uint32_t inNodeIndex, uint32_t inNumExpectedBodies);
+uint32_t JPH_QuadTree_GetMaxTreeDepth(JPH_QuadTree_NodeID *inNodeID);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuadTree.h:51:2
 typedef struct JPH_BroadPhaseQuadTree_LayerState {
     JPH_BodyID *mBodyStart;
@@ -3526,6 +7406,18 @@ typedef struct JPH_BroadPhaseQuadTree_LayerState {
     JPH_QuadTree_AddState mAddState;
 } JPH_BroadPhaseQuadTree_LayerState;
 
+void *JPH_BroadPhaseQuadTree_LayerState_operator_new(size_t inCount);
+void JPH_BroadPhaseQuadTree_LayerState_operator_delete(void *inPointer);
+void *JPH_BroadPhaseQuadTree_LayerState_operator_new[](size_t inCount);
+void JPH_BroadPhaseQuadTree_LayerState_operator_delete[](void *inPointer);
+void *JPH_BroadPhaseQuadTree_LayerState_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseQuadTree_LayerState_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseQuadTree_LayerState_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseQuadTree_LayerState_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseQuadTree_LayerState_operator_new(size_t inCount, void *inPointer);
+void JPH_BroadPhaseQuadTree_LayerState_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BroadPhaseQuadTree_LayerState_operator_new[](size_t inCount, void *inPointer);
+void JPH_BroadPhaseQuadTree_LayerState_operator_delete[](void *inPointer, void *inPlace);
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuadTree.h:60:2
 typedef JPH_QuadTree_Tracking JPH_BroadPhaseQuadTree_Tracking;
 
@@ -3542,6 +7434,41 @@ typedef struct JPH_BroadPhaseQuadTree_UpdateStateImpl {
 // Has vtable
 typedef struct JPH_BroadPhaseQuadTree JPH_BroadPhaseQuadTree;
 
+void *JPH_BroadPhaseQuadTree_operator_new(size_t inCount);
+void JPH_BroadPhaseQuadTree_operator_delete(void *inPointer);
+void *JPH_BroadPhaseQuadTree_operator_new[](size_t inCount);
+void JPH_BroadPhaseQuadTree_operator_delete[](void *inPointer);
+void *JPH_BroadPhaseQuadTree_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseQuadTree_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseQuadTree_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BroadPhaseQuadTree_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BroadPhaseQuadTree_operator_new(size_t inCount, void *inPointer);
+void JPH_BroadPhaseQuadTree_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BroadPhaseQuadTree_operator_new[](size_t inCount, void *inPointer);
+void JPH_BroadPhaseQuadTree_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BroadPhaseQuadTree_~BroadPhaseQuadTree();
+void JPH_BroadPhaseQuadTree_Init(JPH_BodyManager *inBodyManager, JPH_BroadPhaseLayerInterface *inLayerInterface);
+void JPH_BroadPhaseQuadTree_Optimize();
+void JPH_BroadPhaseQuadTree_FrameSync();
+void JPH_BroadPhaseQuadTree_LockModifications();
+JPH_BroadPhase_UpdateState JPH_BroadPhaseQuadTree_UpdatePrepare();
+void JPH_BroadPhaseQuadTree_UpdateFinalize(JPH_BroadPhase_UpdateState *inUpdateState);
+void JPH_BroadPhaseQuadTree_UnlockModifications();
+JPH_BroadPhase_AddState JPH_BroadPhaseQuadTree_AddBodiesPrepare(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhaseQuadTree_AddBodiesFinalize(JPH_BodyID *ioBodies, int32_t inNumber, JPH_BroadPhase_AddState inAddState);
+void JPH_BroadPhaseQuadTree_AddBodiesAbort(JPH_BodyID *ioBodies, int32_t inNumber, JPH_BroadPhase_AddState inAddState);
+void JPH_BroadPhaseQuadTree_RemoveBodies(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhaseQuadTree_NotifyBodiesAABBChanged(JPH_BodyID *ioBodies, int32_t inNumber, bool inTakeLock);
+void JPH_BroadPhaseQuadTree_NotifyBodiesLayerChanged(JPH_BodyID *ioBodies, int32_t inNumber);
+void JPH_BroadPhaseQuadTree_CastRay(JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuadTree_CollideAABox(JPH_AABox *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuadTree_CollideSphere(JPH_Vec3Arg inCenter, float inRadius, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuadTree_CollidePoint(JPH_Vec3Arg inPoint, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuadTree_CollideOrientedBox(JPH_OrientedBox *inBox, JPH_CollideShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuadTree_CastAABoxNoLock(JPH_AABoxCast *inBox, JPH_CastShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuadTree_CastAABox(JPH_AABoxCast *inBox, JPH_CastShapeBodyCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter);
+void JPH_BroadPhaseQuadTree_FindCollidingPairs(JPH_BodyID *ioActiveBodies, int32_t inNumActiveBodies, float inSpeculativeContactDistance, JPH_ObjectVsBroadPhaseLayerFilter *inObjectVsBroadPhaseLayerFilter, JPH_ObjectLayerPairFilter *inObjectLayerPairFilter, JPH_BodyPairCollector *ioPairCollector);
+JPH_AABox JPH_BroadPhaseQuadTree_GetBounds();
 // JoltPhysics/Jolt/Physics/Collision/EstimateCollisionResponse.h:22:2
 typedef struct JPH_CollisionEstimationResult_Impulse {
     float mContactImpulse;
@@ -3567,48 +7494,344 @@ typedef struct JPH_CollisionEstimationResult {
 // Has vtable
 typedef struct JPH_TaperedCapsuleShapeSettings JPH_TaperedCapsuleShapeSettings;
 
+void *JPH_TaperedCapsuleShapeSettings_operator_new(size_t inCount);
+void JPH_TaperedCapsuleShapeSettings_operator_delete(void *inPointer);
+void *JPH_TaperedCapsuleShapeSettings_operator_new[](size_t inCount);
+void JPH_TaperedCapsuleShapeSettings_operator_delete[](void *inPointer);
+void *JPH_TaperedCapsuleShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCapsuleShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCapsuleShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCapsuleShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCapsuleShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_TaperedCapsuleShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TaperedCapsuleShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_TaperedCapsuleShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_TaperedCapsuleShapeSettings_GetRTTI();
+void *JPH_TaperedCapsuleShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_TaperedCapsuleShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_TaperedCapsuleShapeSettings_TaperedCapsuleShapeSettings();
+void JPH_TaperedCapsuleShapeSettings_TaperedCapsuleShapeSettings(float inHalfHeightOfTaperedCylinder, float inTopRadius, float inBottomRadius, JPH_PhysicsMaterial *inMaterial);
+bool JPH_TaperedCapsuleShapeSettings_IsValid();
+bool JPH_TaperedCapsuleShapeSettings_IsSphere();
+JPH_ShapeSettings_ShapeResult JPH_TaperedCapsuleShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/TaperedCapsuleShape.h:41:1
 // Has vtable
 typedef struct JPH_TaperedCapsuleShape JPH_TaperedCapsuleShape;
 
+void *JPH_TaperedCapsuleShape_operator_new(size_t inCount);
+void JPH_TaperedCapsuleShape_operator_delete(void *inPointer);
+void *JPH_TaperedCapsuleShape_operator_new[](size_t inCount);
+void JPH_TaperedCapsuleShape_operator_delete[](void *inPointer);
+void *JPH_TaperedCapsuleShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCapsuleShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCapsuleShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCapsuleShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCapsuleShape_operator_new(size_t inCount, void *inPointer);
+void JPH_TaperedCapsuleShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TaperedCapsuleShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_TaperedCapsuleShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TaperedCapsuleShape_TaperedCapsuleShape();
+void JPH_TaperedCapsuleShape_TaperedCapsuleShape(JPH_TaperedCapsuleShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+float JPH_TaperedCapsuleShape_GetTopRadius();
+float JPH_TaperedCapsuleShape_GetBottomRadius();
+float JPH_TaperedCapsuleShape_GetHalfHeight();
+JPH_Vec3 JPH_TaperedCapsuleShape_GetCenterOfMass();
+JPH_AABox JPH_TaperedCapsuleShape_GetLocalBounds();
+JPH_AABox JPH_TaperedCapsuleShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_TaperedCapsuleShape_GetInnerRadius();
+JPH_MassProperties JPH_TaperedCapsuleShape_GetMassProperties();
+JPH_Vec3 JPH_TaperedCapsuleShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_TaperedCapsuleShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_TaperedCapsuleShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+void JPH_TaperedCapsuleShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_TaperedCapsuleShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_TaperedCapsuleShape_GetStats();
+float JPH_TaperedCapsuleShape_GetVolume();
+bool JPH_TaperedCapsuleShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_TaperedCapsuleShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_TaperedCapsuleShape_sRegister();
+void JPH_TaperedCapsuleShape_RestoreBinaryState(JPH_StreamIn *inStream);
+JPH_AABox JPH_TaperedCapsuleShape_GetInertiaApproximation();
 // JoltPhysics/Jolt/Physics/Collision/Shape/DecoratedShape.h:12:1
 // Abstract
 typedef struct JPH_DecoratedShapeSettings JPH_DecoratedShapeSettings;
 
+void *JPH_DecoratedShapeSettings_operator_new(size_t inCount);
+void JPH_DecoratedShapeSettings_operator_delete(void *inPointer);
+void *JPH_DecoratedShapeSettings_operator_new[](size_t inCount);
+void JPH_DecoratedShapeSettings_operator_delete[](void *inPointer);
+void *JPH_DecoratedShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DecoratedShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DecoratedShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DecoratedShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DecoratedShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_DecoratedShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_DecoratedShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_DecoratedShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_DecoratedShapeSettings_GetRTTI();
+void *JPH_DecoratedShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_DecoratedShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_DecoratedShapeSettings_DecoratedShapeSettings();
+void JPH_DecoratedShapeSettings_DecoratedShapeSettings(JPH_ShapeSettings *inShape);
+void JPH_DecoratedShapeSettings_DecoratedShapeSettings(JPH_Shape *inShape);
 // JoltPhysics/Jolt/Physics/Collision/Shape/DecoratedShape.h:29:1
 // Abstract
 typedef struct JPH_DecoratedShape JPH_DecoratedShape;
 
+void *JPH_DecoratedShape_operator_new(size_t inCount);
+void JPH_DecoratedShape_operator_delete(void *inPointer);
+void *JPH_DecoratedShape_operator_new[](size_t inCount);
+void JPH_DecoratedShape_operator_delete[](void *inPointer);
+void *JPH_DecoratedShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DecoratedShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DecoratedShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DecoratedShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DecoratedShape_operator_new(size_t inCount, void *inPointer);
+void JPH_DecoratedShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_DecoratedShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_DecoratedShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_DecoratedShape_DecoratedShape(JPH_EShapeSubType inSubType);
+void JPH_DecoratedShape_DecoratedShape(JPH_EShapeSubType inSubType, JPH_Shape *inInnerShape);
+void JPH_DecoratedShape_DecoratedShape(JPH_EShapeSubType inSubType, JPH_DecoratedShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+JPH_Shape *JPH_DecoratedShape_GetInnerShape();
+bool JPH_DecoratedShape_MustBeStatic();
+JPH_Vec3 JPH_DecoratedShape_GetCenterOfMass();
+uint32_t JPH_DecoratedShape_GetSubShapeIDBitsRecursive();
+JPH_Shape *JPH_DecoratedShape_GetLeafShape(JPH_SubShapeID *inSubShapeID, JPH_SubShapeID *outRemainder);
+JPH_PhysicsMaterial *JPH_DecoratedShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+void JPH_DecoratedShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+uint64_t JPH_DecoratedShape_GetSubShapeUserData(JPH_SubShapeID *inSubShapeID);
+void JPH_DecoratedShape_SaveSubShapeState(JPH_ShapeList *outSubShapes);
+void JPH_DecoratedShape_RestoreSubShapeState(JPH_ShapeRefC *inSubShapes, uint32_t inNumShapes);
+JPH_Shape_Stats JPH_DecoratedShape_GetStatsRecursive(JPH_Shape_VisitedShapes *ioVisitedShapes);
+bool JPH_DecoratedShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_DecoratedShape_MakeScaleValid(JPH_Vec3Arg inScale);
 // JoltPhysics/Jolt/Physics/Collision/Shape/RotatedTranslatedShape.h:15:1
 // Has vtable
 typedef struct JPH_RotatedTranslatedShapeSettings JPH_RotatedTranslatedShapeSettings;
 
+void *JPH_RotatedTranslatedShapeSettings_operator_new(size_t inCount);
+void JPH_RotatedTranslatedShapeSettings_operator_delete(void *inPointer);
+void *JPH_RotatedTranslatedShapeSettings_operator_new[](size_t inCount);
+void JPH_RotatedTranslatedShapeSettings_operator_delete[](void *inPointer);
+void *JPH_RotatedTranslatedShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RotatedTranslatedShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RotatedTranslatedShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RotatedTranslatedShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RotatedTranslatedShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_RotatedTranslatedShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RotatedTranslatedShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_RotatedTranslatedShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_RotatedTranslatedShapeSettings_GetRTTI();
+void *JPH_RotatedTranslatedShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_RotatedTranslatedShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_RotatedTranslatedShapeSettings_RotatedTranslatedShapeSettings();
+void JPH_RotatedTranslatedShapeSettings_RotatedTranslatedShapeSettings(JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_ShapeSettings *inShape);
+void JPH_RotatedTranslatedShapeSettings_RotatedTranslatedShapeSettings(JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_Shape *inShape);
+JPH_ShapeSettings_ShapeResult JPH_RotatedTranslatedShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/RotatedTranslatedShape.h:38:1
 // Has vtable
 typedef struct JPH_RotatedTranslatedShape JPH_RotatedTranslatedShape;
 
+void *JPH_RotatedTranslatedShape_operator_new(size_t inCount);
+void JPH_RotatedTranslatedShape_operator_delete(void *inPointer);
+void *JPH_RotatedTranslatedShape_operator_new[](size_t inCount);
+void JPH_RotatedTranslatedShape_operator_delete[](void *inPointer);
+void *JPH_RotatedTranslatedShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RotatedTranslatedShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RotatedTranslatedShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RotatedTranslatedShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RotatedTranslatedShape_operator_new(size_t inCount, void *inPointer);
+void JPH_RotatedTranslatedShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RotatedTranslatedShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_RotatedTranslatedShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_RotatedTranslatedShape_RotatedTranslatedShape();
+void JPH_RotatedTranslatedShape_RotatedTranslatedShape(JPH_RotatedTranslatedShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_RotatedTranslatedShape_RotatedTranslatedShape(JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_Shape *inShape);
+JPH_Quat JPH_RotatedTranslatedShape_GetRotation();
+JPH_Vec3 JPH_RotatedTranslatedShape_GetPosition();
+JPH_Vec3 JPH_RotatedTranslatedShape_GetCenterOfMass();
+JPH_AABox JPH_RotatedTranslatedShape_GetLocalBounds();
+JPH_AABox JPH_RotatedTranslatedShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_RotatedTranslatedShape_GetInnerRadius();
+JPH_MassProperties JPH_RotatedTranslatedShape_GetMassProperties();
+JPH_TransformedShape JPH_RotatedTranslatedShape_GetSubShapeTransformedShape(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeID *outRemainder);
+JPH_Vec3 JPH_RotatedTranslatedShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_RotatedTranslatedShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+void JPH_RotatedTranslatedShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_RotatedTranslatedShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_RotatedTranslatedShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_RotatedTranslatedShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_RotatedTranslatedShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_RotatedTranslatedShape_CollectTransformedShapes(JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_RotatedTranslatedShape_TransformShape(JPH_Mat44Arg inCenterOfMassTransform, JPH_TransformedShapeCollector *ioCollector);
+void JPH_RotatedTranslatedShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_RotatedTranslatedShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_RotatedTranslatedShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_RotatedTranslatedShape_GetStats();
+float JPH_RotatedTranslatedShape_GetVolume();
+bool JPH_RotatedTranslatedShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_RotatedTranslatedShape_MakeScaleValid(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_RotatedTranslatedShape_TransformScale(JPH_Vec3Arg inScale);
+void JPH_RotatedTranslatedShape_sRegister();
+void JPH_RotatedTranslatedShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_RotatedTranslatedShape_sCollideRotatedTranslatedVsShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_RotatedTranslatedShape_sCollideShapeVsRotatedTranslated(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_RotatedTranslatedShape_sCollideRotatedTranslatedVsRotatedTranslated(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsShape(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_RotatedTranslatedShape_sCastShapeVsRotatedTranslated(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsRotatedTranslated(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/Shape/ScaledShape.h:16:1
 // Has vtable
 typedef struct JPH_ScaledShapeSettings JPH_ScaledShapeSettings;
 
+void *JPH_ScaledShapeSettings_operator_new(size_t inCount);
+void JPH_ScaledShapeSettings_operator_delete(void *inPointer);
+void *JPH_ScaledShapeSettings_operator_new[](size_t inCount);
+void JPH_ScaledShapeSettings_operator_delete[](void *inPointer);
+void *JPH_ScaledShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ScaledShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ScaledShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ScaledShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ScaledShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_ScaledShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ScaledShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_ScaledShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_ScaledShapeSettings_GetRTTI();
+void *JPH_ScaledShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_ScaledShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_ScaledShapeSettings_ScaledShapeSettings();
+void JPH_ScaledShapeSettings_ScaledShapeSettings(JPH_ShapeSettings *inShape, JPH_Vec3Arg inScale);
+void JPH_ScaledShapeSettings_ScaledShapeSettings(JPH_Shape *inShape, JPH_Vec3Arg inScale);
+JPH_ShapeSettings_ShapeResult JPH_ScaledShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/ScaledShape.h:37:1
 // Has vtable
 typedef struct JPH_ScaledShape JPH_ScaledShape;
 
+void *JPH_ScaledShape_operator_new(size_t inCount);
+void JPH_ScaledShape_operator_delete(void *inPointer);
+void *JPH_ScaledShape_operator_new[](size_t inCount);
+void JPH_ScaledShape_operator_delete[](void *inPointer);
+void *JPH_ScaledShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ScaledShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ScaledShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ScaledShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ScaledShape_operator_new(size_t inCount, void *inPointer);
+void JPH_ScaledShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ScaledShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_ScaledShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ScaledShape_ScaledShape();
+void JPH_ScaledShape_ScaledShape(JPH_ScaledShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_ScaledShape_ScaledShape(JPH_Shape *inShape, JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_ScaledShape_GetScale();
+JPH_Vec3 JPH_ScaledShape_GetCenterOfMass();
+JPH_AABox JPH_ScaledShape_GetLocalBounds();
+JPH_AABox JPH_ScaledShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_ScaledShape_GetInnerRadius();
+JPH_MassProperties JPH_ScaledShape_GetMassProperties();
+JPH_TransformedShape JPH_ScaledShape_GetSubShapeTransformedShape(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeID *outRemainder);
+JPH_Vec3 JPH_ScaledShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_ScaledShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+void JPH_ScaledShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_ScaledShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_ScaledShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ScaledShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ScaledShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_ScaledShape_CollectTransformedShapes(JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ScaledShape_TransformShape(JPH_Mat44Arg inCenterOfMassTransform, JPH_TransformedShapeCollector *ioCollector);
+void JPH_ScaledShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_ScaledShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_ScaledShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_ScaledShape_GetStats();
+float JPH_ScaledShape_GetVolume();
+bool JPH_ScaledShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_ScaledShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_ScaledShape_sRegister();
+void JPH_ScaledShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_ScaledShape_sCollideScaledVsShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ScaledShape_sCollideShapeVsScaled(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ScaledShape_sCastScaledVsShape(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_ScaledShape_sCastShapeVsScaled(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Core/ByteBuffer.h:12:1
 typedef < ? named (size=24, align=8)> JPH_ByteBufferVector;
 
 // JoltPhysics/Jolt/Core/ByteBuffer.h:15:1
 typedef struct JPH_ByteBuffer JPH_ByteBuffer;
 
+size_t JPH_ByteBuffer_Align(size_t inSize);
 // JoltPhysics/Jolt/Physics/Collision/Shape/MeshShape.h:22:1
 // Has vtable
 typedef struct JPH_MeshShapeSettings JPH_MeshShapeSettings;
 
+void *JPH_MeshShapeSettings_operator_new(size_t inCount);
+void JPH_MeshShapeSettings_operator_delete(void *inPointer);
+void *JPH_MeshShapeSettings_operator_new[](size_t inCount);
+void JPH_MeshShapeSettings_operator_delete[](void *inPointer);
+void *JPH_MeshShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MeshShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MeshShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MeshShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MeshShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_MeshShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MeshShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_MeshShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_MeshShapeSettings_GetRTTI();
+void *JPH_MeshShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_MeshShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_MeshShapeSettings_MeshShapeSettings();
+void JPH_MeshShapeSettings_MeshShapeSettings(JPH_TriangleList *inTriangles, JPH_PhysicsMaterialList inMaterials);
+void JPH_MeshShapeSettings_MeshShapeSettings(JPH_VertexList inVertices, JPH_IndexedTriangleList inTriangles, JPH_PhysicsMaterialList inMaterials);
+void JPH_MeshShapeSettings_Sanitize();
+JPH_ShapeSettings_ShapeResult JPH_MeshShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/MeshShape.h:84:1
 // Has vtable
 typedef struct JPH_MeshShape JPH_MeshShape;
 
+void *JPH_MeshShape_operator_new(size_t inCount);
+void JPH_MeshShape_operator_delete(void *inPointer);
+void *JPH_MeshShape_operator_new[](size_t inCount);
+void JPH_MeshShape_operator_delete[](void *inPointer);
+void *JPH_MeshShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MeshShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MeshShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MeshShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MeshShape_operator_new(size_t inCount, void *inPointer);
+void JPH_MeshShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MeshShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_MeshShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_MeshShape_MeshShape();
+void JPH_MeshShape_MeshShape(JPH_MeshShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+bool JPH_MeshShape_MustBeStatic();
+JPH_AABox JPH_MeshShape_GetLocalBounds();
+uint32_t JPH_MeshShape_GetSubShapeIDBitsRecursive();
+float JPH_MeshShape_GetInnerRadius();
+JPH_MassProperties JPH_MeshShape_GetMassProperties();
+JPH_PhysicsMaterial *JPH_MeshShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+JPH_PhysicsMaterialList *JPH_MeshShape_GetMaterialList();
+uint32_t JPH_MeshShape_GetMaterialIndex(JPH_SubShapeID *inSubShapeID);
+JPH_Vec3 JPH_MeshShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_MeshShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+bool JPH_MeshShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_MeshShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MeshShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MeshShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_MeshShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_MeshShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_MeshShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+void JPH_MeshShape_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_MeshShape_SaveMaterialState(JPH_PhysicsMaterialList *outMaterials);
+void JPH_MeshShape_RestoreMaterialState(JPH_PhysicsMaterialRefC *inMaterials, uint32_t inNumMaterials);
+JPH_Shape_Stats JPH_MeshShape_GetStats();
+float JPH_MeshShape_GetVolume();
+uint32_t JPH_MeshShape_GetTriangleUserData(JPH_SubShapeID *inSubShapeID);
+void JPH_MeshShape_sRegister();
+void JPH_MeshShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_MeshShape_sFindActiveEdges(JPH_MeshShapeSettings *inSettings, JPH_IndexedTriangleList *ioIndices);
+void JPH_MeshShape_DecodeSubShapeID(JPH_SubShapeID *inSubShapeID, void **outTriangleBlock, uint32_t *outTriangleIndex);
+void JPH_MeshShape_sCollideConvexVsMesh(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MeshShape_sCollideSphereVsMesh(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MeshShape_sCastConvexVsMesh(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_MeshShape_sCastSphereVsMesh(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/CollideSoftBodyVerticesVsTriangles.h:13:1
 typedef struct JPH_CollideSoftBodyVerticesVsTriangles {
     JPH_Mat44 mTransform;
@@ -3623,6 +7846,10 @@ typedef struct JPH_CollideSoftBodyVerticesVsTriangles {
     uint32_t mSet;
 } JPH_CollideSoftBodyVerticesVsTriangles;
 
+void JPH_CollideSoftBodyVerticesVsTriangles_CollideSoftBodyVerticesVsTriangles(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+void JPH_CollideSoftBodyVerticesVsTriangles_StartVertex(JPH_CollideSoftBodyVertexIterator *inVertex);
+void JPH_CollideSoftBodyVerticesVsTriangles_ProcessTriangle(JPH_Vec3Arg inV0, JPH_Vec3Arg inV1, JPH_Vec3Arg inV2);
+void JPH_CollideSoftBodyVerticesVsTriangles_FinishVertex(JPH_CollideSoftBodyVertexIterator *ioVertex, int32_t inCollidingShapeIndex);
 // JoltPhysics/Jolt/TriangleSplitter/TriangleSplitter.h:22:2
 typedef struct JPH_TriangleSplitter_Stats {
     int8_t *mSplitterName;
@@ -3635,10 +7862,21 @@ typedef struct JPH_TriangleSplitter_Range {
     uint32_t mEnd;
 } JPH_TriangleSplitter_Range;
 
+void JPH_TriangleSplitter_Range_Range();
+void JPH_TriangleSplitter_Range_Range(uint32_t inBegin, uint32_t inEnd);
+uint32_t JPH_TriangleSplitter_Range_Count();
 // JoltPhysics/Jolt/TriangleSplitter/TriangleSplitter.h:13:1
 // Abstract
 typedef struct JPH_TriangleSplitter JPH_TriangleSplitter;
 
+void JPH_TriangleSplitter_TriangleSplitter(JPH_VertexList *inVertices, JPH_IndexedTriangleList *inTriangles);
+void JPH_TriangleSplitter_~TriangleSplitter();
+void JPH_TriangleSplitter_GetStats(JPH_TriangleSplitter_Stats *outStats);
+JPH_TriangleSplitter_Range JPH_TriangleSplitter_GetInitialRange();
+bool JPH_TriangleSplitter_Split(JPH_TriangleSplitter_Range *inTriangles, JPH_TriangleSplitter_Range *outLeft, JPH_TriangleSplitter_Range *outRight);
+JPH_VertexList *JPH_TriangleSplitter_GetVertices();
+JPH_IndexedTriangle *JPH_TriangleSplitter_GetTriangle(uint32_t inIdx);
+bool JPH_TriangleSplitter_SplitInternal(JPH_TriangleSplitter_Range *inTriangles, uint32_t inDimension, float inSplit, JPH_TriangleSplitter_Range *outLeft, JPH_TriangleSplitter_Range *outRight);
 // JoltPhysics/Jolt/TriangleSplitter/TriangleSplitterBinning.h:34:2
 typedef struct JPH_TriangleSplitterBinning_Bin {
     JPH_AABox mBounds;
@@ -3654,10 +7892,16 @@ typedef struct JPH_TriangleSplitterBinning_Bin {
 // Has vtable
 typedef struct JPH_TriangleSplitterBinning JPH_TriangleSplitterBinning;
 
+void JPH_TriangleSplitterBinning_TriangleSplitterBinning(JPH_VertexList *inVertices, JPH_IndexedTriangleList *inTriangles, uint32_t inMinNumBins, uint32_t inMaxNumBins, uint32_t inNumTrianglesPerBin);
+void JPH_TriangleSplitterBinning_GetStats(JPH_TriangleSplitter_Stats *outStats);
+bool JPH_TriangleSplitterBinning_Split(JPH_TriangleSplitter_Range *inTriangles, JPH_TriangleSplitter_Range *outLeft, JPH_TriangleSplitter_Range *outRight);
 // JoltPhysics/Jolt/TriangleSplitter/TriangleSplitterMean.h:12:1
 // Has vtable
 typedef struct JPH_TriangleSplitterMean JPH_TriangleSplitterMean;
 
+void JPH_TriangleSplitterMean_TriangleSplitterMean(JPH_VertexList *inVertices, JPH_IndexedTriangleList *inTriangles);
+void JPH_TriangleSplitterMean_GetStats(JPH_TriangleSplitter_Stats *outStats);
+bool JPH_TriangleSplitterMean_Split(JPH_TriangleSplitter_Range *inTriangles, JPH_TriangleSplitter_Range *outLeft, JPH_TriangleSplitter_Range *outRight);
 // JoltPhysics/Jolt/AABBTree/AABBTreeBuilder.h:13:1
 typedef struct JPH_AABBTreeBuilderStats {
     JPH_TriangleSplitter_Stats mSplitterStats;
@@ -3680,6 +7924,30 @@ typedef struct JPH_AABBTreeBuilder_Node {
     uint32_t mChild[2];
 } JPH_AABBTreeBuilder_Node;
 
+void *JPH_AABBTreeBuilder_Node_operator_new(size_t inCount);
+void JPH_AABBTreeBuilder_Node_operator_delete(void *inPointer);
+void *JPH_AABBTreeBuilder_Node_operator_new[](size_t inCount);
+void JPH_AABBTreeBuilder_Node_operator_delete[](void *inPointer);
+void *JPH_AABBTreeBuilder_Node_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_AABBTreeBuilder_Node_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_AABBTreeBuilder_Node_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_AABBTreeBuilder_Node_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_AABBTreeBuilder_Node_operator_new(size_t inCount, void *inPointer);
+void JPH_AABBTreeBuilder_Node_operator_delete(void *inPointer, void *inPlace);
+void *JPH_AABBTreeBuilder_Node_operator_new[](size_t inCount, void *inPointer);
+void JPH_AABBTreeBuilder_Node_operator_delete[](void *inPointer, void *inPlace);
+uint32_t JPH_AABBTreeBuilder_Node_GetTriangleCount();
+bool JPH_AABBTreeBuilder_Node_HasChildren();
+uint32_t JPH_AABBTreeBuilder_Node_GetMinDepth(< Unexposed (size=24, align=8)> *inNodes);
+uint32_t JPH_AABBTreeBuilder_Node_GetMaxDepth(< Unexposed (size=24, align=8)> *inNodes);
+uint32_t JPH_AABBTreeBuilder_Node_GetNodeCount(< Unexposed (size=24, align=8)> *inNodes);
+uint32_t JPH_AABBTreeBuilder_Node_GetLeafNodeCount(< Unexposed (size=24, align=8)> *inNodes);
+uint32_t JPH_AABBTreeBuilder_Node_GetTriangleCountInTree(< Unexposed (size=24, align=8)> *inNodes);
+void JPH_AABBTreeBuilder_Node_GetTriangleCountPerNode(< Unexposed (size=24, align=8)> *inNodes, float *outAverage, uint32_t *outMin, uint32_t *outMax);
+float JPH_AABBTreeBuilder_Node_CalculateSAHCost(< Unexposed (size=24, align=8)> *inNodes, float inCostTraversal, float inCostLeaf);
+void JPH_AABBTreeBuilder_Node_GetNChildren(< Unexposed (size=24, align=8)> *inNodes, uint32_t inN, < Unexposed (size=24, align=8)> *outChildren);
+float JPH_AABBTreeBuilder_Node_CalculateSAHCostInternal(< Unexposed (size=24, align=8)> *inNodes, float inCostTraversalDivSurfaceArea, float inCostLeafDivSurfaceArea);
+void JPH_AABBTreeBuilder_Node_GetTriangleCountPerNodeInternal(< Unexposed (size=24, align=8)> *inNodes, float *outAverage, uint32_t *outAverageDivisor, uint32_t *outMin, uint32_t *outMax);
 // JoltPhysics/Jolt/AABBTree/AABBTreeBuilder.h:35:1
 typedef struct JPH_AABBTreeBuilder {
     JPH_TriangleSplitter *mTriangleSplitter;
@@ -3688,6 +7956,11 @@ typedef struct JPH_AABBTreeBuilder {
     < Unexposed (size=24, align=8)> mTriangles;
 } JPH_AABBTreeBuilder;
 
+void JPH_AABBTreeBuilder_AABBTreeBuilder(JPH_TriangleSplitter *inSplitter, uint32_t inMaxTrianglesPerLeaf);
+JPH_AABBTreeBuilder_Node *JPH_AABBTreeBuilder_Build(JPH_AABBTreeBuilderStats *outStats);
+< Unexposed (size=24, align=8)> *JPH_AABBTreeBuilder_GetNodes();
+< Unexposed (size=24, align=8)> *JPH_AABBTreeBuilder_GetTriangles();
+uint32_t JPH_AABBTreeBuilder_BuildInternal(JPH_TriangleSplitter_Range *inTriangles);
 // JoltPhysics/Jolt/AABBTree/TriangleCodec/TriangleCodecIndexed8BitPackSOA4Flags.h:27:2
 typedef struct JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleHeader {
     JPH_Float3 mOffset;
@@ -3711,12 +7984,17 @@ typedef struct JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlockHeader {
     uint32_t mFlags;
 } JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlockHeader;
 
+JPH_TriangleCodecIndexed8BitPackSOA4Flags_VertexData *JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlockHeader_GetVertexData();
+JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlock *JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlockHeader_GetTriangleBlock();
+uint32_t *JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlockHeader_GetUserData();
 // JoltPhysics/Jolt/AABBTree/TriangleCodec/TriangleCodecIndexed8BitPackSOA4Flags.h:104:2
 typedef struct JPH_TriangleCodecIndexed8BitPackSOA4Flags_ValidationContext {
     JPH_VertexList *mVertices;
     JPH_AABox mBounds;
 } JPH_TriangleCodecIndexed8BitPackSOA4Flags_ValidationContext;
 
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_ValidationContext_ValidationContext(JPH_IndexedTriangleList *inTriangles, JPH_VertexList *inVertices);
+bool JPH_TriangleCodecIndexed8BitPackSOA4Flags_ValidationContext_IsDegenerate(JPH_IndexedTriangle *inTriangle);
 // JoltPhysics/Jolt/AABBTree/TriangleCodec/TriangleCodecIndexed8BitPackSOA4Flags.h:329:3
 typedef < ? named (size=24, align=8)> JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_VertexMap;
 
@@ -3728,6 +8006,11 @@ typedef struct JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext {
     JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_VertexMap mVertexMap;
 } JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext;
 
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_EncodingContext(JPH_VertexList *inVertices);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_PreparePack(JPH_IndexedTriangle *inTriangles, uint32_t inNumTriangles, bool inStoreUserData, uint64_t *ioBufferSize);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_FinalizePreparePack(uint64_t *ioBufferSize);
+size_t JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_Pack(JPH_IndexedTriangle *inTriangles, uint32_t inNumTriangles, bool inStoreUserData, JPH_ByteBuffer *ioBuffer, int8_t **outError);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_Finalize(JPH_VertexList *inVertices, JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleHeader *ioHeader, JPH_ByteBuffer *ioBuffer);
 // JoltPhysics/Jolt/AABBTree/TriangleCodec/TriangleCodecIndexed8BitPackSOA4Flags.h:338:2
 typedef struct JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext {
     JPH_Vec4 mOffsetX;
@@ -3738,6 +8021,16 @@ typedef struct JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext {
     JPH_Vec4 mScaleZ;
 } JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext;
 
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_Unpack(JPH_TriangleCodecIndexed8BitPackSOA4Flags_VertexData *inVertices, JPH_UVec4Arg inIndex, JPH_Vec4 *outX, JPH_Vec4 *outY, JPH_Vec4 *outZ);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_Unpack(JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlock *inBlock, JPH_TriangleCodecIndexed8BitPackSOA4Flags_VertexData *inVertices, JPH_Vec4 *outX1, JPH_Vec4 *outY1, JPH_Vec4 *outZ1, JPH_Vec4 *outX2, JPH_Vec4 *outY2, JPH_Vec4 *outZ2, JPH_Vec4 *outX3, JPH_Vec4 *outY3, JPH_Vec4 *outZ3);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_DecodingContext(JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleHeader *inHeader);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_Unpack(void *inTriangleStart, uint32_t inNumTriangles, JPH_Vec3 *outTriangles);
+float JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_TestRay(JPH_Vec3Arg inRayOrigin, JPH_Vec3Arg inRayDirection, void *inTriangleStart, uint32_t inNumTriangles, float inClosest, uint32_t *outClosestTriangleIndex);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_GetTriangle(void *inTriangleStart, uint32_t inTriangleIdx, JPH_Vec3 *outV1, JPH_Vec3 *outV2, JPH_Vec3 *outV3);
+uint32_t JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_GetUserData(void *inTriangleStart, uint32_t inTriangleIdx);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_sGetFlags(void *inTriangleStart, uint32_t inNumTriangles, uint8_t *outTriangleFlags);
+uint8_t JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_sGetFlags(void *inTriangleStart, int32_t inTriangleIndex);
+void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_Unpack(void *inTriangleStart, uint32_t inNumTriangles, JPH_Vec3 *outTriangles, uint8_t *outTriangleFlags);
 // JoltPhysics/Jolt/AABBTree/TriangleCodec/TriangleCodecIndexed8BitPackSOA4Flags.h:24:1
 typedef struct JPH_TriangleCodecIndexed8BitPackSOA4Flags JPH_TriangleCodecIndexed8BitPackSOA4Flags;
 
@@ -3769,12 +8062,20 @@ typedef struct JPH_NodeCodecQuadTreeHalfFloat_EncodingContext {
     size_t mHighestTriangleBlock;
 } JPH_NodeCodecQuadTreeHalfFloat_EncodingContext;
 
+void JPH_NodeCodecQuadTreeHalfFloat_EncodingContext_PrepareNodeAllocate(JPH_AABBTreeBuilder_Node *inNode, uint64_t *ioBufferSize);
+size_t JPH_NodeCodecQuadTreeHalfFloat_EncodingContext_NodeAllocate(JPH_AABBTreeBuilder_Node *inNode, JPH_Vec3Arg inNodeBoundsMin, JPH_Vec3Arg inNodeBoundsMax, < Unexposed (size=24, align=8)> *ioChildren, JPH_Vec3 outChildBoundsMin[4], JPH_Vec3 outChildBoundsMax[4], JPH_ByteBuffer *ioBuffer, int8_t **outError);
+bool JPH_NodeCodecQuadTreeHalfFloat_EncodingContext_NodeFinalize(JPH_AABBTreeBuilder_Node *inNode, size_t inNodeStart, uint32_t inNumChildren, size_t *inChildrenNodeStart, size_t *inChildrenTrianglesStart, JPH_ByteBuffer *ioBuffer, int8_t **outError);
+bool JPH_NodeCodecQuadTreeHalfFloat_EncodingContext_Finalize(JPH_NodeCodecQuadTreeHalfFloat_Header *outHeader, JPH_AABBTreeBuilder_Node *inRoot, size_t inRootNodeStart, size_t inRootTrianglesStart, int8_t **outError);
 // JoltPhysics/Jolt/AABBTree/NodeCodec/NodeCodecQuadTreeHalfFloat.h:221:2
 typedef struct JPH_NodeCodecQuadTreeHalfFloat_DecodingContext {
     uint32_t mNodeStack[128];
     int32_t mTop;
 } JPH_NodeCodecQuadTreeHalfFloat_DecodingContext;
 
+uint32_t JPH_NodeCodecQuadTreeHalfFloat_DecodingContext_sTriangleBlockIDBits(JPH_NodeCodecQuadTreeHalfFloat_Header *inHeader);
+void *JPH_NodeCodecQuadTreeHalfFloat_DecodingContext_sGetTriangleBlockStart(uint8_t *inBufferStart, uint32_t inTriangleBlockID);
+void JPH_NodeCodecQuadTreeHalfFloat_DecodingContext_DecodingContext(JPH_NodeCodecQuadTreeHalfFloat_Header *inHeader);
+bool JPH_NodeCodecQuadTreeHalfFloat_DecodingContext_IsDoneWalking();
 // JoltPhysics/Jolt/AABBTree/NodeCodec/NodeCodecQuadTreeHalfFloat.h:13:1
 typedef struct JPH_NodeCodecQuadTreeHalfFloat {
     enum {
@@ -3792,6 +8093,26 @@ typedef struct JPH_NodeCodecQuadTreeHalfFloat {
 // Has vtable
 typedef struct JPH_HeightFieldShapeSettings JPH_HeightFieldShapeSettings;
 
+void *JPH_HeightFieldShapeSettings_operator_new(size_t inCount);
+void JPH_HeightFieldShapeSettings_operator_delete(void *inPointer);
+void *JPH_HeightFieldShapeSettings_operator_new[](size_t inCount);
+void JPH_HeightFieldShapeSettings_operator_delete[](void *inPointer);
+void *JPH_HeightFieldShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HeightFieldShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HeightFieldShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HeightFieldShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HeightFieldShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_HeightFieldShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_HeightFieldShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_HeightFieldShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_HeightFieldShapeSettings_GetRTTI();
+void *JPH_HeightFieldShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_HeightFieldShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_HeightFieldShapeSettings_HeightFieldShapeSettings();
+void JPH_HeightFieldShapeSettings_HeightFieldShapeSettings(float *inSamples, JPH_Vec3Arg inOffset, JPH_Vec3Arg inScale, uint32_t inSampleCount, uint8_t *inMaterialIndices, JPH_PhysicsMaterialList *inMaterialList);
+JPH_ShapeSettings_ShapeResult JPH_HeightFieldShapeSettings_Create();
+void JPH_HeightFieldShapeSettings_DetermineMinAndMaxSample(float *outMinValue, float *outMaxValue, float *outQuantizationScale);
+uint32_t JPH_HeightFieldShapeSettings_CalculateBitsPerSampleForError(float inMaxError);
 // JoltPhysics/Jolt/Physics/Collision/Shape/HeightFieldShape.h:337:2
 typedef struct JPH_HeightFieldShape_RangeBlock {
     uint16_t mMin[4];
@@ -3802,20 +8123,161 @@ typedef struct JPH_HeightFieldShape_RangeBlock {
 // Has vtable
 typedef struct JPH_HeightFieldShape JPH_HeightFieldShape;
 
+void *JPH_HeightFieldShape_operator_new(size_t inCount);
+void JPH_HeightFieldShape_operator_delete(void *inPointer);
+void *JPH_HeightFieldShape_operator_new[](size_t inCount);
+void JPH_HeightFieldShape_operator_delete[](void *inPointer);
+void *JPH_HeightFieldShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HeightFieldShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HeightFieldShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_HeightFieldShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_HeightFieldShape_operator_new(size_t inCount, void *inPointer);
+void JPH_HeightFieldShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_HeightFieldShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_HeightFieldShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_HeightFieldShape_HeightFieldShape();
+void JPH_HeightFieldShape_HeightFieldShape(JPH_HeightFieldShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_HeightFieldShape_~HeightFieldShape();
+< Unexposed (size=-2, align=-2)> JPH_HeightFieldShape_Clone();
+bool JPH_HeightFieldShape_MustBeStatic();
+uint32_t JPH_HeightFieldShape_GetSampleCount();
+uint32_t JPH_HeightFieldShape_GetBlockSize();
+JPH_AABox JPH_HeightFieldShape_GetLocalBounds();
+uint32_t JPH_HeightFieldShape_GetSubShapeIDBitsRecursive();
+float JPH_HeightFieldShape_GetInnerRadius();
+JPH_MassProperties JPH_HeightFieldShape_GetMassProperties();
+JPH_PhysicsMaterial *JPH_HeightFieldShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+JPH_PhysicsMaterial *JPH_HeightFieldShape_GetMaterial(uint32_t inX, uint32_t inY);
+JPH_Vec3 JPH_HeightFieldShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_HeightFieldShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+void JPH_HeightFieldShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_HeightFieldShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_HeightFieldShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_HeightFieldShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_HeightFieldShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_HeightFieldShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_HeightFieldShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+JPH_Vec3 JPH_HeightFieldShape_GetPosition(uint32_t inX, uint32_t inY);
+bool JPH_HeightFieldShape_IsNoCollision(uint32_t inX, uint32_t inY);
+bool JPH_HeightFieldShape_ProjectOntoSurface(JPH_Vec3Arg inLocalPosition, JPH_Vec3 *outSurfacePosition, JPH_SubShapeID *outSubShapeID);
+void JPH_HeightFieldShape_GetSubShapeCoordinates(JPH_SubShapeID *inSubShapeID, uint32_t *outX, uint32_t *outY, uint32_t *outTriangleIndex);
+float JPH_HeightFieldShape_GetMinHeightValue();
+float JPH_HeightFieldShape_GetMaxHeightValue();
+void JPH_HeightFieldShape_GetHeights(uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, float *outHeights, intptr_t inHeightsStride);
+void JPH_HeightFieldShape_SetHeights(uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, float *inHeights, intptr_t inHeightsStride, JPH_TempAllocator *inAllocator, float inActiveEdgeCosThresholdAngle);
+JPH_PhysicsMaterialList *JPH_HeightFieldShape_GetMaterialList();
+void JPH_HeightFieldShape_GetMaterials(uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, uint8_t *outMaterials, intptr_t inMaterialsStride);
+bool JPH_HeightFieldShape_SetMaterials(uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, uint8_t *inMaterials, intptr_t inMaterialsStride, JPH_PhysicsMaterialList *inMaterialList, JPH_TempAllocator *inAllocator);
+void JPH_HeightFieldShape_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_HeightFieldShape_SaveMaterialState(JPH_PhysicsMaterialList *outMaterials);
+void JPH_HeightFieldShape_RestoreMaterialState(JPH_PhysicsMaterialRefC *inMaterials, uint32_t inNumMaterials);
+JPH_Shape_Stats JPH_HeightFieldShape_GetStats();
+float JPH_HeightFieldShape_GetVolume();
+void JPH_HeightFieldShape_sRegister();
+void JPH_HeightFieldShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_HeightFieldShape_CacheValues();
+void JPH_HeightFieldShape_AllocateBuffers();
+void JPH_HeightFieldShape_CalculateActiveEdges(uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, float *inHeights, uint32_t inHeightsStartX, uint32_t inHeightsStartY, intptr_t inHeightsStride, float inHeightsScale, float inActiveEdgeCosThresholdAngle, JPH_TempAllocator *inAllocator);
+void JPH_HeightFieldShape_CalculateActiveEdges(JPH_HeightFieldShapeSettings *inSettings);
+void JPH_HeightFieldShape_StoreMaterialIndices(JPH_HeightFieldShapeSettings *inSettings);
+uint32_t JPH_HeightFieldShape_GetNumBlocks();
+uint32_t JPH_HeightFieldShape_sGetMaxLevel(uint32_t inNumBlocks);
+void JPH_HeightFieldShape_sGetRangeBlockOffsetAndStride(uint32_t inNumBlocks, uint32_t inMaxLevel, uint32_t *outRangeBlockOffset, uint32_t *outRangeBlockStride);
+void JPH_HeightFieldShape_GetBlockOffsetAndScale(uint32_t inBlockX, uint32_t inBlockY, uint32_t inRangeBlockOffset, uint32_t inRangeBlockStride, float *outBlockOffset, float *outBlockScale);
+uint8_t JPH_HeightFieldShape_GetHeightSample(uint32_t inX, uint32_t inY);
+JPH_Vec3 JPH_HeightFieldShape_GetPosition(uint32_t inX, uint32_t inY, float inBlockOffset, float inBlockScale, bool *outNoCollision);
+uint32_t JPH_HeightFieldShape_GetSubShapeIDBits();
+JPH_SubShapeID JPH_HeightFieldShape_EncodeSubShapeID(JPH_SubShapeIDCreator *inCreator, uint32_t inX, uint32_t inY, uint32_t inTriangle);
+void JPH_HeightFieldShape_DecodeSubShapeID(JPH_SubShapeID *inSubShapeID, uint32_t *outX, uint32_t *outY, uint32_t *outTriangle);
+uint8_t JPH_HeightFieldShape_GetEdgeFlags(uint32_t inX, uint32_t inY, uint32_t inTriangle);
+void JPH_HeightFieldShape_sCollideConvexVsHeightField(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_HeightFieldShape_sCollideSphereVsHeightField(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_HeightFieldShape_sCastConvexVsHeightField(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_HeightFieldShape_sCastSphereVsHeightField(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_HeightFieldShape_GetRangeBlock(uint32_t inBlockX, uint32_t inBlockY, uint32_t inRangeBlockOffset, uint32_t inRangeBlockStride, JPH_HeightFieldShape_RangeBlock **outBlock, uint32_t *outIndexInBlock);
 // JoltPhysics/Jolt/Physics/Collision/CollidePointResult.h:13:1
 typedef struct JPH_CollidePointResult {
     JPH_BodyID mBodyID;
     JPH_SubShapeID mSubShapeID2;
 } JPH_CollidePointResult;
 
+void *JPH_CollidePointResult_operator_new(size_t inCount);
+void JPH_CollidePointResult_operator_delete(void *inPointer);
+void *JPH_CollidePointResult_operator_new[](size_t inCount);
+void JPH_CollidePointResult_operator_delete[](void *inPointer);
+void *JPH_CollidePointResult_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollidePointResult_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollidePointResult_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CollidePointResult_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CollidePointResult_operator_new(size_t inCount, void *inPointer);
+void JPH_CollidePointResult_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CollidePointResult_operator_new[](size_t inCount, void *inPointer);
+void JPH_CollidePointResult_operator_delete[](void *inPointer, void *inPlace);
+float JPH_CollidePointResult_GetEarlyOutFraction();
 // JoltPhysics/Jolt/Physics/Collision/Shape/CapsuleShape.h:12:1
 // Has vtable
 typedef struct JPH_CapsuleShapeSettings JPH_CapsuleShapeSettings;
 
+void *JPH_CapsuleShapeSettings_operator_new(size_t inCount);
+void JPH_CapsuleShapeSettings_operator_delete(void *inPointer);
+void *JPH_CapsuleShapeSettings_operator_new[](size_t inCount);
+void JPH_CapsuleShapeSettings_operator_delete[](void *inPointer);
+void *JPH_CapsuleShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CapsuleShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CapsuleShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CapsuleShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CapsuleShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CapsuleShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CapsuleShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CapsuleShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_CapsuleShapeSettings_GetRTTI();
+void *JPH_CapsuleShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_CapsuleShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_CapsuleShapeSettings_CapsuleShapeSettings();
+void JPH_CapsuleShapeSettings_CapsuleShapeSettings(float inHalfHeightOfCylinder, float inRadius, JPH_PhysicsMaterial *inMaterial);
+bool JPH_CapsuleShapeSettings_IsValid();
+bool JPH_CapsuleShapeSettings_IsSphere();
+JPH_ShapeSettings_ShapeResult JPH_CapsuleShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/CapsuleShape.h:37:1
 // Has vtable
 typedef struct JPH_CapsuleShape JPH_CapsuleShape;
 
+void *JPH_CapsuleShape_operator_new(size_t inCount);
+void JPH_CapsuleShape_operator_delete(void *inPointer);
+void *JPH_CapsuleShape_operator_new[](size_t inCount);
+void JPH_CapsuleShape_operator_delete[](void *inPointer);
+void *JPH_CapsuleShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CapsuleShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CapsuleShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CapsuleShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CapsuleShape_operator_new(size_t inCount, void *inPointer);
+void JPH_CapsuleShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CapsuleShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_CapsuleShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CapsuleShape_CapsuleShape();
+void JPH_CapsuleShape_CapsuleShape(JPH_CapsuleShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_CapsuleShape_CapsuleShape(float inHalfHeightOfCylinder, float inRadius, JPH_PhysicsMaterial *inMaterial);
+float JPH_CapsuleShape_GetRadius();
+float JPH_CapsuleShape_GetHalfHeightOfCylinder();
+JPH_AABox JPH_CapsuleShape_GetLocalBounds();
+JPH_AABox JPH_CapsuleShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_CapsuleShape_GetInnerRadius();
+JPH_MassProperties JPH_CapsuleShape_GetMassProperties();
+JPH_Vec3 JPH_CapsuleShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_CapsuleShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_CapsuleShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+bool JPH_CapsuleShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_CapsuleShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_CapsuleShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_CapsuleShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_CapsuleShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_CapsuleShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_CapsuleShape_GetStats();
+float JPH_CapsuleShape_GetVolume();
+bool JPH_CapsuleShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_CapsuleShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_CapsuleShape_sRegister();
+void JPH_CapsuleShape_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/Shape/GetTrianglesContext.h:14:1
 typedef struct JPH_GetTrianglesContextVertexList {
     JPH_Mat44 mLocalToWorld;
@@ -3826,6 +8288,8 @@ typedef struct JPH_GetTrianglesContextVertexList {
     bool mIsInsideOut;
 } JPH_GetTrianglesContextVertexList;
 
+void JPH_GetTrianglesContextVertexList_GetTrianglesContextVertexList(JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_Mat44Arg inLocalTransform, JPH_Vec3 *inTriangleVertices, size_t inNumTriangleVertices, JPH_PhysicsMaterial *inMaterial);
+int32_t JPH_GetTrianglesContextVertexList_GetTrianglesNext(int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
 // JoltPhysics/Jolt/Physics/Collision/Shape/GetTrianglesContext.h:234:2
 typedef struct JPH_GetTrianglesContextMultiVertexList_Part {
     JPH_Mat44 mLocalToWorld;
@@ -3842,42 +8306,286 @@ typedef struct JPH_GetTrianglesContextMultiVertexList {
     bool mIsInsideOut;
 } JPH_GetTrianglesContextMultiVertexList;
 
+void JPH_GetTrianglesContextMultiVertexList_GetTrianglesContextMultiVertexList(bool inIsInsideOut, JPH_PhysicsMaterial *inMaterial);
+void JPH_GetTrianglesContextMultiVertexList_AddPart(JPH_Mat44Arg inLocalToWorld, JPH_Vec3 *inTriangleVertices, size_t inNumTriangleVertices);
+int32_t JPH_GetTrianglesContextMultiVertexList_GetTrianglesNext(int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CylinderShape.h:13:1
 // Has vtable
 typedef struct JPH_CylinderShapeSettings JPH_CylinderShapeSettings;
 
+void *JPH_CylinderShapeSettings_operator_new(size_t inCount);
+void JPH_CylinderShapeSettings_operator_delete(void *inPointer);
+void *JPH_CylinderShapeSettings_operator_new[](size_t inCount);
+void JPH_CylinderShapeSettings_operator_delete[](void *inPointer);
+void *JPH_CylinderShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CylinderShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CylinderShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CylinderShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CylinderShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CylinderShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CylinderShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CylinderShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_CylinderShapeSettings_GetRTTI();
+void *JPH_CylinderShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_CylinderShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_CylinderShapeSettings_CylinderShapeSettings();
+void JPH_CylinderShapeSettings_CylinderShapeSettings(float inHalfHeight, float inRadius, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_ShapeSettings_ShapeResult JPH_CylinderShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/CylinderShape.h:34:1
 // Has vtable
 typedef struct JPH_CylinderShape JPH_CylinderShape;
 
+void *JPH_CylinderShape_operator_new(size_t inCount);
+void JPH_CylinderShape_operator_delete(void *inPointer);
+void *JPH_CylinderShape_operator_new[](size_t inCount);
+void JPH_CylinderShape_operator_delete[](void *inPointer);
+void *JPH_CylinderShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CylinderShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CylinderShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CylinderShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CylinderShape_operator_new(size_t inCount, void *inPointer);
+void JPH_CylinderShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CylinderShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_CylinderShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CylinderShape_CylinderShape();
+void JPH_CylinderShape_CylinderShape(JPH_CylinderShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_CylinderShape_CylinderShape(float inHalfHeight, float inRadius, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+float JPH_CylinderShape_GetHalfHeight();
+float JPH_CylinderShape_GetRadius();
+JPH_AABox JPH_CylinderShape_GetLocalBounds();
+float JPH_CylinderShape_GetInnerRadius();
+JPH_MassProperties JPH_CylinderShape_GetMassProperties();
+JPH_Vec3 JPH_CylinderShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_CylinderShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_CylinderShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+bool JPH_CylinderShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_CylinderShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_CylinderShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_CylinderShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_CylinderShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_CylinderShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_CylinderShape_GetStats();
+float JPH_CylinderShape_GetVolume();
+float JPH_CylinderShape_GetConvexRadius();
+bool JPH_CylinderShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_CylinderShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_CylinderShape_sRegister();
+void JPH_CylinderShape_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/Shape/OffsetCenterOfMassShape.h:14:1
 // Has vtable
 typedef struct JPH_OffsetCenterOfMassShapeSettings JPH_OffsetCenterOfMassShapeSettings;
 
+void *JPH_OffsetCenterOfMassShapeSettings_operator_new(size_t inCount);
+void JPH_OffsetCenterOfMassShapeSettings_operator_delete(void *inPointer);
+void *JPH_OffsetCenterOfMassShapeSettings_operator_new[](size_t inCount);
+void JPH_OffsetCenterOfMassShapeSettings_operator_delete[](void *inPointer);
+void *JPH_OffsetCenterOfMassShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_OffsetCenterOfMassShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_OffsetCenterOfMassShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_OffsetCenterOfMassShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_OffsetCenterOfMassShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_OffsetCenterOfMassShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_OffsetCenterOfMassShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_OffsetCenterOfMassShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_OffsetCenterOfMassShapeSettings_GetRTTI();
+void *JPH_OffsetCenterOfMassShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_OffsetCenterOfMassShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_OffsetCenterOfMassShapeSettings_OffsetCenterOfMassShapeSettings();
+void JPH_OffsetCenterOfMassShapeSettings_OffsetCenterOfMassShapeSettings(JPH_Vec3Arg inOffset, JPH_ShapeSettings *inShape);
+void JPH_OffsetCenterOfMassShapeSettings_OffsetCenterOfMassShapeSettings(JPH_Vec3Arg inOffset, JPH_Shape *inShape);
+JPH_ShapeSettings_ShapeResult JPH_OffsetCenterOfMassShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/OffsetCenterOfMassShape.h:35:1
 // Has vtable
 typedef struct JPH_OffsetCenterOfMassShape JPH_OffsetCenterOfMassShape;
 
+void *JPH_OffsetCenterOfMassShape_operator_new(size_t inCount);
+void JPH_OffsetCenterOfMassShape_operator_delete(void *inPointer);
+void *JPH_OffsetCenterOfMassShape_operator_new[](size_t inCount);
+void JPH_OffsetCenterOfMassShape_operator_delete[](void *inPointer);
+void *JPH_OffsetCenterOfMassShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_OffsetCenterOfMassShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_OffsetCenterOfMassShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_OffsetCenterOfMassShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_OffsetCenterOfMassShape_operator_new(size_t inCount, void *inPointer);
+void JPH_OffsetCenterOfMassShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_OffsetCenterOfMassShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_OffsetCenterOfMassShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_OffsetCenterOfMassShape_OffsetCenterOfMassShape();
+void JPH_OffsetCenterOfMassShape_OffsetCenterOfMassShape(JPH_OffsetCenterOfMassShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_OffsetCenterOfMassShape_OffsetCenterOfMassShape(JPH_Shape *inShape, JPH_Vec3Arg inOffset);
+JPH_Vec3 JPH_OffsetCenterOfMassShape_GetOffset();
+JPH_Vec3 JPH_OffsetCenterOfMassShape_GetCenterOfMass();
+JPH_AABox JPH_OffsetCenterOfMassShape_GetLocalBounds();
+JPH_AABox JPH_OffsetCenterOfMassShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_OffsetCenterOfMassShape_GetInnerRadius();
+JPH_MassProperties JPH_OffsetCenterOfMassShape_GetMassProperties();
+JPH_TransformedShape JPH_OffsetCenterOfMassShape_GetSubShapeTransformedShape(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeID *outRemainder);
+JPH_Vec3 JPH_OffsetCenterOfMassShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_OffsetCenterOfMassShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+void JPH_OffsetCenterOfMassShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_OffsetCenterOfMassShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_OffsetCenterOfMassShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_OffsetCenterOfMassShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_OffsetCenterOfMassShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_OffsetCenterOfMassShape_CollectTransformedShapes(JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_OffsetCenterOfMassShape_TransformShape(JPH_Mat44Arg inCenterOfMassTransform, JPH_TransformedShapeCollector *ioCollector);
+void JPH_OffsetCenterOfMassShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_OffsetCenterOfMassShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_OffsetCenterOfMassShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_OffsetCenterOfMassShape_GetStats();
+float JPH_OffsetCenterOfMassShape_GetVolume();
+void JPH_OffsetCenterOfMassShape_sRegister();
+void JPH_OffsetCenterOfMassShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_OffsetCenterOfMassShape_sCollideOffsetCenterOfMassVsShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_OffsetCenterOfMassShape_sCollideShapeVsOffsetCenterOfMass(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_OffsetCenterOfMassShape_sCastOffsetCenterOfMassVsShape(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_OffsetCenterOfMassShape_sCastShapeVsOffsetCenterOfMass(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/Shape/TaperedCylinderShape.h:13:1
 // Has vtable
 typedef struct JPH_TaperedCylinderShapeSettings JPH_TaperedCylinderShapeSettings;
 
+void *JPH_TaperedCylinderShapeSettings_operator_new(size_t inCount);
+void JPH_TaperedCylinderShapeSettings_operator_delete(void *inPointer);
+void *JPH_TaperedCylinderShapeSettings_operator_new[](size_t inCount);
+void JPH_TaperedCylinderShapeSettings_operator_delete[](void *inPointer);
+void *JPH_TaperedCylinderShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCylinderShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCylinderShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCylinderShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCylinderShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_TaperedCylinderShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TaperedCylinderShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_TaperedCylinderShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_TaperedCylinderShapeSettings_GetRTTI();
+void *JPH_TaperedCylinderShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_TaperedCylinderShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_TaperedCylinderShapeSettings_TaperedCylinderShapeSettings();
+void JPH_TaperedCylinderShapeSettings_TaperedCylinderShapeSettings(float inHalfHeightOfTaperedCylinder, float inTopRadius, float inBottomRadius, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_ShapeSettings_ShapeResult JPH_TaperedCylinderShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/TaperedCylinderShape.h:34:1
 // Has vtable
 typedef struct JPH_TaperedCylinderShape JPH_TaperedCylinderShape;
 
+void *JPH_TaperedCylinderShape_operator_new(size_t inCount);
+void JPH_TaperedCylinderShape_operator_delete(void *inPointer);
+void *JPH_TaperedCylinderShape_operator_new[](size_t inCount);
+void JPH_TaperedCylinderShape_operator_delete[](void *inPointer);
+void *JPH_TaperedCylinderShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCylinderShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCylinderShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TaperedCylinderShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TaperedCylinderShape_operator_new(size_t inCount, void *inPointer);
+void JPH_TaperedCylinderShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TaperedCylinderShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_TaperedCylinderShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TaperedCylinderShape_TaperedCylinderShape();
+void JPH_TaperedCylinderShape_TaperedCylinderShape(JPH_TaperedCylinderShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+float JPH_TaperedCylinderShape_GetTopRadius();
+float JPH_TaperedCylinderShape_GetBottomRadius();
+float JPH_TaperedCylinderShape_GetConvexRadius();
+float JPH_TaperedCylinderShape_GetHalfHeight();
+JPH_Vec3 JPH_TaperedCylinderShape_GetCenterOfMass();
+JPH_AABox JPH_TaperedCylinderShape_GetLocalBounds();
+float JPH_TaperedCylinderShape_GetInnerRadius();
+JPH_MassProperties JPH_TaperedCylinderShape_GetMassProperties();
+JPH_Vec3 JPH_TaperedCylinderShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_TaperedCylinderShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_TaperedCylinderShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+void JPH_TaperedCylinderShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TaperedCylinderShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_TaperedCylinderShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_TaperedCylinderShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_TaperedCylinderShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_TaperedCylinderShape_GetStats();
+float JPH_TaperedCylinderShape_GetVolume();
+bool JPH_TaperedCylinderShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_TaperedCylinderShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_TaperedCylinderShape_sRegister();
+void JPH_TaperedCylinderShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_TaperedCylinderShape_GetScaled(JPH_Vec3Arg inScale, float *outTop, float *outBottom, float *outTopRadius, float *outBottomRadius, float *outConvexRadius);
 // JoltPhysics/Jolt/Physics/Collision/Shape/BoxShape.h:13:1
 // Has vtable
 typedef struct JPH_BoxShapeSettings JPH_BoxShapeSettings;
 
+void *JPH_BoxShapeSettings_operator_new(size_t inCount);
+void JPH_BoxShapeSettings_operator_delete(void *inPointer);
+void *JPH_BoxShapeSettings_operator_new[](size_t inCount);
+void JPH_BoxShapeSettings_operator_delete[](void *inPointer);
+void *JPH_BoxShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BoxShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BoxShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BoxShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BoxShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_BoxShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BoxShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_BoxShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_BoxShapeSettings_GetRTTI();
+void *JPH_BoxShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_BoxShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_BoxShapeSettings_BoxShapeSettings();
+void JPH_BoxShapeSettings_BoxShapeSettings(JPH_Vec3Arg inHalfExtent, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_ShapeSettings_ShapeResult JPH_BoxShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/BoxShape.h:33:1
 // Has vtable
 typedef struct JPH_BoxShape JPH_BoxShape;
 
+void *JPH_BoxShape_operator_new(size_t inCount);
+void JPH_BoxShape_operator_delete(void *inPointer);
+void *JPH_BoxShape_operator_new[](size_t inCount);
+void JPH_BoxShape_operator_delete[](void *inPointer);
+void *JPH_BoxShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BoxShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BoxShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_BoxShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_BoxShape_operator_new(size_t inCount, void *inPointer);
+void JPH_BoxShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_BoxShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_BoxShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_BoxShape_BoxShape();
+void JPH_BoxShape_BoxShape(JPH_BoxShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_BoxShape_BoxShape(JPH_Vec3Arg inHalfExtent, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_Vec3 JPH_BoxShape_GetHalfExtent();
+JPH_AABox JPH_BoxShape_GetLocalBounds();
+float JPH_BoxShape_GetInnerRadius();
+JPH_MassProperties JPH_BoxShape_GetMassProperties();
+JPH_Vec3 JPH_BoxShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_BoxShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_BoxShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+bool JPH_BoxShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_BoxShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_BoxShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_BoxShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_BoxShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_BoxShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_BoxShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_BoxShape_GetStats();
+float JPH_BoxShape_GetVolume();
+float JPH_BoxShape_GetConvexRadius();
+void JPH_BoxShape_sRegister();
+void JPH_BoxShape_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Collision/Shape/ConvexHullShape.h:17:1
 // Has vtable
 typedef struct JPH_ConvexHullShapeSettings JPH_ConvexHullShapeSettings;
 
+void *JPH_ConvexHullShapeSettings_operator_new(size_t inCount);
+void JPH_ConvexHullShapeSettings_operator_delete(void *inPointer);
+void *JPH_ConvexHullShapeSettings_operator_new[](size_t inCount);
+void JPH_ConvexHullShapeSettings_operator_delete[](void *inPointer);
+void *JPH_ConvexHullShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_ConvexHullShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConvexHullShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConvexHullShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_ConvexHullShapeSettings_GetRTTI();
+void *JPH_ConvexHullShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_ConvexHullShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_ConvexHullShapeSettings_ConvexHullShapeSettings();
+void JPH_ConvexHullShapeSettings_ConvexHullShapeSettings(JPH_Vec3 *inPoints, int32_t inNumPoints, float inMaxConvexRadius, JPH_PhysicsMaterial *inMaterial);
+void JPH_ConvexHullShapeSettings_ConvexHullShapeSettings(< Unexposed (size=24, align=8)> *inPoints, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_ShapeSettings_ShapeResult JPH_ConvexHullShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/ConvexHullShape.h:167:2
 typedef struct JPH_ConvexHullShape_Face {
     uint16_t mFirstVertex;
@@ -3895,6 +8603,47 @@ typedef struct JPH_ConvexHullShape_Point {
 // Has vtable
 typedef struct JPH_ConvexHullShape JPH_ConvexHullShape;
 
+void *JPH_ConvexHullShape_operator_new(size_t inCount);
+void JPH_ConvexHullShape_operator_delete(void *inPointer);
+void *JPH_ConvexHullShape_operator_new[](size_t inCount);
+void JPH_ConvexHullShape_operator_delete[](void *inPointer);
+void *JPH_ConvexHullShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullShape_operator_new(size_t inCount, void *inPointer);
+void JPH_ConvexHullShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConvexHullShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConvexHullShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ConvexHullShape_ConvexHullShape();
+void JPH_ConvexHullShape_ConvexHullShape(JPH_ConvexHullShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+JPH_Vec3 JPH_ConvexHullShape_GetCenterOfMass();
+JPH_AABox JPH_ConvexHullShape_GetLocalBounds();
+float JPH_ConvexHullShape_GetInnerRadius();
+JPH_MassProperties JPH_ConvexHullShape_GetMassProperties();
+JPH_Vec3 JPH_ConvexHullShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_ConvexHullShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_ConvexHullShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+void JPH_ConvexHullShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_ConvexHullShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_ConvexHullShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ConvexHullShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_ConvexHullShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_ConvexHullShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_ConvexHullShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_ConvexHullShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_ConvexHullShape_GetStats();
+float JPH_ConvexHullShape_GetVolume();
+float JPH_ConvexHullShape_GetConvexRadius();
+< Unexposed (size=24, align=8)> *JPH_ConvexHullShape_GetPlanes();
+uint32_t JPH_ConvexHullShape_GetNumPoints();
+JPH_Vec3 JPH_ConvexHullShape_GetPoint(uint32_t inIndex);
+uint32_t JPH_ConvexHullShape_GetNumFaces();
+uint32_t JPH_ConvexHullShape_GetNumVerticesInFace(uint32_t inFaceIndex);
+uint32_t JPH_ConvexHullShape_GetFaceVertices(uint32_t inFaceIndex, uint32_t inMaxVertices, uint32_t *outVertices);
+void JPH_ConvexHullShape_sRegister();
+void JPH_ConvexHullShape_RestoreBinaryState(JPH_StreamIn *inStream);
+bool JPH_ConvexHullShape_CastRayHelper(JPH_RayCast *inRay, float *outMinFraction, float *outMaxFraction);
 // JoltPhysics/Jolt/Physics/Collision/Shape/PolyhedronSubmergedVolumeCalculator.h:147:2
 typedef struct JPH_PolyhedronSubmergedVolumeCalculator_Point {
     JPH_Vec3 mPosition;
@@ -3912,6 +8661,17 @@ typedef struct JPH_PolyhedronSubmergedVolumeCalculator {
     JPH_Vec3 mCenterOfBuoyancy;
 } JPH_PolyhedronSubmergedVolumeCalculator;
 
+void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume4(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, JPH_Vec3Arg inV3, JPH_Vec3Arg inV4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4);
+JPH_Vec3 JPH_PolyhedronSubmergedVolumeCalculator_sGetPlaneIntersection(JPH_Vec3Arg inV1, float inD1, JPH_Vec3Arg inV2, float inD2);
+void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume1(JPH_Vec3Arg inV1, float inD1, JPH_Vec3Arg inV2, float inD2, JPH_Vec3Arg inV3, float inD3, JPH_Vec3Arg inV4, float inD4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4);
+void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume2(JPH_Vec3Arg inV1, float inD1, JPH_Vec3Arg inV2, float inD2, JPH_Vec3Arg inV3, float inD3, JPH_Vec3Arg inV4, float inD4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4);
+void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume3(JPH_Vec3Arg inV1, float inD1, JPH_Vec3Arg inV2, float inD2, JPH_Vec3Arg inV3, float inD3, JPH_Vec3Arg inV4, float inD4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4);
+void JPH_PolyhedronSubmergedVolumeCalculator_PolyhedronSubmergedVolumeCalculator(JPH_Mat44 *inTransform, JPH_Vec3 *inPoints, int32_t inPointStride, int32_t inNumPoints, JPH_Plane *inSurface, JPH_PolyhedronSubmergedVolumeCalculator_Point *ioBuffer);
+bool JPH_PolyhedronSubmergedVolumeCalculator_AreAllAbove();
+bool JPH_PolyhedronSubmergedVolumeCalculator_AreAllBelow();
+int32_t JPH_PolyhedronSubmergedVolumeCalculator_GetReferencePointIdx();
+void JPH_PolyhedronSubmergedVolumeCalculator_AddFace(int32_t inIdx1, int32_t inIdx2, int32_t inIdx3);
+void JPH_PolyhedronSubmergedVolumeCalculator_GetResult(float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
 // JoltPhysics/Jolt/Geometry/ConvexHullBuilder.h:27:2
 typedef struct JPH_ConvexHullBuilder_Edge {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -3922,6 +8682,20 @@ typedef struct JPH_ConvexHullBuilder_Edge {
     int32_t mStartIdx;
 } JPH_ConvexHullBuilder_Edge;
 
+void *JPH_ConvexHullBuilder_Edge_operator_new(size_t inCount);
+void JPH_ConvexHullBuilder_Edge_operator_delete(void *inPointer);
+void *JPH_ConvexHullBuilder_Edge_operator_new[](size_t inCount);
+void JPH_ConvexHullBuilder_Edge_operator_delete[](void *inPointer);
+void *JPH_ConvexHullBuilder_Edge_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullBuilder_Edge_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullBuilder_Edge_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullBuilder_Edge_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullBuilder_Edge_operator_new(size_t inCount, void *inPointer);
+void JPH_ConvexHullBuilder_Edge_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConvexHullBuilder_Edge_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConvexHullBuilder_Edge_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ConvexHullBuilder_Edge_Edge(< ? named (size=80, align=16)> *inFace, int32_t inStartIdx);
+JPH_ConvexHullBuilder_Edge *JPH_ConvexHullBuilder_Edge_GetPreviousEdge();
 // JoltPhysics/Jolt/Geometry/ConvexHullBuilder.h:50:2
 typedef < ? named (size=24, align=8)> JPH_ConvexHullBuilder_ConflictList;
 
@@ -3937,6 +8711,22 @@ typedef struct JPH_ConvexHullBuilder_Face {
     bool mRemoved;
 } JPH_ConvexHullBuilder_Face;
 
+void *JPH_ConvexHullBuilder_Face_operator_new(size_t inCount);
+void JPH_ConvexHullBuilder_Face_operator_delete(void *inPointer);
+void *JPH_ConvexHullBuilder_Face_operator_new[](size_t inCount);
+void JPH_ConvexHullBuilder_Face_operator_delete[](void *inPointer);
+void *JPH_ConvexHullBuilder_Face_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullBuilder_Face_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullBuilder_Face_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullBuilder_Face_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullBuilder_Face_operator_new(size_t inCount, void *inPointer);
+void JPH_ConvexHullBuilder_Face_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConvexHullBuilder_Face_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConvexHullBuilder_Face_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ConvexHullBuilder_Face_~Face();
+void JPH_ConvexHullBuilder_Face_Initialize(int32_t inIdx0, int32_t inIdx1, int32_t inIdx2, JPH_Vec3 *inPositions);
+void JPH_ConvexHullBuilder_Face_CalculateNormalAndCentroid(JPH_Vec3 *inPositions);
+bool JPH_ConvexHullBuilder_Face_IsFacing(JPH_Vec3Arg inPosition);
 // JoltPhysics/Jolt/Geometry/ConvexHullBuilder.h:86:2
 typedef < ? named (size=24, align=8)> JPH_ConvexHullBuilder_Positions;
 
@@ -3971,6 +8761,37 @@ typedef struct JPH_ConvexHullBuilder {
     JPH_ConvexHullBuilder_CoplanarList mCoplanarList;
 } JPH_ConvexHullBuilder;
 
+void JPH_ConvexHullBuilder_ConvexHullBuilder(JPH_ConvexHullBuilder_Positions *inPositions);
+void JPH_ConvexHullBuilder_~ConvexHullBuilder();
+JPH_ConvexHullBuilder_EResult JPH_ConvexHullBuilder_Initialize(int32_t inMaxVertices, float inTolerance, int8_t **outError);
+int32_t JPH_ConvexHullBuilder_GetNumVerticesUsed();
+bool JPH_ConvexHullBuilder_ContainsFace(< Unexposed (size=24, align=8)> *inIndices);
+void JPH_ConvexHullBuilder_GetCenterOfMassAndVolume(JPH_Vec3 *outCenterOfMass, float *outVolume);
+void JPH_ConvexHullBuilder_DetermineMaxError(JPH_ConvexHullBuilder_Face **outFaceWithMaxError, float *outMaxError, int32_t *outMaxErrorPositionIdx, float *outCoplanarDistance);
+JPH_ConvexHullBuilder_Faces *JPH_ConvexHullBuilder_GetFaces();
+float JPH_ConvexHullBuilder_DetermineCoplanarDistance();
+void JPH_ConvexHullBuilder_GetFaceForPoint(JPH_Vec3Arg inPoint, JPH_ConvexHullBuilder_Faces *inFaces, JPH_ConvexHullBuilder_Face **outFace, float *outDistSq);
+float JPH_ConvexHullBuilder_GetDistanceToEdgeSq(JPH_Vec3Arg inPoint, JPH_ConvexHullBuilder_Face *inFace);
+bool JPH_ConvexHullBuilder_AssignPointToFace(int32_t inPositionIdx, JPH_ConvexHullBuilder_Faces *inFaces, float inToleranceSq);
+void JPH_ConvexHullBuilder_AddPoint(JPH_ConvexHullBuilder_Face *inFacingFace, int32_t inIdx, float inToleranceSq, JPH_ConvexHullBuilder_Faces *outNewFaces);
+void JPH_ConvexHullBuilder_GarbageCollectFaces();
+JPH_ConvexHullBuilder_Face *JPH_ConvexHullBuilder_CreateFace();
+JPH_ConvexHullBuilder_Face *JPH_ConvexHullBuilder_CreateTriangle(int32_t inIdx1, int32_t inIdx2, int32_t inIdx3);
+void JPH_ConvexHullBuilder_FreeFace(JPH_ConvexHullBuilder_Face *inFace);
+void JPH_ConvexHullBuilder_FreeFaces();
+void JPH_ConvexHullBuilder_sLinkFace(JPH_ConvexHullBuilder_Edge *inEdge1, JPH_ConvexHullBuilder_Edge *inEdge2);
+void JPH_ConvexHullBuilder_sUnlinkFace(JPH_ConvexHullBuilder_Face *inFace);
+void JPH_ConvexHullBuilder_FindEdge(JPH_ConvexHullBuilder_Face *inFacingFace, JPH_Vec3Arg inVertex, JPH_ConvexHullBuilder_FullEdges *outEdges);
+void JPH_ConvexHullBuilder_MergeFaces(JPH_ConvexHullBuilder_Edge *inEdge);
+void JPH_ConvexHullBuilder_MergeDegenerateFace(JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces);
+void JPH_ConvexHullBuilder_MergeCoplanarOrConcaveFaces(JPH_ConvexHullBuilder_Face *inFace, float inToleranceSq, JPH_ConvexHullBuilder_Faces *ioAffectedFaces);
+void JPH_ConvexHullBuilder_sMarkAffected(JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces);
+void JPH_ConvexHullBuilder_RemoveInvalidEdges(JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces);
+bool JPH_ConvexHullBuilder_RemoveTwoEdgeFace(JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces);
+void JPH_ConvexHullBuilder_DumpFace(JPH_ConvexHullBuilder_Face *inFace);
+void JPH_ConvexHullBuilder_DumpFaces();
+void JPH_ConvexHullBuilder_ValidateFace(JPH_ConvexHullBuilder_Face *inFace);
+void JPH_ConvexHullBuilder_ValidateFaces();
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShape.h:31:2
 typedef struct JPH_CompoundShapeSettings_SubShapeSettings {
     < Unexposed (size=8, align=8)> mShape;
@@ -3980,6 +8801,19 @@ typedef struct JPH_CompoundShapeSettings_SubShapeSettings {
     uint32_t mUserData;
 } JPH_CompoundShapeSettings_SubShapeSettings;
 
+void *JPH_CompoundShapeSettings_SubShapeSettings_operator_new(size_t inCount);
+void JPH_CompoundShapeSettings_SubShapeSettings_operator_delete(void *inPointer);
+void *JPH_CompoundShapeSettings_SubShapeSettings_operator_new[](size_t inCount);
+void JPH_CompoundShapeSettings_SubShapeSettings_operator_delete[](void *inPointer);
+void *JPH_CompoundShapeSettings_SubShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CompoundShapeSettings_SubShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CompoundShapeSettings_SubShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CompoundShapeSettings_SubShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CompoundShapeSettings_SubShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CompoundShapeSettings_SubShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CompoundShapeSettings_SubShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CompoundShapeSettings_SubShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CompoundShapeSettings_SubShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShape.h:46:2
 typedef < ? named (size=24, align=8)> JPH_CompoundShapeSettings_SubShapes;
 
@@ -3987,6 +8821,24 @@ typedef < ? named (size=24, align=8)> JPH_CompoundShapeSettings_SubShapes;
 // Abstract
 typedef struct JPH_CompoundShapeSettings JPH_CompoundShapeSettings;
 
+void *JPH_CompoundShapeSettings_operator_new(size_t inCount);
+void JPH_CompoundShapeSettings_operator_delete(void *inPointer);
+void *JPH_CompoundShapeSettings_operator_new[](size_t inCount);
+void JPH_CompoundShapeSettings_operator_delete[](void *inPointer);
+void *JPH_CompoundShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CompoundShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CompoundShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CompoundShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CompoundShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CompoundShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CompoundShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CompoundShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_CompoundShapeSettings_GetRTTI();
+void *JPH_CompoundShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_CompoundShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_CompoundShapeSettings_CompoundShapeSettings();
+void JPH_CompoundShapeSettings_AddShape(JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_ShapeSettings *inShape, uint32_t inUserData);
+void JPH_CompoundShapeSettings_AddShape(JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_Shape *inShape, uint32_t inUserData);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShape.h:141:2
 typedef struct JPH_CompoundShape_SubShape {
     < Unexposed (size=8, align=8)> mShape;
@@ -3996,6 +8848,15 @@ typedef struct JPH_CompoundShape_SubShape {
     bool mIsRotationIdentity;
 } JPH_CompoundShape_SubShape;
 
+bool JPH_CompoundShape_SubShape_FromSettings(JPH_CompoundShapeSettings_SubShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_CompoundShape_SubShape_SetTransform(JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_Vec3Arg inCenterOfMass);
+JPH_Mat44 JPH_CompoundShape_SubShape_GetLocalTransformNoScale(JPH_Vec3Arg inScale);
+bool JPH_CompoundShape_SubShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_CompoundShape_SubShape_TransformScale(JPH_Vec3Arg inScale);
+void JPH_CompoundShape_SubShape_SetPositionCOM(JPH_Vec3Arg inPositionCOM);
+JPH_Vec3 JPH_CompoundShape_SubShape_GetPositionCOM();
+void JPH_CompoundShape_SubShape_SetRotation(JPH_QuatArg inRotation);
+JPH_Quat JPH_CompoundShape_SubShape_GetRotation();
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShape.h:248:2
 typedef < ? named (size=24, align=8)> JPH_CompoundShape_SubShapes;
 
@@ -4003,10 +8864,80 @@ typedef < ? named (size=24, align=8)> JPH_CompoundShape_SubShapes;
 // Abstract
 typedef struct JPH_CompoundShape JPH_CompoundShape;
 
+void *JPH_CompoundShape_operator_new(size_t inCount);
+void JPH_CompoundShape_operator_delete(void *inPointer);
+void *JPH_CompoundShape_operator_new[](size_t inCount);
+void JPH_CompoundShape_operator_delete[](void *inPointer);
+void *JPH_CompoundShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CompoundShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CompoundShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CompoundShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CompoundShape_operator_new(size_t inCount, void *inPointer);
+void JPH_CompoundShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CompoundShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_CompoundShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CompoundShape_CompoundShape(JPH_EShapeSubType inSubType);
+void JPH_CompoundShape_CompoundShape(JPH_EShapeSubType inSubType, JPH_ShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+JPH_Vec3 JPH_CompoundShape_GetCenterOfMass();
+bool JPH_CompoundShape_MustBeStatic();
+JPH_AABox JPH_CompoundShape_GetLocalBounds();
+uint32_t JPH_CompoundShape_GetSubShapeIDBitsRecursive();
+JPH_AABox JPH_CompoundShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_CompoundShape_GetInnerRadius();
+JPH_MassProperties JPH_CompoundShape_GetMassProperties();
+JPH_PhysicsMaterial *JPH_CompoundShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+JPH_Shape *JPH_CompoundShape_GetLeafShape(JPH_SubShapeID *inSubShapeID, JPH_SubShapeID *outRemainder);
+uint64_t JPH_CompoundShape_GetSubShapeUserData(JPH_SubShapeID *inSubShapeID);
+JPH_TransformedShape JPH_CompoundShape_GetSubShapeTransformedShape(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeID *outRemainder);
+JPH_Vec3 JPH_CompoundShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_CompoundShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+void JPH_CompoundShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+void JPH_CompoundShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_CompoundShape_TransformShape(JPH_Mat44Arg inCenterOfMassTransform, JPH_TransformedShapeCollector *ioCollector);
+void JPH_CompoundShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_CompoundShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+int32_t JPH_CompoundShape_GetIntersectingSubShapes(JPH_AABox *inBox, uint32_t *outSubShapeIndices, int32_t inMaxSubShapeIndices);
+int32_t JPH_CompoundShape_GetIntersectingSubShapes(JPH_OrientedBox *inBox, uint32_t *outSubShapeIndices, int32_t inMaxSubShapeIndices);
+JPH_CompoundShape_SubShapes *JPH_CompoundShape_GetSubShapes();
+uint32_t JPH_CompoundShape_GetNumSubShapes();
+JPH_CompoundShape_SubShape *JPH_CompoundShape_GetSubShape(uint32_t inIdx);
+uint32_t JPH_CompoundShape_GetCompoundUserData(uint32_t inIdx);
+void JPH_CompoundShape_SetCompoundUserData(uint32_t inIdx, uint32_t inUserData);
+bool JPH_CompoundShape_IsSubShapeIDValid(JPH_SubShapeID inSubShapeID);
+uint32_t JPH_CompoundShape_GetSubShapeIndexFromID(JPH_SubShapeID inSubShapeID, JPH_SubShapeID *outRemainder);
+JPH_SubShapeIDCreator JPH_CompoundShape_GetSubShapeIDFromIndex(int32_t inIdx, JPH_SubShapeIDCreator *inParentSubShapeID);
+void JPH_CompoundShape_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_CompoundShape_SaveSubShapeState(JPH_ShapeList *outSubShapes);
+void JPH_CompoundShape_RestoreSubShapeState(JPH_ShapeRefC *inSubShapes, uint32_t inNumShapes);
+JPH_Shape_Stats JPH_CompoundShape_GetStatsRecursive(JPH_Shape_VisitedShapes *ioVisitedShapes);
+float JPH_CompoundShape_GetVolume();
+bool JPH_CompoundShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_CompoundShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_CompoundShape_sRegister();
+void JPH_CompoundShape_RestoreBinaryState(JPH_StreamIn *inStream);
+uint32_t JPH_CompoundShape_GetSubShapeIDBits();
+void JPH_CompoundShape_CalculateInnerRadius();
+void JPH_CompoundShape_sCastCompoundVsShape(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/Shape/MutableCompoundShape.h:14:1
 // Has vtable
 typedef struct JPH_MutableCompoundShapeSettings JPH_MutableCompoundShapeSettings;
 
+void *JPH_MutableCompoundShapeSettings_operator_new(size_t inCount);
+void JPH_MutableCompoundShapeSettings_operator_delete(void *inPointer);
+void *JPH_MutableCompoundShapeSettings_operator_new[](size_t inCount);
+void JPH_MutableCompoundShapeSettings_operator_delete[](void *inPointer);
+void *JPH_MutableCompoundShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MutableCompoundShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MutableCompoundShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MutableCompoundShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MutableCompoundShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_MutableCompoundShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MutableCompoundShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_MutableCompoundShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_MutableCompoundShapeSettings_GetRTTI();
+void *JPH_MutableCompoundShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_MutableCompoundShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+JPH_ShapeSettings_ShapeResult JPH_MutableCompoundShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/MutableCompoundShape.h:163:2
 typedef struct JPH_MutableCompoundShape_Bounds {
     JPH_Vec4 mMinX;
@@ -4021,6 +8952,44 @@ typedef struct JPH_MutableCompoundShape_Bounds {
 // Has vtable
 typedef struct JPH_MutableCompoundShape JPH_MutableCompoundShape;
 
+void *JPH_MutableCompoundShape_operator_new(size_t inCount);
+void JPH_MutableCompoundShape_operator_delete(void *inPointer);
+void *JPH_MutableCompoundShape_operator_new[](size_t inCount);
+void JPH_MutableCompoundShape_operator_delete[](void *inPointer);
+void *JPH_MutableCompoundShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MutableCompoundShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MutableCompoundShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MutableCompoundShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MutableCompoundShape_operator_new(size_t inCount, void *inPointer);
+void JPH_MutableCompoundShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MutableCompoundShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_MutableCompoundShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_MutableCompoundShape_MutableCompoundShape();
+void JPH_MutableCompoundShape_MutableCompoundShape(JPH_MutableCompoundShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+< Unexposed (size=-2, align=-2)> JPH_MutableCompoundShape_Clone();
+bool JPH_MutableCompoundShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_MutableCompoundShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MutableCompoundShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MutableCompoundShape_CollectTransformedShapes(JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+int32_t JPH_MutableCompoundShape_GetIntersectingSubShapes(JPH_AABox *inBox, uint32_t *outSubShapeIndices, int32_t inMaxSubShapeIndices);
+int32_t JPH_MutableCompoundShape_GetIntersectingSubShapes(JPH_OrientedBox *inBox, uint32_t *outSubShapeIndices, int32_t inMaxSubShapeIndices);
+void JPH_MutableCompoundShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_MutableCompoundShape_GetStats();
+uint32_t JPH_MutableCompoundShape_AddShape(JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_Shape *inShape, uint32_t inUserData, uint32_t inIndex);
+void JPH_MutableCompoundShape_RemoveShape(uint32_t inIndex);
+void JPH_MutableCompoundShape_ModifyShape(uint32_t inIndex, JPH_Vec3Arg inPosition, JPH_QuatArg inRotation);
+void JPH_MutableCompoundShape_ModifyShape(uint32_t inIndex, JPH_Vec3Arg inPosition, JPH_QuatArg inRotation, JPH_Shape *inShape);
+void JPH_MutableCompoundShape_ModifyShapes(uint32_t inStartIndex, uint32_t inNumber, JPH_Vec3 *inPositions, JPH_Quat *inRotations, uint32_t inPositionStride, uint32_t inRotationStride);
+void JPH_MutableCompoundShape_AdjustCenterOfMass();
+void JPH_MutableCompoundShape_sRegister();
+void JPH_MutableCompoundShape_RestoreBinaryState(JPH_StreamIn *inStream);
+uint32_t JPH_MutableCompoundShape_GetNumBlocks();
+void JPH_MutableCompoundShape_EnsureSubShapeBoundsCapacity();
+void JPH_MutableCompoundShape_CalculateSubShapeBounds(uint32_t inStartIdx, uint32_t inNumber);
+void JPH_MutableCompoundShape_CalculateLocalBounds();
+void JPH_MutableCompoundShape_sCollideCompoundVsShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MutableCompoundShape_sCollideShapeVsCompound(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_MutableCompoundShape_sCastShapeVsCompound(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:20:1
 typedef struct JPH_CastRayVisitor {
     JPH_RayInvDirection mInvDirection;
@@ -4031,6 +9000,10 @@ typedef struct JPH_CastRayVisitor {
     bool mReturnValue;
 } JPH_CastRayVisitor;
 
+void JPH_CastRayVisitor_CastRayVisitor(JPH_RayCast *inRay, JPH_CompoundShape *inShape, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+bool JPH_CastRayVisitor_ShouldAbort();
+JPH_Vec4 JPH_CastRayVisitor_TestBounds(JPH_Vec4Arg inBoundsMinX, JPH_Vec4Arg inBoundsMinY, JPH_Vec4Arg inBoundsMinZ, JPH_Vec4Arg inBoundsMaxX, JPH_Vec4Arg inBoundsMaxY, JPH_Vec4Arg inBoundsMaxZ);
+void JPH_CastRayVisitor_VisitShape(JPH_CompoundShape_SubShape *inSubShape, uint32_t inSubShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:65:1
 typedef struct JPH_CastRayVisitorCollector {
     JPH_RayInvDirection mInvDirection;
@@ -4042,6 +9015,10 @@ typedef struct JPH_CastRayVisitorCollector {
     JPH_ShapeFilter *mShapeFilter;
 } JPH_CastRayVisitorCollector;
 
+void JPH_CastRayVisitorCollector_CastRayVisitorCollector(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_CompoundShape *inShape, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+bool JPH_CastRayVisitorCollector_ShouldAbort();
+JPH_Vec4 JPH_CastRayVisitorCollector_TestBounds(JPH_Vec4Arg inBoundsMinX, JPH_Vec4Arg inBoundsMinY, JPH_Vec4Arg inBoundsMinZ, JPH_Vec4Arg inBoundsMaxX, JPH_Vec4Arg inBoundsMaxY, JPH_Vec4Arg inBoundsMaxZ);
+void JPH_CastRayVisitorCollector_VisitShape(JPH_CompoundShape_SubShape *inSubShape, uint32_t inSubShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:112:1
 typedef struct JPH_CollidePointVisitor {
     JPH_Vec3 mPoint;
@@ -4051,6 +9028,10 @@ typedef struct JPH_CollidePointVisitor {
     JPH_ShapeFilter *mShapeFilter;
 } JPH_CollidePointVisitor;
 
+void JPH_CollidePointVisitor_CollidePointVisitor(JPH_Vec3Arg inPoint, JPH_CompoundShape *inShape, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+bool JPH_CollidePointVisitor_ShouldAbort();
+JPH_UVec4 JPH_CollidePointVisitor_TestBounds(JPH_Vec4Arg inBoundsMinX, JPH_Vec4Arg inBoundsMinY, JPH_Vec4Arg inBoundsMinZ, JPH_Vec4Arg inBoundsMaxX, JPH_Vec4Arg inBoundsMaxY, JPH_Vec4Arg inBoundsMaxZ);
+void JPH_CollidePointVisitor_VisitShape(JPH_CompoundShape_SubShape *inSubShape, uint32_t inSubShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:153:1
 typedef struct JPH_CastShapeVisitor {
     JPH_RayInvDirection mInvDirection;
@@ -4067,6 +9048,10 @@ typedef struct JPH_CastShapeVisitor {
     uint32_t mSubShapeBits;
 } JPH_CastShapeVisitor;
 
+void JPH_CastShapeVisitor_CastShapeVisitor(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_CompoundShape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+bool JPH_CastShapeVisitor_ShouldAbort();
+JPH_Vec4 JPH_CastShapeVisitor_TestBounds(JPH_Vec4Arg inBoundsMinX, JPH_Vec4Arg inBoundsMinY, JPH_Vec4Arg inBoundsMinZ, JPH_Vec4Arg inBoundsMaxX, JPH_Vec4Arg inBoundsMaxY, JPH_Vec4Arg inBoundsMaxZ);
+void JPH_CastShapeVisitor_VisitShape(JPH_CompoundShape_SubShape *inSubShape, uint32_t inSubShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:226:1
 typedef struct JPH_CollectTransformedShapesVisitor {
     JPH_AABox mBox;
@@ -4080,6 +9065,10 @@ typedef struct JPH_CollectTransformedShapesVisitor {
     JPH_ShapeFilter *mShapeFilter;
 } JPH_CollectTransformedShapesVisitor;
 
+void JPH_CollectTransformedShapesVisitor_CollectTransformedShapesVisitor(JPH_AABox *inBox, JPH_CompoundShape *inShape, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+bool JPH_CollectTransformedShapesVisitor_ShouldAbort();
+JPH_UVec4 JPH_CollectTransformedShapesVisitor_TestBounds(JPH_Vec4Arg inBoundsMinX, JPH_Vec4Arg inBoundsMinY, JPH_Vec4Arg inBoundsMinZ, JPH_Vec4Arg inBoundsMaxX, JPH_Vec4Arg inBoundsMaxY, JPH_Vec4Arg inBoundsMaxZ);
+void JPH_CollectTransformedShapesVisitor_VisitShape(JPH_CompoundShape_SubShape *inSubShape, uint32_t inSubShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:285:1
 typedef struct JPH_CollideCompoundVsShapeVisitor {
     JPH_CollideShapeSettings *mCollideShapeSettings;
@@ -4096,6 +9085,10 @@ typedef struct JPH_CollideCompoundVsShapeVisitor {
     JPH_ShapeFilter *mShapeFilter;
 } JPH_CollideCompoundVsShapeVisitor;
 
+void JPH_CollideCompoundVsShapeVisitor_CollideCompoundVsShapeVisitor(JPH_CompoundShape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+bool JPH_CollideCompoundVsShapeVisitor_ShouldAbort();
+JPH_UVec4 JPH_CollideCompoundVsShapeVisitor_TestBounds(JPH_Vec4Arg inBoundsMinX, JPH_Vec4Arg inBoundsMinY, JPH_Vec4Arg inBoundsMinZ, JPH_Vec4Arg inBoundsMaxX, JPH_Vec4Arg inBoundsMaxY, JPH_Vec4Arg inBoundsMaxZ);
+void JPH_CollideCompoundVsShapeVisitor_VisitShape(JPH_CompoundShape_SubShape *inSubShape, uint32_t inSubShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:351:1
 typedef struct JPH_CollideShapeVsCompoundVisitor {
     JPH_CollideShapeSettings *mCollideShapeSettings;
@@ -4112,26 +9105,172 @@ typedef struct JPH_CollideShapeVsCompoundVisitor {
     JPH_ShapeFilter *mShapeFilter;
 } JPH_CollideShapeVsCompoundVisitor;
 
+void JPH_CollideShapeVsCompoundVisitor_CollideShapeVsCompoundVisitor(JPH_Shape *inShape1, JPH_CompoundShape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+bool JPH_CollideShapeVsCompoundVisitor_ShouldAbort();
+JPH_UVec4 JPH_CollideShapeVsCompoundVisitor_TestBounds(JPH_Vec4Arg inBoundsMinX, JPH_Vec4Arg inBoundsMinY, JPH_Vec4Arg inBoundsMinZ, JPH_Vec4Arg inBoundsMaxX, JPH_Vec4Arg inBoundsMaxY, JPH_Vec4Arg inBoundsMaxZ);
+void JPH_CollideShapeVsCompoundVisitor_VisitShape(JPH_CompoundShape_SubShape *inSubShape, uint32_t inSubShapeIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/PlaneShape.h:16:1
 // Has vtable
 typedef struct JPH_PlaneShapeSettings JPH_PlaneShapeSettings;
 
+void *JPH_PlaneShapeSettings_operator_new(size_t inCount);
+void JPH_PlaneShapeSettings_operator_delete(void *inPointer);
+void *JPH_PlaneShapeSettings_operator_new[](size_t inCount);
+void JPH_PlaneShapeSettings_operator_delete[](void *inPointer);
+void *JPH_PlaneShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PlaneShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PlaneShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PlaneShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PlaneShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_PlaneShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PlaneShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_PlaneShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PlaneShapeSettings_GetRTTI();
+void *JPH_PlaneShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_PlaneShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PlaneShapeSettings_PlaneShapeSettings();
+void JPH_PlaneShapeSettings_PlaneShapeSettings(JPH_Plane *inPlane, JPH_PhysicsMaterial *inMaterial, float inHalfExtent);
+JPH_ShapeSettings_ShapeResult JPH_PlaneShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/PlaneShape.h:42:1
 // Has vtable
 typedef struct JPH_PlaneShape JPH_PlaneShape;
 
+void *JPH_PlaneShape_operator_new(size_t inCount);
+void JPH_PlaneShape_operator_delete(void *inPointer);
+void *JPH_PlaneShape_operator_new[](size_t inCount);
+void JPH_PlaneShape_operator_delete[](void *inPointer);
+void *JPH_PlaneShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PlaneShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PlaneShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PlaneShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PlaneShape_operator_new(size_t inCount, void *inPointer);
+void JPH_PlaneShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PlaneShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_PlaneShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PlaneShape_PlaneShape();
+void JPH_PlaneShape_PlaneShape(JPH_Plane *inPlane, JPH_PhysicsMaterial *inMaterial, float inHalfExtent);
+void JPH_PlaneShape_PlaneShape(JPH_PlaneShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+JPH_Plane *JPH_PlaneShape_GetPlane();
+float JPH_PlaneShape_GetHalfExtent();
+bool JPH_PlaneShape_MustBeStatic();
+JPH_AABox JPH_PlaneShape_GetLocalBounds();
+uint32_t JPH_PlaneShape_GetSubShapeIDBitsRecursive();
+float JPH_PlaneShape_GetInnerRadius();
+JPH_MassProperties JPH_PlaneShape_GetMassProperties();
+JPH_PhysicsMaterial *JPH_PlaneShape_GetMaterial(JPH_SubShapeID *inSubShapeID);
+JPH_Vec3 JPH_PlaneShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_PlaneShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+bool JPH_PlaneShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_PlaneShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_PlaneShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_PlaneShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_PlaneShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_PlaneShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_PlaneShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+void JPH_PlaneShape_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_PlaneShape_SaveMaterialState(JPH_PhysicsMaterialList *outMaterials);
+void JPH_PlaneShape_RestoreMaterialState(JPH_PhysicsMaterialRefC *inMaterials, uint32_t inNumMaterials);
+JPH_Shape_Stats JPH_PlaneShape_GetStats();
+float JPH_PlaneShape_GetVolume();
+void JPH_PlaneShape_SetMaterial(JPH_PhysicsMaterial *inMaterial);
+JPH_PhysicsMaterial *JPH_PlaneShape_GetMaterial();
+void JPH_PlaneShape_sRegister();
+void JPH_PlaneShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_PlaneShape_GetVertices(JPH_Vec3 *outVertices);
+void JPH_PlaneShape_CalculateLocalBounds();
+void JPH_PlaneShape_sCollideConvexVsPlane(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_PlaneShape_sCastConvexVsPlane(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/Shape/TriangleShape.h:12:1
 // Has vtable
 typedef struct JPH_TriangleShapeSettings JPH_TriangleShapeSettings;
 
+void *JPH_TriangleShapeSettings_operator_new(size_t inCount);
+void JPH_TriangleShapeSettings_operator_delete(void *inPointer);
+void *JPH_TriangleShapeSettings_operator_new[](size_t inCount);
+void JPH_TriangleShapeSettings_operator_delete[](void *inPointer);
+void *JPH_TriangleShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TriangleShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TriangleShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TriangleShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TriangleShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_TriangleShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TriangleShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_TriangleShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_TriangleShapeSettings_GetRTTI();
+void *JPH_TriangleShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_TriangleShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_TriangleShapeSettings_TriangleShapeSettings();
+void JPH_TriangleShapeSettings_TriangleShapeSettings(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, JPH_Vec3Arg inV3, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_ShapeSettings_ShapeResult JPH_TriangleShapeSettings_Create();
 // JoltPhysics/Jolt/Physics/Collision/Shape/TriangleShape.h:34:1
 // Has vtable
 typedef struct JPH_TriangleShape JPH_TriangleShape;
 
+void *JPH_TriangleShape_operator_new(size_t inCount);
+void JPH_TriangleShape_operator_delete(void *inPointer);
+void *JPH_TriangleShape_operator_new[](size_t inCount);
+void JPH_TriangleShape_operator_delete[](void *inPointer);
+void *JPH_TriangleShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TriangleShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TriangleShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TriangleShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TriangleShape_operator_new(size_t inCount, void *inPointer);
+void JPH_TriangleShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TriangleShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_TriangleShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TriangleShape_TriangleShape();
+void JPH_TriangleShape_TriangleShape(JPH_TriangleShapeSettings *inSettings, JPH_Shape_ShapeResult *outResult);
+void JPH_TriangleShape_TriangleShape(JPH_Vec3Arg inV1, JPH_Vec3Arg inV2, JPH_Vec3Arg inV3, float inConvexRadius, JPH_PhysicsMaterial *inMaterial);
+JPH_Vec3 JPH_TriangleShape_GetVertex1();
+JPH_Vec3 JPH_TriangleShape_GetVertex2();
+JPH_Vec3 JPH_TriangleShape_GetVertex3();
+float JPH_TriangleShape_GetConvexRadius();
+JPH_AABox JPH_TriangleShape_GetLocalBounds();
+JPH_AABox JPH_TriangleShape_GetWorldSpaceBounds(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale);
+float JPH_TriangleShape_GetInnerRadius();
+JPH_MassProperties JPH_TriangleShape_GetMassProperties();
+JPH_Vec3 JPH_TriangleShape_GetSurfaceNormal(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inLocalSurfacePosition);
+void JPH_TriangleShape_GetSupportingFace(JPH_SubShapeID *inSubShapeID, JPH_Vec3Arg inDirection, JPH_Vec3Arg inScale, JPH_Mat44Arg inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
+JPH_ConvexShape_Support *JPH_TriangleShape_GetSupportFunction(JPH_ConvexShape_ESupportMode inMode, JPH_ConvexShape_SupportBuffer *inBuffer, JPH_Vec3Arg inScale);
+void JPH_TriangleShape_GetSubmergedVolume(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_Plane *inSurface, float *outTotalVolume, float *outSubmergedVolume, JPH_Vec3 *outCenterOfBuoyancy);
+bool JPH_TriangleShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_TriangleShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TriangleShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TriangleShape_CollideSoftBodyVertices(JPH_Mat44Arg inCenterOfMassTransform, JPH_Vec3Arg inScale, JPH_CollideSoftBodyVertexIterator *inVertices, uint32_t inNumVertices, int32_t inCollidingShapeIndex);
+void JPH_TriangleShape_GetTrianglesStart(JPH_Shape_GetTrianglesContext *ioContext, JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale);
+int32_t JPH_TriangleShape_GetTrianglesNext(JPH_Shape_GetTrianglesContext *ioContext, int32_t inMaxTrianglesRequested, JPH_Float3 *outTriangleVertices, JPH_PhysicsMaterial **outMaterials);
+void JPH_TriangleShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_TriangleShape_GetStats();
+float JPH_TriangleShape_GetVolume();
+bool JPH_TriangleShape_IsValidScale(JPH_Vec3Arg inScale);
+JPH_Vec3 JPH_TriangleShape_MakeScaleValid(JPH_Vec3Arg inScale);
+void JPH_TriangleShape_sRegister();
+void JPH_TriangleShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_TriangleShape_sCollideConvexVsTriangle(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TriangleShape_sCollideSphereVsTriangle(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_TriangleShape_sCastConvexVsTriangle(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_TriangleShape_sCastSphereVsTriangle(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Collision/Shape/StaticCompoundShape.h:17:1
 // Has vtable
 typedef struct JPH_StaticCompoundShapeSettings JPH_StaticCompoundShapeSettings;
 
+void *JPH_StaticCompoundShapeSettings_operator_new(size_t inCount);
+void JPH_StaticCompoundShapeSettings_operator_delete(void *inPointer);
+void *JPH_StaticCompoundShapeSettings_operator_new[](size_t inCount);
+void JPH_StaticCompoundShapeSettings_operator_delete[](void *inPointer);
+void *JPH_StaticCompoundShapeSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_StaticCompoundShapeSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_StaticCompoundShapeSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_StaticCompoundShapeSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_StaticCompoundShapeSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_StaticCompoundShapeSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_StaticCompoundShapeSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_StaticCompoundShapeSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_StaticCompoundShapeSettings_GetRTTI();
+void *JPH_StaticCompoundShapeSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_StaticCompoundShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+JPH_ShapeSettings_ShapeResult JPH_StaticCompoundShapeSettings_Create();
+JPH_ShapeSettings_ShapeResult JPH_StaticCompoundShapeSettings_Create(JPH_TempAllocator *inTempAllocator);
 // JoltPhysics/Jolt/Physics/Collision/Shape/StaticCompoundShape.h:118:2
 typedef struct JPH_StaticCompoundShape_Node {
     JPH_HalfFloat mBoundsMinX[4];
@@ -4143,6 +9282,8 @@ typedef struct JPH_StaticCompoundShape_Node {
     uint32_t mNodeProperties[4];
 } JPH_StaticCompoundShape_Node;
 
+void JPH_StaticCompoundShape_Node_SetChildBounds(uint32_t inIndex, JPH_AABox *inBounds);
+void JPH_StaticCompoundShape_Node_SetChildInvalid(uint32_t inIndex);
 // JoltPhysics/Jolt/Physics/Collision/Shape/StaticCompoundShape.h:134:2
 typedef < ? named (size=24, align=8)> JPH_StaticCompoundShape_Nodes;
 
@@ -4150,19 +9291,119 @@ typedef < ? named (size=24, align=8)> JPH_StaticCompoundShape_Nodes;
 // Has vtable
 typedef struct JPH_StaticCompoundShape JPH_StaticCompoundShape;
 
+void *JPH_StaticCompoundShape_operator_new(size_t inCount);
+void JPH_StaticCompoundShape_operator_delete(void *inPointer);
+void *JPH_StaticCompoundShape_operator_new[](size_t inCount);
+void JPH_StaticCompoundShape_operator_delete[](void *inPointer);
+void *JPH_StaticCompoundShape_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_StaticCompoundShape_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_StaticCompoundShape_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_StaticCompoundShape_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_StaticCompoundShape_operator_new(size_t inCount, void *inPointer);
+void JPH_StaticCompoundShape_operator_delete(void *inPointer, void *inPlace);
+void *JPH_StaticCompoundShape_operator_new[](size_t inCount, void *inPointer);
+void JPH_StaticCompoundShape_operator_delete[](void *inPointer, void *inPlace);
+void JPH_StaticCompoundShape_StaticCompoundShape();
+void JPH_StaticCompoundShape_StaticCompoundShape(JPH_StaticCompoundShapeSettings *inSettings, JPH_TempAllocator *inTempAllocator, JPH_Shape_ShapeResult *outResult);
+bool JPH_StaticCompoundShape_CastRay(JPH_RayCast *inRay, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_StaticCompoundShape_CastRay(JPH_RayCast *inRay, JPH_RayCastSettings *inRayCastSettings, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_StaticCompoundShape_CollidePoint(JPH_Vec3Arg inPoint, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CollidePointCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_StaticCompoundShape_CollectTransformedShapes(JPH_AABox *inBox, JPH_Vec3Arg inPositionCOM, JPH_QuatArg inRotation, JPH_Vec3Arg inScale, JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_TransformedShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+int32_t JPH_StaticCompoundShape_GetIntersectingSubShapes(JPH_AABox *inBox, uint32_t *outSubShapeIndices, int32_t inMaxSubShapeIndices);
+int32_t JPH_StaticCompoundShape_GetIntersectingSubShapes(JPH_OrientedBox *inBox, uint32_t *outSubShapeIndices, int32_t inMaxSubShapeIndices);
+void JPH_StaticCompoundShape_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_Shape_Stats JPH_StaticCompoundShape_GetStats();
+void JPH_StaticCompoundShape_sRegister();
+void JPH_StaticCompoundShape_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_StaticCompoundShape_sPartition(uint32_t *ioBodyIdx, JPH_AABox *ioBounds, int32_t inNumber, int32_t *outMidPoint);
+void JPH_StaticCompoundShape_sPartition4(uint32_t *ioBodyIdx, JPH_AABox *ioBounds, int32_t inBegin, int32_t inEnd, int32_t *outSplit);
+void JPH_StaticCompoundShape_sCollideCompoundVsShape(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_StaticCompoundShape_sCollideShapeVsCompound(JPH_Shape *inShape1, JPH_Shape *inShape2, JPH_Vec3Arg inScale1, JPH_Vec3Arg inScale2, JPH_Mat44Arg inCenterOfMassTransform1, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, JPH_ShapeFilter *inShapeFilter);
+void JPH_StaticCompoundShape_sCastShapeVsCompound(JPH_ShapeCast *inShapeCast, JPH_ShapeCastSettings *inShapeCastSettings, JPH_Shape *inShape, JPH_Vec3Arg inScale, JPH_ShapeFilter *inShapeFilter, JPH_Mat44Arg inCenterOfMassTransform2, JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Character/CharacterBase.h:20:1
 // Has vtable
 typedef struct JPH_CharacterBaseSettings JPH_CharacterBaseSettings;
 
+void *JPH_CharacterBaseSettings_operator_new(size_t inCount);
+void JPH_CharacterBaseSettings_operator_delete(void *inPointer);
+void *JPH_CharacterBaseSettings_operator_new[](size_t inCount);
+void JPH_CharacterBaseSettings_operator_delete[](void *inPointer);
+void *JPH_CharacterBaseSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterBaseSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterBaseSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterBaseSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterBaseSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CharacterBaseSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CharacterBaseSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CharacterBaseSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CharacterBaseSettings_CharacterBaseSettings();
+void JPH_CharacterBaseSettings_CharacterBaseSettings(JPH_CharacterBaseSettings *);
+JPH_CharacterBaseSettings *JPH_CharacterBaseSettings_operator=(JPH_CharacterBaseSettings *);
+void JPH_CharacterBaseSettings_~CharacterBaseSettings();
 // JoltPhysics/Jolt/Physics/Character/CharacterBase.h:53:1
 // Has vtable
 typedef struct JPH_CharacterBase JPH_CharacterBase;
 
+void *JPH_CharacterBase_operator_new(size_t inCount);
+void JPH_CharacterBase_operator_delete(void *inPointer);
+void *JPH_CharacterBase_operator_new[](size_t inCount);
+void JPH_CharacterBase_operator_delete[](void *inPointer);
+void *JPH_CharacterBase_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterBase_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterBase_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterBase_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterBase_operator_new(size_t inCount, void *inPointer);
+void JPH_CharacterBase_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CharacterBase_operator_new[](size_t inCount, void *inPointer);
+void JPH_CharacterBase_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CharacterBase_CharacterBase(JPH_CharacterBaseSettings *inSettings, JPH_PhysicsSystem *inSystem);
+void JPH_CharacterBase_~CharacterBase();
+void JPH_CharacterBase_SetMaxSlopeAngle(float inMaxSlopeAngle);
+float JPH_CharacterBase_GetCosMaxSlopeAngle();
+void JPH_CharacterBase_SetUp(JPH_Vec3Arg inUp);
+JPH_Vec3 JPH_CharacterBase_GetUp();
+bool JPH_CharacterBase_IsSlopeTooSteep(JPH_Vec3Arg inNormal);
+JPH_Shape *JPH_CharacterBase_GetShape();
+int8_t *JPH_CharacterBase_sToString(JPH_CharacterBase_EGroundState inState);
+JPH_CharacterBase_EGroundState JPH_CharacterBase_GetGroundState();
+bool JPH_CharacterBase_IsSupported();
+JPH_RVec3 JPH_CharacterBase_GetGroundPosition();
+JPH_Vec3 JPH_CharacterBase_GetGroundNormal();
+JPH_Vec3 JPH_CharacterBase_GetGroundVelocity();
+JPH_PhysicsMaterial *JPH_CharacterBase_GetGroundMaterial();
+JPH_BodyID JPH_CharacterBase_GetGroundBodyID();
+JPH_SubShapeID JPH_CharacterBase_GetGroundSubShapeID();
+uint64_t JPH_CharacterBase_GetGroundUserData();
+void JPH_CharacterBase_SaveState(JPH_StateRecorder *inStream);
+void JPH_CharacterBase_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Character/CharacterID.h:12:1
 typedef struct JPH_CharacterID {
     uint32_t mID;
 } JPH_CharacterID;
 
+void *JPH_CharacterID_operator_new(size_t inCount);
+void JPH_CharacterID_operator_delete(void *inPointer);
+void *JPH_CharacterID_operator_new[](size_t inCount);
+void JPH_CharacterID_operator_delete[](void *inPointer);
+void *JPH_CharacterID_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterID_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterID_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterID_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterID_operator_new(size_t inCount, void *inPointer);
+void JPH_CharacterID_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CharacterID_operator_new[](size_t inCount, void *inPointer);
+void JPH_CharacterID_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CharacterID_CharacterID();
+void JPH_CharacterID_CharacterID(uint32_t inID);
+uint32_t JPH_CharacterID_GetValue();
+bool JPH_CharacterID_IsInvalid();
+bool JPH_CharacterID_operator==(JPH_CharacterID *inRHS);
+bool JPH_CharacterID_operator!=(JPH_CharacterID *inRHS);
+bool JPH_CharacterID_operator<(JPH_CharacterID *inRHS);
+bool JPH_CharacterID_operator>(JPH_CharacterID *inRHS);
+uint64_t JPH_CharacterID_GetHash();
+JPH_CharacterID JPH_CharacterID_sNextCharacterID();
+void JPH_CharacterID_sSetNextCharacterID(uint32_t inNextValue);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:22:1
 typedef struct JPH_CharacterVirtualSettings {
     JPH_CharacterBaseSettings base;
@@ -4186,6 +9427,21 @@ typedef struct JPH_CharacterVirtualSettings {
     JPH_ObjectLayer mInnerBodyLayer;
 } JPH_CharacterVirtualSettings;
 
+void *JPH_CharacterVirtualSettings_operator_new(size_t inCount);
+void JPH_CharacterVirtualSettings_operator_delete(void *inPointer);
+void *JPH_CharacterVirtualSettings_operator_new[](size_t inCount);
+void JPH_CharacterVirtualSettings_operator_delete[](void *inPointer);
+void *JPH_CharacterVirtualSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterVirtualSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterVirtualSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterVirtualSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterVirtualSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CharacterVirtualSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CharacterVirtualSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CharacterVirtualSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CharacterVirtualSettings_CharacterVirtualSettings();
+void JPH_CharacterVirtualSettings_CharacterVirtualSettings(JPH_CharacterVirtualSettings *);
+JPH_CharacterVirtualSettings *JPH_CharacterVirtualSettings_operator=(JPH_CharacterVirtualSettings *);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:71:1
 typedef struct JPH_CharacterContactSettings {
     bool mCanPushCharacter;
@@ -4196,14 +9452,33 @@ typedef struct JPH_CharacterContactSettings {
 // Has vtable
 typedef struct JPH_CharacterContactListener JPH_CharacterContactListener;
 
+void JPH_CharacterContactListener_~CharacterContactListener();
+void JPH_CharacterContactListener_OnAdjustBodyVelocity(< ? named (size=384, align=16)> *inCharacter, JPH_Body *inBody2, JPH_Vec3 *ioLinearVelocity, JPH_Vec3 *ioAngularVelocity);
+bool JPH_CharacterContactListener_OnContactValidate(< ? named (size=384, align=16)> *inCharacter, JPH_BodyID *inBodyID2, JPH_SubShapeID *inSubShapeID2);
+bool JPH_CharacterContactListener_OnCharacterContactValidate(< ? named (size=384, align=16)> *inCharacter, < ? named (size=384, align=16)> *inOtherCharacter, JPH_SubShapeID *inSubShapeID2);
+void JPH_CharacterContactListener_OnContactAdded(< ? named (size=384, align=16)> *inCharacter, JPH_BodyID *inBodyID2, JPH_SubShapeID *inSubShapeID2, JPH_RVec3Arg inContactPosition, JPH_Vec3Arg inContactNormal, JPH_CharacterContactSettings *ioSettings);
+void JPH_CharacterContactListener_OnContactPersisted(< ? named (size=384, align=16)> *inCharacter, JPH_BodyID *inBodyID2, JPH_SubShapeID *inSubShapeID2, JPH_RVec3Arg inContactPosition, JPH_Vec3Arg inContactNormal, JPH_CharacterContactSettings *ioSettings);
+void JPH_CharacterContactListener_OnContactRemoved(< ? named (size=384, align=16)> *inCharacter, JPH_BodyID *inBodyID2, JPH_SubShapeID *inSubShapeID2);
+void JPH_CharacterContactListener_OnCharacterContactAdded(< ? named (size=384, align=16)> *inCharacter, < ? named (size=384, align=16)> *inOtherCharacter, JPH_SubShapeID *inSubShapeID2, JPH_RVec3Arg inContactPosition, JPH_Vec3Arg inContactNormal, JPH_CharacterContactSettings *ioSettings);
+void JPH_CharacterContactListener_OnCharacterContactPersisted(< ? named (size=384, align=16)> *inCharacter, < ? named (size=384, align=16)> *inOtherCharacter, JPH_SubShapeID *inSubShapeID2, JPH_RVec3Arg inContactPosition, JPH_Vec3Arg inContactNormal, JPH_CharacterContactSettings *ioSettings);
+void JPH_CharacterContactListener_OnCharacterContactRemoved(< ? named (size=384, align=16)> *inCharacter, JPH_CharacterID *inOtherCharacterID, JPH_SubShapeID *inSubShapeID2);
+void JPH_CharacterContactListener_OnContactSolve(< ? named (size=384, align=16)> *inCharacter, JPH_BodyID *inBodyID2, JPH_SubShapeID *inSubShapeID2, JPH_RVec3Arg inContactPosition, JPH_Vec3Arg inContactNormal, JPH_Vec3Arg inContactVelocity, JPH_PhysicsMaterial *inContactMaterial, JPH_Vec3Arg inCharacterVelocity, JPH_Vec3 *ioNewCharacterVelocity);
+void JPH_CharacterContactListener_OnCharacterContactSolve(< ? named (size=384, align=16)> *inCharacter, < ? named (size=384, align=16)> *inOtherCharacter, JPH_SubShapeID *inSubShapeID2, JPH_RVec3Arg inContactPosition, JPH_Vec3Arg inContactNormal, JPH_Vec3Arg inContactVelocity, JPH_PhysicsMaterial *inContactMaterial, JPH_Vec3Arg inCharacterVelocity, JPH_Vec3 *ioNewCharacterVelocity);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:154:1
 // Abstract
 typedef struct JPH_CharacterVsCharacterCollision JPH_CharacterVsCharacterCollision;
 
+void JPH_CharacterVsCharacterCollision_~CharacterVsCharacterCollision();
+void JPH_CharacterVsCharacterCollision_CollideCharacter(< ? named (size=384, align=16)> *inCharacter, JPH_RMat44Arg inCenterOfMassTransform, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector);
+void JPH_CharacterVsCharacterCollision_CastCharacter(< ? named (size=384, align=16)> *inCharacter, JPH_RMat44Arg inCenterOfMassTransform, JPH_Vec3Arg inDirection, JPH_ShapeCastSettings *inShapeCastSettings, JPH_RVec3Arg inBaseOffset, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:181:1
 // Has vtable
 typedef struct JPH_CharacterVsCharacterCollisionSimple JPH_CharacterVsCharacterCollisionSimple;
 
+void JPH_CharacterVsCharacterCollisionSimple_Add(< ? named (size=384, align=16)> *inCharacter);
+void JPH_CharacterVsCharacterCollisionSimple_Remove(< ? named (size=384, align=16)> *inCharacter);
+void JPH_CharacterVsCharacterCollisionSimple_CollideCharacter(< ? named (size=384, align=16)> *inCharacter, JPH_RMat44Arg inCenterOfMassTransform, JPH_CollideShapeSettings *inCollideShapeSettings, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector);
+void JPH_CharacterVsCharacterCollisionSimple_CastCharacter(< ? named (size=384, align=16)> *inCharacter, JPH_RMat44Arg inCenterOfMassTransform, JPH_Vec3Arg inDirection, JPH_ShapeCastSettings *inShapeCastSettings, JPH_RVec3Arg inBaseOffset, JPH_CastShapeCollector *ioCollector);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:364:2
 typedef struct JPH_CharacterVirtual_ExtendedUpdateSettings {
     JPH_Vec3 mStickToFloorStepDown;
@@ -4221,6 +9496,17 @@ typedef struct JPH_CharacterVirtual_ContactKey {
     JPH_SubShapeID mSubShapeIDB;
 } JPH_CharacterVirtual_ContactKey;
 
+void JPH_CharacterVirtual_ContactKey_ContactKey();
+void JPH_CharacterVirtual_ContactKey_ContactKey(JPH_CharacterVirtual_ContactKey *inContact);
+void JPH_CharacterVirtual_ContactKey_ContactKey(JPH_BodyID *inBodyB, JPH_SubShapeID *inSubShapeID);
+void JPH_CharacterVirtual_ContactKey_ContactKey(JPH_CharacterID *inCharacterIDB, JPH_SubShapeID *inSubShapeID);
+JPH_CharacterVirtual_ContactKey *JPH_CharacterVirtual_ContactKey_operator=(JPH_CharacterVirtual_ContactKey *inContact);
+bool JPH_CharacterVirtual_ContactKey_IsSameBody(JPH_CharacterVirtual_ContactKey *inOther);
+bool JPH_CharacterVirtual_ContactKey_operator==(JPH_CharacterVirtual_ContactKey *inRHS);
+bool JPH_CharacterVirtual_ContactKey_operator!=(JPH_CharacterVirtual_ContactKey *inRHS);
+uint64_t JPH_CharacterVirtual_ContactKey_GetHash();
+void JPH_CharacterVirtual_ContactKey_SaveState(JPH_StateRecorder *inStream);
+void JPH_CharacterVirtual_ContactKey_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:482:2
 typedef struct JPH_CharacterVirtual_Contact {
     JPH_CharacterVirtual_ContactKey base;
@@ -4241,6 +9527,8 @@ typedef struct JPH_CharacterVirtual_Contact {
     bool mCanPushCharacter;
 } JPH_CharacterVirtual_Contact;
 
+void JPH_CharacterVirtual_Contact_SaveState(JPH_StateRecorder *inStream);
+void JPH_CharacterVirtual_Contact_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:504:2
 typedef < ? named (size=-2, align=-2)> JPH_CharacterVirtual_TempContactList;
 
@@ -4250,6 +9538,7 @@ typedef < ? named (size=24, align=8)> JPH_CharacterVirtual_ContactList;
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:537:2
 typedef struct JPH_CharacterVirtual_ContactOrderingPredicate JPH_CharacterVirtual_ContactOrderingPredicate;
 
+bool JPH_CharacterVirtual_ContactOrderingPredicate_operator()(JPH_CharacterVirtual_Contact *inLHS, JPH_CharacterVirtual_Contact *inRHS);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:551:2
 typedef < ? named (size=-2, align=-2)> JPH_CharacterVirtual_IgnoredContactList;
 
@@ -4270,16 +9559,24 @@ typedef < ? named (size=-2, align=-2)> JPH_CharacterVirtual_ConstraintList;
 // Has vtable
 typedef struct JPH_CharacterVirtual_ContactCollector JPH_CharacterVirtual_ContactCollector;
 
+void JPH_CharacterVirtual_ContactCollector_ContactCollector(JPH_PhysicsSystem *inSystem, JPH_CharacterVirtual *inCharacter, uint32_t inMaxHits, float inHitReductionCosMaxAngle, JPH_Vec3Arg inUp, JPH_RVec3Arg inBaseOffset, JPH_CharacterVirtual_TempContactList *outContacts);
+void JPH_CharacterVirtual_ContactCollector_SetUserData(uint64_t inUserData);
+void JPH_CharacterVirtual_ContactCollector_AddHit(JPH_CollideShapeResult *inResult);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:588:2
 // Has vtable
 typedef struct JPH_CharacterVirtual_ContactCastCollector JPH_CharacterVirtual_ContactCastCollector;
 
+void JPH_CharacterVirtual_ContactCastCollector_ContactCastCollector(JPH_PhysicsSystem *inSystem, JPH_CharacterVirtual *inCharacter, JPH_Vec3Arg inDisplacement, JPH_Vec3Arg inUp, JPH_CharacterVirtual_IgnoredContactList *inIgnoredContacts, JPH_RVec3Arg inBaseOffset, JPH_CharacterVirtual_Contact *outContact);
+void JPH_CharacterVirtual_ContactCastCollector_SetUserData(uint64_t inUserData);
+void JPH_CharacterVirtual_ContactCastCollector_AddHit(JPH_ShapeCastResult *inResult);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:726:2
 typedef struct JPH_CharacterVirtual_ListenerContactValue {
     JPH_CharacterContactSettings mSettings;
     int32_t mCount;
 } JPH_CharacterVirtual_ListenerContactValue;
 
+void JPH_CharacterVirtual_ListenerContactValue_ListenerContactValue();
+void JPH_CharacterVirtual_ListenerContactValue_ListenerContactValue(JPH_CharacterContactSettings *inSettings);
 // JoltPhysics/Jolt/Physics/Character/CharacterVirtual.h:735:2
 typedef < ? named (size=32, align=8)> JPH_CharacterVirtual_ListenerContacts;
 
@@ -4287,6 +9584,92 @@ typedef < ? named (size=32, align=8)> JPH_CharacterVirtual_ListenerContacts;
 // Has vtable
 typedef struct JPH_CharacterVirtual JPH_CharacterVirtual;
 
+void *JPH_CharacterVirtual_operator_new(size_t inCount);
+void JPH_CharacterVirtual_operator_delete(void *inPointer);
+void *JPH_CharacterVirtual_operator_new[](size_t inCount);
+void JPH_CharacterVirtual_operator_delete[](void *inPointer);
+void *JPH_CharacterVirtual_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterVirtual_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterVirtual_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterVirtual_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterVirtual_operator_new(size_t inCount, void *inPointer);
+void JPH_CharacterVirtual_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CharacterVirtual_operator_new[](size_t inCount, void *inPointer);
+void JPH_CharacterVirtual_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CharacterVirtual_CharacterVirtual(JPH_CharacterVirtualSettings *inSettings, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, uint64_t inUserData, JPH_PhysicsSystem *inSystem);
+void JPH_CharacterVirtual_CharacterVirtual(JPH_CharacterVirtualSettings *inSettings, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_PhysicsSystem *inSystem);
+void JPH_CharacterVirtual_~CharacterVirtual();
+JPH_CharacterID *JPH_CharacterVirtual_GetID();
+void JPH_CharacterVirtual_SetListener(JPH_CharacterContactListener *inListener);
+JPH_CharacterContactListener *JPH_CharacterVirtual_GetListener();
+void JPH_CharacterVirtual_SetCharacterVsCharacterCollision(JPH_CharacterVsCharacterCollision *inCharacterVsCharacterCollision);
+JPH_Vec3 JPH_CharacterVirtual_GetLinearVelocity();
+void JPH_CharacterVirtual_SetLinearVelocity(JPH_Vec3Arg inLinearVelocity);
+JPH_RVec3 JPH_CharacterVirtual_GetPosition();
+void JPH_CharacterVirtual_SetPosition(JPH_RVec3Arg inPosition);
+JPH_Quat JPH_CharacterVirtual_GetRotation();
+void JPH_CharacterVirtual_SetRotation(JPH_QuatArg inRotation);
+JPH_RVec3 JPH_CharacterVirtual_GetCenterOfMassPosition();
+JPH_RMat44 JPH_CharacterVirtual_GetWorldTransform();
+JPH_RMat44 JPH_CharacterVirtual_GetCenterOfMassTransform();
+float JPH_CharacterVirtual_GetMass();
+void JPH_CharacterVirtual_SetMass(float inMass);
+float JPH_CharacterVirtual_GetMaxStrength();
+void JPH_CharacterVirtual_SetMaxStrength(float inMaxStrength);
+float JPH_CharacterVirtual_GetPenetrationRecoverySpeed();
+void JPH_CharacterVirtual_SetPenetrationRecoverySpeed(float inSpeed);
+bool JPH_CharacterVirtual_GetEnhancedInternalEdgeRemoval();
+void JPH_CharacterVirtual_SetEnhancedInternalEdgeRemoval(bool inApply);
+float JPH_CharacterVirtual_GetCharacterPadding();
+uint32_t JPH_CharacterVirtual_GetMaxNumHits();
+void JPH_CharacterVirtual_SetMaxNumHits(uint32_t inMaxHits);
+float JPH_CharacterVirtual_GetHitReductionCosMaxAngle();
+void JPH_CharacterVirtual_SetHitReductionCosMaxAngle(float inCosMaxAngle);
+bool JPH_CharacterVirtual_GetMaxHitsExceeded();
+JPH_Vec3 JPH_CharacterVirtual_GetShapeOffset();
+void JPH_CharacterVirtual_SetShapeOffset(JPH_Vec3Arg inShapeOffset);
+uint64_t JPH_CharacterVirtual_GetUserData();
+void JPH_CharacterVirtual_SetUserData(uint64_t inUserData);
+JPH_BodyID JPH_CharacterVirtual_GetInnerBodyID();
+JPH_Vec3 JPH_CharacterVirtual_CancelVelocityTowardsSteepSlopes(JPH_Vec3Arg inDesiredVelocity);
+void JPH_CharacterVirtual_StartTrackingContactChanges();
+void JPH_CharacterVirtual_FinishTrackingContactChanges();
+void JPH_CharacterVirtual_Update(float inDeltaTime, JPH_Vec3Arg inGravity, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+bool JPH_CharacterVirtual_CanWalkStairs(JPH_Vec3Arg inLinearVelocity);
+bool JPH_CharacterVirtual_WalkStairs(float inDeltaTime, JPH_Vec3Arg inStepUp, JPH_Vec3Arg inStepForward, JPH_Vec3Arg inStepForwardTest, JPH_Vec3Arg inStepDownExtra, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+bool JPH_CharacterVirtual_StickToFloor(JPH_Vec3Arg inStepDown, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+void JPH_CharacterVirtual_ExtendedUpdate(float inDeltaTime, JPH_Vec3Arg inGravity, JPH_CharacterVirtual_ExtendedUpdateSettings *inSettings, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+void JPH_CharacterVirtual_RefreshContacts(JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+void JPH_CharacterVirtual_UpdateGroundVelocity();
+bool JPH_CharacterVirtual_SetShape(JPH_Shape *inShape, float inMaxPenetrationDepth, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+void JPH_CharacterVirtual_SetInnerBodyShape(JPH_Shape *inShape);
+JPH_TransformedShape JPH_CharacterVirtual_GetTransformedShape();
+void JPH_CharacterVirtual_CheckCollision(JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_Vec3Arg inMovementDirection, float inMaxSeparationDistance, JPH_Shape *inShape, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+JPH_CharacterVirtualSettings JPH_CharacterVirtual_GetCharacterVirtualSettings();
+void JPH_CharacterVirtual_SaveState(JPH_StateRecorder *inStream);
+void JPH_CharacterVirtual_RestoreState(JPH_StateRecorder *inStream);
+JPH_CharacterVirtual_ContactList *JPH_CharacterVirtual_GetActiveContacts();
+bool JPH_CharacterVirtual_HasCollidedWith(JPH_BodyID *inBody);
+bool JPH_CharacterVirtual_HasCollidedWith(JPH_CharacterID *inCharacterID);
+bool JPH_CharacterVirtual_HasCollidedWith(JPH_CharacterVirtual *inCharacter);
+void JPH_CharacterVirtual_sFillCharacterContactProperties(JPH_CharacterVirtual_Contact *outContact, JPH_CharacterVirtual *inOtherCharacter, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeResult *inResult);
+void JPH_CharacterVirtual_MoveShape(JPH_RVec3 *ioPosition, JPH_Vec3Arg inVelocity, float inDeltaTime, JPH_CharacterVirtual_ContactList *outActiveContacts, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+bool JPH_CharacterVirtual_ValidateContact(JPH_CharacterVirtual_Contact *inContact);
+void JPH_CharacterVirtual_ContactAdded(JPH_CharacterVirtual_Contact *inContact, JPH_CharacterContactSettings *ioSettings);
+void JPH_CharacterVirtual_GetContactsAtPosition(JPH_RVec3Arg inPosition, JPH_Vec3Arg inMovementDirection, JPH_Shape *inShape, JPH_CharacterVirtual_TempContactList *outContacts, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+void JPH_CharacterVirtual_RemoveConflictingContacts(JPH_CharacterVirtual_TempContactList *ioContacts, JPH_CharacterVirtual_IgnoredContactList *outIgnoredContacts);
+void JPH_CharacterVirtual_DetermineConstraints(JPH_CharacterVirtual_TempContactList *inContacts, float inDeltaTime, JPH_CharacterVirtual_ConstraintList *outConstraints);
+void JPH_CharacterVirtual_SolveConstraints(JPH_Vec3Arg inVelocity, float inDeltaTime, float inTimeRemaining, JPH_CharacterVirtual_ConstraintList *ioConstraints, JPH_CharacterVirtual_IgnoredContactList *ioIgnoredContacts, float *outTimeSimulated, JPH_Vec3 *outDisplacement, JPH_TempAllocator *inAllocator);
+void JPH_CharacterVirtual_GetAdjustedBodyVelocity(JPH_Body *inBody, JPH_Vec3 *outLinearVelocity, JPH_Vec3 *outAngularVelocity);
+JPH_Vec3 JPH_CharacterVirtual_CalculateCharacterGroundVelocity(JPH_RVec3Arg inCenterOfMass, JPH_Vec3Arg inLinearVelocity, JPH_Vec3Arg inAngularVelocity, float inDeltaTime);
+bool JPH_CharacterVirtual_HandleContact(JPH_Vec3Arg inVelocity, JPH_CharacterVirtual_Constraint *ioConstraint, float inDeltaTime);
+bool JPH_CharacterVirtual_GetFirstContactForSweep(JPH_RVec3Arg inPosition, JPH_Vec3Arg inDisplacement, JPH_CharacterVirtual_Contact *outContact, JPH_CharacterVirtual_IgnoredContactList *inIgnoredContacts, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter);
+void JPH_CharacterVirtual_StoreActiveContacts(JPH_CharacterVirtual_TempContactList *inContacts, JPH_TempAllocator *inAllocator);
+void JPH_CharacterVirtual_UpdateSupportingContact(bool inSkipContactVelocityCheck, JPH_TempAllocator *inAllocator);
+void JPH_CharacterVirtual_MoveToContact(JPH_RVec3Arg inPosition, JPH_CharacterVirtual_Contact *inContact, JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, JPH_ObjectLayerFilter *inObjectLayerFilter, JPH_BodyFilter *inBodyFilter, JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator);
+JPH_RMat44 JPH_CharacterVirtual_GetCenterOfMassTransform(JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_Shape *inShape);
+JPH_RVec3 JPH_CharacterVirtual_GetInnerBodyPosition();
+void JPH_CharacterVirtual_UpdateInnerBodyTransform();
 // JoltPhysics/Jolt/Physics/Character/Character.h:16:1
 typedef struct JPH_CharacterSettings {
     JPH_CharacterBaseSettings base;
@@ -4298,10 +9681,65 @@ typedef struct JPH_CharacterSettings {
     JPH_EAllowedDOFs mAllowedDOFs;
 } JPH_CharacterSettings;
 
+void *JPH_CharacterSettings_operator_new(size_t inCount);
+void JPH_CharacterSettings_operator_delete(void *inPointer);
+void *JPH_CharacterSettings_operator_new[](size_t inCount);
+void JPH_CharacterSettings_operator_delete[](void *inPointer);
+void *JPH_CharacterSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_CharacterSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_CharacterSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_CharacterSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_CharacterSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_CharacterSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_CharacterSettings_CharacterSettings();
+void JPH_CharacterSettings_CharacterSettings(JPH_CharacterSettings *);
+JPH_CharacterSettings *JPH_CharacterSettings_operator=(JPH_CharacterSettings *);
 // JoltPhysics/Jolt/Physics/Character/Character.h:46:1
 // Has vtable
 typedef struct JPH_Character JPH_Character;
 
+void *JPH_Character_operator_new(size_t inCount);
+void JPH_Character_operator_delete(void *inPointer);
+void *JPH_Character_operator_new[](size_t inCount);
+void JPH_Character_operator_delete[](void *inPointer);
+void *JPH_Character_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Character_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Character_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Character_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Character_operator_new(size_t inCount, void *inPointer);
+void JPH_Character_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Character_operator_new[](size_t inCount, void *inPointer);
+void JPH_Character_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Character_Character(JPH_CharacterSettings *inSettings, JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, uint64_t inUserData, JPH_PhysicsSystem *inSystem);
+void JPH_Character_~Character();
+void JPH_Character_AddToPhysicsSystem(JPH_EActivation inActivationMode, bool inLockBodies);
+void JPH_Character_RemoveFromPhysicsSystem(bool inLockBodies);
+void JPH_Character_Activate(bool inLockBodies);
+void JPH_Character_PostSimulation(float inMaxSeparationDistance, bool inLockBodies);
+void JPH_Character_SetLinearAndAngularVelocity(JPH_Vec3Arg inLinearVelocity, JPH_Vec3Arg inAngularVelocity, bool inLockBodies);
+JPH_Vec3 JPH_Character_GetLinearVelocity(bool inLockBodies);
+void JPH_Character_SetLinearVelocity(JPH_Vec3Arg inLinearVelocity, bool inLockBodies);
+void JPH_Character_AddLinearVelocity(JPH_Vec3Arg inLinearVelocity, bool inLockBodies);
+void JPH_Character_AddImpulse(JPH_Vec3Arg inImpulse, bool inLockBodies);
+JPH_BodyID JPH_Character_GetBodyID();
+void JPH_Character_GetPositionAndRotation(JPH_RVec3 *outPosition, JPH_Quat *outRotation, bool inLockBodies);
+void JPH_Character_SetPositionAndRotation(JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_EActivation inActivationMode, bool inLockBodies);
+JPH_RVec3 JPH_Character_GetPosition(bool inLockBodies);
+void JPH_Character_SetPosition(JPH_RVec3Arg inPosition, JPH_EActivation inActivationMode, bool inLockBodies);
+JPH_Quat JPH_Character_GetRotation(bool inLockBodies);
+void JPH_Character_SetRotation(JPH_QuatArg inRotation, JPH_EActivation inActivationMode, bool inLockBodies);
+JPH_RVec3 JPH_Character_GetCenterOfMassPosition(bool inLockBodies);
+JPH_RMat44 JPH_Character_GetWorldTransform(bool inLockBodies);
+JPH_ObjectLayer JPH_Character_GetLayer();
+void JPH_Character_SetLayer(JPH_ObjectLayer inLayer, bool inLockBodies);
+bool JPH_Character_SetShape(JPH_Shape *inShape, float inMaxPenetrationDepth, bool inLockBodies);
+JPH_TransformedShape JPH_Character_GetTransformedShape(bool inLockBodies);
+void JPH_Character_CheckCollision(JPH_RVec3Arg inPosition, JPH_QuatArg inRotation, JPH_Vec3Arg inMovementDirection, float inMaxSeparationDistance, JPH_Shape *inShape, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector, bool inLockBodies);
+JPH_CharacterSettings JPH_Character_GetCharacterSettings(bool inLockBodies);
+void JPH_Character_CheckCollision(JPH_RMat44Arg inCenterOfMassTransform, JPH_Vec3Arg inMovementDirection, float inMaxSeparationDistance, JPH_Shape *inShape, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector, bool inLockBodies);
+void JPH_Character_CheckCollision(JPH_Shape *inShape, float inMaxSeparationDistance, JPH_RVec3Arg inBaseOffset, JPH_CollideShapeCollector *ioCollector, bool inLockBodies);
 // JoltPhysics/Jolt/Physics/PhysicsStepListener.h:12:1
 typedef struct JPH_PhysicsStepListenerContext {
     float mDeltaTime;
@@ -4314,6 +9752,8 @@ typedef struct JPH_PhysicsStepListenerContext {
 // Abstract
 typedef struct JPH_PhysicsStepListener JPH_PhysicsStepListener;
 
+void JPH_PhysicsStepListener_~PhysicsStepListener();
+void JPH_PhysicsStepListener_OnStep(JPH_PhysicsStepListenerContext *inContext);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/RackAndPinionConstraintPart.h:39:1
 typedef struct JPH_RackAndPinionConstraintPart {
     JPH_Vec3 mInvI1_A;
@@ -4322,38 +9762,262 @@ typedef struct JPH_RackAndPinionConstraintPart {
     float mTotalLambda;
 } JPH_RackAndPinionConstraintPart;
 
+bool JPH_RackAndPinionConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, float inLambda);
+void JPH_RackAndPinionConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Vec3Arg inWorldSpaceHingeAxis, JPH_Body *inBody2, JPH_Vec3Arg inWorldSpaceSliderAxis, float inRatio);
+void JPH_RackAndPinionConstraintPart_Deactivate();
+bool JPH_RackAndPinionConstraintPart_IsActive();
+void JPH_RackAndPinionConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, float inWarmStartImpulseRatio);
+bool JPH_RackAndPinionConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Vec3Arg inWorldSpaceHingeAxis, JPH_Body *ioBody2, JPH_Vec3Arg inWorldSpaceSliderAxis, float inRatio);
+float JPH_RackAndPinionConstraintPart_GetTotalLambda();
+bool JPH_RackAndPinionConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, float inC, float inBaumgarte);
+void JPH_RackAndPinionConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_RackAndPinionConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/RackAndPinionConstraint.h:13:1
 // Has vtable
 typedef struct JPH_RackAndPinionConstraintSettings JPH_RackAndPinionConstraintSettings;
 
+void *JPH_RackAndPinionConstraintSettings_operator_new(size_t inCount);
+void JPH_RackAndPinionConstraintSettings_operator_delete(void *inPointer);
+void *JPH_RackAndPinionConstraintSettings_operator_new[](size_t inCount);
+void JPH_RackAndPinionConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_RackAndPinionConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RackAndPinionConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RackAndPinionConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RackAndPinionConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RackAndPinionConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_RackAndPinionConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RackAndPinionConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_RackAndPinionConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_RackAndPinionConstraintSettings_GetRTTI();
+void *JPH_RackAndPinionConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_RackAndPinionConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_RackAndPinionConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_RackAndPinionConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_RackAndPinionConstraintSettings_SetRatio(int32_t inNumTeethRack, float inRackLength, int32_t inNumTeethPinion);
+void JPH_RackAndPinionConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/RackAndPinionConstraint.h:54:1
 // Has vtable
 typedef struct JPH_RackAndPinionConstraint JPH_RackAndPinionConstraint;
 
+void *JPH_RackAndPinionConstraint_operator_new(size_t inCount);
+void JPH_RackAndPinionConstraint_operator_delete(void *inPointer);
+void *JPH_RackAndPinionConstraint_operator_new[](size_t inCount);
+void JPH_RackAndPinionConstraint_operator_delete[](void *inPointer);
+void *JPH_RackAndPinionConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RackAndPinionConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RackAndPinionConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_RackAndPinionConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_RackAndPinionConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_RackAndPinionConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_RackAndPinionConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_RackAndPinionConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_RackAndPinionConstraint_RackAndPinionConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_RackAndPinionConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_RackAndPinionConstraint_GetSubType();
+void JPH_RackAndPinionConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_RackAndPinionConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_RackAndPinionConstraint_ResetWarmStart();
+void JPH_RackAndPinionConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_RackAndPinionConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_RackAndPinionConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_RackAndPinionConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_RackAndPinionConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_RackAndPinionConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_RackAndPinionConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_RackAndPinionConstraint_GetConstraintToBody2Matrix();
+void JPH_RackAndPinionConstraint_SetConstraints(JPH_Constraint *inPinion, JPH_Constraint *inRack);
+float JPH_RackAndPinionConstraint_GetTotalLambda();
+void JPH_RackAndPinionConstraint_CalculateConstraintProperties(JPH_Mat44Arg inRotation1, JPH_Mat44Arg inRotation2);
 // JoltPhysics/Jolt/Physics/Constraints/SliderConstraint.h:16:1
 // Has vtable
 typedef struct JPH_SliderConstraintSettings JPH_SliderConstraintSettings;
 
+void *JPH_SliderConstraintSettings_operator_new(size_t inCount);
+void JPH_SliderConstraintSettings_operator_delete(void *inPointer);
+void *JPH_SliderConstraintSettings_operator_new[](size_t inCount);
+void JPH_SliderConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_SliderConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SliderConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SliderConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SliderConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SliderConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_SliderConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SliderConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_SliderConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_SliderConstraintSettings_GetRTTI();
+void *JPH_SliderConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_SliderConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SliderConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_SliderConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_SliderConstraintSettings_SetSliderAxis(JPH_Vec3Arg inSliderAxis);
+void JPH_SliderConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/SliderConstraint.h:67:1
 // Has vtable
 typedef struct JPH_SliderConstraint JPH_SliderConstraint;
 
+void *JPH_SliderConstraint_operator_new(size_t inCount);
+void JPH_SliderConstraint_operator_delete(void *inPointer);
+void *JPH_SliderConstraint_operator_new[](size_t inCount);
+void JPH_SliderConstraint_operator_delete[](void *inPointer);
+void *JPH_SliderConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SliderConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SliderConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SliderConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SliderConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_SliderConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SliderConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_SliderConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SliderConstraint_SliderConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_SliderConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_SliderConstraint_GetSubType();
+void JPH_SliderConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_SliderConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_SliderConstraint_ResetWarmStart();
+void JPH_SliderConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_SliderConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_SliderConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_SliderConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_SliderConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_SliderConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_SliderConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_SliderConstraint_GetConstraintToBody2Matrix();
+float JPH_SliderConstraint_GetCurrentPosition();
+void JPH_SliderConstraint_SetMaxFrictionForce(float inFrictionForce);
+float JPH_SliderConstraint_GetMaxFrictionForce();
+JPH_MotorSettings *JPH_SliderConstraint_GetMotorSettings();
+JPH_MotorSettings *JPH_SliderConstraint_GetMotorSettings();
+void JPH_SliderConstraint_SetMotorState(JPH_EMotorState inState);
+JPH_EMotorState JPH_SliderConstraint_GetMotorState();
+void JPH_SliderConstraint_SetTargetVelocity(float inVelocity);
+float JPH_SliderConstraint_GetTargetVelocity();
+void JPH_SliderConstraint_SetTargetPosition(float inPosition);
+float JPH_SliderConstraint_GetTargetPosition();
+void JPH_SliderConstraint_SetLimits(float inLimitsMin, float inLimitsMax);
+float JPH_SliderConstraint_GetLimitsMin();
+float JPH_SliderConstraint_GetLimitsMax();
+bool JPH_SliderConstraint_HasLimits();
+JPH_SpringSettings *JPH_SliderConstraint_GetLimitsSpringSettings();
+JPH_SpringSettings *JPH_SliderConstraint_GetLimitsSpringSettings();
+void JPH_SliderConstraint_SetLimitsSpringSettings(JPH_SpringSettings *inLimitsSpringSettings);
+< Unexposed (size=8, align=4)> JPH_SliderConstraint_GetTotalLambdaPosition();
+float JPH_SliderConstraint_GetTotalLambdaPositionLimits();
+JPH_Vec3 JPH_SliderConstraint_GetTotalLambdaRotation();
+float JPH_SliderConstraint_GetTotalLambdaMotor();
+void JPH_SliderConstraint_CalculateR1R2U(JPH_Mat44Arg inRotation1, JPH_Mat44Arg inRotation2);
+void JPH_SliderConstraint_CalculateSlidingAxisAndPosition(JPH_Mat44Arg inRotation1);
+void JPH_SliderConstraint_CalculatePositionConstraintProperties(JPH_Mat44Arg inRotation1, JPH_Mat44Arg inRotation2);
+void JPH_SliderConstraint_CalculatePositionLimitsConstraintProperties(float inDeltaTime);
+void JPH_SliderConstraint_CalculateMotorConstraintProperties(float inDeltaTime);
 // JoltPhysics/Jolt/Physics/Constraints/FixedConstraint.h:14:1
 // Has vtable
 typedef struct JPH_FixedConstraintSettings JPH_FixedConstraintSettings;
 
+void *JPH_FixedConstraintSettings_operator_new(size_t inCount);
+void JPH_FixedConstraintSettings_operator_delete(void *inPointer);
+void *JPH_FixedConstraintSettings_operator_new[](size_t inCount);
+void JPH_FixedConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_FixedConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_FixedConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_FixedConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_FixedConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_FixedConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_FixedConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_FixedConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_FixedConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_FixedConstraintSettings_GetRTTI();
+void *JPH_FixedConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_FixedConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_FixedConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_FixedConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_FixedConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/FixedConstraint.h:48:1
 // Has vtable
 typedef struct JPH_FixedConstraint JPH_FixedConstraint;
 
+void *JPH_FixedConstraint_operator_new(size_t inCount);
+void JPH_FixedConstraint_operator_delete(void *inPointer);
+void *JPH_FixedConstraint_operator_new[](size_t inCount);
+void JPH_FixedConstraint_operator_delete[](void *inPointer);
+void *JPH_FixedConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_FixedConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_FixedConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_FixedConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_FixedConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_FixedConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_FixedConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_FixedConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_FixedConstraint_FixedConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_FixedConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_FixedConstraint_GetSubType();
+void JPH_FixedConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_FixedConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_FixedConstraint_ResetWarmStart();
+void JPH_FixedConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_FixedConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_FixedConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_FixedConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_FixedConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_FixedConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_FixedConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_FixedConstraint_GetConstraintToBody2Matrix();
+JPH_Vec3 JPH_FixedConstraint_GetTotalLambdaPosition();
+JPH_Vec3 JPH_FixedConstraint_GetTotalLambdaRotation();
 // JoltPhysics/Jolt/Physics/Constraints/DistanceConstraint.h:13:1
 // Has vtable
 typedef struct JPH_DistanceConstraintSettings JPH_DistanceConstraintSettings;
 
+void *JPH_DistanceConstraintSettings_operator_new(size_t inCount);
+void JPH_DistanceConstraintSettings_operator_delete(void *inPointer);
+void *JPH_DistanceConstraintSettings_operator_new[](size_t inCount);
+void JPH_DistanceConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_DistanceConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DistanceConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DistanceConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DistanceConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DistanceConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_DistanceConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_DistanceConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_DistanceConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_DistanceConstraintSettings_GetRTTI();
+void *JPH_DistanceConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_DistanceConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_DistanceConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_DistanceConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_DistanceConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/DistanceConstraint.h:48:1
 // Has vtable
 typedef struct JPH_DistanceConstraint JPH_DistanceConstraint;
 
+void *JPH_DistanceConstraint_operator_new(size_t inCount);
+void JPH_DistanceConstraint_operator_delete(void *inPointer);
+void *JPH_DistanceConstraint_operator_new[](size_t inCount);
+void JPH_DistanceConstraint_operator_delete[](void *inPointer);
+void *JPH_DistanceConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DistanceConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DistanceConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_DistanceConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_DistanceConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_DistanceConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_DistanceConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_DistanceConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_DistanceConstraint_DistanceConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_DistanceConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_DistanceConstraint_GetSubType();
+void JPH_DistanceConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_DistanceConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_DistanceConstraint_ResetWarmStart();
+void JPH_DistanceConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_DistanceConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_DistanceConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_DistanceConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_DistanceConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_DistanceConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_DistanceConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_DistanceConstraint_GetConstraintToBody2Matrix();
+void JPH_DistanceConstraint_SetDistance(float inMinDistance, float inMaxDistance);
+float JPH_DistanceConstraint_GetMinDistance();
+float JPH_DistanceConstraint_GetMaxDistance();
+JPH_SpringSettings *JPH_DistanceConstraint_GetLimitsSpringSettings();
+JPH_SpringSettings *JPH_DistanceConstraint_GetLimitsSpringSettings();
+void JPH_DistanceConstraint_SetLimitsSpringSettings(JPH_SpringSettings *inLimitsSpringSettings);
+float JPH_DistanceConstraint_GetTotalLambdaPosition();
+void JPH_DistanceConstraint_CalculateConstraintProperties(float inDeltaTime);
 // JoltPhysics/Jolt/Physics/Constraints/PathConstraintPath.h:25:2
 typedef < ? named (size=-2, align=-2)> JPH_PathConstraintPath_PathResult;
 
@@ -4361,14 +10025,104 @@ typedef < ? named (size=-2, align=-2)> JPH_PathConstraintPath_PathResult;
 // Abstract
 typedef struct JPH_PathConstraintPath JPH_PathConstraintPath;
 
+void *JPH_PathConstraintPath_operator_new(size_t inCount);
+void JPH_PathConstraintPath_operator_delete(void *inPointer);
+void *JPH_PathConstraintPath_operator_new[](size_t inCount);
+void JPH_PathConstraintPath_operator_delete[](void *inPointer);
+void *JPH_PathConstraintPath_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintPath_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintPath_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintPath_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintPath_operator_new(size_t inCount, void *inPointer);
+void JPH_PathConstraintPath_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PathConstraintPath_operator_new[](size_t inCount, void *inPointer);
+void JPH_PathConstraintPath_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PathConstraintPath_GetRTTI();
+void *JPH_PathConstraintPath_CastTo(JPH_RTTI *inRTTI);
+void JPH_PathConstraintPath_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PathConstraintPath_~PathConstraintPath();
+float JPH_PathConstraintPath_GetPathMaxFraction();
+float JPH_PathConstraintPath_GetClosestPoint(JPH_Vec3Arg inPosition, float inFractionHint);
+void JPH_PathConstraintPath_GetPointOnPath(float inFraction, JPH_Vec3 *outPathPosition, JPH_Vec3 *outPathTangent, JPH_Vec3 *outPathNormal, JPH_Vec3 *outPathBinormal);
+void JPH_PathConstraintPath_SetIsLooping(bool inIsLooping);
+bool JPH_PathConstraintPath_IsLooping();
+void JPH_PathConstraintPath_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_PathConstraintPath_PathResult JPH_PathConstraintPath_sRestoreFromBinaryState(JPH_StreamIn *inStream);
+void JPH_PathConstraintPath_PathConstraintPath();
+void JPH_PathConstraintPath_PathConstraintPath(JPH_PathConstraintPath *);
+JPH_PathConstraintPath *JPH_PathConstraintPath_operator=(JPH_PathConstraintPath *);
+void JPH_PathConstraintPath_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/PathConstraint.h:41:1
 // Has vtable
 typedef struct JPH_PathConstraintSettings JPH_PathConstraintSettings;
 
+void *JPH_PathConstraintSettings_operator_new(size_t inCount);
+void JPH_PathConstraintSettings_operator_delete(void *inPointer);
+void *JPH_PathConstraintSettings_operator_new[](size_t inCount);
+void JPH_PathConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_PathConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_PathConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PathConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_PathConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PathConstraintSettings_GetRTTI();
+void *JPH_PathConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_PathConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PathConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_PathConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_PathConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/PathConstraint.h:79:1
 // Has vtable
 typedef struct JPH_PathConstraint JPH_PathConstraint;
 
+void *JPH_PathConstraint_operator_new(size_t inCount);
+void JPH_PathConstraint_operator_delete(void *inPointer);
+void *JPH_PathConstraint_operator_new[](size_t inCount);
+void JPH_PathConstraint_operator_delete[](void *inPointer);
+void *JPH_PathConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_PathConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PathConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_PathConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PathConstraint_PathConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_PathConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_PathConstraint_GetSubType();
+void JPH_PathConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_PathConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_PathConstraint_ResetWarmStart();
+void JPH_PathConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_PathConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_PathConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_PathConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_PathConstraint_RestoreState(JPH_StateRecorder *inStream);
+bool JPH_PathConstraint_IsActive();
+< Unexposed (size=-2, align=-2)> JPH_PathConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_PathConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_PathConstraint_GetConstraintToBody2Matrix();
+void JPH_PathConstraint_SetPath(JPH_PathConstraintPath *inPath, float inPathFraction);
+JPH_PathConstraintPath *JPH_PathConstraint_GetPath();
+float JPH_PathConstraint_GetPathFraction();
+void JPH_PathConstraint_SetMaxFrictionForce(float inFrictionForce);
+float JPH_PathConstraint_GetMaxFrictionForce();
+JPH_MotorSettings *JPH_PathConstraint_GetPositionMotorSettings();
+JPH_MotorSettings *JPH_PathConstraint_GetPositionMotorSettings();
+void JPH_PathConstraint_SetPositionMotorState(JPH_EMotorState inState);
+JPH_EMotorState JPH_PathConstraint_GetPositionMotorState();
+void JPH_PathConstraint_SetTargetVelocity(float inVelocity);
+float JPH_PathConstraint_GetTargetVelocity();
+void JPH_PathConstraint_SetTargetPathFraction(float inFraction);
+float JPH_PathConstraint_GetTargetPathFraction();
+< Unexposed (size=8, align=4)> JPH_PathConstraint_GetTotalLambdaPosition();
+float JPH_PathConstraint_GetTotalLambdaPositionLimits();
+float JPH_PathConstraint_GetTotalLambdaMotor();
+< Unexposed (size=8, align=4)> JPH_PathConstraint_GetTotalLambdaRotationHinge();
+JPH_Vec3 JPH_PathConstraint_GetTotalLambdaRotation();
+void JPH_PathConstraint_CalculateConstraintProperties(float inDeltaTime);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/GearConstraintPart.h:39:1
 typedef struct JPH_GearConstraintPart {
     JPH_Vec3 mInvI1_A;
@@ -4377,14 +10131,71 @@ typedef struct JPH_GearConstraintPart {
     float mTotalLambda;
 } JPH_GearConstraintPart;
 
+bool JPH_GearConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, float inLambda);
+void JPH_GearConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Vec3Arg inWorldSpaceHingeAxis1, JPH_Body *inBody2, JPH_Vec3Arg inWorldSpaceHingeAxis2, float inRatio);
+void JPH_GearConstraintPart_Deactivate();
+bool JPH_GearConstraintPart_IsActive();
+void JPH_GearConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, float inWarmStartImpulseRatio);
+bool JPH_GearConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Vec3Arg inWorldSpaceHingeAxis1, JPH_Body *ioBody2, JPH_Vec3Arg inWorldSpaceHingeAxis2, float inRatio);
+float JPH_GearConstraintPart_GetTotalLambda();
+bool JPH_GearConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, float inC, float inBaumgarte);
+void JPH_GearConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_GearConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/GearConstraint.h:13:1
 // Has vtable
 typedef struct JPH_GearConstraintSettings JPH_GearConstraintSettings;
 
+void *JPH_GearConstraintSettings_operator_new(size_t inCount);
+void JPH_GearConstraintSettings_operator_delete(void *inPointer);
+void *JPH_GearConstraintSettings_operator_new[](size_t inCount);
+void JPH_GearConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_GearConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GearConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GearConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GearConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GearConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_GearConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_GearConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_GearConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_GearConstraintSettings_GetRTTI();
+void *JPH_GearConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_GearConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_GearConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_GearConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_GearConstraintSettings_SetRatio(int32_t inNumTeethGear1, int32_t inNumTeethGear2);
+void JPH_GearConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/GearConstraint.h:52:1
 // Has vtable
 typedef struct JPH_GearConstraint JPH_GearConstraint;
 
+void *JPH_GearConstraint_operator_new(size_t inCount);
+void JPH_GearConstraint_operator_delete(void *inPointer);
+void *JPH_GearConstraint_operator_new[](size_t inCount);
+void JPH_GearConstraint_operator_delete[](void *inPointer);
+void *JPH_GearConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GearConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GearConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_GearConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_GearConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_GearConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_GearConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_GearConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_GearConstraint_GearConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_GearConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_GearConstraint_GetSubType();
+void JPH_GearConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_GearConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_GearConstraint_ResetWarmStart();
+void JPH_GearConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_GearConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_GearConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_GearConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_GearConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_GearConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_GearConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_GearConstraint_GetConstraintToBody2Matrix();
+void JPH_GearConstraint_SetConstraints(JPH_Constraint *inGear1, JPH_Constraint *inGear2);
+float JPH_GearConstraint_GetTotalLambda();
+void JPH_GearConstraint_CalculateConstraintProperties(JPH_Mat44Arg inRotation1, JPH_Mat44Arg inRotation2);
 // JoltPhysics/Jolt/Physics/Constraints/PathConstraintPathHermite.h:32:2
 typedef struct JPH_PathConstraintPathHermite_Point {
     JPH_Vec3 mPosition;
@@ -4392,6 +10203,19 @@ typedef struct JPH_PathConstraintPathHermite_Point {
     JPH_Vec3 mNormal;
 } JPH_PathConstraintPathHermite_Point;
 
+void *JPH_PathConstraintPathHermite_Point_operator_new(size_t inCount);
+void JPH_PathConstraintPathHermite_Point_operator_delete(void *inPointer);
+void *JPH_PathConstraintPathHermite_Point_operator_new[](size_t inCount);
+void JPH_PathConstraintPathHermite_Point_operator_delete[](void *inPointer);
+void *JPH_PathConstraintPathHermite_Point_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintPathHermite_Point_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintPathHermite_Point_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintPathHermite_Point_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintPathHermite_Point_operator_new(size_t inCount, void *inPointer);
+void JPH_PathConstraintPathHermite_Point_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PathConstraintPathHermite_Point_operator_new[](size_t inCount, void *inPointer);
+void JPH_PathConstraintPathHermite_Point_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PathConstraintPathHermite_Point_sCreateRTTI(JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/Physics/Constraints/PathConstraintPathHermite.h:49:2
 typedef < ? named (size=24, align=8)> JPH_PathConstraintPathHermite_Points;
 
@@ -4399,18 +10223,112 @@ typedef < ? named (size=24, align=8)> JPH_PathConstraintPathHermite_Points;
 // Has vtable
 typedef struct JPH_PathConstraintPathHermite JPH_PathConstraintPathHermite;
 
+void *JPH_PathConstraintPathHermite_operator_new(size_t inCount);
+void JPH_PathConstraintPathHermite_operator_delete(void *inPointer);
+void *JPH_PathConstraintPathHermite_operator_new[](size_t inCount);
+void JPH_PathConstraintPathHermite_operator_delete[](void *inPointer);
+void *JPH_PathConstraintPathHermite_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintPathHermite_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintPathHermite_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PathConstraintPathHermite_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PathConstraintPathHermite_operator_new(size_t inCount, void *inPointer);
+void JPH_PathConstraintPathHermite_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PathConstraintPathHermite_operator_new[](size_t inCount, void *inPointer);
+void JPH_PathConstraintPathHermite_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PathConstraintPathHermite_GetRTTI();
+void *JPH_PathConstraintPathHermite_CastTo(JPH_RTTI *inRTTI);
+void JPH_PathConstraintPathHermite_sCreateRTTI(JPH_RTTI *inRTTI);
+float JPH_PathConstraintPathHermite_GetPathMaxFraction();
+float JPH_PathConstraintPathHermite_GetClosestPoint(JPH_Vec3Arg inPosition, float inFractionHint);
+void JPH_PathConstraintPathHermite_GetPointOnPath(float inFraction, JPH_Vec3 *outPathPosition, JPH_Vec3 *outPathTangent, JPH_Vec3 *outPathNormal, JPH_Vec3 *outPathBinormal);
+void JPH_PathConstraintPathHermite_AddPoint(JPH_Vec3Arg inPosition, JPH_Vec3Arg inTangent, JPH_Vec3Arg inNormal);
+void JPH_PathConstraintPathHermite_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_PathConstraintPathHermite_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_PathConstraintPathHermite_GetIndexAndT(float inFraction, int32_t *outIndex, float *outT);
 // JoltPhysics/Jolt/Physics/Constraints/PointConstraint.h:13:1
 // Has vtable
 typedef struct JPH_PointConstraintSettings JPH_PointConstraintSettings;
 
+void *JPH_PointConstraintSettings_operator_new(size_t inCount);
+void JPH_PointConstraintSettings_operator_delete(void *inPointer);
+void *JPH_PointConstraintSettings_operator_new[](size_t inCount);
+void JPH_PointConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_PointConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PointConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PointConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PointConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PointConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_PointConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PointConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_PointConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PointConstraintSettings_GetRTTI();
+void *JPH_PointConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_PointConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PointConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_PointConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_PointConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/PointConstraint.h:40:1
 // Has vtable
 typedef struct JPH_PointConstraint JPH_PointConstraint;
 
+void *JPH_PointConstraint_operator_new(size_t inCount);
+void JPH_PointConstraint_operator_delete(void *inPointer);
+void *JPH_PointConstraint_operator_new[](size_t inCount);
+void JPH_PointConstraint_operator_delete[](void *inPointer);
+void *JPH_PointConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PointConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PointConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PointConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PointConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_PointConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PointConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_PointConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PointConstraint_PointConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_PointConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_PointConstraint_GetSubType();
+void JPH_PointConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_PointConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_PointConstraint_ResetWarmStart();
+void JPH_PointConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_PointConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_PointConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_PointConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_PointConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_PointConstraint_GetConstraintSettings();
+void JPH_PointConstraint_SetPoint1(JPH_EConstraintSpace inSpace, JPH_RVec3Arg inPoint1);
+void JPH_PointConstraint_SetPoint2(JPH_EConstraintSpace inSpace, JPH_RVec3Arg inPoint2);
+JPH_Vec3 JPH_PointConstraint_GetLocalSpacePoint1();
+JPH_Vec3 JPH_PointConstraint_GetLocalSpacePoint2();
+JPH_Mat44 JPH_PointConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_PointConstraint_GetConstraintToBody2Matrix();
+JPH_Vec3 JPH_PointConstraint_GetTotalLambdaPosition();
+void JPH_PointConstraint_CalculateConstraintProperties();
 // JoltPhysics/Jolt/Physics/Constraints/SixDOFConstraint.h:18:1
 // Has vtable
 typedef struct JPH_SixDOFConstraintSettings JPH_SixDOFConstraintSettings;
 
+void *JPH_SixDOFConstraintSettings_operator_new(size_t inCount);
+void JPH_SixDOFConstraintSettings_operator_delete(void *inPointer);
+void *JPH_SixDOFConstraintSettings_operator_new[](size_t inCount);
+void JPH_SixDOFConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_SixDOFConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SixDOFConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SixDOFConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SixDOFConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SixDOFConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_SixDOFConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SixDOFConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_SixDOFConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_SixDOFConstraintSettings_GetRTTI();
+void *JPH_SixDOFConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_SixDOFConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_SixDOFConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_SixDOFConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_SixDOFConstraintSettings_MakeFreeAxis(JPH_SixDOFConstraintSettings_EAxis inAxis);
+bool JPH_SixDOFConstraintSettings_IsFreeAxis(JPH_SixDOFConstraintSettings_EAxis inAxis);
+void JPH_SixDOFConstraintSettings_MakeFixedAxis(JPH_SixDOFConstraintSettings_EAxis inAxis);
+bool JPH_SixDOFConstraintSettings_IsFixedAxis(JPH_SixDOFConstraintSettings_EAxis inAxis);
+void JPH_SixDOFConstraintSettings_SetLimitedAxis(JPH_SixDOFConstraintSettings_EAxis inAxis, float inMin, float inMax);
+void JPH_SixDOFConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/SixDOFConstraint.h:111:2
 typedef JPH_SixDOFConstraintSettings_EAxis JPH_SixDOFConstraint_EAxis;
 
@@ -4418,14 +10336,132 @@ typedef JPH_SixDOFConstraintSettings_EAxis JPH_SixDOFConstraint_EAxis;
 // Has vtable
 typedef struct JPH_SixDOFConstraint JPH_SixDOFConstraint;
 
+void *JPH_SixDOFConstraint_operator_new(size_t inCount);
+void JPH_SixDOFConstraint_operator_delete(void *inPointer);
+void *JPH_SixDOFConstraint_operator_new[](size_t inCount);
+void JPH_SixDOFConstraint_operator_delete[](void *inPointer);
+void *JPH_SixDOFConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SixDOFConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SixDOFConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_SixDOFConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_SixDOFConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_SixDOFConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_SixDOFConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_SixDOFConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_SixDOFConstraint_SixDOFConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_SixDOFConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_SixDOFConstraint_GetSubType();
+void JPH_SixDOFConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_SixDOFConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_SixDOFConstraint_ResetWarmStart();
+void JPH_SixDOFConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_SixDOFConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_SixDOFConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_SixDOFConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_SixDOFConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_SixDOFConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_SixDOFConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_SixDOFConstraint_GetConstraintToBody2Matrix();
+void JPH_SixDOFConstraint_SetTranslationLimits(JPH_Vec3Arg inLimitMin, JPH_Vec3Arg inLimitMax);
+void JPH_SixDOFConstraint_SetRotationLimits(JPH_Vec3Arg inLimitMin, JPH_Vec3Arg inLimitMax);
+float JPH_SixDOFConstraint_GetLimitsMin(JPH_SixDOFConstraint_EAxis inAxis);
+float JPH_SixDOFConstraint_GetLimitsMax(JPH_SixDOFConstraint_EAxis inAxis);
+JPH_Vec3 JPH_SixDOFConstraint_GetTranslationLimitsMin();
+JPH_Vec3 JPH_SixDOFConstraint_GetTranslationLimitsMax();
+JPH_Vec3 JPH_SixDOFConstraint_GetRotationLimitsMin();
+JPH_Vec3 JPH_SixDOFConstraint_GetRotationLimitsMax();
+bool JPH_SixDOFConstraint_IsFixedAxis(JPH_SixDOFConstraint_EAxis inAxis);
+bool JPH_SixDOFConstraint_IsFreeAxis(JPH_SixDOFConstraint_EAxis inAxis);
+JPH_SpringSettings *JPH_SixDOFConstraint_GetLimitsSpringSettings(JPH_SixDOFConstraint_EAxis inAxis);
+void JPH_SixDOFConstraint_SetLimitsSpringSettings(JPH_SixDOFConstraint_EAxis inAxis, JPH_SpringSettings *inLimitsSpringSettings);
+void JPH_SixDOFConstraint_SetMaxFriction(JPH_SixDOFConstraint_EAxis inAxis, float inFriction);
+float JPH_SixDOFConstraint_GetMaxFriction(JPH_SixDOFConstraint_EAxis inAxis);
+JPH_Quat JPH_SixDOFConstraint_GetRotationInConstraintSpace();
+JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettings(JPH_SixDOFConstraint_EAxis inAxis);
+JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettings(JPH_SixDOFConstraint_EAxis inAxis);
+void JPH_SixDOFConstraint_SetMotorState(JPH_SixDOFConstraint_EAxis inAxis, JPH_EMotorState inState);
+JPH_EMotorState JPH_SixDOFConstraint_GetMotorState(JPH_SixDOFConstraint_EAxis inAxis);
+JPH_Vec3 JPH_SixDOFConstraint_GetTargetVelocityCS();
+void JPH_SixDOFConstraint_SetTargetVelocityCS(JPH_Vec3Arg inVelocity);
+void JPH_SixDOFConstraint_SetTargetAngularVelocityCS(JPH_Vec3Arg inAngularVelocity);
+JPH_Vec3 JPH_SixDOFConstraint_GetTargetAngularVelocityCS();
+JPH_Vec3 JPH_SixDOFConstraint_GetTargetPositionCS();
+void JPH_SixDOFConstraint_SetTargetPositionCS(JPH_Vec3Arg inPosition);
+void JPH_SixDOFConstraint_SetTargetOrientationCS(JPH_QuatArg inOrientation);
+JPH_Quat JPH_SixDOFConstraint_GetTargetOrientationCS();
+void JPH_SixDOFConstraint_SetTargetOrientationBS(JPH_QuatArg inOrientation);
+JPH_Vec3 JPH_SixDOFConstraint_GetTotalLambdaPosition();
+JPH_Vec3 JPH_SixDOFConstraint_GetTotalLambdaRotation();
+JPH_Vec3 JPH_SixDOFConstraint_GetTotalLambdaMotorTranslation();
+JPH_Vec3 JPH_SixDOFConstraint_GetTotalLambdaMotorRotation();
+void JPH_SixDOFConstraint_GetPositionConstraintProperties(JPH_Vec3 *outR1PlusU, JPH_Vec3 *outR2, JPH_Vec3 *outU);
+void JPH_SixDOFConstraint_UpdateTranslationLimits();
+void JPH_SixDOFConstraint_UpdateRotationLimits();
+void JPH_SixDOFConstraint_UpdateFixedFreeAxis();
+void JPH_SixDOFConstraint_CacheTranslationMotorActive();
+void JPH_SixDOFConstraint_CacheRotationMotorActive();
+void JPH_SixDOFConstraint_CacheRotationPositionMotorActive();
+void JPH_SixDOFConstraint_CacheHasSpringLimits();
+bool JPH_SixDOFConstraint_IsTranslationConstrained();
+bool JPH_SixDOFConstraint_IsTranslationFullyConstrained();
+bool JPH_SixDOFConstraint_IsRotationConstrained();
+bool JPH_SixDOFConstraint_IsRotationFullyConstrained();
+bool JPH_SixDOFConstraint_HasFriction(JPH_SixDOFConstraint_EAxis inAxis);
 // JoltPhysics/Jolt/Physics/Constraints/ConeConstraint.h:14:1
 // Has vtable
 typedef struct JPH_ConeConstraintSettings JPH_ConeConstraintSettings;
 
+void *JPH_ConeConstraintSettings_operator_new(size_t inCount);
+void JPH_ConeConstraintSettings_operator_delete(void *inPointer);
+void *JPH_ConeConstraintSettings_operator_new[](size_t inCount);
+void JPH_ConeConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_ConeConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConeConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConeConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConeConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConeConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_ConeConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConeConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConeConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_ConeConstraintSettings_GetRTTI();
+void *JPH_ConeConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_ConeConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_ConeConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_ConeConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_ConeConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/ConeConstraint.h:69:1
 // Has vtable
 typedef struct JPH_ConeConstraint JPH_ConeConstraint;
 
+void *JPH_ConeConstraint_operator_new(size_t inCount);
+void JPH_ConeConstraint_operator_delete(void *inPointer);
+void *JPH_ConeConstraint_operator_new[](size_t inCount);
+void JPH_ConeConstraint_operator_delete[](void *inPointer);
+void *JPH_ConeConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConeConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConeConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConeConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConeConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_ConeConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConeConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConeConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ConeConstraint_ConeConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_ConeConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_ConeConstraint_GetSubType();
+void JPH_ConeConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_ConeConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_ConeConstraint_ResetWarmStart();
+void JPH_ConeConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_ConeConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_ConeConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_ConeConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_ConeConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_ConeConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_ConeConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_ConeConstraint_GetConstraintToBody2Matrix();
+void JPH_ConeConstraint_SetHalfConeAngle(float inHalfConeAngle);
+float JPH_ConeConstraint_GetCosHalfConeAngle();
+JPH_Vec3 JPH_ConeConstraint_GetTotalLambdaPosition();
+float JPH_ConeConstraint_GetTotalLambdaRotation();
+void JPH_ConeConstraint_CalculateRotationConstraintProperties(JPH_Mat44Arg inRotation1, JPH_Mat44Arg inRotation2);
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/IndependentAxisConstraintPart.h:47:1
 typedef struct JPH_IndependentAxisConstraintPart {
     JPH_Vec3 mR1xN1;
@@ -4436,14 +10472,74 @@ typedef struct JPH_IndependentAxisConstraintPart {
     float mTotalLambda;
 } JPH_IndependentAxisConstraintPart;
 
+bool JPH_IndependentAxisConstraintPart_ApplyVelocityStep(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, float inRatio, float inLambda);
+void JPH_IndependentAxisConstraintPart_CalculateConstraintProperties(JPH_Body *inBody1, JPH_Body *inBody2, JPH_Vec3Arg inR1, JPH_Vec3Arg inN1, JPH_Vec3Arg inR2, JPH_Vec3Arg inN2, float inRatio);
+void JPH_IndependentAxisConstraintPart_Deactivate();
+bool JPH_IndependentAxisConstraintPart_IsActive();
+void JPH_IndependentAxisConstraintPart_WarmStart(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, float inRatio, float inWarmStartImpulseRatio);
+bool JPH_IndependentAxisConstraintPart_SolveVelocityConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, float inRatio, float inMinLambda, float inMaxLambda);
+float JPH_IndependentAxisConstraintPart_GetTotalLambda();
+bool JPH_IndependentAxisConstraintPart_SolvePositionConstraint(JPH_Body *ioBody1, JPH_Body *ioBody2, JPH_Vec3Arg inN1, JPH_Vec3Arg inN2, float inRatio, float inC, float inBaumgarte);
+void JPH_IndependentAxisConstraintPart_SaveState(JPH_StateRecorder *inStream);
+void JPH_IndependentAxisConstraintPart_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/PulleyConstraint.h:18:1
 // Has vtable
 typedef struct JPH_PulleyConstraintSettings JPH_PulleyConstraintSettings;
 
+void *JPH_PulleyConstraintSettings_operator_new(size_t inCount);
+void JPH_PulleyConstraintSettings_operator_delete(void *inPointer);
+void *JPH_PulleyConstraintSettings_operator_new[](size_t inCount);
+void JPH_PulleyConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_PulleyConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PulleyConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PulleyConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PulleyConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PulleyConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_PulleyConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PulleyConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_PulleyConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_PulleyConstraintSettings_GetRTTI();
+void *JPH_PulleyConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_PulleyConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PulleyConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+JPH_TwoBodyConstraint *JPH_PulleyConstraintSettings_Create(JPH_Body *inBody1, JPH_Body *inBody2);
+void JPH_PulleyConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Constraints/PulleyConstraint.h:59:1
 // Has vtable
 typedef struct JPH_PulleyConstraint JPH_PulleyConstraint;
 
+void *JPH_PulleyConstraint_operator_new(size_t inCount);
+void JPH_PulleyConstraint_operator_delete(void *inPointer);
+void *JPH_PulleyConstraint_operator_new[](size_t inCount);
+void JPH_PulleyConstraint_operator_delete[](void *inPointer);
+void *JPH_PulleyConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PulleyConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PulleyConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PulleyConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PulleyConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_PulleyConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PulleyConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_PulleyConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PulleyConstraint_PulleyConstraint(JPH_Body *inBody1, JPH_Body *inBody2, JPH_PulleyConstraintSettings *inSettings);
+JPH_EConstraintSubType JPH_PulleyConstraint_GetSubType();
+void JPH_PulleyConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_PulleyConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_PulleyConstraint_ResetWarmStart();
+void JPH_PulleyConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_PulleyConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_PulleyConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_PulleyConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_PulleyConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_PulleyConstraint_GetConstraintSettings();
+JPH_Mat44 JPH_PulleyConstraint_GetConstraintToBody1Matrix();
+JPH_Mat44 JPH_PulleyConstraint_GetConstraintToBody2Matrix();
+void JPH_PulleyConstraint_SetLength(float inMinLength, float inMaxLength);
+float JPH_PulleyConstraint_GetMinLength();
+float JPH_PulleyConstraint_GetMaxLength();
+float JPH_PulleyConstraint_GetCurrentLength();
+float JPH_PulleyConstraint_GetTotalLambdaPosition();
+float JPH_PulleyConstraint_CalculatePositionsNormalsAndLength();
+void JPH_PulleyConstraint_CalculateConstraintProperties();
 // JoltPhysics/Jolt/Physics/PhysicsScene.h:45:2
 typedef struct JPH_PhysicsScene_ConnectedConstraint {
     < Unexposed (size=8, align=8)> mSettings;
@@ -4451,6 +10547,21 @@ typedef struct JPH_PhysicsScene_ConnectedConstraint {
     uint32_t mBody2;
 } JPH_PhysicsScene_ConnectedConstraint;
 
+void *JPH_PhysicsScene_ConnectedConstraint_operator_new(size_t inCount);
+void JPH_PhysicsScene_ConnectedConstraint_operator_delete(void *inPointer);
+void *JPH_PhysicsScene_ConnectedConstraint_operator_new[](size_t inCount);
+void JPH_PhysicsScene_ConnectedConstraint_operator_delete[](void *inPointer);
+void *JPH_PhysicsScene_ConnectedConstraint_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsScene_ConnectedConstraint_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsScene_ConnectedConstraint_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsScene_ConnectedConstraint_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsScene_ConnectedConstraint_operator_new(size_t inCount, void *inPointer);
+void JPH_PhysicsScene_ConnectedConstraint_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PhysicsScene_ConnectedConstraint_operator_new[](size_t inCount, void *inPointer);
+void JPH_PhysicsScene_ConnectedConstraint_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PhysicsScene_ConnectedConstraint_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PhysicsScene_ConnectedConstraint_ConnectedConstraint();
+void JPH_PhysicsScene_ConnectedConstraint_ConnectedConstraint(JPH_TwoBodyConstraintSettings *inSettings, uint32_t inBody1, uint32_t inBody2);
 // JoltPhysics/Jolt/Physics/PhysicsScene.h:85:2
 typedef < ? named (size=-2, align=-2)> JPH_PhysicsScene_PhysicsSceneResult;
 
@@ -4463,30 +10574,172 @@ typedef struct JPH_PhysicsScene {
     < Unexposed (size=24, align=8)> mSoftBodies;
 } JPH_PhysicsScene;
 
+void *JPH_PhysicsScene_operator_new(size_t inCount);
+void JPH_PhysicsScene_operator_delete(void *inPointer);
+void *JPH_PhysicsScene_operator_new[](size_t inCount);
+void JPH_PhysicsScene_operator_delete[](void *inPointer);
+void *JPH_PhysicsScene_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsScene_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsScene_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_PhysicsScene_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_PhysicsScene_operator_new(size_t inCount, void *inPointer);
+void JPH_PhysicsScene_operator_delete(void *inPointer, void *inPlace);
+void *JPH_PhysicsScene_operator_new[](size_t inCount, void *inPointer);
+void JPH_PhysicsScene_operator_delete[](void *inPointer, void *inPlace);
+void JPH_PhysicsScene_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_PhysicsScene_AddBody(JPH_BodyCreationSettings *inBody);
+void JPH_PhysicsScene_AddConstraint(JPH_TwoBodyConstraintSettings *inConstraint, uint32_t inBody1, uint32_t inBody2);
+void JPH_PhysicsScene_AddSoftBody(JPH_SoftBodyCreationSettings *inSoftBody);
+size_t JPH_PhysicsScene_GetNumBodies();
+< Unexposed (size=24, align=8)> *JPH_PhysicsScene_GetBodies();
+< Unexposed (size=24, align=8)> *JPH_PhysicsScene_GetBodies();
+size_t JPH_PhysicsScene_GetNumConstraints();
+< Unexposed (size=24, align=8)> *JPH_PhysicsScene_GetConstraints();
+< Unexposed (size=24, align=8)> *JPH_PhysicsScene_GetConstraints();
+size_t JPH_PhysicsScene_GetNumSoftBodies();
+< Unexposed (size=24, align=8)> *JPH_PhysicsScene_GetSoftBodies();
+< Unexposed (size=24, align=8)> *JPH_PhysicsScene_GetSoftBodies();
+bool JPH_PhysicsScene_CreateBodies(JPH_PhysicsSystem *inSystem);
+bool JPH_PhysicsScene_FixInvalidScales();
+void JPH_PhysicsScene_SaveBinaryState(JPH_StreamOut *inStream, bool inSaveShapes, bool inSaveGroupFilter);
+JPH_PhysicsScene_PhysicsSceneResult JPH_PhysicsScene_sRestoreFromBinaryState(JPH_StreamIn *inStream);
+void JPH_PhysicsScene_FromPhysicsSystem(JPH_PhysicsSystem *inSystem);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleController.h:24:1
 // Abstract
 typedef struct JPH_VehicleControllerSettings JPH_VehicleControllerSettings;
 
+void *JPH_VehicleControllerSettings_operator_new(size_t inCount);
+void JPH_VehicleControllerSettings_operator_delete(void *inPointer);
+void *JPH_VehicleControllerSettings_operator_new[](size_t inCount);
+void JPH_VehicleControllerSettings_operator_delete[](void *inPointer);
+void *JPH_VehicleControllerSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleControllerSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleControllerSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleControllerSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleControllerSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleControllerSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleControllerSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleControllerSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_VehicleControllerSettings_GetRTTI();
+void *JPH_VehicleControllerSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_VehicleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_VehicleControllerSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_VehicleControllerSettings_RestoreBinaryState(JPH_StreamIn *inStream);
+< ? named (size=16, align=8)> *JPH_VehicleControllerSettings_ConstructController(< ? named (size=416, align=16)> *inConstraint);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleController.h:40:1
 // Abstract
 typedef struct JPH_VehicleController JPH_VehicleController;
 
+void *JPH_VehicleController_operator_new(size_t inCount);
+void JPH_VehicleController_operator_delete(void *inPointer);
+void *JPH_VehicleController_operator_new[](size_t inCount);
+void JPH_VehicleController_operator_delete[](void *inPointer);
+void *JPH_VehicleController_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleController_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleController_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleController_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleController_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleController_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleController_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleController_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleController_VehicleController(< ? named (size=416, align=16)> *inConstraint);
+void JPH_VehicleController_~VehicleController();
+< ? named (size=416, align=16)> *JPH_VehicleController_GetConstraint();
+< ? named (size=416, align=16)> *JPH_VehicleController_GetConstraint();
+< Unexposed (size=8, align=8)> JPH_VehicleController_GetSettings();
+< ? named (size=416, align=16)> *JPH_VehicleController_ConstructWheel(< ? named (size=160, align=16)> *inWheel);
+bool JPH_VehicleController_AllowSleep();
+void JPH_VehicleController_PreCollide(float inDeltaTime, JPH_PhysicsSystem *inPhysicsSystem);
+void JPH_VehicleController_PostCollide(float inDeltaTime, JPH_PhysicsSystem *inPhysicsSystem);
+bool JPH_VehicleController_SolveLongitudinalAndLateralConstraints(float inDeltaTime);
+void JPH_VehicleController_SaveState(JPH_StateRecorder *inStream);
+void JPH_VehicleController_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleCollisionTester.h:19:1
 // Abstract
 typedef struct JPH_VehicleCollisionTester JPH_VehicleCollisionTester;
 
+void *JPH_VehicleCollisionTester_operator_new(size_t inCount);
+void JPH_VehicleCollisionTester_operator_delete(void *inPointer);
+void *JPH_VehicleCollisionTester_operator_new[](size_t inCount);
+void JPH_VehicleCollisionTester_operator_delete[](void *inPointer);
+void *JPH_VehicleCollisionTester_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTester_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTester_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTester_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTester_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTester_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleCollisionTester_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTester_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleCollisionTester_VehicleCollisionTester();
+void JPH_VehicleCollisionTester_VehicleCollisionTester(JPH_ObjectLayer inObjectLayer);
+void JPH_VehicleCollisionTester_~VehicleCollisionTester();
+JPH_ObjectLayer JPH_VehicleCollisionTester_GetObjectLayer();
+void JPH_VehicleCollisionTester_SetObjectLayer(JPH_ObjectLayer inObjectLayer);
+void JPH_VehicleCollisionTester_SetBroadPhaseLayerFilter(JPH_BroadPhaseLayerFilter *inFilter);
+JPH_BroadPhaseLayerFilter *JPH_VehicleCollisionTester_GetBroadPhaseLayerFilter();
+void JPH_VehicleCollisionTester_SetObjectLayerFilter(JPH_ObjectLayerFilter *inFilter);
+JPH_ObjectLayerFilter *JPH_VehicleCollisionTester_GetObjectLayerFilter();
+void JPH_VehicleCollisionTester_SetBodyFilter(JPH_BodyFilter *inFilter);
+JPH_BodyFilter *JPH_VehicleCollisionTester_GetBodyFilter();
+bool JPH_VehicleCollisionTester_Collide(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **outBody, JPH_SubShapeID *outSubShapeID, JPH_RVec3 *outContactPosition, JPH_Vec3 *outContactNormal, float *outSuspensionLength);
+void JPH_VehicleCollisionTester_PredictContactProperties(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **ioBody, JPH_SubShapeID *ioSubShapeID, JPH_RVec3 *ioContactPosition, JPH_Vec3 *ioContactNormal, float *ioSuspensionLength);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleCollisionTester.h:84:1
 // Has vtable
 typedef struct JPH_VehicleCollisionTesterRay JPH_VehicleCollisionTesterRay;
 
+void *JPH_VehicleCollisionTesterRay_operator_new(size_t inCount);
+void JPH_VehicleCollisionTesterRay_operator_delete(void *inPointer);
+void *JPH_VehicleCollisionTesterRay_operator_new[](size_t inCount);
+void JPH_VehicleCollisionTesterRay_operator_delete[](void *inPointer);
+void *JPH_VehicleCollisionTesterRay_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTesterRay_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTesterRay_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTesterRay_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTesterRay_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTesterRay_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleCollisionTesterRay_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTesterRay_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleCollisionTesterRay_VehicleCollisionTesterRay(JPH_ObjectLayer inObjectLayer, JPH_Vec3Arg inUp, float inMaxSlopeAngle);
+bool JPH_VehicleCollisionTesterRay_Collide(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **outBody, JPH_SubShapeID *outSubShapeID, JPH_RVec3 *outContactPosition, JPH_Vec3 *outContactNormal, float *outSuspensionLength);
+void JPH_VehicleCollisionTesterRay_PredictContactProperties(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **ioBody, JPH_SubShapeID *ioSubShapeID, JPH_RVec3 *ioContactPosition, JPH_Vec3 *ioContactNormal, float *ioSuspensionLength);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleCollisionTester.h:105:1
 // Has vtable
 typedef struct JPH_VehicleCollisionTesterCastSphere JPH_VehicleCollisionTesterCastSphere;
 
+void *JPH_VehicleCollisionTesterCastSphere_operator_new(size_t inCount);
+void JPH_VehicleCollisionTesterCastSphere_operator_delete(void *inPointer);
+void *JPH_VehicleCollisionTesterCastSphere_operator_new[](size_t inCount);
+void JPH_VehicleCollisionTesterCastSphere_operator_delete[](void *inPointer);
+void *JPH_VehicleCollisionTesterCastSphere_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTesterCastSphere_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTesterCastSphere_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTesterCastSphere_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTesterCastSphere_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTesterCastSphere_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleCollisionTesterCastSphere_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTesterCastSphere_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleCollisionTesterCastSphere_VehicleCollisionTesterCastSphere(JPH_ObjectLayer inObjectLayer, float inRadius, JPH_Vec3Arg inUp, float inMaxSlopeAngle);
+bool JPH_VehicleCollisionTesterCastSphere_Collide(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **outBody, JPH_SubShapeID *outSubShapeID, JPH_RVec3 *outContactPosition, JPH_Vec3 *outContactNormal, float *outSuspensionLength);
+void JPH_VehicleCollisionTesterCastSphere_PredictContactProperties(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **ioBody, JPH_SubShapeID *ioSubShapeID, JPH_RVec3 *ioContactPosition, JPH_Vec3 *ioContactNormal, float *ioSuspensionLength);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleCollisionTester.h:128:1
 // Has vtable
 typedef struct JPH_VehicleCollisionTesterCastCylinder JPH_VehicleCollisionTesterCastCylinder;
 
+void *JPH_VehicleCollisionTesterCastCylinder_operator_new(size_t inCount);
+void JPH_VehicleCollisionTesterCastCylinder_operator_delete(void *inPointer);
+void *JPH_VehicleCollisionTesterCastCylinder_operator_new[](size_t inCount);
+void JPH_VehicleCollisionTesterCastCylinder_operator_delete[](void *inPointer);
+void *JPH_VehicleCollisionTesterCastCylinder_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTesterCastCylinder_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTesterCastCylinder_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleCollisionTesterCastCylinder_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleCollisionTesterCastCylinder_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTesterCastCylinder_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleCollisionTesterCastCylinder_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleCollisionTesterCastCylinder_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleCollisionTesterCastCylinder_VehicleCollisionTesterCastCylinder(JPH_ObjectLayer inObjectLayer, float inConvexRadiusFraction);
+bool JPH_VehicleCollisionTesterCastCylinder_Collide(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **outBody, JPH_SubShapeID *outSubShapeID, JPH_RVec3 *outContactPosition, JPH_Vec3 *outContactNormal, float *outSuspensionLength);
+void JPH_VehicleCollisionTesterCastCylinder_PredictContactProperties(JPH_PhysicsSystem *inPhysicsSystem, < ? named (size=416, align=16)> *inVehicleConstraint, uint32_t inWheelIndex, JPH_RVec3Arg inOrigin, JPH_Vec3Arg inDirection, JPH_BodyID *inVehicleBodyID, JPH_Body **ioBody, JPH_SubShapeID *ioSubShapeID, JPH_RVec3 *ioContactPosition, JPH_Vec3 *ioContactNormal, float *ioSuspensionLength);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleAntiRollBar.h:15:1
 typedef struct JPH_VehicleAntiRollBar {
     int32_t mLeftWheel;
@@ -4494,6 +10747,21 @@ typedef struct JPH_VehicleAntiRollBar {
     float mStiffness;
 } JPH_VehicleAntiRollBar;
 
+void *JPH_VehicleAntiRollBar_operator_new(size_t inCount);
+void JPH_VehicleAntiRollBar_operator_delete(void *inPointer);
+void *JPH_VehicleAntiRollBar_operator_new[](size_t inCount);
+void JPH_VehicleAntiRollBar_operator_delete[](void *inPointer);
+void *JPH_VehicleAntiRollBar_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleAntiRollBar_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleAntiRollBar_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleAntiRollBar_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleAntiRollBar_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleAntiRollBar_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleAntiRollBar_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleAntiRollBar_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleAntiRollBar_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_VehicleAntiRollBar_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_VehicleAntiRollBar_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleAntiRollBar.h:31:1
 typedef < ? named (size=24, align=8)> JPH_VehicleAntiRollBars;
 
@@ -4501,10 +10769,63 @@ typedef < ? named (size=24, align=8)> JPH_VehicleAntiRollBars;
 // Has vtable
 typedef struct JPH_WheelSettings JPH_WheelSettings;
 
+void *JPH_WheelSettings_operator_new(size_t inCount);
+void JPH_WheelSettings_operator_delete(void *inPointer);
+void *JPH_WheelSettings_operator_new[](size_t inCount);
+void JPH_WheelSettings_operator_delete[](void *inPointer);
+void *JPH_WheelSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_WheelSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_WheelSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_WheelSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_WheelSettings_GetRTTI();
+void *JPH_WheelSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_WheelSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_WheelSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_WheelSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/Wheel.h:45:1
 // Has vtable
 typedef struct JPH_Wheel JPH_Wheel;
 
+void *JPH_Wheel_operator_new(size_t inCount);
+void JPH_Wheel_operator_delete(void *inPointer);
+void *JPH_Wheel_operator_new[](size_t inCount);
+void JPH_Wheel_operator_delete[](void *inPointer);
+void *JPH_Wheel_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Wheel_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Wheel_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_Wheel_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_Wheel_operator_new(size_t inCount, void *inPointer);
+void JPH_Wheel_operator_delete(void *inPointer, void *inPlace);
+void *JPH_Wheel_operator_new[](size_t inCount, void *inPointer);
+void JPH_Wheel_operator_delete[](void *inPointer, void *inPlace);
+void JPH_Wheel_Wheel(JPH_WheelSettings *inSettings);
+void JPH_Wheel_~Wheel();
+JPH_WheelSettings *JPH_Wheel_GetSettings();
+float JPH_Wheel_GetAngularVelocity();
+void JPH_Wheel_SetAngularVelocity(float inVel);
+float JPH_Wheel_GetRotationAngle();
+void JPH_Wheel_SetRotationAngle(float inAngle);
+float JPH_Wheel_GetSteerAngle();
+void JPH_Wheel_SetSteerAngle(float inAngle);
+bool JPH_Wheel_HasContact();
+JPH_BodyID JPH_Wheel_GetContactBodyID();
+JPH_SubShapeID JPH_Wheel_GetContactSubShapeID();
+JPH_RVec3 JPH_Wheel_GetContactPosition();
+JPH_Vec3 JPH_Wheel_GetContactPointVelocity();
+JPH_Vec3 JPH_Wheel_GetContactNormal();
+JPH_Vec3 JPH_Wheel_GetContactLongitudinal();
+JPH_Vec3 JPH_Wheel_GetContactLateral();
+float JPH_Wheel_GetSuspensionLength();
+bool JPH_Wheel_HasHitHardPoint();
+float JPH_Wheel_GetSuspensionLambda();
+float JPH_Wheel_GetLongitudinalLambda();
+float JPH_Wheel_GetLateralLambda();
+bool JPH_Wheel_SolveLongitudinalConstraintPart(< ? named (size=416, align=16)> *inConstraint, float inMinImpulse, float inMaxImpulse);
+bool JPH_Wheel_SolveLateralConstraintPart(< ? named (size=416, align=16)> *inConstraint, float inMinImpulse, float inMaxImpulse);
 // JoltPhysics/Jolt/Physics/Vehicle/Wheel.h:146:1
 typedef < ? named (size=24, align=8)> JPH_Wheels;
 
@@ -4512,6 +10833,23 @@ typedef < ? named (size=24, align=8)> JPH_Wheels;
 // Has vtable
 typedef struct JPH_VehicleConstraintSettings JPH_VehicleConstraintSettings;
 
+void *JPH_VehicleConstraintSettings_operator_new(size_t inCount);
+void JPH_VehicleConstraintSettings_operator_delete(void *inPointer);
+void *JPH_VehicleConstraintSettings_operator_new[](size_t inCount);
+void JPH_VehicleConstraintSettings_operator_delete[](void *inPointer);
+void *JPH_VehicleConstraintSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleConstraintSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleConstraintSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleConstraintSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleConstraintSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleConstraintSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleConstraintSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleConstraintSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_VehicleConstraintSettings_GetRTTI();
+void *JPH_VehicleConstraintSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_VehicleConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_VehicleConstraintSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_VehicleConstraintSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleConstraint.h:85:2
 typedef < ? named (size=32, align=8)> JPH_VehicleConstraint_CombineFunction;
 
@@ -4522,6 +10860,59 @@ typedef < ? named (size=32, align=8)> JPH_VehicleConstraint_StepCallback;
 // Has vtable
 typedef struct JPH_VehicleConstraint JPH_VehicleConstraint;
 
+void JPH_VehicleConstraint_VehicleConstraint(JPH_Body *inVehicleBody, JPH_VehicleConstraintSettings *inSettings);
+void JPH_VehicleConstraint_~VehicleConstraint();
+JPH_EConstraintSubType JPH_VehicleConstraint_GetSubType();
+void JPH_VehicleConstraint_SetMaxPitchRollAngle(float inMaxPitchRollAngle);
+float JPH_VehicleConstraint_GetMaxPitchRollAngle();
+void JPH_VehicleConstraint_SetVehicleCollisionTester(JPH_VehicleCollisionTester *inTester);
+JPH_VehicleCollisionTester *JPH_VehicleConstraint_GetVehicleCollisionTester();
+void JPH_VehicleConstraint_SetCombineFriction(JPH_VehicleConstraint_CombineFunction *inCombineFriction);
+JPH_VehicleConstraint_CombineFunction *JPH_VehicleConstraint_GetCombineFriction();
+JPH_VehicleConstraint_StepCallback *JPH_VehicleConstraint_GetPreStepCallback();
+void JPH_VehicleConstraint_SetPreStepCallback(JPH_VehicleConstraint_StepCallback *inPreStepCallback);
+JPH_VehicleConstraint_StepCallback *JPH_VehicleConstraint_GetPostCollideCallback();
+void JPH_VehicleConstraint_SetPostCollideCallback(JPH_VehicleConstraint_StepCallback *inPostCollideCallback);
+JPH_VehicleConstraint_StepCallback *JPH_VehicleConstraint_GetPostStepCallback();
+void JPH_VehicleConstraint_SetPostStepCallback(JPH_VehicleConstraint_StepCallback *inPostStepCallback);
+void JPH_VehicleConstraint_OverrideGravity(JPH_Vec3Arg inGravity);
+bool JPH_VehicleConstraint_IsGravityOverridden();
+JPH_Vec3 JPH_VehicleConstraint_GetGravityOverride();
+void JPH_VehicleConstraint_ResetGravityOverride();
+JPH_Vec3 JPH_VehicleConstraint_GetLocalForward();
+JPH_Vec3 JPH_VehicleConstraint_GetLocalUp();
+JPH_Vec3 JPH_VehicleConstraint_GetWorldUp();
+JPH_Body *JPH_VehicleConstraint_GetVehicleBody();
+JPH_VehicleController *JPH_VehicleConstraint_GetController();
+JPH_VehicleController *JPH_VehicleConstraint_GetController();
+JPH_Wheels *JPH_VehicleConstraint_GetWheels();
+JPH_Wheels *JPH_VehicleConstraint_GetWheels();
+JPH_Wheel *JPH_VehicleConstraint_GetWheel(uint32_t inIdx);
+JPH_Wheel *JPH_VehicleConstraint_GetWheel(uint32_t inIdx);
+void JPH_VehicleConstraint_GetWheelLocalBasis(JPH_Wheel *inWheel, JPH_Vec3 *outForward, JPH_Vec3 *outUp, JPH_Vec3 *outRight);
+JPH_Mat44 JPH_VehicleConstraint_GetWheelLocalTransform(uint32_t inWheelIndex, JPH_Vec3Arg inWheelRight, JPH_Vec3Arg inWheelUp);
+JPH_RMat44 JPH_VehicleConstraint_GetWheelWorldTransform(uint32_t inWheelIndex, JPH_Vec3Arg inWheelRight, JPH_Vec3Arg inWheelUp);
+JPH_VehicleAntiRollBars *JPH_VehicleConstraint_GetAntiRollBars();
+JPH_VehicleAntiRollBars *JPH_VehicleConstraint_GetAntiRollBars();
+void JPH_VehicleConstraint_SetNumStepsBetweenCollisionTestActive(uint32_t inSteps);
+uint32_t JPH_VehicleConstraint_GetNumStepsBetweenCollisionTestActive();
+void JPH_VehicleConstraint_SetNumStepsBetweenCollisionTestInactive(uint32_t inSteps);
+uint32_t JPH_VehicleConstraint_GetNumStepsBetweenCollisionTestInactive();
+bool JPH_VehicleConstraint_IsActive();
+void JPH_VehicleConstraint_NotifyShapeChanged(JPH_BodyID *inBodyID, JPH_Vec3Arg inDeltaCOM);
+void JPH_VehicleConstraint_SetupVelocityConstraint(float inDeltaTime);
+void JPH_VehicleConstraint_ResetWarmStart();
+void JPH_VehicleConstraint_WarmStartVelocityConstraint(float inWarmStartImpulseRatio);
+bool JPH_VehicleConstraint_SolveVelocityConstraint(float inDeltaTime);
+bool JPH_VehicleConstraint_SolvePositionConstraint(float inDeltaTime, float inBaumgarte);
+void JPH_VehicleConstraint_BuildIslands(uint32_t inConstraintIndex, JPH_IslandBuilder *ioBuilder, JPH_BodyManager *inBodyManager);
+uint32_t JPH_VehicleConstraint_BuildIslandSplits(JPH_LargeIslandSplitter *ioSplitter);
+void JPH_VehicleConstraint_SaveState(JPH_StateRecorder *inStream);
+void JPH_VehicleConstraint_RestoreState(JPH_StateRecorder *inStream);
+< Unexposed (size=-2, align=-2)> JPH_VehicleConstraint_GetConstraintSettings();
+void JPH_VehicleConstraint_OnStep(JPH_PhysicsStepListenerContext *inContext);
+void JPH_VehicleConstraint_CalculateSuspensionForcePoint(JPH_Wheel *inWheel, JPH_Vec3 *outR1PlusU, JPH_Vec3 *outR2);
+void JPH_VehicleConstraint_CalculatePitchRollConstraintProperties(JPH_RMat44Arg inBodyTransform);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleEngine.h:20:1
 typedef struct JPH_VehicleEngineSettings {
     float mMaxTorque;
@@ -4532,6 +10923,22 @@ typedef struct JPH_VehicleEngineSettings {
     float mAngularDamping;
 } JPH_VehicleEngineSettings;
 
+void *JPH_VehicleEngineSettings_operator_new(size_t inCount);
+void JPH_VehicleEngineSettings_operator_delete(void *inPointer);
+void *JPH_VehicleEngineSettings_operator_new[](size_t inCount);
+void JPH_VehicleEngineSettings_operator_delete[](void *inPointer);
+void *JPH_VehicleEngineSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleEngineSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleEngineSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleEngineSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleEngineSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleEngineSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleEngineSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleEngineSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleEngineSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_VehicleEngineSettings_VehicleEngineSettings();
+void JPH_VehicleEngineSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_VehicleEngineSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleEngine.h:43:1
 typedef struct JPH_VehicleEngine {
     JPH_VehicleEngineSettings base;
@@ -4539,6 +10946,16 @@ typedef struct JPH_VehicleEngine {
     float mCurrentRPM;
 } JPH_VehicleEngine;
 
+void JPH_VehicleEngine_ClampRPM();
+float JPH_VehicleEngine_GetCurrentRPM();
+void JPH_VehicleEngine_SetCurrentRPM(float inRPM);
+float JPH_VehicleEngine_GetAngularVelocity();
+float JPH_VehicleEngine_GetTorque(float inAcceleration);
+void JPH_VehicleEngine_ApplyTorque(float inTorque, float inDeltaTime);
+void JPH_VehicleEngine_ApplyDamping(float inDeltaTime);
+bool JPH_VehicleEngine_AllowSleep();
+void JPH_VehicleEngine_SaveState(JPH_StateRecorder *inStream);
+void JPH_VehicleEngine_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleTransmission.h:22:1
 typedef struct JPH_VehicleTransmissionSettings {
     JPH_ETransmissionMode mMode;
@@ -4552,6 +10969,21 @@ typedef struct JPH_VehicleTransmissionSettings {
     float mClutchStrength;
 } JPH_VehicleTransmissionSettings;
 
+void *JPH_VehicleTransmissionSettings_operator_new(size_t inCount);
+void JPH_VehicleTransmissionSettings_operator_delete(void *inPointer);
+void *JPH_VehicleTransmissionSettings_operator_new[](size_t inCount);
+void JPH_VehicleTransmissionSettings_operator_delete[](void *inPointer);
+void *JPH_VehicleTransmissionSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleTransmissionSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleTransmissionSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleTransmissionSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleTransmissionSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleTransmissionSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleTransmissionSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleTransmissionSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleTransmissionSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_VehicleTransmissionSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_VehicleTransmissionSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleTransmission.h:45:1
 typedef struct JPH_VehicleTransmission {
     JPH_VehicleTransmissionSettings base;
@@ -4563,6 +10995,15 @@ typedef struct JPH_VehicleTransmission {
     float mGearSwitchLatencyTimeLeft;
 } JPH_VehicleTransmission;
 
+void JPH_VehicleTransmission_Set(int32_t inCurrentGear, float inClutchFriction);
+void JPH_VehicleTransmission_Update(float inDeltaTime, float inCurrentRPM, float inForwardInput, bool inCanShiftUp);
+int32_t JPH_VehicleTransmission_GetCurrentGear();
+float JPH_VehicleTransmission_GetClutchFriction();
+bool JPH_VehicleTransmission_IsSwitchingGear();
+float JPH_VehicleTransmission_GetCurrentRatio();
+bool JPH_VehicleTransmission_AllowSleep();
+void JPH_VehicleTransmission_SaveState(JPH_StateRecorder *inStream);
+void JPH_VehicleTransmission_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleDifferential.h:13:1
 typedef struct JPH_VehicleDifferentialSettings {
     int32_t mLeftWheel;
@@ -4573,10 +11014,44 @@ typedef struct JPH_VehicleDifferentialSettings {
     float mEngineTorqueRatio;
 } JPH_VehicleDifferentialSettings;
 
+void *JPH_VehicleDifferentialSettings_operator_new(size_t inCount);
+void JPH_VehicleDifferentialSettings_operator_delete(void *inPointer);
+void *JPH_VehicleDifferentialSettings_operator_new[](size_t inCount);
+void JPH_VehicleDifferentialSettings_operator_delete[](void *inPointer);
+void *JPH_VehicleDifferentialSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleDifferentialSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleDifferentialSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleDifferentialSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleDifferentialSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleDifferentialSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleDifferentialSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleDifferentialSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleDifferentialSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_VehicleDifferentialSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_VehicleDifferentialSettings_RestoreBinaryState(JPH_StreamIn *inStream);
+void JPH_VehicleDifferentialSettings_CalculateTorqueRatio(float inLeftAngularVelocity, float inRightAngularVelocity, float *outLeftTorqueFraction, float *outRightTorqueFraction);
 // JoltPhysics/Jolt/Physics/Vehicle/WheeledVehicleController.h:19:1
 // Has vtable
 typedef struct JPH_WheelSettingsWV JPH_WheelSettingsWV;
 
+void *JPH_WheelSettingsWV_operator_new(size_t inCount);
+void JPH_WheelSettingsWV_operator_delete(void *inPointer);
+void *JPH_WheelSettingsWV_operator_new[](size_t inCount);
+void JPH_WheelSettingsWV_operator_delete[](void *inPointer);
+void *JPH_WheelSettingsWV_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelSettingsWV_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelSettingsWV_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelSettingsWV_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelSettingsWV_operator_new(size_t inCount, void *inPointer);
+void JPH_WheelSettingsWV_operator_delete(void *inPointer, void *inPlace);
+void *JPH_WheelSettingsWV_operator_new[](size_t inCount, void *inPointer);
+void JPH_WheelSettingsWV_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_WheelSettingsWV_GetRTTI();
+void *JPH_WheelSettingsWV_CastTo(JPH_RTTI *inRTTI);
+void JPH_WheelSettingsWV_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_WheelSettingsWV_WheelSettingsWV();
+void JPH_WheelSettingsWV_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_WheelSettingsWV_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/WheeledVehicleController.h:41:1
 typedef struct JPH_WheelWV {
     JPH_Wheel base;
@@ -4588,10 +11063,44 @@ typedef struct JPH_WheelWV {
     float mBrakeImpulse;
 } JPH_WheelWV;
 
+void *JPH_WheelWV_operator_new(size_t inCount);
+void JPH_WheelWV_operator_delete(void *inPointer);
+void *JPH_WheelWV_operator_new[](size_t inCount);
+void JPH_WheelWV_operator_delete[](void *inPointer);
+void *JPH_WheelWV_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelWV_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelWV_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelWV_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelWV_operator_new(size_t inCount, void *inPointer);
+void JPH_WheelWV_operator_delete(void *inPointer, void *inPlace);
+void *JPH_WheelWV_operator_new[](size_t inCount, void *inPointer);
+void JPH_WheelWV_operator_delete[](void *inPointer, void *inPlace);
+void JPH_WheelWV_WheelWV(JPH_WheelSettingsWV *inWheel);
+JPH_WheelSettingsWV *JPH_WheelWV_GetSettings();
+void JPH_WheelWV_ApplyTorque(float inTorque, float inDeltaTime);
+void JPH_WheelWV_Update(uint32_t inWheelIndex, float inDeltaTime, JPH_VehicleConstraint *inConstraint);
 // JoltPhysics/Jolt/Physics/Vehicle/WheeledVehicleController.h:72:1
 // Has vtable
 typedef struct JPH_WheeledVehicleControllerSettings JPH_WheeledVehicleControllerSettings;
 
+void *JPH_WheeledVehicleControllerSettings_operator_new(size_t inCount);
+void JPH_WheeledVehicleControllerSettings_operator_delete(void *inPointer);
+void *JPH_WheeledVehicleControllerSettings_operator_new[](size_t inCount);
+void JPH_WheeledVehicleControllerSettings_operator_delete[](void *inPointer);
+void *JPH_WheeledVehicleControllerSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheeledVehicleControllerSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheeledVehicleControllerSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheeledVehicleControllerSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheeledVehicleControllerSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_WheeledVehicleControllerSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_WheeledVehicleControllerSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_WheeledVehicleControllerSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_WheeledVehicleControllerSettings_GetRTTI();
+void *JPH_WheeledVehicleControllerSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_WheeledVehicleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+JPH_VehicleController *JPH_WheeledVehicleControllerSettings_ConstructController(JPH_VehicleConstraint *inConstraint);
+void JPH_WheeledVehicleControllerSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_WheeledVehicleControllerSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/WheeledVehicleController.h:98:2
 typedef < ? named (size=24, align=8)> JPH_WheeledVehicleController_Differentials;
 
@@ -4602,14 +11111,107 @@ typedef < ? named (size=32, align=8)> JPH_WheeledVehicleController_TireMaxImpuls
 // Has vtable
 typedef struct JPH_WheeledVehicleController JPH_WheeledVehicleController;
 
+void *JPH_WheeledVehicleController_operator_new(size_t inCount);
+void JPH_WheeledVehicleController_operator_delete(void *inPointer);
+void *JPH_WheeledVehicleController_operator_new[](size_t inCount);
+void JPH_WheeledVehicleController_operator_delete[](void *inPointer);
+void *JPH_WheeledVehicleController_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheeledVehicleController_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheeledVehicleController_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheeledVehicleController_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheeledVehicleController_operator_new(size_t inCount, void *inPointer);
+void JPH_WheeledVehicleController_operator_delete(void *inPointer, void *inPlace);
+void *JPH_WheeledVehicleController_operator_new[](size_t inCount, void *inPointer);
+void JPH_WheeledVehicleController_operator_delete[](void *inPointer, void *inPlace);
+void JPH_WheeledVehicleController_WheeledVehicleController(JPH_WheeledVehicleControllerSettings *inSettings, JPH_VehicleConstraint *inConstraint);
+void JPH_WheeledVehicleController_SetDriverInput(float inForward, float inRight, float inBrake, float inHandBrake);
+void JPH_WheeledVehicleController_SetForwardInput(float inForward);
+float JPH_WheeledVehicleController_GetForwardInput();
+void JPH_WheeledVehicleController_SetRightInput(float inRight);
+float JPH_WheeledVehicleController_GetRightInput();
+void JPH_WheeledVehicleController_SetBrakeInput(float inBrake);
+float JPH_WheeledVehicleController_GetBrakeInput();
+void JPH_WheeledVehicleController_SetHandBrakeInput(float inHandBrake);
+float JPH_WheeledVehicleController_GetHandBrakeInput();
+JPH_VehicleEngine *JPH_WheeledVehicleController_GetEngine();
+JPH_VehicleEngine *JPH_WheeledVehicleController_GetEngine();
+JPH_VehicleTransmission *JPH_WheeledVehicleController_GetTransmission();
+JPH_VehicleTransmission *JPH_WheeledVehicleController_GetTransmission();
+JPH_WheeledVehicleController_Differentials *JPH_WheeledVehicleController_GetDifferentials();
+JPH_WheeledVehicleController_Differentials *JPH_WheeledVehicleController_GetDifferentials();
+float JPH_WheeledVehicleController_GetDifferentialLimitedSlipRatio();
+void JPH_WheeledVehicleController_SetDifferentialLimitedSlipRatio(float inV);
+float JPH_WheeledVehicleController_GetWheelSpeedAtClutch();
+JPH_WheeledVehicleController_TireMaxImpulseCallback *JPH_WheeledVehicleController_GetTireMaxImpulseCallback();
+void JPH_WheeledVehicleController_SetTireMaxImpulseCallback(JPH_WheeledVehicleController_TireMaxImpulseCallback *inTireMaxImpulseCallback);
+< Unexposed (size=8, align=8)> JPH_WheeledVehicleController_GetSettings();
+void JPH_WheeledVehicleController_ToSettings(JPH_WheeledVehicleControllerSettings *outSettings);
+JPH_Wheel *JPH_WheeledVehicleController_ConstructWheel(JPH_WheelSettings *inWheel);
+bool JPH_WheeledVehicleController_AllowSleep();
+void JPH_WheeledVehicleController_PreCollide(float inDeltaTime, JPH_PhysicsSystem *inPhysicsSystem);
+void JPH_WheeledVehicleController_PostCollide(float inDeltaTime, JPH_PhysicsSystem *inPhysicsSystem);
+bool JPH_WheeledVehicleController_SolveLongitudinalAndLateralConstraints(float inDeltaTime);
+void JPH_WheeledVehicleController_SaveState(JPH_StateRecorder *inStream);
+void JPH_WheeledVehicleController_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/MotorcycleController.h:13:1
 // Has vtable
 typedef struct JPH_MotorcycleControllerSettings JPH_MotorcycleControllerSettings;
 
+void *JPH_MotorcycleControllerSettings_operator_new(size_t inCount);
+void JPH_MotorcycleControllerSettings_operator_delete(void *inPointer);
+void *JPH_MotorcycleControllerSettings_operator_new[](size_t inCount);
+void JPH_MotorcycleControllerSettings_operator_delete[](void *inPointer);
+void *JPH_MotorcycleControllerSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotorcycleControllerSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotorcycleControllerSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotorcycleControllerSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotorcycleControllerSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_MotorcycleControllerSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MotorcycleControllerSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_MotorcycleControllerSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_MotorcycleControllerSettings_GetRTTI();
+void *JPH_MotorcycleControllerSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_MotorcycleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+JPH_VehicleController *JPH_MotorcycleControllerSettings_ConstructController(JPH_VehicleConstraint *inConstraint);
+void JPH_MotorcycleControllerSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_MotorcycleControllerSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/MotorcycleController.h:44:1
 // Has vtable
 typedef struct JPH_MotorcycleController JPH_MotorcycleController;
 
+void *JPH_MotorcycleController_operator_new(size_t inCount);
+void JPH_MotorcycleController_operator_delete(void *inPointer);
+void *JPH_MotorcycleController_operator_new[](size_t inCount);
+void JPH_MotorcycleController_operator_delete[](void *inPointer);
+void *JPH_MotorcycleController_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotorcycleController_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotorcycleController_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_MotorcycleController_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_MotorcycleController_operator_new(size_t inCount, void *inPointer);
+void JPH_MotorcycleController_operator_delete(void *inPointer, void *inPlace);
+void *JPH_MotorcycleController_operator_new[](size_t inCount, void *inPointer);
+void JPH_MotorcycleController_operator_delete[](void *inPointer, void *inPlace);
+void JPH_MotorcycleController_MotorcycleController(JPH_MotorcycleControllerSettings *inSettings, JPH_VehicleConstraint *inConstraint);
+float JPH_MotorcycleController_GetWheelBase();
+void JPH_MotorcycleController_EnableLeanController(bool inEnable);
+bool JPH_MotorcycleController_IsLeanControllerEnabled();
+void JPH_MotorcycleController_EnableLeanSteeringLimit(bool inEnable);
+bool JPH_MotorcycleController_IsLeanSteeringLimitEnabled();
+void JPH_MotorcycleController_SetLeanSpringConstant(float inConstant);
+float JPH_MotorcycleController_GetLeanSpringConstant();
+void JPH_MotorcycleController_SetLeanSpringDamping(float inDamping);
+float JPH_MotorcycleController_GetLeanSpringDamping();
+void JPH_MotorcycleController_SetLeanSpringIntegrationCoefficient(float inCoefficient);
+float JPH_MotorcycleController_GetLeanSpringIntegrationCoefficient();
+void JPH_MotorcycleController_SetLeanSpringIntegrationCoefficientDecay(float inDecay);
+float JPH_MotorcycleController_GetLeanSpringIntegrationCoefficientDecay();
+void JPH_MotorcycleController_SetLeanSmoothingFactor(float inFactor);
+float JPH_MotorcycleController_GetLeanSmoothingFactor();
+< Unexposed (size=8, align=8)> JPH_MotorcycleController_GetSettings();
+void JPH_MotorcycleController_PreCollide(float inDeltaTime, JPH_PhysicsSystem *inPhysicsSystem);
+bool JPH_MotorcycleController_SolveLongitudinalAndLateralConstraints(float inDeltaTime);
+void JPH_MotorcycleController_SaveState(JPH_StateRecorder *inStream);
+void JPH_MotorcycleController_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleTrack.h:24:1
 typedef struct JPH_VehicleTrackSettings {
     uint32_t mDrivenWheel;
@@ -4620,6 +11222,21 @@ typedef struct JPH_VehicleTrackSettings {
     float mDifferentialRatio;
 } JPH_VehicleTrackSettings;
 
+void *JPH_VehicleTrackSettings_operator_new(size_t inCount);
+void JPH_VehicleTrackSettings_operator_delete(void *inPointer);
+void *JPH_VehicleTrackSettings_operator_new[](size_t inCount);
+void JPH_VehicleTrackSettings_operator_delete[](void *inPointer);
+void *JPH_VehicleTrackSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleTrackSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleTrackSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_VehicleTrackSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_VehicleTrackSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_VehicleTrackSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_VehicleTrackSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_VehicleTrackSettings_operator_delete[](void *inPointer, void *inPlace);
+void JPH_VehicleTrackSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_VehicleTrackSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_VehicleTrackSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleTrack.h:44:1
 typedef struct JPH_VehicleTrack {
     JPH_VehicleTrackSettings base;
@@ -4627,6 +11244,8 @@ typedef struct JPH_VehicleTrack {
     float mAngularVelocity;
 } JPH_VehicleTrack;
 
+void JPH_VehicleTrack_SaveState(JPH_StateRecorder *inStream);
+void JPH_VehicleTrack_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleTrack.h:54:1
 typedef JPH_VehicleTrack JPH_VehicleTracks[2];
 
@@ -4634,6 +11253,23 @@ typedef JPH_VehicleTrack JPH_VehicleTracks[2];
 // Has vtable
 typedef struct JPH_WheelSettingsTV JPH_WheelSettingsTV;
 
+void *JPH_WheelSettingsTV_operator_new(size_t inCount);
+void JPH_WheelSettingsTV_operator_delete(void *inPointer);
+void *JPH_WheelSettingsTV_operator_new[](size_t inCount);
+void JPH_WheelSettingsTV_operator_delete[](void *inPointer);
+void *JPH_WheelSettingsTV_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelSettingsTV_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelSettingsTV_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelSettingsTV_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelSettingsTV_operator_new(size_t inCount, void *inPointer);
+void JPH_WheelSettingsTV_operator_delete(void *inPointer, void *inPlace);
+void *JPH_WheelSettingsTV_operator_new[](size_t inCount, void *inPointer);
+void JPH_WheelSettingsTV_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_WheelSettingsTV_GetRTTI();
+void *JPH_WheelSettingsTV_CastTo(JPH_RTTI *inRTTI);
+void JPH_WheelSettingsTV_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_WheelSettingsTV_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_WheelSettingsTV_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/TrackedVehicleController.h:32:1
 typedef struct JPH_WheelTV {
     JPH_Wheel base;
@@ -4644,14 +11280,86 @@ typedef struct JPH_WheelTV {
     float mBrakeImpulse;
 } JPH_WheelTV;
 
+void *JPH_WheelTV_operator_new(size_t inCount);
+void JPH_WheelTV_operator_delete(void *inPointer);
+void *JPH_WheelTV_operator_new[](size_t inCount);
+void JPH_WheelTV_operator_delete[](void *inPointer);
+void *JPH_WheelTV_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelTV_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelTV_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_WheelTV_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_WheelTV_operator_new(size_t inCount, void *inPointer);
+void JPH_WheelTV_operator_delete(void *inPointer, void *inPlace);
+void *JPH_WheelTV_operator_new[](size_t inCount, void *inPointer);
+void JPH_WheelTV_operator_delete[](void *inPointer, void *inPlace);
+void JPH_WheelTV_WheelTV(JPH_WheelSettingsTV *inWheel);
+JPH_WheelSettingsTV *JPH_WheelTV_GetSettings();
+void JPH_WheelTV_CalculateAngularVelocity(JPH_VehicleConstraint *inConstraint);
+void JPH_WheelTV_Update(uint32_t inWheelIndex, float inDeltaTime, JPH_VehicleConstraint *inConstraint);
 // JoltPhysics/Jolt/Physics/Vehicle/TrackedVehicleController.h:59:1
 // Has vtable
 typedef struct JPH_TrackedVehicleControllerSettings JPH_TrackedVehicleControllerSettings;
 
+void *JPH_TrackedVehicleControllerSettings_operator_new(size_t inCount);
+void JPH_TrackedVehicleControllerSettings_operator_delete(void *inPointer);
+void *JPH_TrackedVehicleControllerSettings_operator_new[](size_t inCount);
+void JPH_TrackedVehicleControllerSettings_operator_delete[](void *inPointer);
+void *JPH_TrackedVehicleControllerSettings_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TrackedVehicleControllerSettings_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TrackedVehicleControllerSettings_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TrackedVehicleControllerSettings_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TrackedVehicleControllerSettings_operator_new(size_t inCount, void *inPointer);
+void JPH_TrackedVehicleControllerSettings_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TrackedVehicleControllerSettings_operator_new[](size_t inCount, void *inPointer);
+void JPH_TrackedVehicleControllerSettings_operator_delete[](void *inPointer, void *inPlace);
+JPH_RTTI *JPH_TrackedVehicleControllerSettings_GetRTTI();
+void *JPH_TrackedVehicleControllerSettings_CastTo(JPH_RTTI *inRTTI);
+void JPH_TrackedVehicleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI);
+void JPH_TrackedVehicleControllerSettings_TrackedVehicleControllerSettings();
+JPH_VehicleController *JPH_TrackedVehicleControllerSettings_ConstructController(JPH_VehicleConstraint *inConstraint);
+void JPH_TrackedVehicleControllerSettings_SaveBinaryState(JPH_StreamOut *inStream);
+void JPH_TrackedVehicleControllerSettings_RestoreBinaryState(JPH_StreamIn *inStream);
 // JoltPhysics/Jolt/Physics/Vehicle/TrackedVehicleController.h:78:1
 // Has vtable
 typedef struct JPH_TrackedVehicleController JPH_TrackedVehicleController;
 
+void *JPH_TrackedVehicleController_operator_new(size_t inCount);
+void JPH_TrackedVehicleController_operator_delete(void *inPointer);
+void *JPH_TrackedVehicleController_operator_new[](size_t inCount);
+void JPH_TrackedVehicleController_operator_delete[](void *inPointer);
+void *JPH_TrackedVehicleController_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TrackedVehicleController_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TrackedVehicleController_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_TrackedVehicleController_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_TrackedVehicleController_operator_new(size_t inCount, void *inPointer);
+void JPH_TrackedVehicleController_operator_delete(void *inPointer, void *inPlace);
+void *JPH_TrackedVehicleController_operator_new[](size_t inCount, void *inPointer);
+void JPH_TrackedVehicleController_operator_delete[](void *inPointer, void *inPlace);
+void JPH_TrackedVehicleController_TrackedVehicleController(JPH_TrackedVehicleControllerSettings *inSettings, JPH_VehicleConstraint *inConstraint);
+void JPH_TrackedVehicleController_SetDriverInput(float inForward, float inLeftRatio, float inRightRatio, float inBrake);
+void JPH_TrackedVehicleController_SetForwardInput(float inForward);
+float JPH_TrackedVehicleController_GetForwardInput();
+void JPH_TrackedVehicleController_SetLeftRatio(float inLeftRatio);
+float JPH_TrackedVehicleController_GetLeftRatio();
+void JPH_TrackedVehicleController_SetRightRatio(float inRightRatio);
+float JPH_TrackedVehicleController_GetRightRatio();
+void JPH_TrackedVehicleController_SetBrakeInput(float inBrake);
+float JPH_TrackedVehicleController_GetBrakeInput();
+JPH_VehicleEngine *JPH_TrackedVehicleController_GetEngine();
+JPH_VehicleEngine *JPH_TrackedVehicleController_GetEngine();
+JPH_VehicleTransmission *JPH_TrackedVehicleController_GetTransmission();
+JPH_VehicleTransmission *JPH_TrackedVehicleController_GetTransmission();
+JPH_VehicleTracks *JPH_TrackedVehicleController_GetTracks();
+JPH_VehicleTracks *JPH_TrackedVehicleController_GetTracks();
+< Unexposed (size=8, align=8)> JPH_TrackedVehicleController_GetSettings();
+void JPH_TrackedVehicleController_SyncLeftRightTracks();
+JPH_Wheel *JPH_TrackedVehicleController_ConstructWheel(JPH_WheelSettings *inWheel);
+bool JPH_TrackedVehicleController_AllowSleep();
+void JPH_TrackedVehicleController_PreCollide(float inDeltaTime, JPH_PhysicsSystem *inPhysicsSystem);
+void JPH_TrackedVehicleController_PostCollide(float inDeltaTime, JPH_PhysicsSystem *inPhysicsSystem);
+bool JPH_TrackedVehicleController_SolveLongitudinalAndLateralConstraints(float inDeltaTime);
+void JPH_TrackedVehicleController_SaveState(JPH_StateRecorder *inStream);
+void JPH_TrackedVehicleController_RestoreState(JPH_StateRecorder *inStream);
 // JoltPhysics/Jolt/Math/DynMatrix.h:10:1
 typedef struct JPH_DynMatrix {
     uint32_t mRows;
@@ -4659,12 +11367,20 @@ typedef struct JPH_DynMatrix {
     < Unexposed (size=24, align=8)> mElements;
 } JPH_DynMatrix;
 
+void JPH_DynMatrix_DynMatrix(JPH_DynMatrix *);
+void JPH_DynMatrix_DynMatrix(uint32_t inRows, uint32_t inCols);
+float JPH_DynMatrix_operator()(uint32_t inRow, uint32_t inCol);
+float *JPH_DynMatrix_operator()(uint32_t inRow, uint32_t inCol);
+uint32_t JPH_DynMatrix_GetCols();
+uint32_t JPH_DynMatrix_GetRows();
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamOut.h:78:2
 typedef struct JPH_ObjectStreamOut_ObjectInfo {
     JPH_ObjectStream_Identifier mIdentifier;
     JPH_RTTI *mRTTI;
 } JPH_ObjectStreamOut_ObjectInfo;
 
+void JPH_ObjectStreamOut_ObjectInfo_ObjectInfo();
+void JPH_ObjectStreamOut_ObjectInfo_ObjectInfo(JPH_ObjectStream_Identifier inIdentifier, JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamOut.h:87:2
 typedef < ? named (size=32, align=8)> JPH_ObjectStreamOut_IdentifierMap;
 
@@ -4681,6 +11397,14 @@ typedef < ? named (size=24, align=8)> JPH_ObjectStreamOut_ClassQueue;
 // Abstract
 typedef struct JPH_ObjectStreamOut JPH_ObjectStreamOut;
 
+bool JPH_ObjectStreamOut_Write(void *inObject, JPH_RTTI *inRTTI);
+void JPH_ObjectStreamOut_WriteObject(void *inObject);
+void JPH_ObjectStreamOut_QueueRTTI(JPH_RTTI *inRTTI);
+void JPH_ObjectStreamOut_WriteRTTI(JPH_RTTI *inRTTI);
+void JPH_ObjectStreamOut_WriteClassData(JPH_RTTI *inRTTI, void *inInstance);
+void JPH_ObjectStreamOut_WritePointerData(JPH_RTTI *inRTTI, void *inPointer);
+JPH_ObjectStreamOut *JPH_ObjectStreamOut_Open(JPH_ObjectStream_EStreamType inType, < Unexposed (size=272, align=8)> *inStream);
+void JPH_ObjectStreamOut_ObjectStreamOut(< Unexposed (size=272, align=8)> *inStream);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamBinaryOut.h:49:2
 typedef < ? named (size=32, align=8)> JPH_ObjectStreamBinaryOut_StringTable;
 
@@ -4688,6 +11412,42 @@ typedef < ? named (size=32, align=8)> JPH_ObjectStreamBinaryOut_StringTable;
 // Has vtable
 typedef struct JPH_ObjectStreamBinaryOut JPH_ObjectStreamBinaryOut;
 
+void *JPH_ObjectStreamBinaryOut_operator_new(size_t inCount);
+void JPH_ObjectStreamBinaryOut_operator_delete(void *inPointer);
+void *JPH_ObjectStreamBinaryOut_operator_new[](size_t inCount);
+void JPH_ObjectStreamBinaryOut_operator_delete[](void *inPointer);
+void *JPH_ObjectStreamBinaryOut_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamBinaryOut_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamBinaryOut_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamBinaryOut_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamBinaryOut_operator_new(size_t inCount, void *inPointer);
+void JPH_ObjectStreamBinaryOut_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ObjectStreamBinaryOut_operator_new[](size_t inCount, void *inPointer);
+void JPH_ObjectStreamBinaryOut_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ObjectStreamBinaryOut_ObjectStreamBinaryOut(< Unexposed (size=272, align=8)> *inStream);
+void JPH_ObjectStreamBinaryOut_WriteDataType(JPH_EOSDataType inType);
+void JPH_ObjectStreamBinaryOut_WriteName(int8_t *inName);
+void JPH_ObjectStreamBinaryOut_WriteIdentifier(JPH_ObjectStream_Identifier inIdentifier);
+void JPH_ObjectStreamBinaryOut_WriteCount(uint32_t inCount);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(uint8_t *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(uint16_t *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(int32_t *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(uint32_t *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(uint64_t *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(float *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(double *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(bool *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_String *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_Float3 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_Float4 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_Double3 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_Vec3 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_DVec3 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_Vec4 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_UVec4 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_Quat *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_Mat44 *inPrimitive);
+void JPH_ObjectStreamBinaryOut_WritePrimitiveData(JPH_DMat44 *inPrimitive);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamIn.h:103:2
 typedef struct JPH_ObjectStreamIn_AttributeDescription {
     int32_t mArrayDepth;
@@ -4703,12 +11463,16 @@ typedef struct JPH_ObjectStreamIn_ClassDescription {
     < Unexposed (size=24, align=8)> mAttributes;
 } JPH_ObjectStreamIn_ClassDescription;
 
+void JPH_ObjectStreamIn_ClassDescription_ClassDescription();
+void JPH_ObjectStreamIn_ClassDescription_ClassDescription(JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamIn.h:121:2
 typedef struct JPH_ObjectStreamIn_ObjectInfo {
     void *mInstance;
     JPH_RTTI *mRTTI;
 } JPH_ObjectStreamIn_ObjectInfo;
 
+void JPH_ObjectStreamIn_ObjectInfo_ObjectInfo();
+void JPH_ObjectStreamIn_ObjectInfo_ObjectInfo(void *inInstance, JPH_RTTI *inRTTI);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamIn.h:130:2
 typedef struct JPH_ObjectStreamIn_Link {
     void **mPointer;
@@ -4727,10 +11491,58 @@ typedef < ? named (size=32, align=8)> JPH_ObjectStreamIn_ClassDescriptionMap;
 // Abstract
 typedef struct JPH_ObjectStreamIn JPH_ObjectStreamIn;
 
+void *JPH_ObjectStreamIn_Read(JPH_RTTI *inRTTI);
+void *JPH_ObjectStreamIn_ReadObject(JPH_RTTI **outRTTI);
+bool JPH_ObjectStreamIn_ReadRTTI();
+bool JPH_ObjectStreamIn_ReadClassData(int8_t *inClassName, void *inInstance);
+bool JPH_ObjectStreamIn_ReadClassData(< ? named (size=32, align=8)> *inClassDesc, void *inInstance);
+bool JPH_ObjectStreamIn_ReadPointerData(JPH_RTTI *inRTTI, void **inPointer, int32_t inRefCountOffset);
+bool JPH_ObjectStreamIn_SkipAttributeData(int32_t inArrayDepth, JPH_EOSDataType inDataType, int8_t *inClassName);
+void JPH_ObjectStreamIn_ObjectStreamIn(< Unexposed (size=280, align=8)> *inStream);
+bool JPH_ObjectStreamIn_GetInfo(< Unexposed (size=280, align=8)> *inStream, JPH_ObjectStream_EStreamType *outType, int32_t *outVersion, int32_t *outRevision);
+JPH_ObjectStreamIn *JPH_ObjectStreamIn_Open(< Unexposed (size=280, align=8)> *inStream);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamTextIn.h:14:1
 // Has vtable
 typedef struct JPH_ObjectStreamTextIn JPH_ObjectStreamTextIn;
 
+void *JPH_ObjectStreamTextIn_operator_new(size_t inCount);
+void JPH_ObjectStreamTextIn_operator_delete(void *inPointer);
+void *JPH_ObjectStreamTextIn_operator_new[](size_t inCount);
+void JPH_ObjectStreamTextIn_operator_delete[](void *inPointer);
+void *JPH_ObjectStreamTextIn_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamTextIn_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamTextIn_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamTextIn_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamTextIn_operator_new(size_t inCount, void *inPointer);
+void JPH_ObjectStreamTextIn_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ObjectStreamTextIn_operator_new[](size_t inCount, void *inPointer);
+void JPH_ObjectStreamTextIn_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ObjectStreamTextIn_ObjectStreamTextIn(< Unexposed (size=280, align=8)> *inStream);
+bool JPH_ObjectStreamTextIn_ReadDataType(JPH_EOSDataType *outType);
+bool JPH_ObjectStreamTextIn_ReadName(JPH_String *outName);
+bool JPH_ObjectStreamTextIn_ReadIdentifier(JPH_ObjectStream_Identifier *outIdentifier);
+bool JPH_ObjectStreamTextIn_ReadCount(uint32_t *outCount);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(uint8_t *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(uint16_t *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(int32_t *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(uint32_t *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(uint64_t *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(float *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(double *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(bool *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_String *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_Float3 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_Float4 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_Double3 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_Vec3 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_DVec3 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_Vec4 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_UVec4 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_Quat *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_Mat44 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadPrimitiveData(JPH_DMat44 *outPrimitive);
+bool JPH_ObjectStreamTextIn_ReadChar(int8_t *outChar);
+bool JPH_ObjectStreamTextIn_ReadWord(JPH_String *outWord);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamBinaryIn.h:49:2
 typedef < ? named (size=32, align=8)> JPH_ObjectStreamBinaryIn_StringTable;
 
@@ -4738,10 +11550,87 @@ typedef < ? named (size=32, align=8)> JPH_ObjectStreamBinaryIn_StringTable;
 // Has vtable
 typedef struct JPH_ObjectStreamBinaryIn JPH_ObjectStreamBinaryIn;
 
+void *JPH_ObjectStreamBinaryIn_operator_new(size_t inCount);
+void JPH_ObjectStreamBinaryIn_operator_delete(void *inPointer);
+void *JPH_ObjectStreamBinaryIn_operator_new[](size_t inCount);
+void JPH_ObjectStreamBinaryIn_operator_delete[](void *inPointer);
+void *JPH_ObjectStreamBinaryIn_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamBinaryIn_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamBinaryIn_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamBinaryIn_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamBinaryIn_operator_new(size_t inCount, void *inPointer);
+void JPH_ObjectStreamBinaryIn_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ObjectStreamBinaryIn_operator_new[](size_t inCount, void *inPointer);
+void JPH_ObjectStreamBinaryIn_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ObjectStreamBinaryIn_ObjectStreamBinaryIn(< Unexposed (size=280, align=8)> *inStream);
+bool JPH_ObjectStreamBinaryIn_ReadDataType(JPH_EOSDataType *outType);
+bool JPH_ObjectStreamBinaryIn_ReadName(JPH_String *outName);
+bool JPH_ObjectStreamBinaryIn_ReadIdentifier(JPH_ObjectStream_Identifier *outIdentifier);
+bool JPH_ObjectStreamBinaryIn_ReadCount(uint32_t *outCount);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(uint8_t *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(uint16_t *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(int32_t *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(uint32_t *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(uint64_t *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(float *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(double *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(bool *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_String *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_Float3 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_Float4 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_Double3 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_Vec3 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_DVec3 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_Vec4 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_UVec4 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_Quat *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_Mat44 *outPrimitive);
+bool JPH_ObjectStreamBinaryIn_ReadPrimitiveData(JPH_DMat44 *outPrimitive);
 // JoltPhysics/Jolt/ObjectStream/ObjectStreamTextOut.h:14:1
 // Has vtable
 typedef struct JPH_ObjectStreamTextOut JPH_ObjectStreamTextOut;
 
+void *JPH_ObjectStreamTextOut_operator_new(size_t inCount);
+void JPH_ObjectStreamTextOut_operator_delete(void *inPointer);
+void *JPH_ObjectStreamTextOut_operator_new[](size_t inCount);
+void JPH_ObjectStreamTextOut_operator_delete[](void *inPointer);
+void *JPH_ObjectStreamTextOut_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamTextOut_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamTextOut_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ObjectStreamTextOut_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ObjectStreamTextOut_operator_new(size_t inCount, void *inPointer);
+void JPH_ObjectStreamTextOut_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ObjectStreamTextOut_operator_new[](size_t inCount, void *inPointer);
+void JPH_ObjectStreamTextOut_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ObjectStreamTextOut_ObjectStreamTextOut(< Unexposed (size=272, align=8)> *inStream);
+void JPH_ObjectStreamTextOut_WriteDataType(JPH_EOSDataType inType);
+void JPH_ObjectStreamTextOut_WriteName(int8_t *inName);
+void JPH_ObjectStreamTextOut_WriteIdentifier(JPH_ObjectStream_Identifier inIdentifier);
+void JPH_ObjectStreamTextOut_WriteCount(uint32_t inCount);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(uint8_t *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(uint16_t *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(int32_t *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(uint32_t *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(uint64_t *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(float *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(double *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(bool *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_String *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_Float3 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_Float4 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_Double3 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_Vec3 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_DVec3 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_Vec4 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_UVec4 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_Quat *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_Mat44 *inPrimitive);
+void JPH_ObjectStreamTextOut_WritePrimitiveData(JPH_DMat44 *inPrimitive);
+void JPH_ObjectStreamTextOut_HintNextItem();
+void JPH_ObjectStreamTextOut_HintIndentUp();
+void JPH_ObjectStreamTextOut_HintIndentDown();
+void JPH_ObjectStreamTextOut_WriteChar(int8_t inChar);
+void JPH_ObjectStreamTextOut_WriteWord(< Unexposed (size=16, align=8)> *inWord);
 // JoltPhysics/Jolt/Skeleton/SkeletonMapper.h:17:2
 typedef struct JPH_SkeletonMapper_Mapping {
     int32_t mJointIdx1;
@@ -4750,18 +11639,24 @@ typedef struct JPH_SkeletonMapper_Mapping {
     JPH_Mat44 mJoint2To1;
 } JPH_SkeletonMapper_Mapping;
 
+void JPH_SkeletonMapper_Mapping_Mapping();
+void JPH_SkeletonMapper_Mapping_Mapping(int32_t inJointIdx1, int32_t inJointIdx2, JPH_Mat44Arg inJoint1To2);
 // JoltPhysics/Jolt/Skeleton/SkeletonMapper.h:34:2
 typedef struct JPH_SkeletonMapper_Chain {
     < Unexposed (size=24, align=8)> mJointIndices1;
     < Unexposed (size=24, align=8)> mJointIndices2;
 } JPH_SkeletonMapper_Chain;
 
+void JPH_SkeletonMapper_Chain_Chain();
+void JPH_SkeletonMapper_Chain_Chain(< Unexposed (size=24, align=8)>&& inJointIndices1, < Unexposed (size=24, align=8)>&& inJointIndices2);
 // JoltPhysics/Jolt/Skeleton/SkeletonMapper.h:45:2
 typedef struct JPH_SkeletonMapper_Unmapped {
     int32_t mJointIdx;
     int32_t mParentJointIdx;
 } JPH_SkeletonMapper_Unmapped;
 
+void JPH_SkeletonMapper_Unmapped_Unmapped();
+void JPH_SkeletonMapper_Unmapped_Unmapped(int32_t inJointIdx, int32_t inParentJointIdx);
 // JoltPhysics/Jolt/Skeleton/SkeletonMapper.h:56:2
 typedef struct JPH_SkeletonMapper_Locked {
     int32_t mJointIdx;
@@ -4794,6 +11689,22 @@ typedef struct JPH_SkeletonMapper {
     JPH_SkeletonMapper_LockedVector mLockedTranslations;
 } JPH_SkeletonMapper;
 
+bool JPH_SkeletonMapper_sDefaultCanMapJoint(JPH_Skeleton *inSkeleton1, int32_t inIndex1, JPH_Skeleton *inSkeleton2, int32_t inIndex2);
+void JPH_SkeletonMapper_Initialize(JPH_Skeleton *inSkeleton1, JPH_Mat44 *inNeutralPose1, JPH_Skeleton *inSkeleton2, JPH_Mat44 *inNeutralPose2, JPH_SkeletonMapper_CanMapJoint *inCanMapJoint);
+void JPH_SkeletonMapper_LockTranslations(JPH_Skeleton *inSkeleton2, bool *inLockedTranslations, JPH_Mat44 *inNeutralPose2);
+void JPH_SkeletonMapper_LockAllTranslations(JPH_Skeleton *inSkeleton2, JPH_Mat44 *inNeutralPose2);
+void JPH_SkeletonMapper_Map(JPH_Mat44 *inPose1ModelSpace, JPH_Mat44 *inPose2LocalSpace, JPH_Mat44 *outPose2ModelSpace);
+void JPH_SkeletonMapper_MapReverse(JPH_Mat44 *inPose2ModelSpace, JPH_Mat44 *outPose1ModelSpace);
+int32_t JPH_SkeletonMapper_GetMappedJointIdx(int32_t inJoint1Idx);
+bool JPH_SkeletonMapper_IsJointTranslationLocked(int32_t inJoint2Idx);
+JPH_SkeletonMapper_MappingVector *JPH_SkeletonMapper_GetMappings();
+JPH_SkeletonMapper_MappingVector *JPH_SkeletonMapper_GetMappings();
+JPH_SkeletonMapper_ChainVector *JPH_SkeletonMapper_GetChains();
+JPH_SkeletonMapper_ChainVector *JPH_SkeletonMapper_GetChains();
+JPH_SkeletonMapper_UnmappedVector *JPH_SkeletonMapper_GetUnmapped();
+JPH_SkeletonMapper_UnmappedVector *JPH_SkeletonMapper_GetUnmapped();
+JPH_SkeletonMapper_LockedVector *JPH_SkeletonMapper_GetLockedTranslations();
+JPH_SkeletonMapper_LockedVector *JPH_SkeletonMapper_GetLockedTranslations();
 // JoltPhysics/Jolt/Geometry/ConvexHullBuilder2D.h:17:2
 typedef < ? named (size=24, align=8)> JPH_ConvexHullBuilder2D_Positions;
 
@@ -4814,6 +11725,21 @@ typedef struct JPH_ConvexHullBuilder2D_Edge {
     float mFurthestPointDistanceSq;
 } JPH_ConvexHullBuilder2D_Edge;
 
+void *JPH_ConvexHullBuilder2D_Edge_operator_new(size_t inCount);
+void JPH_ConvexHullBuilder2D_Edge_operator_delete(void *inPointer);
+void *JPH_ConvexHullBuilder2D_Edge_operator_new[](size_t inCount);
+void JPH_ConvexHullBuilder2D_Edge_operator_delete[](void *inPointer);
+void *JPH_ConvexHullBuilder2D_Edge_operator_new(size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullBuilder2D_Edge_operator_delete(void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullBuilder2D_Edge_operator_new[](size_t inCount, < ? named (size=8, align=8)> inAlignment);
+void JPH_ConvexHullBuilder2D_Edge_operator_delete[](void *inPointer, < ? named (size=8, align=8)> inAlignment);
+void *JPH_ConvexHullBuilder2D_Edge_operator_new(size_t inCount, void *inPointer);
+void JPH_ConvexHullBuilder2D_Edge_operator_delete(void *inPointer, void *inPlace);
+void *JPH_ConvexHullBuilder2D_Edge_operator_new[](size_t inCount, void *inPointer);
+void JPH_ConvexHullBuilder2D_Edge_operator_delete[](void *inPointer, void *inPlace);
+void JPH_ConvexHullBuilder2D_Edge_Edge(int32_t inStartIdx);
+void JPH_ConvexHullBuilder2D_Edge_CalculateNormalAndCenter(JPH_Vec3 *inPositions);
+bool JPH_ConvexHullBuilder2D_Edge_IsFacing(JPH_Vec3Arg inPosition);
 // JoltPhysics/Jolt/Geometry/ConvexHullBuilder2D.h:14:1
 typedef struct JPH_ConvexHullBuilder2D {
     // JPH_NonCopyable base class has size 0, so it is not included
@@ -4823,5 +11749,11 @@ typedef struct JPH_ConvexHullBuilder2D {
     int32_t mNumEdges;
 } JPH_ConvexHullBuilder2D;
 
+void JPH_ConvexHullBuilder2D_ConvexHullBuilder2D(JPH_ConvexHullBuilder2D_Positions *inPositions);
+void JPH_ConvexHullBuilder2D_~ConvexHullBuilder2D();
+JPH_ConvexHullBuilder2D_EResult JPH_ConvexHullBuilder2D_Initialize(int32_t inIdx1, int32_t inIdx2, int32_t inIdx3, int32_t inMaxVertices, float inTolerance, JPH_ConvexHullBuilder2D_Edges *outEdges);
+void JPH_ConvexHullBuilder2D_FreeEdges();
+void JPH_ConvexHullBuilder2D_AssignPointToEdge(int32_t inPositionIdx, < Unexposed (size=-2, align=-2)> *inEdges);
+void JPH_ConvexHullBuilder2D_ValidateEdges();
 
 #endif // Include guard

@@ -6,15 +6,14 @@
 #include "Database.h"
 
 static inline
-const char *GetDeclName(CXCursor cursor) {
+char *GetDeclName(CXCursor cursor) {
     if (clang_Cursor_isAnonymous(cursor)) {
         return "";
     }
 
     CXString spelling = clang_getCursorSpelling(cursor);
-    const char *str = clang_getCString(spelling);
 
-    return str;
+    return (char *)clang_getCString(spelling);
 }
 
 static inline
