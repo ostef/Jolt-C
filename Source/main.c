@@ -63,6 +63,16 @@ int main() {
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint32");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint64");
 
+    gen_options.preamble = ReadEntireFile("Source/JoltCPreamble.h", NULL);
+    if (!gen_options.preamble) {
+        ErrorExit("Could not read file 'Source/JoltCPreamble.h'");
+    }
+
+    // gen_options.postamble = ReadEntireFile("Source/JoltCPostamble.h", NULL);
+    // if (!gen_options.postamble) {
+    //     ErrorExit("Could not read file 'Source/JoltCPostamble.h'");
+    // }
+
     StringBuilder builder = {};
     GenerateCode(gen_options, &builder, &db);
 

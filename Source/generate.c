@@ -283,6 +283,10 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
     SBAppendString(builder, "#include <stdbool.h>\n");
     SBAppendString(builder, "\n");
 
+    if (options.preamble) {
+        SBAppendString(builder, options.preamble);
+    }
+
     foreach (i, db->all_namespaces) {
         CppNamespace *ns = ArrayGet(db->all_namespaces, i);
         if (ns->base.fully_qualified_name[0]) {
@@ -383,6 +387,10 @@ void GenerateCode(GenerateOptions options, StringBuilder *builder, CppDatabase *
                 SBAppend(builder, ";\n\n");
             } break;
         }
+    }
+
+    if (options.postamble) {
+        SBAppendString(builder, options.postamble);
     }
 
     SBAppendString(builder, "\n#endif // Include guard\n");

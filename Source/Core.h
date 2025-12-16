@@ -691,6 +691,39 @@ char *SBBuild(StringBuilder *builder) {
 }
 
 static
+char *ReadEntireFile(const char *filename, int64_t *out_bytes_read) {
+    FILE *file = fopen(filename, "rb");
+    if (!file) {
+        return NULL;
+    }
+
+    fseek(file, 0, SEEK_END);
+    int64_t size = ftell(file);
+    fseek(file, 0, SEEK_SET);
+
+    char *result = malloc(size + 1);
+    if (!result) {
+        fclose(file);
+        return NULL;
+    }
+
+    int64_t bytes_read = fread(result, 1, size, file);
+    fclose(file);
+
+    if (bytes_read <= size) {
+        result[bytes_read] = 0;
+    } else {
+        result[size] = 0;
+    }
+
+    if (out_bytes_read) {
+        *out_bytes_read = bytes_read;
+    }
+
+    return result;
+}
+
+static
 int64_t WriteEntireFile(const char *filename, const void *buffer, int64_t size) {
     FILE *file = fopen(filename, "wb");
     if (!file) {

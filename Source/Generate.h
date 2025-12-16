@@ -6,6 +6,8 @@
 typedef struct GenerateOptions {
     Array declarations_to_exclude;
     Array typedefs_to_unwrap;
+    const char *preamble;
+    const char *postamble;
 } GenerateOptions;
 
 typedef struct GenerateContext {
