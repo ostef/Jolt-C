@@ -105,6 +105,9 @@ Here are all the templates that we would need to support:
 * **JPH::RayCastT**, **JPH::ShapeCastT**: could handwrite the few instantiations that are actually used, but using macros would probably be better because I think we would need to implement a few functions.
 
 ## std types
-A big PITA is that Jolt uses a lot of the types from the C++ standard library such as **std::basic_string**, **std::mutex**, **std::basic_istringstream**, **std::atomic**. I don't know what to do with these especially considering their implementation is compiler/compiler version/platform dependent. Fuck C++.
+A big PITA is that Jolt uses a lot of the types from the C++ standard library such as **std::mutex**, **std::basic_string**, **std::basic_istringstream**, **std::atomic**. I don't know what to do with these especially considering their implementation is compiler/compiler version/platform dependent. Fuck C++. One option is to provide opaque types and provide functions to access the members of these types. However this is verbose and very inconvenient. Another option is to wrap only the std type around an opaque structure that has the same size and alignment requirements. Last option that I can think of is to modify Jolt to use our own implementation of these when it matters.
+
 * **std::atomic**: probably mostly a wrapper around the value type with specific alignment requirements, so maybe this is not so hard?
 
+## Function overloads
+I don't know if function overloading is heavily used in the APIs we want to expose, but if that is the case we want to provide good names for each overload.
