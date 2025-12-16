@@ -86,47 +86,61 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
         case CXType_Bool: {
             result->kind = CppType_Bool;
         } break;
-        case CXType_Char_U: {
-            result->kind = CppType_UChar;
-        } break;
-        case CXType_UChar: {
-            result->kind = CppType_UChar;
-        } break;
-        case CXType_UShort: {
-            result->kind = CppType_UShort;
-        } break;
-        case CXType_UInt: {
-            result->kind = CppType_UInt;
-        } break;
-        case CXType_ULong: {
-            result->kind = CppType_ULong;
-        } break;
-        case CXType_ULongLong: {
-            result->kind = CppType_ULongLong;
-        } break;
+        case CXType_Char_U:
+        case CXType_UChar:
+        case CXType_UShort:
+        case CXType_UInt:
+        case CXType_ULong:
+        case CXType_ULongLong:
         case CXType_UInt128: {
-            result->kind = CppType_UInt128;
+            switch (result->size) {
+                case 1: {
+                    result->kind = CppType_UInt8;
+                } break;
+                case 2: {
+                    result->kind = CppType_UInt16;
+                } break;
+                case 4: {
+                    result->kind = CppType_UInt32;
+                } break;
+                case 8: {
+                    result->kind = CppType_UInt64;
+                } break;
+                case 16: {
+                    result->kind = CppType_UInt128;
+                } break;
+                default: {
+                    result->kind = CppType_Invalid;
+                } break;
+            }
         } break;
-        case CXType_Char_S: {
-            result->kind = CppType_Char;
-        } break;
-        case CXType_SChar: {
-            result->kind = CppType_Char;
-        } break;
-        case CXType_Short: {
-            result->kind = CppType_Short;
-        } break;
-        case CXType_Int: {
-            result->kind = CppType_Int;
-        } break;
-        case CXType_Long: {
-            result->kind = CppType_Long;
-        } break;
-        case CXType_LongLong: {
-            result->kind = CppType_LongLong;
-        } break;
+        case CXType_Char_S:
+        case CXType_SChar:
+        case CXType_Short:
+        case CXType_Int:
+        case CXType_Long:
+        case CXType_LongLong:
         case CXType_Int128: {
-            result->kind = CppType_Int128;
+            switch (result->size) {
+                case 1: {
+                    result->kind = CppType_Int8;
+                } break;
+                case 2: {
+                    result->kind = CppType_Int16;
+                } break;
+                case 4: {
+                    result->kind = CppType_Int32;
+                } break;
+                case 8: {
+                    result->kind = CppType_Int64;
+                } break;
+                case 16: {
+                    result->kind = CppType_Int128;
+                } break;
+                default: {
+                    result->kind = CppType_Invalid;
+                } break;
+            }
         } break;
         case CXType_Float: {
             result->kind = CppType_Float;

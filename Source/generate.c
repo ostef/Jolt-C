@@ -30,53 +30,8 @@ void AppendCppTypePrefix(StringBuilder *builder, CppType *type, int indentation)
         case CppType_Unknown: {
             SBAppend(builder, "< %s >", clang_getCString(clang_getTypeKindSpelling(type->cx_type.kind)));
         } break;
-        case CppType_Void: {
-            SBAppendString(builder, "void");
-        } break;
-        case CppType_Bool: {
-            SBAppendString(builder, "bool");
-        } break;
-        case CppType_Char: {
-            SBAppendString(builder, "char");
-        } break;
-        case CppType_UChar: {
-            SBAppendString(builder, "unsigned char");
-        } break;
-        case CppType_Short: {
-            SBAppendString(builder, "short");
-        } break;
-        case CppType_UShort: {
-            SBAppendString(builder, "unsigned short");
-        } break;
-        case CppType_Int: {
-            SBAppendString(builder, "int");
-        } break;
-        case CppType_UInt: {
-            SBAppendString(builder, "unsigned int");
-        } break;
-        case CppType_Long: {
-            SBAppendString(builder, "long");
-        } break;
-        case CppType_ULong: {
-            SBAppendString(builder, "unsigned long");
-        } break;
-        case CppType_LongLong: {
-            SBAppendString(builder, "long long");
-        } break;
-        case CppType_ULongLong: {
-            SBAppendString(builder, "unsigned long long");
-        } break;
-        case CppType_Int128: {
-            SBAppendString(builder, "int128_t");
-        } break;
-        case CppType_UInt128: {
-            SBAppendString(builder, "uint128_t");
-        } break;
-        case CppType_Float: {
-            SBAppendString(builder, "float");
-        } break;
-        case CppType_Double: {
-            SBAppendString(builder, "double");
+        default: {
+            SBAppendString(builder, CppTypeKind_Str[type->kind]);
         } break;
         case CppType_Reference: // Append references as pointers
         case CppType_Pointer: {
