@@ -29,7 +29,7 @@ int main() {
             ArrayPush(&parse_options.files, (char *)Jolt_Source_Files[i]);
         }
     } else {
-        ArrayPush(&parse_options.files, "Source/JoltHeaders.h");
+        ArrayPush(&parse_options.files, "JoltHeaders.h");
     }
 
     ArrayPush(&parse_options.include_dirs, "JoltPhysics");
@@ -75,11 +75,14 @@ int main() {
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Mat44Arg");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DMat44Arg");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::RMat44Arg");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::ColorArg");
 
     gen_options.preamble = ReadEntireFile("Source/JoltCPreamble.h", NULL);
     if (!gen_options.preamble) {
         ErrorExit("Could not read file 'Source/JoltCPreamble.h'");
     }
+
+    gen_options.exclude_non_class_functions = true;
 
     // gen_options.postamble = ReadEntireFile("Source/JoltCPostamble.h", NULL);
     // if (!gen_options.postamble) {
@@ -89,9 +92,15 @@ int main() {
 
     MakeUniqueOverloadedFunctionNames(&db);
 
-    StringBuilder builder = {};
-    GenerateCHeader(gen_options, &builder, &db);
+    StringBuilder header_builder = {};
+    GenerateCHeader(gen_options, &header_builder, &db);
 
-    char *str = SBBuild(&builder);
-    WriteEntireFile("JoltC.h", str, strlen(str));
+    StringBuilder source_builder = {};
+    GenerateCppSource(gen_options, &source_builder, &db);
+
+    char *header = SBBuild(&header_builder);
+    WriteEntireFile("JoltC.h", header, strlen(header));
+
+    char *source = SBBuild(&source_builder);
+    WriteEntireFile("JoltC.cpp", source, strlen(source));
 }

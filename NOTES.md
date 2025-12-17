@@ -33,7 +33,7 @@ void DoSomethingWithIFoo(IFoo foo);
 ```
 C implementation:
 ```c++
-final struct IFoo_Adapter : JPH::IFoo {
+struct IFoo_Adapter final : JPH::IFoo {
     IFoo base;
 
     explicit IFoo_Adapter(IFoo foo) {

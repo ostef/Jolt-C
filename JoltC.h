@@ -7,6 +7,10 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 // Preamble: hand-written types
 
 typedef struct JPH_StridedPtr {
@@ -1603,9 +1607,6 @@ typedef JPH_Mat44 JPH_RMat44;
 // Abstract
 typedef struct JPH_RefTargetVirtual JPH_RefTargetVirtual;
 
-// JoltPhysics/Jolt/Core/Color.h:12:1
-typedef < ? named (size=4, align=4)> JPH_ColorArg;
-
 // JoltPhysics/Jolt/Core/Color.h:15:1
 typedef struct JPH_Color {
     union {
@@ -1623,7 +1624,7 @@ void JPH_Color_Construct(JPH_Color *self);
 void JPH_Color_ConstructWithRHS(JPH_Color *self, JPH_Color *inRHS);
 void JPH_Color_ConstructWithColor(JPH_Color *self, uint32_t inColor);
 void JPH_Color_ConstructWithRedGreenBlueAlpha(JPH_Color *self, uint8_t inRed, uint8_t inGreen, uint8_t inBlue, uint8_t inAlpha);
-void JPH_Color_ConstructWithRHSAlpha(JPH_Color *self, JPH_ColorArg inRHS, uint8_t inAlpha);
+void JPH_Color_ConstructWithRHSAlpha(JPH_Color *self, < ? named (size=4, align=4)> inRHS, uint8_t inAlpha);
 uint32_t JPH_Color_GetUInt32(const JPH_Color *self);
 JPH_Vec4 JPH_Color_ToVec4(const JPH_Color *self);
 uint8_t JPH_Color_GetIntensity(const JPH_Color *self);
@@ -1693,7 +1694,7 @@ typedef struct JPH_JobSystem_Job {
     < ? named (size=4, align=4)> mNumDependencies;
 } JPH_JobSystem_Job;
 
-void JPH_JobSystem_Job_Construct(JPH_JobSystem_Job *self, int8_t *inJobName, JPH_ColorArg inColor, JPH_JobSystem *inJobSystem, JPH_JobSystem_JobFunction *inJobFunction, uint32_t inNumDependencies);
+void JPH_JobSystem_Job_Construct(JPH_JobSystem_Job *self, int8_t *inJobName, < ? named (size=4, align=4)> inColor, JPH_JobSystem *inJobSystem, JPH_JobSystem_JobFunction *inJobFunction, uint32_t inNumDependencies);
 JPH_JobSystem *JPH_JobSystem_Job_GetJobSystem(JPH_JobSystem_Job *self);
 void JPH_JobSystem_Job_AddRef(JPH_JobSystem_Job *self);
 void JPH_JobSystem_Job_Release(JPH_JobSystem_Job *self);
@@ -5315,7 +5316,7 @@ typedef struct JPH_PhysicsMaterialSimple JPH_PhysicsMaterialSimple;
 
 void JPH_PhysicsMaterialSimple_sCreateRTTI(JPH_RTTI *inRTTI);
 void JPH_PhysicsMaterialSimple_Construct(JPH_PhysicsMaterialSimple *self);
-void JPH_PhysicsMaterialSimple_ConstructWithNameColor(JPH_PhysicsMaterialSimple *self, string_view *inName, JPH_ColorArg inColor);
+void JPH_PhysicsMaterialSimple_ConstructWithNameColor(JPH_PhysicsMaterialSimple *self, string_view *inName, < ? named (size=4, align=4)> inColor);
 
 // JoltPhysics/Jolt/Physics/Collision/AABoxCast.h:12:1
 typedef struct JPH_AABoxCast {
@@ -8117,5 +8118,8 @@ void JPH_ConvexHullBuilder2D_FreeEdges(JPH_ConvexHullBuilder2D *self);
 void JPH_ConvexHullBuilder2D_AssignPointToEdge(const JPH_ConvexHullBuilder2D *self, int32_t inPositionIdx, < ? named (size=-2, align=-2)> *inEdges);
 void JPH_ConvexHullBuilder2D_ValidateEdges(const JPH_ConvexHullBuilder2D *self);
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif // Include guard
