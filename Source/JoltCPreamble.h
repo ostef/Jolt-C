@@ -27,7 +27,7 @@ typedef JPH_HashTable JPH_UnorderedMap;
 typedef JPH_HashTable JPH_UnorderedSet;
 
 typedef struct JPH_Vector2 {
-    float mF32[3];
+    float mF32[2];
 } JPH_Vector2;
 
 typedef struct JPH_Vector3 {
