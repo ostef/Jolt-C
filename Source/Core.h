@@ -684,6 +684,28 @@ void SBAppend(StringBuilder *builder, const char *fmt, ...) {
 }
 
 static
+void SBAppendIndentation(StringBuilder *builder, int indentation) {
+    for (int i = 0; i < indentation; i += 1) {
+        SBAppendString(builder, "    ");
+    }
+}
+
+static
+void SBAppendPascalCase(StringBuilder *builder, const char *str) {
+    bool uppercase = true;
+    for (int i = 0; str[i]; i += 1) {
+        if (str[i] == ' ') {
+            uppercase = true;
+        } else if (uppercase) {
+            SBAppendByte(builder, toupper(str[i]));
+            uppercase = false;
+        } else {
+            SBAppendByte(builder, str[i]);
+        }
+    }
+}
+
+static
 char *SBBuild(StringBuilder *builder) {
     SBAppendByte(builder, 0);
 

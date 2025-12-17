@@ -330,6 +330,4 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
 
 CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name);
 
-void MakeUniqueOverloadedFunctionNames(CppDatabase *db);
-
 #endif

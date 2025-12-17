@@ -16,6 +16,9 @@ typedef struct GenerateContext {
     StringBuilder *builder;
 } GenerateContext;
 
+void MakeUniqueOverloadedFunctionNames(GenerateOptions options, CppDatabase *db);
+
+void AppendAlphanumericCType(GenerateContext *ctx, CppType *type);
 void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation);
 void AppendCTypePostfix(GenerateContext *ctx, CppType *type, int indentation);
 void AppendCType(GenerateContext *ctx, CppType *type, int indentation);

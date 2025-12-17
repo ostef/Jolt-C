@@ -89,8 +89,7 @@ int main() {
     //     ErrorExit("Could not read file 'Source/JoltCPostamble.h'");
     // }
 
-
-    MakeUniqueOverloadedFunctionNames(&db);
+    MakeUniqueOverloadedFunctionNames(gen_options, &db);
 
     StringBuilder header_builder = {};
     GenerateCHeader(gen_options, &header_builder, &db);
