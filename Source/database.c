@@ -30,7 +30,8 @@ void InitCppDatabase(CppDatabase *db) {
 }
 
 CppEntity *GetCppEntityFromCursor(CppDatabase *db, CXCursor cursor){
-    return HashMapFind(&db->cursor_to_entity, &cursor, NULL);
+    CXCursor canonical = clang_getCanonicalCursor(cursor);
+    return HashMapFind(&db->cursor_to_entity, &canonical, NULL);
 }
 
 CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor) {
@@ -48,7 +49,7 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor) {
     }
 
     e->source_code_range = GetCppSourceCodeRange(cursor);
-    e->cursor = cursor;
+    e->cursor = clang_getCanonicalCursor(cursor);
     e->visibility = GetCursorCppVisibility(cursor);
 
     if (!clang_isCursorDefinition(cursor)) {

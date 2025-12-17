@@ -194,9 +194,9 @@ void AppendAlphaNumericCType(GenerateContext *ctx, CppType *type) {
         return;
     }
 
-    if (type->flags & CppTypeFlag_Const) {
-        SBAppendString(ctx->builder, "Const");
-    }
+    // if (type->flags & CppTypeFlag_Const) {
+    //     SBAppendString(ctx->builder, "Const");
+    // }
 
     switch (type->kind) {
         default: {
@@ -215,11 +215,13 @@ void AppendAlphaNumericCType(GenerateContext *ctx, CppType *type) {
                 SBAppendPascalCase(ctx->builder, CppTypeKind_Str[type->kind]);
             }
         } break;
-        case CppType_Pointer:
+        case CppType_Pointer:{
+            AppendAlphaNumericCType(ctx, type->type_pointer.pointee_type);
+            SBAppend(ctx->builder, "Ptr");
+        } break;
         case CppType_Reference:
         case CppType_RValueReference: {
             AppendAlphaNumericCType(ctx, type->type_pointer.pointee_type);
-            SBAppend(ctx->builder, "Ptr");
         } break;
         case CppType_Array: {
             AppendAlphaNumericCType(ctx, type->type_array.element_type);
@@ -337,6 +339,7 @@ void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
             SBAppendString(ctx->builder, CppTypeKind_Str[type->kind]);
         } break;
         case CppType_Reference: // Append references as pointers
+        case CppType_RValueReference:
         case CppType_Pointer: {
             AppendCTypePrefix(ctx, type->type_pointer.pointee_type, indentation);
 
@@ -355,10 +358,6 @@ void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
                 SBAppendString(ctx->builder, "(");
             }
             SBAppendString(ctx->builder, "*");
-        } break;
-        case CppType_RValueReference: {
-            AppendCTypePrefix(ctx, type->type_pointer.pointee_type, indentation);
-            SBAppendString(ctx->builder, "&&");
         } break;
         case CppType_Array: {
             AppendCTypePrefix(ctx, type->type_array.element_type, indentation);

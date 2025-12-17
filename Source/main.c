@@ -63,7 +63,9 @@ int main() {
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint32");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint64");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Vec3Arg");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Vec3::ArgType");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DVec3Arg");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DVec3::ArgType");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::UVec3Arg");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::RVec3Arg");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Vec4Arg");
@@ -73,7 +75,9 @@ int main() {
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::BVec16Arg");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::QuatArg");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Mat44Arg");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Mat44::ArgType");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DMat44Arg");
+    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DMat44::ArgType");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::RMat44Arg");
     ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::ColorArg");
 
