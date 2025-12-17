@@ -694,7 +694,7 @@ static
 void SBAppendPascalCase(StringBuilder *builder, const char *str) {
     bool uppercase = true;
     for (int i = 0; str[i]; i += 1) {
-        if (str[i] == ' ') {
+        if (!isalpha(str[i]) && !isdigit(str[i]) && str[i] != '_') {
             uppercase = true;
         } else if (uppercase) {
             SBAppendByte(builder, toupper(str[i]));
