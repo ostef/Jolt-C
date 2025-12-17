@@ -301,12 +301,23 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
         case CXType_Auto: {
             result->kind = CppType_Auto;
         } break;
-        case CXType_Record:
-        case CXType_Enum:
-        case CXType_Typedef:
-        case CXType_Elaborated: {
+        case CXType_Typedef: {
             result->kind = CppType_Named;
             result->type_named.name = clang_getCString(clang_getTypedefName(type));
+            result->type_named.cursor = clang_getTypeDeclaration(type);
+            result->type_named.entity = GetCppEntityFromCursor(db, result->type_named.cursor);
+        } break;
+        case CXType_Elaborated:
+            type = clang_Type_getNamedType(type);
+            // fallthrough
+
+        case CXType_Record:
+        case CXType_Enum: {
+            if (type.kind == CXType_Enum) {
+                printf("got Enum: %s\n", clang_getCString(clang_getTypeSpelling(type)));
+            }
+            result->kind = CppType_Named;
+            result->type_named.name = clang_getCString(clang_getTypeSpelling(type));
             result->type_named.cursor = clang_getTypeDeclaration(type);
             result->type_named.entity = GetCppEntityFromCursor(db, result->type_named.cursor);
         } break;
