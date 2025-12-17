@@ -222,8 +222,10 @@ typedef struct CppEntity {
     const char *comment;
     char *name;
     char *c_name;
+    char *unique_c_name;
     char *fully_qualified_name;
     char *fully_qualified_c_name;
+    char *unique_fully_qualified_c_name;
 } CppEntity;
 
 typedef struct CppNamespace {
@@ -327,5 +329,7 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
 #define AllocCppEntity(kind, cursor) ((Cpp##kind *)AllocCppEntityOfKind(CppEntity_##kind, sizeof(Cpp##kind), (cursor)))
 
 CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name);
+
+void MakeUniqueOverloadedFunctionNames(CppDatabase *db);
 
 #endif

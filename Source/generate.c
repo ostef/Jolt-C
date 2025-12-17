@@ -288,7 +288,8 @@ void AppendCppFunction(GenerateContext *ctx, CppFunction *func, int indentation)
     if (ShouldPrintSpaceAfterType(func->result_type)) {
         SBAppendString(ctx->builder, " ");
     }
-    SBAppendString(ctx->builder, func->base.fully_qualified_c_name);
+    assert(func->base.unique_fully_qualified_c_name != NULL);
+    SBAppendString(ctx->builder, func->base.unique_fully_qualified_c_name);
     SBAppendString(ctx->builder, "(");
 
     if (func->flags & CppFunctionFlag_Method) {
