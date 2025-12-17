@@ -431,6 +431,7 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                     }
 
                     num_functions += 1;
+
                     AppendCppFunction(&ctx, func, 0);
                     SBAppendString(ctx.builder, ";\n");
                 }

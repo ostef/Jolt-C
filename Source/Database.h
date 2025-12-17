@@ -30,6 +30,9 @@ typedef struct CppDatabase {
     Array all_typedefs;
     Array all_functions;
     Array all_entities;
+    // Fully qualified name to Array* of CppFunction *
+    // Contains all functions, not just overloaded functions
+    HashMap function_overloads;
     HashMap cursor_to_entity;
 } CppDatabase;
 
@@ -305,7 +308,7 @@ enum {
     CppFunctionFlag_PureVirtual = 1 << 4,
     CppFunctionFlag_Const       = 1 << 5,
     CppFunctionFlag_Operator    = 1 << 6,
-    CppFunctionFlag_Overladed   = 1 << 7,
+    CppFunctionFlag_Overloaded  = 1 << 7,
 };
 
 typedef struct CppFunction {

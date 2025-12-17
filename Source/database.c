@@ -17,6 +17,9 @@ void InitCppDatabase(CppDatabase *db) {
     db->cursor_to_entity.compare_func = CompareCXCursors;
     db->cursor_to_entity.hash_func = HashCXCursor;
 
+    db->function_overloads.compare_func = StringCompareFunc;
+    db->function_overloads.hash_func = StringHashFunc;
+
     db->global_namespace = Alloc(CppNamespace);
     db->global_namespace->base.name = "";
     db->global_namespace->base.c_name = "";
@@ -147,6 +150,21 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
         case CppEntity_Function: {
             ArrayPush(&db->all_functions, entity);
             ArrayPush(&db->all_entities, entity);
+
+            Array **overloads = (Array **)HashMapFindOrAdd(&db->function_overloads, entity->fully_qualified_name, NULL);
+            if (!(*overloads)) {
+                *overloads = Alloc(Array);
+            } else {
+                CppFunction *func = (CppFunction *)entity;
+                func->flags |= CppFunctionFlag_Overloaded;
+
+                if ((*overloads)->count == 1) {
+                    CppFunction *first = (CppFunction *)ArrayGet(**overloads, 0);
+                    first->flags |= CppFunctionFlag_Overloaded;
+                }
+            }
+
+            ArrayPush(*overloads, entity);
         } break;
     }
 }
