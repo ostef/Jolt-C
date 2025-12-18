@@ -5911,7 +5911,7 @@ JPH_ObjectLayer JPH_Body_GetObjectLayer(const JPH_Body *self) {
     return ToCpp(self)->GetObjectLayer();
 }
 
-const JPH_CollisionGroup *JPH_Body_GetCollisionGroup(const JPH_Body *self) {
+const JPH_CollisionGroup *JPH_Body_GetCollisionGroupConst(const JPH_Body *self) {
     return ToCpp(self)->GetCollisionGroup();
 }
 
@@ -6091,7 +6091,7 @@ void JPH_Body_ValidateCachedBounds(const JPH_Body *self) {
     ToCpp(self)->ValidateCachedBounds();
 }
 
-const JPH_MotionProperties *JPH_Body_GetMotionProperties(const JPH_Body *self) {
+const JPH_MotionProperties *JPH_Body_GetMotionPropertiesConst(const JPH_Body *self) {
     return ToCpp(self)->GetMotionProperties();
 }
 
@@ -6099,7 +6099,7 @@ JPH_MotionProperties *JPH_Body_GetMotionProperties(JPH_Body *self) {
     return ToCpp(self)->GetMotionProperties();
 }
 
-const JPH_MotionProperties *JPH_Body_GetMotionPropertiesUnchecked(const JPH_Body *self) {
+const JPH_MotionProperties *JPH_Body_GetMotionPropertiesUncheckedConst(const JPH_Body *self) {
     return ToCpp(self)->GetMotionPropertiesUnchecked();
 }
 
@@ -6755,7 +6755,7 @@ bool JPH_BodyManager_sIsValidBodyPointer(const JPH_Body *inBody) {
     return JPH::BodyManager::sIsValidBodyPointer(inBody);
 }
 
-const JPH_BodyVector *JPH_BodyManager_GetBodies(const JPH_BodyManager *self) {
+const JPH_BodyVector *JPH_BodyManager_GetBodiesConst(const JPH_BodyManager *self) {
     return ToCpp(self)->GetBodies();
 }
 
@@ -7255,7 +7255,7 @@ const JPH_SoftBodySharedSettings *JPH_SoftBodyMotionProperties_GetSettings(const
     return ToCpp(self)->GetSettings();
 }
 
-const Array<Vertex> *JPH_SoftBodyMotionProperties_GetVertices(const JPH_SoftBodyMotionProperties *self) {
+const Array<Vertex> *JPH_SoftBodyMotionProperties_GetVerticesConst(const JPH_SoftBodyMotionProperties *self) {
     return ToCpp(self)->GetVertices();
 }
 
@@ -8363,7 +8363,7 @@ void JPH_Skeleton_Joint_ConstructWithNameParentNameParentJointIndex(JPH_Skeleton
     new(ToCpp(self)) JPH::Skeleton::Joint(*inName, *inParentName, inParentJointIndex);
 }
 
-const JPH_Skeleton_JointVector *JPH_Skeleton_GetJoints(const JPH_Skeleton *self) {
+const JPH_Skeleton_JointVector *JPH_Skeleton_GetJointsConst(const JPH_Skeleton *self) {
     return ToCpp(self)->GetJoints();
 }
 
@@ -8439,7 +8439,7 @@ void JPH_SkeletalAnimation_Sample(const JPH_SkeletalAnimation *self, float inTim
     ToCpp(self)->Sample(inTime, *ioPose);
 }
 
-const JPH_SkeletalAnimation_AnimatedJointVector *JPH_SkeletalAnimation_GetAnimatedJoints(const JPH_SkeletalAnimation *self) {
+const JPH_SkeletalAnimation_AnimatedJointVector *JPH_SkeletalAnimation_GetAnimatedJointsConst(const JPH_SkeletalAnimation *self) {
     return ToCpp(self)->GetAnimatedJoints();
 }
 
@@ -8475,7 +8475,7 @@ uint32_t JPH_SkeletonPose_GetJointCount(const JPH_SkeletonPose *self) {
     return ToCpp(self)->GetJointCount();
 }
 
-const JPH_SkeletonPose_JointStateVector *JPH_SkeletonPose_GetJoints(const JPH_SkeletonPose *self) {
+const JPH_SkeletonPose_JointStateVector *JPH_SkeletonPose_GetJointsConst(const JPH_SkeletonPose *self) {
     return ToCpp(self)->GetJoints();
 }
 
@@ -8491,7 +8491,7 @@ JPH_SkeletonPose_JointState *JPH_SkeletonPose_GetJoint(JPH_SkeletonPose *self, i
     return ToCpp(self)->GetJoint(inJoint);
 }
 
-const JPH_SkeletonPose_Mat44Vector *JPH_SkeletonPose_GetJointMatrices(const JPH_SkeletonPose *self) {
+const JPH_SkeletonPose_Mat44Vector *JPH_SkeletonPose_GetJointMatricesConst(const JPH_SkeletonPose *self) {
     return ToCpp(self)->GetJointMatrices();
 }
 
@@ -8539,7 +8539,7 @@ JPH_Ragdoll *JPH_RagdollSettings_CreateRagdoll(const JPH_RagdollSettings *self, 
     return ToCpp(self)->CreateRagdoll(inCollisionGroup, inUserData, inSystem);
 }
 
-const JPH_Skeleton *JPH_RagdollSettings_GetSkeleton(const JPH_RagdollSettings *self) {
+const JPH_Skeleton *JPH_RagdollSettings_GetSkeletonConst(const JPH_RagdollSettings *self) {
     return ToCpp(self)->GetSkeleton();
 }
 
@@ -9095,7 +9095,7 @@ void JPH_SwingTwistConstraint_SetTwistMaxAngle(JPH_SwingTwistConstraint *self, f
     ToCpp(self)->SetTwistMaxAngle(inAngle);
 }
 
-const JPH_MotorSettings *JPH_SwingTwistConstraint_GetSwingMotorSettings(const JPH_SwingTwistConstraint *self) {
+const JPH_MotorSettings *JPH_SwingTwistConstraint_GetSwingMotorSettingsConst(const JPH_SwingTwistConstraint *self) {
     return ToCpp(self)->GetSwingMotorSettings();
 }
 
@@ -9103,7 +9103,7 @@ JPH_MotorSettings *JPH_SwingTwistConstraint_GetSwingMotorSettings(JPH_SwingTwist
     return ToCpp(self)->GetSwingMotorSettings();
 }
 
-const JPH_MotorSettings *JPH_SwingTwistConstraint_GetTwistMotorSettings(const JPH_SwingTwistConstraint *self) {
+const JPH_MotorSettings *JPH_SwingTwistConstraint_GetTwistMotorSettingsConst(const JPH_SwingTwistConstraint *self) {
     return ToCpp(self)->GetTwistMotorSettings();
 }
 
@@ -9331,7 +9331,7 @@ JPH_MotorSettings *JPH_HingeConstraint_GetMotorSettings(JPH_HingeConstraint *sel
     return ToCpp(self)->GetMotorSettings();
 }
 
-const JPH_MotorSettings *JPH_HingeConstraint_GetMotorSettings(const JPH_HingeConstraint *self) {
+const JPH_MotorSettings *JPH_HingeConstraint_GetMotorSettingsConst(const JPH_HingeConstraint *self) {
     return ToCpp(self)->GetMotorSettings();
 }
 
@@ -9379,7 +9379,7 @@ bool JPH_HingeConstraint_HasLimits(const JPH_HingeConstraint *self) {
     return ToCpp(self)->HasLimits();
 }
 
-const JPH_SpringSettings *JPH_HingeConstraint_GetLimitsSpringSettings(const JPH_HingeConstraint *self) {
+const JPH_SpringSettings *JPH_HingeConstraint_GetLimitsSpringSettingsConst(const JPH_HingeConstraint *self) {
     return ToCpp(self)->GetLimitsSpringSettings();
 }
 
@@ -9671,7 +9671,7 @@ const JPH_PhysicsSettings *JPH_PhysicsSystem_GetPhysicsSettings(const JPH_Physic
     return ToCpp(self)->GetPhysicsSettings();
 }
 
-const JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterface(const JPH_PhysicsSystem *self) {
+const JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterfaceConst(const JPH_PhysicsSystem *self) {
     return ToCpp(self)->GetBodyInterface();
 }
 
@@ -9679,7 +9679,7 @@ JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterface(JPH_PhysicsSystem *self) {
     return ToCpp(self)->GetBodyInterface();
 }
 
-const JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterfaceNoLock(const JPH_PhysicsSystem *self) {
+const JPH_BodyInterface *JPH_PhysicsSystem_GetBodyInterfaceNoLockConst(const JPH_PhysicsSystem *self) {
     return ToCpp(self)->GetBodyInterfaceNoLock();
 }
 
@@ -10843,7 +10843,7 @@ void JPH_QuadTree_sInvalidateBodyLocation(JPH_QuadTree_TrackingVector *ioTrackin
     JPH::QuadTree::sInvalidateBodyLocation(*ioTracking, inBodyID);
 }
 
-const JPH_QuadTree_RootNode *JPH_QuadTree_GetCurrentRoot(const JPH_QuadTree *self) {
+const JPH_QuadTree_RootNode *JPH_QuadTree_GetCurrentRootConst(const JPH_QuadTree *self) {
     return ToCpp(self)->GetCurrentRoot();
 }
 
@@ -14935,7 +14935,7 @@ JPH_MotorSettings *JPH_SliderConstraint_GetMotorSettings(JPH_SliderConstraint *s
     return ToCpp(self)->GetMotorSettings();
 }
 
-const JPH_MotorSettings *JPH_SliderConstraint_GetMotorSettings(const JPH_SliderConstraint *self) {
+const JPH_MotorSettings *JPH_SliderConstraint_GetMotorSettingsConst(const JPH_SliderConstraint *self) {
     return ToCpp(self)->GetMotorSettings();
 }
 
@@ -14979,7 +14979,7 @@ bool JPH_SliderConstraint_HasLimits(const JPH_SliderConstraint *self) {
     return ToCpp(self)->HasLimits();
 }
 
-const JPH_SpringSettings *JPH_SliderConstraint_GetLimitsSpringSettings(const JPH_SliderConstraint *self) {
+const JPH_SpringSettings *JPH_SliderConstraint_GetLimitsSpringSettingsConst(const JPH_SliderConstraint *self) {
     return ToCpp(self)->GetLimitsSpringSettings();
 }
 
@@ -15191,7 +15191,7 @@ float JPH_DistanceConstraint_GetMaxDistance(const JPH_DistanceConstraint *self) 
     return ToCpp(self)->GetMaxDistance();
 }
 
-const JPH_SpringSettings *JPH_DistanceConstraint_GetLimitsSpringSettings(const JPH_DistanceConstraint *self) {
+const JPH_SpringSettings *JPH_DistanceConstraint_GetLimitsSpringSettingsConst(const JPH_DistanceConstraint *self) {
     return ToCpp(self)->GetLimitsSpringSettings();
 }
 
@@ -15363,7 +15363,7 @@ JPH_MotorSettings *JPH_PathConstraint_GetPositionMotorSettings(JPH_PathConstrain
     return ToCpp(self)->GetPositionMotorSettings();
 }
 
-const JPH_MotorSettings *JPH_PathConstraint_GetPositionMotorSettings(const JPH_PathConstraint *self) {
+const JPH_MotorSettings *JPH_PathConstraint_GetPositionMotorSettingsConst(const JPH_PathConstraint *self) {
     return ToCpp(self)->GetPositionMotorSettings();
 }
 
@@ -16195,7 +16195,7 @@ size_t JPH_PhysicsScene_GetNumBodies(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetNumBodies();
 }
 
-const Array<BodyCreationSettings> *JPH_PhysicsScene_GetBodies(const JPH_PhysicsScene *self) {
+const Array<BodyCreationSettings> *JPH_PhysicsScene_GetBodiesConst(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetBodies();
 }
 
@@ -16215,7 +16215,7 @@ size_t JPH_PhysicsScene_GetNumConstraints(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetNumConstraints();
 }
 
-const Array<ConnectedConstraint> *JPH_PhysicsScene_GetConstraints(const JPH_PhysicsScene *self) {
+const Array<ConnectedConstraint> *JPH_PhysicsScene_GetConstraintsConst(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetConstraints();
 }
 
@@ -16227,7 +16227,7 @@ size_t JPH_PhysicsScene_GetNumSoftBodies(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetNumSoftBodies();
 }
 
-const Array<SoftBodyCreationSettings> *JPH_PhysicsScene_GetSoftBodies(const JPH_PhysicsScene *self) {
+const Array<SoftBodyCreationSettings> *JPH_PhysicsScene_GetSoftBodiesConst(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetSoftBodies();
 }
 
@@ -16287,7 +16287,7 @@ JPH_VehicleConstraint *JPH_VehicleController_GetConstraint(JPH_VehicleController
     return ToCpp(self)->GetConstraint();
 }
 
-const JPH_VehicleConstraint *JPH_VehicleController_GetConstraint(const JPH_VehicleController *self) {
+const JPH_VehicleConstraint *JPH_VehicleController_GetConstraintConst(const JPH_VehicleController *self) {
     return ToCpp(self)->GetConstraint();
 }
 
@@ -16639,7 +16639,7 @@ JPH_Body *JPH_VehicleConstraint_GetVehicleBody(const JPH_VehicleConstraint *self
     return ToCpp(self)->GetVehicleBody();
 }
 
-const JPH_VehicleController *JPH_VehicleConstraint_GetController(const JPH_VehicleConstraint *self) {
+const JPH_VehicleController *JPH_VehicleConstraint_GetControllerConst(const JPH_VehicleConstraint *self) {
     return ToCpp(self)->GetController();
 }
 
@@ -16647,7 +16647,7 @@ JPH_VehicleController *JPH_VehicleConstraint_GetController(JPH_VehicleConstraint
     return ToCpp(self)->GetController();
 }
 
-const JPH_Wheels *JPH_VehicleConstraint_GetWheels(const JPH_VehicleConstraint *self) {
+const JPH_Wheels *JPH_VehicleConstraint_GetWheelsConst(const JPH_VehicleConstraint *self) {
     return ToCpp(self)->GetWheels();
 }
 
@@ -16675,7 +16675,7 @@ JPH_RMat44 JPH_VehicleConstraint_GetWheelWorldTransform(const JPH_VehicleConstra
     return ToCpp(self)->GetWheelWorldTransform(inWheelIndex, inWheelRight, inWheelUp);
 }
 
-const JPH_VehicleAntiRollBars *JPH_VehicleConstraint_GetAntiRollBars(const JPH_VehicleConstraint *self) {
+const JPH_VehicleAntiRollBars *JPH_VehicleConstraint_GetAntiRollBarsConst(const JPH_VehicleConstraint *self) {
     return ToCpp(self)->GetAntiRollBars();
 }
 
@@ -16963,7 +16963,7 @@ float JPH_WheeledVehicleController_GetHandBrakeInput(const JPH_WheeledVehicleCon
     return ToCpp(self)->GetHandBrakeInput();
 }
 
-const JPH_VehicleEngine *JPH_WheeledVehicleController_GetEngine(const JPH_WheeledVehicleController *self) {
+const JPH_VehicleEngine *JPH_WheeledVehicleController_GetEngineConst(const JPH_WheeledVehicleController *self) {
     return ToCpp(self)->GetEngine();
 }
 
@@ -16971,7 +16971,7 @@ JPH_VehicleEngine *JPH_WheeledVehicleController_GetEngine(JPH_WheeledVehicleCont
     return ToCpp(self)->GetEngine();
 }
 
-const JPH_VehicleTransmission *JPH_WheeledVehicleController_GetTransmission(const JPH_WheeledVehicleController *self) {
+const JPH_VehicleTransmission *JPH_WheeledVehicleController_GetTransmissionConst(const JPH_WheeledVehicleController *self) {
     return ToCpp(self)->GetTransmission();
 }
 
@@ -16979,7 +16979,7 @@ JPH_VehicleTransmission *JPH_WheeledVehicleController_GetTransmission(JPH_Wheele
     return ToCpp(self)->GetTransmission();
 }
 
-const JPH_WheeledVehicleController_Differentials *JPH_WheeledVehicleController_GetDifferentials(const JPH_WheeledVehicleController *self) {
+const JPH_WheeledVehicleController_Differentials *JPH_WheeledVehicleController_GetDifferentialsConst(const JPH_WheeledVehicleController *self) {
     return ToCpp(self)->GetDifferentials();
 }
 
@@ -17259,7 +17259,7 @@ float JPH_TrackedVehicleController_GetBrakeInput(const JPH_TrackedVehicleControl
     return ToCpp(self)->GetBrakeInput();
 }
 
-const JPH_VehicleEngine *JPH_TrackedVehicleController_GetEngine(const JPH_TrackedVehicleController *self) {
+const JPH_VehicleEngine *JPH_TrackedVehicleController_GetEngineConst(const JPH_TrackedVehicleController *self) {
     return ToCpp(self)->GetEngine();
 }
 
@@ -17267,7 +17267,7 @@ JPH_VehicleEngine *JPH_TrackedVehicleController_GetEngine(JPH_TrackedVehicleCont
     return ToCpp(self)->GetEngine();
 }
 
-const JPH_VehicleTransmission *JPH_TrackedVehicleController_GetTransmission(const JPH_TrackedVehicleController *self) {
+const JPH_VehicleTransmission *JPH_TrackedVehicleController_GetTransmissionConst(const JPH_TrackedVehicleController *self) {
     return ToCpp(self)->GetTransmission();
 }
 
@@ -17275,7 +17275,7 @@ JPH_VehicleTransmission *JPH_TrackedVehicleController_GetTransmission(JPH_Tracke
     return ToCpp(self)->GetTransmission();
 }
 
-const JPH_VehicleTracks *JPH_TrackedVehicleController_GetTracks(const JPH_TrackedVehicleController *self) {
+const JPH_VehicleTracks *JPH_TrackedVehicleController_GetTracksConst(const JPH_TrackedVehicleController *self) {
     return ToCpp(self)->GetTracks();
 }
 
@@ -17899,7 +17899,7 @@ bool JPH_SkeletonMapper_IsJointTranslationLocked(const JPH_SkeletonMapper *self,
     return ToCpp(self)->IsJointTranslationLocked(inJoint2Idx);
 }
 
-const JPH_SkeletonMapper_MappingVector *JPH_SkeletonMapper_GetMappings(const JPH_SkeletonMapper *self) {
+const JPH_SkeletonMapper_MappingVector *JPH_SkeletonMapper_GetMappingsConst(const JPH_SkeletonMapper *self) {
     return ToCpp(self)->GetMappings();
 }
 
@@ -17907,7 +17907,7 @@ JPH_SkeletonMapper_MappingVector *JPH_SkeletonMapper_GetMappings(JPH_SkeletonMap
     return ToCpp(self)->GetMappings();
 }
 
-const JPH_SkeletonMapper_ChainVector *JPH_SkeletonMapper_GetChains(const JPH_SkeletonMapper *self) {
+const JPH_SkeletonMapper_ChainVector *JPH_SkeletonMapper_GetChainsConst(const JPH_SkeletonMapper *self) {
     return ToCpp(self)->GetChains();
 }
 
@@ -17915,7 +17915,7 @@ JPH_SkeletonMapper_ChainVector *JPH_SkeletonMapper_GetChains(JPH_SkeletonMapper 
     return ToCpp(self)->GetChains();
 }
 
-const JPH_SkeletonMapper_UnmappedVector *JPH_SkeletonMapper_GetUnmapped(const JPH_SkeletonMapper *self) {
+const JPH_SkeletonMapper_UnmappedVector *JPH_SkeletonMapper_GetUnmappedConst(const JPH_SkeletonMapper *self) {
     return ToCpp(self)->GetUnmapped();
 }
 
@@ -17923,7 +17923,7 @@ JPH_SkeletonMapper_UnmappedVector *JPH_SkeletonMapper_GetUnmapped(JPH_SkeletonMa
     return ToCpp(self)->GetUnmapped();
 }
 
-const JPH_SkeletonMapper_LockedVector *JPH_SkeletonMapper_GetLockedTranslations(const JPH_SkeletonMapper *self) {
+const JPH_SkeletonMapper_LockedVector *JPH_SkeletonMapper_GetLockedTranslationsConst(const JPH_SkeletonMapper *self) {
     return ToCpp(self)->GetLockedTranslations();
 }
 

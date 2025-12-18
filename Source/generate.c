@@ -266,11 +266,6 @@ void MakeUniqueOverloadedFunctionNames(GenerateOptions options, CppDatabase *db)
                 continue;
             }
 
-            if (func->parameters.count == 0) {
-                SetUniqueCName(&func->base, func->base.c_name);
-                continue;
-            }
-
             bool different_by_param_names = true;
             bool different_by_param_types = true;
             bool different_by_const = false;
@@ -301,14 +296,14 @@ void MakeUniqueOverloadedFunctionNames(GenerateOptions options, CppDatabase *db)
 
             StringBuilder builder = {};
             SBAppendString(&builder, func->base.c_name);
-            if (different_by_param_names) {
+            if (different_by_param_names && func->parameters.count > 0) {
                 SBAppendString(&builder, "With");
 
                 foreach (pi, func->parameters) {
                     CppVariable *param = ArrayGet(func->parameters, pi);
                     AppendOverloadParamName(&builder, param->base.c_name);
                 }
-            } else if (different_by_param_types) {
+            } else if (different_by_param_types && func->parameters.count > 0) {
                 SBAppendString(&builder, "With");
 
                 GenerateContext ctx = {};
