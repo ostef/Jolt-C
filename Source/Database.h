@@ -64,6 +64,7 @@ enum {
     CppType_Named,
     CppType_Function,
     CppType_Auto,
+    CppType_SIMDVector,
 };
 
 static const char *CppTypeKind_Str[] = {
@@ -93,6 +94,7 @@ static const char *CppTypeKind_Str[] = {
     "named",
     "function",
     "auto",
+    "SIMD vector",
 };
 
 typedef uint32_t CppTypeFlags;

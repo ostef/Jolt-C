@@ -215,6 +215,10 @@ void AppendAlphaNumericCType(GenerateContext *ctx, CppType *type) {
         default: {
             SBAppendPascalCase(ctx->builder, CppTypeKind_Str[type->kind]);
         } break;
+        case CppType_SIMDVector: {
+            SBAppendString(ctx->builder, clang_getCString(clang_getTypeSpelling(type->cx_type)));
+        } break;
+
         case CppType_Named: {
             if (type->type_named.entity) {
                 CppEntity *e = type->type_named.entity;
@@ -342,14 +346,17 @@ void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
     }
 
     switch (type->kind) {
+        default: {
+            SBAppendString(ctx->builder, CppTypeKind_Str[type->kind]);
+        } break;
         case CppType_Invalid: {
             SBAppendString(ctx->builder, "<invalid>");
         } break;
         case CppType_Unknown: {
             SBAppend(ctx->builder, "< %s (size=%d, align=%d)>", clang_getCString(clang_getTypeKindSpelling(type->cx_type.kind)), (int)type->size, (int)type->alignment);
         } break;
-        default: {
-            SBAppendString(ctx->builder, CppTypeKind_Str[type->kind]);
+        case CppType_SIMDVector: {
+            SBAppendString(ctx->builder, clang_getCString(clang_getTypeSpelling(type->cx_type)));
         } break;
         case CppType_Reference: // Append references as pointers
         case CppType_RValueReference:

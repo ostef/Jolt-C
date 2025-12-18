@@ -196,6 +196,9 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
         case CXType_Unexposed: {
             result->kind = CppType_Unknown;
         } break;
+        case CXType_Vector: {
+            result->kind = CppType_SIMDVector;
+        } break;
         case CXType_Invalid: {
             result->kind = CppType_Invalid;
         } break;

@@ -1459,7 +1459,7 @@ void JPH_Vec4_ConstructWithRHSW(JPH_Vec4 *self, const JPH_Vec3 inRHS, float inW)
     new(ToCpp(self)) JPH::Vec4(inRHS, inW);
 }
 
-void JPH_Vec4_ConstructWithUnknown(JPH_Vec4 *self, < Vector (size=16, align=16)> inRHS) {
+void JPH_Vec4_ConstructWithType(JPH_Vec4 *self, JPH_Vec4_Type inRHS) {
     new(ToCpp(self)) JPH::Vec4(inRHS);
 }
 
@@ -1759,7 +1759,7 @@ void JPH_Vec3_ConstructWithVec4(JPH_Vec3 *self, const JPH_Vec4 inRHS) {
     new(ToCpp(self)) JPH::Vec3(inRHS);
 }
 
-void JPH_Vec3_ConstructWithUnknown(JPH_Vec3 *self, < Vector (size=16, align=16)> inRHS) {
+void JPH_Vec3_ConstructWithType(JPH_Vec3 *self, JPH_Vec3_Type inRHS) {
     new(ToCpp(self)) JPH::Vec3(inRHS);
 }
 
@@ -2011,7 +2011,7 @@ void JPH_Vec3_CheckW(const JPH_Vec3 *self) {
     ToCpp(self)->CheckW();
 }
 
-< Vector (size=16, align=16)> JPH_Vec3_sFixW(< Vector (size=16, align=16)> inValue) {
+JPH_Vec3_Type JPH_Vec3_sFixW(JPH_Vec3_Type inValue) {
     return JPH::Vec3::sFixW(inValue);
 }
 
@@ -2227,7 +2227,7 @@ void JPH_Mat44_ConstructWithM2(JPH_Mat44 *self, const JPH_Mat44 *inM2) {
     new(ToCpp(self)) JPH::Mat44(*inM2);
 }
 
-void JPH_Mat44_ConstructWithUnknownUnknownUnknownUnknown(JPH_Mat44 *self, < Vector (size=16, align=16)> inC1, < Vector (size=16, align=16)> inC2, < Vector (size=16, align=16)> inC3, < Vector (size=16, align=16)> inC4) {
+void JPH_Mat44_ConstructWithTypeTypeTypeType(JPH_Mat44 *self, JPH_Mat44_Type inC1, JPH_Mat44_Type inC2, JPH_Mat44_Type inC3, JPH_Mat44_Type inC4) {
     new(ToCpp(self)) JPH::Mat44(inC1, inC2, inC3, inC4);
 }
 
@@ -2707,7 +2707,7 @@ void JPH_DVec3_ConstructWithVec4(JPH_DVec3 *self, const JPH_Vec4 inRHS) {
     new(ToCpp(self)) JPH::DVec3(inRHS);
 }
 
-void JPH_DVec3_ConstructWithUnknown(JPH_DVec3 *self, < Vector (size=32, align=32)> inRHS) {
+void JPH_DVec3_ConstructWithTypeArg(JPH_DVec3 *self, JPH_DVec3_TypeArg inRHS) {
     new(ToCpp(self)) JPH::DVec3(inRHS);
 }
 
@@ -2923,7 +2923,7 @@ void JPH_DVec3_CheckW(const JPH_DVec3 *self) {
     ToCpp(self)->CheckW();
 }
 
-< Vector (size=32, align=32)> JPH_DVec3_sFixW(< Vector (size=32, align=32)> inValue) {
+JPH_DVec3_Type JPH_DVec3_sFixW(JPH_DVec3_TypeArg inValue) {
     return JPH::DVec3::sFixW(inValue);
 }
 
@@ -2947,7 +2947,7 @@ void JPH_DMat44_ConstructWithRotT(JPH_DMat44 *self, const JPH_Mat44 * inRot, con
     new(ToCpp(self)) JPH::DMat44(inRot, inT);
 }
 
-void JPH_DMat44_ConstructWithUnknownUnknownUnknownUnknown(JPH_DMat44 *self, < Vector (size=16, align=16)> inC1, < Vector (size=16, align=16)> inC2, < Vector (size=16, align=16)> inC3, < Vector (size=32, align=32)> inC4) {
+void JPH_DMat44_ConstructWithTypeTypeTypeDTypeArg(JPH_DMat44 *self, JPH_DMat44_Type inC1, JPH_DMat44_Type inC2, JPH_DMat44_Type inC3, JPH_DMat44_DTypeArg inC4) {
     new(ToCpp(self)) JPH::DMat44(inC1, inC2, inC3, inC4);
 }
 
