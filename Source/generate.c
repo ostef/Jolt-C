@@ -318,7 +318,9 @@ void MakeUniqueOverloadedFunctionNames(GenerateOptions options, CppDatabase *db)
                     AppendAlphaNumericCType(&ctx, param->type);
                 }
             } else if (different_by_const) {
-                SBAppendString(&builder, "Const");
+                if (func->flags & CppFunctionFlag_Const) {
+                    SBAppendString(&builder, "Const");
+                }
             }
 
             SetUniqueCName(&func->base, SBBuild(&builder));
