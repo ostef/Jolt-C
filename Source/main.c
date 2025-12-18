@@ -15,6 +15,43 @@ static const char *Jolt_Source_Files[] = {
 static const char *Declarations_To_Exclude[] = {
     "std::hash",
     "JPH::Hash",
+
+    "JPH::UnorderedMap",
+    "JPH::UnorderedSet",
+};
+
+static const char *Typedefs_To_Unwrap[] = {
+    "JPH::uint",
+    "JPH::uint8",
+    "JPH::uint16",
+    "JPH::uint32",
+    "JPH::uint64",
+    "JPH::Vec3Arg",
+    "JPH::Vec3::Type",
+    "JPH::Vec3::ArgType",
+    "JPH::DVec3Arg",
+    "JPH::DVec3::Type",
+    "JPH::DVec3::TypeArg",
+    "JPH::DVec3::ArgType",
+    "JPH::UVec3Arg",
+    "JPH::RVec3Arg",
+    "JPH::Vec4Arg",
+    "JPH::Vec4::Type",
+    "JPH::DVec4Arg",
+    "JPH::UVec4Arg",
+    "JPH::RVec4Arg",
+    "JPH::BVec16Arg",
+    "JPH::QuatArg",
+    "JPH::Mat44Arg",
+    "JPH::Mat44::Type",
+    "JPH::Mat44::ArgType",
+    "JPH::DMat44Arg",
+    "JPH::DMat44::Type",
+    "JPH::DMat44::DType",
+    "JPH::DMat44::DTypeArg",
+    "JPH::DMat44::ArgType",
+    "JPH::RMat44Arg",
+    "JPH::ColorArg",
 };
 
 int main() {
@@ -56,30 +93,9 @@ int main() {
     for (uint64_t i = 0; i < StaticArraySize(Declarations_To_Exclude); i += 1) {
         ArrayPush(&gen_options.declarations_to_exclude, (void *)Declarations_To_Exclude[i]);
     }
-
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint8");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint16");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint32");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::uint64");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Vec3Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Vec3::ArgType");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DVec3Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DVec3::ArgType");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::UVec3Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::RVec3Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Vec4Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DVec4Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::UVec4Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::RVec4Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::BVec16Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::QuatArg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Mat44Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::Mat44::ArgType");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DMat44Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::DMat44::ArgType");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::RMat44Arg");
-    ArrayPush(&gen_options.typedefs_to_unwrap, "JPH::ColorArg");
+    for (uint64_t i = 0; i < StaticArraySize(Typedefs_To_Unwrap); i += 1) {
+        ArrayPush(&gen_options.typedefs_to_unwrap, (void *)Typedefs_To_Unwrap[i]);
+    }
 
     gen_options.preamble = ReadEntireFile("Source/JoltCPreamble.h", NULL);
     if (!gen_options.preamble) {

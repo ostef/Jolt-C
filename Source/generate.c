@@ -7,6 +7,19 @@ bool ShouldExclude(GenerateOptions options, const char *entity_name) {
 }
 
 static
+bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
+    if (entity->flags & CppEntityFlag_ParentIsTemplate) {
+        return true;
+    }
+
+    if (entity->kind == CppEntity_Aggregate && (((CppAggregate *)entity)->flags & CppAggregateFlag_Template)) {
+        return true;
+    }
+
+    return ShouldExclude(options, entity->fully_qualified_name);
+}
+
+static
 bool ShouldUnwrap(GenerateOptions options, const char *entity_name) {
     return ArrayFindFirstPredicate(options.typedefs_to_unwrap, entity_name, StringCompareFunc) >= 0;
 }
@@ -634,7 +647,7 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
     foreach (i, db->all_aggregates) {
         CppAggregate *aggr = ArrayGet(db->all_aggregates, i);
 
-        if (ShouldExclude(options, aggr->base.fully_qualified_name)) {
+        if (ShouldExcludeEntity(options, &aggr->base)) {
             continue;
         }
 
@@ -650,7 +663,7 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
     foreach (i, db->all_enums) {
         CppEnum *e = ArrayGet(db->all_enums, i);
 
-        if (ShouldExclude(options, e->base.fully_qualified_name)) {
+        if (ShouldExcludeEntity(options, &e->base)) {
             continue;
         }
 
@@ -681,7 +694,7 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
     foreach (i, db->all_entities) {
         CppEntity *entity = ArrayGet(db->all_entities, i);
 
-        if (ShouldExclude(options, entity->fully_qualified_name)) {
+        if (ShouldExcludeEntity(options, entity)) {
             continue;
         }
 
@@ -794,7 +807,7 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
 
     foreach (i, db->all_enums) {
         CppEnum *e = ArrayGet(db->all_enums, i);
-        if (ShouldExclude(options, e->base.fully_qualified_name)) {
+        if (ShouldExcludeEntity(options, &e->base)) {
             continue;
         }
 
@@ -803,7 +816,11 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
 
     foreach (i, db->all_aggregates) {
         CppAggregate *aggr = ArrayGet(db->all_aggregates, i);
-        if (ShouldExclude(options, aggr->base.fully_qualified_name)) {
+        if (ShouldExcludeEntity(options, &aggr->base)) {
+            continue;
+        }
+
+        if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
             continue;
         }
 
@@ -815,7 +832,7 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
 
     foreach (i, db->all_enums) {
         CppEnum *e = ArrayGet(db->all_enums, i);
-        if (ShouldExclude(options, e->base.fully_qualified_name)) {
+        if (ShouldExcludeEntity(options, &e->base)) {
             continue;
         }
 
@@ -826,7 +843,11 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
 
     foreach (i, db->all_aggregates) {
         CppAggregate *aggr = ArrayGet(db->all_aggregates, i);
-        if (ShouldExclude(options, aggr->base.fully_qualified_name)) {
+
+        if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
+            continue;
+        }
+        if (ShouldExcludeEntity(options, &aggr->base)) {
             continue;
         }
 
@@ -843,7 +864,7 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
 
     foreach (i, db->all_functions) {
         CppFunction *func = ArrayGet(db->all_functions, i);
-        if (ShouldExclude(options, func->base.fully_qualified_name)) {
+        if (ShouldExcludeEntity(options, &func->base)) {
             continue;
         }
 

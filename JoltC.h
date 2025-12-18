@@ -1063,13 +1063,10 @@ void JPH_Float4_Construct(JPH_Float4 *self);
 void JPH_Float4_ConstructWithRHS(JPH_Float4 *self, const JPH_Float4 *inRHS);
 void JPH_Float4_ConstructWithXYZW(JPH_Float4 *self, float inX, float inY, float inZ, float inW);
 
-// JoltPhysics/Jolt/Math/Vec4.h:20:2
-typedef < Vector (size=16, align=16)> JPH_Vec4_Type;
-
 // JoltPhysics/Jolt/Math/Vec4.h:13:1
 typedef struct JPH_Vec4 {
     union {
-        JPH_Vec4_Type mValue;
+        < Vector (size=16, align=16)> mValue;
         float mF32[4];
     };
 } JPH_Vec4;
@@ -1078,7 +1075,7 @@ void JPH_Vec4_Construct(JPH_Vec4 *self);
 void JPH_Vec4_ConstructWithVec4(JPH_Vec4 *self, const JPH_Vec4 *inRHS);
 void JPH_Vec4_ConstructWithVec3(JPH_Vec4 *self, const JPH_Vec3 inRHS);
 void JPH_Vec4_ConstructWithRHSW(JPH_Vec4 *self, const JPH_Vec3 inRHS, float inW);
-void JPH_Vec4_ConstructWithType(JPH_Vec4 *self, JPH_Vec4_Type inRHS);
+void JPH_Vec4_ConstructWithUnknown(JPH_Vec4 *self, < Vector (size=16, align=16)> inRHS);
 void JPH_Vec4_ConstructWithXYZW(JPH_Vec4 *self, float inX, float inY, float inZ, float inW);
 JPH_Vec4 JPH_Vec4_sZero();
 JPH_Vec4 JPH_Vec4_sOne();
@@ -1162,13 +1159,10 @@ void JPH_Float3_ConstructWithXYZ(JPH_Float3 *self, float inX, float inY, float i
 // JoltPhysics/Jolt/Math/Float3.h:43:1
 typedef JPH::Array<JPH::Float3> JPH_VertexList;
 
-// JoltPhysics/Jolt/Math/Vec3.h:23:2
-typedef < Vector (size=16, align=16)> JPH_Vec3_Type;
-
 // JoltPhysics/Jolt/Math/Vec3.h:16:1
 typedef struct JPH_Vec3 {
     union {
-        JPH_Vec3_Type mValue;
+        < Vector (size=16, align=16)> mValue;
         float mF32[4];
     };
 } JPH_Vec3;
@@ -1176,7 +1170,7 @@ typedef struct JPH_Vec3 {
 void JPH_Vec3_Construct(JPH_Vec3 *self);
 void JPH_Vec3_ConstructWithVec3(JPH_Vec3 *self, const JPH_Vec3 *inRHS);
 void JPH_Vec3_ConstructWithVec4(JPH_Vec3 *self, const JPH_Vec4 inRHS);
-void JPH_Vec3_ConstructWithType(JPH_Vec3 *self, JPH_Vec3_Type inRHS);
+void JPH_Vec3_ConstructWithUnknown(JPH_Vec3 *self, < Vector (size=16, align=16)> inRHS);
 void JPH_Vec3_ConstructWithV(JPH_Vec3 *self, const JPH_Float3 *inV);
 void JPH_Vec3_ConstructWithXYZ(JPH_Vec3 *self, float inX, float inY, float inZ);
 JPH_Vec3 JPH_Vec3_sZero();
@@ -1239,7 +1233,7 @@ JPH_Vec3 JPH_Vec3_GetSign(const JPH_Vec3 *self);
 uint32_t JPH_Vec3_CompressUnitVector(const JPH_Vec3 *self);
 JPH_Vec3 JPH_Vec3_sDecompressUnitVector(uint32_t inValue);
 void JPH_Vec3_CheckW(const JPH_Vec3 *self);
-JPH_Vec3_Type JPH_Vec3_sFixW(JPH_Vec3_Type inValue);
+< Vector (size=16, align=16)> JPH_Vec3_sFixW(< Vector (size=16, align=16)> inValue);
 
 // JoltPhysics/Jolt/Math/UVec4.h:18:2
 typedef < Vector (size=16, align=16)> JPH_UVec4_Type;
@@ -1302,9 +1296,6 @@ JPH_UVec4 JPH_UVec4_Expand4Byte8(const JPH_UVec4 *self);
 JPH_UVec4 JPH_UVec4_Expand4Byte12(const JPH_UVec4 *self);
 JPH_UVec4 JPH_UVec4_ShiftComponents4Minus(const JPH_UVec4 *self, int32_t inCount);
 
-// JoltPhysics/Jolt/Math/Mat44.h:18:2
-typedef < Vector (size=16, align=16)> JPH_Mat44_Type;
-
 // JoltPhysics/Jolt/Math/Mat44.h:12:1
 typedef struct JPH_Mat44 {
     JPH_Vec4 mCol[4];
@@ -1314,7 +1305,7 @@ void JPH_Mat44_Construct(JPH_Mat44 *self);
 void JPH_Mat44_ConstructWithVec4Vec4Vec4Vec4(JPH_Mat44 *self, const JPH_Vec4 inC1, const JPH_Vec4 inC2, const JPH_Vec4 inC3, const JPH_Vec4 inC4);
 void JPH_Mat44_ConstructWithVec4Vec4Vec4Vec3(JPH_Mat44 *self, const JPH_Vec4 inC1, const JPH_Vec4 inC2, const JPH_Vec4 inC3, const JPH_Vec3 inC4);
 void JPH_Mat44_ConstructWithM2(JPH_Mat44 *self, const JPH_Mat44 *inM2);
-void JPH_Mat44_ConstructWithTypeTypeTypeType(JPH_Mat44 *self, JPH_Mat44_Type inC1, JPH_Mat44_Type inC2, JPH_Mat44_Type inC3, JPH_Mat44_Type inC4);
+void JPH_Mat44_ConstructWithUnknownUnknownUnknownUnknown(JPH_Mat44 *self, < Vector (size=16, align=16)> inC1, < Vector (size=16, align=16)> inC2, < Vector (size=16, align=16)> inC3, < Vector (size=16, align=16)> inC4);
 JPH_Mat44 JPH_Mat44_sZero();
 JPH_Mat44 JPH_Mat44_sIdentity();
 JPH_Mat44 JPH_Mat44_sNaN();
@@ -1445,16 +1436,10 @@ void JPH_Double3_Construct(JPH_Double3 *self);
 void JPH_Double3_ConstructWithRHS(JPH_Double3 *self, const JPH_Double3 *inRHS);
 void JPH_Double3_ConstructWithXYZ(JPH_Double3 *self, double inX, double inY, double inZ);
 
-// JoltPhysics/Jolt/Math/DVec3.h:20:2
-typedef < Vector (size=32, align=32)> JPH_DVec3_Type;
-
-// JoltPhysics/Jolt/Math/DVec3.h:21:2
-typedef < Vector (size=32, align=32)> JPH_DVec3_TypeArg;
-
 // JoltPhysics/Jolt/Math/DVec3.h:13:1
 typedef struct JPH_DVec3 {
     union {
-        JPH_DVec3_Type mValue;
+        < Vector (size=32, align=32)> mValue;
         double mF64[4];
     };
 } JPH_DVec3;
@@ -1463,7 +1448,7 @@ void JPH_DVec3_Construct(JPH_DVec3 *self);
 void JPH_DVec3_ConstructWithDVec3(JPH_DVec3 *self, const JPH_DVec3 *inRHS);
 void JPH_DVec3_ConstructWithVec3(JPH_DVec3 *self, const JPH_Vec3 inRHS);
 void JPH_DVec3_ConstructWithVec4(JPH_DVec3 *self, const JPH_Vec4 inRHS);
-void JPH_DVec3_ConstructWithTypeArg(JPH_DVec3 *self, JPH_DVec3_TypeArg inRHS);
+void JPH_DVec3_ConstructWithUnknown(JPH_DVec3 *self, < Vector (size=32, align=32)> inRHS);
 void JPH_DVec3_ConstructWithXYZ(JPH_DVec3 *self, double inX, double inY, double inZ);
 void JPH_DVec3_ConstructWithV(JPH_DVec3 *self, const JPH_Double3 *inV);
 JPH_DVec3 JPH_DVec3_sZero();
@@ -1517,16 +1502,7 @@ JPH_DVec3 JPH_DVec3_Normalized(const JPH_DVec3 *self);
 JPH_DVec3 JPH_DVec3_Sqrt(const JPH_DVec3 *self);
 JPH_DVec3 JPH_DVec3_GetSign(const JPH_DVec3 *self);
 void JPH_DVec3_CheckW(const JPH_DVec3 *self);
-JPH_DVec3_Type JPH_DVec3_sFixW(JPH_DVec3_TypeArg inValue);
-
-// JoltPhysics/Jolt/Math/DMat44.h:18:2
-typedef < Vector (size=16, align=16)> JPH_DMat44_Type;
-
-// JoltPhysics/Jolt/Math/DMat44.h:19:2
-typedef < Vector (size=32, align=32)> JPH_DMat44_DType;
-
-// JoltPhysics/Jolt/Math/DMat44.h:20:2
-typedef < Vector (size=32, align=32)> JPH_DMat44_DTypeArg;
+< Vector (size=32, align=32)> JPH_DVec3_sFixW(< Vector (size=32, align=32)> inValue);
 
 // JoltPhysics/Jolt/Math/DMat44.h:12:1
 typedef struct JPH_DMat44 {
@@ -1539,7 +1515,7 @@ void JPH_DMat44_ConstructWithVec4Vec4Vec4DVec3(JPH_DMat44 *self, const JPH_Vec4 
 void JPH_DMat44_ConstructWithM2(JPH_DMat44 *self, const JPH_DMat44 *inM2);
 void JPH_DMat44_ConstructWithM(JPH_DMat44 *self, const JPH_Mat44 * inM);
 void JPH_DMat44_ConstructWithRotT(JPH_DMat44 *self, const JPH_Mat44 * inRot, const JPH_DVec3 inT);
-void JPH_DMat44_ConstructWithTypeTypeTypeDTypeArg(JPH_DMat44 *self, JPH_DMat44_Type inC1, JPH_DMat44_Type inC2, JPH_DMat44_Type inC3, JPH_DMat44_DTypeArg inC4);
+void JPH_DMat44_ConstructWithUnknownUnknownUnknownUnknown(JPH_DMat44 *self, < Vector (size=16, align=16)> inC1, < Vector (size=16, align=16)> inC2, < Vector (size=16, align=16)> inC3, < Vector (size=32, align=32)> inC4);
 JPH_DMat44 JPH_DMat44_sZero();
 JPH_DMat44 JPH_DMat44_sIdentity();
 JPH_DMat44 JPH_DMat44_sRotation(const JPH_Quat inQuat);

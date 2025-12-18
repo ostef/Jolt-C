@@ -139,6 +139,10 @@ enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClie
             return CXChildVisit_Recurse;
         } break;
 
+        case CXCursor_ClassTemplate: {
+            ParseCppAggregate(ctx, cursor);
+        } break;
+
         case CXCursor_Namespace: {
             CppNamespace *ns = GetCppNamespace(ctx->db, ctx->parent_entity, GetDeclName(cursor));
             VisitRecurse(cursor, TopLevelVisitor, ctx, &ns->base);
@@ -313,9 +317,6 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
 
         case CXType_Record:
         case CXType_Enum: {
-            if (type.kind == CXType_Enum) {
-                printf("got Enum: %s\n", clang_getCString(clang_getTypeSpelling(type)));
-            }
             result->kind = CppType_Named;
             result->type_named.name = clang_getCString(clang_getTypeSpelling(type));
             result->type_named.cursor = clang_getTypeDeclaration(type);
@@ -361,6 +362,9 @@ CppAggregate *ParseCppAggregate(CppParseContext *ctx, CXCursor cursor) {
         aggr->kind = CppAggregate_Struct;
     } else if (kind == CXCursor_UnionDecl) {
         aggr->kind = CppAggregate_Union;
+    } else if (kind == CXCursor_ClassTemplate) {
+        aggr->kind = CppAggregate_Class;
+        aggr->flags |= CppAggregateFlag_Template;
     } else {
         aggr->kind = CppAggregate_Class;
     }

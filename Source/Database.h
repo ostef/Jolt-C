@@ -208,8 +208,9 @@ static const char *CppEntityKind_Str[] = {
 
 typedef uint32_t CppEntityFlags;
 enum {
-    CppEntityFlag_Static      = 1 << 0,
-    CppEntityFlag_ForwardDecl = 1 << 1,
+    CppEntityFlag_Static           = 1 << 0,
+    CppEntityFlag_ForwardDecl      = 1 << 1,
+    CppEntityFlag_ParentIsTemplate = 1 << 2,
 };
 
 typedef struct CppEntity {
@@ -255,6 +256,7 @@ typedef struct CppBaseClass {
 typedef uint32_t CppAggregateFlags;
 enum {
     CppAggregateFlag_Abstract = 1 << 0,
+    CppAggregateFlag_Template = 1 << 1,
 };
 
 typedef struct CppAggregate {

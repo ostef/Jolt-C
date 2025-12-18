@@ -64,6 +64,10 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
 
     entity->parent = parent;
 
+    if (parent && parent->flags & CppEntityFlag_ParentIsTemplate) {
+        entity->flags |= CppEntityFlag_ParentIsTemplate;
+    }
+
     assert(entity->c_name != NULL);
     if (parent && parent->fully_qualified_name && parent->fully_qualified_name[0]) {
         entity->fully_qualified_name = SPrintf("%s::%s", parent->fully_qualified_name, entity->name);
@@ -83,6 +87,10 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
             } break;
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)parent;
+
+                if (aggr->flags & CppAggregateFlag_Template) {
+                    entity->flags |= CppEntityFlag_ParentIsTemplate;
+                }
 
                 // We want to insert this entity before the parent for typedefs, enums and
                 // aggregates, because the parent aggregate can have references to them
