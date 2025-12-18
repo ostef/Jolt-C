@@ -25,8 +25,30 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
     return false;
 }
 
-// Simple interface = one vtable, no fields
-static inline
+static
+bool IsEmptyAggregate(CppAggregate *aggr) {
+    if (aggr->virtual_methods.count > 0 || aggr->fields.count > 0) {
+        return false;
+    }
+
+    foreach (i, aggr->base_classes) {
+        CppBaseClass *base = ArrayGet(aggr->base_classes, i);
+        if (base->type->kind != CppType_Named || base->type->type_named.entity == NULL) {
+            return false;
+        }
+
+        CppAggregate *base_aggr =  (CppAggregate *)base->type->type_named.entity;
+        if (!IsEmptyAggregate(base_aggr)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+// Simple interface = one vtable, no fields, empty base classes
+static
 bool IsSimpleInterface(CppAggregate *aggr) {
     if (aggr->virtual_methods.count == 0 || aggr->fields.count > 0) {
         return false;
@@ -39,7 +61,7 @@ bool IsSimpleInterface(CppAggregate *aggr) {
         }
 
         CppAggregate *base_aggr =  (CppAggregate *)base->type->type_named.entity;
-        if (base_aggr->virtual_methods.count > 0 || base_aggr->fields.count > 0) {
+        if (!IsEmptyAggregate(base_aggr)) {
             return false;
         }
     }
