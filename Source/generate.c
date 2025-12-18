@@ -1019,7 +1019,7 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
             continue;
         }
 
-        SBAppend(builder, "static_assert(sizeof(%s) == sizeof(%s), \"Type mismatch for %s\");\n", e->base.fully_qualified_name, e->base.fully_qualified_c_name, e->base.fully_qualified_c_name);
+        SBAppend(builder, "static_assert(sizeof(%s) == sizeof(%s), \"Type size mismatch for %s\");\n", e->base.fully_qualified_name, e->base.fully_qualified_c_name, e->base.fully_qualified_c_name);
     }
 
     foreach (i, db->all_aggregates) {
