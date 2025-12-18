@@ -311,7 +311,7 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
         case CXType_Typedef: {
             result->kind = CppType_Named;
             result->type_named.name = clang_getCString(clang_getTypedefName(type));
-            result->type_named.cursor = clang_getTypeDeclaration(type);
+            result->type_named.cursor = clang_getCanonicalCursor(clang_getTypeDeclaration(type));
             result->type_named.entity = GetCppEntityFromCursor(db, result->type_named.cursor);
         } break;
         case CXType_Elaborated:
@@ -322,8 +322,11 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
         case CXType_Enum: {
             result->kind = CppType_Named;
             result->type_named.name = clang_getCString(clang_getTypeSpelling(type));
-            result->type_named.cursor = clang_getTypeDeclaration(type);
+            result->type_named.cursor = clang_getCanonicalCursor(clang_getTypeDeclaration(type));
             result->type_named.entity = GetCppEntityFromCursor(db, result->type_named.cursor);
+            if (!result->type_named.entity) {
+                printf("Could not get entity for %s (%s)\n", clang_getCString(clang_getCursorSpelling(result->type_named.cursor)), clang_getCString(clang_getCursorKindSpelling(clang_getCursorKind(result->type_named.cursor))));
+            }
         } break;
     }
 
