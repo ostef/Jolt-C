@@ -55,6 +55,13 @@ typedef struct JPH_Matrix33 {
     JPH_Vector3 mCol[3];
 } JPH_Matrix33;
 
+struct JPH_TransformedShape;
+
+typedef struct JPH_CollisionCollector {
+    float mEarlyOutFraction;
+    struct JPH_TransformedShape *mContext;
+} JPH_CollisionCollector;
+
 // Namespace JPH
 // Namespace std
 // Namespace JPH::literals

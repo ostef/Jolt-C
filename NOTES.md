@@ -167,6 +167,8 @@ It is very verbose, but I think we can reduce this verbosity by providing conven
 A very important consideration when making C bindings for Jolt is the heavy usage of templates. I am not sure what the strategy should be for templates; I think we need a per case solution. A fallback to the brute force approach could work for certain templates: gather all template instantiations and generate code for each of them. The thing to consider with this approach is how we handle template arguments of non obvious types (e.g. **Array<StridedPtr<RefTarget<Body> > >**)
 
 Here are all the templates that we would need to support:
+* **JPH::Ref**/**JPH::RefConst**: just a wrapper around a pointer,
+* **JPH::RefTarget**: just a wrapper around a refcount,
 * **JPH::Array**: the nice thing about this template is that T is used by pointer, so we could provide a non specialized JPH_Array struct. Furthermore, the default STLAllocator does not contain any fields and is just a simple static interface to external allocator functions, so we don't have to worry about it (unless another allocator is used sometimes)
 * **JPH::Vector**, **JPH::Matrix**: only a few instantiation of Vector<2>, Vector<3> and Matrix<2,2>, Matrix<3,3> are used, so this one is easy.
 * **JPH::Result**: not that hard to support with macros/codegen since I don't think we need to implement any functions for it. Also, it seems to be always used wrapped around a typedef, which is convenient.
@@ -174,7 +176,7 @@ Here are all the templates that we would need to support:
 * **JPH::StridedPtr**: the layout does not change and the underlying type is always *uint8_t \**
 * **JPH::HashTable**: same as **JPH::Array**, can be implemented using a void pointer, and we don't provide functions to interact with the table or we provide them on a per case basis (e.g. type **Foo** has a hash table member named **myTable**, so we would provide a few **Foo_myTable_XXX** functions if needed).
 * **JPH::RayCastT**, **JPH::ShapeCastT**: could handwrite the few instantiations that are actually used, but using macros would probably be better because I think we would need to implement a few functions.
-* **JPH::CollisionCollector**: @Todo
+* **JPH::CollisionCollector**: I seems no field type depends on the template, only the implementation.
 
 ## std types
 A big PITA is that Jolt uses a lot of the types from the C++ standard library such as **std::mutex**, **std::basic_string**, **std::basic_istringstream**, **std::atomic**. I don't know what to do with these especially considering their implementation is compiler/compiler version/platform dependent. Fuck C++. One option is to provide opaque types and provide functions to access the members of these types. However this is verbose and very inconvenient. Another option is to wrap only the std type around an opaque structure that has the same size and alignment requirements. Last option that I can think of is to modify Jolt to use our own implementation of these when it matters.
