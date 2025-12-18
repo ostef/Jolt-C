@@ -23,6 +23,10 @@ static const char *Declarations_To_Exclude[] = {
     "JPH::UnorderedMap",
     "JPH::UnorderedSet",
 
+    "JPH::BodyAccess",
+    "JPH::BodyAccess::EAccess",
+    "JPH::BodyAccess::Grant",
+
     "sCreateRTTI",
     "sRegister",
 };

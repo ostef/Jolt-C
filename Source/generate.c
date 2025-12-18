@@ -367,19 +367,40 @@ void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db) {
             continue;
         }
 
-        bool opaque = ShouldBeOpaque(aggr);
-
-        foreach (j, aggr->functions) {
-            CppFunction *func = ArrayGet(aggr->functions, j);
-
-            // Generate New functions for each constructor
-            if (func->flags & CppFunctionFlag_Constructor && opaque) {
-                GenerateOpaqueAggrNewFunction(options, db, aggr, func);
+        bool acts_as_namespace = true;
+        if (aggr->fields.count > 0) {
+            acts_as_namespace = false;
+        } else if (aggr->virtual_methods.count > 0) {
+            acts_as_namespace = false;
+        } else {
+            foreach (j, aggr->functions) {
+                CppFunction *func = ArrayGet(aggr->functions, j);
+                if (func->flags & CppFunctionFlag_Method) {
+                    acts_as_namespace = false;
+                    break;
+                }
             }
         }
 
-        if (opaque) {
-            GenerateOpaqueAggrDeleteFunction(options, db, aggr);
+        if (acts_as_namespace) {
+            aggr->base.user_flags |= CppEntityUserFlag_AggregateAsNamespace;
+        }
+
+        bool opaque = ShouldBeOpaque(aggr);
+
+        if (!acts_as_namespace) {
+            foreach (j, aggr->functions) {
+                CppFunction *func = ArrayGet(aggr->functions, j);
+
+                // Generate New functions for each constructor
+                if (func->flags & CppFunctionFlag_Constructor && opaque) {
+                    GenerateOpaqueAggrNewFunction(options, db, aggr, func);
+                }
+            }
+
+            if (opaque) {
+                GenerateOpaqueAggrDeleteFunction(options, db, aggr);
+            }
         }
     }
 
@@ -820,6 +841,10 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
             continue;
         }
 
+        if (aggr->base.user_flags & CppEntityUserFlag_AggregateAsNamespace) {
+            continue;
+        }
+
         if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
             continue;
         }
@@ -875,24 +900,26 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                     continue;
                 }
 
-                SBAppendString(builder, "// ");
-                AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
-                SBAppendString(builder, "\n");
+                if (!(aggr->base.user_flags & CppEntityUserFlag_AggregateAsNamespace)) {
+                    SBAppendString(builder, "// ");
+                    AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
+                    SBAppendString(builder, "\n");
 
-                if (IsSimpleInterface(aggr)) {
-                    AppendCAggregateVTableTypedef(&ctx, aggr);
-                } else if (aggr->virtual_methods.count > 0) {
-                    printf("%s is not a simple interface and needs wrapping\n", aggr->base.fully_qualified_name);
-                }
+                    if (IsSimpleInterface(aggr)) {
+                        AppendCAggregateVTableTypedef(&ctx, aggr);
+                    } else if (aggr->virtual_methods.count > 0) {
+                        printf("%s is not a simple interface and needs wrapping\n", aggr->base.fully_qualified_name);
+                    }
 
-                if (aggr->flags & CppAggregateFlag_Abstract) {
-                    SBAppendString(builder, "// Abstract\n");
-                } else if (aggr->virtual_methods.count > 0) {
-                    SBAppendString(builder, "// Has vtable\n");
+                    if (aggr->flags & CppAggregateFlag_Abstract) {
+                        SBAppendString(builder, "// Abstract\n");
+                    } else if (aggr->virtual_methods.count > 0) {
+                        SBAppendString(builder, "// Has vtable\n");
+                    }
+                    SBAppendString(builder, "typedef ");
+                    AppendCAggregate(&ctx, aggr, 0);
+                    SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
                 }
-                SBAppendString(builder, "typedef ");
-                AppendCAggregate(&ctx, aggr, 0);
-                SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
 
                 int num_functions = 0;
                 foreach (j, aggr->functions) {
@@ -1001,6 +1028,10 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
             continue;
         }
 
+        if (aggr->base.user_flags & CppEntityUserFlag_AggregateAsNamespace) {
+            continue;
+        }
+
         if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
             continue;
         }
@@ -1024,6 +1055,10 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
 
     foreach (i, db->all_aggregates) {
         CppAggregate *aggr = ArrayGet(db->all_aggregates, i);
+
+        if (aggr->base.user_flags & CppEntityUserFlag_AggregateAsNamespace) {
+            continue;
+        }
 
         if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
             continue;

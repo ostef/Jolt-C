@@ -20,7 +20,6 @@ static_assert(sizeof(JPH::ConvexShape::ESupportMode) == sizeof(JPH_ConvexShape_E
 static_assert(sizeof(JPH::ValidateResult) == sizeof(JPH_ValidateResult), "Type mismatch for JPH_ValidateResult");
 static_assert(sizeof(JPH::EAllowedDOFs) == sizeof(JPH_EAllowedDOFs), "Type mismatch for JPH_EAllowedDOFs");
 static_assert(sizeof(JPH::EMotionQuality) == sizeof(JPH_EMotionQuality), "Type mismatch for JPH_EMotionQuality");
-static_assert(sizeof(JPH::BodyAccess::EAccess) == sizeof(JPH_BodyAccess_EAccess), "Type mismatch for JPH_BodyAccess_EAccess");
 static_assert(sizeof(JPH::EMotionType) == sizeof(JPH_EMotionType), "Type mismatch for JPH_EMotionType");
 static_assert(sizeof(JPH::EBodyType) == sizeof(JPH_EBodyType), "Type mismatch for JPH_EBodyType");
 static_assert(sizeof(JPH::ECanSleep) == sizeof(JPH_ECanSleep), "Type mismatch for JPH_ECanSleep");
@@ -53,7 +52,6 @@ static_assert(sizeof(JPH::SixDOFConstraintSettings::EAxis) == sizeof(JPH_SixDOFC
 static_assert(sizeof(JPH::ETransmissionMode) == sizeof(JPH_ETransmissionMode), "Type mismatch for JPH_ETransmissionMode");
 static_assert(sizeof(JPH::ETrackSide) == sizeof(JPH_ETrackSide), "Type mismatch for JPH_ETrackSide");
 static_assert(sizeof(JPH::ConvexHullBuilder2D::EResult) == sizeof(JPH_ConvexHullBuilder2D_EResult), "Type mismatch for JPH_ConvexHullBuilder2D_EResult");
-static_assert(sizeof(JPH::AssertLastParam) == sizeof(JPH_AssertLastParam), "Type mismatch for JPH_AssertLastParam");
 static_assert(sizeof(JPH::Float4) == sizeof(JPH_Float4), "Type mismatch for JPH_Float4");
 static_assert(sizeof(JPH::Vec4) == sizeof(JPH_Vec4), "Type mismatch for JPH_Vec4");
 static_assert(sizeof(JPH::Float3) == sizeof(JPH_Float3), "Type mismatch for JPH_Float3");
@@ -77,10 +75,6 @@ static_assert(sizeof(JPH::JobSystemWithBarrier) == sizeof(JPH_JobSystemWithBarri
 static_assert(sizeof(JPH::Mutex) == sizeof(JPH_Mutex), "Type mismatch for JPH_Mutex");
 static_assert(sizeof(JPH::SharedMutex) == sizeof(JPH_SharedMutex), "Type mismatch for JPH_SharedMutex");
 static_assert(sizeof(JPH::JobSystemThreadPool) == sizeof(JPH_JobSystemThreadPool), "Type mismatch for JPH_JobSystemThreadPool");
-static_assert(sizeof(JPH::FPExceptionsEnable) == sizeof(JPH_FPExceptionsEnable), "Type mismatch for JPH_FPExceptionsEnable");
-static_assert(sizeof(JPH::FPExceptionDisableInvalid) == sizeof(JPH_FPExceptionDisableInvalid), "Type mismatch for JPH_FPExceptionDisableInvalid");
-static_assert(sizeof(JPH::FPExceptionDisableDivByZero) == sizeof(JPH_FPExceptionDisableDivByZero), "Type mismatch for JPH_FPExceptionDisableDivByZero");
-static_assert(sizeof(JPH::FPExceptionDisableOverflow) == sizeof(JPH_FPExceptionDisableOverflow), "Type mismatch for JPH_FPExceptionDisableOverflow");
 static_assert(sizeof(JPH::SerializableAttribute) == sizeof(JPH_SerializableAttribute), "Type mismatch for JPH_SerializableAttribute");
 static_assert(sizeof(JPH::RTTI::BaseClass) == sizeof(JPH_RTTI_BaseClass), "Type mismatch for JPH_RTTI_BaseClass");
 static_assert(sizeof(JPH::RTTI) == sizeof(JPH_RTTI), "Type mismatch for JPH_RTTI");
@@ -107,7 +101,6 @@ static_assert(sizeof(JPH::BodyID) == sizeof(JPH_BodyID), "Type mismatch for JPH_
 static_assert(sizeof(JPH::IslandBuilder) == sizeof(JPH_IslandBuilder), "Type mismatch for JPH_IslandBuilder");
 static_assert(sizeof(JPH::PhysicsSettings) == sizeof(JPH_PhysicsSettings), "Type mismatch for JPH_PhysicsSettings");
 static_assert(sizeof(JPH::CalculateSolverSteps) == sizeof(JPH_CalculateSolverSteps), "Type mismatch for JPH_CalculateSolverSteps");
-static_assert(sizeof(JPH::DummyCalculateSolverSteps) == sizeof(JPH_DummyCalculateSolverSteps), "Type mismatch for JPH_DummyCalculateSolverSteps");
 static_assert(sizeof(JPH::ConstraintSettings) == sizeof(JPH_ConstraintSettings), "Type mismatch for JPH_ConstraintSettings");
 static_assert(sizeof(JPH::Constraint) == sizeof(JPH_Constraint), "Type mismatch for JPH_Constraint");
 static_assert(sizeof(JPH::LFHMAllocator) == sizeof(JPH_LFHMAllocator), "Type mismatch for JPH_LFHMAllocator");
@@ -117,9 +110,6 @@ static_assert(sizeof(JPH::SubShapeID) == sizeof(JPH_SubShapeID), "Type mismatch 
 static_assert(sizeof(JPH::SubShapeIDCreator) == sizeof(JPH_SubShapeIDCreator), "Type mismatch for JPH_SubShapeIDCreator");
 static_assert(sizeof(JPH::SubShapeIDPair) == sizeof(JPH_SubShapeIDPair), "Type mismatch for JPH_SubShapeIDPair");
 static_assert(sizeof(JPH::MassProperties) == sizeof(JPH_MassProperties), "Type mismatch for JPH_MassProperties");
-static_assert(sizeof(JPH::CollisionCollectorTraitsCastRay) == sizeof(JPH_CollisionCollectorTraitsCastRay), "Type mismatch for JPH_CollisionCollectorTraitsCastRay");
-static_assert(sizeof(JPH::CollisionCollectorTraitsCastShape) == sizeof(JPH_CollisionCollectorTraitsCastShape), "Type mismatch for JPH_CollisionCollectorTraitsCastShape");
-static_assert(sizeof(JPH::CollisionCollectorTraitsCollideShape) == sizeof(JPH_CollisionCollectorTraitsCollideShape), "Type mismatch for JPH_CollisionCollectorTraitsCollideShape");
 static_assert(sizeof(JPH::ShapeFilter) == sizeof(JPH_ShapeFilter), "Type mismatch for JPH_ShapeFilter");
 static_assert(sizeof(JPH::ReversedShapeFilter) == sizeof(JPH_ReversedShapeFilter), "Type mismatch for JPH_ReversedShapeFilter");
 static_assert(sizeof(JPH::ShapeSettings) == sizeof(JPH_ShapeSettings), "Type mismatch for JPH_ShapeSettings");
@@ -148,8 +138,6 @@ static_assert(sizeof(JPH::GroupFilter) == sizeof(JPH_GroupFilter), "Type mismatc
 static_assert(sizeof(JPH::CollisionGroup) == sizeof(JPH_CollisionGroup), "Type mismatch for JPH_CollisionGroup");
 static_assert(sizeof(JPH::TransformedShape) == sizeof(JPH_TransformedShape), "Type mismatch for JPH_TransformedShape");
 static_assert(sizeof(JPH::Sphere) == sizeof(JPH_Sphere), "Type mismatch for JPH_Sphere");
-static_assert(sizeof(JPH::BodyAccess::Grant) == sizeof(JPH_BodyAccess_Grant), "Type mismatch for JPH_BodyAccess_Grant");
-static_assert(sizeof(JPH::BodyAccess) == sizeof(JPH_BodyAccess), "Type mismatch for JPH_BodyAccess");
 static_assert(sizeof(JPH::MotionProperties) == sizeof(JPH_MotionProperties), "Type mismatch for JPH_MotionProperties");
 static_assert(sizeof(JPH::Body) == sizeof(JPH_Body), "Type mismatch for JPH_Body");
 static_assert(sizeof(JPH::SpringPart) == sizeof(JPH_SpringPart), "Type mismatch for JPH_SpringPart");
@@ -191,20 +179,15 @@ static_assert(sizeof(JPH::SoftBodyUpdateContext) == sizeof(JPH_SoftBodyUpdateCon
 static_assert(sizeof(JPH::SoftBodyMotionProperties) == sizeof(JPH_SoftBodyMotionProperties), "Type mismatch for JPH_SoftBodyMotionProperties");
 static_assert(sizeof(JPH::EmptyShapeSettings) == sizeof(JPH_EmptyShapeSettings), "Type mismatch for JPH_EmptyShapeSettings");
 static_assert(sizeof(JPH::EmptyShape) == sizeof(JPH_EmptyShape), "Type mismatch for JPH_EmptyShape");
-static_assert(sizeof(JPH::PhysicsLock) == sizeof(JPH_PhysicsLock), "Type mismatch for JPH_PhysicsLock");
 static_assert(sizeof(JPH::BodyLockInterface) == sizeof(JPH_BodyLockInterface), "Type mismatch for JPH_BodyLockInterface");
 static_assert(sizeof(JPH::BodyLockInterfaceNoLock) == sizeof(JPH_BodyLockInterfaceNoLock), "Type mismatch for JPH_BodyLockInterfaceNoLock");
 static_assert(sizeof(JPH::BodyLockInterfaceLocking) == sizeof(JPH_BodyLockInterfaceLocking), "Type mismatch for JPH_BodyLockInterfaceLocking");
-static_assert(sizeof(JPH::BodyLockRead) == sizeof(JPH_BodyLockRead), "Type mismatch for JPH_BodyLockRead");
-static_assert(sizeof(JPH::BodyLockWrite) == sizeof(JPH_BodyLockWrite), "Type mismatch for JPH_BodyLockWrite");
 static_assert(sizeof(JPH::BodyActivationListener) == sizeof(JPH_BodyActivationListener), "Type mismatch for JPH_BodyActivationListener");
 static_assert(sizeof(JPH::SoftBodyShape) == sizeof(JPH_SoftBodyShape), "Type mismatch for JPH_SoftBodyShape");
 static_assert(sizeof(JPH::BodyInterface) == sizeof(JPH_BodyInterface), "Type mismatch for JPH_BodyInterface");
 static_assert(sizeof(JPH::BroadPhaseQuery) == sizeof(JPH_BroadPhaseQuery), "Type mismatch for JPH_BroadPhaseQuery");
 static_assert(sizeof(JPH::BroadPhase::UpdateState) == sizeof(JPH_BroadPhase_UpdateState), "Type mismatch for JPH_BroadPhase_UpdateState");
 static_assert(sizeof(JPH::BroadPhase) == sizeof(JPH_BroadPhase), "Type mismatch for JPH_BroadPhase");
-static_assert(sizeof(JPH::BodyLockMultiRead) == sizeof(JPH_BodyLockMultiRead), "Type mismatch for JPH_BodyLockMultiRead");
-static_assert(sizeof(JPH::BodyLockMultiWrite) == sizeof(JPH_BodyLockMultiWrite), "Type mismatch for JPH_BodyLockMultiWrite");
 static_assert(sizeof(JPH::TwoBodyConstraintSettings) == sizeof(JPH_TwoBodyConstraintSettings), "Type mismatch for JPH_TwoBodyConstraintSettings");
 static_assert(sizeof(JPH::TwoBodyConstraint) == sizeof(JPH_TwoBodyConstraint), "Type mismatch for JPH_TwoBodyConstraint");
 static_assert(sizeof(JPH::Skeleton::Joint) == sizeof(JPH_Skeleton_Joint), "Type mismatch for JPH_Skeleton_Joint");
@@ -245,13 +228,10 @@ static_assert(sizeof(JPH::GroupFilterTable) == sizeof(JPH_GroupFilterTable), "Ty
 static_assert(sizeof(JPH::CollideShapeResult) == sizeof(JPH_CollideShapeResult), "Type mismatch for JPH_CollideShapeResult");
 static_assert(sizeof(JPH::CollideSettingsBase) == sizeof(JPH_CollideSettingsBase), "Type mismatch for JPH_CollideSettingsBase");
 static_assert(sizeof(JPH::CollideShapeSettings) == sizeof(JPH_CollideShapeSettings), "Type mismatch for JPH_CollideShapeSettings");
-static_assert(sizeof(JPH::ShapeCast) == sizeof(JPH_ShapeCast), "Type mismatch for JPH_ShapeCast");
 static_assert(sizeof(JPH::RShapeCast) == sizeof(JPH_RShapeCast), "Type mismatch for JPH_RShapeCast");
 static_assert(sizeof(JPH::ShapeCastSettings) == sizeof(JPH_ShapeCastSettings), "Type mismatch for JPH_ShapeCastSettings");
 static_assert(sizeof(JPH::ShapeCastResult) == sizeof(JPH_ShapeCastResult), "Type mismatch for JPH_ShapeCastResult");
-static_assert(sizeof(JPH::CollisionDispatch) == sizeof(JPH_CollisionDispatch), "Type mismatch for JPH_CollisionDispatch");
 static_assert(sizeof(JPH::StateRecorderImpl) == sizeof(JPH_StateRecorderImpl), "Type mismatch for JPH_StateRecorderImpl");
-static_assert(sizeof(JPH::RayCast) == sizeof(JPH_RayCast), "Type mismatch for JPH_RayCast");
 static_assert(sizeof(JPH::RRayCast) == sizeof(JPH_RRayCast), "Type mismatch for JPH_RRayCast");
 static_assert(sizeof(JPH::RayCastSettings) == sizeof(JPH_RayCastSettings), "Type mismatch for JPH_RayCastSettings");
 static_assert(sizeof(JPH::BroadPhaseCastResult) == sizeof(JPH_BroadPhaseCastResult), "Type mismatch for JPH_BroadPhaseCastResult");
@@ -318,7 +298,6 @@ static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::TriangleBlockHe
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::ValidationContext) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_ValidationContext), "Type mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_ValidationContext");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EncodingContext) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext), "Type mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::DecodingContext) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext), "Type mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext");
-static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags), "Type mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags");
 static_assert(sizeof(JPH::NodeCodecQuadTreeHalfFloat::Header) == sizeof(JPH_NodeCodecQuadTreeHalfFloat_Header), "Type mismatch for JPH_NodeCodecQuadTreeHalfFloat_Header");
 static_assert(sizeof(JPH::NodeCodecQuadTreeHalfFloat::Node) == sizeof(JPH_NodeCodecQuadTreeHalfFloat_Node), "Type mismatch for JPH_NodeCodecQuadTreeHalfFloat_Node");
 static_assert(sizeof(JPH::NodeCodecQuadTreeHalfFloat::EncodingContext) == sizeof(JPH_NodeCodecQuadTreeHalfFloat_EncodingContext), "Type mismatch for JPH_NodeCodecQuadTreeHalfFloat_EncodingContext");
@@ -468,7 +447,6 @@ static inline JPH::ConvexShape::ESupportMode ToCpp(JPH_ConvexShape_ESupportMode 
 static inline JPH::ValidateResult ToCpp(JPH_ValidateResult val) { return static_cast<JPH::ValidateResult>(val); }
 static inline JPH::EAllowedDOFs ToCpp(JPH_EAllowedDOFs val) { return static_cast<JPH::EAllowedDOFs>(val); }
 static inline JPH::EMotionQuality ToCpp(JPH_EMotionQuality val) { return static_cast<JPH::EMotionQuality>(val); }
-static inline JPH::BodyAccess::EAccess ToCpp(JPH_BodyAccess_EAccess val) { return static_cast<JPH::BodyAccess::EAccess>(val); }
 static inline JPH::EMotionType ToCpp(JPH_EMotionType val) { return static_cast<JPH::EMotionType>(val); }
 static inline JPH::EBodyType ToCpp(JPH_EBodyType val) { return static_cast<JPH::EBodyType>(val); }
 static inline JPH::ECanSleep ToCpp(JPH_ECanSleep val) { return static_cast<JPH::ECanSleep>(val); }
@@ -501,8 +479,6 @@ static inline JPH::SixDOFConstraintSettings::EAxis ToCpp(JPH_SixDOFConstraintSet
 static inline JPH::ETransmissionMode ToCpp(JPH_ETransmissionMode val) { return static_cast<JPH::ETransmissionMode>(val); }
 static inline JPH::ETrackSide ToCpp(JPH_ETrackSide val) { return static_cast<JPH::ETrackSide>(val); }
 static inline JPH::ConvexHullBuilder2D::EResult ToCpp(JPH_ConvexHullBuilder2D_EResult val) { return static_cast<JPH::ConvexHullBuilder2D::EResult>(val); }
-static inline JPH::AssertLastParam *ToCpp(JPH_AssertLastParam *val) { return reinterpret_cast<JPH::AssertLastParam *>(val); }
-static inline const JPH::AssertLastParam *ToCpp(const JPH_AssertLastParam *val) { return reinterpret_cast<const JPH::AssertLastParam *>(val); }
 static inline JPH::Float4 *ToCpp(JPH_Float4 *val) { return reinterpret_cast<JPH::Float4 *>(val); }
 static inline const JPH::Float4 *ToCpp(const JPH_Float4 *val) { return reinterpret_cast<const JPH::Float4 *>(val); }
 static inline JPH::Vec4 *ToCpp(JPH_Vec4 *val) { return reinterpret_cast<JPH::Vec4 *>(val); }
@@ -549,14 +525,6 @@ static inline JPH::SharedMutex *ToCpp(JPH_SharedMutex *val) { return reinterpret
 static inline const JPH::SharedMutex *ToCpp(const JPH_SharedMutex *val) { return reinterpret_cast<const JPH::SharedMutex *>(val); }
 static inline JPH::JobSystemThreadPool *ToCpp(JPH_JobSystemThreadPool *val) { return reinterpret_cast<JPH::JobSystemThreadPool *>(val); }
 static inline const JPH::JobSystemThreadPool *ToCpp(const JPH_JobSystemThreadPool *val) { return reinterpret_cast<const JPH::JobSystemThreadPool *>(val); }
-static inline JPH::FPExceptionsEnable *ToCpp(JPH_FPExceptionsEnable *val) { return reinterpret_cast<JPH::FPExceptionsEnable *>(val); }
-static inline const JPH::FPExceptionsEnable *ToCpp(const JPH_FPExceptionsEnable *val) { return reinterpret_cast<const JPH::FPExceptionsEnable *>(val); }
-static inline JPH::FPExceptionDisableInvalid *ToCpp(JPH_FPExceptionDisableInvalid *val) { return reinterpret_cast<JPH::FPExceptionDisableInvalid *>(val); }
-static inline const JPH::FPExceptionDisableInvalid *ToCpp(const JPH_FPExceptionDisableInvalid *val) { return reinterpret_cast<const JPH::FPExceptionDisableInvalid *>(val); }
-static inline JPH::FPExceptionDisableDivByZero *ToCpp(JPH_FPExceptionDisableDivByZero *val) { return reinterpret_cast<JPH::FPExceptionDisableDivByZero *>(val); }
-static inline const JPH::FPExceptionDisableDivByZero *ToCpp(const JPH_FPExceptionDisableDivByZero *val) { return reinterpret_cast<const JPH::FPExceptionDisableDivByZero *>(val); }
-static inline JPH::FPExceptionDisableOverflow *ToCpp(JPH_FPExceptionDisableOverflow *val) { return reinterpret_cast<JPH::FPExceptionDisableOverflow *>(val); }
-static inline const JPH::FPExceptionDisableOverflow *ToCpp(const JPH_FPExceptionDisableOverflow *val) { return reinterpret_cast<const JPH::FPExceptionDisableOverflow *>(val); }
 static inline JPH::SerializableAttribute *ToCpp(JPH_SerializableAttribute *val) { return reinterpret_cast<JPH::SerializableAttribute *>(val); }
 static inline const JPH::SerializableAttribute *ToCpp(const JPH_SerializableAttribute *val) { return reinterpret_cast<const JPH::SerializableAttribute *>(val); }
 static inline JPH::RTTI::BaseClass *ToCpp(JPH_RTTI_BaseClass *val) { return reinterpret_cast<JPH::RTTI::BaseClass *>(val); }
@@ -609,8 +577,6 @@ static inline JPH::PhysicsSettings *ToCpp(JPH_PhysicsSettings *val) { return rei
 static inline const JPH::PhysicsSettings *ToCpp(const JPH_PhysicsSettings *val) { return reinterpret_cast<const JPH::PhysicsSettings *>(val); }
 static inline JPH::CalculateSolverSteps *ToCpp(JPH_CalculateSolverSteps *val) { return reinterpret_cast<JPH::CalculateSolverSteps *>(val); }
 static inline const JPH::CalculateSolverSteps *ToCpp(const JPH_CalculateSolverSteps *val) { return reinterpret_cast<const JPH::CalculateSolverSteps *>(val); }
-static inline JPH::DummyCalculateSolverSteps *ToCpp(JPH_DummyCalculateSolverSteps *val) { return reinterpret_cast<JPH::DummyCalculateSolverSteps *>(val); }
-static inline const JPH::DummyCalculateSolverSteps *ToCpp(const JPH_DummyCalculateSolverSteps *val) { return reinterpret_cast<const JPH::DummyCalculateSolverSteps *>(val); }
 static inline JPH::ConstraintSettings *ToCpp(JPH_ConstraintSettings *val) { return reinterpret_cast<JPH::ConstraintSettings *>(val); }
 static inline const JPH::ConstraintSettings *ToCpp(const JPH_ConstraintSettings *val) { return reinterpret_cast<const JPH::ConstraintSettings *>(val); }
 static inline JPH::Constraint *ToCpp(JPH_Constraint *val) { return reinterpret_cast<JPH::Constraint *>(val); }
@@ -629,12 +595,6 @@ static inline JPH::SubShapeIDPair *ToCpp(JPH_SubShapeIDPair *val) { return reint
 static inline const JPH::SubShapeIDPair *ToCpp(const JPH_SubShapeIDPair *val) { return reinterpret_cast<const JPH::SubShapeIDPair *>(val); }
 static inline JPH::MassProperties *ToCpp(JPH_MassProperties *val) { return reinterpret_cast<JPH::MassProperties *>(val); }
 static inline const JPH::MassProperties *ToCpp(const JPH_MassProperties *val) { return reinterpret_cast<const JPH::MassProperties *>(val); }
-static inline JPH::CollisionCollectorTraitsCastRay *ToCpp(JPH_CollisionCollectorTraitsCastRay *val) { return reinterpret_cast<JPH::CollisionCollectorTraitsCastRay *>(val); }
-static inline const JPH::CollisionCollectorTraitsCastRay *ToCpp(const JPH_CollisionCollectorTraitsCastRay *val) { return reinterpret_cast<const JPH::CollisionCollectorTraitsCastRay *>(val); }
-static inline JPH::CollisionCollectorTraitsCastShape *ToCpp(JPH_CollisionCollectorTraitsCastShape *val) { return reinterpret_cast<JPH::CollisionCollectorTraitsCastShape *>(val); }
-static inline const JPH::CollisionCollectorTraitsCastShape *ToCpp(const JPH_CollisionCollectorTraitsCastShape *val) { return reinterpret_cast<const JPH::CollisionCollectorTraitsCastShape *>(val); }
-static inline JPH::CollisionCollectorTraitsCollideShape *ToCpp(JPH_CollisionCollectorTraitsCollideShape *val) { return reinterpret_cast<JPH::CollisionCollectorTraitsCollideShape *>(val); }
-static inline const JPH::CollisionCollectorTraitsCollideShape *ToCpp(const JPH_CollisionCollectorTraitsCollideShape *val) { return reinterpret_cast<const JPH::CollisionCollectorTraitsCollideShape *>(val); }
 static inline JPH::ShapeFilter *ToCpp(JPH_ShapeFilter *val) { return reinterpret_cast<JPH::ShapeFilter *>(val); }
 static inline const JPH::ShapeFilter *ToCpp(const JPH_ShapeFilter *val) { return reinterpret_cast<const JPH::ShapeFilter *>(val); }
 static inline JPH::ReversedShapeFilter *ToCpp(JPH_ReversedShapeFilter *val) { return reinterpret_cast<JPH::ReversedShapeFilter *>(val); }
@@ -691,10 +651,6 @@ static inline JPH::TransformedShape *ToCpp(JPH_TransformedShape *val) { return r
 static inline const JPH::TransformedShape *ToCpp(const JPH_TransformedShape *val) { return reinterpret_cast<const JPH::TransformedShape *>(val); }
 static inline JPH::Sphere *ToCpp(JPH_Sphere *val) { return reinterpret_cast<JPH::Sphere *>(val); }
 static inline const JPH::Sphere *ToCpp(const JPH_Sphere *val) { return reinterpret_cast<const JPH::Sphere *>(val); }
-static inline JPH::BodyAccess::Grant *ToCpp(JPH_BodyAccess_Grant *val) { return reinterpret_cast<JPH::BodyAccess::Grant *>(val); }
-static inline const JPH::BodyAccess::Grant *ToCpp(const JPH_BodyAccess_Grant *val) { return reinterpret_cast<const JPH::BodyAccess::Grant *>(val); }
-static inline JPH::BodyAccess *ToCpp(JPH_BodyAccess *val) { return reinterpret_cast<JPH::BodyAccess *>(val); }
-static inline const JPH::BodyAccess *ToCpp(const JPH_BodyAccess *val) { return reinterpret_cast<const JPH::BodyAccess *>(val); }
 static inline JPH::MotionProperties *ToCpp(JPH_MotionProperties *val) { return reinterpret_cast<JPH::MotionProperties *>(val); }
 static inline const JPH::MotionProperties *ToCpp(const JPH_MotionProperties *val) { return reinterpret_cast<const JPH::MotionProperties *>(val); }
 static inline JPH::Body *ToCpp(JPH_Body *val) { return reinterpret_cast<JPH::Body *>(val); }
@@ -777,18 +733,12 @@ static inline JPH::EmptyShapeSettings *ToCpp(JPH_EmptyShapeSettings *val) { retu
 static inline const JPH::EmptyShapeSettings *ToCpp(const JPH_EmptyShapeSettings *val) { return reinterpret_cast<const JPH::EmptyShapeSettings *>(val); }
 static inline JPH::EmptyShape *ToCpp(JPH_EmptyShape *val) { return reinterpret_cast<JPH::EmptyShape *>(val); }
 static inline const JPH::EmptyShape *ToCpp(const JPH_EmptyShape *val) { return reinterpret_cast<const JPH::EmptyShape *>(val); }
-static inline JPH::PhysicsLock *ToCpp(JPH_PhysicsLock *val) { return reinterpret_cast<JPH::PhysicsLock *>(val); }
-static inline const JPH::PhysicsLock *ToCpp(const JPH_PhysicsLock *val) { return reinterpret_cast<const JPH::PhysicsLock *>(val); }
 static inline JPH::BodyLockInterface *ToCpp(JPH_BodyLockInterface *val) { return reinterpret_cast<JPH::BodyLockInterface *>(val); }
 static inline const JPH::BodyLockInterface *ToCpp(const JPH_BodyLockInterface *val) { return reinterpret_cast<const JPH::BodyLockInterface *>(val); }
 static inline JPH::BodyLockInterfaceNoLock *ToCpp(JPH_BodyLockInterfaceNoLock *val) { return reinterpret_cast<JPH::BodyLockInterfaceNoLock *>(val); }
 static inline const JPH::BodyLockInterfaceNoLock *ToCpp(const JPH_BodyLockInterfaceNoLock *val) { return reinterpret_cast<const JPH::BodyLockInterfaceNoLock *>(val); }
 static inline JPH::BodyLockInterfaceLocking *ToCpp(JPH_BodyLockInterfaceLocking *val) { return reinterpret_cast<JPH::BodyLockInterfaceLocking *>(val); }
 static inline const JPH::BodyLockInterfaceLocking *ToCpp(const JPH_BodyLockInterfaceLocking *val) { return reinterpret_cast<const JPH::BodyLockInterfaceLocking *>(val); }
-static inline JPH::BodyLockRead *ToCpp(JPH_BodyLockRead *val) { return reinterpret_cast<JPH::BodyLockRead *>(val); }
-static inline const JPH::BodyLockRead *ToCpp(const JPH_BodyLockRead *val) { return reinterpret_cast<const JPH::BodyLockRead *>(val); }
-static inline JPH::BodyLockWrite *ToCpp(JPH_BodyLockWrite *val) { return reinterpret_cast<JPH::BodyLockWrite *>(val); }
-static inline const JPH::BodyLockWrite *ToCpp(const JPH_BodyLockWrite *val) { return reinterpret_cast<const JPH::BodyLockWrite *>(val); }
 static inline JPH::BodyActivationListener *ToCpp(JPH_BodyActivationListener *val) { return reinterpret_cast<JPH::BodyActivationListener *>(val); }
 static inline const JPH::BodyActivationListener *ToCpp(const JPH_BodyActivationListener *val) { return reinterpret_cast<const JPH::BodyActivationListener *>(val); }
 static inline JPH::SoftBodyShape *ToCpp(JPH_SoftBodyShape *val) { return reinterpret_cast<JPH::SoftBodyShape *>(val); }
@@ -801,10 +751,6 @@ static inline JPH::BroadPhase::UpdateState *ToCpp(JPH_BroadPhase_UpdateState *va
 static inline const JPH::BroadPhase::UpdateState *ToCpp(const JPH_BroadPhase_UpdateState *val) { return reinterpret_cast<const JPH::BroadPhase::UpdateState *>(val); }
 static inline JPH::BroadPhase *ToCpp(JPH_BroadPhase *val) { return reinterpret_cast<JPH::BroadPhase *>(val); }
 static inline const JPH::BroadPhase *ToCpp(const JPH_BroadPhase *val) { return reinterpret_cast<const JPH::BroadPhase *>(val); }
-static inline JPH::BodyLockMultiRead *ToCpp(JPH_BodyLockMultiRead *val) { return reinterpret_cast<JPH::BodyLockMultiRead *>(val); }
-static inline const JPH::BodyLockMultiRead *ToCpp(const JPH_BodyLockMultiRead *val) { return reinterpret_cast<const JPH::BodyLockMultiRead *>(val); }
-static inline JPH::BodyLockMultiWrite *ToCpp(JPH_BodyLockMultiWrite *val) { return reinterpret_cast<JPH::BodyLockMultiWrite *>(val); }
-static inline const JPH::BodyLockMultiWrite *ToCpp(const JPH_BodyLockMultiWrite *val) { return reinterpret_cast<const JPH::BodyLockMultiWrite *>(val); }
 static inline JPH::TwoBodyConstraintSettings *ToCpp(JPH_TwoBodyConstraintSettings *val) { return reinterpret_cast<JPH::TwoBodyConstraintSettings *>(val); }
 static inline const JPH::TwoBodyConstraintSettings *ToCpp(const JPH_TwoBodyConstraintSettings *val) { return reinterpret_cast<const JPH::TwoBodyConstraintSettings *>(val); }
 static inline JPH::TwoBodyConstraint *ToCpp(JPH_TwoBodyConstraint *val) { return reinterpret_cast<JPH::TwoBodyConstraint *>(val); }
@@ -885,20 +831,14 @@ static inline JPH::CollideSettingsBase *ToCpp(JPH_CollideSettingsBase *val) { re
 static inline const JPH::CollideSettingsBase *ToCpp(const JPH_CollideSettingsBase *val) { return reinterpret_cast<const JPH::CollideSettingsBase *>(val); }
 static inline JPH::CollideShapeSettings *ToCpp(JPH_CollideShapeSettings *val) { return reinterpret_cast<JPH::CollideShapeSettings *>(val); }
 static inline const JPH::CollideShapeSettings *ToCpp(const JPH_CollideShapeSettings *val) { return reinterpret_cast<const JPH::CollideShapeSettings *>(val); }
-static inline JPH::ShapeCast *ToCpp(JPH_ShapeCast *val) { return reinterpret_cast<JPH::ShapeCast *>(val); }
-static inline const JPH::ShapeCast *ToCpp(const JPH_ShapeCast *val) { return reinterpret_cast<const JPH::ShapeCast *>(val); }
 static inline JPH::RShapeCast *ToCpp(JPH_RShapeCast *val) { return reinterpret_cast<JPH::RShapeCast *>(val); }
 static inline const JPH::RShapeCast *ToCpp(const JPH_RShapeCast *val) { return reinterpret_cast<const JPH::RShapeCast *>(val); }
 static inline JPH::ShapeCastSettings *ToCpp(JPH_ShapeCastSettings *val) { return reinterpret_cast<JPH::ShapeCastSettings *>(val); }
 static inline const JPH::ShapeCastSettings *ToCpp(const JPH_ShapeCastSettings *val) { return reinterpret_cast<const JPH::ShapeCastSettings *>(val); }
 static inline JPH::ShapeCastResult *ToCpp(JPH_ShapeCastResult *val) { return reinterpret_cast<JPH::ShapeCastResult *>(val); }
 static inline const JPH::ShapeCastResult *ToCpp(const JPH_ShapeCastResult *val) { return reinterpret_cast<const JPH::ShapeCastResult *>(val); }
-static inline JPH::CollisionDispatch *ToCpp(JPH_CollisionDispatch *val) { return reinterpret_cast<JPH::CollisionDispatch *>(val); }
-static inline const JPH::CollisionDispatch *ToCpp(const JPH_CollisionDispatch *val) { return reinterpret_cast<const JPH::CollisionDispatch *>(val); }
 static inline JPH::StateRecorderImpl *ToCpp(JPH_StateRecorderImpl *val) { return reinterpret_cast<JPH::StateRecorderImpl *>(val); }
 static inline const JPH::StateRecorderImpl *ToCpp(const JPH_StateRecorderImpl *val) { return reinterpret_cast<const JPH::StateRecorderImpl *>(val); }
-static inline JPH::RayCast *ToCpp(JPH_RayCast *val) { return reinterpret_cast<JPH::RayCast *>(val); }
-static inline const JPH::RayCast *ToCpp(const JPH_RayCast *val) { return reinterpret_cast<const JPH::RayCast *>(val); }
 static inline JPH::RRayCast *ToCpp(JPH_RRayCast *val) { return reinterpret_cast<JPH::RRayCast *>(val); }
 static inline const JPH::RRayCast *ToCpp(const JPH_RRayCast *val) { return reinterpret_cast<const JPH::RRayCast *>(val); }
 static inline JPH::RayCastSettings *ToCpp(JPH_RayCastSettings *val) { return reinterpret_cast<JPH::RayCastSettings *>(val); }
@@ -1031,8 +971,6 @@ static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::EncodingContext *ToCpp
 static inline const JPH::TriangleCodecIndexed8BitPackSOA4Flags::EncodingContext *ToCpp(const JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext *val) { return reinterpret_cast<const JPH::TriangleCodecIndexed8BitPackSOA4Flags::EncodingContext *>(val); }
 static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::DecodingContext *ToCpp(JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext *val) { return reinterpret_cast<JPH::TriangleCodecIndexed8BitPackSOA4Flags::DecodingContext *>(val); }
 static inline const JPH::TriangleCodecIndexed8BitPackSOA4Flags::DecodingContext *ToCpp(const JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext *val) { return reinterpret_cast<const JPH::TriangleCodecIndexed8BitPackSOA4Flags::DecodingContext *>(val); }
-static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags *ToCpp(JPH_TriangleCodecIndexed8BitPackSOA4Flags *val) { return reinterpret_cast<JPH::TriangleCodecIndexed8BitPackSOA4Flags *>(val); }
-static inline const JPH::TriangleCodecIndexed8BitPackSOA4Flags *ToCpp(const JPH_TriangleCodecIndexed8BitPackSOA4Flags *val) { return reinterpret_cast<const JPH::TriangleCodecIndexed8BitPackSOA4Flags *>(val); }
 static inline JPH::NodeCodecQuadTreeHalfFloat::Header *ToCpp(JPH_NodeCodecQuadTreeHalfFloat_Header *val) { return reinterpret_cast<JPH::NodeCodecQuadTreeHalfFloat::Header *>(val); }
 static inline const JPH::NodeCodecQuadTreeHalfFloat::Header *ToCpp(const JPH_NodeCodecQuadTreeHalfFloat_Header *val) { return reinterpret_cast<const JPH::NodeCodecQuadTreeHalfFloat::Header *>(val); }
 static inline JPH::NodeCodecQuadTreeHalfFloat::Node *ToCpp(JPH_NodeCodecQuadTreeHalfFloat_Node *val) { return reinterpret_cast<JPH::NodeCodecQuadTreeHalfFloat::Node *>(val); }
@@ -5306,26 +5244,6 @@ bool JPH_Sphere_OverlapsWithOther(const JPH_Sphere *self, const JPH_AABox *inOth
 
 void JPH_Sphere_EncapsulatePoint(JPH_Sphere *self, const JPH_Vec3 inPoint) {
     ToCpp(self)->EncapsulatePoint(inPoint);
-}
-
-void JPH_BodyAccess_Grant_Construct(JPH_BodyAccess_Grant *self, JPH_BodyAccess_EAccess inVelocity, JPH_BodyAccess_EAccess inPosition) {
-    new(ToCpp(self)) JPH::BodyAccess::Grant(inVelocity, inPosition);
-}
-
-void JPH_BodyAccess_Grant_Destruct(JPH_BodyAccess_Grant *self) {
-    ToCpp(self)->~Grant();
-}
-
-bool JPH_BodyAccess_sCheckRights(JPH_BodyAccess_EAccess inRights, JPH_BodyAccess_EAccess inDesiredRights) {
-    return JPH::BodyAccess::sCheckRights(inRights, inDesiredRights);
-}
-
-JPH_BodyAccess_EAccess *JPH_BodyAccess_sVelocityAccess() {
-    return JPH::BodyAccess::sVelocityAccess();
-}
-
-JPH_BodyAccess_EAccess *JPH_BodyAccess_sPositionAccess() {
-    return JPH::BodyAccess::sPositionAccess();
 }
 
 JPH_EMotionQuality JPH_MotionProperties_GetMotionQuality(const JPH_MotionProperties *self) {
@@ -16316,10 +16234,6 @@ JPH_ConvexHullBuilder2D_EResult JPH_ConvexHullBuilder2D_Initialize(JPH_ConvexHul
     return ToCpp(self)->Initialize(inIdx1, inIdx2, inIdx3, inMaxVertices, inTolerance, *outEdges);
 }
 
-void JPH_AssertLastParam_Delete(JPH_AssertLastParam *self) {
-    delete self;
-}
-
 JPH_NonCopyable *JPH_NonCopyable_New() {
     return new JPH::NonCopyable();
 }
@@ -16376,22 +16290,6 @@ void JPH_JobSystemThreadPool_Delete(JPH_JobSystemThreadPool *self) {
     delete self;
 }
 
-void JPH_FPExceptionsEnable_Delete(JPH_FPExceptionsEnable *self) {
-    delete self;
-}
-
-void JPH_FPExceptionDisableInvalid_Delete(JPH_FPExceptionDisableInvalid *self) {
-    delete self;
-}
-
-void JPH_FPExceptionDisableDivByZero_Delete(JPH_FPExceptionDisableDivByZero *self) {
-    delete self;
-}
-
-void JPH_FPExceptionDisableOverflow_Delete(JPH_FPExceptionDisableOverflow *self) {
-    delete self;
-}
-
 void JPH_JobSystemSingleThreaded_BarrierImpl_Delete(JPH_JobSystemSingleThreaded_BarrierImpl *self) {
     delete self;
 }
@@ -16416,10 +16314,6 @@ void JPH_IObjectStreamOut_Delete(JPH_IObjectStreamOut *self) {
     delete self;
 }
 
-void JPH_DummyCalculateSolverSteps_Delete(JPH_DummyCalculateSolverSteps *self) {
-    delete self;
-}
-
 JPH_ConstraintSettings *JPH_ConstraintSettings_New() {
     return new JPH::ConstraintSettings();
 }
@@ -16437,18 +16331,6 @@ JPH_Constraint *JPH_Constraint_New(const JPH_ConstraintSettings *inSettings) {
 }
 
 void JPH_Constraint_Delete(JPH_Constraint *self) {
-    delete self;
-}
-
-void JPH_CollisionCollectorTraitsCastRay_Delete(JPH_CollisionCollectorTraitsCastRay *self) {
-    delete self;
-}
-
-void JPH_CollisionCollectorTraitsCastShape_Delete(JPH_CollisionCollectorTraitsCastShape *self) {
-    delete self;
-}
-
-void JPH_CollisionCollectorTraitsCollideShape_Delete(JPH_CollisionCollectorTraitsCollideShape *self) {
     delete self;
 }
 
@@ -16568,18 +16450,6 @@ void JPH_GroupFilter_Delete(JPH_GroupFilter *self) {
     delete self;
 }
 
-JPH_BodyAccess_Grant *JPH_BodyAccess_Grant_New(JPH_BodyAccess_EAccess inVelocity, JPH_BodyAccess_EAccess inPosition) {
-    return new JPH::BodyAccess::Grant(inVelocity, inPosition);
-}
-
-void JPH_BodyAccess_Grant_Delete(JPH_BodyAccess_Grant *self) {
-    delete self;
-}
-
-void JPH_BodyAccess_Delete(JPH_BodyAccess *self) {
-    delete self;
-}
-
 JPH_BroadPhaseLayerInterfaceTable *JPH_BroadPhaseLayerInterfaceTable_New(uint32_t inNumObjectLayers, uint32_t inNumBroadPhaseLayers) {
     return new JPH::BroadPhaseLayerInterfaceTable(inNumObjectLayers, inNumBroadPhaseLayers);
 }
@@ -16656,10 +16526,6 @@ void JPH_EmptyShape_Delete(JPH_EmptyShape *self) {
     delete self;
 }
 
-void JPH_PhysicsLock_Delete(JPH_PhysicsLock *self) {
-    delete self;
-}
-
 JPH_BodyLockInterface *JPH_BodyLockInterface_New(JPH_BodyManager *inBodyManager) {
     return new JPH::BodyLockInterface(*inBodyManager);
 }
@@ -16676,14 +16542,6 @@ void JPH_BodyLockInterfaceLocking_Delete(JPH_BodyLockInterfaceLocking *self) {
     delete self;
 }
 
-void JPH_BodyLockRead_Delete(JPH_BodyLockRead *self) {
-    delete self;
-}
-
-void JPH_BodyLockWrite_Delete(JPH_BodyLockWrite *self) {
-    delete self;
-}
-
 JPH_SoftBodyShape *JPH_SoftBodyShape_New() {
     return new JPH::SoftBodyShape();
 }
@@ -16693,14 +16551,6 @@ void JPH_SoftBodyShape_Delete(JPH_SoftBodyShape *self) {
 }
 
 void JPH_BroadPhase_Delete(JPH_BroadPhase *self) {
-    delete self;
-}
-
-void JPH_BodyLockMultiRead_Delete(JPH_BodyLockMultiRead *self) {
-    delete self;
-}
-
-void JPH_BodyLockMultiWrite_Delete(JPH_BodyLockMultiWrite *self) {
     delete self;
 }
 
@@ -16772,19 +16622,11 @@ void JPH_GroupFilterTable_Delete(JPH_GroupFilterTable *self) {
     delete self;
 }
 
-void JPH_ShapeCast_Delete(JPH_ShapeCast *self) {
-    delete self;
-}
-
 JPH_RShapeCast *JPH_RShapeCast_New(const JPH_ShapeCast *inCast) {
     return new JPH::RShapeCast(*inCast);
 }
 
 void JPH_RShapeCast_Delete(JPH_RShapeCast *self) {
-    delete self;
-}
-
-void JPH_CollisionDispatch_Delete(JPH_CollisionDispatch *self) {
     delete self;
 }
 
@@ -16797,10 +16639,6 @@ JPH_StateRecorderImpl *JPH_StateRecorderImpl_NewWithRHS(JPH_StateRecorderImpl * 
 }
 
 void JPH_StateRecorderImpl_Delete(JPH_StateRecorderImpl *self) {
-    delete self;
-}
-
-void JPH_RayCast_Delete(JPH_RayCast *self) {
     delete self;
 }
 
@@ -17057,10 +16895,6 @@ JPH_TriangleSplitterMean *JPH_TriangleSplitterMean_New(const JPH_VertexList *inV
 }
 
 void JPH_TriangleSplitterMean_Delete(JPH_TriangleSplitterMean *self) {
-    delete self;
-}
-
-void JPH_TriangleCodecIndexed8BitPackSOA4Flags_Delete(JPH_TriangleCodecIndexed8BitPackSOA4Flags *self) {
     delete self;
 }
 

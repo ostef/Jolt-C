@@ -19,6 +19,7 @@ typedef struct GenerateContext {
 enum {
     CppEntityUserFlag_OpaqueTypeNewConstructor = 1 << 0,
     CppEntityUserFlag_OpaqueTypeDeleteFunction = 1 << 1,
+    CppEntityUserFlag_AggregateAsNamespace     = 1 << 2,
 };
 
 void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db);
