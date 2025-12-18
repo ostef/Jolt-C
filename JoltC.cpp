@@ -3919,10 +3919,6 @@ const void *JPH_SerializableObject_CastTo(const JPH_SerializableObject *self, co
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_SerializableObject_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SerializableObject::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SerializableObject_Destroy(JPH_SerializableObject *self) {
     ToCpp(self)->~SerializableObject();
 }
@@ -3933,14 +3929,6 @@ void JPH_SerializableObject_Construct(JPH_SerializableObject *self) {
 
 void JPH_SerializableObject_ConstructWith(JPH_SerializableObject *self, const JPH_SerializableObject *) {
     new(ToCpp(self)) JPH::SerializableObject(*);
-}
-
-void JPH_LinearCurve_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::LinearCurve::sCreateRTTI(*inRTTI);
-}
-
-void JPH_LinearCurve_Point_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::LinearCurve::Point::sCreateRTTI(*inRTTI);
 }
 
 void JPH_LinearCurve_Clear(JPH_LinearCurve *self) {
@@ -4543,10 +4531,6 @@ const void *JPH_ConstraintSettings_CastTo(const JPH_ConstraintSettings *self, co
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_ConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::ConstraintSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_ConstraintSettings_SaveBinaryState(const JPH_ConstraintSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -4783,10 +4767,6 @@ uint64_t JPH_SubShapeIDPair_GetHash(const JPH_SubShapeIDPair *self) {
     return ToCpp(self)->GetHash();
 }
 
-void JPH_MassProperties_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::MassProperties::sCreateRTTI(*inRTTI);
-}
-
 bool JPH_MassProperties_DecomposePrincipalMomentsOfInertia(const JPH_MassProperties *self, JPH_Mat44 *outRotation, JPH_Vec3 *outDiagonal) {
     return ToCpp(self)->DecomposePrincipalMomentsOfInertia(*outRotation, *outDiagonal);
 }
@@ -4853,10 +4833,6 @@ const JPH_RTTI *JPH_ShapeSettings_GetRTTI(const JPH_ShapeSettings *self) {
 
 const void *JPH_ShapeSettings_CastTo(const JPH_ShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_ShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::ShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 JPH_ShapeSettings_ShapeResult JPH_ShapeSettings_Create(const JPH_ShapeSettings *self) {
@@ -5067,10 +5043,6 @@ const void *JPH_PhysicsMaterial_CastTo(const JPH_PhysicsMaterial *self, const JP
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_PhysicsMaterial_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PhysicsMaterial::sCreateRTTI(*inRTTI);
-}
-
 void JPH_PhysicsMaterial_Construct(JPH_PhysicsMaterial *self) {
     new(ToCpp(self)) JPH::PhysicsMaterial();
 }
@@ -5109,10 +5081,6 @@ const JPH_RTTI *JPH_ConvexShapeSettings_GetRTTI(const JPH_ConvexShapeSettings *s
 
 const void *JPH_ConvexShapeSettings_CastTo(const JPH_ConvexShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_ConvexShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::ConvexShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_ConvexShapeSettings_Construct(JPH_ConvexShapeSettings *self) {
@@ -5367,10 +5335,6 @@ const void *JPH_GroupFilter_CastTo(const JPH_GroupFilter *self, const JPH_RTTI *
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_GroupFilter_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::GroupFilter::sCreateRTTI(*inRTTI);
-}
-
 void JPH_GroupFilter_Destroy(JPH_GroupFilter *self) {
     ToCpp(self)->~GroupFilter();
 }
@@ -5397,10 +5361,6 @@ void JPH_GroupFilter_ConstructWith(JPH_GroupFilter *self, const JPH_GroupFilter 
 
 void JPH_GroupFilter_RestoreBinaryState(JPH_GroupFilter *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_CollisionGroup_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::CollisionGroup::sCreateRTTI(*inRTTI);
 }
 
 void JPH_CollisionGroup_Construct(JPH_CollisionGroup *self) {
@@ -6275,10 +6235,6 @@ float JPH_SpringPart_GetBias(const JPH_SpringPart *self, float inTotalLambda) {
     return ToCpp(self)->GetBias(inTotalLambda);
 }
 
-void JPH_SpringSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SpringSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SpringSettings_Construct(JPH_SpringSettings *self) {
     new(ToCpp(self)) JPH::SpringSettings();
 }
@@ -6815,7 +6771,7 @@ const JPH_Body *JPH_BodyManager_GetBodyConst(const JPH_BodyManager *self, const 
     return ToCpp(self)->GetBody(*inID);
 }
 
-JPH_Body *JPH_BodyManager_GetBodyConst(JPH_BodyManager *self, const JPH_BodyID *inID) {
+JPH_Body *JPH_BodyManager_GetBody(JPH_BodyManager *self, const JPH_BodyID *inID) {
     return ToCpp(self)->GetBody(*inID);
 }
 
@@ -6823,7 +6779,7 @@ const JPH_Body *JPH_BodyManager_TryGetBodyConst(const JPH_BodyManager *self, con
     return ToCpp(self)->TryGetBody(*inID);
 }
 
-JPH_Body *JPH_BodyManager_TryGetBodyConst(JPH_BodyManager *self, const JPH_BodyID *inID) {
+JPH_Body *JPH_BodyManager_TryGetBody(JPH_BodyManager *self, const JPH_BodyID *inID) {
     return ToCpp(self)->TryGetBody(*inID);
 }
 
@@ -7015,10 +6971,6 @@ void JPH_TempAllocatorImplWithMallocFallback_Free(JPH_TempAllocatorImplWithMallo
     ToCpp(self)->Free(inAddress, inSize);
 }
 
-void JPH_BodyCreationSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::BodyCreationSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_BodyCreationSettings_Construct(JPH_BodyCreationSettings *self) {
     new(ToCpp(self)) JPH::BodyCreationSettings();
 }
@@ -7073,10 +7025,6 @@ void JPH_BodyCreationSettings_SaveWithChildren(const JPH_BodyCreationSettings *s
 
 JPH_BodyCreationSettings_BCSResult JPH_BodyCreationSettings_sRestoreWithChildren(JPH_StreamIn *inStream, JPH_BodyCreationSettings_IDToShapeMap *ioShapeMap, JPH_BodyCreationSettings_IDToMaterialMap *ioMaterialMap, JPH_BodyCreationSettings_IDToGroupFilterMap *ioGroupFilterMap) {
     return JPH::BodyCreationSettings::sRestoreWithChildren(*inStream, *ioShapeMap, *ioMaterialMap, *ioGroupFilterMap);
-}
-
-void JPH_SoftBodySharedSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SoftBodySharedSettings_VertexAttributes_Construct(JPH_SoftBodySharedSettings_VertexAttributes *self) {
@@ -7147,20 +7095,12 @@ Ref<SoftBodySharedSettings> JPH_SoftBodySharedSettings_sCreateCube(uint32_t inGr
     return JPH::SoftBodySharedSettings::sCreateCube(inGridSize, inGridSpacing);
 }
 
-void JPH_SoftBodySharedSettings_Vertex_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::Vertex::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SoftBodySharedSettings_Vertex_Construct(JPH_SoftBodySharedSettings_Vertex *self) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::Vertex();
 }
 
 void JPH_SoftBodySharedSettings_Vertex_ConstructWithPositionVelocityInvMass(JPH_SoftBodySharedSettings_Vertex *self, const JPH_Float3 *inPosition, const JPH_Float3 *inVelocity, float inInvMass) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::Vertex(*inPosition, *inVelocity, inInvMass);
-}
-
-void JPH_SoftBodySharedSettings_Face_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::Face::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SoftBodySharedSettings_Face_Construct(JPH_SoftBodySharedSettings_Face *self) {
@@ -7175,10 +7115,6 @@ bool JPH_SoftBodySharedSettings_Face_IsDegenerate(const JPH_SoftBodySharedSettin
     return ToCpp(self)->IsDegenerate();
 }
 
-void JPH_SoftBodySharedSettings_Edge_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::Edge::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SoftBodySharedSettings_Edge_Construct(JPH_SoftBodySharedSettings_Edge *self) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::Edge();
 }
@@ -7189,10 +7125,6 @@ void JPH_SoftBodySharedSettings_Edge_ConstructWithVertex1Vertex2Compliance(JPH_S
 
 uint32_t JPH_SoftBodySharedSettings_Edge_GetMinVertexIndex(const JPH_SoftBodySharedSettings_Edge *self) {
     return ToCpp(self)->GetMinVertexIndex();
-}
-
-void JPH_SoftBodySharedSettings_DihedralBend_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::DihedralBend::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SoftBodySharedSettings_DihedralBend_Construct(JPH_SoftBodySharedSettings_DihedralBend *self) {
@@ -7207,10 +7139,6 @@ uint32_t JPH_SoftBodySharedSettings_DihedralBend_GetMinVertexIndex(const JPH_Sof
     return ToCpp(self)->GetMinVertexIndex();
 }
 
-void JPH_SoftBodySharedSettings_Volume_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::Volume::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SoftBodySharedSettings_Volume_Construct(JPH_SoftBodySharedSettings_Volume *self) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::Volume();
 }
@@ -7223,10 +7151,6 @@ uint32_t JPH_SoftBodySharedSettings_Volume_GetMinVertexIndex(const JPH_SoftBodyS
     return ToCpp(self)->GetMinVertexIndex();
 }
 
-void JPH_SoftBodySharedSettings_InvBind_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::InvBind::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SoftBodySharedSettings_InvBind_Construct(JPH_SoftBodySharedSettings_InvBind *self) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::InvBind();
 }
@@ -7235,20 +7159,12 @@ void JPH_SoftBodySharedSettings_InvBind_ConstructWithJointIndexInvBind(JPH_SoftB
     new(ToCpp(self)) JPH::SoftBodySharedSettings::InvBind(inJointIndex, inInvBind);
 }
 
-void JPH_SoftBodySharedSettings_SkinWeight_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::SkinWeight::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SoftBodySharedSettings_SkinWeight_Construct(JPH_SoftBodySharedSettings_SkinWeight *self) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::SkinWeight();
 }
 
 void JPH_SoftBodySharedSettings_SkinWeight_ConstructWithInvBindIndexWeight(JPH_SoftBodySharedSettings_SkinWeight *self, uint32_t inInvBindIndex, float inWeight) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::SkinWeight(inInvBindIndex, inWeight);
-}
-
-void JPH_SoftBodySharedSettings_Skinned_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::Skinned::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SoftBodySharedSettings_Skinned_Construct(JPH_SoftBodySharedSettings_Skinned *self) {
@@ -7263,10 +7179,6 @@ void JPH_SoftBodySharedSettings_Skinned_NormalizeWeights(JPH_SoftBodySharedSetti
     ToCpp(self)->NormalizeWeights();
 }
 
-void JPH_SoftBodySharedSettings_LRA_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::LRA::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SoftBodySharedSettings_LRA_Construct(JPH_SoftBodySharedSettings_LRA *self) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::LRA();
 }
@@ -7279,10 +7191,6 @@ uint32_t JPH_SoftBodySharedSettings_LRA_GetMinVertexIndex(const JPH_SoftBodyShar
     return ToCpp(self)->GetMinVertexIndex();
 }
 
-void JPH_SoftBodySharedSettings_RodStretchShear_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::RodStretchShear::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SoftBodySharedSettings_RodStretchShear_Construct(JPH_SoftBodySharedSettings_RodStretchShear *self) {
     new(ToCpp(self)) JPH::SoftBodySharedSettings::RodStretchShear();
 }
@@ -7293,10 +7201,6 @@ void JPH_SoftBodySharedSettings_RodStretchShear_ConstructWithVertex1Vertex2Compl
 
 uint32_t JPH_SoftBodySharedSettings_RodStretchShear_GetMinVertexIndex(const JPH_SoftBodySharedSettings_RodStretchShear *self) {
     return ToCpp(self)->GetMinVertexIndex();
-}
-
-void JPH_SoftBodySharedSettings_RodBendTwist_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodySharedSettings::RodBendTwist::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SoftBodySharedSettings_RodBendTwist_Construct(JPH_SoftBodySharedSettings_RodBendTwist *self) {
@@ -7313,10 +7217,6 @@ void JPH_SoftBodySharedSettings_AddFace(JPH_SoftBodySharedSettings *self, const 
 
 void JPH_SoftBodySharedSettings_CalculateClosestKinematic(JPH_SoftBodySharedSettings *self) {
     ToCpp(self)->CalculateClosestKinematic();
-}
-
-void JPH_SoftBodyCreationSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SoftBodyCreationSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SoftBodyCreationSettings_Construct(JPH_SoftBodyCreationSettings *self) {
@@ -7367,7 +7267,7 @@ const JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVerte
     return ToCpp(self)->GetVertex(inIndex);
 }
 
-JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertexConst(JPH_SoftBodyMotionProperties *self, uint32_t inIndex) {
+JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertex(JPH_SoftBodyMotionProperties *self, uint32_t inIndex) {
     return ToCpp(self)->GetVertex(inIndex);
 }
 
@@ -7589,10 +7489,6 @@ const JPH_RTTI *JPH_EmptyShapeSettings_GetRTTI(const JPH_EmptyShapeSettings *sel
 
 const void *JPH_EmptyShapeSettings_CastTo(const JPH_EmptyShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_EmptyShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::EmptyShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_EmptyShapeSettings_Construct(JPH_EmptyShapeSettings *self) {
@@ -8419,10 +8315,6 @@ const void *JPH_TwoBodyConstraintSettings_CastTo(const JPH_TwoBodyConstraintSett
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_TwoBodyConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::TwoBodyConstraintSettings::sCreateRTTI(*inRTTI);
-}
-
 JPH_TwoBodyConstraint *JPH_TwoBodyConstraintSettings_Create(const JPH_TwoBodyConstraintSettings *self, JPH_Body *inBody1, JPH_Body *inBody2) {
     return ToCpp(self)->Create(*inBody1, *inBody2);
 }
@@ -8463,14 +8355,6 @@ uint32_t JPH_TwoBodyConstraint_BuildIslandSplits(const JPH_TwoBodyConstraint *se
     return ToCpp(self)->BuildIslandSplits(*ioSplitter);
 }
 
-void JPH_Skeleton_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::Skeleton::sCreateRTTI(*inRTTI);
-}
-
-void JPH_Skeleton_Joint_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::Skeleton::Joint::sCreateRTTI(*inRTTI);
-}
-
 void JPH_Skeleton_Joint_Construct(JPH_Skeleton_Joint *self) {
     new(ToCpp(self)) JPH::Skeleton::Joint();
 }
@@ -8495,7 +8379,7 @@ const JPH_Skeleton_Joint *JPH_Skeleton_GetJointConst(const JPH_Skeleton *self, i
     return ToCpp(self)->GetJoint(inJoint);
 }
 
-JPH_Skeleton_Joint *JPH_Skeleton_GetJointConst(JPH_Skeleton *self, int32_t inJoint) {
+JPH_Skeleton_Joint *JPH_Skeleton_GetJoint(JPH_Skeleton *self, int32_t inJoint) {
     return ToCpp(self)->GetJoint(inJoint);
 }
 
@@ -8527,28 +8411,12 @@ JPH_Skeleton_SkeletonResult JPH_Skeleton_sRestoreFromBinaryState(JPH_StreamIn *i
     return JPH::Skeleton::sRestoreFromBinaryState(*inStream);
 }
 
-void JPH_SkeletalAnimation_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SkeletalAnimation::sCreateRTTI(*inRTTI);
-}
-
-void JPH_SkeletalAnimation_JointState_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SkeletalAnimation::JointState::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SkeletalAnimation_JointState_FromMatrix(JPH_SkeletalAnimation_JointState *self, const JPH_Mat44 * inMatrix) {
     ToCpp(self)->FromMatrix(inMatrix);
 }
 
 JPH_Mat44 JPH_SkeletalAnimation_JointState_ToMatrix(const JPH_SkeletalAnimation_JointState *self) {
     return ToCpp(self)->ToMatrix();
-}
-
-void JPH_SkeletalAnimation_Keyframe_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SkeletalAnimation::Keyframe::sCreateRTTI(*inRTTI);
-}
-
-void JPH_SkeletalAnimation_AnimatedJoint_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SkeletalAnimation::AnimatedJoint::sCreateRTTI(*inRTTI);
 }
 
 float JPH_SkeletalAnimation_GetDuration(const JPH_SkeletalAnimation *self) {
@@ -8619,7 +8487,7 @@ const JPH_SkeletonPose_JointState *JPH_SkeletonPose_GetJointConst(const JPH_Skel
     return ToCpp(self)->GetJoint(inJoint);
 }
 
-JPH_SkeletonPose_JointState *JPH_SkeletonPose_GetJointConst(JPH_SkeletonPose *self, int32_t inJoint) {
+JPH_SkeletonPose_JointState *JPH_SkeletonPose_GetJoint(JPH_SkeletonPose *self, int32_t inJoint) {
     return ToCpp(self)->GetJoint(inJoint);
 }
 
@@ -8635,7 +8503,7 @@ const JPH_Mat44 *JPH_SkeletonPose_GetJointMatrixConst(const JPH_SkeletonPose *se
     return ToCpp(self)->GetJointMatrix(inJoint);
 }
 
-JPH_Mat44 *JPH_SkeletonPose_GetJointMatrixConst(JPH_SkeletonPose *self, int32_t inJoint) {
+JPH_Mat44 *JPH_SkeletonPose_GetJointMatrix(JPH_SkeletonPose *self, int32_t inJoint) {
     return ToCpp(self)->GetJointMatrix(inJoint);
 }
 
@@ -8649,10 +8517,6 @@ void JPH_SkeletonPose_CalculateJointStates(JPH_SkeletonPose *self) {
 
 void JPH_SkeletonPose_CalculateLocalSpaceJointMatrices(const JPH_SkeletonPose *self, JPH_Mat44 *outMatrices) {
     ToCpp(self)->CalculateLocalSpaceJointMatrices(outMatrices);
-}
-
-void JPH_RagdollSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::RagdollSettings::sCreateRTTI(*inRTTI);
 }
 
 bool JPH_RagdollSettings_Stabilize(JPH_RagdollSettings *self) {
@@ -8705,14 +8569,6 @@ const Array<BodyIdxPair> *JPH_RagdollSettings_GetConstraintIndexToBodyIdxPair(co
 
 JPH_RagdollSettings_BodyIdxPair JPH_RagdollSettings_GetBodyIndicesForConstraintIndex(const JPH_RagdollSettings *self, int32_t inConstraintIndex) {
     return ToCpp(self)->GetBodyIndicesForConstraintIndex(inConstraintIndex);
-}
-
-void JPH_RagdollSettings_Part_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::RagdollSettings::Part::sCreateRTTI(*inRTTI);
-}
-
-void JPH_RagdollSettings_AdditionalConstraint_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::RagdollSettings::AdditionalConstraint::sCreateRTTI(*inRTTI);
 }
 
 void JPH_RagdollSettings_AdditionalConstraint_Construct(JPH_RagdollSettings_AdditionalConstraint *self) {
@@ -8819,7 +8675,7 @@ size_t JPH_Ragdoll_GetConstraintCount(const JPH_Ragdoll *self) {
     return ToCpp(self)->GetConstraintCount();
 }
 
-JPH_TwoBodyConstraint *JPH_Ragdoll_GetConstraintConst(JPH_Ragdoll *self, int32_t inConstraintIndex) {
+JPH_TwoBodyConstraint *JPH_Ragdoll_GetConstraint(JPH_Ragdoll *self, int32_t inConstraintIndex) {
     return ToCpp(self)->GetConstraint(inConstraintIndex);
 }
 
@@ -8833,10 +8689,6 @@ JPH_AABox JPH_Ragdoll_GetWorldSpaceBounds(const JPH_Ragdoll *self, bool inLockBo
 
 const JPH_RagdollSettings *JPH_Ragdoll_GetRagdollSettings(const JPH_Ragdoll *self) {
     return ToCpp(self)->GetRagdollSettings();
-}
-
-void JPH_MotorSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::MotorSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_MotorSettings_Construct(JPH_MotorSettings *self) {
@@ -9131,10 +8983,6 @@ const void *JPH_SwingTwistConstraintSettings_CastTo(const JPH_SwingTwistConstrai
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_SwingTwistConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SwingTwistConstraintSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_SwingTwistConstraintSettings_SaveBinaryState(const JPH_SwingTwistConstraintSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -9377,10 +9225,6 @@ const JPH_RTTI *JPH_HingeConstraintSettings_GetRTTI(const JPH_HingeConstraintSet
 
 const void *JPH_HingeConstraintSettings_CastTo(const JPH_HingeConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_HingeConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::HingeConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_HingeConstraintSettings_SaveBinaryState(const JPH_HingeConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -10075,10 +9919,6 @@ const void *JPH_GroupFilterTable_CastTo(const JPH_GroupFilterTable *self, const 
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_GroupFilterTable_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::GroupFilterTable::sCreateRTTI(*inRTTI);
-}
-
 int32_t JPH_GroupFilterTable_GetBit(const JPH_GroupFilterTable *self, JPH_GroupFilterTable_SubGroupID inSubGroup1, JPH_GroupFilterTable_SubGroupID inSubGroup2) {
     return ToCpp(self)->GetBit(inSubGroup1, inSubGroup2);
 }
@@ -10289,10 +10129,6 @@ const JPH_RTTI *JPH_SphereShapeSettings_GetRTTI(const JPH_SphereShapeSettings *s
 
 const void *JPH_SphereShapeSettings_CastTo(const JPH_SphereShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_SphereShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SphereShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SphereShapeSettings_Construct(JPH_SphereShapeSettings *self) {
@@ -10529,10 +10365,6 @@ const JPH_RTTI *JPH_PhysicsMaterialSimple_GetRTTI(const JPH_PhysicsMaterialSimpl
 
 const void *JPH_PhysicsMaterialSimple_CastTo(const JPH_PhysicsMaterialSimple *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_PhysicsMaterialSimple_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PhysicsMaterialSimple::sCreateRTTI(*inRTTI);
 }
 
 void JPH_PhysicsMaterialSimple_Construct(JPH_PhysicsMaterialSimple *self) {
@@ -11163,10 +10995,6 @@ const void *JPH_TaperedCapsuleShapeSettings_CastTo(const JPH_TaperedCapsuleShape
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_TaperedCapsuleShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::TaperedCapsuleShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_TaperedCapsuleShapeSettings_Construct(JPH_TaperedCapsuleShapeSettings *self) {
     new(ToCpp(self)) JPH::TaperedCapsuleShapeSettings();
 }
@@ -11283,10 +11111,6 @@ const void *JPH_DecoratedShapeSettings_CastTo(const JPH_DecoratedShapeSettings *
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_DecoratedShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::DecoratedShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_DecoratedShapeSettings_Construct(JPH_DecoratedShapeSettings *self) {
     new(ToCpp(self)) JPH::DecoratedShapeSettings();
 }
@@ -11369,10 +11193,6 @@ const JPH_RTTI *JPH_RotatedTranslatedShapeSettings_GetRTTI(const JPH_RotatedTran
 
 const void *JPH_RotatedTranslatedShapeSettings_CastTo(const JPH_RotatedTranslatedShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_RotatedTranslatedShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::RotatedTranslatedShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_RotatedTranslatedShapeSettings_Construct(JPH_RotatedTranslatedShapeSettings *self) {
@@ -11543,10 +11363,6 @@ const void *JPH_ScaledShapeSettings_CastTo(const JPH_ScaledShapeSettings *self, 
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_ScaledShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::ScaledShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_ScaledShapeSettings_Construct(JPH_ScaledShapeSettings *self) {
     new(ToCpp(self)) JPH::ScaledShapeSettings();
 }
@@ -11701,10 +11517,6 @@ const JPH_RTTI *JPH_MeshShapeSettings_GetRTTI(const JPH_MeshShapeSettings *self)
 
 const void *JPH_MeshShapeSettings_CastTo(const JPH_MeshShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_MeshShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::MeshShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_MeshShapeSettings_Construct(JPH_MeshShapeSettings *self) {
@@ -12131,10 +11943,6 @@ const void *JPH_HeightFieldShapeSettings_CastTo(const JPH_HeightFieldShapeSettin
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_HeightFieldShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::HeightFieldShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_HeightFieldShapeSettings_Construct(JPH_HeightFieldShapeSettings *self) {
     new(ToCpp(self)) JPH::HeightFieldShapeSettings();
 }
@@ -12407,10 +12215,6 @@ const void *JPH_CapsuleShapeSettings_CastTo(const JPH_CapsuleShapeSettings *self
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_CapsuleShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::CapsuleShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_CapsuleShapeSettings_Construct(JPH_CapsuleShapeSettings *self) {
     new(ToCpp(self)) JPH::CapsuleShapeSettings();
 }
@@ -12555,10 +12359,6 @@ const void *JPH_CylinderShapeSettings_CastTo(const JPH_CylinderShapeSettings *se
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_CylinderShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::CylinderShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_CylinderShapeSettings_Construct(JPH_CylinderShapeSettings *self) {
     new(ToCpp(self)) JPH::CylinderShapeSettings();
 }
@@ -12673,10 +12473,6 @@ const JPH_RTTI *JPH_OffsetCenterOfMassShapeSettings_GetRTTI(const JPH_OffsetCent
 
 const void *JPH_OffsetCenterOfMassShapeSettings_CastTo(const JPH_OffsetCenterOfMassShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_OffsetCenterOfMassShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::OffsetCenterOfMassShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_OffsetCenterOfMassShapeSettings_Construct(JPH_OffsetCenterOfMassShapeSettings *self) {
@@ -12823,10 +12619,6 @@ const void *JPH_TaperedCylinderShapeSettings_CastTo(const JPH_TaperedCylinderSha
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_TaperedCylinderShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::TaperedCylinderShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_TaperedCylinderShapeSettings_Construct(JPH_TaperedCylinderShapeSettings *self) {
     new(ToCpp(self)) JPH::TaperedCylinderShapeSettings();
 }
@@ -12947,10 +12739,6 @@ const void *JPH_BoxShapeSettings_CastTo(const JPH_BoxShapeSettings *self, const 
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_BoxShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::BoxShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_BoxShapeSettings_Construct(JPH_BoxShapeSettings *self) {
     new(ToCpp(self)) JPH::BoxShapeSettings();
 }
@@ -13057,10 +12845,6 @@ const JPH_RTTI *JPH_ConvexHullShapeSettings_GetRTTI(const JPH_ConvexHullShapeSet
 
 const void *JPH_ConvexHullShapeSettings_CastTo(const JPH_ConvexHullShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_ConvexHullShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::ConvexHullShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_ConvexHullShapeSettings_Construct(JPH_ConvexHullShapeSettings *self) {
@@ -13395,10 +13179,6 @@ const void *JPH_CompoundShapeSettings_CastTo(const JPH_CompoundShapeSettings *se
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_CompoundShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::CompoundShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_CompoundShapeSettings_Construct(JPH_CompoundShapeSettings *self) {
     new(ToCpp(self)) JPH::CompoundShapeSettings();
 }
@@ -13409,10 +13189,6 @@ void JPH_CompoundShapeSettings_AddShapeWithVec3QuatShapeSettingsPtrUint32_t(JPH_
 
 void JPH_CompoundShapeSettings_AddShapeWithVec3QuatShapePtrUint32_t(JPH_CompoundShapeSettings *self, const JPH_Vec3 inPosition, const JPH_Quat inRotation, const JPH_Shape *inShape, uint32_t inUserData) {
     ToCpp(self)->AddShape(inPosition, inRotation, inShape, inUserData);
-}
-
-void JPH_CompoundShapeSettings_SubShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::CompoundShapeSettings::SubShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_CompoundShape_ConstructWithSubType(JPH_CompoundShape *self, JPH_EShapeSubType inSubType) {
@@ -13625,10 +13401,6 @@ const JPH_RTTI *JPH_MutableCompoundShapeSettings_GetRTTI(const JPH_MutableCompou
 
 const void *JPH_MutableCompoundShapeSettings_CastTo(const JPH_MutableCompoundShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_MutableCompoundShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::MutableCompoundShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 JPH_ShapeSettings_ShapeResult JPH_MutableCompoundShapeSettings_Create(const JPH_MutableCompoundShapeSettings *self) {
@@ -13859,10 +13631,6 @@ const void *JPH_PlaneShapeSettings_CastTo(const JPH_PlaneShapeSettings *self, co
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_PlaneShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PlaneShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_PlaneShapeSettings_Construct(JPH_PlaneShapeSettings *self) {
     new(ToCpp(self)) JPH::PlaneShapeSettings();
 }
@@ -14015,10 +13783,6 @@ const void *JPH_TriangleShapeSettings_CastTo(const JPH_TriangleShapeSettings *se
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_TriangleShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::TriangleShapeSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_TriangleShapeSettings_Construct(JPH_TriangleShapeSettings *self) {
     new(ToCpp(self)) JPH::TriangleShapeSettings();
 }
@@ -14165,10 +13929,6 @@ const JPH_RTTI *JPH_StaticCompoundShapeSettings_GetRTTI(const JPH_StaticCompound
 
 const void *JPH_StaticCompoundShapeSettings_CastTo(const JPH_StaticCompoundShapeSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_StaticCompoundShapeSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::StaticCompoundShapeSettings::sCreateRTTI(*inRTTI);
 }
 
 JPH_ShapeSettings_ShapeResult JPH_StaticCompoundShapeSettings_Create(const JPH_StaticCompoundShapeSettings *self) {
@@ -15003,10 +14763,6 @@ const void *JPH_RackAndPinionConstraintSettings_CastTo(const JPH_RackAndPinionCo
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_RackAndPinionConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::RackAndPinionConstraintSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_RackAndPinionConstraintSettings_SaveBinaryState(const JPH_RackAndPinionConstraintSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -15093,10 +14849,6 @@ const JPH_RTTI *JPH_SliderConstraintSettings_GetRTTI(const JPH_SliderConstraintS
 
 const void *JPH_SliderConstraintSettings_CastTo(const JPH_SliderConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_SliderConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SliderConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SliderConstraintSettings_SaveBinaryState(const JPH_SliderConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -15283,10 +15035,6 @@ const void *JPH_FixedConstraintSettings_CastTo(const JPH_FixedConstraintSettings
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_FixedConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::FixedConstraintSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_FixedConstraintSettings_SaveBinaryState(const JPH_FixedConstraintSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -15365,10 +15113,6 @@ const JPH_RTTI *JPH_DistanceConstraintSettings_GetRTTI(const JPH_DistanceConstra
 
 const void *JPH_DistanceConstraintSettings_CastTo(const JPH_DistanceConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_DistanceConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::DistanceConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_DistanceConstraintSettings_SaveBinaryState(const JPH_DistanceConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -15475,10 +15219,6 @@ const void *JPH_PathConstraintPath_CastTo(const JPH_PathConstraintPath *self, co
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_PathConstraintPath_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PathConstraintPath::sCreateRTTI(*inRTTI);
-}
-
 void JPH_PathConstraintPath_Destroy(JPH_PathConstraintPath *self) {
     ToCpp(self)->~PathConstraintPath();
 }
@@ -15529,10 +15269,6 @@ const JPH_RTTI *JPH_PathConstraintSettings_GetRTTI(const JPH_PathConstraintSetti
 
 const void *JPH_PathConstraintSettings_CastTo(const JPH_PathConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_PathConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PathConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_PathConstraintSettings_SaveBinaryState(const JPH_PathConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -15727,10 +15463,6 @@ const void *JPH_GearConstraintSettings_CastTo(const JPH_GearConstraintSettings *
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_GearConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::GearConstraintSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_GearConstraintSettings_SaveBinaryState(const JPH_GearConstraintSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -15819,10 +15551,6 @@ const void *JPH_PathConstraintPathHermite_CastTo(const JPH_PathConstraintPathHer
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_PathConstraintPathHermite_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PathConstraintPathHermite::sCreateRTTI(*inRTTI);
-}
-
 float JPH_PathConstraintPathHermite_GetPathMaxFraction(const JPH_PathConstraintPathHermite *self) {
     return ToCpp(self)->GetPathMaxFraction();
 }
@@ -15843,10 +15571,6 @@ void JPH_PathConstraintPathHermite_SaveBinaryState(const JPH_PathConstraintPathH
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-void JPH_PathConstraintPathHermite_Point_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PathConstraintPathHermite::Point::sCreateRTTI(*inRTTI);
-}
-
 void JPH_PathConstraintPathHermite_RestoreBinaryState(JPH_PathConstraintPathHermite *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
@@ -15861,10 +15585,6 @@ const JPH_RTTI *JPH_PointConstraintSettings_GetRTTI(const JPH_PointConstraintSet
 
 const void *JPH_PointConstraintSettings_CastTo(const JPH_PointConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_PointConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PointConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_PointConstraintSettings_SaveBinaryState(const JPH_PointConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -15961,10 +15681,6 @@ const JPH_RTTI *JPH_SixDOFConstraintSettings_GetRTTI(const JPH_SixDOFConstraintS
 
 const void *JPH_SixDOFConstraintSettings_CastTo(const JPH_SixDOFConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_SixDOFConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::SixDOFConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_SixDOFConstraintSettings_SaveBinaryState(const JPH_SixDOFConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -16111,7 +15827,7 @@ JPH_Quat JPH_SixDOFConstraint_GetRotationInConstraintSpace(const JPH_SixDOFConst
     return ToCpp(self)->GetRotationInConstraintSpace();
 }
 
-JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettingsConst(JPH_SixDOFConstraint *self, JPH_SixDOFConstraint_EAxis inAxis) {
+JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettings(JPH_SixDOFConstraint *self, JPH_SixDOFConstraint_EAxis inAxis) {
     return ToCpp(self)->GetMotorSettings(inAxis);
 }
 
@@ -16237,10 +15953,6 @@ const JPH_RTTI *JPH_ConeConstraintSettings_GetRTTI(const JPH_ConeConstraintSetti
 
 const void *JPH_ConeConstraintSettings_CastTo(const JPH_ConeConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_ConeConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::ConeConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_ConeConstraintSettings_SaveBinaryState(const JPH_ConeConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -16375,10 +16087,6 @@ const void *JPH_PulleyConstraintSettings_CastTo(const JPH_PulleyConstraintSettin
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_PulleyConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PulleyConstraintSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_PulleyConstraintSettings_SaveBinaryState(const JPH_PulleyConstraintSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -16471,10 +16179,6 @@ void JPH_PulleyConstraint_CalculateConstraintProperties(JPH_PulleyConstraint *se
     ToCpp(self)->CalculateConstraintProperties();
 }
 
-void JPH_PhysicsScene_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PhysicsScene::sCreateRTTI(*inRTTI);
-}
-
 void JPH_PhysicsScene_AddBody(JPH_PhysicsScene *self, const JPH_BodyCreationSettings *inBody) {
     ToCpp(self)->AddBody(*inBody);
 }
@@ -16497,10 +16201,6 @@ const Array<BodyCreationSettings> *JPH_PhysicsScene_GetBodies(const JPH_PhysicsS
 
 Array<BodyCreationSettings> *JPH_PhysicsScene_GetBodies(JPH_PhysicsScene *self) {
     return ToCpp(self)->GetBodies();
-}
-
-void JPH_PhysicsScene_ConnectedConstraint_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::PhysicsScene::ConnectedConstraint::sCreateRTTI(*inRTTI);
 }
 
 void JPH_PhysicsScene_ConnectedConstraint_Construct(JPH_PhysicsScene_ConnectedConstraint *self) {
@@ -16561,10 +16261,6 @@ const JPH_RTTI *JPH_VehicleControllerSettings_GetRTTI(const JPH_VehicleControlle
 
 const void *JPH_VehicleControllerSettings_CastTo(const JPH_VehicleControllerSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_VehicleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::VehicleControllerSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_VehicleControllerSettings_SaveBinaryState(const JPH_VehicleControllerSettings *self, JPH_StreamOut *inStream) {
@@ -16715,10 +16411,6 @@ void JPH_VehicleCollisionTesterCastCylinder_PredictContactProperties(const JPH_V
     ToCpp(self)->PredictContactProperties(*inPhysicsSystem, *inVehicleConstraint, inWheelIndex, inOrigin, inDirection, *inVehicleBodyID, *ioBody, *ioSubShapeID, *ioContactPosition, *ioContactNormal, *ioSuspensionLength);
 }
 
-void JPH_VehicleAntiRollBar_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::VehicleAntiRollBar::sCreateRTTI(*inRTTI);
-}
-
 void JPH_VehicleAntiRollBar_SaveBinaryState(const JPH_VehicleAntiRollBar *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -16733,10 +16425,6 @@ const JPH_RTTI *JPH_WheelSettings_GetRTTI(const JPH_WheelSettings *self) {
 
 const void *JPH_WheelSettings_CastTo(const JPH_WheelSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_WheelSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::WheelSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_WheelSettings_SaveBinaryState(const JPH_WheelSettings *self, JPH_StreamOut *inStream) {
@@ -16849,10 +16537,6 @@ const JPH_RTTI *JPH_VehicleConstraintSettings_GetRTTI(const JPH_VehicleConstrain
 
 const void *JPH_VehicleConstraintSettings_CastTo(const JPH_VehicleConstraintSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_VehicleConstraintSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::VehicleConstraintSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_VehicleConstraintSettings_SaveBinaryState(const JPH_VehicleConstraintSettings *self, JPH_StreamOut *inStream) {
@@ -16971,7 +16655,7 @@ JPH_Wheels *JPH_VehicleConstraint_GetWheels(JPH_VehicleConstraint *self) {
     return ToCpp(self)->GetWheels();
 }
 
-JPH_Wheel *JPH_VehicleConstraint_GetWheelConst(JPH_VehicleConstraint *self, uint32_t inIdx) {
+JPH_Wheel *JPH_VehicleConstraint_GetWheel(JPH_VehicleConstraint *self, uint32_t inIdx) {
     return ToCpp(self)->GetWheel(inIdx);
 }
 
@@ -17075,10 +16759,6 @@ void JPH_VehicleConstraint_CalculatePitchRollConstraintProperties(JPH_VehicleCon
     ToCpp(self)->CalculatePitchRollConstraintProperties(inBodyTransform);
 }
 
-void JPH_VehicleEngineSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::VehicleEngineSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_VehicleEngineSettings_Construct(JPH_VehicleEngineSettings *self) {
     new(ToCpp(self)) JPH::VehicleEngineSettings();
 }
@@ -17131,10 +16811,6 @@ void JPH_VehicleEngine_RestoreState(JPH_VehicleEngine *self, JPH_StateRecorder *
     ToCpp(self)->RestoreState(*inStream);
 }
 
-void JPH_VehicleTransmissionSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::VehicleTransmissionSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_VehicleTransmissionSettings_SaveBinaryState(const JPH_VehicleTransmissionSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -17179,10 +16855,6 @@ void JPH_VehicleTransmission_RestoreState(JPH_VehicleTransmission *self, JPH_Sta
     ToCpp(self)->RestoreState(*inStream);
 }
 
-void JPH_VehicleDifferentialSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::VehicleDifferentialSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_VehicleDifferentialSettings_SaveBinaryState(const JPH_VehicleDifferentialSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -17201,10 +16873,6 @@ const JPH_RTTI *JPH_WheelSettingsWV_GetRTTI(const JPH_WheelSettingsWV *self) {
 
 const void *JPH_WheelSettingsWV_CastTo(const JPH_WheelSettingsWV *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_WheelSettingsWV_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::WheelSettingsWV::sCreateRTTI(*inRTTI);
 }
 
 void JPH_WheelSettingsWV_Construct(JPH_WheelSettingsWV *self) {
@@ -17241,10 +16909,6 @@ const JPH_RTTI *JPH_WheeledVehicleControllerSettings_GetRTTI(const JPH_WheeledVe
 
 const void *JPH_WheeledVehicleControllerSettings_CastTo(const JPH_WheeledVehicleControllerSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_WheeledVehicleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::WheeledVehicleControllerSettings::sCreateRTTI(*inRTTI);
 }
 
 JPH_VehicleController *JPH_WheeledVehicleControllerSettings_ConstructController(const JPH_WheeledVehicleControllerSettings *self, JPH_VehicleConstraint *inConstraint) {
@@ -17387,10 +17051,6 @@ const void *JPH_MotorcycleControllerSettings_CastTo(const JPH_MotorcycleControll
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_MotorcycleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::MotorcycleControllerSettings::sCreateRTTI(*inRTTI);
-}
-
 JPH_VehicleController *JPH_MotorcycleControllerSettings_ConstructController(const JPH_MotorcycleControllerSettings *self, JPH_VehicleConstraint *inConstraint) {
     return ToCpp(self)->ConstructController(*inConstraint);
 }
@@ -17487,10 +17147,6 @@ void JPH_MotorcycleController_RestoreState(JPH_MotorcycleController *self, JPH_S
     ToCpp(self)->RestoreState(*inStream);
 }
 
-void JPH_VehicleTrackSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::VehicleTrackSettings::sCreateRTTI(*inRTTI);
-}
-
 void JPH_VehicleTrackSettings_SaveBinaryState(const JPH_VehicleTrackSettings *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
@@ -17513,10 +17169,6 @@ const JPH_RTTI *JPH_WheelSettingsTV_GetRTTI(const JPH_WheelSettingsTV *self) {
 
 const void *JPH_WheelSettingsTV_CastTo(const JPH_WheelSettingsTV *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_WheelSettingsTV_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::WheelSettingsTV::sCreateRTTI(*inRTTI);
 }
 
 void JPH_WheelSettingsTV_SaveBinaryState(const JPH_WheelSettingsTV *self, JPH_StreamOut *inStream) {
@@ -17549,10 +17201,6 @@ const JPH_RTTI *JPH_TrackedVehicleControllerSettings_GetRTTI(const JPH_TrackedVe
 
 const void *JPH_TrackedVehicleControllerSettings_CastTo(const JPH_TrackedVehicleControllerSettings *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-void JPH_TrackedVehicleControllerSettings_sCreateRTTI(JPH_RTTI *inRTTI) {
-    JPH::TrackedVehicleControllerSettings::sCreateRTTI(*inRTTI);
 }
 
 void JPH_TrackedVehicleControllerSettings_Construct(JPH_TrackedVehicleControllerSettings *self) {

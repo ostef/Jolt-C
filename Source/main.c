@@ -18,6 +18,8 @@ static const char *Declarations_To_Exclude[] = {
 
     "JPH::UnorderedMap",
     "JPH::UnorderedSet",
+
+    "sCreateRTTI",
 };
 
 static const char *Typedefs_To_Unwrap[] = {

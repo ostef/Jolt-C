@@ -2,11 +2,6 @@
 #include "ClangUtils.h"
 
 static
-bool ShouldExclude(GenerateOptions options, const char *entity_name) {
-    return ArrayFindFirstPredicate(options.declarations_to_exclude, entity_name, StringCompareFunc) >= 0;
-}
-
-static
 bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
     if (entity->flags & CppEntityFlag_ParentIsTemplate) {
         return true;
@@ -16,7 +11,14 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
         return true;
     }
 
-    return ShouldExclude(options, entity->fully_qualified_name);
+    if (ArrayFindFirstPredicate(options.declarations_to_exclude, entity->fully_qualified_name, StringCompareFunc) >= 0) {
+        return true;
+    }
+    if (ArrayFindFirstPredicate(options.declarations_to_exclude, entity->name, StringCompareFunc) >= 0) {
+        return true;
+    }
+
+    return false;
 }
 
 static
@@ -732,6 +734,9 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                 foreach (j, aggr->functions) {
                     CppFunction *func = ArrayGet(aggr->functions, j);
 
+                    if (ShouldExcludeEntity(ctx.options, &func->base)) {
+                        continue;
+                    }
                     if (func->flags & CppFunctionFlag_Operator) {
                         continue;
                     }
