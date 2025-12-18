@@ -87,6 +87,8 @@
 #include "Jolt/Physics/Constraints/ConstraintPart/AxisConstraintPart.h"
 #include "Jolt/Physics/Body/Body.h"
 #include "Jolt/Physics/Collision/BroadPhase/BroadPhaseLayer.h"
+#include "Jolt/Physics/Collision/BroadPhase/BroadPhaseLayerInterfaceTable.h"
+#include "Jolt/Physics/Collision/BroadPhase/BroadPhaseLayerInterfaceMask.h"
 #include "Jolt/Physics/Collision/ObjectLayer.h"
 #include "Jolt/Physics/Collision/CollisionGroup.h"
 #include "Jolt/Physics/Collision/GroupFilter.h"

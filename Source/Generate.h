@@ -25,6 +25,8 @@ void AppendCType(GenerateContext *ctx, CppType *type, int indentation);
 void AppendCEnum(GenerateContext *ctx, CppEnum *e, int indentation);
 void AppendCEnumDecl(GenerateContext *ctx, CppEnum *e, int indentation);
 void AppendCAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation);
+void AppendCAggregateVTableTypedef(GenerateContext *ctx, CppAggregate *aggr);
+void AppendCFunctionSignature(GenerateContext *ctx, CppFunction *func, int indentation, bool for_vtable);
 
 void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabase *db);
 void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatabase *db);

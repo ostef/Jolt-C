@@ -13,6 +13,10 @@ static const char *Jolt_Source_Files[] = {
 };
 
 static const char *Declarations_To_Exclude[] = {
+    "JPH::BroadPhaseLayer",
+    "JPH::BroadPhaseLayer::Type",
+    "JPH::ObjectLayer",
+
     "std::hash",
     "JPH::Hash",
 

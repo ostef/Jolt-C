@@ -1,5 +1,8 @@
 // Preamble: hand-written types
 
+typedef uint16_t JPH_ObjectLayer;
+typedef uint8_t JPH_BroadPhaseLayer;
+
 typedef struct JPH_StridedPtr {
     uint8_t *mPtr;
     int mStride;

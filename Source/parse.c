@@ -429,7 +429,7 @@ CppFunction *ParseCppFunction(CppParseContext *ctx, CXCursor cursor) {
     if (kind == CXCursor_Destructor) {
         func->flags |= CppFunctionFlag_Destructor;
         func->flags |= CppFunctionFlag_Method;
-        func->base.c_name = "Destroy";
+        func->base.c_name = "Destruct";
     }
     if (kind == CXCursor_CXXMethod && !(func->base.flags & CppEntityFlag_Static)) {
         func->flags |= CppFunctionFlag_Method;

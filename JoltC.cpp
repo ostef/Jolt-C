@@ -144,7 +144,6 @@ static_assert(sizeof(JPH::ObjectLayerFilter) == sizeof(JPH_ObjectLayerFilter), "
 static_assert(sizeof(JPH::ObjectLayerPairFilter) == sizeof(JPH_ObjectLayerPairFilter), "Type mismatch for JPH_ObjectLayerPairFilter");
 static_assert(sizeof(JPH::DefaultObjectLayerFilter) == sizeof(JPH_DefaultObjectLayerFilter), "Type mismatch for JPH_DefaultObjectLayerFilter");
 static_assert(sizeof(JPH::SpecifiedObjectLayerFilter) == sizeof(JPH_SpecifiedObjectLayerFilter), "Type mismatch for JPH_SpecifiedObjectLayerFilter");
-static_assert(sizeof(JPH::BroadPhaseLayer) == sizeof(JPH_BroadPhaseLayer), "Type mismatch for JPH_BroadPhaseLayer");
 static_assert(sizeof(JPH::BroadPhaseLayerInterface) == sizeof(JPH_BroadPhaseLayerInterface), "Type mismatch for JPH_BroadPhaseLayerInterface");
 static_assert(sizeof(JPH::ObjectVsBroadPhaseLayerFilter) == sizeof(JPH_ObjectVsBroadPhaseLayerFilter), "Type mismatch for JPH_ObjectVsBroadPhaseLayerFilter");
 static_assert(sizeof(JPH::BroadPhaseLayerFilter) == sizeof(JPH_BroadPhaseLayerFilter), "Type mismatch for JPH_BroadPhaseLayerFilter");
@@ -172,6 +171,10 @@ static_assert(sizeof(JPH::ContactConstraintManager::ManifoldCache) == sizeof(JPH
 static_assert(sizeof(JPH::ContactConstraintManager::WorldContactPoint) == sizeof(JPH_ContactConstraintManager_WorldContactPoint), "Type mismatch for JPH_ContactConstraintManager_WorldContactPoint");
 static_assert(sizeof(JPH::ContactConstraintManager::ContactConstraint) == sizeof(JPH_ContactConstraintManager_ContactConstraint), "Type mismatch for JPH_ContactConstraintManager_ContactConstraint");
 static_assert(sizeof(JPH::ContactConstraintManager) == sizeof(JPH_ContactConstraintManager), "Type mismatch for JPH_ContactConstraintManager");
+static_assert(sizeof(JPH::BroadPhaseLayerInterfaceTable) == sizeof(JPH_BroadPhaseLayerInterfaceTable), "Type mismatch for JPH_BroadPhaseLayerInterfaceTable");
+static_assert(sizeof(JPH::ObjectLayerPairFilterMask) == sizeof(JPH_ObjectLayerPairFilterMask), "Type mismatch for JPH_ObjectLayerPairFilterMask");
+static_assert(sizeof(JPH::BroadPhaseLayerInterfaceMask::Mapping) == sizeof(JPH_BroadPhaseLayerInterfaceMask_Mapping), "Type mismatch for JPH_BroadPhaseLayerInterfaceMask_Mapping");
+static_assert(sizeof(JPH::BroadPhaseLayerInterfaceMask) == sizeof(JPH_BroadPhaseLayerInterfaceMask), "Type mismatch for JPH_BroadPhaseLayerInterfaceMask");
 static_assert(sizeof(JPH::BodyManager::BodyStats) == sizeof(JPH_BodyManager_BodyStats), "Type mismatch for JPH_BodyManager_BodyStats");
 static_assert(sizeof(JPH::BodyManager::GrantActiveBodiesAccess) == sizeof(JPH_BodyManager_GrantActiveBodiesAccess), "Type mismatch for JPH_BodyManager_GrantActiveBodiesAccess");
 static_assert(sizeof(JPH::BodyManager) == sizeof(JPH_BodyManager), "Type mismatch for JPH_BodyManager");
@@ -726,8 +729,6 @@ static inline JPH::DefaultObjectLayerFilter *ToCpp(JPH_DefaultObjectLayerFilter 
 static inline const JPH::DefaultObjectLayerFilter *ToCpp(const JPH_DefaultObjectLayerFilter *val) { return reinterpret_cast<const JPH::DefaultObjectLayerFilter *>(val); }
 static inline JPH::SpecifiedObjectLayerFilter *ToCpp(JPH_SpecifiedObjectLayerFilter *val) { return reinterpret_cast<JPH::SpecifiedObjectLayerFilter *>(val); }
 static inline const JPH::SpecifiedObjectLayerFilter *ToCpp(const JPH_SpecifiedObjectLayerFilter *val) { return reinterpret_cast<const JPH::SpecifiedObjectLayerFilter *>(val); }
-static inline JPH::BroadPhaseLayer *ToCpp(JPH_BroadPhaseLayer *val) { return reinterpret_cast<JPH::BroadPhaseLayer *>(val); }
-static inline const JPH::BroadPhaseLayer *ToCpp(const JPH_BroadPhaseLayer *val) { return reinterpret_cast<const JPH::BroadPhaseLayer *>(val); }
 static inline JPH::BroadPhaseLayerInterface *ToCpp(JPH_BroadPhaseLayerInterface *val) { return reinterpret_cast<JPH::BroadPhaseLayerInterface *>(val); }
 static inline const JPH::BroadPhaseLayerInterface *ToCpp(const JPH_BroadPhaseLayerInterface *val) { return reinterpret_cast<const JPH::BroadPhaseLayerInterface *>(val); }
 static inline JPH::ObjectVsBroadPhaseLayerFilter *ToCpp(JPH_ObjectVsBroadPhaseLayerFilter *val) { return reinterpret_cast<JPH::ObjectVsBroadPhaseLayerFilter *>(val); }
@@ -782,6 +783,14 @@ static inline JPH::ContactConstraintManager::ContactConstraint *ToCpp(JPH_Contac
 static inline const JPH::ContactConstraintManager::ContactConstraint *ToCpp(const JPH_ContactConstraintManager_ContactConstraint *val) { return reinterpret_cast<const JPH::ContactConstraintManager::ContactConstraint *>(val); }
 static inline JPH::ContactConstraintManager *ToCpp(JPH_ContactConstraintManager *val) { return reinterpret_cast<JPH::ContactConstraintManager *>(val); }
 static inline const JPH::ContactConstraintManager *ToCpp(const JPH_ContactConstraintManager *val) { return reinterpret_cast<const JPH::ContactConstraintManager *>(val); }
+static inline JPH::BroadPhaseLayerInterfaceTable *ToCpp(JPH_BroadPhaseLayerInterfaceTable *val) { return reinterpret_cast<JPH::BroadPhaseLayerInterfaceTable *>(val); }
+static inline const JPH::BroadPhaseLayerInterfaceTable *ToCpp(const JPH_BroadPhaseLayerInterfaceTable *val) { return reinterpret_cast<const JPH::BroadPhaseLayerInterfaceTable *>(val); }
+static inline JPH::ObjectLayerPairFilterMask *ToCpp(JPH_ObjectLayerPairFilterMask *val) { return reinterpret_cast<JPH::ObjectLayerPairFilterMask *>(val); }
+static inline const JPH::ObjectLayerPairFilterMask *ToCpp(const JPH_ObjectLayerPairFilterMask *val) { return reinterpret_cast<const JPH::ObjectLayerPairFilterMask *>(val); }
+static inline JPH::BroadPhaseLayerInterfaceMask::Mapping *ToCpp(JPH_BroadPhaseLayerInterfaceMask_Mapping *val) { return reinterpret_cast<JPH::BroadPhaseLayerInterfaceMask::Mapping *>(val); }
+static inline const JPH::BroadPhaseLayerInterfaceMask::Mapping *ToCpp(const JPH_BroadPhaseLayerInterfaceMask_Mapping *val) { return reinterpret_cast<const JPH::BroadPhaseLayerInterfaceMask::Mapping *>(val); }
+static inline JPH::BroadPhaseLayerInterfaceMask *ToCpp(JPH_BroadPhaseLayerInterfaceMask *val) { return reinterpret_cast<JPH::BroadPhaseLayerInterfaceMask *>(val); }
+static inline const JPH::BroadPhaseLayerInterfaceMask *ToCpp(const JPH_BroadPhaseLayerInterfaceMask *val) { return reinterpret_cast<const JPH::BroadPhaseLayerInterfaceMask *>(val); }
 static inline JPH::BodyManager::BodyStats *ToCpp(JPH_BodyManager_BodyStats *val) { return reinterpret_cast<JPH::BodyManager::BodyStats *>(val); }
 static inline const JPH::BodyManager::BodyStats *ToCpp(const JPH_BodyManager_BodyStats *val) { return reinterpret_cast<const JPH::BodyManager::BodyStats *>(val); }
 static inline JPH::BodyManager::GrantActiveBodiesAccess *ToCpp(JPH_BodyManager_GrantActiveBodiesAccess *val) { return reinterpret_cast<JPH::BodyManager::GrantActiveBodiesAccess *>(val); }
@@ -3103,7 +3112,7 @@ JPH_DMat44 JPH_DMat44_Decompose(const JPH_DMat44 *self, JPH_Vec3 *outScale) {
     return ToCpp(self)->Decompose(*outScale);
 }
 
-void JPH_RefTargetVirtual_Destroy(JPH_RefTargetVirtual *self) {
+void JPH_RefTargetVirtual_Destruct(JPH_RefTargetVirtual *self) {
     ToCpp(self)->~RefTargetVirtual();
 }
 
@@ -3267,7 +3276,7 @@ void JPH_JobSystem_Barrier_AddJobs(JPH_JobSystem_Barrier *self, const JPH_JobSys
     ToCpp(self)->AddJobs(inHandles, inNumHandles);
 }
 
-void JPH_JobSystem_Barrier_Destroy(JPH_JobSystem_Barrier *self) {
+void JPH_JobSystem_Barrier_Destruct(JPH_JobSystem_Barrier *self) {
     ToCpp(self)->~Barrier();
 }
 
@@ -3275,7 +3284,7 @@ void JPH_JobSystem_Barrier_OnJobFinished(JPH_JobSystem_Barrier *self, JPH_JobSys
     ToCpp(self)->OnJobFinished(inJob);
 }
 
-void JPH_JobSystem_Destroy(JPH_JobSystem *self) {
+void JPH_JobSystem_Destruct(JPH_JobSystem *self) {
     ToCpp(self)->~JobSystem();
 }
 
@@ -3359,7 +3368,7 @@ void JPH_Semaphore_Construct(JPH_Semaphore *self) {
     new(ToCpp(self)) JPH::Semaphore();
 }
 
-void JPH_Semaphore_Destroy(JPH_Semaphore *self) {
+void JPH_Semaphore_Destruct(JPH_Semaphore *self) {
     ToCpp(self)->~Semaphore();
 }
 
@@ -3383,7 +3392,7 @@ void JPH_JobSystemWithBarrier_Construct(JPH_JobSystemWithBarrier *self) {
     new(ToCpp(self)) JPH::JobSystemWithBarrier();
 }
 
-void JPH_JobSystemWithBarrier_Destroy(JPH_JobSystemWithBarrier *self) {
+void JPH_JobSystemWithBarrier_Destruct(JPH_JobSystemWithBarrier *self) {
     ToCpp(self)->~JobSystemWithBarrier();
 }
 
@@ -3407,7 +3416,7 @@ void JPH_JobSystemWithBarrier_BarrierImpl_Construct(JPH_JobSystemWithBarrier_Bar
     new(ToCpp(self)) JPH::JobSystemWithBarrier::BarrierImpl();
 }
 
-void JPH_JobSystemWithBarrier_BarrierImpl_Destroy(JPH_JobSystemWithBarrier_BarrierImpl *self) {
+void JPH_JobSystemWithBarrier_BarrierImpl_Destruct(JPH_JobSystemWithBarrier_BarrierImpl *self) {
     ToCpp(self)->~BarrierImpl();
 }
 
@@ -3475,7 +3484,7 @@ void JPH_JobSystemThreadPool_Construct(JPH_JobSystemThreadPool *self) {
     new(ToCpp(self)) JPH::JobSystemThreadPool();
 }
 
-void JPH_JobSystemThreadPool_Destroy(JPH_JobSystemThreadPool *self) {
+void JPH_JobSystemThreadPool_Destruct(JPH_JobSystemThreadPool *self) {
     ToCpp(self)->~JobSystemThreadPool();
 }
 
@@ -3695,7 +3704,7 @@ void JPH_JobSystemSingleThreaded_FreeJob(JPH_JobSystemSingleThreaded *self, JPH_
     ToCpp(self)->FreeJob(inJob);
 }
 
-void JPH_ObjectStream_Destroy(JPH_ObjectStream *self) {
+void JPH_ObjectStream_Destruct(JPH_ObjectStream *self) {
     ToCpp(self)->~ObjectStream();
 }
 
@@ -3919,7 +3928,7 @@ const void *JPH_SerializableObject_CastTo(const JPH_SerializableObject *self, co
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_SerializableObject_Destroy(JPH_SerializableObject *self) {
+void JPH_SerializableObject_Destruct(JPH_SerializableObject *self) {
     ToCpp(self)->~SerializableObject();
 }
 
@@ -3967,7 +3976,7 @@ void JPH_LinearCurve_RestoreBinaryState(JPH_LinearCurve *self, JPH_StreamIn *inS
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
 
-void JPH_StreamIn_Destroy(JPH_StreamIn *self) {
+void JPH_StreamIn_Destruct(JPH_StreamIn *self) {
     ToCpp(self)->~StreamIn();
 }
 
@@ -3995,7 +4004,7 @@ void JPH_StreamIn_ReadWithDMat44(JPH_StreamIn *self, JPH_DMat44 *outVec) {
     ToCpp(self)->Read(*outVec);
 }
 
-void JPH_StreamOut_Destroy(JPH_StreamOut *self) {
+void JPH_StreamOut_Destruct(JPH_StreamOut *self) {
     ToCpp(self)->~StreamOut();
 }
 
@@ -4363,7 +4372,7 @@ uint32_t JPH_LargeIslandSplitter_Splits_sGetItem(uint64_t inStatus) {
     return JPH::LargeIslandSplitter::Splits::sGetItem(inStatus);
 }
 
-void JPH_LargeIslandSplitter_Destroy(JPH_LargeIslandSplitter *self) {
+void JPH_LargeIslandSplitter_Destruct(JPH_LargeIslandSplitter *self) {
     ToCpp(self)->~LargeIslandSplitter();
 }
 
@@ -4431,7 +4440,7 @@ bool JPH_BodyID_IsInvalid(const JPH_BodyID *self) {
     return ToCpp(self)->IsInvalid();
 }
 
-void JPH_IslandBuilder_Destroy(JPH_IslandBuilder *self) {
+void JPH_IslandBuilder_Destruct(JPH_IslandBuilder *self) {
     ToCpp(self)->~IslandBuilder();
 }
 
@@ -4555,7 +4564,7 @@ void JPH_Constraint_Construct(JPH_Constraint *self, const JPH_ConstraintSettings
     new(ToCpp(self)) JPH::Constraint(*inSettings);
 }
 
-void JPH_Constraint_Destroy(JPH_Constraint *self) {
+void JPH_Constraint_Destruct(JPH_Constraint *self) {
     ToCpp(self)->~Constraint();
 }
 
@@ -4659,7 +4668,7 @@ void JPH_Constraint_ToConstraintSettings(const JPH_Constraint *self, JPH_Constra
     ToCpp(self)->ToConstraintSettings(*outSettings);
 }
 
-void JPH_LFHMAllocator_Destroy(JPH_LFHMAllocator *self) {
+void JPH_LFHMAllocator_Destruct(JPH_LFHMAllocator *self) {
     ToCpp(self)->~LFHMAllocator();
 }
 
@@ -4803,7 +4812,7 @@ void JPH_MassProperties_RestoreBinaryState(JPH_MassProperties *self, JPH_StreamI
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
 
-void JPH_ShapeFilter_Destroy(JPH_ShapeFilter *self) {
+void JPH_ShapeFilter_Destruct(JPH_ShapeFilter *self) {
     ToCpp(self)->~ShapeFilter();
 }
 
@@ -4855,7 +4864,7 @@ void JPH_Shape_ConstructWithTypeSubTypeSettingsResult(JPH_Shape *self, JPH_EShap
     new(ToCpp(self)) JPH::Shape(inType, inSubType, *inSettings, *outResult);
 }
 
-void JPH_Shape_Destroy(JPH_Shape *self) {
+void JPH_Shape_Destruct(JPH_Shape *self) {
     ToCpp(self)->~Shape();
 }
 
@@ -5047,7 +5056,7 @@ void JPH_PhysicsMaterial_Construct(JPH_PhysicsMaterial *self) {
     new(ToCpp(self)) JPH::PhysicsMaterial();
 }
 
-void JPH_PhysicsMaterial_Destroy(JPH_PhysicsMaterial *self) {
+void JPH_PhysicsMaterial_Destruct(JPH_PhysicsMaterial *self) {
     ToCpp(self)->~PhysicsMaterial();
 }
 
@@ -5139,7 +5148,7 @@ void JPH_ConvexShape_GetSubmergedVolume(const JPH_ConvexShape *self, const JPH_M
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-void JPH_ConvexShape_Support_Destroy(JPH_ConvexShape_Support *self) {
+void JPH_ConvexShape_Support_Destruct(JPH_ConvexShape_Support *self) {
     ToCpp(self)->~Support();
 }
 
@@ -5211,7 +5220,7 @@ JPH_RVec3 JPH_ContactManifold_GetWorldSpaceContactPointOn2(const JPH_ContactMani
     return ToCpp(self)->GetWorldSpaceContactPointOn2(inIndex);
 }
 
-void JPH_ContactListener_Destroy(JPH_ContactListener *self) {
+void JPH_ContactListener_Destruct(JPH_ContactListener *self) {
     ToCpp(self)->~ContactListener();
 }
 
@@ -5231,7 +5240,7 @@ void JPH_ContactListener_OnContactRemoved(JPH_ContactListener *self, const JPH_S
     ToCpp(self)->OnContactRemoved(*inSubShapePair);
 }
 
-void JPH_ObjectLayerFilter_Destroy(JPH_ObjectLayerFilter *self) {
+void JPH_ObjectLayerFilter_Destruct(JPH_ObjectLayerFilter *self) {
     ToCpp(self)->~ObjectLayerFilter();
 }
 
@@ -5239,7 +5248,7 @@ bool JPH_ObjectLayerFilter_ShouldCollide(const JPH_ObjectLayerFilter *self, JPH_
     return ToCpp(self)->ShouldCollide(inLayer);
 }
 
-void JPH_ObjectLayerPairFilter_Destroy(JPH_ObjectLayerPairFilter *self) {
+void JPH_ObjectLayerPairFilter_Destruct(JPH_ObjectLayerPairFilter *self) {
     ToCpp(self)->~ObjectLayerPairFilter();
 }
 
@@ -5283,7 +5292,7 @@ JPH_BroadPhaseLayer_Type JPH_BroadPhaseLayer_GetValue(const JPH_BroadPhaseLayer 
     return ToCpp(self)->GetValue();
 }
 
-void JPH_BroadPhaseLayerInterface_Destroy(JPH_BroadPhaseLayerInterface *self) {
+void JPH_BroadPhaseLayerInterface_Destruct(JPH_BroadPhaseLayerInterface *self) {
     ToCpp(self)->~BroadPhaseLayerInterface();
 }
 
@@ -5295,7 +5304,7 @@ JPH_BroadPhaseLayer JPH_BroadPhaseLayerInterface_GetBroadPhaseLayer(const JPH_Br
     return ToCpp(self)->GetBroadPhaseLayer(inLayer);
 }
 
-void JPH_ObjectVsBroadPhaseLayerFilter_Destroy(JPH_ObjectVsBroadPhaseLayerFilter *self) {
+void JPH_ObjectVsBroadPhaseLayerFilter_Destruct(JPH_ObjectVsBroadPhaseLayerFilter *self) {
     ToCpp(self)->~ObjectVsBroadPhaseLayerFilter();
 }
 
@@ -5303,7 +5312,7 @@ bool JPH_ObjectVsBroadPhaseLayerFilter_ShouldCollide(const JPH_ObjectVsBroadPhas
     return ToCpp(self)->ShouldCollide(inLayer1, inLayer2);
 }
 
-void JPH_BroadPhaseLayerFilter_Destroy(JPH_BroadPhaseLayerFilter *self) {
+void JPH_BroadPhaseLayerFilter_Destruct(JPH_BroadPhaseLayerFilter *self) {
     ToCpp(self)->~BroadPhaseLayerFilter();
 }
 
@@ -5335,7 +5344,7 @@ const void *JPH_GroupFilter_CastTo(const JPH_GroupFilter *self, const JPH_RTTI *
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_GroupFilter_Destroy(JPH_GroupFilter *self) {
+void JPH_GroupFilter_Destruct(JPH_GroupFilter *self) {
     ToCpp(self)->~GroupFilter();
 }
 
@@ -5547,7 +5556,7 @@ void JPH_BodyAccess_Grant_Construct(JPH_BodyAccess_Grant *self, JPH_BodyAccess_E
     new(ToCpp(self)) JPH::BodyAccess::Grant(inVelocity, inPosition);
 }
 
-void JPH_BodyAccess_Grant_Destroy(JPH_BodyAccess_Grant *self) {
+void JPH_BodyAccess_Grant_Destruct(JPH_BodyAccess_Grant *self) {
     ToCpp(self)->~Grant();
 }
 
@@ -6203,7 +6212,7 @@ void JPH_Body_ConstructWith(JPH_Body *self, bool) {
     new(ToCpp(self)) JPH::Body();
 }
 
-void JPH_Body_Destroy(JPH_Body *self) {
+void JPH_Body_Destruct(JPH_Body *self) {
     ToCpp(self)->~Body();
 }
 
@@ -6259,7 +6268,7 @@ bool JPH_SpringSettings_HasStiffness(const JPH_SpringSettings *self) {
     return ToCpp(self)->HasStiffness();
 }
 
-void JPH_StateRecorderFilter_Destroy(JPH_StateRecorderFilter *self) {
+void JPH_StateRecorderFilter_Destruct(JPH_StateRecorderFilter *self) {
     ToCpp(self)->~StateRecorderFilter();
 }
 
@@ -6427,7 +6436,7 @@ void JPH_ContactConstraintManager_Construct(JPH_ContactConstraintManager *self, 
     new(ToCpp(self)) JPH::ContactConstraintManager(*inPhysicsSettings);
 }
 
-void JPH_ContactConstraintManager_Destroy(JPH_ContactConstraintManager *self) {
+void JPH_ContactConstraintManager_Destruct(JPH_ContactConstraintManager *self) {
     ToCpp(self)->~ContactConstraintManager();
 }
 
@@ -6667,7 +6676,59 @@ void JPH_ContactConstraintManager_CalculateFrictionAndNonPenetrationConstraintPr
     ToCpp(self)->CalculateFrictionAndNonPenetrationConstraintProperties(*ioConstraint, *inSettings, inDeltaTime, inGravityDeltaTime, inTransformBody1, inTransformBody2, *inBody1, *inBody2);
 }
 
-void JPH_BodyManager_Destroy(JPH_BodyManager *self) {
+void JPH_BroadPhaseLayerInterfaceTable_Construct(JPH_BroadPhaseLayerInterfaceTable *self, uint32_t inNumObjectLayers, uint32_t inNumBroadPhaseLayers) {
+    new(ToCpp(self)) JPH::BroadPhaseLayerInterfaceTable(inNumObjectLayers, inNumBroadPhaseLayers);
+}
+
+void JPH_BroadPhaseLayerInterfaceTable_MapObjectToBroadPhaseLayer(JPH_BroadPhaseLayerInterfaceTable *self, JPH_ObjectLayer inObjectLayer, JPH_BroadPhaseLayer inBroadPhaseLayer) {
+    ToCpp(self)->MapObjectToBroadPhaseLayer(inObjectLayer, inBroadPhaseLayer);
+}
+
+uint32_t JPH_BroadPhaseLayerInterfaceTable_GetNumBroadPhaseLayers(const JPH_BroadPhaseLayerInterfaceTable *self) {
+    return ToCpp(self)->GetNumBroadPhaseLayers();
+}
+
+JPH_BroadPhaseLayer JPH_BroadPhaseLayerInterfaceTable_GetBroadPhaseLayer(const JPH_BroadPhaseLayerInterfaceTable *self, JPH_ObjectLayer inLayer) {
+    return ToCpp(self)->GetBroadPhaseLayer(inLayer);
+}
+
+JPH_ObjectLayer JPH_ObjectLayerPairFilterMask_sGetObjectLayer(uint32_t inGroup, uint32_t inMask) {
+    return JPH::ObjectLayerPairFilterMask::sGetObjectLayer(inGroup, inMask);
+}
+
+uint32_t JPH_ObjectLayerPairFilterMask_sGetGroup(JPH_ObjectLayer inObjectLayer) {
+    return JPH::ObjectLayerPairFilterMask::sGetGroup(inObjectLayer);
+}
+
+uint32_t JPH_ObjectLayerPairFilterMask_sGetMask(JPH_ObjectLayer inObjectLayer) {
+    return JPH::ObjectLayerPairFilterMask::sGetMask(inObjectLayer);
+}
+
+bool JPH_ObjectLayerPairFilterMask_ShouldCollide(const JPH_ObjectLayerPairFilterMask *self, JPH_ObjectLayer inObject1, JPH_ObjectLayer inObject2) {
+    return ToCpp(self)->ShouldCollide(inObject1, inObject2);
+}
+
+void JPH_BroadPhaseLayerInterfaceMask_Construct(JPH_BroadPhaseLayerInterfaceMask *self, uint32_t inNumBroadPhaseLayers) {
+    new(ToCpp(self)) JPH::BroadPhaseLayerInterfaceMask(inNumBroadPhaseLayers);
+}
+
+void JPH_BroadPhaseLayerInterfaceMask_ConfigureLayer(JPH_BroadPhaseLayerInterfaceMask *self, JPH_BroadPhaseLayer inBroadPhaseLayer, uint32_t inGroupsToInclude, uint32_t inGroupsToExclude) {
+    ToCpp(self)->ConfigureLayer(inBroadPhaseLayer, inGroupsToInclude, inGroupsToExclude);
+}
+
+uint32_t JPH_BroadPhaseLayerInterfaceMask_GetNumBroadPhaseLayers(const JPH_BroadPhaseLayerInterfaceMask *self) {
+    return ToCpp(self)->GetNumBroadPhaseLayers();
+}
+
+JPH_BroadPhaseLayer JPH_BroadPhaseLayerInterfaceMask_GetBroadPhaseLayer(const JPH_BroadPhaseLayerInterfaceMask *self, JPH_ObjectLayer inLayer) {
+    return ToCpp(self)->GetBroadPhaseLayer(inLayer);
+}
+
+bool JPH_BroadPhaseLayerInterfaceMask_ShouldCollide(const JPH_BroadPhaseLayerInterfaceMask *self, JPH_ObjectLayer inLayer1, JPH_BroadPhaseLayer inLayer2) {
+    return ToCpp(self)->ShouldCollide(inLayer1, inLayer2);
+}
+
+void JPH_BodyManager_Destruct(JPH_BodyManager *self) {
     ToCpp(self)->~BodyManager();
 }
 
@@ -6855,7 +6916,7 @@ void JPH_BodyManager_GrantActiveBodiesAccess_Construct(JPH_BodyManager_GrantActi
     new(ToCpp(self)) JPH::BodyManager::GrantActiveBodiesAccess(inAllowActivation, inAllowDeactivation);
 }
 
-void JPH_BodyManager_GrantActiveBodiesAccess_Destroy(JPH_BodyManager_GrantActiveBodiesAccess *self) {
+void JPH_BodyManager_GrantActiveBodiesAccess_Destruct(JPH_BodyManager_GrantActiveBodiesAccess *self) {
     ToCpp(self)->~GrantActiveBodiesAccess();
 }
 
@@ -6903,7 +6964,7 @@ void JPH_BodyManager_sSetOverrideAllowDeactivation(bool inValue) {
     JPH::BodyManager::sSetOverrideAllowDeactivation(inValue);
 }
 
-void JPH_TempAllocator_Destroy(JPH_TempAllocator *self) {
+void JPH_TempAllocator_Destruct(JPH_TempAllocator *self) {
     ToCpp(self)->~TempAllocator();
 }
 
@@ -6919,7 +6980,7 @@ void JPH_TempAllocatorImpl_Construct(JPH_TempAllocatorImpl *self, size_t inSize)
     new(ToCpp(self)) JPH::TempAllocatorImpl(inSize);
 }
 
-void JPH_TempAllocatorImpl_Destroy(JPH_TempAllocatorImpl *self) {
+void JPH_TempAllocatorImpl_Destruct(JPH_TempAllocatorImpl *self) {
     ToCpp(self)->~TempAllocatorImpl();
 }
 
@@ -7603,7 +7664,7 @@ void JPH_BodyLockInterface_Construct(JPH_BodyLockInterface *self, JPH_BodyManage
     new(ToCpp(self)) JPH::BodyLockInterface(*inBodyManager);
 }
 
-void JPH_BodyLockInterface_Destroy(JPH_BodyLockInterface *self) {
+void JPH_BodyLockInterface_Destruct(JPH_BodyLockInterface *self) {
     ToCpp(self)->~BodyLockInterface();
 }
 
@@ -7723,7 +7784,7 @@ void JPH_BodyLockInterfaceLocking_UnlockWriteWithMutexMask(const JPH_BodyLockInt
     ToCpp(self)->UnlockWrite(inMutexMask);
 }
 
-void JPH_BodyActivationListener_Destroy(JPH_BodyActivationListener *self) {
+void JPH_BodyActivationListener_Destruct(JPH_BodyActivationListener *self) {
     ToCpp(self)->~BodyActivationListener();
 }
 
@@ -8215,7 +8276,7 @@ void JPH_BodyInterface_ActivateBodyInternal(const JPH_BodyInterface *self, JPH_B
     ToCpp(self)->ActivateBodyInternal(*ioBody);
 }
 
-void JPH_BroadPhaseQuery_Destroy(JPH_BroadPhaseQuery *self) {
+void JPH_BroadPhaseQuery_Destruct(JPH_BroadPhaseQuery *self) {
     ToCpp(self)->~BroadPhaseQuery();
 }
 
@@ -8583,7 +8644,7 @@ void JPH_Ragdoll_Construct(JPH_Ragdoll *self, JPH_PhysicsSystem *inSystem) {
     new(ToCpp(self)) JPH::Ragdoll(inSystem);
 }
 
-void JPH_Ragdoll_Destroy(JPH_Ragdoll *self) {
+void JPH_Ragdoll_Destruct(JPH_Ragdoll *self) {
     ToCpp(self)->~Ragdoll();
 }
 
@@ -9427,7 +9488,7 @@ bool JPH_HingeConstraint_IsMinLimitClosest(const JPH_HingeConstraint *self) {
     return ToCpp(self)->IsMinLimitClosest();
 }
 
-void JPH_BodyFilter_Destroy(JPH_BodyFilter *self) {
+void JPH_BodyFilter_Destruct(JPH_BodyFilter *self) {
     ToCpp(self)->~BodyFilter();
 }
 
@@ -9571,7 +9632,7 @@ void JPH_PhysicsUpdateContext_Construct(JPH_PhysicsUpdateContext *self, JPH_Temp
     new(ToCpp(self)) JPH::PhysicsUpdateContext(*inTempAllocator);
 }
 
-void JPH_PhysicsUpdateContext_Destroy(JPH_PhysicsUpdateContext *self) {
+void JPH_PhysicsUpdateContext_Destruct(JPH_PhysicsUpdateContext *self) {
     ToCpp(self)->~PhysicsUpdateContext();
 }
 
@@ -9595,7 +9656,7 @@ void JPH_PhysicsSystem_Construct(JPH_PhysicsSystem *self) {
     new(ToCpp(self)) JPH::PhysicsSystem();
 }
 
-void JPH_PhysicsSystem_Destroy(JPH_PhysicsSystem *self) {
+void JPH_PhysicsSystem_Destruct(JPH_PhysicsSystem *self) {
     ToCpp(self)->~PhysicsSystem();
 }
 
@@ -10255,7 +10316,7 @@ void JPH_CollideSphereVsTriangles_Collide(JPH_CollideSphereVsTriangles *self, co
     ToCpp(self)->Collide(inV0, inV1, inV2, inActiveEdges, *inSubShapeID2);
 }
 
-void JPH_SoftBodyContactListener_Destroy(JPH_SoftBodyContactListener *self) {
+void JPH_SoftBodyContactListener_Destruct(JPH_SoftBodyContactListener *self) {
     ToCpp(self)->~SoftBodyContactListener();
 }
 
@@ -10331,7 +10392,7 @@ void JPH_CollideSoftBodyVertexIterator_SetCollision(const JPH_CollideSoftBodyVer
     ToCpp(self)->SetCollision(*inCollisionPlane, inCollidingShapeIndex);
 }
 
-void JPH_SimShapeFilter_Destroy(JPH_SimShapeFilter *self) {
+void JPH_SimShapeFilter_Destruct(JPH_SimShapeFilter *self) {
     ToCpp(self)->~SimShapeFilter();
 }
 
@@ -10743,7 +10804,7 @@ void JPH_QuadTree_Tracking_ConstructWithRHS(JPH_QuadTree_Tracking *self, const J
     new(ToCpp(self)) JPH::QuadTree::Tracking(*inRHS);
 }
 
-void JPH_QuadTree_Destroy(JPH_QuadTree *self) {
+void JPH_QuadTree_Destruct(JPH_QuadTree *self) {
     ToCpp(self)->~QuadTree();
 }
 
@@ -10895,7 +10956,7 @@ uint32_t JPH_QuadTree_GetMaxTreeDepth(const JPH_QuadTree *self, const JPH_QuadTr
     return ToCpp(self)->GetMaxTreeDepth(*inNodeID);
 }
 
-void JPH_BroadPhaseQuadTree_Destroy(JPH_BroadPhaseQuadTree *self) {
+void JPH_BroadPhaseQuadTree_Destruct(JPH_BroadPhaseQuadTree *self) {
     ToCpp(self)->~BroadPhaseQuadTree();
 }
 
@@ -11691,7 +11752,7 @@ void JPH_TriangleSplitter_Construct(JPH_TriangleSplitter *self, const JPH_Vertex
     new(ToCpp(self)) JPH::TriangleSplitter(*inVertices, *inTriangles);
 }
 
-void JPH_TriangleSplitter_Destroy(JPH_TriangleSplitter *self) {
+void JPH_TriangleSplitter_Destruct(JPH_TriangleSplitter *self) {
     ToCpp(self)->~TriangleSplitter();
 }
 
@@ -11971,7 +12032,7 @@ void JPH_HeightFieldShape_ConstructWithSettingsResult(JPH_HeightFieldShape *self
     new(ToCpp(self)) JPH::HeightFieldShape(*inSettings, *outResult);
 }
 
-void JPH_HeightFieldShape_Destroy(JPH_HeightFieldShape *self) {
+void JPH_HeightFieldShape_Destruct(JPH_HeightFieldShape *self) {
     ToCpp(self)->~HeightFieldShape();
 }
 
@@ -13031,7 +13092,7 @@ JPH_ConvexHullBuilder_Edge *JPH_ConvexHullBuilder_Edge_GetPreviousEdge(JPH_Conve
     return ToCpp(self)->GetPreviousEdge();
 }
 
-void JPH_ConvexHullBuilder_Face_Destroy(JPH_ConvexHullBuilder_Face *self) {
+void JPH_ConvexHullBuilder_Face_Destruct(JPH_ConvexHullBuilder_Face *self) {
     ToCpp(self)->~Face();
 }
 
@@ -13051,7 +13112,7 @@ void JPH_ConvexHullBuilder_Construct(JPH_ConvexHullBuilder *self, const JPH_Conv
     new(ToCpp(self)) JPH::ConvexHullBuilder(*inPositions);
 }
 
-void JPH_ConvexHullBuilder_Destroy(JPH_ConvexHullBuilder *self) {
+void JPH_ConvexHullBuilder_Destruct(JPH_ConvexHullBuilder *self) {
     ToCpp(self)->~ConvexHullBuilder();
 }
 
@@ -14023,7 +14084,7 @@ void JPH_CharacterBaseSettings_ConstructWith(JPH_CharacterBaseSettings *self, co
     new(ToCpp(self)) JPH::CharacterBaseSettings(*);
 }
 
-void JPH_CharacterBaseSettings_Destroy(JPH_CharacterBaseSettings *self) {
+void JPH_CharacterBaseSettings_Destruct(JPH_CharacterBaseSettings *self) {
     ToCpp(self)->~CharacterBaseSettings();
 }
 
@@ -14031,7 +14092,7 @@ void JPH_CharacterBase_Construct(JPH_CharacterBase *self, const JPH_CharacterBas
     new(ToCpp(self)) JPH::CharacterBase(inSettings, inSystem);
 }
 
-void JPH_CharacterBase_Destroy(JPH_CharacterBase *self) {
+void JPH_CharacterBase_Destruct(JPH_CharacterBase *self) {
     ToCpp(self)->~CharacterBase();
 }
 
@@ -14143,7 +14204,7 @@ void JPH_CharacterVirtualSettings_ConstructWith(JPH_CharacterVirtualSettings *se
     new(ToCpp(self)) JPH::CharacterVirtualSettings(*);
 }
 
-void JPH_CharacterContactListener_Destroy(JPH_CharacterContactListener *self) {
+void JPH_CharacterContactListener_Destruct(JPH_CharacterContactListener *self) {
     ToCpp(self)->~CharacterContactListener();
 }
 
@@ -14191,7 +14252,7 @@ void JPH_CharacterContactListener_OnCharacterContactSolve(JPH_CharacterContactLi
     ToCpp(self)->OnCharacterContactSolve(inCharacter, inOtherCharacter, *inSubShapeID2, inContactPosition, inContactNormal, inContactVelocity, inContactMaterial, inCharacterVelocity, *ioNewCharacterVelocity);
 }
 
-void JPH_CharacterVsCharacterCollision_Destroy(JPH_CharacterVsCharacterCollision *self) {
+void JPH_CharacterVsCharacterCollision_Destruct(JPH_CharacterVsCharacterCollision *self) {
     ToCpp(self)->~CharacterVsCharacterCollision();
 }
 
@@ -14227,7 +14288,7 @@ void JPH_CharacterVirtual_ConstructWithSettingsPositionRotationSystem(JPH_Charac
     new(ToCpp(self)) JPH::CharacterVirtual(inSettings, inPosition, inRotation, inSystem);
 }
 
-void JPH_CharacterVirtual_Destroy(JPH_CharacterVirtual *self) {
+void JPH_CharacterVirtual_Destruct(JPH_CharacterVirtual *self) {
     ToCpp(self)->~CharacterVirtual();
 }
 
@@ -14599,7 +14660,7 @@ void JPH_Character_Construct(JPH_Character *self, const JPH_CharacterSettings *i
     new(ToCpp(self)) JPH::Character(inSettings, inPosition, inRotation, inUserData, inSystem);
 }
 
-void JPH_Character_Destroy(JPH_Character *self) {
+void JPH_Character_Destruct(JPH_Character *self) {
     ToCpp(self)->~Character();
 }
 
@@ -14707,7 +14768,7 @@ void JPH_Character_CheckCollisionWithShapeMaxSeparationDistanceBaseOffsetIoColle
     ToCpp(self)->CheckCollision(inShape, inMaxSeparationDistance, inBaseOffset, *ioCollector, inLockBodies);
 }
 
-void JPH_PhysicsStepListener_Destroy(JPH_PhysicsStepListener *self) {
+void JPH_PhysicsStepListener_Destruct(JPH_PhysicsStepListener *self) {
     ToCpp(self)->~PhysicsStepListener();
 }
 
@@ -15219,7 +15280,7 @@ const void *JPH_PathConstraintPath_CastTo(const JPH_PathConstraintPath *self, co
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-void JPH_PathConstraintPath_Destroy(JPH_PathConstraintPath *self) {
+void JPH_PathConstraintPath_Destruct(JPH_PathConstraintPath *self) {
     ToCpp(self)->~PathConstraintPath();
 }
 
@@ -16279,7 +16340,7 @@ void JPH_VehicleController_Construct(JPH_VehicleController *self, JPH_VehicleCon
     new(ToCpp(self)) JPH::VehicleController(*inConstraint);
 }
 
-void JPH_VehicleController_Destroy(JPH_VehicleController *self) {
+void JPH_VehicleController_Destruct(JPH_VehicleController *self) {
     ToCpp(self)->~VehicleController();
 }
 
@@ -16331,7 +16392,7 @@ void JPH_VehicleCollisionTester_ConstructWithObjectLayer(JPH_VehicleCollisionTes
     new(ToCpp(self)) JPH::VehicleCollisionTester(inObjectLayer);
 }
 
-void JPH_VehicleCollisionTester_Destroy(JPH_VehicleCollisionTester *self) {
+void JPH_VehicleCollisionTester_Destruct(JPH_VehicleCollisionTester *self) {
     ToCpp(self)->~VehicleCollisionTester();
 }
 
@@ -16439,7 +16500,7 @@ void JPH_Wheel_Construct(JPH_Wheel *self, const JPH_WheelSettings *inSettings) {
     new(ToCpp(self)) JPH::Wheel(*inSettings);
 }
 
-void JPH_Wheel_Destroy(JPH_Wheel *self) {
+void JPH_Wheel_Destruct(JPH_Wheel *self) {
     ToCpp(self)->~Wheel();
 }
 
@@ -16551,7 +16612,7 @@ void JPH_VehicleConstraint_Construct(JPH_VehicleConstraint *self, JPH_Body *inVe
     new(ToCpp(self)) JPH::VehicleConstraint(*inVehicleBody, *inSettings);
 }
 
-void JPH_VehicleConstraint_Destroy(JPH_VehicleConstraint *self) {
+void JPH_VehicleConstraint_Destruct(JPH_VehicleConstraint *self) {
     ToCpp(self)->~VehicleConstraint();
 }
 
@@ -17935,7 +17996,7 @@ void JPH_ConvexHullBuilder2D_Construct(JPH_ConvexHullBuilder2D *self, const JPH_
     new(ToCpp(self)) JPH::ConvexHullBuilder2D(*inPositions);
 }
 
-void JPH_ConvexHullBuilder2D_Destroy(JPH_ConvexHullBuilder2D *self) {
+void JPH_ConvexHullBuilder2D_Destruct(JPH_ConvexHullBuilder2D *self) {
     ToCpp(self)->~ConvexHullBuilder2D();
 }
 

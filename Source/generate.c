@@ -21,6 +21,28 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
     return false;
 }
 
+// Simple interface = one vtable, no fields
+static inline
+bool IsSimpleInterface(CppAggregate *aggr) {
+    if (aggr->virtual_methods.count == 0 || aggr->fields.count > 0) {
+        return false;
+    }
+
+    foreach (i, aggr->base_classes) {
+        CppBaseClass *base = ArrayGet(aggr->base_classes, i);
+        if (base->type->kind != CppType_Named || base->type->type_named.entity == NULL) {
+            return false;
+        }
+
+        CppAggregate *base_aggr =  (CppAggregate *)base->type->type_named.entity;
+        if (base_aggr->virtual_methods.count > 0 || base_aggr->fields.count > 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
 static
 bool ShouldUnwrap(GenerateOptions options, const char *entity_name) {
     return ArrayFindFirstPredicate(options.typedefs_to_unwrap, entity_name, StringCompareFunc) >= 0;
@@ -34,6 +56,9 @@ bool ShouldPrintSpaceAfterType(CppType *type) {
 // @Todo: make sure types that contain opaque types are also treated as opaque (apart from 0 size base classes)
 static
 bool ShouldBeOpaque(CppAggregate *aggr) {
+    if (IsSimpleInterface(aggr)) {
+        return false;
+    }
     return aggr->virtual_methods.count > 0 || aggr->fields.count == 0 || aggr->type->size == 0;
 }
 
@@ -517,6 +542,11 @@ void AppendCAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation)
 
     SBAppendString(ctx->builder, " {\n");
 
+    if (aggr->virtual_methods.count > 0) {
+        SBAppendIndentation(ctx->builder, indentation + 1);
+        SBAppend(ctx->builder, "const %s_VTable *vtable;\n\n", aggr->base.fully_qualified_c_name);
+    }
+
     foreach (i, aggr->base_classes) {
         CppBaseClass *base = ArrayGet(aggr->base_classes, i);
         assert(!base->is_virtual && "Virtual base classes are not supported");
@@ -583,13 +613,38 @@ void AppendCAggregateForwardDecl(GenerateContext *ctx, CppAggregate *aggr) {
     SBAppend(ctx->builder, " %s;\n", aggr->base.fully_qualified_c_name);
 }
 
-void AppendCFunctionSignature(GenerateContext *ctx, CppFunction *func, int indentation) {
+void AppendCAggregateVTableTypedef(GenerateContext *ctx, CppAggregate *aggr) {
+    SBAppend(ctx->builder, "typedef struct %s_VTable {\n", aggr->base.fully_qualified_c_name);
+
+    foreach (i, aggr->virtual_methods) {
+        CppFunction *func = ArrayGet(aggr->virtual_methods, i);
+
+        SBAppendIndentation(ctx->builder, 1);
+        AppendCFunctionSignature(ctx, func, 1, true);
+        SBAppendString(ctx->builder, ";\n");
+    }
+
+    SBAppend(ctx->builder, "} %s_VTable;\n\n", aggr->base.fully_qualified_c_name);
+}
+
+void AppendCFunctionSignature(GenerateContext *ctx, CppFunction *func, int indentation, bool for_vtable) {
     AppendCType(ctx, func->result_type, indentation);
     if (ShouldPrintSpaceAfterType(func->result_type)) {
         SBAppendString(ctx->builder, " ");
     }
-    assert(func->base.unique_fully_qualified_c_name != NULL);
-    SBAppendString(ctx->builder, func->base.unique_fully_qualified_c_name);
+
+    if (for_vtable) {
+        SBAppendString(ctx->builder, "(*");
+
+        assert(func->base.unique_c_name != NULL);
+        SBAppendString(ctx->builder, func->base.unique_c_name);
+
+        SBAppendString(ctx->builder, ")");
+    } else {
+        assert(func->base.unique_fully_qualified_c_name != NULL);
+        SBAppendString(ctx->builder, func->base.unique_fully_qualified_c_name);
+    }
+
     SBAppendString(ctx->builder, "(");
 
     if (func->flags & CppFunctionFlag_Method) {
@@ -716,6 +771,12 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                 AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
                 SBAppendString(builder, "\n");
 
+                if (IsSimpleInterface(aggr)) {
+                    AppendCAggregateVTableTypedef(&ctx, aggr);
+                } else if (aggr->virtual_methods.count > 0) {
+                    printf("%s is not a simple interface and needs wrapping\n", aggr->base.fully_qualified_name);
+                }
+
                 if (aggr->flags & CppAggregateFlag_Abstract) {
                     SBAppendString(builder, "// Abstract\n");
                 } else if (aggr->virtual_methods.count > 0) {
@@ -738,7 +799,7 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
 
                     num_functions += 1;
 
-                    AppendCFunctionSignature(&ctx, func, 0);
+                    AppendCFunctionSignature(&ctx, func, 0, false);
                     SBAppendString(ctx.builder, ";\n");
                 }
 
@@ -785,7 +846,7 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                 continue;
             }
 
-            AppendCFunctionSignature(&ctx, func, 0);
+            AppendCFunctionSignature(&ctx, func, 0, false);
             SBAppendString(ctx.builder, ";\n");
         }
 
@@ -885,7 +946,7 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
             continue;
         }
 
-        AppendCFunctionSignature(&ctx, func, 0);
+        AppendCFunctionSignature(&ctx, func, 0, false);
         SBAppendString(builder, " {\n");
 
         SBAppendString(builder, "    ");
