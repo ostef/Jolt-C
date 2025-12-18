@@ -85,6 +85,7 @@ bool ShouldBeOpaque(CppAggregate *aggr) {
     if (IsSimpleInterface(aggr)) {
         return false;
     }
+
     return aggr->virtual_methods.count > 0 || aggr->fields.count == 0 || aggr->type->size == 0;
 }
 
