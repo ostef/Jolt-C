@@ -60,7 +60,9 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor) {
 }
 
 void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
-    HashMapInsert(&db->cursor_to_entity, &entity->cursor, entity);
+    if (!clang_Cursor_isNull(entity->cursor)) {
+        HashMapInsert(&db->cursor_to_entity, &entity->cursor, entity);
+    }
 
     entity->parent = parent;
 
@@ -122,6 +124,10 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
                     CppFunction *func = (CppFunction *)entity;
                     if (func->flags & CppFunctionFlag_Virtual) {
                         ArrayPush(&aggr->virtual_methods, entity);
+
+                        if (func->flags & CppFunctionFlag_Destructor) {
+                            aggr->flags |= CppAggregateFlag_VirtualDestructor;
+                        }
                     } else {
                         ArrayPush(&aggr->functions, entity);
                     }

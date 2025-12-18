@@ -218,6 +218,7 @@ enum {
 typedef struct CppEntity {
     CppEntityKind kind;
     CppEntityFlags flags;
+    uint64_t user_flags;
     CppVisibility visibility;
     CXCursor cursor;
     CppSourceCodeRange source_code_range;
@@ -257,8 +258,9 @@ typedef struct CppBaseClass {
 
 typedef uint32_t CppAggregateFlags;
 enum {
-    CppAggregateFlag_Abstract = 1 << 0,
-    CppAggregateFlag_Template = 1 << 1,
+    CppAggregateFlag_Abstract          = 1 << 0,
+    CppAggregateFlag_Template          = 1 << 1,
+    CppAggregateFlag_VirtualDestructor = 1 << 2,
 };
 
 typedef struct CppAggregate {

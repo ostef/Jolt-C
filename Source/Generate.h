@@ -16,7 +16,12 @@ typedef struct GenerateContext {
     StringBuilder *builder;
 } GenerateContext;
 
-void MakeUniqueOverloadedFunctionNames(GenerateOptions options, CppDatabase *db);
+enum {
+    CppEntityUserFlag_OpaqueTypeNewConstructor = 1 << 0,
+    CppEntityUserFlag_OpaqueTypeDeleteFunction = 1 << 1,
+};
+
+void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db);
 
 void AppendAlphanumericCType(GenerateContext *ctx, CppType *type);
 void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation);

@@ -301,8 +301,89 @@ void AppendAlphaNumericCType(GenerateContext *ctx, CppType *type) {
     }
 }
 
-void MakeUniqueOverloadedFunctionNames(GenerateOptions options, CppDatabase *db) {
-    foreach_key_value(kv, db->function_overloads) {
+static
+void GenerateOpaqueAggrNewFunction(GenerateOptions options, CppDatabase *db, CppAggregate *aggr, CppFunction *func) {
+    CppFunction *new_func = AllocCppEntity(Function, clang_getNullCursor());
+
+    new_func->base.name = "New";
+    new_func->base.c_name = "New";
+    if (func) {
+        new_func->base.flags = func->base.flags;
+        new_func->base.visibility = func->base.visibility;
+        new_func->base.source_code_range = func->base.source_code_range;
+    }
+    new_func->base.user_flags |= CppEntityUserFlag_OpaqueTypeNewConstructor;
+
+    if (func) {
+        new_func->flags = func->flags;
+    }
+    new_func->flags &= (~CppFunctionFlag_Constructor);
+    new_func->flags &= (~CppFunctionFlag_Method);
+
+    new_func->result_type = Alloc(CppType);
+    new_func->result_type->kind = CppType_Pointer;
+    new_func->result_type->type_pointer.pointee_type = aggr->type;
+
+    if (func) {
+        new_func->type = func->type;
+        new_func->parameters = func->parameters;
+    } else {
+        new_func->type = Alloc(CppType);
+        new_func->type->kind = CppType_Function;
+        new_func->type->type_function.result_type = new_func->result_type;
+    }
+
+    PushCppEntity(db, &aggr->base, &new_func->base);
+}
+
+static
+void GenerateOpaqueAggrDeleteFunction(GenerateOptions options, CppDatabase *db, CppAggregate *aggr) {
+    CppFunction *del_func = AllocCppEntity(Function, clang_getNullCursor());
+
+    del_func->base.name = "Delete";
+    del_func->base.c_name = "Delete";
+    del_func->base.user_flags |= CppEntityUserFlag_OpaqueTypeDeleteFunction;
+
+    del_func->flags = CppFunctionFlag_Method;
+
+    del_func->result_type = Alloc(CppType);
+    del_func->result_type->kind = CppType_Void;
+
+    del_func->type = Alloc(CppType);
+    del_func->type->kind = CppType_Function;
+    del_func->type->type_function.result_type = del_func->result_type;
+
+    PushCppEntity(db, &aggr->base, &del_func->base);
+}
+
+void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db) {
+    foreach (i, db->all_aggregates) {
+        CppAggregate *aggr = ArrayGet(db->all_aggregates, i);
+
+        if (ShouldExcludeEntity(options, &aggr->base)) {
+            continue;
+        }
+        if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
+            continue;
+        }
+
+        bool opaque = ShouldBeOpaque(aggr);
+
+        foreach (j, aggr->functions) {
+            CppFunction *func = ArrayGet(aggr->functions, j);
+
+            // Generate New functions for each constructor
+            if (func->flags & CppFunctionFlag_Constructor && opaque) {
+                GenerateOpaqueAggrNewFunction(options, db, aggr, func);
+            }
+        }
+
+        if (opaque) {
+            GenerateOpaqueAggrDeleteFunction(options, db, aggr);
+        }
+    }
+
+    foreach_key_value (kv, db->function_overloads) {
         Array *overloads = kv->value;
 
         if (overloads->count == 1) {
@@ -826,6 +907,9 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
 
                     num_functions += 1;
 
+                    if (func->flags & CppFunctionFlag_Constructor) {
+
+                    }
                     AppendCFunctionSignature(&ctx, func, 0, false);
                     SBAppendString(ctx.builder, ";\n");
                 }
@@ -964,10 +1048,15 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
         if (ShouldExcludeEntity(options, &func->base)) {
             continue;
         }
+        if (ShouldExcludeEntity(options, func->base.parent)) {
+            continue;
+        }
 
         if (options.exclude_non_class_functions && (!func->base.parent || func->base.parent->kind != CppEntity_Aggregate)) {
             continue;
         }
+
+        CppAggregate *aggr = (CppAggregate *)func->base.parent;
 
         if (func->flags & CppFunctionFlag_Operator) {
             continue;
@@ -982,9 +1071,14 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
             SBAppendString(builder, "return ");
         }
 
-        CppAggregate *aggr = func->base.parent && func->base.parent->kind == CppEntity_Aggregate ? (CppAggregate *)func->base.parent : NULL;
+        if (func->base.user_flags & CppEntityUserFlag_OpaqueTypeDeleteFunction) {
+            SBAppendString(builder, "delete self;\n}\n\n");
+            continue;
+        }
 
-        if (func->flags & CppFunctionFlag_Constructor) {
+        if (func->base.user_flags & CppEntityUserFlag_OpaqueTypeNewConstructor) {
+            SBAppend(builder, "new %s", aggr->base.fully_qualified_name);
+        } else if (func->flags & CppFunctionFlag_Constructor) {
             SBAppend(builder, "new(ToCpp(self)) %s", aggr->base.fully_qualified_name);
         } else if (func->flags & CppFunctionFlag_Method && !(func->flags & CppFunctionFlag_Constructor)) {
             SBAppend(builder, "ToCpp(self)->", aggr->base.fully_qualified_name);
