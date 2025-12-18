@@ -24,7 +24,6 @@ static_assert(sizeof(JPH::BodyAccess::EAccess) == sizeof(JPH_BodyAccess_EAccess)
 static_assert(sizeof(JPH::EMotionType) == sizeof(JPH_EMotionType), "Type mismatch for JPH_EMotionType");
 static_assert(sizeof(JPH::EBodyType) == sizeof(JPH_EBodyType), "Type mismatch for JPH_EBodyType");
 static_assert(sizeof(JPH::ECanSleep) == sizeof(JPH_ECanSleep), "Type mismatch for JPH_ECanSleep");
-static_assert(sizeof(JPH::Body::EFlags) == sizeof(JPH_Body_EFlags), "Type mismatch for JPH_Body_EFlags");
 static_assert(sizeof(JPH::ESpringMode) == sizeof(JPH_ESpringMode), "Type mismatch for JPH_ESpringMode");
 static_assert(sizeof(JPH::EStateRecorderState) == sizeof(JPH_EStateRecorderState), "Type mismatch for JPH_EStateRecorderState");
 static_assert(sizeof(JPH::ContactConstraintManager::CachedManifold::EFlags) == sizeof(JPH_ContactConstraintManager_CachedManifold_EFlags), "Type mismatch for JPH_ContactConstraintManager_CachedManifold_EFlags");
@@ -37,13 +36,11 @@ static_assert(sizeof(JPH::EPhysicsLockTypes) == sizeof(JPH_EPhysicsLockTypes), "
 static_assert(sizeof(JPH::EActivation) == sizeof(JPH_EActivation), "Type mismatch for JPH_EActivation");
 static_assert(sizeof(JPH::EMotorState) == sizeof(JPH_EMotorState), "Type mismatch for JPH_EMotorState");
 static_assert(sizeof(JPH::ESwingType) == sizeof(JPH_ESwingType), "Type mismatch for JPH_ESwingType");
-static_assert(sizeof(JPH::SwingTwistConstraintPart::ERotationFlags) == sizeof(JPH_SwingTwistConstraintPart_ERotationFlags), "Type mismatch for JPH_SwingTwistConstraintPart_ERotationFlags");
 static_assert(sizeof(JPH::EActiveEdgeMode) == sizeof(JPH_EActiveEdgeMode), "Type mismatch for JPH_EActiveEdgeMode");
 static_assert(sizeof(JPH::ECollectFacesMode) == sizeof(JPH_ECollectFacesMode), "Type mismatch for JPH_ECollectFacesMode");
 static_assert(sizeof(JPH::SoftBodyValidateResult) == sizeof(JPH_SoftBodyValidateResult), "Type mismatch for JPH_SoftBodyValidateResult");
 static_assert(sizeof(JPH::EPAPenetrationDepth::EStatus) == sizeof(JPH_EPAPenetrationDepth_EStatus), "Type mismatch for JPH_EPAPenetrationDepth_EStatus");
 static_assert(sizeof(JPH::MeshShapeSettings::EBuildQuality) == sizeof(JPH_MeshShapeSettings_EBuildQuality), "Type mismatch for JPH_MeshShapeSettings_EBuildQuality");
-static_assert(sizeof(JPH::MeshShape::ETriangleFlags) == sizeof(JPH_MeshShape_ETriangleFlags), "Type mismatch for JPH_MeshShape_ETriangleFlags");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EComponentData) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EComponentData), "Type mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EComponentData");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexXY) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexXY), "Type mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexXY");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexZY) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY), "Type mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY");
@@ -76,7 +73,6 @@ static_assert(sizeof(JPH::JobSystem::Barrier) == sizeof(JPH_JobSystem_Barrier), 
 static_assert(sizeof(JPH::JobSystem::Job) == sizeof(JPH_JobSystem_Job), "Type mismatch for JPH_JobSystem_Job");
 static_assert(sizeof(JPH::JobSystem) == sizeof(JPH_JobSystem), "Type mismatch for JPH_JobSystem");
 static_assert(sizeof(JPH::Semaphore) == sizeof(JPH_Semaphore), "Type mismatch for JPH_Semaphore");
-static_assert(sizeof(JPH::JobSystemWithBarrier::BarrierImpl) == sizeof(JPH_JobSystemWithBarrier_BarrierImpl), "Type mismatch for JPH_JobSystemWithBarrier_BarrierImpl");
 static_assert(sizeof(JPH::JobSystemWithBarrier) == sizeof(JPH_JobSystemWithBarrier), "Type mismatch for JPH_JobSystemWithBarrier");
 static_assert(sizeof(JPH::Mutex) == sizeof(JPH_Mutex), "Type mismatch for JPH_Mutex");
 static_assert(sizeof(JPH::SharedMutex) == sizeof(JPH_SharedMutex), "Type mismatch for JPH_SharedMutex");
@@ -108,7 +104,6 @@ static_assert(sizeof(JPH::LargeIslandSplitter::Split) == sizeof(JPH_LargeIslandS
 static_assert(sizeof(JPH::LargeIslandSplitter::Splits) == sizeof(JPH_LargeIslandSplitter_Splits), "Type mismatch for JPH_LargeIslandSplitter_Splits");
 static_assert(sizeof(JPH::LargeIslandSplitter) == sizeof(JPH_LargeIslandSplitter), "Type mismatch for JPH_LargeIslandSplitter");
 static_assert(sizeof(JPH::BodyID) == sizeof(JPH_BodyID), "Type mismatch for JPH_BodyID");
-static_assert(sizeof(JPH::IslandBuilder::BodyLink) == sizeof(JPH_IslandBuilder_BodyLink), "Type mismatch for JPH_IslandBuilder_BodyLink");
 static_assert(sizeof(JPH::IslandBuilder) == sizeof(JPH_IslandBuilder), "Type mismatch for JPH_IslandBuilder");
 static_assert(sizeof(JPH::PhysicsSettings) == sizeof(JPH_PhysicsSettings), "Type mismatch for JPH_PhysicsSettings");
 static_assert(sizeof(JPH::CalculateSolverSteps) == sizeof(JPH_CalculateSolverSteps), "Type mismatch for JPH_CalculateSolverSteps");
@@ -164,16 +159,9 @@ static_assert(sizeof(JPH::StateRecorder) == sizeof(JPH_StateRecorder), "Type mis
 static_assert(sizeof(JPH::AxisConstraintPart) == sizeof(JPH_AxisConstraintPart), "Type mismatch for JPH_AxisConstraintPart");
 static_assert(sizeof(JPH::DualAxisConstraintPart) == sizeof(JPH_DualAxisConstraintPart), "Type mismatch for JPH_DualAxisConstraintPart");
 static_assert(sizeof(JPH::ContactConstraintManager::ContactAllocator) == sizeof(JPH_ContactConstraintManager_ContactAllocator), "Type mismatch for JPH_ContactConstraintManager_ContactAllocator");
-static_assert(sizeof(JPH::ContactConstraintManager::CachedContactPoint) == sizeof(JPH_ContactConstraintManager_CachedContactPoint), "Type mismatch for JPH_ContactConstraintManager_CachedContactPoint");
-static_assert(sizeof(JPH::ContactConstraintManager::CachedManifold) == sizeof(JPH_ContactConstraintManager_CachedManifold), "Type mismatch for JPH_ContactConstraintManager_CachedManifold");
-static_assert(sizeof(JPH::ContactConstraintManager::CachedBodyPair) == sizeof(JPH_ContactConstraintManager_CachedBodyPair), "Type mismatch for JPH_ContactConstraintManager_CachedBodyPair");
-static_assert(sizeof(JPH::ContactConstraintManager::ManifoldCache) == sizeof(JPH_ContactConstraintManager_ManifoldCache), "Type mismatch for JPH_ContactConstraintManager_ManifoldCache");
-static_assert(sizeof(JPH::ContactConstraintManager::WorldContactPoint) == sizeof(JPH_ContactConstraintManager_WorldContactPoint), "Type mismatch for JPH_ContactConstraintManager_WorldContactPoint");
-static_assert(sizeof(JPH::ContactConstraintManager::ContactConstraint) == sizeof(JPH_ContactConstraintManager_ContactConstraint), "Type mismatch for JPH_ContactConstraintManager_ContactConstraint");
 static_assert(sizeof(JPH::ContactConstraintManager) == sizeof(JPH_ContactConstraintManager), "Type mismatch for JPH_ContactConstraintManager");
 static_assert(sizeof(JPH::BroadPhaseLayerInterfaceTable) == sizeof(JPH_BroadPhaseLayerInterfaceTable), "Type mismatch for JPH_BroadPhaseLayerInterfaceTable");
 static_assert(sizeof(JPH::ObjectLayerPairFilterMask) == sizeof(JPH_ObjectLayerPairFilterMask), "Type mismatch for JPH_ObjectLayerPairFilterMask");
-static_assert(sizeof(JPH::BroadPhaseLayerInterfaceMask::Mapping) == sizeof(JPH_BroadPhaseLayerInterfaceMask_Mapping), "Type mismatch for JPH_BroadPhaseLayerInterfaceMask_Mapping");
 static_assert(sizeof(JPH::BroadPhaseLayerInterfaceMask) == sizeof(JPH_BroadPhaseLayerInterfaceMask), "Type mismatch for JPH_BroadPhaseLayerInterfaceMask");
 static_assert(sizeof(JPH::BodyManager::BodyStats) == sizeof(JPH_BodyManager_BodyStats), "Type mismatch for JPH_BodyManager_BodyStats");
 static_assert(sizeof(JPH::BodyManager::GrantActiveBodiesAccess) == sizeof(JPH_BodyManager_GrantActiveBodiesAccess), "Type mismatch for JPH_BodyManager_GrantActiveBodiesAccess");
@@ -196,21 +184,13 @@ static_assert(sizeof(JPH::SoftBodySharedSettings::Skinned) == sizeof(JPH_SoftBod
 static_assert(sizeof(JPH::SoftBodySharedSettings::LRA) == sizeof(JPH_SoftBodySharedSettings_LRA), "Type mismatch for JPH_SoftBodySharedSettings_LRA");
 static_assert(sizeof(JPH::SoftBodySharedSettings::RodStretchShear) == sizeof(JPH_SoftBodySharedSettings_RodStretchShear), "Type mismatch for JPH_SoftBodySharedSettings_RodStretchShear");
 static_assert(sizeof(JPH::SoftBodySharedSettings::RodBendTwist) == sizeof(JPH_SoftBodySharedSettings_RodBendTwist), "Type mismatch for JPH_SoftBodySharedSettings_RodBendTwist");
-static_assert(sizeof(JPH::SoftBodySharedSettings::ClosestKinematic) == sizeof(JPH_SoftBodySharedSettings_ClosestKinematic), "Type mismatch for JPH_SoftBodySharedSettings_ClosestKinematic");
-static_assert(sizeof(JPH::SoftBodySharedSettings::UpdateGroup) == sizeof(JPH_SoftBodySharedSettings_UpdateGroup), "Type mismatch for JPH_SoftBodySharedSettings_UpdateGroup");
 static_assert(sizeof(JPH::SoftBodySharedSettings) == sizeof(JPH_SoftBodySharedSettings), "Type mismatch for JPH_SoftBodySharedSettings");
 static_assert(sizeof(JPH::SoftBodyCreationSettings) == sizeof(JPH_SoftBodyCreationSettings), "Type mismatch for JPH_SoftBodyCreationSettings");
 static_assert(sizeof(JPH::SoftBodyVertex) == sizeof(JPH_SoftBodyVertex), "Type mismatch for JPH_SoftBodyVertex");
 static_assert(sizeof(JPH::SoftBodyUpdateContext) == sizeof(JPH_SoftBodyUpdateContext), "Type mismatch for JPH_SoftBodyUpdateContext");
-static_assert(sizeof(JPH::SoftBodyMotionProperties::LeafShape) == sizeof(JPH_SoftBodyMotionProperties_LeafShape), "Type mismatch for JPH_SoftBodyMotionProperties_LeafShape");
-static_assert(sizeof(JPH::SoftBodyMotionProperties::CollidingShape) == sizeof(JPH_SoftBodyMotionProperties_CollidingShape), "Type mismatch for JPH_SoftBodyMotionProperties_CollidingShape");
-static_assert(sizeof(JPH::SoftBodyMotionProperties::CollidingSensor) == sizeof(JPH_SoftBodyMotionProperties_CollidingSensor), "Type mismatch for JPH_SoftBodyMotionProperties_CollidingSensor");
-static_assert(sizeof(JPH::SoftBodyMotionProperties::RodState) == sizeof(JPH_SoftBodyMotionProperties_RodState), "Type mismatch for JPH_SoftBodyMotionProperties_RodState");
-static_assert(sizeof(JPH::SoftBodyMotionProperties::SkinState) == sizeof(JPH_SoftBodyMotionProperties_SkinState), "Type mismatch for JPH_SoftBodyMotionProperties_SkinState");
 static_assert(sizeof(JPH::SoftBodyMotionProperties) == sizeof(JPH_SoftBodyMotionProperties), "Type mismatch for JPH_SoftBodyMotionProperties");
 static_assert(sizeof(JPH::EmptyShapeSettings) == sizeof(JPH_EmptyShapeSettings), "Type mismatch for JPH_EmptyShapeSettings");
 static_assert(sizeof(JPH::EmptyShape) == sizeof(JPH_EmptyShape), "Type mismatch for JPH_EmptyShape");
-static_assert(sizeof(JPH::PhysicsLock::LockData) == sizeof(JPH_PhysicsLock_LockData), "Type mismatch for JPH_PhysicsLock_LockData");
 static_assert(sizeof(JPH::PhysicsLock) == sizeof(JPH_PhysicsLock), "Type mismatch for JPH_PhysicsLock");
 static_assert(sizeof(JPH::BodyLockInterface) == sizeof(JPH_BodyLockInterface), "Type mismatch for JPH_BodyLockInterface");
 static_assert(sizeof(JPH::BodyLockInterfaceNoLock) == sizeof(JPH_BodyLockInterfaceNoLock), "Type mismatch for JPH_BodyLockInterfaceNoLock");
@@ -290,33 +270,24 @@ static_assert(sizeof(JPH::SimShapeFilter) == sizeof(JPH_SimShapeFilter), "Type m
 static_assert(sizeof(JPH::SimShapeFilterWrapper) == sizeof(JPH_SimShapeFilterWrapper), "Type mismatch for JPH_SimShapeFilterWrapper");
 static_assert(sizeof(JPH::PhysicsMaterialSimple) == sizeof(JPH_PhysicsMaterialSimple), "Type mismatch for JPH_PhysicsMaterialSimple");
 static_assert(sizeof(JPH::AABoxCast) == sizeof(JPH_AABoxCast), "Type mismatch for JPH_AABoxCast");
-static_assert(sizeof(JPH::InternalEdgeRemovingCollector::Voided) == sizeof(JPH_InternalEdgeRemovingCollector_Voided), "Type mismatch for JPH_InternalEdgeRemovingCollector_Voided");
 static_assert(sizeof(JPH::InternalEdgeRemovingCollector) == sizeof(JPH_InternalEdgeRemovingCollector), "Type mismatch for JPH_InternalEdgeRemovingCollector");
 static_assert(sizeof(JPH::PointConvexSupport) == sizeof(JPH_PointConvexSupport), "Type mismatch for JPH_PointConvexSupport");
 static_assert(sizeof(JPH::TriangleConvexSupport) == sizeof(JPH_TriangleConvexSupport), "Type mismatch for JPH_TriangleConvexSupport");
 static_assert(sizeof(JPH::GJKClosestPoint) == sizeof(JPH_GJKClosestPoint), "Type mismatch for JPH_GJKClosestPoint");
 static_assert(sizeof(JPH::EPAConvexHullBuilder::Edge) == sizeof(JPH_EPAConvexHullBuilder_Edge), "Type mismatch for JPH_EPAConvexHullBuilder_Edge");
 static_assert(sizeof(JPH::EPAConvexHullBuilder::Triangle) == sizeof(JPH_EPAConvexHullBuilder_Triangle), "Type mismatch for JPH_EPAConvexHullBuilder_Triangle");
-static_assert(sizeof(JPH::EPAConvexHullBuilder::TriangleFactory::Block) == sizeof(JPH_EPAConvexHullBuilder_TriangleFactory_Block), "Type mismatch for JPH_EPAConvexHullBuilder_TriangleFactory_Block");
 static_assert(sizeof(JPH::EPAConvexHullBuilder::TriangleFactory) == sizeof(JPH_EPAConvexHullBuilder_TriangleFactory), "Type mismatch for JPH_EPAConvexHullBuilder_TriangleFactory");
 static_assert(sizeof(JPH::EPAConvexHullBuilder::Points) == sizeof(JPH_EPAConvexHullBuilder_Points), "Type mismatch for JPH_EPAConvexHullBuilder_Points");
 static_assert(sizeof(JPH::EPAConvexHullBuilder::TriangleQueue) == sizeof(JPH_EPAConvexHullBuilder_TriangleQueue), "Type mismatch for JPH_EPAConvexHullBuilder_TriangleQueue");
 static_assert(sizeof(JPH::EPAConvexHullBuilder) == sizeof(JPH_EPAConvexHullBuilder), "Type mismatch for JPH_EPAConvexHullBuilder");
-static_assert(sizeof(JPH::EPAPenetrationDepth::SupportPoints) == sizeof(JPH_EPAPenetrationDepth_SupportPoints), "Type mismatch for JPH_EPAPenetrationDepth_SupportPoints");
 static_assert(sizeof(JPH::EPAPenetrationDepth) == sizeof(JPH_EPAPenetrationDepth), "Type mismatch for JPH_EPAPenetrationDepth");
 static_assert(sizeof(JPH::OrientedBox) == sizeof(JPH_OrientedBox), "Type mismatch for JPH_OrientedBox");
 static_assert(sizeof(JPH::BroadPhaseBruteForce) == sizeof(JPH_BroadPhaseBruteForce), "Type mismatch for JPH_BroadPhaseBruteForce");
 static_assert(sizeof(JPH::RayInvDirection) == sizeof(JPH_RayInvDirection), "Type mismatch for JPH_RayInvDirection");
-static_assert(sizeof(JPH::QuadTree::NodeID) == sizeof(JPH_QuadTree_NodeID), "Type mismatch for JPH_QuadTree_NodeID");
-static_assert(sizeof(JPH::QuadTree::AtomicNodeID) == sizeof(JPH_QuadTree_AtomicNodeID), "Type mismatch for JPH_QuadTree_AtomicNodeID");
-static_assert(sizeof(JPH::QuadTree::Node) == sizeof(JPH_QuadTree_Node), "Type mismatch for JPH_QuadTree_Node");
 static_assert(sizeof(JPH::QuadTree::Tracking) == sizeof(JPH_QuadTree_Tracking), "Type mismatch for JPH_QuadTree_Tracking");
 static_assert(sizeof(JPH::QuadTree::UpdateState) == sizeof(JPH_QuadTree_UpdateState), "Type mismatch for JPH_QuadTree_UpdateState");
 static_assert(sizeof(JPH::QuadTree::AddState) == sizeof(JPH_QuadTree_AddState), "Type mismatch for JPH_QuadTree_AddState");
-static_assert(sizeof(JPH::QuadTree::RootNode) == sizeof(JPH_QuadTree_RootNode), "Type mismatch for JPH_QuadTree_RootNode");
 static_assert(sizeof(JPH::QuadTree) == sizeof(JPH_QuadTree), "Type mismatch for JPH_QuadTree");
-static_assert(sizeof(JPH::BroadPhaseQuadTree::LayerState) == sizeof(JPH_BroadPhaseQuadTree_LayerState), "Type mismatch for JPH_BroadPhaseQuadTree_LayerState");
-static_assert(sizeof(JPH::BroadPhaseQuadTree::UpdateStateImpl) == sizeof(JPH_BroadPhaseQuadTree_UpdateStateImpl), "Type mismatch for JPH_BroadPhaseQuadTree_UpdateStateImpl");
 static_assert(sizeof(JPH::BroadPhaseQuadTree) == sizeof(JPH_BroadPhaseQuadTree), "Type mismatch for JPH_BroadPhaseQuadTree");
 static_assert(sizeof(JPH::CollisionEstimationResult::Impulse) == sizeof(JPH_CollisionEstimationResult_Impulse), "Type mismatch for JPH_CollisionEstimationResult_Impulse");
 static_assert(sizeof(JPH::CollisionEstimationResult) == sizeof(JPH_CollisionEstimationResult), "Type mismatch for JPH_CollisionEstimationResult");
@@ -335,7 +306,6 @@ static_assert(sizeof(JPH::CollideSoftBodyVerticesVsTriangles) == sizeof(JPH_Coll
 static_assert(sizeof(JPH::TriangleSplitter::Stats) == sizeof(JPH_TriangleSplitter_Stats), "Type mismatch for JPH_TriangleSplitter_Stats");
 static_assert(sizeof(JPH::TriangleSplitter::Range) == sizeof(JPH_TriangleSplitter_Range), "Type mismatch for JPH_TriangleSplitter_Range");
 static_assert(sizeof(JPH::TriangleSplitter) == sizeof(JPH_TriangleSplitter), "Type mismatch for JPH_TriangleSplitter");
-static_assert(sizeof(JPH::TriangleSplitterBinning::Bin) == sizeof(JPH_TriangleSplitterBinning_Bin), "Type mismatch for JPH_TriangleSplitterBinning_Bin");
 static_assert(sizeof(JPH::TriangleSplitterBinning) == sizeof(JPH_TriangleSplitterBinning), "Type mismatch for JPH_TriangleSplitterBinning");
 static_assert(sizeof(JPH::TriangleSplitterMean) == sizeof(JPH_TriangleSplitterMean), "Type mismatch for JPH_TriangleSplitterMean");
 static_assert(sizeof(JPH::AABBTreeBuilderStats) == sizeof(JPH_AABBTreeBuilderStats), "Type mismatch for JPH_AABBTreeBuilderStats");
@@ -355,13 +325,11 @@ static_assert(sizeof(JPH::NodeCodecQuadTreeHalfFloat::EncodingContext) == sizeof
 static_assert(sizeof(JPH::NodeCodecQuadTreeHalfFloat::DecodingContext) == sizeof(JPH_NodeCodecQuadTreeHalfFloat_DecodingContext), "Type mismatch for JPH_NodeCodecQuadTreeHalfFloat_DecodingContext");
 static_assert(sizeof(JPH::NodeCodecQuadTreeHalfFloat) == sizeof(JPH_NodeCodecQuadTreeHalfFloat), "Type mismatch for JPH_NodeCodecQuadTreeHalfFloat");
 static_assert(sizeof(JPH::HeightFieldShapeSettings) == sizeof(JPH_HeightFieldShapeSettings), "Type mismatch for JPH_HeightFieldShapeSettings");
-static_assert(sizeof(JPH::HeightFieldShape::RangeBlock) == sizeof(JPH_HeightFieldShape_RangeBlock), "Type mismatch for JPH_HeightFieldShape_RangeBlock");
 static_assert(sizeof(JPH::HeightFieldShape) == sizeof(JPH_HeightFieldShape), "Type mismatch for JPH_HeightFieldShape");
 static_assert(sizeof(JPH::CollidePointResult) == sizeof(JPH_CollidePointResult), "Type mismatch for JPH_CollidePointResult");
 static_assert(sizeof(JPH::CapsuleShapeSettings) == sizeof(JPH_CapsuleShapeSettings), "Type mismatch for JPH_CapsuleShapeSettings");
 static_assert(sizeof(JPH::CapsuleShape) == sizeof(JPH_CapsuleShape), "Type mismatch for JPH_CapsuleShape");
 static_assert(sizeof(JPH::GetTrianglesContextVertexList) == sizeof(JPH_GetTrianglesContextVertexList), "Type mismatch for JPH_GetTrianglesContextVertexList");
-static_assert(sizeof(JPH::GetTrianglesContextMultiVertexList::Part) == sizeof(JPH_GetTrianglesContextMultiVertexList_Part), "Type mismatch for JPH_GetTrianglesContextMultiVertexList_Part");
 static_assert(sizeof(JPH::GetTrianglesContextMultiVertexList) == sizeof(JPH_GetTrianglesContextMultiVertexList), "Type mismatch for JPH_GetTrianglesContextMultiVertexList");
 static_assert(sizeof(JPH::CylinderShapeSettings) == sizeof(JPH_CylinderShapeSettings), "Type mismatch for JPH_CylinderShapeSettings");
 static_assert(sizeof(JPH::CylinderShape) == sizeof(JPH_CylinderShape), "Type mismatch for JPH_CylinderShape");
@@ -372,22 +340,17 @@ static_assert(sizeof(JPH::TaperedCylinderShape) == sizeof(JPH_TaperedCylinderSha
 static_assert(sizeof(JPH::BoxShapeSettings) == sizeof(JPH_BoxShapeSettings), "Type mismatch for JPH_BoxShapeSettings");
 static_assert(sizeof(JPH::BoxShape) == sizeof(JPH_BoxShape), "Type mismatch for JPH_BoxShape");
 static_assert(sizeof(JPH::ConvexHullShapeSettings) == sizeof(JPH_ConvexHullShapeSettings), "Type mismatch for JPH_ConvexHullShapeSettings");
-static_assert(sizeof(JPH::ConvexHullShape::Face) == sizeof(JPH_ConvexHullShape_Face), "Type mismatch for JPH_ConvexHullShape_Face");
-static_assert(sizeof(JPH::ConvexHullShape::Point) == sizeof(JPH_ConvexHullShape_Point), "Type mismatch for JPH_ConvexHullShape_Point");
 static_assert(sizeof(JPH::ConvexHullShape) == sizeof(JPH_ConvexHullShape), "Type mismatch for JPH_ConvexHullShape");
 static_assert(sizeof(JPH::PolyhedronSubmergedVolumeCalculator::Point) == sizeof(JPH_PolyhedronSubmergedVolumeCalculator_Point), "Type mismatch for JPH_PolyhedronSubmergedVolumeCalculator_Point");
 static_assert(sizeof(JPH::PolyhedronSubmergedVolumeCalculator) == sizeof(JPH_PolyhedronSubmergedVolumeCalculator), "Type mismatch for JPH_PolyhedronSubmergedVolumeCalculator");
 static_assert(sizeof(JPH::ConvexHullBuilder::Edge) == sizeof(JPH_ConvexHullBuilder_Edge), "Type mismatch for JPH_ConvexHullBuilder_Edge");
 static_assert(sizeof(JPH::ConvexHullBuilder::Face) == sizeof(JPH_ConvexHullBuilder_Face), "Type mismatch for JPH_ConvexHullBuilder_Face");
-static_assert(sizeof(JPH::ConvexHullBuilder::FullEdge) == sizeof(JPH_ConvexHullBuilder_FullEdge), "Type mismatch for JPH_ConvexHullBuilder_FullEdge");
-static_assert(sizeof(JPH::ConvexHullBuilder::Coplanar) == sizeof(JPH_ConvexHullBuilder_Coplanar), "Type mismatch for JPH_ConvexHullBuilder_Coplanar");
 static_assert(sizeof(JPH::ConvexHullBuilder) == sizeof(JPH_ConvexHullBuilder), "Type mismatch for JPH_ConvexHullBuilder");
 static_assert(sizeof(JPH::CompoundShapeSettings::SubShapeSettings) == sizeof(JPH_CompoundShapeSettings_SubShapeSettings), "Type mismatch for JPH_CompoundShapeSettings_SubShapeSettings");
 static_assert(sizeof(JPH::CompoundShapeSettings) == sizeof(JPH_CompoundShapeSettings), "Type mismatch for JPH_CompoundShapeSettings");
 static_assert(sizeof(JPH::CompoundShape::SubShape) == sizeof(JPH_CompoundShape_SubShape), "Type mismatch for JPH_CompoundShape_SubShape");
 static_assert(sizeof(JPH::CompoundShape) == sizeof(JPH_CompoundShape), "Type mismatch for JPH_CompoundShape");
 static_assert(sizeof(JPH::MutableCompoundShapeSettings) == sizeof(JPH_MutableCompoundShapeSettings), "Type mismatch for JPH_MutableCompoundShapeSettings");
-static_assert(sizeof(JPH::MutableCompoundShape::Bounds) == sizeof(JPH_MutableCompoundShape_Bounds), "Type mismatch for JPH_MutableCompoundShape_Bounds");
 static_assert(sizeof(JPH::MutableCompoundShape) == sizeof(JPH_MutableCompoundShape), "Type mismatch for JPH_MutableCompoundShape");
 static_assert(sizeof(JPH::CastRayVisitor) == sizeof(JPH_CastRayVisitor), "Type mismatch for JPH_CastRayVisitor");
 static_assert(sizeof(JPH::CastRayVisitorCollector) == sizeof(JPH_CastRayVisitorCollector), "Type mismatch for JPH_CastRayVisitorCollector");
@@ -401,7 +364,6 @@ static_assert(sizeof(JPH::PlaneShape) == sizeof(JPH_PlaneShape), "Type mismatch 
 static_assert(sizeof(JPH::TriangleShapeSettings) == sizeof(JPH_TriangleShapeSettings), "Type mismatch for JPH_TriangleShapeSettings");
 static_assert(sizeof(JPH::TriangleShape) == sizeof(JPH_TriangleShape), "Type mismatch for JPH_TriangleShape");
 static_assert(sizeof(JPH::StaticCompoundShapeSettings) == sizeof(JPH_StaticCompoundShapeSettings), "Type mismatch for JPH_StaticCompoundShapeSettings");
-static_assert(sizeof(JPH::StaticCompoundShape::Node) == sizeof(JPH_StaticCompoundShape_Node), "Type mismatch for JPH_StaticCompoundShape_Node");
 static_assert(sizeof(JPH::StaticCompoundShape) == sizeof(JPH_StaticCompoundShape), "Type mismatch for JPH_StaticCompoundShape");
 static_assert(sizeof(JPH::CharacterBaseSettings) == sizeof(JPH_CharacterBaseSettings), "Type mismatch for JPH_CharacterBaseSettings");
 static_assert(sizeof(JPH::CharacterBase) == sizeof(JPH_CharacterBase), "Type mismatch for JPH_CharacterBase");
@@ -414,11 +376,6 @@ static_assert(sizeof(JPH::CharacterVsCharacterCollisionSimple) == sizeof(JPH_Cha
 static_assert(sizeof(JPH::CharacterVirtual::ExtendedUpdateSettings) == sizeof(JPH_CharacterVirtual_ExtendedUpdateSettings), "Type mismatch for JPH_CharacterVirtual_ExtendedUpdateSettings");
 static_assert(sizeof(JPH::CharacterVirtual::ContactKey) == sizeof(JPH_CharacterVirtual_ContactKey), "Type mismatch for JPH_CharacterVirtual_ContactKey");
 static_assert(sizeof(JPH::CharacterVirtual::Contact) == sizeof(JPH_CharacterVirtual_Contact), "Type mismatch for JPH_CharacterVirtual_Contact");
-static_assert(sizeof(JPH::CharacterVirtual::ContactOrderingPredicate) == sizeof(JPH_CharacterVirtual_ContactOrderingPredicate), "Type mismatch for JPH_CharacterVirtual_ContactOrderingPredicate");
-static_assert(sizeof(JPH::CharacterVirtual::Constraint) == sizeof(JPH_CharacterVirtual_Constraint), "Type mismatch for JPH_CharacterVirtual_Constraint");
-static_assert(sizeof(JPH::CharacterVirtual::ContactCollector) == sizeof(JPH_CharacterVirtual_ContactCollector), "Type mismatch for JPH_CharacterVirtual_ContactCollector");
-static_assert(sizeof(JPH::CharacterVirtual::ContactCastCollector) == sizeof(JPH_CharacterVirtual_ContactCastCollector), "Type mismatch for JPH_CharacterVirtual_ContactCastCollector");
-static_assert(sizeof(JPH::CharacterVirtual::ListenerContactValue) == sizeof(JPH_CharacterVirtual_ListenerContactValue), "Type mismatch for JPH_CharacterVirtual_ListenerContactValue");
 static_assert(sizeof(JPH::CharacterVirtual) == sizeof(JPH_CharacterVirtual), "Type mismatch for JPH_CharacterVirtual");
 static_assert(sizeof(JPH::CharacterSettings) == sizeof(JPH_CharacterSettings), "Type mismatch for JPH_CharacterSettings");
 static_assert(sizeof(JPH::Character) == sizeof(JPH_Character), "Type mismatch for JPH_Character");
@@ -481,13 +438,8 @@ static_assert(sizeof(JPH::WheelTV) == sizeof(JPH_WheelTV), "Type mismatch for JP
 static_assert(sizeof(JPH::TrackedVehicleControllerSettings) == sizeof(JPH_TrackedVehicleControllerSettings), "Type mismatch for JPH_TrackedVehicleControllerSettings");
 static_assert(sizeof(JPH::TrackedVehicleController) == sizeof(JPH_TrackedVehicleController), "Type mismatch for JPH_TrackedVehicleController");
 static_assert(sizeof(JPH::DynMatrix) == sizeof(JPH_DynMatrix), "Type mismatch for JPH_DynMatrix");
-static_assert(sizeof(JPH::ObjectStreamOut::ObjectInfo) == sizeof(JPH_ObjectStreamOut_ObjectInfo), "Type mismatch for JPH_ObjectStreamOut_ObjectInfo");
 static_assert(sizeof(JPH::ObjectStreamOut) == sizeof(JPH_ObjectStreamOut), "Type mismatch for JPH_ObjectStreamOut");
 static_assert(sizeof(JPH::ObjectStreamBinaryOut) == sizeof(JPH_ObjectStreamBinaryOut), "Type mismatch for JPH_ObjectStreamBinaryOut");
-static_assert(sizeof(JPH::ObjectStreamIn::AttributeDescription) == sizeof(JPH_ObjectStreamIn_AttributeDescription), "Type mismatch for JPH_ObjectStreamIn_AttributeDescription");
-static_assert(sizeof(JPH::ObjectStreamIn::ClassDescription) == sizeof(JPH_ObjectStreamIn_ClassDescription), "Type mismatch for JPH_ObjectStreamIn_ClassDescription");
-static_assert(sizeof(JPH::ObjectStreamIn::ObjectInfo) == sizeof(JPH_ObjectStreamIn_ObjectInfo), "Type mismatch for JPH_ObjectStreamIn_ObjectInfo");
-static_assert(sizeof(JPH::ObjectStreamIn::Link) == sizeof(JPH_ObjectStreamIn_Link), "Type mismatch for JPH_ObjectStreamIn_Link");
 static_assert(sizeof(JPH::ObjectStreamIn) == sizeof(JPH_ObjectStreamIn), "Type mismatch for JPH_ObjectStreamIn");
 static_assert(sizeof(JPH::ObjectStreamTextIn) == sizeof(JPH_ObjectStreamTextIn), "Type mismatch for JPH_ObjectStreamTextIn");
 static_assert(sizeof(JPH::ObjectStreamBinaryIn) == sizeof(JPH_ObjectStreamBinaryIn), "Type mismatch for JPH_ObjectStreamBinaryIn");
@@ -497,7 +449,6 @@ static_assert(sizeof(JPH::SkeletonMapper::Chain) == sizeof(JPH_SkeletonMapper_Ch
 static_assert(sizeof(JPH::SkeletonMapper::Unmapped) == sizeof(JPH_SkeletonMapper_Unmapped), "Type mismatch for JPH_SkeletonMapper_Unmapped");
 static_assert(sizeof(JPH::SkeletonMapper::Locked) == sizeof(JPH_SkeletonMapper_Locked), "Type mismatch for JPH_SkeletonMapper_Locked");
 static_assert(sizeof(JPH::SkeletonMapper) == sizeof(JPH_SkeletonMapper), "Type mismatch for JPH_SkeletonMapper");
-static_assert(sizeof(JPH::ConvexHullBuilder2D::Edge) == sizeof(JPH_ConvexHullBuilder2D_Edge), "Type mismatch for JPH_ConvexHullBuilder2D_Edge");
 static_assert(sizeof(JPH::ConvexHullBuilder2D) == sizeof(JPH_ConvexHullBuilder2D), "Type mismatch for JPH_ConvexHullBuilder2D");
 
 // Cpp conversion functions
@@ -521,7 +472,6 @@ static inline JPH::BodyAccess::EAccess ToCpp(JPH_BodyAccess_EAccess val) { retur
 static inline JPH::EMotionType ToCpp(JPH_EMotionType val) { return static_cast<JPH::EMotionType>(val); }
 static inline JPH::EBodyType ToCpp(JPH_EBodyType val) { return static_cast<JPH::EBodyType>(val); }
 static inline JPH::ECanSleep ToCpp(JPH_ECanSleep val) { return static_cast<JPH::ECanSleep>(val); }
-static inline JPH::Body::EFlags ToCpp(JPH_Body_EFlags val) { return static_cast<JPH::Body::EFlags>(val); }
 static inline JPH::ESpringMode ToCpp(JPH_ESpringMode val) { return static_cast<JPH::ESpringMode>(val); }
 static inline JPH::EStateRecorderState ToCpp(JPH_EStateRecorderState val) { return static_cast<JPH::EStateRecorderState>(val); }
 static inline JPH::ContactConstraintManager::CachedManifold::EFlags ToCpp(JPH_ContactConstraintManager_CachedManifold_EFlags val) { return static_cast<JPH::ContactConstraintManager::CachedManifold::EFlags>(val); }
@@ -534,13 +484,11 @@ static inline JPH::EPhysicsLockTypes ToCpp(JPH_EPhysicsLockTypes val) { return s
 static inline JPH::EActivation ToCpp(JPH_EActivation val) { return static_cast<JPH::EActivation>(val); }
 static inline JPH::EMotorState ToCpp(JPH_EMotorState val) { return static_cast<JPH::EMotorState>(val); }
 static inline JPH::ESwingType ToCpp(JPH_ESwingType val) { return static_cast<JPH::ESwingType>(val); }
-static inline JPH::SwingTwistConstraintPart::ERotationFlags ToCpp(JPH_SwingTwistConstraintPart_ERotationFlags val) { return static_cast<JPH::SwingTwistConstraintPart::ERotationFlags>(val); }
 static inline JPH::EActiveEdgeMode ToCpp(JPH_EActiveEdgeMode val) { return static_cast<JPH::EActiveEdgeMode>(val); }
 static inline JPH::ECollectFacesMode ToCpp(JPH_ECollectFacesMode val) { return static_cast<JPH::ECollectFacesMode>(val); }
 static inline JPH::SoftBodyValidateResult ToCpp(JPH_SoftBodyValidateResult val) { return static_cast<JPH::SoftBodyValidateResult>(val); }
 static inline JPH::EPAPenetrationDepth::EStatus ToCpp(JPH_EPAPenetrationDepth_EStatus val) { return static_cast<JPH::EPAPenetrationDepth::EStatus>(val); }
 static inline JPH::MeshShapeSettings::EBuildQuality ToCpp(JPH_MeshShapeSettings_EBuildQuality val) { return static_cast<JPH::MeshShapeSettings::EBuildQuality>(val); }
-static inline JPH::MeshShape::ETriangleFlags ToCpp(JPH_MeshShape_ETriangleFlags val) { return static_cast<JPH::MeshShape::ETriangleFlags>(val); }
 static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::EComponentData ToCpp(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EComponentData val) { return static_cast<JPH::TriangleCodecIndexed8BitPackSOA4Flags::EComponentData>(val); }
 static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexXY ToCpp(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexXY val) { return static_cast<JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexXY>(val); }
 static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexZY ToCpp(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY val) { return static_cast<JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexZY>(val); }
@@ -593,8 +541,6 @@ static inline JPH::JobSystem *ToCpp(JPH_JobSystem *val) { return reinterpret_cas
 static inline const JPH::JobSystem *ToCpp(const JPH_JobSystem *val) { return reinterpret_cast<const JPH::JobSystem *>(val); }
 static inline JPH::Semaphore *ToCpp(JPH_Semaphore *val) { return reinterpret_cast<JPH::Semaphore *>(val); }
 static inline const JPH::Semaphore *ToCpp(const JPH_Semaphore *val) { return reinterpret_cast<const JPH::Semaphore *>(val); }
-static inline JPH::JobSystemWithBarrier::BarrierImpl *ToCpp(JPH_JobSystemWithBarrier_BarrierImpl *val) { return reinterpret_cast<JPH::JobSystemWithBarrier::BarrierImpl *>(val); }
-static inline const JPH::JobSystemWithBarrier::BarrierImpl *ToCpp(const JPH_JobSystemWithBarrier_BarrierImpl *val) { return reinterpret_cast<const JPH::JobSystemWithBarrier::BarrierImpl *>(val); }
 static inline JPH::JobSystemWithBarrier *ToCpp(JPH_JobSystemWithBarrier *val) { return reinterpret_cast<JPH::JobSystemWithBarrier *>(val); }
 static inline const JPH::JobSystemWithBarrier *ToCpp(const JPH_JobSystemWithBarrier *val) { return reinterpret_cast<const JPH::JobSystemWithBarrier *>(val); }
 static inline JPH::Mutex *ToCpp(JPH_Mutex *val) { return reinterpret_cast<JPH::Mutex *>(val); }
@@ -657,8 +603,6 @@ static inline JPH::LargeIslandSplitter *ToCpp(JPH_LargeIslandSplitter *val) { re
 static inline const JPH::LargeIslandSplitter *ToCpp(const JPH_LargeIslandSplitter *val) { return reinterpret_cast<const JPH::LargeIslandSplitter *>(val); }
 static inline JPH::BodyID *ToCpp(JPH_BodyID *val) { return reinterpret_cast<JPH::BodyID *>(val); }
 static inline const JPH::BodyID *ToCpp(const JPH_BodyID *val) { return reinterpret_cast<const JPH::BodyID *>(val); }
-static inline JPH::IslandBuilder::BodyLink *ToCpp(JPH_IslandBuilder_BodyLink *val) { return reinterpret_cast<JPH::IslandBuilder::BodyLink *>(val); }
-static inline const JPH::IslandBuilder::BodyLink *ToCpp(const JPH_IslandBuilder_BodyLink *val) { return reinterpret_cast<const JPH::IslandBuilder::BodyLink *>(val); }
 static inline JPH::IslandBuilder *ToCpp(JPH_IslandBuilder *val) { return reinterpret_cast<JPH::IslandBuilder *>(val); }
 static inline const JPH::IslandBuilder *ToCpp(const JPH_IslandBuilder *val) { return reinterpret_cast<const JPH::IslandBuilder *>(val); }
 static inline JPH::PhysicsSettings *ToCpp(JPH_PhysicsSettings *val) { return reinterpret_cast<JPH::PhysicsSettings *>(val); }
@@ -769,26 +713,12 @@ static inline JPH::DualAxisConstraintPart *ToCpp(JPH_DualAxisConstraintPart *val
 static inline const JPH::DualAxisConstraintPart *ToCpp(const JPH_DualAxisConstraintPart *val) { return reinterpret_cast<const JPH::DualAxisConstraintPart *>(val); }
 static inline JPH::ContactConstraintManager::ContactAllocator *ToCpp(JPH_ContactConstraintManager_ContactAllocator *val) { return reinterpret_cast<JPH::ContactConstraintManager::ContactAllocator *>(val); }
 static inline const JPH::ContactConstraintManager::ContactAllocator *ToCpp(const JPH_ContactConstraintManager_ContactAllocator *val) { return reinterpret_cast<const JPH::ContactConstraintManager::ContactAllocator *>(val); }
-static inline JPH::ContactConstraintManager::CachedContactPoint *ToCpp(JPH_ContactConstraintManager_CachedContactPoint *val) { return reinterpret_cast<JPH::ContactConstraintManager::CachedContactPoint *>(val); }
-static inline const JPH::ContactConstraintManager::CachedContactPoint *ToCpp(const JPH_ContactConstraintManager_CachedContactPoint *val) { return reinterpret_cast<const JPH::ContactConstraintManager::CachedContactPoint *>(val); }
-static inline JPH::ContactConstraintManager::CachedManifold *ToCpp(JPH_ContactConstraintManager_CachedManifold *val) { return reinterpret_cast<JPH::ContactConstraintManager::CachedManifold *>(val); }
-static inline const JPH::ContactConstraintManager::CachedManifold *ToCpp(const JPH_ContactConstraintManager_CachedManifold *val) { return reinterpret_cast<const JPH::ContactConstraintManager::CachedManifold *>(val); }
-static inline JPH::ContactConstraintManager::CachedBodyPair *ToCpp(JPH_ContactConstraintManager_CachedBodyPair *val) { return reinterpret_cast<JPH::ContactConstraintManager::CachedBodyPair *>(val); }
-static inline const JPH::ContactConstraintManager::CachedBodyPair *ToCpp(const JPH_ContactConstraintManager_CachedBodyPair *val) { return reinterpret_cast<const JPH::ContactConstraintManager::CachedBodyPair *>(val); }
-static inline JPH::ContactConstraintManager::ManifoldCache *ToCpp(JPH_ContactConstraintManager_ManifoldCache *val) { return reinterpret_cast<JPH::ContactConstraintManager::ManifoldCache *>(val); }
-static inline const JPH::ContactConstraintManager::ManifoldCache *ToCpp(const JPH_ContactConstraintManager_ManifoldCache *val) { return reinterpret_cast<const JPH::ContactConstraintManager::ManifoldCache *>(val); }
-static inline JPH::ContactConstraintManager::WorldContactPoint *ToCpp(JPH_ContactConstraintManager_WorldContactPoint *val) { return reinterpret_cast<JPH::ContactConstraintManager::WorldContactPoint *>(val); }
-static inline const JPH::ContactConstraintManager::WorldContactPoint *ToCpp(const JPH_ContactConstraintManager_WorldContactPoint *val) { return reinterpret_cast<const JPH::ContactConstraintManager::WorldContactPoint *>(val); }
-static inline JPH::ContactConstraintManager::ContactConstraint *ToCpp(JPH_ContactConstraintManager_ContactConstraint *val) { return reinterpret_cast<JPH::ContactConstraintManager::ContactConstraint *>(val); }
-static inline const JPH::ContactConstraintManager::ContactConstraint *ToCpp(const JPH_ContactConstraintManager_ContactConstraint *val) { return reinterpret_cast<const JPH::ContactConstraintManager::ContactConstraint *>(val); }
 static inline JPH::ContactConstraintManager *ToCpp(JPH_ContactConstraintManager *val) { return reinterpret_cast<JPH::ContactConstraintManager *>(val); }
 static inline const JPH::ContactConstraintManager *ToCpp(const JPH_ContactConstraintManager *val) { return reinterpret_cast<const JPH::ContactConstraintManager *>(val); }
 static inline JPH::BroadPhaseLayerInterfaceTable *ToCpp(JPH_BroadPhaseLayerInterfaceTable *val) { return reinterpret_cast<JPH::BroadPhaseLayerInterfaceTable *>(val); }
 static inline const JPH::BroadPhaseLayerInterfaceTable *ToCpp(const JPH_BroadPhaseLayerInterfaceTable *val) { return reinterpret_cast<const JPH::BroadPhaseLayerInterfaceTable *>(val); }
 static inline JPH::ObjectLayerPairFilterMask *ToCpp(JPH_ObjectLayerPairFilterMask *val) { return reinterpret_cast<JPH::ObjectLayerPairFilterMask *>(val); }
 static inline const JPH::ObjectLayerPairFilterMask *ToCpp(const JPH_ObjectLayerPairFilterMask *val) { return reinterpret_cast<const JPH::ObjectLayerPairFilterMask *>(val); }
-static inline JPH::BroadPhaseLayerInterfaceMask::Mapping *ToCpp(JPH_BroadPhaseLayerInterfaceMask_Mapping *val) { return reinterpret_cast<JPH::BroadPhaseLayerInterfaceMask::Mapping *>(val); }
-static inline const JPH::BroadPhaseLayerInterfaceMask::Mapping *ToCpp(const JPH_BroadPhaseLayerInterfaceMask_Mapping *val) { return reinterpret_cast<const JPH::BroadPhaseLayerInterfaceMask::Mapping *>(val); }
 static inline JPH::BroadPhaseLayerInterfaceMask *ToCpp(JPH_BroadPhaseLayerInterfaceMask *val) { return reinterpret_cast<JPH::BroadPhaseLayerInterfaceMask *>(val); }
 static inline const JPH::BroadPhaseLayerInterfaceMask *ToCpp(const JPH_BroadPhaseLayerInterfaceMask *val) { return reinterpret_cast<const JPH::BroadPhaseLayerInterfaceMask *>(val); }
 static inline JPH::BodyManager::BodyStats *ToCpp(JPH_BodyManager_BodyStats *val) { return reinterpret_cast<JPH::BodyManager::BodyStats *>(val); }
@@ -833,10 +763,6 @@ static inline JPH::SoftBodySharedSettings::RodStretchShear *ToCpp(JPH_SoftBodySh
 static inline const JPH::SoftBodySharedSettings::RodStretchShear *ToCpp(const JPH_SoftBodySharedSettings_RodStretchShear *val) { return reinterpret_cast<const JPH::SoftBodySharedSettings::RodStretchShear *>(val); }
 static inline JPH::SoftBodySharedSettings::RodBendTwist *ToCpp(JPH_SoftBodySharedSettings_RodBendTwist *val) { return reinterpret_cast<JPH::SoftBodySharedSettings::RodBendTwist *>(val); }
 static inline const JPH::SoftBodySharedSettings::RodBendTwist *ToCpp(const JPH_SoftBodySharedSettings_RodBendTwist *val) { return reinterpret_cast<const JPH::SoftBodySharedSettings::RodBendTwist *>(val); }
-static inline JPH::SoftBodySharedSettings::ClosestKinematic *ToCpp(JPH_SoftBodySharedSettings_ClosestKinematic *val) { return reinterpret_cast<JPH::SoftBodySharedSettings::ClosestKinematic *>(val); }
-static inline const JPH::SoftBodySharedSettings::ClosestKinematic *ToCpp(const JPH_SoftBodySharedSettings_ClosestKinematic *val) { return reinterpret_cast<const JPH::SoftBodySharedSettings::ClosestKinematic *>(val); }
-static inline JPH::SoftBodySharedSettings::UpdateGroup *ToCpp(JPH_SoftBodySharedSettings_UpdateGroup *val) { return reinterpret_cast<JPH::SoftBodySharedSettings::UpdateGroup *>(val); }
-static inline const JPH::SoftBodySharedSettings::UpdateGroup *ToCpp(const JPH_SoftBodySharedSettings_UpdateGroup *val) { return reinterpret_cast<const JPH::SoftBodySharedSettings::UpdateGroup *>(val); }
 static inline JPH::SoftBodySharedSettings *ToCpp(JPH_SoftBodySharedSettings *val) { return reinterpret_cast<JPH::SoftBodySharedSettings *>(val); }
 static inline const JPH::SoftBodySharedSettings *ToCpp(const JPH_SoftBodySharedSettings *val) { return reinterpret_cast<const JPH::SoftBodySharedSettings *>(val); }
 static inline JPH::SoftBodyCreationSettings *ToCpp(JPH_SoftBodyCreationSettings *val) { return reinterpret_cast<JPH::SoftBodyCreationSettings *>(val); }
@@ -845,24 +771,12 @@ static inline JPH::SoftBodyVertex *ToCpp(JPH_SoftBodyVertex *val) { return reint
 static inline const JPH::SoftBodyVertex *ToCpp(const JPH_SoftBodyVertex *val) { return reinterpret_cast<const JPH::SoftBodyVertex *>(val); }
 static inline JPH::SoftBodyUpdateContext *ToCpp(JPH_SoftBodyUpdateContext *val) { return reinterpret_cast<JPH::SoftBodyUpdateContext *>(val); }
 static inline const JPH::SoftBodyUpdateContext *ToCpp(const JPH_SoftBodyUpdateContext *val) { return reinterpret_cast<const JPH::SoftBodyUpdateContext *>(val); }
-static inline JPH::SoftBodyMotionProperties::LeafShape *ToCpp(JPH_SoftBodyMotionProperties_LeafShape *val) { return reinterpret_cast<JPH::SoftBodyMotionProperties::LeafShape *>(val); }
-static inline const JPH::SoftBodyMotionProperties::LeafShape *ToCpp(const JPH_SoftBodyMotionProperties_LeafShape *val) { return reinterpret_cast<const JPH::SoftBodyMotionProperties::LeafShape *>(val); }
-static inline JPH::SoftBodyMotionProperties::CollidingShape *ToCpp(JPH_SoftBodyMotionProperties_CollidingShape *val) { return reinterpret_cast<JPH::SoftBodyMotionProperties::CollidingShape *>(val); }
-static inline const JPH::SoftBodyMotionProperties::CollidingShape *ToCpp(const JPH_SoftBodyMotionProperties_CollidingShape *val) { return reinterpret_cast<const JPH::SoftBodyMotionProperties::CollidingShape *>(val); }
-static inline JPH::SoftBodyMotionProperties::CollidingSensor *ToCpp(JPH_SoftBodyMotionProperties_CollidingSensor *val) { return reinterpret_cast<JPH::SoftBodyMotionProperties::CollidingSensor *>(val); }
-static inline const JPH::SoftBodyMotionProperties::CollidingSensor *ToCpp(const JPH_SoftBodyMotionProperties_CollidingSensor *val) { return reinterpret_cast<const JPH::SoftBodyMotionProperties::CollidingSensor *>(val); }
-static inline JPH::SoftBodyMotionProperties::RodState *ToCpp(JPH_SoftBodyMotionProperties_RodState *val) { return reinterpret_cast<JPH::SoftBodyMotionProperties::RodState *>(val); }
-static inline const JPH::SoftBodyMotionProperties::RodState *ToCpp(const JPH_SoftBodyMotionProperties_RodState *val) { return reinterpret_cast<const JPH::SoftBodyMotionProperties::RodState *>(val); }
-static inline JPH::SoftBodyMotionProperties::SkinState *ToCpp(JPH_SoftBodyMotionProperties_SkinState *val) { return reinterpret_cast<JPH::SoftBodyMotionProperties::SkinState *>(val); }
-static inline const JPH::SoftBodyMotionProperties::SkinState *ToCpp(const JPH_SoftBodyMotionProperties_SkinState *val) { return reinterpret_cast<const JPH::SoftBodyMotionProperties::SkinState *>(val); }
 static inline JPH::SoftBodyMotionProperties *ToCpp(JPH_SoftBodyMotionProperties *val) { return reinterpret_cast<JPH::SoftBodyMotionProperties *>(val); }
 static inline const JPH::SoftBodyMotionProperties *ToCpp(const JPH_SoftBodyMotionProperties *val) { return reinterpret_cast<const JPH::SoftBodyMotionProperties *>(val); }
 static inline JPH::EmptyShapeSettings *ToCpp(JPH_EmptyShapeSettings *val) { return reinterpret_cast<JPH::EmptyShapeSettings *>(val); }
 static inline const JPH::EmptyShapeSettings *ToCpp(const JPH_EmptyShapeSettings *val) { return reinterpret_cast<const JPH::EmptyShapeSettings *>(val); }
 static inline JPH::EmptyShape *ToCpp(JPH_EmptyShape *val) { return reinterpret_cast<JPH::EmptyShape *>(val); }
 static inline const JPH::EmptyShape *ToCpp(const JPH_EmptyShape *val) { return reinterpret_cast<const JPH::EmptyShape *>(val); }
-static inline JPH::PhysicsLock::LockData *ToCpp(JPH_PhysicsLock_LockData *val) { return reinterpret_cast<JPH::PhysicsLock::LockData *>(val); }
-static inline const JPH::PhysicsLock::LockData *ToCpp(const JPH_PhysicsLock_LockData *val) { return reinterpret_cast<const JPH::PhysicsLock::LockData *>(val); }
 static inline JPH::PhysicsLock *ToCpp(JPH_PhysicsLock *val) { return reinterpret_cast<JPH::PhysicsLock *>(val); }
 static inline const JPH::PhysicsLock *ToCpp(const JPH_PhysicsLock *val) { return reinterpret_cast<const JPH::PhysicsLock *>(val); }
 static inline JPH::BodyLockInterface *ToCpp(JPH_BodyLockInterface *val) { return reinterpret_cast<JPH::BodyLockInterface *>(val); }
@@ -1021,8 +935,6 @@ static inline JPH::PhysicsMaterialSimple *ToCpp(JPH_PhysicsMaterialSimple *val) 
 static inline const JPH::PhysicsMaterialSimple *ToCpp(const JPH_PhysicsMaterialSimple *val) { return reinterpret_cast<const JPH::PhysicsMaterialSimple *>(val); }
 static inline JPH::AABoxCast *ToCpp(JPH_AABoxCast *val) { return reinterpret_cast<JPH::AABoxCast *>(val); }
 static inline const JPH::AABoxCast *ToCpp(const JPH_AABoxCast *val) { return reinterpret_cast<const JPH::AABoxCast *>(val); }
-static inline JPH::InternalEdgeRemovingCollector::Voided *ToCpp(JPH_InternalEdgeRemovingCollector_Voided *val) { return reinterpret_cast<JPH::InternalEdgeRemovingCollector::Voided *>(val); }
-static inline const JPH::InternalEdgeRemovingCollector::Voided *ToCpp(const JPH_InternalEdgeRemovingCollector_Voided *val) { return reinterpret_cast<const JPH::InternalEdgeRemovingCollector::Voided *>(val); }
 static inline JPH::InternalEdgeRemovingCollector *ToCpp(JPH_InternalEdgeRemovingCollector *val) { return reinterpret_cast<JPH::InternalEdgeRemovingCollector *>(val); }
 static inline const JPH::InternalEdgeRemovingCollector *ToCpp(const JPH_InternalEdgeRemovingCollector *val) { return reinterpret_cast<const JPH::InternalEdgeRemovingCollector *>(val); }
 static inline JPH::PointConvexSupport *ToCpp(JPH_PointConvexSupport *val) { return reinterpret_cast<JPH::PointConvexSupport *>(val); }
@@ -1035,8 +947,6 @@ static inline JPH::EPAConvexHullBuilder::Edge *ToCpp(JPH_EPAConvexHullBuilder_Ed
 static inline const JPH::EPAConvexHullBuilder::Edge *ToCpp(const JPH_EPAConvexHullBuilder_Edge *val) { return reinterpret_cast<const JPH::EPAConvexHullBuilder::Edge *>(val); }
 static inline JPH::EPAConvexHullBuilder::Triangle *ToCpp(JPH_EPAConvexHullBuilder_Triangle *val) { return reinterpret_cast<JPH::EPAConvexHullBuilder::Triangle *>(val); }
 static inline const JPH::EPAConvexHullBuilder::Triangle *ToCpp(const JPH_EPAConvexHullBuilder_Triangle *val) { return reinterpret_cast<const JPH::EPAConvexHullBuilder::Triangle *>(val); }
-static inline JPH::EPAConvexHullBuilder::TriangleFactory::Block *ToCpp(JPH_EPAConvexHullBuilder_TriangleFactory_Block *val) { return reinterpret_cast<JPH::EPAConvexHullBuilder::TriangleFactory::Block *>(val); }
-static inline const JPH::EPAConvexHullBuilder::TriangleFactory::Block *ToCpp(const JPH_EPAConvexHullBuilder_TriangleFactory_Block *val) { return reinterpret_cast<const JPH::EPAConvexHullBuilder::TriangleFactory::Block *>(val); }
 static inline JPH::EPAConvexHullBuilder::TriangleFactory *ToCpp(JPH_EPAConvexHullBuilder_TriangleFactory *val) { return reinterpret_cast<JPH::EPAConvexHullBuilder::TriangleFactory *>(val); }
 static inline const JPH::EPAConvexHullBuilder::TriangleFactory *ToCpp(const JPH_EPAConvexHullBuilder_TriangleFactory *val) { return reinterpret_cast<const JPH::EPAConvexHullBuilder::TriangleFactory *>(val); }
 static inline JPH::EPAConvexHullBuilder::Points *ToCpp(JPH_EPAConvexHullBuilder_Points *val) { return reinterpret_cast<JPH::EPAConvexHullBuilder::Points *>(val); }
@@ -1045,8 +955,6 @@ static inline JPH::EPAConvexHullBuilder::TriangleQueue *ToCpp(JPH_EPAConvexHullB
 static inline const JPH::EPAConvexHullBuilder::TriangleQueue *ToCpp(const JPH_EPAConvexHullBuilder_TriangleQueue *val) { return reinterpret_cast<const JPH::EPAConvexHullBuilder::TriangleQueue *>(val); }
 static inline JPH::EPAConvexHullBuilder *ToCpp(JPH_EPAConvexHullBuilder *val) { return reinterpret_cast<JPH::EPAConvexHullBuilder *>(val); }
 static inline const JPH::EPAConvexHullBuilder *ToCpp(const JPH_EPAConvexHullBuilder *val) { return reinterpret_cast<const JPH::EPAConvexHullBuilder *>(val); }
-static inline JPH::EPAPenetrationDepth::SupportPoints *ToCpp(JPH_EPAPenetrationDepth_SupportPoints *val) { return reinterpret_cast<JPH::EPAPenetrationDepth::SupportPoints *>(val); }
-static inline const JPH::EPAPenetrationDepth::SupportPoints *ToCpp(const JPH_EPAPenetrationDepth_SupportPoints *val) { return reinterpret_cast<const JPH::EPAPenetrationDepth::SupportPoints *>(val); }
 static inline JPH::EPAPenetrationDepth *ToCpp(JPH_EPAPenetrationDepth *val) { return reinterpret_cast<JPH::EPAPenetrationDepth *>(val); }
 static inline const JPH::EPAPenetrationDepth *ToCpp(const JPH_EPAPenetrationDepth *val) { return reinterpret_cast<const JPH::EPAPenetrationDepth *>(val); }
 static inline JPH::OrientedBox *ToCpp(JPH_OrientedBox *val) { return reinterpret_cast<JPH::OrientedBox *>(val); }
@@ -1055,26 +963,14 @@ static inline JPH::BroadPhaseBruteForce *ToCpp(JPH_BroadPhaseBruteForce *val) { 
 static inline const JPH::BroadPhaseBruteForce *ToCpp(const JPH_BroadPhaseBruteForce *val) { return reinterpret_cast<const JPH::BroadPhaseBruteForce *>(val); }
 static inline JPH::RayInvDirection *ToCpp(JPH_RayInvDirection *val) { return reinterpret_cast<JPH::RayInvDirection *>(val); }
 static inline const JPH::RayInvDirection *ToCpp(const JPH_RayInvDirection *val) { return reinterpret_cast<const JPH::RayInvDirection *>(val); }
-static inline JPH::QuadTree::NodeID *ToCpp(JPH_QuadTree_NodeID *val) { return reinterpret_cast<JPH::QuadTree::NodeID *>(val); }
-static inline const JPH::QuadTree::NodeID *ToCpp(const JPH_QuadTree_NodeID *val) { return reinterpret_cast<const JPH::QuadTree::NodeID *>(val); }
-static inline JPH::QuadTree::AtomicNodeID *ToCpp(JPH_QuadTree_AtomicNodeID *val) { return reinterpret_cast<JPH::QuadTree::AtomicNodeID *>(val); }
-static inline const JPH::QuadTree::AtomicNodeID *ToCpp(const JPH_QuadTree_AtomicNodeID *val) { return reinterpret_cast<const JPH::QuadTree::AtomicNodeID *>(val); }
-static inline JPH::QuadTree::Node *ToCpp(JPH_QuadTree_Node *val) { return reinterpret_cast<JPH::QuadTree::Node *>(val); }
-static inline const JPH::QuadTree::Node *ToCpp(const JPH_QuadTree_Node *val) { return reinterpret_cast<const JPH::QuadTree::Node *>(val); }
 static inline JPH::QuadTree::Tracking *ToCpp(JPH_QuadTree_Tracking *val) { return reinterpret_cast<JPH::QuadTree::Tracking *>(val); }
 static inline const JPH::QuadTree::Tracking *ToCpp(const JPH_QuadTree_Tracking *val) { return reinterpret_cast<const JPH::QuadTree::Tracking *>(val); }
 static inline JPH::QuadTree::UpdateState *ToCpp(JPH_QuadTree_UpdateState *val) { return reinterpret_cast<JPH::QuadTree::UpdateState *>(val); }
 static inline const JPH::QuadTree::UpdateState *ToCpp(const JPH_QuadTree_UpdateState *val) { return reinterpret_cast<const JPH::QuadTree::UpdateState *>(val); }
 static inline JPH::QuadTree::AddState *ToCpp(JPH_QuadTree_AddState *val) { return reinterpret_cast<JPH::QuadTree::AddState *>(val); }
 static inline const JPH::QuadTree::AddState *ToCpp(const JPH_QuadTree_AddState *val) { return reinterpret_cast<const JPH::QuadTree::AddState *>(val); }
-static inline JPH::QuadTree::RootNode *ToCpp(JPH_QuadTree_RootNode *val) { return reinterpret_cast<JPH::QuadTree::RootNode *>(val); }
-static inline const JPH::QuadTree::RootNode *ToCpp(const JPH_QuadTree_RootNode *val) { return reinterpret_cast<const JPH::QuadTree::RootNode *>(val); }
 static inline JPH::QuadTree *ToCpp(JPH_QuadTree *val) { return reinterpret_cast<JPH::QuadTree *>(val); }
 static inline const JPH::QuadTree *ToCpp(const JPH_QuadTree *val) { return reinterpret_cast<const JPH::QuadTree *>(val); }
-static inline JPH::BroadPhaseQuadTree::LayerState *ToCpp(JPH_BroadPhaseQuadTree_LayerState *val) { return reinterpret_cast<JPH::BroadPhaseQuadTree::LayerState *>(val); }
-static inline const JPH::BroadPhaseQuadTree::LayerState *ToCpp(const JPH_BroadPhaseQuadTree_LayerState *val) { return reinterpret_cast<const JPH::BroadPhaseQuadTree::LayerState *>(val); }
-static inline JPH::BroadPhaseQuadTree::UpdateStateImpl *ToCpp(JPH_BroadPhaseQuadTree_UpdateStateImpl *val) { return reinterpret_cast<JPH::BroadPhaseQuadTree::UpdateStateImpl *>(val); }
-static inline const JPH::BroadPhaseQuadTree::UpdateStateImpl *ToCpp(const JPH_BroadPhaseQuadTree_UpdateStateImpl *val) { return reinterpret_cast<const JPH::BroadPhaseQuadTree::UpdateStateImpl *>(val); }
 static inline JPH::BroadPhaseQuadTree *ToCpp(JPH_BroadPhaseQuadTree *val) { return reinterpret_cast<JPH::BroadPhaseQuadTree *>(val); }
 static inline const JPH::BroadPhaseQuadTree *ToCpp(const JPH_BroadPhaseQuadTree *val) { return reinterpret_cast<const JPH::BroadPhaseQuadTree *>(val); }
 static inline JPH::CollisionEstimationResult::Impulse *ToCpp(JPH_CollisionEstimationResult_Impulse *val) { return reinterpret_cast<JPH::CollisionEstimationResult::Impulse *>(val); }
@@ -1111,8 +1007,6 @@ static inline JPH::TriangleSplitter::Range *ToCpp(JPH_TriangleSplitter_Range *va
 static inline const JPH::TriangleSplitter::Range *ToCpp(const JPH_TriangleSplitter_Range *val) { return reinterpret_cast<const JPH::TriangleSplitter::Range *>(val); }
 static inline JPH::TriangleSplitter *ToCpp(JPH_TriangleSplitter *val) { return reinterpret_cast<JPH::TriangleSplitter *>(val); }
 static inline const JPH::TriangleSplitter *ToCpp(const JPH_TriangleSplitter *val) { return reinterpret_cast<const JPH::TriangleSplitter *>(val); }
-static inline JPH::TriangleSplitterBinning::Bin *ToCpp(JPH_TriangleSplitterBinning_Bin *val) { return reinterpret_cast<JPH::TriangleSplitterBinning::Bin *>(val); }
-static inline const JPH::TriangleSplitterBinning::Bin *ToCpp(const JPH_TriangleSplitterBinning_Bin *val) { return reinterpret_cast<const JPH::TriangleSplitterBinning::Bin *>(val); }
 static inline JPH::TriangleSplitterBinning *ToCpp(JPH_TriangleSplitterBinning *val) { return reinterpret_cast<JPH::TriangleSplitterBinning *>(val); }
 static inline const JPH::TriangleSplitterBinning *ToCpp(const JPH_TriangleSplitterBinning *val) { return reinterpret_cast<const JPH::TriangleSplitterBinning *>(val); }
 static inline JPH::TriangleSplitterMean *ToCpp(JPH_TriangleSplitterMean *val) { return reinterpret_cast<JPH::TriangleSplitterMean *>(val); }
@@ -1151,8 +1045,6 @@ static inline JPH::NodeCodecQuadTreeHalfFloat *ToCpp(JPH_NodeCodecQuadTreeHalfFl
 static inline const JPH::NodeCodecQuadTreeHalfFloat *ToCpp(const JPH_NodeCodecQuadTreeHalfFloat *val) { return reinterpret_cast<const JPH::NodeCodecQuadTreeHalfFloat *>(val); }
 static inline JPH::HeightFieldShapeSettings *ToCpp(JPH_HeightFieldShapeSettings *val) { return reinterpret_cast<JPH::HeightFieldShapeSettings *>(val); }
 static inline const JPH::HeightFieldShapeSettings *ToCpp(const JPH_HeightFieldShapeSettings *val) { return reinterpret_cast<const JPH::HeightFieldShapeSettings *>(val); }
-static inline JPH::HeightFieldShape::RangeBlock *ToCpp(JPH_HeightFieldShape_RangeBlock *val) { return reinterpret_cast<JPH::HeightFieldShape::RangeBlock *>(val); }
-static inline const JPH::HeightFieldShape::RangeBlock *ToCpp(const JPH_HeightFieldShape_RangeBlock *val) { return reinterpret_cast<const JPH::HeightFieldShape::RangeBlock *>(val); }
 static inline JPH::HeightFieldShape *ToCpp(JPH_HeightFieldShape *val) { return reinterpret_cast<JPH::HeightFieldShape *>(val); }
 static inline const JPH::HeightFieldShape *ToCpp(const JPH_HeightFieldShape *val) { return reinterpret_cast<const JPH::HeightFieldShape *>(val); }
 static inline JPH::CollidePointResult *ToCpp(JPH_CollidePointResult *val) { return reinterpret_cast<JPH::CollidePointResult *>(val); }
@@ -1163,8 +1055,6 @@ static inline JPH::CapsuleShape *ToCpp(JPH_CapsuleShape *val) { return reinterpr
 static inline const JPH::CapsuleShape *ToCpp(const JPH_CapsuleShape *val) { return reinterpret_cast<const JPH::CapsuleShape *>(val); }
 static inline JPH::GetTrianglesContextVertexList *ToCpp(JPH_GetTrianglesContextVertexList *val) { return reinterpret_cast<JPH::GetTrianglesContextVertexList *>(val); }
 static inline const JPH::GetTrianglesContextVertexList *ToCpp(const JPH_GetTrianglesContextVertexList *val) { return reinterpret_cast<const JPH::GetTrianglesContextVertexList *>(val); }
-static inline JPH::GetTrianglesContextMultiVertexList::Part *ToCpp(JPH_GetTrianglesContextMultiVertexList_Part *val) { return reinterpret_cast<JPH::GetTrianglesContextMultiVertexList::Part *>(val); }
-static inline const JPH::GetTrianglesContextMultiVertexList::Part *ToCpp(const JPH_GetTrianglesContextMultiVertexList_Part *val) { return reinterpret_cast<const JPH::GetTrianglesContextMultiVertexList::Part *>(val); }
 static inline JPH::GetTrianglesContextMultiVertexList *ToCpp(JPH_GetTrianglesContextMultiVertexList *val) { return reinterpret_cast<JPH::GetTrianglesContextMultiVertexList *>(val); }
 static inline const JPH::GetTrianglesContextMultiVertexList *ToCpp(const JPH_GetTrianglesContextMultiVertexList *val) { return reinterpret_cast<const JPH::GetTrianglesContextMultiVertexList *>(val); }
 static inline JPH::CylinderShapeSettings *ToCpp(JPH_CylinderShapeSettings *val) { return reinterpret_cast<JPH::CylinderShapeSettings *>(val); }
@@ -1185,10 +1075,6 @@ static inline JPH::BoxShape *ToCpp(JPH_BoxShape *val) { return reinterpret_cast<
 static inline const JPH::BoxShape *ToCpp(const JPH_BoxShape *val) { return reinterpret_cast<const JPH::BoxShape *>(val); }
 static inline JPH::ConvexHullShapeSettings *ToCpp(JPH_ConvexHullShapeSettings *val) { return reinterpret_cast<JPH::ConvexHullShapeSettings *>(val); }
 static inline const JPH::ConvexHullShapeSettings *ToCpp(const JPH_ConvexHullShapeSettings *val) { return reinterpret_cast<const JPH::ConvexHullShapeSettings *>(val); }
-static inline JPH::ConvexHullShape::Face *ToCpp(JPH_ConvexHullShape_Face *val) { return reinterpret_cast<JPH::ConvexHullShape::Face *>(val); }
-static inline const JPH::ConvexHullShape::Face *ToCpp(const JPH_ConvexHullShape_Face *val) { return reinterpret_cast<const JPH::ConvexHullShape::Face *>(val); }
-static inline JPH::ConvexHullShape::Point *ToCpp(JPH_ConvexHullShape_Point *val) { return reinterpret_cast<JPH::ConvexHullShape::Point *>(val); }
-static inline const JPH::ConvexHullShape::Point *ToCpp(const JPH_ConvexHullShape_Point *val) { return reinterpret_cast<const JPH::ConvexHullShape::Point *>(val); }
 static inline JPH::ConvexHullShape *ToCpp(JPH_ConvexHullShape *val) { return reinterpret_cast<JPH::ConvexHullShape *>(val); }
 static inline const JPH::ConvexHullShape *ToCpp(const JPH_ConvexHullShape *val) { return reinterpret_cast<const JPH::ConvexHullShape *>(val); }
 static inline JPH::PolyhedronSubmergedVolumeCalculator::Point *ToCpp(JPH_PolyhedronSubmergedVolumeCalculator_Point *val) { return reinterpret_cast<JPH::PolyhedronSubmergedVolumeCalculator::Point *>(val); }
@@ -1199,10 +1085,6 @@ static inline JPH::ConvexHullBuilder::Edge *ToCpp(JPH_ConvexHullBuilder_Edge *va
 static inline const JPH::ConvexHullBuilder::Edge *ToCpp(const JPH_ConvexHullBuilder_Edge *val) { return reinterpret_cast<const JPH::ConvexHullBuilder::Edge *>(val); }
 static inline JPH::ConvexHullBuilder::Face *ToCpp(JPH_ConvexHullBuilder_Face *val) { return reinterpret_cast<JPH::ConvexHullBuilder::Face *>(val); }
 static inline const JPH::ConvexHullBuilder::Face *ToCpp(const JPH_ConvexHullBuilder_Face *val) { return reinterpret_cast<const JPH::ConvexHullBuilder::Face *>(val); }
-static inline JPH::ConvexHullBuilder::FullEdge *ToCpp(JPH_ConvexHullBuilder_FullEdge *val) { return reinterpret_cast<JPH::ConvexHullBuilder::FullEdge *>(val); }
-static inline const JPH::ConvexHullBuilder::FullEdge *ToCpp(const JPH_ConvexHullBuilder_FullEdge *val) { return reinterpret_cast<const JPH::ConvexHullBuilder::FullEdge *>(val); }
-static inline JPH::ConvexHullBuilder::Coplanar *ToCpp(JPH_ConvexHullBuilder_Coplanar *val) { return reinterpret_cast<JPH::ConvexHullBuilder::Coplanar *>(val); }
-static inline const JPH::ConvexHullBuilder::Coplanar *ToCpp(const JPH_ConvexHullBuilder_Coplanar *val) { return reinterpret_cast<const JPH::ConvexHullBuilder::Coplanar *>(val); }
 static inline JPH::ConvexHullBuilder *ToCpp(JPH_ConvexHullBuilder *val) { return reinterpret_cast<JPH::ConvexHullBuilder *>(val); }
 static inline const JPH::ConvexHullBuilder *ToCpp(const JPH_ConvexHullBuilder *val) { return reinterpret_cast<const JPH::ConvexHullBuilder *>(val); }
 static inline JPH::CompoundShapeSettings::SubShapeSettings *ToCpp(JPH_CompoundShapeSettings_SubShapeSettings *val) { return reinterpret_cast<JPH::CompoundShapeSettings::SubShapeSettings *>(val); }
@@ -1215,8 +1097,6 @@ static inline JPH::CompoundShape *ToCpp(JPH_CompoundShape *val) { return reinter
 static inline const JPH::CompoundShape *ToCpp(const JPH_CompoundShape *val) { return reinterpret_cast<const JPH::CompoundShape *>(val); }
 static inline JPH::MutableCompoundShapeSettings *ToCpp(JPH_MutableCompoundShapeSettings *val) { return reinterpret_cast<JPH::MutableCompoundShapeSettings *>(val); }
 static inline const JPH::MutableCompoundShapeSettings *ToCpp(const JPH_MutableCompoundShapeSettings *val) { return reinterpret_cast<const JPH::MutableCompoundShapeSettings *>(val); }
-static inline JPH::MutableCompoundShape::Bounds *ToCpp(JPH_MutableCompoundShape_Bounds *val) { return reinterpret_cast<JPH::MutableCompoundShape::Bounds *>(val); }
-static inline const JPH::MutableCompoundShape::Bounds *ToCpp(const JPH_MutableCompoundShape_Bounds *val) { return reinterpret_cast<const JPH::MutableCompoundShape::Bounds *>(val); }
 static inline JPH::MutableCompoundShape *ToCpp(JPH_MutableCompoundShape *val) { return reinterpret_cast<JPH::MutableCompoundShape *>(val); }
 static inline const JPH::MutableCompoundShape *ToCpp(const JPH_MutableCompoundShape *val) { return reinterpret_cast<const JPH::MutableCompoundShape *>(val); }
 static inline JPH::CastRayVisitor *ToCpp(JPH_CastRayVisitor *val) { return reinterpret_cast<JPH::CastRayVisitor *>(val); }
@@ -1243,8 +1123,6 @@ static inline JPH::TriangleShape *ToCpp(JPH_TriangleShape *val) { return reinter
 static inline const JPH::TriangleShape *ToCpp(const JPH_TriangleShape *val) { return reinterpret_cast<const JPH::TriangleShape *>(val); }
 static inline JPH::StaticCompoundShapeSettings *ToCpp(JPH_StaticCompoundShapeSettings *val) { return reinterpret_cast<JPH::StaticCompoundShapeSettings *>(val); }
 static inline const JPH::StaticCompoundShapeSettings *ToCpp(const JPH_StaticCompoundShapeSettings *val) { return reinterpret_cast<const JPH::StaticCompoundShapeSettings *>(val); }
-static inline JPH::StaticCompoundShape::Node *ToCpp(JPH_StaticCompoundShape_Node *val) { return reinterpret_cast<JPH::StaticCompoundShape::Node *>(val); }
-static inline const JPH::StaticCompoundShape::Node *ToCpp(const JPH_StaticCompoundShape_Node *val) { return reinterpret_cast<const JPH::StaticCompoundShape::Node *>(val); }
 static inline JPH::StaticCompoundShape *ToCpp(JPH_StaticCompoundShape *val) { return reinterpret_cast<JPH::StaticCompoundShape *>(val); }
 static inline const JPH::StaticCompoundShape *ToCpp(const JPH_StaticCompoundShape *val) { return reinterpret_cast<const JPH::StaticCompoundShape *>(val); }
 static inline JPH::CharacterBaseSettings *ToCpp(JPH_CharacterBaseSettings *val) { return reinterpret_cast<JPH::CharacterBaseSettings *>(val); }
@@ -1269,16 +1147,6 @@ static inline JPH::CharacterVirtual::ContactKey *ToCpp(JPH_CharacterVirtual_Cont
 static inline const JPH::CharacterVirtual::ContactKey *ToCpp(const JPH_CharacterVirtual_ContactKey *val) { return reinterpret_cast<const JPH::CharacterVirtual::ContactKey *>(val); }
 static inline JPH::CharacterVirtual::Contact *ToCpp(JPH_CharacterVirtual_Contact *val) { return reinterpret_cast<JPH::CharacterVirtual::Contact *>(val); }
 static inline const JPH::CharacterVirtual::Contact *ToCpp(const JPH_CharacterVirtual_Contact *val) { return reinterpret_cast<const JPH::CharacterVirtual::Contact *>(val); }
-static inline JPH::CharacterVirtual::ContactOrderingPredicate *ToCpp(JPH_CharacterVirtual_ContactOrderingPredicate *val) { return reinterpret_cast<JPH::CharacterVirtual::ContactOrderingPredicate *>(val); }
-static inline const JPH::CharacterVirtual::ContactOrderingPredicate *ToCpp(const JPH_CharacterVirtual_ContactOrderingPredicate *val) { return reinterpret_cast<const JPH::CharacterVirtual::ContactOrderingPredicate *>(val); }
-static inline JPH::CharacterVirtual::Constraint *ToCpp(JPH_CharacterVirtual_Constraint *val) { return reinterpret_cast<JPH::CharacterVirtual::Constraint *>(val); }
-static inline const JPH::CharacterVirtual::Constraint *ToCpp(const JPH_CharacterVirtual_Constraint *val) { return reinterpret_cast<const JPH::CharacterVirtual::Constraint *>(val); }
-static inline JPH::CharacterVirtual::ContactCollector *ToCpp(JPH_CharacterVirtual_ContactCollector *val) { return reinterpret_cast<JPH::CharacterVirtual::ContactCollector *>(val); }
-static inline const JPH::CharacterVirtual::ContactCollector *ToCpp(const JPH_CharacterVirtual_ContactCollector *val) { return reinterpret_cast<const JPH::CharacterVirtual::ContactCollector *>(val); }
-static inline JPH::CharacterVirtual::ContactCastCollector *ToCpp(JPH_CharacterVirtual_ContactCastCollector *val) { return reinterpret_cast<JPH::CharacterVirtual::ContactCastCollector *>(val); }
-static inline const JPH::CharacterVirtual::ContactCastCollector *ToCpp(const JPH_CharacterVirtual_ContactCastCollector *val) { return reinterpret_cast<const JPH::CharacterVirtual::ContactCastCollector *>(val); }
-static inline JPH::CharacterVirtual::ListenerContactValue *ToCpp(JPH_CharacterVirtual_ListenerContactValue *val) { return reinterpret_cast<JPH::CharacterVirtual::ListenerContactValue *>(val); }
-static inline const JPH::CharacterVirtual::ListenerContactValue *ToCpp(const JPH_CharacterVirtual_ListenerContactValue *val) { return reinterpret_cast<const JPH::CharacterVirtual::ListenerContactValue *>(val); }
 static inline JPH::CharacterVirtual *ToCpp(JPH_CharacterVirtual *val) { return reinterpret_cast<JPH::CharacterVirtual *>(val); }
 static inline const JPH::CharacterVirtual *ToCpp(const JPH_CharacterVirtual *val) { return reinterpret_cast<const JPH::CharacterVirtual *>(val); }
 static inline JPH::CharacterSettings *ToCpp(JPH_CharacterSettings *val) { return reinterpret_cast<JPH::CharacterSettings *>(val); }
@@ -1403,20 +1271,10 @@ static inline JPH::TrackedVehicleController *ToCpp(JPH_TrackedVehicleController 
 static inline const JPH::TrackedVehicleController *ToCpp(const JPH_TrackedVehicleController *val) { return reinterpret_cast<const JPH::TrackedVehicleController *>(val); }
 static inline JPH::DynMatrix *ToCpp(JPH_DynMatrix *val) { return reinterpret_cast<JPH::DynMatrix *>(val); }
 static inline const JPH::DynMatrix *ToCpp(const JPH_DynMatrix *val) { return reinterpret_cast<const JPH::DynMatrix *>(val); }
-static inline JPH::ObjectStreamOut::ObjectInfo *ToCpp(JPH_ObjectStreamOut_ObjectInfo *val) { return reinterpret_cast<JPH::ObjectStreamOut::ObjectInfo *>(val); }
-static inline const JPH::ObjectStreamOut::ObjectInfo *ToCpp(const JPH_ObjectStreamOut_ObjectInfo *val) { return reinterpret_cast<const JPH::ObjectStreamOut::ObjectInfo *>(val); }
 static inline JPH::ObjectStreamOut *ToCpp(JPH_ObjectStreamOut *val) { return reinterpret_cast<JPH::ObjectStreamOut *>(val); }
 static inline const JPH::ObjectStreamOut *ToCpp(const JPH_ObjectStreamOut *val) { return reinterpret_cast<const JPH::ObjectStreamOut *>(val); }
 static inline JPH::ObjectStreamBinaryOut *ToCpp(JPH_ObjectStreamBinaryOut *val) { return reinterpret_cast<JPH::ObjectStreamBinaryOut *>(val); }
 static inline const JPH::ObjectStreamBinaryOut *ToCpp(const JPH_ObjectStreamBinaryOut *val) { return reinterpret_cast<const JPH::ObjectStreamBinaryOut *>(val); }
-static inline JPH::ObjectStreamIn::AttributeDescription *ToCpp(JPH_ObjectStreamIn_AttributeDescription *val) { return reinterpret_cast<JPH::ObjectStreamIn::AttributeDescription *>(val); }
-static inline const JPH::ObjectStreamIn::AttributeDescription *ToCpp(const JPH_ObjectStreamIn_AttributeDescription *val) { return reinterpret_cast<const JPH::ObjectStreamIn::AttributeDescription *>(val); }
-static inline JPH::ObjectStreamIn::ClassDescription *ToCpp(JPH_ObjectStreamIn_ClassDescription *val) { return reinterpret_cast<JPH::ObjectStreamIn::ClassDescription *>(val); }
-static inline const JPH::ObjectStreamIn::ClassDescription *ToCpp(const JPH_ObjectStreamIn_ClassDescription *val) { return reinterpret_cast<const JPH::ObjectStreamIn::ClassDescription *>(val); }
-static inline JPH::ObjectStreamIn::ObjectInfo *ToCpp(JPH_ObjectStreamIn_ObjectInfo *val) { return reinterpret_cast<JPH::ObjectStreamIn::ObjectInfo *>(val); }
-static inline const JPH::ObjectStreamIn::ObjectInfo *ToCpp(const JPH_ObjectStreamIn_ObjectInfo *val) { return reinterpret_cast<const JPH::ObjectStreamIn::ObjectInfo *>(val); }
-static inline JPH::ObjectStreamIn::Link *ToCpp(JPH_ObjectStreamIn_Link *val) { return reinterpret_cast<JPH::ObjectStreamIn::Link *>(val); }
-static inline const JPH::ObjectStreamIn::Link *ToCpp(const JPH_ObjectStreamIn_Link *val) { return reinterpret_cast<const JPH::ObjectStreamIn::Link *>(val); }
 static inline JPH::ObjectStreamIn *ToCpp(JPH_ObjectStreamIn *val) { return reinterpret_cast<JPH::ObjectStreamIn *>(val); }
 static inline const JPH::ObjectStreamIn *ToCpp(const JPH_ObjectStreamIn *val) { return reinterpret_cast<const JPH::ObjectStreamIn *>(val); }
 static inline JPH::ObjectStreamTextIn *ToCpp(JPH_ObjectStreamTextIn *val) { return reinterpret_cast<JPH::ObjectStreamTextIn *>(val); }
@@ -1435,8 +1293,6 @@ static inline JPH::SkeletonMapper::Locked *ToCpp(JPH_SkeletonMapper_Locked *val)
 static inline const JPH::SkeletonMapper::Locked *ToCpp(const JPH_SkeletonMapper_Locked *val) { return reinterpret_cast<const JPH::SkeletonMapper::Locked *>(val); }
 static inline JPH::SkeletonMapper *ToCpp(JPH_SkeletonMapper *val) { return reinterpret_cast<JPH::SkeletonMapper *>(val); }
 static inline const JPH::SkeletonMapper *ToCpp(const JPH_SkeletonMapper *val) { return reinterpret_cast<const JPH::SkeletonMapper *>(val); }
-static inline JPH::ConvexHullBuilder2D::Edge *ToCpp(JPH_ConvexHullBuilder2D_Edge *val) { return reinterpret_cast<JPH::ConvexHullBuilder2D::Edge *>(val); }
-static inline const JPH::ConvexHullBuilder2D::Edge *ToCpp(const JPH_ConvexHullBuilder2D_Edge *val) { return reinterpret_cast<const JPH::ConvexHullBuilder2D::Edge *>(val); }
 static inline JPH::ConvexHullBuilder2D *ToCpp(JPH_ConvexHullBuilder2D *val) { return reinterpret_cast<JPH::ConvexHullBuilder2D *>(val); }
 static inline const JPH::ConvexHullBuilder2D *ToCpp(const JPH_ConvexHullBuilder2D *val) { return reinterpret_cast<const JPH::ConvexHullBuilder2D *>(val); }
  
@@ -3524,26 +3380,6 @@ void JPH_JobSystemThreadPool_FreeJob(JPH_JobSystemThreadPool *self, JPH_JobSyste
     ToCpp(self)->FreeJob(inJob);
 }
 
-void JPH_JobSystemThreadPool_StartThreads(JPH_JobSystemThreadPool *self, int32_t inNumThreads) {
-    ToCpp(self)->StartThreads(inNumThreads);
-}
-
-void JPH_JobSystemThreadPool_StopThreads(JPH_JobSystemThreadPool *self) {
-    ToCpp(self)->StopThreads();
-}
-
-void JPH_JobSystemThreadPool_ThreadMain(JPH_JobSystemThreadPool *self, int32_t inThreadIndex) {
-    ToCpp(self)->ThreadMain(inThreadIndex);
-}
-
-uint32_t JPH_JobSystemThreadPool_GetHead(const JPH_JobSystemThreadPool *self) {
-    return ToCpp(self)->GetHead();
-}
-
-void JPH_JobSystemThreadPool_QueueJobInternal(JPH_JobSystemThreadPool *self, JPH_JobSystem_Job *inJob) {
-    ToCpp(self)->QueueJobInternal(inJob);
-}
-
 void JPH_SerializableAttribute_ConstructWithNameMemberOffsetGetMemberPrimitiveTypeIsTypeReadDataWriteDataWriteDataType(JPH_SerializableAttribute *self, const int8_t *inName, uint32_t inMemberOffset, JPH_SerializableAttribute_pGetMemberPrimitiveType inGetMemberPrimitiveType, JPH_SerializableAttribute_pIsType inIsType, JPH_SerializableAttribute_pReadData inReadData, JPH_SerializableAttribute_pWriteData inWriteData, JPH_SerializableAttribute_pWriteDataType inWriteDataType) {
     new(ToCpp(self)) JPH::SerializableAttribute(inName, inMemberOffset, inGetMemberPrimitiveType, inIsType, inReadData, inWriteData, inWriteDataType);
 }
@@ -4500,22 +4336,6 @@ void JPH_IslandBuilder_ResetIslands(JPH_IslandBuilder *self, JPH_TempAllocator *
     ToCpp(self)->ResetIslands(inTempAllocator);
 }
 
-uint32_t JPH_IslandBuilder_GetLowestBodyIndex(const JPH_IslandBuilder *self, uint32_t inActiveBodyIndex) {
-    return ToCpp(self)->GetLowestBodyIndex(inActiveBodyIndex);
-}
-
-void JPH_IslandBuilder_BuildBodyIslands(JPH_IslandBuilder *self, const JPH_BodyID *inActiveBodies, uint32_t inNumActiveBodies, JPH_TempAllocator *inTempAllocator) {
-    ToCpp(self)->BuildBodyIslands(inActiveBodies, inNumActiveBodies, inTempAllocator);
-}
-
-void JPH_IslandBuilder_BuildConstraintIslands(const JPH_IslandBuilder *self, const uint32_t *inConstraintToBody, uint32_t inNumConstraints, uint32_t **outConstraints, uint32_t **outConstraintsEnd, JPH_TempAllocator *inTempAllocator) {
-    ToCpp(self)->BuildConstraintIslands(inConstraintToBody, inNumConstraints, *outConstraints, *outConstraintsEnd, inTempAllocator);
-}
-
-void JPH_IslandBuilder_SortIslands(JPH_IslandBuilder *self, JPH_TempAllocator *inTempAllocator) {
-    ToCpp(self)->SortIslands(inTempAllocator);
-}
-
 void JPH_CalculateSolverSteps_Construct(JPH_CalculateSolverSteps *self, const JPH_PhysicsSettings *inSettings) {
     new(ToCpp(self)) JPH::CalculateSolverSteps(*inSettings);
 }
@@ -4722,14 +4542,6 @@ void JPH_SubShapeID_SetValue(JPH_SubShapeID *self, JPH_SubShapeID_Type inValue) 
 
 bool JPH_SubShapeID_IsEmpty(const JPH_SubShapeID *self) {
     return ToCpp(self)->IsEmpty();
-}
-
-void JPH_SubShapeID_ConstructWithValue(JPH_SubShapeID *self, const JPH_SubShapeID_Type *inValue) {
-    new(ToCpp(self)) JPH::SubShapeID(*inValue);
-}
-
-void JPH_SubShapeID_PushID(JPH_SubShapeID *self, JPH_SubShapeID_Type inValue, uint32_t inFirstBit, uint32_t inBits) {
-    ToCpp(self)->PushID(inValue, inFirstBit, inBits);
 }
 
 JPH_SubShapeIDCreator JPH_SubShapeIDCreator_PushID(const JPH_SubShapeIDCreator *self, uint32_t inValue, uint32_t inBits) {
@@ -5192,20 +5004,8 @@ void JPH_ConvexShape_RestoreMaterialState(JPH_ConvexShape *self, const JPH_Physi
     ToCpp(self)->RestoreMaterialState(inMaterials, inNumMaterials);
 }
 
-void JPH_ConvexShape_sRegister() {
-    JPH::ConvexShape::sRegister();
-}
-
 void JPH_ConvexShape_RestoreBinaryState(JPH_ConvexShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_ConvexShape_sCollideConvexVsConvex(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::ConvexShape::sCollideConvexVsConvex(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_ConvexShape_sCastConvexVsConvex(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::ConvexShape::sCastConvexVsConvex(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 JPH_ContactManifold JPH_ContactManifold_SwapShapes(const JPH_ContactManifold *self) {
@@ -6204,26 +6004,6 @@ void JPH_Body_RestoreState(JPH_Body *self, JPH_StateRecorder *inStream) {
     ToCpp(self)->RestoreState(*inStream);
 }
 
-void JPH_Body_Construct(JPH_Body *self) {
-    new(ToCpp(self)) JPH::Body();
-}
-
-void JPH_Body_ConstructWith(JPH_Body *self, bool) {
-    new(ToCpp(self)) JPH::Body();
-}
-
-void JPH_Body_Destruct(JPH_Body *self) {
-    ToCpp(self)->~Body();
-}
-
-void JPH_Body_GetSleepTestPoints(const JPH_Body *self, JPH_RVec3 *outPoints) {
-    ToCpp(self)->GetSleepTestPoints(outPoints);
-}
-
-void JPH_SpringPart_CalculateSpringPropertiesHelper(JPH_SpringPart *self, float inDeltaTime, float inInvEffectiveMass, float inBias, float inC, float inStiffness, float inDamping, float *outEffectiveMass) {
-    ToCpp(self)->CalculateSpringPropertiesHelper(inDeltaTime, inInvEffectiveMass, inBias, inC, inStiffness, inDamping, *outEffectiveMass);
-}
-
 void JPH_SpringPart_CalculateSpringPropertiesWithBias(JPH_SpringPart *self, float inBias) {
     ToCpp(self)->CalculateSpringPropertiesWithBias(inBias);
 }
@@ -6312,14 +6092,6 @@ bool JPH_StateRecorder_IsLastPart(const JPH_StateRecorder *self) {
     return ToCpp(self)->IsLastPart();
 }
 
-float JPH_AxisConstraintPart_CalculateInverseEffectiveMass(JPH_AxisConstraintPart *self, const JPH_Body *inBody1, const JPH_Vec3 inR1PlusU, const JPH_Body *inBody2, const JPH_Vec3 inR2, const JPH_Vec3 inWorldSpaceAxis) {
-    return ToCpp(self)->CalculateInverseEffectiveMass(*inBody1, inR1PlusU, *inBody2, inR2, inWorldSpaceAxis);
-}
-
-float JPH_AxisConstraintPart_CalculateInverseEffectiveMassWithMassOverride(JPH_AxisConstraintPart *self, const JPH_Body *inBody1, float inInvMass1, float inInvInertiaScale1, const JPH_Vec3 inR1PlusU, const JPH_Body *inBody2, float inInvMass2, float inInvInertiaScale2, const JPH_Vec3 inR2, const JPH_Vec3 inWorldSpaceAxis) {
-    return ToCpp(self)->CalculateInverseEffectiveMassWithMassOverride(*inBody1, inInvMass1, inInvInertiaScale1, inR1PlusU, *inBody2, inInvMass2, inInvInertiaScale2, inR2, inWorldSpaceAxis);
-}
-
 void JPH_AxisConstraintPart_CalculateConstraintProperties(JPH_AxisConstraintPart *self, const JPH_Body *inBody1, const JPH_Vec3 inR1PlusU, const JPH_Body *inBody2, const JPH_Vec3 inR2, const JPH_Vec3 inWorldSpaceAxis, float inBias) {
     ToCpp(self)->CalculateConstraintProperties(*inBody1, inR1PlusU, *inBody2, inR2, inWorldSpaceAxis, inBias);
 }
@@ -6382,14 +6154,6 @@ void JPH_AxisConstraintPart_SaveState(const JPH_AxisConstraintPart *self, JPH_St
 
 void JPH_AxisConstraintPart_RestoreState(JPH_AxisConstraintPart *self, JPH_StateRecorder *inStream) {
     ToCpp(self)->RestoreState(*inStream);
-}
-
-bool JPH_DualAxisConstraintPart_ApplyVelocityStep(const JPH_DualAxisConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, const JPH_Vec3 inN1, const JPH_Vec3 inN2, const JPH_DualAxisConstraintPart_Vec2 *inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, inN1, inN2, *inLambda);
-}
-
-void JPH_DualAxisConstraintPart_CalculateLagrangeMultiplier(const JPH_DualAxisConstraintPart *self, const JPH_Body *inBody1, const JPH_Body *inBody2, const JPH_Vec3 inN1, const JPH_Vec3 inN2, JPH_DualAxisConstraintPart_Vec2 *outLambda) {
-    ToCpp(self)->CalculateLagrangeMultiplier(*inBody1, *inBody2, inN1, inN2, *outLambda);
 }
 
 void JPH_DualAxisConstraintPart_CalculateConstraintProperties(JPH_DualAxisConstraintPart *self, const JPH_Body *inBody1, const JPH_Mat44 * inRotation1, const JPH_Vec3 inR1PlusU, const JPH_Body *inBody2, const JPH_Mat44 * inRotation2, const JPH_Vec3 inR2, const JPH_Vec3 inN1, const JPH_Vec3 inN2) {
@@ -6672,10 +6436,6 @@ void JPH_ContactConstraintManager_ContactConstraint_GetTangents(const JPH_Contac
     ToCpp(self)->GetTangents(*outTangent1, *outTangent2);
 }
 
-void JPH_ContactConstraintManager_CalculateFrictionAndNonPenetrationConstraintProperties(JPH_ContactConstraintManager *self, JPH_ContactConstraintManager_ContactConstraint *ioConstraint, const JPH_ContactSettings *inSettings, float inDeltaTime, const JPH_Vec3 inGravityDeltaTime, const JPH_Mat44 * inTransformBody1, const JPH_Mat44 * inTransformBody2, const JPH_Body *inBody1, const JPH_Body *inBody2) {
-    ToCpp(self)->CalculateFrictionAndNonPenetrationConstraintProperties(*ioConstraint, *inSettings, inDeltaTime, inGravityDeltaTime, inTransformBody1, inTransformBody2, *inBody1, *inBody2);
-}
-
 void JPH_BroadPhaseLayerInterfaceTable_Construct(JPH_BroadPhaseLayerInterfaceTable *self, uint32_t inNumObjectLayers, uint32_t inNumBroadPhaseLayers) {
     new(ToCpp(self)) JPH::BroadPhaseLayerInterfaceTable(inNumObjectLayers, inNumBroadPhaseLayers);
 }
@@ -6922,46 +6682,6 @@ void JPH_BodyManager_GrantActiveBodiesAccess_Destruct(JPH_BodyManager_GrantActiv
 
 void JPH_BodyManager_ValidateActiveBodyBounds(JPH_BodyManager *self) {
     ToCpp(self)->ValidateActiveBodyBounds();
-}
-
-uint8_t JPH_BodyManager_GetNextSequenceNumber(JPH_BodyManager *self, int32_t inBodyIndex) {
-    return ToCpp(self)->GetNextSequenceNumber(inBodyIndex);
-}
-
-void JPH_BodyManager_AddBodyToActiveBodies(JPH_BodyManager *self, JPH_Body *ioBody) {
-    ToCpp(self)->AddBodyToActiveBodies(*ioBody);
-}
-
-void JPH_BodyManager_RemoveBodyFromActiveBodies(JPH_BodyManager *self, JPH_Body *ioBody) {
-    ToCpp(self)->RemoveBodyFromActiveBodies(*ioBody);
-}
-
-JPH_Body *JPH_BodyManager_RemoveBodyInternal(JPH_BodyManager *self, const JPH_BodyID *inBodyID) {
-    return ToCpp(self)->RemoveBodyInternal(*inBodyID);
-}
-
-void JPH_BodyManager_sDeleteBody(JPH_Body *inBody) {
-    JPH::BodyManager::sDeleteBody(inBody);
-}
-
-void JPH_BodyManager_ValidateFreeList(const JPH_BodyManager *self) {
-    ToCpp(self)->ValidateFreeList();
-}
-
-bool JPH_BodyManager_sGetOverrideAllowActivation() {
-    return JPH::BodyManager::sGetOverrideAllowActivation();
-}
-
-void JPH_BodyManager_sSetOverrideAllowActivation(bool inValue) {
-    JPH::BodyManager::sSetOverrideAllowActivation(inValue);
-}
-
-bool JPH_BodyManager_sGetOverrideAllowDeactivation() {
-    return JPH::BodyManager::sGetOverrideAllowDeactivation();
-}
-
-void JPH_BodyManager_sSetOverrideAllowDeactivation(bool inValue) {
-    JPH::BodyManager::sSetOverrideAllowDeactivation(inValue);
 }
 
 void JPH_TempAllocator_Destruct(JPH_TempAllocator *self) {
@@ -7276,10 +6996,6 @@ void JPH_SoftBodySharedSettings_AddFace(JPH_SoftBodySharedSettings *self, const 
     ToCpp(self)->AddFace(*inFace);
 }
 
-void JPH_SoftBodySharedSettings_CalculateClosestKinematic(JPH_SoftBodySharedSettings *self) {
-    ToCpp(self)->CalculateClosestKinematic();
-}
-
 void JPH_SoftBodyCreationSettings_Construct(JPH_SoftBodyCreationSettings *self) {
     new(ToCpp(self)) JPH::SoftBodyCreationSettings();
 }
@@ -7464,86 +7180,6 @@ JPH_Vec3 JPH_SoftBodyMotionProperties_CollidingShape_GetPointVelocity(const JPH_
     return ToCpp(self)->GetPointVelocity(inPointRelativeToCOM);
 }
 
-void JPH_SoftBodyMotionProperties_DetermineCollisionPlanes(JPH_SoftBodyMotionProperties *self, uint32_t inVertexStart, uint32_t inNumVertices) {
-    ToCpp(self)->DetermineCollisionPlanes(inVertexStart, inNumVertices);
-}
-
-void JPH_SoftBodyMotionProperties_DetermineSensorCollisions(JPH_SoftBodyMotionProperties *self, JPH_SoftBodyMotionProperties_CollidingSensor *ioSensor) {
-    ToCpp(self)->DetermineSensorCollisions(*ioSensor);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyPressure(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext) {
-    ToCpp(self)->ApplyPressure(*inContext);
-}
-
-void JPH_SoftBodyMotionProperties_IntegratePositions(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext) {
-    ToCpp(self)->IntegratePositions(*inContext);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyDihedralBendConstraints(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex) {
-    ToCpp(self)->ApplyDihedralBendConstraints(*inContext, inStartIndex, inEndIndex);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyVolumeConstraints(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex) {
-    ToCpp(self)->ApplyVolumeConstraints(*inContext, inStartIndex, inEndIndex);
-}
-
-void JPH_SoftBodyMotionProperties_ApplySkinConstraints(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex) {
-    ToCpp(self)->ApplySkinConstraints(*inContext, inStartIndex, inEndIndex);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyEdgeConstraints(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex) {
-    ToCpp(self)->ApplyEdgeConstraints(*inContext, inStartIndex, inEndIndex);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyRodStretchShearConstraints(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex) {
-    ToCpp(self)->ApplyRodStretchShearConstraints(*inContext, inStartIndex, inEndIndex);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyRodBendTwistConstraints(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext, uint32_t inStartIndex, uint32_t inEndIndex) {
-    ToCpp(self)->ApplyRodBendTwistConstraints(*inContext, inStartIndex, inEndIndex);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyLRAConstraints(JPH_SoftBodyMotionProperties *self, uint32_t inStartIndex, uint32_t inEndIndex) {
-    ToCpp(self)->ApplyLRAConstraints(inStartIndex, inEndIndex);
-}
-
-void JPH_SoftBodyMotionProperties_ApplyCollisionConstraintsAndUpdateVelocities(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *inContext) {
-    ToCpp(self)->ApplyCollisionConstraintsAndUpdateVelocities(*inContext);
-}
-
-void JPH_SoftBodyMotionProperties_UpdateSoftBodyState(JPH_SoftBodyMotionProperties *self, JPH_SoftBodyUpdateContext *ioContext, const JPH_PhysicsSettings *inPhysicsSettings) {
-    ToCpp(self)->UpdateSoftBodyState(*ioContext, *inPhysicsSettings);
-}
-
-void JPH_SoftBodyMotionProperties_StartFirstIteration(JPH_SoftBodyMotionProperties *self, JPH_SoftBodyUpdateContext *ioContext) {
-    ToCpp(self)->StartFirstIteration(*ioContext);
-}
-
-void JPH_SoftBodyMotionProperties_StartNextIteration(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *ioContext) {
-    ToCpp(self)->StartNextIteration(*ioContext);
-}
-
-JPH_SoftBodyMotionProperties_EStatus JPH_SoftBodyMotionProperties_ParallelDetermineCollisionPlanes(JPH_SoftBodyMotionProperties *self, JPH_SoftBodyUpdateContext *ioContext) {
-    return ToCpp(self)->ParallelDetermineCollisionPlanes(*ioContext);
-}
-
-JPH_SoftBodyMotionProperties_EStatus JPH_SoftBodyMotionProperties_ParallelDetermineSensorCollisions(JPH_SoftBodyMotionProperties *self, JPH_SoftBodyUpdateContext *ioContext) {
-    return ToCpp(self)->ParallelDetermineSensorCollisions(*ioContext);
-}
-
-JPH_SoftBodyMotionProperties_EStatus JPH_SoftBodyMotionProperties_ParallelApplyConstraints(JPH_SoftBodyMotionProperties *self, JPH_SoftBodyUpdateContext *ioContext, const JPH_PhysicsSettings *inPhysicsSettings) {
-    return ToCpp(self)->ParallelApplyConstraints(*ioContext, *inPhysicsSettings);
-}
-
-void JPH_SoftBodyMotionProperties_ProcessGroup(JPH_SoftBodyMotionProperties *self, const JPH_SoftBodyUpdateContext *ioContext, uint32_t inGroupIndex) {
-    ToCpp(self)->ProcessGroup(*ioContext, inGroupIndex);
-}
-
-float JPH_SoftBodyMotionProperties_GetVolumeTimesSix(const JPH_SoftBodyMotionProperties *self) {
-    return ToCpp(self)->GetVolumeTimesSix();
-}
-
 const JPH_RTTI *JPH_EmptyShapeSettings_GetRTTI(const JPH_EmptyShapeSettings *self) {
     return ToCpp(self)->GetRTTI();
 }
@@ -7644,20 +7280,12 @@ bool JPH_EmptyShape_IsValidScale(const JPH_EmptyShape *self, const JPH_Vec3 inSc
     return ToCpp(self)->IsValidScale(inScale);
 }
 
-void JPH_EmptyShape_sRegister() {
-    JPH::EmptyShape::sRegister();
-}
-
 void JPH_PhysicsLock_sCheckLock(JPH_PhysicsLockContext inContext, JPH_EPhysicsLockTypes inType) {
     JPH::PhysicsLock::sCheckLock(inContext, inType);
 }
 
 void JPH_PhysicsLock_sCheckUnlock(JPH_PhysicsLockContext inContext, JPH_EPhysicsLockTypes inType) {
     JPH::PhysicsLock::sCheckUnlock(inContext, inType);
-}
-
-uint32_t *JPH_PhysicsLock_sGetLockedMutexes(JPH_PhysicsLockContext inContext) {
-    return JPH::PhysicsLock::sGetLockedMutexes(inContext);
 }
 
 void JPH_BodyLockInterface_Construct(JPH_BodyLockInterface *self, JPH_BodyManager *inBodyManager) {
@@ -7878,26 +7506,6 @@ JPH_Shape_Stats JPH_SoftBodyShape_GetStats(const JPH_SoftBodyShape *self) {
 
 float JPH_SoftBodyShape_GetVolume(const JPH_SoftBodyShape *self) {
     return ToCpp(self)->GetVolume();
-}
-
-void JPH_SoftBodyShape_sRegister() {
-    JPH::SoftBodyShape::sRegister();
-}
-
-void JPH_SoftBodyShape_sCollideConvexVsSoftBody(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::SoftBodyShape::sCollideConvexVsSoftBody(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_SoftBodyShape_sCollideSphereVsSoftBody(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::SoftBodyShape::sCollideSphereVsSoftBody(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_SoftBodyShape_sCastConvexVsSoftBody(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::SoftBodyShape::sCastConvexVsSoftBody(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_SoftBodyShape_sCastSphereVsSoftBody(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::SoftBodyShape::sCastSphereVsSoftBody(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 void JPH_BodyInterface_Init(JPH_BodyInterface *self, JPH_BodyLockInterface *inBodyLockInterface, JPH_BodyManager *inBodyManager, JPH_BroadPhase *inBroadPhase) {
@@ -8270,10 +7878,6 @@ const JPH_PhysicsMaterial *JPH_BodyInterface_GetMaterial(const JPH_BodyInterface
 
 void JPH_BodyInterface_InvalidateContactCache(JPH_BodyInterface *self, const JPH_BodyID *inBodyID) {
     ToCpp(self)->InvalidateContactCache(*inBodyID);
-}
-
-void JPH_BodyInterface_ActivateBodyInternal(const JPH_BodyInterface *self, JPH_Body *ioBody) {
-    ToCpp(self)->ActivateBodyInternal(*ioBody);
 }
 
 void JPH_BroadPhaseQuery_Destruct(JPH_BroadPhaseQuery *self) {
@@ -8796,10 +8400,6 @@ void JPH_MotorSettings_RestoreBinaryState(JPH_MotorSettings *self, JPH_StreamIn 
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
 
-bool JPH_PointConstraintPart_ApplyVelocityStep(const JPH_PointConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, const JPH_Vec3 inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, inLambda);
-}
-
 void JPH_PointConstraintPart_CalculateConstraintProperties(JPH_PointConstraintPart *self, const JPH_Body *inBody1, const JPH_Mat44 * inRotation1, const JPH_Vec3 inR1, const JPH_Body *inBody2, const JPH_Mat44 * inRotation2, const JPH_Vec3 inR2) {
     ToCpp(self)->CalculateConstraintProperties(*inBody1, inRotation1, inR1, *inBody2, inRotation2, inR2);
 }
@@ -8834,14 +8434,6 @@ void JPH_PointConstraintPart_SaveState(const JPH_PointConstraintPart *self, JPH_
 
 void JPH_PointConstraintPart_RestoreState(JPH_PointConstraintPart *self, JPH_StateRecorder *inStream) {
     ToCpp(self)->RestoreState(*inStream);
-}
-
-bool JPH_AngleConstraintPart_ApplyVelocityStep(const JPH_AngleConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, float inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, inLambda);
-}
-
-float JPH_AngleConstraintPart_CalculateInverseEffectiveMass(JPH_AngleConstraintPart *self, const JPH_Body *inBody1, const JPH_Body *inBody2, const JPH_Vec3 inWorldSpaceAxis) {
-    return ToCpp(self)->CalculateInverseEffectiveMass(*inBody1, *inBody2, inWorldSpaceAxis);
 }
 
 void JPH_AngleConstraintPart_CalculateConstraintProperties(JPH_AngleConstraintPart *self, const JPH_Body *inBody1, const JPH_Body *inBody2, const JPH_Vec3 inWorldSpaceAxis, float inBias) {
@@ -8918,10 +8510,6 @@ JPH_Float2 JPH_Ellipse_GetClosestPoint(const JPH_Ellipse *self, const JPH_Float2
 
 JPH_Float2 JPH_Ellipse_GetNormal(const JPH_Ellipse *self, const JPH_Float2 *inPoint) {
     return ToCpp(self)->GetNormal(*inPoint);
-}
-
-bool JPH_RotationEulerConstraintPart_ApplyVelocityStep(const JPH_RotationEulerConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, const JPH_Vec3 inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, inLambda);
 }
 
 JPH_Quat JPH_RotationEulerConstraintPart_sGetInvInitialOrientation(const JPH_Body *inBody1, const JPH_Body *inBody2) {
@@ -9240,14 +8828,6 @@ JPH_Vec3 JPH_SwingTwistConstraint_GetTotalLambdaMotor(const JPH_SwingTwistConstr
     return ToCpp(self)->GetTotalLambdaMotor();
 }
 
-void JPH_SwingTwistConstraint_UpdateLimits(JPH_SwingTwistConstraint *self) {
-    ToCpp(self)->UpdateLimits();
-}
-
-bool JPH_HingeRotationConstraintPart_ApplyVelocityStep(const JPH_HingeRotationConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, const JPH_HingeRotationConstraintPart_Vec2 *inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, *inLambda);
-}
-
 void JPH_HingeRotationConstraintPart_CalculateConstraintProperties(JPH_HingeRotationConstraintPart *self, const JPH_Body *inBody1, const JPH_Mat44 * inRotation1, const JPH_Vec3 inWorldSpaceHingeAxis1, const JPH_Body *inBody2, const JPH_Mat44 * inRotation2, const JPH_Vec3 inWorldSpaceHingeAxis2) {
     ToCpp(self)->CalculateConstraintProperties(*inBody1, inRotation1, inWorldSpaceHingeAxis1, *inBody2, inRotation2, inWorldSpaceHingeAxis2);
 }
@@ -9466,26 +9046,6 @@ float JPH_HingeConstraint_GetTotalLambdaRotationLimits(const JPH_HingeConstraint
 
 float JPH_HingeConstraint_GetTotalLambdaMotor(const JPH_HingeConstraint *self) {
     return ToCpp(self)->GetTotalLambdaMotor();
-}
-
-void JPH_HingeConstraint_CalculateA1AndTheta(JPH_HingeConstraint *self) {
-    ToCpp(self)->CalculateA1AndTheta();
-}
-
-void JPH_HingeConstraint_CalculateRotationLimitsConstraintProperties(JPH_HingeConstraint *self, float inDeltaTime) {
-    ToCpp(self)->CalculateRotationLimitsConstraintProperties(inDeltaTime);
-}
-
-void JPH_HingeConstraint_CalculateMotorConstraintProperties(JPH_HingeConstraint *self, float inDeltaTime) {
-    ToCpp(self)->CalculateMotorConstraintProperties(inDeltaTime);
-}
-
-float JPH_HingeConstraint_GetSmallestAngleToLimit(const JPH_HingeConstraint *self) {
-    return ToCpp(self)->GetSmallestAngleToLimit();
-}
-
-bool JPH_HingeConstraint_IsMinLimitClosest(const JPH_HingeConstraint *self) {
-    return ToCpp(self)->IsMinLimitClosest();
 }
 
 void JPH_BodyFilter_Destruct(JPH_BodyFilter *self) {
@@ -9880,108 +9440,12 @@ JPH_AABox JPH_PhysicsSystem_GetBounds(const JPH_PhysicsSystem *self) {
     return ToCpp(self)->GetBounds();
 }
 
-void JPH_PhysicsSystem_JobStepListeners(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobStepListeners(ioStep);
-}
-
-void JPH_PhysicsSystem_JobDetermineActiveConstraints(const JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobDetermineActiveConstraints(ioStep);
-}
-
-void JPH_PhysicsSystem_JobApplyGravity(JPH_PhysicsSystem *self, const JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobApplyGravity(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobSetupVelocityConstraints(const JPH_PhysicsSystem *self, float inDeltaTime, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobSetupVelocityConstraints(inDeltaTime, ioStep);
-}
-
-void JPH_PhysicsSystem_JobBuildIslandsFromConstraints(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobBuildIslandsFromConstraints(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobFindCollisions(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext_Step *ioStep, int32_t inJobIndex) {
-    ToCpp(self)->JobFindCollisions(ioStep, inJobIndex);
-}
-
-void JPH_PhysicsSystem_JobFinalizeIslands(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext) {
-    ToCpp(self)->JobFinalizeIslands(ioContext);
-}
-
-void JPH_PhysicsSystem_JobBodySetIslandIndex(JPH_PhysicsSystem *self) {
-    ToCpp(self)->JobBodySetIslandIndex();
-}
-
-void JPH_PhysicsSystem_JobSolveVelocityConstraints(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobSolveVelocityConstraints(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobPreIntegrateVelocity(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobPreIntegrateVelocity(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobIntegrateVelocity(JPH_PhysicsSystem *self, const JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobIntegrateVelocity(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobPostIntegrateVelocity(const JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobPostIntegrateVelocity(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobFindCCDContacts(JPH_PhysicsSystem *self, const JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobFindCCDContacts(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobResolveCCDContacts(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobResolveCCDContacts(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobContactRemovedCallbacks(JPH_PhysicsSystem *self, const JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobContactRemovedCallbacks(ioStep);
-}
-
-void JPH_PhysicsSystem_JobSolvePositionConstraints(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobSolvePositionConstraints(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobSoftBodyPrepare(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->JobSoftBodyPrepare(ioContext, ioStep);
-}
-
-void JPH_PhysicsSystem_JobSoftBodyCollide(const JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext) {
-    ToCpp(self)->JobSoftBodyCollide(ioContext);
-}
-
-void JPH_PhysicsSystem_JobSoftBodySimulate(const JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext, uint32_t inThreadIndex) {
-    ToCpp(self)->JobSoftBodySimulate(ioContext, inThreadIndex);
-}
-
-void JPH_PhysicsSystem_JobSoftBodyFinalize(JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext *ioContext) {
-    ToCpp(self)->JobSoftBodyFinalize(ioContext);
-}
-
-void JPH_PhysicsSystem_TrySpawnJobFindCollisions(const JPH_PhysicsSystem *self, JPH_PhysicsUpdateContext_Step *ioStep) {
-    ToCpp(self)->TrySpawnJobFindCollisions(ioStep);
-}
-
-void JPH_PhysicsSystem_ProcessBodyPair(JPH_PhysicsSystem *self, JPH_PhysicsSystem_ContactAllocator *ioContactAllocator, const JPH_BodyPair *inBodyPair) {
-    ToCpp(self)->ProcessBodyPair(*ioContactAllocator, *inBodyPair);
-}
-
-void JPH_PhysicsSystem_CheckSleepAndUpdateBounds(JPH_PhysicsSystem *self, uint32_t inIslandIndex, const JPH_PhysicsUpdateContext *ioContext, const JPH_PhysicsUpdateContext_Step *ioStep, JPH_PhysicsSystem_BodiesToSleep *ioBodiesToSleep) {
-    ToCpp(self)->CheckSleepAndUpdateBounds(inIslandIndex, ioContext, ioStep, *ioBodiesToSleep);
-}
-
 const JPH_RTTI *JPH_GroupFilterTable_GetRTTI(const JPH_GroupFilterTable *self) {
     return ToCpp(self)->GetRTTI();
 }
 
 const void *JPH_GroupFilterTable_CastTo(const JPH_GroupFilterTable *self, const JPH_RTTI *inRTTI) {
     return ToCpp(self)->CastTo(inRTTI);
-}
-
-int32_t JPH_GroupFilterTable_GetBit(const JPH_GroupFilterTable *self, JPH_GroupFilterTable_SubGroupID inSubGroup1, JPH_GroupFilterTable_SubGroupID inSubGroup2) {
-    return ToCpp(self)->GetBit(inSubGroup1, inSubGroup2);
 }
 
 void JPH_GroupFilterTable_ConstructWithNumSubGroups(JPH_GroupFilterTable *self, uint32_t inNumSubGroups) {
@@ -10164,18 +9628,6 @@ void JPH_CastSphereVsTriangles_Cast(JPH_CastSphereVsTriangles *self, const JPH_V
     ToCpp(self)->Cast(inV0, inV1, inV2, inActiveEdges, *inSubShapeID2);
 }
 
-void JPH_CastSphereVsTriangles_AddHit(JPH_CastSphereVsTriangles *self, bool inBackFacing, const JPH_SubShapeID *inSubShapeID2, float inFraction, const JPH_Vec3 inContactPointA, const JPH_Vec3 inContactPointB, const JPH_Vec3 inContactNormal) {
-    ToCpp(self)->AddHit(inBackFacing, *inSubShapeID2, inFraction, inContactPointA, inContactPointB, inContactNormal);
-}
-
-void JPH_CastSphereVsTriangles_AddHitWithActiveEdgeDetection(JPH_CastSphereVsTriangles *self, const JPH_Vec3 inV0, const JPH_Vec3 inV1, const JPH_Vec3 inV2, bool inBackFacing, const JPH_Vec3 inTriangleNormal, uint8_t inActiveEdges, const JPH_SubShapeID *inSubShapeID2, float inFraction, const JPH_Vec3 inContactPointA, const JPH_Vec3 inContactPointB, const JPH_Vec3 inContactNormal) {
-    ToCpp(self)->AddHitWithActiveEdgeDetection(inV0, inV1, inV2, inBackFacing, inTriangleNormal, inActiveEdges, *inSubShapeID2, inFraction, inContactPointA, inContactPointB, inContactNormal);
-}
-
-float JPH_CastSphereVsTriangles_RayCylinder(const JPH_CastSphereVsTriangles *self, const JPH_Vec3 inRayDirection, const JPH_Vec3 inCylinderA, const JPH_Vec3 inCylinderB, float inRadius) {
-    return ToCpp(self)->RayCylinder(inRayDirection, inCylinderA, inCylinderB, inRadius);
-}
-
 void JPH_CollideConvexVsTriangles_Construct(JPH_CollideConvexVsTriangles *self, const JPH_ConvexShape *inShape1, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeID *inSubShapeID1, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector) {
     new(ToCpp(self)) JPH::CollideConvexVsTriangles(inShape1, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeID1, *inCollideShapeSettings, *ioCollector);
 }
@@ -10296,16 +9748,8 @@ JPH_Vec3 JPH_SphereShape_MakeScaleValid(const JPH_SphereShape *self, const JPH_V
     return ToCpp(self)->MakeScaleValid(inScale);
 }
 
-void JPH_SphereShape_sRegister() {
-    JPH::SphereShape::sRegister();
-}
-
 void JPH_SphereShape_RestoreBinaryState(JPH_SphereShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-float JPH_SphereShape_GetScaledRadius(const JPH_SphereShape *self, const JPH_Vec3 inScale) {
-    return ToCpp(self)->GetScaledRadius(inScale);
 }
 
 void JPH_CollideSphereVsTriangles_Construct(JPH_CollideSphereVsTriangles *self, const JPH_SphereShape *inShape1, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeID *inSubShapeID1, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector) {
@@ -10354,10 +9798,6 @@ uint32_t JPH_SoftBodyManifold_GetNumSensorContacts(const JPH_SoftBodyManifold *s
 
 JPH_BodyID JPH_SoftBodyManifold_GetSensorContactBodyID(const JPH_SoftBodyManifold *self, uint32_t inIndex) {
     return ToCpp(self)->GetSensorContactBodyID(inIndex);
-}
-
-void JPH_SoftBodyManifold_Construct(JPH_SoftBodyManifold *self, const JPH_SoftBodyMotionProperties *inMotionProperties) {
-    new(ToCpp(self)) JPH::SoftBodyManifold(inMotionProperties);
 }
 
 void JPH_CollideSoftBodyVertexIterator_Construct(JPH_CollideSoftBodyVertexIterator *self) {
@@ -10452,22 +9892,6 @@ void JPH_PhysicsMaterialSimple_RestoreBinaryState(JPH_PhysicsMaterialSimple *sel
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
 
-bool JPH_InternalEdgeRemovingCollector_IsVoided(const JPH_InternalEdgeRemovingCollector *self, const JPH_SubShapeID *inSubShapeID, JPH_Vec3 inV) {
-    return ToCpp(self)->IsVoided(*inSubShapeID, inV);
-}
-
-void JPH_InternalEdgeRemovingCollector_VoidFeatures(JPH_InternalEdgeRemovingCollector *self, const JPH_CollideShapeResult *inResult) {
-    ToCpp(self)->VoidFeatures(*inResult);
-}
-
-void JPH_InternalEdgeRemovingCollector_Chain(JPH_InternalEdgeRemovingCollector *self, const JPH_CollideShapeResult *inResult) {
-    ToCpp(self)->Chain(*inResult);
-}
-
-void JPH_InternalEdgeRemovingCollector_ChainAndVoid(JPH_InternalEdgeRemovingCollector *self, const JPH_CollideShapeResult *inResult) {
-    ToCpp(self)->ChainAndVoid(*inResult);
-}
-
 void JPH_InternalEdgeRemovingCollector_Construct(JPH_InternalEdgeRemovingCollector *self, JPH_CollideShapeCollector *inChainedCollector) {
     new(ToCpp(self)) JPH::InternalEdgeRemovingCollector(*inChainedCollector);
 }
@@ -10506,30 +9930,6 @@ void JPH_TriangleConvexSupport_Construct(JPH_TriangleConvexSupport *self, const 
 
 JPH_Vec3 JPH_TriangleConvexSupport_GetSupport(const JPH_TriangleConvexSupport *self, const JPH_Vec3 inDirection) {
     return ToCpp(self)->GetSupport(inDirection);
-}
-
-float JPH_GJKClosestPoint_GetMaxYLengthSq(const JPH_GJKClosestPoint *self) {
-    return ToCpp(self)->GetMaxYLengthSq();
-}
-
-void JPH_GJKClosestPoint_UpdatePointSetY(JPH_GJKClosestPoint *self, uint32_t inSet) {
-    ToCpp(self)->UpdatePointSetY(inSet);
-}
-
-void JPH_GJKClosestPoint_UpdatePointSetP(JPH_GJKClosestPoint *self, uint32_t inSet) {
-    ToCpp(self)->UpdatePointSetP(inSet);
-}
-
-void JPH_GJKClosestPoint_UpdatePointSetPQ(JPH_GJKClosestPoint *self, uint32_t inSet) {
-    ToCpp(self)->UpdatePointSetPQ(inSet);
-}
-
-void JPH_GJKClosestPoint_UpdatePointSetYPQ(JPH_GJKClosestPoint *self, uint32_t inSet) {
-    ToCpp(self)->UpdatePointSetYPQ(inSet);
-}
-
-void JPH_GJKClosestPoint_CalculatePointAAndB(const JPH_GJKClosestPoint *self, JPH_Vec3 *outPointA, JPH_Vec3 *outPointB) {
-    ToCpp(self)->CalculatePointAAndB(*outPointA, *outPointB);
 }
 
 void JPH_GJKClosestPoint_GetClosestPointsSimplex(const JPH_GJKClosestPoint *self, JPH_Vec3 *outY, JPH_Vec3 *outP, JPH_Vec3 *outQ, uint32_t *outNumPoints) {
@@ -10614,22 +10014,6 @@ bool JPH_EPAConvexHullBuilder_AddPoint(JPH_EPAConvexHullBuilder *self, JPH_EPACo
 
 void JPH_EPAConvexHullBuilder_FreeTriangle(JPH_EPAConvexHullBuilder *self, JPH_EPAConvexHullBuilder_Triangle *inT) {
     ToCpp(self)->FreeTriangle(inT);
-}
-
-JPH_EPAConvexHullBuilder_Triangle *JPH_EPAConvexHullBuilder_CreateTriangle(JPH_EPAConvexHullBuilder *self, int32_t inIdx1, int32_t inIdx2, int32_t inIdx3) {
-    return ToCpp(self)->CreateTriangle(inIdx1, inIdx2, inIdx3);
-}
-
-void JPH_EPAConvexHullBuilder_sLinkTriangle(JPH_EPAConvexHullBuilder_Triangle *inT1, int32_t inEdge1, JPH_EPAConvexHullBuilder_Triangle *inT2, int32_t inEdge2) {
-    JPH::EPAConvexHullBuilder::sLinkTriangle(inT1, inEdge1, inT2, inEdge2);
-}
-
-void JPH_EPAConvexHullBuilder_UnlinkTriangle(JPH_EPAConvexHullBuilder *self, JPH_EPAConvexHullBuilder_Triangle *inT) {
-    ToCpp(self)->UnlinkTriangle(inT);
-}
-
-bool JPH_EPAConvexHullBuilder_FindEdge(JPH_EPAConvexHullBuilder *self, JPH_EPAConvexHullBuilder_Triangle *inFacingTriangle, const JPH_Vec3 inVertex, JPH_EPAConvexHullBuilder_Edges *outEdges) {
-    return ToCpp(self)->FindEdge(inFacingTriangle, inVertex, *outEdges);
 }
 
 void JPH_OrientedBox_Construct(JPH_OrientedBox *self) {
@@ -10750,10 +10134,6 @@ JPH_BodyID JPH_QuadTree_NodeID_GetBodyID(const JPH_QuadTree_NodeID *self) {
 
 uint32_t JPH_QuadTree_NodeID_GetNodeIndex(const JPH_QuadTree_NodeID *self) {
     return ToCpp(self)->GetNodeIndex();
-}
-
-void JPH_QuadTree_NodeID_ConstructWithID(JPH_QuadTree_NodeID *self, uint32_t inID) {
-    new(ToCpp(self)) JPH::QuadTree::NodeID(inID);
 }
 
 void JPH_QuadTree_AtomicNodeID_Construct(JPH_QuadTree_AtomicNodeID *self) {
@@ -10890,70 +10270,6 @@ void JPH_QuadTree_FindCollidingPairs(const JPH_QuadTree *self, const JPH_BodyVec
 
 JPH_QuadTree_NodeID JPH_QuadTree_RootNode_GetNodeID(const JPH_QuadTree_RootNode *self) {
     return ToCpp(self)->GetNodeID();
-}
-
-void JPH_QuadTree_GetBodyLocation(const JPH_QuadTree *self, const JPH_QuadTree_TrackingVector *inTracking, JPH_BodyID inBodyID, uint32_t *outNodeIdx, uint32_t *outChildIdx) {
-    ToCpp(self)->GetBodyLocation(*inTracking, inBodyID, *outNodeIdx, *outChildIdx);
-}
-
-void JPH_QuadTree_SetBodyLocation(const JPH_QuadTree *self, JPH_QuadTree_TrackingVector *ioTracking, JPH_BodyID inBodyID, uint32_t inNodeIdx, uint32_t inChildIdx) {
-    ToCpp(self)->SetBodyLocation(*ioTracking, inBodyID, inNodeIdx, inChildIdx);
-}
-
-void JPH_QuadTree_sInvalidateBodyLocation(JPH_QuadTree_TrackingVector *ioTracking, JPH_BodyID inBodyID) {
-    JPH::QuadTree::sInvalidateBodyLocation(*ioTracking, inBodyID);
-}
-
-const JPH_QuadTree_RootNode *JPH_QuadTree_GetCurrentRootConst(const JPH_QuadTree *self) {
-    return ToCpp(self)->GetCurrentRoot();
-}
-
-JPH_QuadTree_RootNode *JPH_QuadTree_GetCurrentRoot(JPH_QuadTree *self) {
-    return ToCpp(self)->GetCurrentRoot();
-}
-
-JPH_AABox JPH_QuadTree_GetNodeOrBodyBounds(const JPH_QuadTree *self, const JPH_BodyVector *inBodies, JPH_QuadTree_NodeID inNodeID) {
-    return ToCpp(self)->GetNodeOrBodyBounds(*inBodies, inNodeID);
-}
-
-void JPH_QuadTree_MarkNodeAndParentsChanged(JPH_QuadTree *self, uint32_t inNodeIndex) {
-    ToCpp(self)->MarkNodeAndParentsChanged(inNodeIndex);
-}
-
-void JPH_QuadTree_WidenAndMarkNodeAndParentsChanged(JPH_QuadTree *self, uint32_t inNodeIndex, const JPH_AABox *inNewBounds) {
-    ToCpp(self)->WidenAndMarkNodeAndParentsChanged(inNodeIndex, *inNewBounds);
-}
-
-uint32_t JPH_QuadTree_AllocateNode(JPH_QuadTree *self, bool inIsChanged) {
-    return ToCpp(self)->AllocateNode(inIsChanged);
-}
-
-bool JPH_QuadTree_TryInsertLeaf(JPH_QuadTree *self, JPH_QuadTree_TrackingVector *ioTracking, int32_t inNodeIndex, JPH_QuadTree_NodeID inLeafID, const JPH_AABox *inLeafBounds, int32_t inLeafNumBodies) {
-    return ToCpp(self)->TryInsertLeaf(*ioTracking, inNodeIndex, inLeafID, *inLeafBounds, inLeafNumBodies);
-}
-
-bool JPH_QuadTree_TryCreateNewRoot(JPH_QuadTree *self, JPH_QuadTree_TrackingVector *ioTracking, atomic<uint32> *ioRootNodeIndex, JPH_QuadTree_NodeID inLeafID, const JPH_AABox *inLeafBounds, int32_t inLeafNumBodies) {
-    return ToCpp(self)->TryCreateNewRoot(*ioTracking, *ioRootNodeIndex, inLeafID, *inLeafBounds, inLeafNumBodies);
-}
-
-JPH_QuadTree_NodeID JPH_QuadTree_BuildTree(JPH_QuadTree *self, const JPH_BodyVector *inBodies, JPH_QuadTree_TrackingVector *ioTracking, JPH_QuadTree_NodeID *ioNodeIDs, int32_t inNumber, uint32_t inMaxDepthMarkChanged, JPH_AABox *outBounds) {
-    return ToCpp(self)->BuildTree(*inBodies, *ioTracking, ioNodeIDs, inNumber, inMaxDepthMarkChanged, *outBounds);
-}
-
-void JPH_QuadTree_sPartition(JPH_QuadTree_NodeID *ioNodeIDs, JPH_Vec3 *ioNodeCenters, int32_t inNumber, int32_t *outMidPoint) {
-    JPH::QuadTree::sPartition(ioNodeIDs, ioNodeCenters, inNumber, *outMidPoint);
-}
-
-void JPH_QuadTree_sPartition4(JPH_QuadTree_NodeID *ioNodeIDs, JPH_Vec3 *ioNodeCenters, int32_t inBegin, int32_t inEnd, int32_t *outSplit) {
-    JPH::QuadTree::sPartition4(ioNodeIDs, ioNodeCenters, inBegin, inEnd, outSplit);
-}
-
-void JPH_QuadTree_ValidateTree(const JPH_QuadTree *self, const JPH_BodyVector *inBodies, const JPH_QuadTree_TrackingVector *inTracking, uint32_t inNodeIndex, uint32_t inNumExpectedBodies) {
-    ToCpp(self)->ValidateTree(*inBodies, *inTracking, inNodeIndex, inNumExpectedBodies);
-}
-
-uint32_t JPH_QuadTree_GetMaxTreeDepth(const JPH_QuadTree *self, const JPH_QuadTree_NodeID *inNodeID) {
-    return ToCpp(self)->GetMaxTreeDepth(*inNodeID);
 }
 
 void JPH_BroadPhaseQuadTree_Destruct(JPH_BroadPhaseQuadTree *self) {
@@ -11152,16 +10468,8 @@ JPH_Vec3 JPH_TaperedCapsuleShape_MakeScaleValid(const JPH_TaperedCapsuleShape *s
     return ToCpp(self)->MakeScaleValid(inScale);
 }
 
-void JPH_TaperedCapsuleShape_sRegister() {
-    JPH::TaperedCapsuleShape::sRegister();
-}
-
 void JPH_TaperedCapsuleShape_RestoreBinaryState(JPH_TaperedCapsuleShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-JPH_AABox JPH_TaperedCapsuleShape_GetInertiaApproximation(const JPH_TaperedCapsuleShape *self) {
-    return ToCpp(self)->GetInertiaApproximation();
 }
 
 const JPH_RTTI *JPH_DecoratedShapeSettings_GetRTTI(const JPH_DecoratedShapeSettings *self) {
@@ -11384,36 +10692,8 @@ JPH_Vec3 JPH_RotatedTranslatedShape_TransformScale(const JPH_RotatedTranslatedSh
     return ToCpp(self)->TransformScale(inScale);
 }
 
-void JPH_RotatedTranslatedShape_sRegister() {
-    JPH::RotatedTranslatedShape::sRegister();
-}
-
 void JPH_RotatedTranslatedShape_RestoreBinaryState(JPH_RotatedTranslatedShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_RotatedTranslatedShape_sCollideRotatedTranslatedVsShape(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::RotatedTranslatedShape::sCollideRotatedTranslatedVsShape(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_RotatedTranslatedShape_sCollideShapeVsRotatedTranslated(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::RotatedTranslatedShape::sCollideShapeVsRotatedTranslated(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_RotatedTranslatedShape_sCollideRotatedTranslatedVsRotatedTranslated(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::RotatedTranslatedShape::sCollideRotatedTranslatedVsRotatedTranslated(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::RotatedTranslatedShape::sCastRotatedTranslatedVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_RotatedTranslatedShape_sCastShapeVsRotatedTranslated(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::RotatedTranslatedShape::sCastShapeVsRotatedTranslated(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsRotatedTranslated(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::RotatedTranslatedShape::sCastRotatedTranslatedVsRotatedTranslated(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 const JPH_RTTI *JPH_ScaledShapeSettings_GetRTTI(const JPH_ScaledShapeSettings *self) {
@@ -11544,28 +10824,8 @@ JPH_Vec3 JPH_ScaledShape_MakeScaleValid(const JPH_ScaledShape *self, const JPH_V
     return ToCpp(self)->MakeScaleValid(inScale);
 }
 
-void JPH_ScaledShape_sRegister() {
-    JPH::ScaledShape::sRegister();
-}
-
 void JPH_ScaledShape_RestoreBinaryState(JPH_ScaledShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_ScaledShape_sCollideScaledVsShape(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::ScaledShape::sCollideScaledVsShape(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_ScaledShape_sCollideShapeVsScaled(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::ScaledShape::sCollideShapeVsScaled(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_ScaledShape_sCastScaledVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::ScaledShape::sCastScaledVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_ScaledShape_sCastShapeVsScaled(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::ScaledShape::sCastShapeVsScaled(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 size_t JPH_ByteBuffer_Align(JPH_ByteBuffer *self, size_t inSize) {
@@ -11700,36 +10960,8 @@ uint32_t JPH_MeshShape_GetTriangleUserData(const JPH_MeshShape *self, const JPH_
     return ToCpp(self)->GetTriangleUserData(*inSubShapeID);
 }
 
-void JPH_MeshShape_sRegister() {
-    JPH::MeshShape::sRegister();
-}
-
 void JPH_MeshShape_RestoreBinaryState(JPH_MeshShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_MeshShape_sFindActiveEdges(const JPH_MeshShapeSettings *inSettings, JPH_IndexedTriangleList *ioIndices) {
-    JPH::MeshShape::sFindActiveEdges(*inSettings, *ioIndices);
-}
-
-void JPH_MeshShape_DecodeSubShapeID(const JPH_MeshShape *self, const JPH_SubShapeID *inSubShapeID, const void **outTriangleBlock, uint32_t *outTriangleIndex) {
-    ToCpp(self)->DecodeSubShapeID(*inSubShapeID, *outTriangleBlock, *outTriangleIndex);
-}
-
-void JPH_MeshShape_sCollideConvexVsMesh(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::MeshShape::sCollideConvexVsMesh(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_MeshShape_sCollideSphereVsMesh(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::MeshShape::sCollideSphereVsMesh(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_MeshShape_sCastConvexVsMesh(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::MeshShape::sCastConvexVsMesh(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_MeshShape_sCastSphereVsMesh(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::MeshShape::sCastSphereVsMesh(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 void JPH_CollideSoftBodyVerticesVsTriangles_Construct(JPH_CollideSoftBodyVerticesVsTriangles *self, const JPH_Mat44 * inCenterOfMassTransform, const JPH_Vec3 inScale) {
@@ -11856,14 +11088,6 @@ void JPH_AABBTreeBuilder_Node_GetNChildren(const JPH_AABBTreeBuilder_Node *self,
     ToCpp(self)->GetNChildren(*inNodes, inN, *outChildren);
 }
 
-float JPH_AABBTreeBuilder_Node_CalculateSAHCostInternal(const JPH_AABBTreeBuilder_Node *self, const Array<Node> *inNodes, float inCostTraversalDivSurfaceArea, float inCostLeafDivSurfaceArea) {
-    return ToCpp(self)->CalculateSAHCostInternal(*inNodes, inCostTraversalDivSurfaceArea, inCostLeafDivSurfaceArea);
-}
-
-void JPH_AABBTreeBuilder_Node_GetTriangleCountPerNodeInternal(const JPH_AABBTreeBuilder_Node *self, const Array<Node> *inNodes, float *outAverage, uint32_t *outAverageDivisor, uint32_t *outMin, uint32_t *outMax) {
-    ToCpp(self)->GetTriangleCountPerNodeInternal(*inNodes, *outAverage, *outAverageDivisor, *outMin, *outMax);
-}
-
 void JPH_AABBTreeBuilder_Construct(JPH_AABBTreeBuilder *self, JPH_TriangleSplitter *inSplitter, uint32_t inMaxTrianglesPerLeaf) {
     new(ToCpp(self)) JPH::AABBTreeBuilder(*inSplitter, inMaxTrianglesPerLeaf);
 }
@@ -11878,10 +11102,6 @@ const Array<Node> *JPH_AABBTreeBuilder_GetNodes(const JPH_AABBTreeBuilder *self)
 
 const Array<IndexedTriangle> *JPH_AABBTreeBuilder_GetTriangles(const JPH_AABBTreeBuilder *self) {
     return ToCpp(self)->GetTriangles();
-}
-
-uint32_t JPH_AABBTreeBuilder_BuildInternal(JPH_AABBTreeBuilder *self, const JPH_TriangleSplitter_Range *inTriangles) {
-    return ToCpp(self)->BuildInternal(*inTriangles);
 }
 
 const JPH_TriangleCodecIndexed8BitPackSOA4Flags_VertexData *JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlockHeader_GetVertexData(const JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlockHeader *self) {
@@ -11922,14 +11142,6 @@ size_t JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_Pack(JPH_Triang
 
 void JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext_Finalize(const JPH_TriangleCodecIndexed8BitPackSOA4Flags_EncodingContext *self, const JPH_VertexList *inVertices, JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleHeader *ioHeader, JPH_ByteBuffer *ioBuffer) {
     ToCpp(self)->Finalize(*inVertices, ioHeader, *ioBuffer);
-}
-
-void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_UnpackWithVerticesIndexXYZ(const JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext *self, const JPH_TriangleCodecIndexed8BitPackSOA4Flags_VertexData *inVertices, const JPH_UVec4 inIndex, JPH_Vec4 *outX, JPH_Vec4 *outY, JPH_Vec4 *outZ) {
-    ToCpp(self)->Unpack(inVertices, inIndex, *outX, *outY, *outZ);
-}
-
-void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_UnpackWithBlockVerticesX1Y1Z1X2Y2Z2X3Y3Z3(const JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext *self, const JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleBlock *inBlock, const JPH_TriangleCodecIndexed8BitPackSOA4Flags_VertexData *inVertices, JPH_Vec4 *outX1, JPH_Vec4 *outY1, JPH_Vec4 *outZ1, JPH_Vec4 *outX2, JPH_Vec4 *outY2, JPH_Vec4 *outZ2, JPH_Vec4 *outX3, JPH_Vec4 *outY3, JPH_Vec4 *outZ3) {
-    ToCpp(self)->Unpack(inBlock, inVertices, *outX1, *outY1, *outZ1, *outX2, *outY2, *outZ2, *outX3, *outY3, *outZ3);
 }
 
 void JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext_Construct(JPH_TriangleCodecIndexed8BitPackSOA4Flags_DecodingContext *self, const JPH_TriangleCodecIndexed8BitPackSOA4Flags_TriangleHeader *inHeader) {
@@ -12176,92 +11388,8 @@ float JPH_HeightFieldShape_GetVolume(const JPH_HeightFieldShape *self) {
     return ToCpp(self)->GetVolume();
 }
 
-void JPH_HeightFieldShape_sRegister() {
-    JPH::HeightFieldShape::sRegister();
-}
-
 void JPH_HeightFieldShape_RestoreBinaryState(JPH_HeightFieldShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_HeightFieldShape_CacheValues(JPH_HeightFieldShape *self) {
-    ToCpp(self)->CacheValues();
-}
-
-void JPH_HeightFieldShape_AllocateBuffers(JPH_HeightFieldShape *self) {
-    ToCpp(self)->AllocateBuffers();
-}
-
-void JPH_HeightFieldShape_CalculateActiveEdgesWithXYSizeXSizeYHeightsHeightsStartXHeightsStartYHeightsStrideHeightsScaleActiveEdgeCosThresholdAngleAllocator(JPH_HeightFieldShape *self, uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, const float *inHeights, uint32_t inHeightsStartX, uint32_t inHeightsStartY, intptr_t inHeightsStride, float inHeightsScale, float inActiveEdgeCosThresholdAngle, JPH_TempAllocator *inAllocator) {
-    ToCpp(self)->CalculateActiveEdges(inX, inY, inSizeX, inSizeY, inHeights, inHeightsStartX, inHeightsStartY, inHeightsStride, inHeightsScale, inActiveEdgeCosThresholdAngle, *inAllocator);
-}
-
-void JPH_HeightFieldShape_CalculateActiveEdgesWithSettings(JPH_HeightFieldShape *self, const JPH_HeightFieldShapeSettings *inSettings) {
-    ToCpp(self)->CalculateActiveEdges(*inSettings);
-}
-
-void JPH_HeightFieldShape_StoreMaterialIndices(JPH_HeightFieldShape *self, const JPH_HeightFieldShapeSettings *inSettings) {
-    ToCpp(self)->StoreMaterialIndices(*inSettings);
-}
-
-uint32_t JPH_HeightFieldShape_GetNumBlocks(const JPH_HeightFieldShape *self) {
-    return ToCpp(self)->GetNumBlocks();
-}
-
-uint32_t JPH_HeightFieldShape_sGetMaxLevel(uint32_t inNumBlocks) {
-    return JPH::HeightFieldShape::sGetMaxLevel(inNumBlocks);
-}
-
-void JPH_HeightFieldShape_sGetRangeBlockOffsetAndStride(uint32_t inNumBlocks, uint32_t inMaxLevel, uint32_t *outRangeBlockOffset, uint32_t *outRangeBlockStride) {
-    JPH::HeightFieldShape::sGetRangeBlockOffsetAndStride(inNumBlocks, inMaxLevel, *outRangeBlockOffset, *outRangeBlockStride);
-}
-
-void JPH_HeightFieldShape_GetBlockOffsetAndScale(const JPH_HeightFieldShape *self, uint32_t inBlockX, uint32_t inBlockY, uint32_t inRangeBlockOffset, uint32_t inRangeBlockStride, float *outBlockOffset, float *outBlockScale) {
-    ToCpp(self)->GetBlockOffsetAndScale(inBlockX, inBlockY, inRangeBlockOffset, inRangeBlockStride, *outBlockOffset, *outBlockScale);
-}
-
-uint8_t JPH_HeightFieldShape_GetHeightSample(const JPH_HeightFieldShape *self, uint32_t inX, uint32_t inY) {
-    return ToCpp(self)->GetHeightSample(inX, inY);
-}
-
-JPH_Vec3 JPH_HeightFieldShape_GetPositionWithXYBlockOffsetBlockScaleNoCollision(const JPH_HeightFieldShape *self, uint32_t inX, uint32_t inY, float inBlockOffset, float inBlockScale, bool *outNoCollision) {
-    return ToCpp(self)->GetPosition(inX, inY, inBlockOffset, inBlockScale, *outNoCollision);
-}
-
-uint32_t JPH_HeightFieldShape_GetSubShapeIDBits(const JPH_HeightFieldShape *self) {
-    return ToCpp(self)->GetSubShapeIDBits();
-}
-
-JPH_SubShapeID JPH_HeightFieldShape_EncodeSubShapeID(const JPH_HeightFieldShape *self, const JPH_SubShapeIDCreator *inCreator, uint32_t inX, uint32_t inY, uint32_t inTriangle) {
-    return ToCpp(self)->EncodeSubShapeID(*inCreator, inX, inY, inTriangle);
-}
-
-void JPH_HeightFieldShape_DecodeSubShapeID(const JPH_HeightFieldShape *self, const JPH_SubShapeID *inSubShapeID, uint32_t *outX, uint32_t *outY, uint32_t *outTriangle) {
-    ToCpp(self)->DecodeSubShapeID(*inSubShapeID, *outX, *outY, *outTriangle);
-}
-
-uint8_t JPH_HeightFieldShape_GetEdgeFlags(const JPH_HeightFieldShape *self, uint32_t inX, uint32_t inY, uint32_t inTriangle) {
-    return ToCpp(self)->GetEdgeFlags(inX, inY, inTriangle);
-}
-
-void JPH_HeightFieldShape_sCollideConvexVsHeightField(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::HeightFieldShape::sCollideConvexVsHeightField(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_HeightFieldShape_sCollideSphereVsHeightField(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::HeightFieldShape::sCollideSphereVsHeightField(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_HeightFieldShape_sCastConvexVsHeightField(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::HeightFieldShape::sCastConvexVsHeightField(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_HeightFieldShape_sCastSphereVsHeightField(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::HeightFieldShape::sCastSphereVsHeightField(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_HeightFieldShape_GetRangeBlock(JPH_HeightFieldShape *self, uint32_t inBlockX, uint32_t inBlockY, uint32_t inRangeBlockOffset, uint32_t inRangeBlockStride, JPH_HeightFieldShape_RangeBlock **outBlock, uint32_t *outIndexInBlock) {
-    ToCpp(self)->GetRangeBlock(inBlockX, inBlockY, inRangeBlockOffset, inRangeBlockStride, *outBlock, *outIndexInBlock);
 }
 
 float JPH_CollidePointResult_GetEarlyOutFraction(const JPH_CollidePointResult *self) {
@@ -12382,10 +11510,6 @@ bool JPH_CapsuleShape_IsValidScale(const JPH_CapsuleShape *self, const JPH_Vec3 
 
 JPH_Vec3 JPH_CapsuleShape_MakeScaleValid(const JPH_CapsuleShape *self, const JPH_Vec3 inScale) {
     return ToCpp(self)->MakeScaleValid(inScale);
-}
-
-void JPH_CapsuleShape_sRegister() {
-    JPH::CapsuleShape::sRegister();
 }
 
 void JPH_CapsuleShape_RestoreBinaryState(JPH_CapsuleShape *self, JPH_StreamIn *inStream) {
@@ -12520,10 +11644,6 @@ JPH_Vec3 JPH_CylinderShape_MakeScaleValid(const JPH_CylinderShape *self, const J
     return ToCpp(self)->MakeScaleValid(inScale);
 }
 
-void JPH_CylinderShape_sRegister() {
-    JPH::CylinderShape::sRegister();
-}
-
 void JPH_CylinderShape_RestoreBinaryState(JPH_CylinderShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
@@ -12648,28 +11768,8 @@ float JPH_OffsetCenterOfMassShape_GetVolume(const JPH_OffsetCenterOfMassShape *s
     return ToCpp(self)->GetVolume();
 }
 
-void JPH_OffsetCenterOfMassShape_sRegister() {
-    JPH::OffsetCenterOfMassShape::sRegister();
-}
-
 void JPH_OffsetCenterOfMassShape_RestoreBinaryState(JPH_OffsetCenterOfMassShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_OffsetCenterOfMassShape_sCollideOffsetCenterOfMassVsShape(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::OffsetCenterOfMassShape::sCollideOffsetCenterOfMassVsShape(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_OffsetCenterOfMassShape_sCollideShapeVsOffsetCenterOfMass(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::OffsetCenterOfMassShape::sCollideShapeVsOffsetCenterOfMass(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_OffsetCenterOfMassShape_sCastOffsetCenterOfMassVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::OffsetCenterOfMassShape::sCastOffsetCenterOfMassVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_OffsetCenterOfMassShape_sCastShapeVsOffsetCenterOfMass(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::OffsetCenterOfMassShape::sCastShapeVsOffsetCenterOfMass(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 const JPH_RTTI *JPH_TaperedCylinderShapeSettings_GetRTTI(const JPH_TaperedCylinderShapeSettings *self) {
@@ -12780,16 +11880,8 @@ JPH_Vec3 JPH_TaperedCylinderShape_MakeScaleValid(const JPH_TaperedCylinderShape 
     return ToCpp(self)->MakeScaleValid(inScale);
 }
 
-void JPH_TaperedCylinderShape_sRegister() {
-    JPH::TaperedCylinderShape::sRegister();
-}
-
 void JPH_TaperedCylinderShape_RestoreBinaryState(JPH_TaperedCylinderShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_TaperedCylinderShape_GetScaled(const JPH_TaperedCylinderShape *self, const JPH_Vec3 inScale, float *outTop, float *outBottom, float *outTopRadius, float *outBottomRadius, float *outConvexRadius) {
-    ToCpp(self)->GetScaled(inScale, *outTop, *outBottom, *outTopRadius, *outBottomRadius, *outConvexRadius);
 }
 
 const JPH_RTTI *JPH_BoxShapeSettings_GetRTTI(const JPH_BoxShapeSettings *self) {
@@ -12890,10 +11982,6 @@ float JPH_BoxShape_GetVolume(const JPH_BoxShape *self) {
 
 float JPH_BoxShape_GetConvexRadius(const JPH_BoxShape *self) {
     return ToCpp(self)->GetConvexRadius();
-}
-
-void JPH_BoxShape_sRegister() {
-    JPH::BoxShape::sRegister();
 }
 
 void JPH_BoxShape_RestoreBinaryState(JPH_BoxShape *self, JPH_StreamIn *inStream) {
@@ -13028,36 +12116,8 @@ uint32_t JPH_ConvexHullShape_GetFaceVertices(const JPH_ConvexHullShape *self, ui
     return ToCpp(self)->GetFaceVertices(inFaceIndex, inMaxVertices, outVertices);
 }
 
-void JPH_ConvexHullShape_sRegister() {
-    JPH::ConvexHullShape::sRegister();
-}
-
 void JPH_ConvexHullShape_RestoreBinaryState(JPH_ConvexHullShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-bool JPH_ConvexHullShape_CastRayHelper(const JPH_ConvexHullShape *self, const JPH_RayCast *inRay, float *outMinFraction, float *outMaxFraction) {
-    return ToCpp(self)->CastRayHelper(*inRay, *outMinFraction, *outMaxFraction);
-}
-
-void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume4(const JPH_Vec3 inV1, const JPH_Vec3 inV2, const JPH_Vec3 inV3, const JPH_Vec3 inV4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4) {
-    JPH::PolyhedronSubmergedVolumeCalculator::sTetrahedronVolume4(inV1, inV2, inV3, inV4, *outVolumeTimes6, *outCenterTimes4);
-}
-
-JPH_Vec3 JPH_PolyhedronSubmergedVolumeCalculator_sGetPlaneIntersection(const JPH_Vec3 inV1, float inD1, const JPH_Vec3 inV2, float inD2) {
-    return JPH::PolyhedronSubmergedVolumeCalculator::sGetPlaneIntersection(inV1, inD1, inV2, inD2);
-}
-
-void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume1(const JPH_Vec3 inV1, float inD1, const JPH_Vec3 inV2, float inD2, const JPH_Vec3 inV3, float inD3, const JPH_Vec3 inV4, float inD4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4) {
-    JPH::PolyhedronSubmergedVolumeCalculator::sTetrahedronVolume1(inV1, inD1, inV2, inD2, inV3, inD3, inV4, inD4, *outVolumeTimes6, *outCenterTimes4);
-}
-
-void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume2(const JPH_Vec3 inV1, float inD1, const JPH_Vec3 inV2, float inD2, const JPH_Vec3 inV3, float inD3, const JPH_Vec3 inV4, float inD4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4) {
-    JPH::PolyhedronSubmergedVolumeCalculator::sTetrahedronVolume2(inV1, inD1, inV2, inD2, inV3, inD3, inV4, inD4, *outVolumeTimes6, *outCenterTimes4);
-}
-
-void JPH_PolyhedronSubmergedVolumeCalculator_sTetrahedronVolume3(const JPH_Vec3 inV1, float inD1, const JPH_Vec3 inV2, float inD2, const JPH_Vec3 inV3, float inD3, const JPH_Vec3 inV4, float inD4, float *outVolumeTimes6, JPH_Vec3 *outCenterTimes4) {
-    JPH::PolyhedronSubmergedVolumeCalculator::sTetrahedronVolume3(inV1, inD1, inV2, inD2, inV3, inD3, inV4, inD4, *outVolumeTimes6, *outCenterTimes4);
 }
 
 void JPH_PolyhedronSubmergedVolumeCalculator_Construct(JPH_PolyhedronSubmergedVolumeCalculator *self, const JPH_Mat44 *inTransform, const JPH_Vec3 *inPoints, int32_t inPointStride, int32_t inNumPoints, const JPH_Plane *inSurface, JPH_PolyhedronSubmergedVolumeCalculator_Point *ioBuffer) {
@@ -13138,98 +12198,6 @@ void JPH_ConvexHullBuilder_DetermineMaxError(const JPH_ConvexHullBuilder *self, 
 
 const JPH_ConvexHullBuilder_Faces *JPH_ConvexHullBuilder_GetFaces(const JPH_ConvexHullBuilder *self) {
     return ToCpp(self)->GetFaces();
-}
-
-float JPH_ConvexHullBuilder_DetermineCoplanarDistance(const JPH_ConvexHullBuilder *self) {
-    return ToCpp(self)->DetermineCoplanarDistance();
-}
-
-void JPH_ConvexHullBuilder_GetFaceForPoint(const JPH_ConvexHullBuilder *self, const JPH_Vec3 inPoint, const JPH_ConvexHullBuilder_Faces *inFaces, JPH_ConvexHullBuilder_Face **outFace, float *outDistSq) {
-    ToCpp(self)->GetFaceForPoint(inPoint, *inFaces, *outFace, *outDistSq);
-}
-
-float JPH_ConvexHullBuilder_GetDistanceToEdgeSq(const JPH_ConvexHullBuilder *self, const JPH_Vec3 inPoint, const JPH_ConvexHullBuilder_Face *inFace) {
-    return ToCpp(self)->GetDistanceToEdgeSq(inPoint, inFace);
-}
-
-bool JPH_ConvexHullBuilder_AssignPointToFace(JPH_ConvexHullBuilder *self, int32_t inPositionIdx, const JPH_ConvexHullBuilder_Faces *inFaces, float inToleranceSq) {
-    return ToCpp(self)->AssignPointToFace(inPositionIdx, *inFaces, inToleranceSq);
-}
-
-void JPH_ConvexHullBuilder_AddPoint(JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Face *inFacingFace, int32_t inIdx, float inToleranceSq, JPH_ConvexHullBuilder_Faces *outNewFaces) {
-    ToCpp(self)->AddPoint(inFacingFace, inIdx, inToleranceSq, *outNewFaces);
-}
-
-void JPH_ConvexHullBuilder_GarbageCollectFaces(JPH_ConvexHullBuilder *self) {
-    ToCpp(self)->GarbageCollectFaces();
-}
-
-JPH_ConvexHullBuilder_Face *JPH_ConvexHullBuilder_CreateFace(JPH_ConvexHullBuilder *self) {
-    return ToCpp(self)->CreateFace();
-}
-
-JPH_ConvexHullBuilder_Face *JPH_ConvexHullBuilder_CreateTriangle(JPH_ConvexHullBuilder *self, int32_t inIdx1, int32_t inIdx2, int32_t inIdx3) {
-    return ToCpp(self)->CreateTriangle(inIdx1, inIdx2, inIdx3);
-}
-
-void JPH_ConvexHullBuilder_FreeFace(JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Face *inFace) {
-    ToCpp(self)->FreeFace(inFace);
-}
-
-void JPH_ConvexHullBuilder_FreeFaces(JPH_ConvexHullBuilder *self) {
-    ToCpp(self)->FreeFaces();
-}
-
-void JPH_ConvexHullBuilder_sLinkFace(JPH_ConvexHullBuilder_Edge *inEdge1, JPH_ConvexHullBuilder_Edge *inEdge2) {
-    JPH::ConvexHullBuilder::sLinkFace(inEdge1, inEdge2);
-}
-
-void JPH_ConvexHullBuilder_sUnlinkFace(JPH_ConvexHullBuilder_Face *inFace) {
-    JPH::ConvexHullBuilder::sUnlinkFace(inFace);
-}
-
-void JPH_ConvexHullBuilder_FindEdge(const JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Face *inFacingFace, const JPH_Vec3 inVertex, JPH_ConvexHullBuilder_FullEdges *outEdges) {
-    ToCpp(self)->FindEdge(inFacingFace, inVertex, *outEdges);
-}
-
-void JPH_ConvexHullBuilder_MergeFaces(JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Edge *inEdge) {
-    ToCpp(self)->MergeFaces(inEdge);
-}
-
-void JPH_ConvexHullBuilder_MergeDegenerateFace(JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces) {
-    ToCpp(self)->MergeDegenerateFace(inFace, *ioAffectedFaces);
-}
-
-void JPH_ConvexHullBuilder_MergeCoplanarOrConcaveFaces(JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Face *inFace, float inToleranceSq, JPH_ConvexHullBuilder_Faces *ioAffectedFaces) {
-    ToCpp(self)->MergeCoplanarOrConcaveFaces(inFace, inToleranceSq, *ioAffectedFaces);
-}
-
-void JPH_ConvexHullBuilder_sMarkAffected(JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces) {
-    JPH::ConvexHullBuilder::sMarkAffected(inFace, *ioAffectedFaces);
-}
-
-void JPH_ConvexHullBuilder_RemoveInvalidEdges(JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces) {
-    ToCpp(self)->RemoveInvalidEdges(inFace, *ioAffectedFaces);
-}
-
-bool JPH_ConvexHullBuilder_RemoveTwoEdgeFace(const JPH_ConvexHullBuilder *self, JPH_ConvexHullBuilder_Face *inFace, JPH_ConvexHullBuilder_Faces *ioAffectedFaces) {
-    return ToCpp(self)->RemoveTwoEdgeFace(inFace, *ioAffectedFaces);
-}
-
-void JPH_ConvexHullBuilder_DumpFace(const JPH_ConvexHullBuilder *self, const JPH_ConvexHullBuilder_Face *inFace) {
-    ToCpp(self)->DumpFace(inFace);
-}
-
-void JPH_ConvexHullBuilder_DumpFaces(const JPH_ConvexHullBuilder *self) {
-    ToCpp(self)->DumpFaces();
-}
-
-void JPH_ConvexHullBuilder_ValidateFace(const JPH_ConvexHullBuilder *self, const JPH_ConvexHullBuilder_Face *inFace) {
-    ToCpp(self)->ValidateFace(inFace);
-}
-
-void JPH_ConvexHullBuilder_ValidateFaces(const JPH_ConvexHullBuilder *self) {
-    ToCpp(self)->ValidateFaces();
 }
 
 const JPH_RTTI *JPH_CompoundShapeSettings_GetRTTI(const JPH_CompoundShapeSettings *self) {
@@ -13436,10 +12404,6 @@ JPH_Vec3 JPH_CompoundShape_MakeScaleValid(const JPH_CompoundShape *self, const J
     return ToCpp(self)->MakeScaleValid(inScale);
 }
 
-void JPH_CompoundShape_sRegister() {
-    JPH::CompoundShape::sRegister();
-}
-
 void JPH_CompoundShape_RestoreBinaryState(JPH_CompoundShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
@@ -13450,10 +12414,6 @@ uint32_t JPH_CompoundShape_GetSubShapeIDBits(const JPH_CompoundShape *self) {
 
 void JPH_CompoundShape_CalculateInnerRadius(JPH_CompoundShape *self) {
     ToCpp(self)->CalculateInnerRadius();
-}
-
-void JPH_CompoundShape_sCastCompoundVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::CompoundShape::sCastCompoundVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 const JPH_RTTI *JPH_MutableCompoundShapeSettings_GetRTTI(const JPH_MutableCompoundShapeSettings *self) {
@@ -13536,40 +12496,8 @@ void JPH_MutableCompoundShape_AdjustCenterOfMass(JPH_MutableCompoundShape *self)
     ToCpp(self)->AdjustCenterOfMass();
 }
 
-void JPH_MutableCompoundShape_sRegister() {
-    JPH::MutableCompoundShape::sRegister();
-}
-
 void JPH_MutableCompoundShape_RestoreBinaryState(JPH_MutableCompoundShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-uint32_t JPH_MutableCompoundShape_GetNumBlocks(const JPH_MutableCompoundShape *self) {
-    return ToCpp(self)->GetNumBlocks();
-}
-
-void JPH_MutableCompoundShape_EnsureSubShapeBoundsCapacity(JPH_MutableCompoundShape *self) {
-    ToCpp(self)->EnsureSubShapeBoundsCapacity();
-}
-
-void JPH_MutableCompoundShape_CalculateSubShapeBounds(JPH_MutableCompoundShape *self, uint32_t inStartIdx, uint32_t inNumber) {
-    ToCpp(self)->CalculateSubShapeBounds(inStartIdx, inNumber);
-}
-
-void JPH_MutableCompoundShape_CalculateLocalBounds(JPH_MutableCompoundShape *self) {
-    ToCpp(self)->CalculateLocalBounds();
-}
-
-void JPH_MutableCompoundShape_sCollideCompoundVsShape(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::MutableCompoundShape::sCollideCompoundVsShape(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_MutableCompoundShape_sCollideShapeVsCompound(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::MutableCompoundShape::sCollideShapeVsCompound(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_MutableCompoundShape_sCastShapeVsCompound(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::MutableCompoundShape::sCastShapeVsCompound(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 void JPH_CastRayVisitor_Construct(JPH_CastRayVisitor *self, const JPH_RayCast *inRay, const JPH_CompoundShape *inShape, const JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
@@ -13812,28 +12740,8 @@ const JPH_PhysicsMaterial *JPH_PlaneShape_GetMaterial(const JPH_PlaneShape *self
     return ToCpp(self)->GetMaterial();
 }
 
-void JPH_PlaneShape_sRegister() {
-    JPH::PlaneShape::sRegister();
-}
-
 void JPH_PlaneShape_RestoreBinaryState(JPH_PlaneShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_PlaneShape_GetVertices(const JPH_PlaneShape *self, JPH_Vec3 *outVertices) {
-    ToCpp(self)->GetVertices(outVertices);
-}
-
-void JPH_PlaneShape_CalculateLocalBounds(JPH_PlaneShape *self) {
-    ToCpp(self)->CalculateLocalBounds();
-}
-
-void JPH_PlaneShape_sCollideConvexVsPlane(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::PlaneShape::sCollideConvexVsPlane(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_PlaneShape_sCastConvexVsPlane(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::PlaneShape::sCastConvexVsPlane(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 const JPH_RTTI *JPH_TriangleShapeSettings_GetRTTI(const JPH_TriangleShapeSettings *self) {
@@ -13960,28 +12868,8 @@ JPH_Vec3 JPH_TriangleShape_MakeScaleValid(const JPH_TriangleShape *self, const J
     return ToCpp(self)->MakeScaleValid(inScale);
 }
 
-void JPH_TriangleShape_sRegister() {
-    JPH::TriangleShape::sRegister();
-}
-
 void JPH_TriangleShape_RestoreBinaryState(JPH_TriangleShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_TriangleShape_sCollideConvexVsTriangle(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::TriangleShape::sCollideConvexVsTriangle(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_TriangleShape_sCollideSphereVsTriangle(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::TriangleShape::sCollideSphereVsTriangle(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_TriangleShape_sCastConvexVsTriangle(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::TriangleShape::sCastConvexVsTriangle(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
-}
-
-void JPH_TriangleShape_sCastSphereVsTriangle(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::TriangleShape::sCastSphereVsTriangle(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 const JPH_RTTI *JPH_StaticCompoundShapeSettings_GetRTTI(const JPH_StaticCompoundShapeSettings *self) {
@@ -14040,32 +12928,8 @@ JPH_Shape_Stats JPH_StaticCompoundShape_GetStats(const JPH_StaticCompoundShape *
     return ToCpp(self)->GetStats();
 }
 
-void JPH_StaticCompoundShape_sRegister() {
-    JPH::StaticCompoundShape::sRegister();
-}
-
 void JPH_StaticCompoundShape_RestoreBinaryState(JPH_StaticCompoundShape *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_StaticCompoundShape_sPartition(uint32_t *ioBodyIdx, JPH_AABox *ioBounds, int32_t inNumber, int32_t *outMidPoint) {
-    JPH::StaticCompoundShape::sPartition(ioBodyIdx, ioBounds, inNumber, *outMidPoint);
-}
-
-void JPH_StaticCompoundShape_sPartition4(uint32_t *ioBodyIdx, JPH_AABox *ioBounds, int32_t inBegin, int32_t inEnd, int32_t *outSplit) {
-    JPH::StaticCompoundShape::sPartition4(ioBodyIdx, ioBounds, inBegin, inEnd, outSplit);
-}
-
-void JPH_StaticCompoundShape_sCollideCompoundVsShape(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::StaticCompoundShape::sCollideCompoundVsShape(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_StaticCompoundShape_sCollideShapeVsCompound(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
-    JPH::StaticCompoundShape::sCollideShapeVsCompound(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
-}
-
-void JPH_StaticCompoundShape_sCastShapeVsCompound(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
-    JPH::StaticCompoundShape::sCastShapeVsCompound(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
 void JPH_StaticCompoundShape_Node_SetChildBounds(JPH_StaticCompoundShape_Node *self, uint32_t inIndex, const JPH_AABox *inBounds) {
@@ -14568,78 +13432,6 @@ void JPH_CharacterVirtual_ContactCastCollector_AddHit(JPH_CharacterVirtual_Conta
     ToCpp(self)->AddHit(*inResult);
 }
 
-void JPH_CharacterVirtual_sFillCharacterContactProperties(JPH_CharacterVirtual_Contact *outContact, const JPH_CharacterVirtual *inOtherCharacter, const JPH_Vec3 inBaseOffset, const JPH_CollideShapeResult *inResult) {
-    JPH::CharacterVirtual::sFillCharacterContactProperties(*outContact, inOtherCharacter, inBaseOffset, *inResult);
-}
-
-void JPH_CharacterVirtual_MoveShape(JPH_CharacterVirtual *self, JPH_RVec3 *ioPosition, const JPH_Vec3 inVelocity, float inDeltaTime, JPH_CharacterVirtual_ContactList *outActiveContacts, const JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_BodyFilter *inBodyFilter, const JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator) {
-    ToCpp(self)->MoveShape(*ioPosition, inVelocity, inDeltaTime, outActiveContacts, *inBroadPhaseLayerFilter, *inObjectLayerFilter, *inBodyFilter, *inShapeFilter, *inAllocator);
-}
-
-bool JPH_CharacterVirtual_ValidateContact(const JPH_CharacterVirtual *self, const JPH_CharacterVirtual_Contact *inContact) {
-    return ToCpp(self)->ValidateContact(*inContact);
-}
-
-void JPH_CharacterVirtual_ContactAdded(JPH_CharacterVirtual *self, const JPH_CharacterVirtual_Contact *inContact, JPH_CharacterContactSettings *ioSettings) {
-    ToCpp(self)->ContactAdded(*inContact, *ioSettings);
-}
-
-void JPH_CharacterVirtual_GetContactsAtPosition(const JPH_CharacterVirtual *self, const JPH_Vec3 inPosition, const JPH_Vec3 inMovementDirection, const JPH_Shape *inShape, JPH_CharacterVirtual_TempContactList *outContacts, const JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_BodyFilter *inBodyFilter, const JPH_ShapeFilter *inShapeFilter) {
-    ToCpp(self)->GetContactsAtPosition(inPosition, inMovementDirection, inShape, *outContacts, *inBroadPhaseLayerFilter, *inObjectLayerFilter, *inBodyFilter, *inShapeFilter);
-}
-
-void JPH_CharacterVirtual_RemoveConflictingContacts(const JPH_CharacterVirtual *self, JPH_CharacterVirtual_TempContactList *ioContacts, JPH_CharacterVirtual_IgnoredContactList *outIgnoredContacts) {
-    ToCpp(self)->RemoveConflictingContacts(*ioContacts, *outIgnoredContacts);
-}
-
-void JPH_CharacterVirtual_DetermineConstraints(const JPH_CharacterVirtual *self, JPH_CharacterVirtual_TempContactList *inContacts, float inDeltaTime, JPH_CharacterVirtual_ConstraintList *outConstraints) {
-    ToCpp(self)->DetermineConstraints(*inContacts, inDeltaTime, *outConstraints);
-}
-
-void JPH_CharacterVirtual_SolveConstraints(JPH_CharacterVirtual *self, const JPH_Vec3 inVelocity, float inDeltaTime, float inTimeRemaining, JPH_CharacterVirtual_ConstraintList *ioConstraints, JPH_CharacterVirtual_IgnoredContactList *ioIgnoredContacts, float *outTimeSimulated, JPH_Vec3 *outDisplacement, JPH_TempAllocator *inAllocator) {
-    ToCpp(self)->SolveConstraints(inVelocity, inDeltaTime, inTimeRemaining, *ioConstraints, *ioIgnoredContacts, *outTimeSimulated, *outDisplacement, *inAllocator);
-}
-
-void JPH_CharacterVirtual_GetAdjustedBodyVelocity(const JPH_CharacterVirtual *self, const JPH_Body *inBody, JPH_Vec3 *outLinearVelocity, JPH_Vec3 *outAngularVelocity) {
-    ToCpp(self)->GetAdjustedBodyVelocity(*inBody, *outLinearVelocity, *outAngularVelocity);
-}
-
-JPH_Vec3 JPH_CharacterVirtual_CalculateCharacterGroundVelocity(const JPH_CharacterVirtual *self, const JPH_Vec3 inCenterOfMass, const JPH_Vec3 inLinearVelocity, const JPH_Vec3 inAngularVelocity, float inDeltaTime) {
-    return ToCpp(self)->CalculateCharacterGroundVelocity(inCenterOfMass, inLinearVelocity, inAngularVelocity, inDeltaTime);
-}
-
-bool JPH_CharacterVirtual_HandleContact(JPH_CharacterVirtual *self, const JPH_Vec3 inVelocity, JPH_CharacterVirtual_Constraint *ioConstraint, float inDeltaTime) {
-    return ToCpp(self)->HandleContact(inVelocity, *ioConstraint, inDeltaTime);
-}
-
-bool JPH_CharacterVirtual_GetFirstContactForSweep(const JPH_CharacterVirtual *self, const JPH_Vec3 inPosition, const JPH_Vec3 inDisplacement, JPH_CharacterVirtual_Contact *outContact, const JPH_CharacterVirtual_IgnoredContactList *inIgnoredContacts, const JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_BodyFilter *inBodyFilter, const JPH_ShapeFilter *inShapeFilter) {
-    return ToCpp(self)->GetFirstContactForSweep(inPosition, inDisplacement, *outContact, *inIgnoredContacts, *inBroadPhaseLayerFilter, *inObjectLayerFilter, *inBodyFilter, *inShapeFilter);
-}
-
-void JPH_CharacterVirtual_StoreActiveContacts(JPH_CharacterVirtual *self, const JPH_CharacterVirtual_TempContactList *inContacts, JPH_TempAllocator *inAllocator) {
-    ToCpp(self)->StoreActiveContacts(*inContacts, *inAllocator);
-}
-
-void JPH_CharacterVirtual_UpdateSupportingContact(JPH_CharacterVirtual *self, bool inSkipContactVelocityCheck, JPH_TempAllocator *inAllocator) {
-    ToCpp(self)->UpdateSupportingContact(inSkipContactVelocityCheck, *inAllocator);
-}
-
-void JPH_CharacterVirtual_MoveToContact(JPH_CharacterVirtual *self, const JPH_Vec3 inPosition, const JPH_CharacterVirtual_Contact *inContact, const JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_BodyFilter *inBodyFilter, const JPH_ShapeFilter *inShapeFilter, JPH_TempAllocator *inAllocator) {
-    ToCpp(self)->MoveToContact(inPosition, *inContact, *inBroadPhaseLayerFilter, *inObjectLayerFilter, *inBodyFilter, *inShapeFilter, *inAllocator);
-}
-
-JPH_RMat44 JPH_CharacterVirtual_GetCenterOfMassTransformWithPositionRotationShape(const JPH_CharacterVirtual *self, const JPH_Vec3 inPosition, const JPH_Quat inRotation, const JPH_Shape *inShape) {
-    return ToCpp(self)->GetCenterOfMassTransform(inPosition, inRotation, inShape);
-}
-
-JPH_RVec3 JPH_CharacterVirtual_GetInnerBodyPosition(const JPH_CharacterVirtual *self) {
-    return ToCpp(self)->GetInnerBodyPosition();
-}
-
-void JPH_CharacterVirtual_UpdateInnerBodyTransform(JPH_CharacterVirtual *self) {
-    ToCpp(self)->UpdateInnerBodyTransform();
-}
-
 void JPH_CharacterVirtual_ListenerContactValue_Construct(JPH_CharacterVirtual_ListenerContactValue *self) {
     new(ToCpp(self)) JPH::CharacterVirtual::ListenerContactValue();
 }
@@ -14760,24 +13552,12 @@ JPH_CharacterSettings JPH_Character_GetCharacterSettings(const JPH_Character *se
     return ToCpp(self)->GetCharacterSettings(inLockBodies);
 }
 
-void JPH_Character_CheckCollisionWithCenterOfMassTransformMovementDirectionMaxSeparationDistanceShapeBaseOffsetIoCollectorLockBodies(const JPH_Character *self, const JPH_Mat44 * inCenterOfMassTransform, const JPH_Vec3 inMovementDirection, float inMaxSeparationDistance, const JPH_Shape *inShape, const JPH_Vec3 inBaseOffset, JPH_CollideShapeCollector *ioCollector, bool inLockBodies) {
-    ToCpp(self)->CheckCollision(inCenterOfMassTransform, inMovementDirection, inMaxSeparationDistance, inShape, inBaseOffset, *ioCollector, inLockBodies);
-}
-
-void JPH_Character_CheckCollisionWithShapeMaxSeparationDistanceBaseOffsetIoCollectorLockBodies(const JPH_Character *self, const JPH_Shape *inShape, float inMaxSeparationDistance, const JPH_Vec3 inBaseOffset, JPH_CollideShapeCollector *ioCollector, bool inLockBodies) {
-    ToCpp(self)->CheckCollision(inShape, inMaxSeparationDistance, inBaseOffset, *ioCollector, inLockBodies);
-}
-
 void JPH_PhysicsStepListener_Destruct(JPH_PhysicsStepListener *self) {
     ToCpp(self)->~PhysicsStepListener();
 }
 
 void JPH_PhysicsStepListener_OnStep(JPH_PhysicsStepListener *self, const JPH_PhysicsStepListenerContext *inContext) {
     ToCpp(self)->OnStep(*inContext);
-}
-
-bool JPH_RackAndPinionConstraintPart_ApplyVelocityStep(const JPH_RackAndPinionConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, float inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, inLambda);
 }
 
 void JPH_RackAndPinionConstraintPart_CalculateConstraintProperties(JPH_RackAndPinionConstraintPart *self, const JPH_Body *inBody1, const JPH_Vec3 inWorldSpaceHingeAxis, const JPH_Body *inBody2, const JPH_Vec3 inWorldSpaceSliderAxis, float inRatio) {
@@ -14898,10 +13678,6 @@ void JPH_RackAndPinionConstraint_SetConstraints(JPH_RackAndPinionConstraint *sel
 
 float JPH_RackAndPinionConstraint_GetTotalLambda(const JPH_RackAndPinionConstraint *self) {
     return ToCpp(self)->GetTotalLambda();
-}
-
-void JPH_RackAndPinionConstraint_CalculateConstraintProperties(JPH_RackAndPinionConstraint *self, const JPH_Mat44 * inRotation1, const JPH_Mat44 * inRotation2) {
-    ToCpp(self)->CalculateConstraintProperties(inRotation1, inRotation2);
 }
 
 const JPH_RTTI *JPH_SliderConstraintSettings_GetRTTI(const JPH_SliderConstraintSettings *self) {
@@ -15066,26 +13842,6 @@ JPH_Vec3 JPH_SliderConstraint_GetTotalLambdaRotation(const JPH_SliderConstraint 
 
 float JPH_SliderConstraint_GetTotalLambdaMotor(const JPH_SliderConstraint *self) {
     return ToCpp(self)->GetTotalLambdaMotor();
-}
-
-void JPH_SliderConstraint_CalculateR1R2U(JPH_SliderConstraint *self, const JPH_Mat44 * inRotation1, const JPH_Mat44 * inRotation2) {
-    ToCpp(self)->CalculateR1R2U(inRotation1, inRotation2);
-}
-
-void JPH_SliderConstraint_CalculateSlidingAxisAndPosition(JPH_SliderConstraint *self, const JPH_Mat44 * inRotation1) {
-    ToCpp(self)->CalculateSlidingAxisAndPosition(inRotation1);
-}
-
-void JPH_SliderConstraint_CalculatePositionConstraintProperties(JPH_SliderConstraint *self, const JPH_Mat44 * inRotation1, const JPH_Mat44 * inRotation2) {
-    ToCpp(self)->CalculatePositionConstraintProperties(inRotation1, inRotation2);
-}
-
-void JPH_SliderConstraint_CalculatePositionLimitsConstraintProperties(JPH_SliderConstraint *self, float inDeltaTime) {
-    ToCpp(self)->CalculatePositionLimitsConstraintProperties(inDeltaTime);
-}
-
-void JPH_SliderConstraint_CalculateMotorConstraintProperties(JPH_SliderConstraint *self, float inDeltaTime) {
-    ToCpp(self)->CalculateMotorConstraintProperties(inDeltaTime);
 }
 
 const JPH_RTTI *JPH_FixedConstraintSettings_GetRTTI(const JPH_FixedConstraintSettings *self) {
@@ -15266,10 +14022,6 @@ void JPH_DistanceConstraint_SetLimitsSpringSettings(JPH_DistanceConstraint *self
 
 float JPH_DistanceConstraint_GetTotalLambdaPosition(const JPH_DistanceConstraint *self) {
     return ToCpp(self)->GetTotalLambdaPosition();
-}
-
-void JPH_DistanceConstraint_CalculateConstraintProperties(JPH_DistanceConstraint *self, float inDeltaTime) {
-    ToCpp(self)->CalculateConstraintProperties(inDeltaTime);
 }
 
 const JPH_RTTI *JPH_PathConstraintPath_GetRTTI(const JPH_PathConstraintPath *self) {
@@ -15472,14 +14224,6 @@ JPH_Vec3 JPH_PathConstraint_GetTotalLambdaRotation(const JPH_PathConstraint *sel
     return ToCpp(self)->GetTotalLambdaRotation();
 }
 
-void JPH_PathConstraint_CalculateConstraintProperties(JPH_PathConstraint *self, float inDeltaTime) {
-    ToCpp(self)->CalculateConstraintProperties(inDeltaTime);
-}
-
-bool JPH_GearConstraintPart_ApplyVelocityStep(const JPH_GearConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, float inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, inLambda);
-}
-
 void JPH_GearConstraintPart_CalculateConstraintProperties(JPH_GearConstraintPart *self, const JPH_Body *inBody1, const JPH_Vec3 inWorldSpaceHingeAxis1, const JPH_Body *inBody2, const JPH_Vec3 inWorldSpaceHingeAxis2, float inRatio) {
     ToCpp(self)->CalculateConstraintProperties(*inBody1, inWorldSpaceHingeAxis1, *inBody2, inWorldSpaceHingeAxis2, inRatio);
 }
@@ -15600,10 +14344,6 @@ float JPH_GearConstraint_GetTotalLambda(const JPH_GearConstraint *self) {
     return ToCpp(self)->GetTotalLambda();
 }
 
-void JPH_GearConstraint_CalculateConstraintProperties(JPH_GearConstraint *self, const JPH_Mat44 * inRotation1, const JPH_Mat44 * inRotation2) {
-    ToCpp(self)->CalculateConstraintProperties(inRotation1, inRotation2);
-}
-
 const JPH_RTTI *JPH_PathConstraintPathHermite_GetRTTI(const JPH_PathConstraintPathHermite *self) {
     return ToCpp(self)->GetRTTI();
 }
@@ -15634,10 +14374,6 @@ void JPH_PathConstraintPathHermite_SaveBinaryState(const JPH_PathConstraintPathH
 
 void JPH_PathConstraintPathHermite_RestoreBinaryState(JPH_PathConstraintPathHermite *self, JPH_StreamIn *inStream) {
     ToCpp(self)->RestoreBinaryState(*inStream);
-}
-
-void JPH_PathConstraintPathHermite_GetIndexAndT(const JPH_PathConstraintPathHermite *self, float inFraction, int32_t *outIndex, float *outT) {
-    ToCpp(self)->GetIndexAndT(inFraction, *outIndex, *outT);
 }
 
 const JPH_RTTI *JPH_PointConstraintSettings_GetRTTI(const JPH_PointConstraintSettings *self) {
@@ -15730,10 +14466,6 @@ JPH_Mat44 JPH_PointConstraint_GetConstraintToBody2Matrix(const JPH_PointConstrai
 
 JPH_Vec3 JPH_PointConstraint_GetTotalLambdaPosition(const JPH_PointConstraint *self) {
     return ToCpp(self)->GetTotalLambdaPosition();
-}
-
-void JPH_PointConstraint_CalculateConstraintProperties(JPH_PointConstraint *self) {
-    ToCpp(self)->CalculateConstraintProperties();
 }
 
 const JPH_RTTI *JPH_SixDOFConstraintSettings_GetRTTI(const JPH_SixDOFConstraintSettings *self) {
@@ -15956,58 +14688,6 @@ JPH_Vec3 JPH_SixDOFConstraint_GetTotalLambdaMotorRotation(const JPH_SixDOFConstr
     return ToCpp(self)->GetTotalLambdaMotorRotation();
 }
 
-void JPH_SixDOFConstraint_GetPositionConstraintProperties(const JPH_SixDOFConstraint *self, JPH_Vec3 *outR1PlusU, JPH_Vec3 *outR2, JPH_Vec3 *outU) {
-    ToCpp(self)->GetPositionConstraintProperties(*outR1PlusU, *outR2, *outU);
-}
-
-void JPH_SixDOFConstraint_UpdateTranslationLimits(JPH_SixDOFConstraint *self) {
-    ToCpp(self)->UpdateTranslationLimits();
-}
-
-void JPH_SixDOFConstraint_UpdateRotationLimits(JPH_SixDOFConstraint *self) {
-    ToCpp(self)->UpdateRotationLimits();
-}
-
-void JPH_SixDOFConstraint_UpdateFixedFreeAxis(JPH_SixDOFConstraint *self) {
-    ToCpp(self)->UpdateFixedFreeAxis();
-}
-
-void JPH_SixDOFConstraint_CacheTranslationMotorActive(JPH_SixDOFConstraint *self) {
-    ToCpp(self)->CacheTranslationMotorActive();
-}
-
-void JPH_SixDOFConstraint_CacheRotationMotorActive(JPH_SixDOFConstraint *self) {
-    ToCpp(self)->CacheRotationMotorActive();
-}
-
-void JPH_SixDOFConstraint_CacheRotationPositionMotorActive(JPH_SixDOFConstraint *self) {
-    ToCpp(self)->CacheRotationPositionMotorActive();
-}
-
-void JPH_SixDOFConstraint_CacheHasSpringLimits(JPH_SixDOFConstraint *self) {
-    ToCpp(self)->CacheHasSpringLimits();
-}
-
-bool JPH_SixDOFConstraint_IsTranslationConstrained(const JPH_SixDOFConstraint *self) {
-    return ToCpp(self)->IsTranslationConstrained();
-}
-
-bool JPH_SixDOFConstraint_IsTranslationFullyConstrained(const JPH_SixDOFConstraint *self) {
-    return ToCpp(self)->IsTranslationFullyConstrained();
-}
-
-bool JPH_SixDOFConstraint_IsRotationConstrained(const JPH_SixDOFConstraint *self) {
-    return ToCpp(self)->IsRotationConstrained();
-}
-
-bool JPH_SixDOFConstraint_IsRotationFullyConstrained(const JPH_SixDOFConstraint *self) {
-    return ToCpp(self)->IsRotationFullyConstrained();
-}
-
-bool JPH_SixDOFConstraint_HasFriction(const JPH_SixDOFConstraint *self, JPH_SixDOFConstraint_EAxis inAxis) {
-    return ToCpp(self)->HasFriction(inAxis);
-}
-
 const JPH_RTTI *JPH_ConeConstraintSettings_GetRTTI(const JPH_ConeConstraintSettings *self) {
     return ToCpp(self)->GetRTTI();
 }
@@ -16094,14 +14774,6 @@ JPH_Vec3 JPH_ConeConstraint_GetTotalLambdaPosition(const JPH_ConeConstraint *sel
 
 float JPH_ConeConstraint_GetTotalLambdaRotation(const JPH_ConeConstraint *self) {
     return ToCpp(self)->GetTotalLambdaRotation();
-}
-
-void JPH_ConeConstraint_CalculateRotationConstraintProperties(JPH_ConeConstraint *self, const JPH_Mat44 * inRotation1, const JPH_Mat44 * inRotation2) {
-    ToCpp(self)->CalculateRotationConstraintProperties(inRotation1, inRotation2);
-}
-
-bool JPH_IndependentAxisConstraintPart_ApplyVelocityStep(const JPH_IndependentAxisConstraintPart *self, JPH_Body *ioBody1, JPH_Body *ioBody2, const JPH_Vec3 inN1, const JPH_Vec3 inN2, float inRatio, float inLambda) {
-    return ToCpp(self)->ApplyVelocityStep(*ioBody1, *ioBody2, inN1, inN2, inRatio, inLambda);
 }
 
 void JPH_IndependentAxisConstraintPart_CalculateConstraintProperties(JPH_IndependentAxisConstraintPart *self, const JPH_Body *inBody1, const JPH_Body *inBody2, const JPH_Vec3 inR1, const JPH_Vec3 inN1, const JPH_Vec3 inR2, const JPH_Vec3 inN2, float inRatio) {
@@ -16230,14 +14902,6 @@ float JPH_PulleyConstraint_GetCurrentLength(const JPH_PulleyConstraint *self) {
 
 float JPH_PulleyConstraint_GetTotalLambdaPosition(const JPH_PulleyConstraint *self) {
     return ToCpp(self)->GetTotalLambdaPosition();
-}
-
-float JPH_PulleyConstraint_CalculatePositionsNormalsAndLength(JPH_PulleyConstraint *self) {
-    return ToCpp(self)->CalculatePositionsNormalsAndLength();
-}
-
-void JPH_PulleyConstraint_CalculateConstraintProperties(JPH_PulleyConstraint *self) {
-    ToCpp(self)->CalculateConstraintProperties();
 }
 
 void JPH_PhysicsScene_AddBody(JPH_PhysicsScene *self, const JPH_BodyCreationSettings *inBody) {
@@ -16806,18 +15470,6 @@ void JPH_VehicleConstraint_RestoreState(JPH_VehicleConstraint *self, JPH_StateRe
 
 Ref<ConstraintSettings> JPH_VehicleConstraint_GetConstraintSettings(const JPH_VehicleConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
-}
-
-void JPH_VehicleConstraint_OnStep(JPH_VehicleConstraint *self, const JPH_PhysicsStepListenerContext *inContext) {
-    ToCpp(self)->OnStep(*inContext);
-}
-
-void JPH_VehicleConstraint_CalculateSuspensionForcePoint(const JPH_VehicleConstraint *self, const JPH_Wheel *inWheel, JPH_Vec3 *outR1PlusU, JPH_Vec3 *outR2) {
-    ToCpp(self)->CalculateSuspensionForcePoint(*inWheel, *outR1PlusU, *outR2);
-}
-
-void JPH_VehicleConstraint_CalculatePitchRollConstraintProperties(JPH_VehicleConstraint *self, const JPH_Mat44 * inBodyTransform) {
-    ToCpp(self)->CalculatePitchRollConstraintProperties(inBodyTransform);
 }
 
 void JPH_VehicleEngineSettings_Construct(JPH_VehicleEngineSettings *self) {
@@ -17684,14 +16336,6 @@ bool JPH_ObjectStreamTextIn_ReadPrimitiveDataWithDMat44(JPH_ObjectStreamTextIn *
     return ToCpp(self)->ReadPrimitiveData(*outPrimitive);
 }
 
-bool JPH_ObjectStreamTextIn_ReadChar(JPH_ObjectStreamTextIn *self, int8_t *outChar) {
-    return ToCpp(self)->ReadChar(*outChar);
-}
-
-bool JPH_ObjectStreamTextIn_ReadWord(JPH_ObjectStreamTextIn *self, JPH_String *outWord) {
-    return ToCpp(self)->ReadWord(*outWord);
-}
-
 void JPH_ObjectStreamBinaryIn_Construct(JPH_ObjectStreamBinaryIn *self, std::istream *inStream) {
     new(ToCpp(self)) JPH::ObjectStreamBinaryIn(*inStream);
 }
@@ -17896,14 +16540,6 @@ void JPH_ObjectStreamTextOut_HintIndentDown(JPH_ObjectStreamTextOut *self) {
     ToCpp(self)->HintIndentDown();
 }
 
-void JPH_ObjectStreamTextOut_WriteChar(JPH_ObjectStreamTextOut *self, int8_t inChar) {
-    ToCpp(self)->WriteChar(inChar);
-}
-
-void JPH_ObjectStreamTextOut_WriteWord(JPH_ObjectStreamTextOut *self, const std::string_view *inWord) {
-    ToCpp(self)->WriteWord(*inWord);
-}
-
 void JPH_SkeletonMapper_Mapping_Construct(JPH_SkeletonMapper_Mapping *self) {
     new(ToCpp(self)) JPH::SkeletonMapper::Mapping();
 }
@@ -18002,18 +16638,6 @@ void JPH_ConvexHullBuilder2D_Destruct(JPH_ConvexHullBuilder2D *self) {
 
 JPH_ConvexHullBuilder2D_EResult JPH_ConvexHullBuilder2D_Initialize(JPH_ConvexHullBuilder2D *self, int32_t inIdx1, int32_t inIdx2, int32_t inIdx3, int32_t inMaxVertices, float inTolerance, JPH_ConvexHullBuilder2D_Edges *outEdges) {
     return ToCpp(self)->Initialize(inIdx1, inIdx2, inIdx3, inMaxVertices, inTolerance, *outEdges);
-}
-
-void JPH_ConvexHullBuilder2D_FreeEdges(JPH_ConvexHullBuilder2D *self) {
-    ToCpp(self)->FreeEdges();
-}
-
-void JPH_ConvexHullBuilder2D_AssignPointToEdge(const JPH_ConvexHullBuilder2D *self, int32_t inPositionIdx, const Array<Edge *> *inEdges) {
-    ToCpp(self)->AssignPointToEdge(inPositionIdx, *inEdges);
-}
-
-void JPH_ConvexHullBuilder2D_ValidateEdges(const JPH_ConvexHullBuilder2D *self) {
-    ToCpp(self)->ValidateEdges();
 }
 
 void JPH_ConvexHullBuilder2D_Edge_Construct(JPH_ConvexHullBuilder2D_Edge *self, int32_t inStartIdx) {

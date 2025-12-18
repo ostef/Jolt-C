@@ -11,6 +11,10 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
         return true;
     }
 
+    if (entity->visibility == CppVisibility_Private) {
+        return true;
+    }
+
     if (ArrayFindFirstPredicate(options.declarations_to_exclude, entity->fully_qualified_name, StringCompareFunc) >= 0) {
         return true;
     }
