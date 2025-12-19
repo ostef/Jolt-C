@@ -176,7 +176,7 @@ Here are all the templates that we would need to support:
 * **JPH::StridedPtr**: the layout does not change and the underlying type is always *uint8_t \**
 * **JPH::HashTable**: same as **JPH::Array**, can be implemented using a void pointer, and we don't provide functions to interact with the table or we provide them on a per case basis (e.g. type **Foo** has a hash table member named **myTable**, so we would provide a few **Foo_myTable_XXX** functions if needed).
 * **JPH::RayCastT**, **JPH::ShapeCastT**: could handwrite the few instantiations that are actually used, but using macros would probably be better because I think we would need to implement a few functions.
-* **JPH::CollisionCollector**: I seems no field type depends on the template, only the implementation.
+* **JPH::CollisionCollector**: it seems no field type depends on the template, only the implementation.
 
 ## std types
 A big PITA is that Jolt uses a lot of the types from the C++ standard library such as **std::mutex**, **std::basic_string**, **std::basic_istringstream**, **std::atomic**. I don't know what to do with these especially considering their implementation is compiler/compiler version/platform dependent. Fuck C++. One option is to provide opaque types and provide functions to access the members of these types. However this is verbose and very inconvenient. Another option is to wrap only the std type around an opaque structure that has the same size and alignment requirements. Last option that I can think of is to modify Jolt to use our own implementation of these when it matters.
