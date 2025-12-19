@@ -3,16 +3,22 @@
 
 #include "Database.h"
 
+struct GenerateOptions;
+
+typedef CppType *(*TemplateUnwrapFunc)(struct GenerateOptions options, CppDatabase *db, CppType *type);
+
 typedef struct GenerateOptions {
     Array declarations_to_exclude;
     Array typedefs_to_unwrap;
     const char *preamble;
     const char *postamble;
     bool exclude_non_class_functions;
+    TemplateUnwrapFunc template_unwrap_func;
 } GenerateOptions;
 
 typedef struct GenerateContext {
     GenerateOptions options;
+    CppDatabase *db;
     StringBuilder *builder;
 } GenerateContext;
 
@@ -23,6 +29,7 @@ enum {
 };
 
 void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db);
+CppType *UnwrapTemplate(GenerateOptions options, CppDatabase *db, CppType *type);
 
 void AppendAlphanumericCType(GenerateContext *ctx, CppType *type);
 void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation);

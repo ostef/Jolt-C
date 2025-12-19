@@ -188,6 +188,18 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
     }
 }
 
+CppEntity *GetEntityByFullName(CppDatabase *db, const char *name) {
+    // @Todo @Speed: use a hash map
+    foreach (i, db->all_entities) {
+        CppEntity *e = ArrayGet(db->all_entities, i);
+        if (StrEq(e->fully_qualified_name, name)) {
+            return e;
+        }
+    }
+
+    return NULL;
+}
+
 CppAggregate *GetBaseAggregate(CppAggregate *aggr, int index) {
     CppBaseClass *base = ArrayGet(aggr->base_classes, index);
     if (base->type->kind != CppType_Named || !base->type->type_named.entity) {

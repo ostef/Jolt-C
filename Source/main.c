@@ -70,6 +70,142 @@ static const char *Typedefs_To_Unwrap[] = {
     "JPH::ColorArg",
 };
 
+static CppType g_type_jph_array;
+static CppType g_type_jph_hash_table;
+static CppType g_type_jph_unordered_map;
+static CppType g_type_jph_unordered_set;
+static CppType g_type_jph_strided_ptr;
+static CppType g_type_jph_vector2;
+static CppType g_type_jph_vector3;
+static CppType g_type_jph_matrix22;
+static CppType g_type_jph_matrix33;
+
+void InitTypes() {
+    static bool initialized = false;
+    if (initialized) {
+        return;
+    }
+
+    g_type_jph_array.kind = CppType_Named;
+    g_type_jph_array.size = 3 * sizeof(uint64_t);
+    g_type_jph_array.alignment = sizeof(uint64_t);
+    g_type_jph_array.type_named.name = "JPH_Array";
+
+    g_type_jph_hash_table.kind = CppType_Named;
+    g_type_jph_hash_table.size = 5 * sizeof(uint64_t);
+    g_type_jph_hash_table.alignment = sizeof(uint64_t);
+    g_type_jph_hash_table.type_named.name = "JPH_HashTable";
+
+    g_type_jph_unordered_map = g_type_jph_hash_table;
+    g_type_jph_unordered_map.type_named.name = "JPH_UnorderedMap";
+
+    g_type_jph_unordered_set = g_type_jph_hash_table;
+    g_type_jph_unordered_set.type_named.name = "JPH_UnorderedSet";
+
+    g_type_jph_strided_ptr.kind = CppType_Named;
+    g_type_jph_strided_ptr.size = 2 * sizeof(uint64_t);
+    g_type_jph_strided_ptr.alignment = sizeof(uint64_t);
+    g_type_jph_strided_ptr.type_named.name = "JPH_StridedPtr";
+
+    g_type_jph_vector2.kind = CppType_Named;
+    g_type_jph_vector2.size = 2 * sizeof(float);
+    g_type_jph_vector2.alignment = sizeof(float);
+    g_type_jph_vector2.type_named.name = "JPH_Vector2";
+
+    g_type_jph_vector3.kind = CppType_Named;
+    g_type_jph_vector3.size = 3 * sizeof(float);
+    g_type_jph_vector3.alignment = sizeof(float);
+    g_type_jph_vector3.type_named.name = "JPH_Vector3";
+
+    g_type_jph_matrix22.kind = CppType_Named;
+    g_type_jph_matrix22.size = 2 * 2 * sizeof(float);
+    g_type_jph_matrix22.alignment = sizeof(float);
+    g_type_jph_matrix22.type_named.name = "JPH_Matrix22";
+
+    g_type_jph_matrix33.kind = CppType_Named;
+    g_type_jph_matrix33.size = 3 * 3 * sizeof(float);
+    g_type_jph_matrix33.alignment = sizeof(float);
+    g_type_jph_matrix33.type_named.name = "JPH_Matrix33";
+}
+
+CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *type) {
+    InitTypes();
+
+    if (StrEq(type->type_named.name, "Array")) {
+        return &g_type_jph_array;
+    }
+    if (StrEq(type->type_named.name, "HashTable")) {
+        return &g_type_jph_hash_table;
+    }
+    if (StrEq(type->type_named.name, "UnorderedMap")) {
+        return &g_type_jph_unordered_map;
+    }
+    if (StrEq(type->type_named.name, "UnorderedSet")) {
+        return &g_type_jph_unordered_set;
+    }
+    if (StrEq(type->type_named.name, "StridedPtr")) {
+        return &g_type_jph_strided_ptr;
+    }
+    if (StrEq(type->type_named.name, "atomic")) {
+        CppType *ty = ArrayGet(type->type_named.template_type_arguments, 0);
+        return UnwrapTemplate(options, db, ty);
+    }
+    if (StrEq(type->type_named.name, "StaticArray")) {
+        // @Todo
+    }
+    if (StrEq(type->type_named.name, "Vector")) {
+        // @Todo
+    }
+    if (StrEq(type->type_named.name, "Matrix")) {
+        // @Todo
+    }
+    if (StrEq(type->type_named.name, "Result")) {
+        CppType *type_of_result = ArrayGet(type->type_named.template_type_arguments, 0);
+        type_of_result = UnwrapTemplate(options, db, type_of_result);
+
+        CppType *result = Alloc(CppType);
+        result->kind = CppType_Named;
+
+        StringBuilder builder = {};
+        SBAppendString(&builder, "JPH_ResultStruct(");
+
+        GenerateContext ctx = {};
+        ctx.builder = &builder;
+        ctx.db = db;
+        ctx.options = options;
+
+        AppendCType(&ctx, type_of_result, 0);
+        SBAppendString(&builder, ")");
+
+        result->type_named.name = SBBuild(&builder);
+
+        return result;
+    }
+    if (StrEq(type->type_named.name, "Ref")) {
+        CppType *ref_type = ArrayGet(type->type_named.template_type_arguments, 0);
+        ref_type = UnwrapTemplate(options, db, ref_type);
+
+        CppType *result = Alloc(CppType);
+        result->kind = CppType_Pointer;
+        result->type_pointer.pointee_type = ref_type;
+
+        return result;
+    }
+    if (StrEq(type->type_named.name, "RefConst")) {
+        CppType *ref_type = ArrayGet(type->type_named.template_type_arguments, 0);
+        ref_type = UnwrapTemplate(options, db, ref_type);
+
+        CppType *result = Alloc(CppType);
+        result->kind = CppType_Pointer;
+        result->flags = CppTypeFlag_Const;
+        result->type_pointer.pointee_type = ref_type;
+
+        return result;
+    }
+
+    return type;
+}
+
 int main() {
     CppDatabase db = {};
     InitCppDatabase(&db);
@@ -113,12 +249,13 @@ int main() {
         ArrayPush(&gen_options.typedefs_to_unwrap, (void *)Typedefs_To_Unwrap[i]);
     }
 
+    gen_options.exclude_non_class_functions = true;
+    gen_options.template_unwrap_func = UnwrapTemplateFunc;
+
     gen_options.preamble = ReadEntireFile("Source/JoltCPreamble.h", NULL);
     if (!gen_options.preamble) {
         ErrorExit("Could not read file 'Source/JoltCPreamble.h'");
     }
-
-    gen_options.exclude_non_class_functions = true;
 
     // gen_options.postamble = ReadEntireFile("Source/JoltCPostamble.h", NULL);
     // if (!gen_options.postamble) {

@@ -4062,7 +4062,7 @@ void JPH_Factory_Clear(JPH_Factory *self) {
     ToCpp(self)->Clear();
 }
 
-Array<const JPH_RTTI *> JPH_Factory_GetAllClasses(const JPH_Factory *self) {
+JPH_Array JPH_Factory_GetAllClasses(const JPH_Factory *self) {
     return ToCpp(self)->GetAllClasses();
 }
 
@@ -4274,7 +4274,7 @@ void JPH_ConstraintSettings_SaveBinaryState(const JPH_ConstraintSettings *self, 
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-JPH_ConstraintSettings_ConstraintResult<Ref<JPH_ConstraintSettings>> JPH_ConstraintSettings_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_ConstraintSettings_ConstraintResult<JPH_ConstraintSettings *> JPH_ConstraintSettings_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::ConstraintSettings::sRestoreFromBinaryState(*inStream);
 }
 
@@ -4390,7 +4390,7 @@ void JPH_Constraint_RestoreState(JPH_Constraint *self, JPH_StateRecorder *inStre
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_Constraint_GetConstraintSettings(const JPH_Constraint *self) {
+JPH_ConstraintSettings * JPH_Constraint_GetConstraintSettings(const JPH_Constraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -4566,7 +4566,7 @@ const void *JPH_ShapeSettings_CastTo(const JPH_ShapeSettings *self, const JPH_RT
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_ShapeSettings_Create(const JPH_ShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_ShapeSettings_Create(const JPH_ShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -4582,7 +4582,7 @@ void JPH_Shape_ConstructWithTypeSubType(JPH_Shape *self, JPH_EShapeType inType, 
     new(ToCpp(self)) JPH::Shape(inType, inSubType);
 }
 
-void JPH_Shape_ConstructWithTypeSubTypeSettingsResult(JPH_Shape *self, JPH_EShapeType inType, JPH_EShapeSubType inSubType, const JPH_ShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_Shape_ConstructWithTypeSubTypeSettingsResult(JPH_Shape *self, JPH_EShapeType inType, JPH_EShapeSubType inSubType, const JPH_ShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::Shape(inType, inSubType, *inSettings, *outResult);
 }
 
@@ -4690,7 +4690,7 @@ void JPH_Shape_TransformShape(const JPH_Shape *self, const JPH_Mat44 * inCenterO
     ToCpp(self)->TransformShape(inCenterOfMassTransform, *ioCollector);
 }
 
-JPH_Shape_ShapeResult<Ref<JPH_Shape>> JPH_Shape_ScaleShape(const JPH_Shape *self, const JPH_Vec3 inScale) {
+JPH_Shape_ShapeResult<JPH_Shape *> JPH_Shape_ScaleShape(const JPH_Shape *self, const JPH_Vec3 inScale) {
     return ToCpp(self)->ScaleShape(inScale);
 }
 
@@ -4706,7 +4706,7 @@ void JPH_Shape_SaveBinaryState(const JPH_Shape *self, JPH_StreamOut *inStream) {
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-JPH_Shape_ShapeResult<Ref<JPH_Shape>> JPH_Shape_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_Shape_ShapeResult<JPH_Shape *> JPH_Shape_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::Shape::sRestoreFromBinaryState(*inStream);
 }
 
@@ -4730,7 +4730,7 @@ void JPH_Shape_SaveWithChildren(const JPH_Shape *self, JPH_StreamOut *inStream, 
     ToCpp(self)->SaveWithChildren(*inStream, *ioShapeMap, *ioMaterialMap);
 }
 
-JPH_Shape_ShapeResult<Ref<JPH_Shape>> JPH_Shape_sRestoreWithChildren(JPH_StreamIn *inStream, JPH_Shape_IDToShapeMap<JPH_Shape> *ioShapeMap, JPH_Shape_IDToMaterialMap<JPH_PhysicsMaterial> *ioMaterialMap) {
+JPH_Shape_ShapeResult<JPH_Shape *> JPH_Shape_sRestoreWithChildren(JPH_StreamIn *inStream, JPH_Shape_IDToShapeMap<JPH_Shape> *ioShapeMap, JPH_Shape_IDToMaterialMap<JPH_PhysicsMaterial> *ioMaterialMap) {
     return JPH::Shape::sRestoreWithChildren(*inStream, *ioShapeMap, *ioMaterialMap);
 }
 
@@ -4794,7 +4794,7 @@ void JPH_PhysicsMaterial_SaveBinaryState(const JPH_PhysicsMaterial *self, JPH_St
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-JPH_PhysicsMaterial_PhysicsMaterialResult<Ref<JPH_PhysicsMaterial>> JPH_PhysicsMaterial_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_PhysicsMaterial_PhysicsMaterialResult<JPH_PhysicsMaterial *> JPH_PhysicsMaterial_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::PhysicsMaterial::sRestoreFromBinaryState(*inStream);
 }
 
@@ -4830,7 +4830,7 @@ void JPH_ConvexShape_ConstructWithSubType(JPH_ConvexShape *self, JPH_EShapeSubTy
     new(ToCpp(self)) JPH::ConvexShape(inSubType);
 }
 
-void JPH_ConvexShape_ConstructWithSubTypeSettingsResult(JPH_ConvexShape *self, JPH_EShapeSubType inSubType, const JPH_ConvexShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_ConvexShape_ConstructWithSubTypeSettingsResult(JPH_ConvexShape *self, JPH_EShapeSubType inSubType, const JPH_ConvexShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::ConvexShape(inSubType, *inSettings, *outResult);
 }
 
@@ -4906,7 +4906,7 @@ void JPH_ConvexShape_SaveBinaryState(const JPH_ConvexShape *self, JPH_StreamOut 
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-void JPH_ConvexShape_SaveMaterialState(const JPH_ConvexShape *self, JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *outMaterials) {
+void JPH_ConvexShape_SaveMaterialState(const JPH_ConvexShape *self, JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *outMaterials) {
     ToCpp(self)->SaveMaterialState(*outMaterials);
 }
 
@@ -5050,7 +5050,7 @@ void JPH_GroupFilter_SaveBinaryState(const JPH_GroupFilter *self, JPH_StreamOut 
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-JPH_GroupFilter_GroupFilterResult<Ref<JPH_GroupFilter>> JPH_GroupFilter_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_GroupFilter_GroupFilterResult<JPH_GroupFilter *> JPH_GroupFilter_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::GroupFilter::sRestoreFromBinaryState(*inStream);
 }
 
@@ -6338,19 +6338,19 @@ void JPH_BodyManager_GetBodyIDs(const JPH_BodyManager *self, JPH_BodyIDVector<JP
     ToCpp(self)->GetBodyIDs(*outBodies);
 }
 
-const JPH_Body *JPH_BodyManager_GetBodyConst(const JPH_BodyManager *self, const JPH_BodyID *inID) {
+const JPH_Body *JPH_BodyManager_GetBodyWithBodyID(const JPH_BodyManager *self, const JPH_BodyID *inID) {
     return ToCpp(self)->GetBody(*inID);
 }
 
-JPH_Body *JPH_BodyManager_GetBody(JPH_BodyManager *self, const JPH_BodyID *inID) {
+JPH_Body *JPH_BodyManager_GetBodyWithBodyID(JPH_BodyManager *self, const JPH_BodyID *inID) {
     return ToCpp(self)->GetBody(*inID);
 }
 
-const JPH_Body *JPH_BodyManager_TryGetBodyConst(const JPH_BodyManager *self, const JPH_BodyID *inID) {
+const JPH_Body *JPH_BodyManager_TryGetBodyWithBodyID(const JPH_BodyManager *self, const JPH_BodyID *inID) {
     return ToCpp(self)->TryGetBody(*inID);
 }
 
-JPH_Body *JPH_BodyManager_TryGetBody(JPH_BodyManager *self, const JPH_BodyID *inID) {
+JPH_Body *JPH_BodyManager_TryGetBodyWithBodyID(JPH_BodyManager *self, const JPH_BodyID *inID) {
     return ToCpp(self)->TryGetBody(*inID);
 }
 
@@ -6522,7 +6522,7 @@ void JPH_BodyCreationSettings_SetShapeSettings(JPH_BodyCreationSettings *self, c
     ToCpp(self)->SetShapeSettings(inShape);
 }
 
-JPH_Shape_ShapeResult<Ref<JPH_Shape>> JPH_BodyCreationSettings_ConvertShapeSettings(JPH_BodyCreationSettings *self) {
+JPH_Shape_ShapeResult<JPH_Shape *> JPH_BodyCreationSettings_ConvertShapeSettings(JPH_BodyCreationSettings *self) {
     return ToCpp(self)->ConvertShapeSettings();
 }
 
@@ -6602,7 +6602,7 @@ void JPH_SoftBodySharedSettings_Optimize(JPH_SoftBodySharedSettings *self) {
     ToCpp(self)->Optimize();
 }
 
-Ref<JPH_SoftBodySharedSettings> JPH_SoftBodySharedSettings_Clone(const JPH_SoftBodySharedSettings *self) {
+JPH_SoftBodySharedSettings * JPH_SoftBodySharedSettings_Clone(const JPH_SoftBodySharedSettings *self) {
     return ToCpp(self)->Clone();
 }
 
@@ -6618,11 +6618,11 @@ void JPH_SoftBodySharedSettings_SaveWithMaterials(const JPH_SoftBodySharedSettin
     ToCpp(self)->SaveWithMaterials(*inStream, *ioSettingsMap, *ioMaterialMap);
 }
 
-JPH_SoftBodySharedSettings_SettingsResult<Ref<JPH_SoftBodySharedSettings>> JPH_SoftBodySharedSettings_sRestoreWithMaterials(JPH_StreamIn *inStream, JPH_SoftBodySharedSettings_IDToSharedSettingsMap<JPH_SoftBodySharedSettings> *ioSettingsMap, JPH_SoftBodySharedSettings_IDToMaterialMap<JPH_PhysicsMaterial> *ioMaterialMap) {
+JPH_SoftBodySharedSettings_SettingsResult<JPH_SoftBodySharedSettings *> JPH_SoftBodySharedSettings_sRestoreWithMaterials(JPH_StreamIn *inStream, JPH_SoftBodySharedSettings_IDToSharedSettingsMap<JPH_SoftBodySharedSettings> *ioSettingsMap, JPH_SoftBodySharedSettings_IDToMaterialMap<JPH_PhysicsMaterial> *ioMaterialMap) {
     return JPH::SoftBodySharedSettings::sRestoreWithMaterials(*inStream, *ioSettingsMap, *ioMaterialMap);
 }
 
-Ref<JPH_SoftBodySharedSettings> JPH_SoftBodySharedSettings_sCreateCube(uint32_t inGridSize, float inGridSpacing) {
+JPH_SoftBodySharedSettings * JPH_SoftBodySharedSettings_sCreateCube(uint32_t inGridSize, float inGridSpacing) {
     return JPH::SoftBodySharedSettings::sCreateCube(inGridSize, inGridSpacing);
 }
 
@@ -6782,19 +6782,19 @@ const JPH_SoftBodySharedSettings *JPH_SoftBodyMotionProperties_GetSettings(const
     return ToCpp(self)->GetSettings();
 }
 
-const Array<JPH_SoftBodyMotionProperties_Vertex> *JPH_SoftBodyMotionProperties_GetVerticesConst(const JPH_SoftBodyMotionProperties *self) {
+const JPH_Array *JPH_SoftBodyMotionProperties_GetVerticesConst(const JPH_SoftBodyMotionProperties *self) {
     return ToCpp(self)->GetVertices();
 }
 
-Array<JPH_SoftBodyMotionProperties_Vertex> *JPH_SoftBodyMotionProperties_GetVertices(JPH_SoftBodyMotionProperties *self) {
+JPH_Array *JPH_SoftBodyMotionProperties_GetVertices(JPH_SoftBodyMotionProperties *self) {
     return ToCpp(self)->GetVertices();
 }
 
-const JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertexConst(const JPH_SoftBodyMotionProperties *self, uint32_t inIndex) {
+const JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertexWithUint32_t(const JPH_SoftBodyMotionProperties *self, uint32_t inIndex) {
     return ToCpp(self)->GetVertex(inIndex);
 }
 
-JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertex(JPH_SoftBodyMotionProperties *self, uint32_t inIndex) {
+JPH_SoftBodyMotionProperties_Vertex *JPH_SoftBodyMotionProperties_GetVertexWithUint32_t(JPH_SoftBodyMotionProperties *self, uint32_t inIndex) {
     return ToCpp(self)->GetVertex(inIndex);
 }
 
@@ -6806,11 +6806,11 @@ JPH_Vec3 JPH_SoftBodyMotionProperties_GetRodAngularVelocity(const JPH_SoftBodyMo
     return ToCpp(self)->GetRodAngularVelocity(inIndex);
 }
 
-const JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *JPH_SoftBodyMotionProperties_GetMaterials(const JPH_SoftBodyMotionProperties *self) {
+const JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *JPH_SoftBodyMotionProperties_GetMaterials(const JPH_SoftBodyMotionProperties *self) {
     return ToCpp(self)->GetMaterials();
 }
 
-const Array<JPH_SoftBodyMotionProperties_Face> *JPH_SoftBodyMotionProperties_GetFaces(const JPH_SoftBodyMotionProperties *self) {
+const JPH_Array *JPH_SoftBodyMotionProperties_GetFaces(const JPH_SoftBodyMotionProperties *self) {
     return ToCpp(self)->GetFaces();
 }
 
@@ -6934,7 +6934,7 @@ void JPH_EmptyShapeSettings_ConstructWithCenterOfMass(JPH_EmptyShapeSettings *se
     new(ToCpp(self)) JPH::EmptyShapeSettings(inCenterOfMass);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_EmptyShapeSettings_Create(const JPH_EmptyShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_EmptyShapeSettings_Create(const JPH_EmptyShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -6946,7 +6946,7 @@ void JPH_EmptyShape_ConstructWithCenterOfMass(JPH_EmptyShape *self, const JPH_Ve
     new(ToCpp(self)) JPH::EmptyShape(inCenterOfMass);
 }
 
-void JPH_EmptyShape_ConstructWithSettingsResult(JPH_EmptyShape *self, const JPH_EmptyShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_EmptyShape_ConstructWithSettingsResult(JPH_EmptyShape *self, const JPH_EmptyShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::EmptyShape(*inSettings, *outResult);
 }
 
@@ -7374,7 +7374,7 @@ void JPH_BodyInterface_ActivateConstraint(JPH_BodyInterface *self, const JPH_Two
     ToCpp(self)->ActivateConstraint(inConstraint);
 }
 
-RefConst<JPH_Shape> JPH_BodyInterface_GetShape(const JPH_BodyInterface *self, const JPH_BodyID *inBodyID) {
+JPH_Shape * JPH_BodyInterface_GetShape(const JPH_BodyInterface *self, const JPH_BodyID *inBodyID) {
     return ToCpp(self)->GetShape(*inBodyID);
 }
 
@@ -7810,7 +7810,7 @@ void JPH_Skeleton_SaveBinaryState(const JPH_Skeleton *self, JPH_StreamOut *inStr
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-JPH_Skeleton_SkeletonResult<Ref<JPH_Skeleton>> JPH_Skeleton_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_Skeleton_SkeletonResult<JPH_Skeleton *> JPH_Skeleton_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::Skeleton::sRestoreFromBinaryState(*inStream);
 }
 
@@ -7854,7 +7854,7 @@ void JPH_SkeletalAnimation_SaveBinaryState(const JPH_SkeletalAnimation *self, JP
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-JPH_SkeletalAnimation_AnimationResult<Ref<JPH_SkeletalAnimation>> JPH_SkeletalAnimation_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_SkeletalAnimation_AnimationResult<JPH_SkeletalAnimation *> JPH_SkeletalAnimation_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::SkeletalAnimation::sRestoreFromBinaryState(*inStream);
 }
 
@@ -7934,7 +7934,7 @@ void JPH_RagdollSettings_SaveBinaryState(const JPH_RagdollSettings *self, JPH_St
     ToCpp(self)->SaveBinaryState(*inStream, inSaveShapes, inSaveGroupFilter);
 }
 
-JPH_RagdollSettings_RagdollResult<Ref<JPH_RagdollSettings>> JPH_RagdollSettings_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_RagdollSettings_RagdollResult<JPH_RagdollSettings *> JPH_RagdollSettings_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::RagdollSettings::sRestoreFromBinaryState(*inStream);
 }
 
@@ -7954,7 +7954,7 @@ void JPH_RagdollSettings_CalculateBodyIndexToConstraintIndex(JPH_RagdollSettings
     ToCpp(self)->CalculateBodyIndexToConstraintIndex();
 }
 
-const Array<int32_t> *JPH_RagdollSettings_GetBodyIndexToConstraintIndex(const JPH_RagdollSettings *self) {
+const JPH_Array *JPH_RagdollSettings_GetBodyIndexToConstraintIndex(const JPH_RagdollSettings *self) {
     return ToCpp(self)->GetBodyIndexToConstraintIndex();
 }
 
@@ -7966,7 +7966,7 @@ void JPH_RagdollSettings_CalculateConstraintIndexToBodyIdxPair(JPH_RagdollSettin
     ToCpp(self)->CalculateConstraintIndexToBodyIdxPair();
 }
 
-const Array<JPH_RagdollSettings_BodyIdxPair<int32_t, int32_t>> *JPH_RagdollSettings_GetConstraintIndexToBodyIdxPair(const JPH_RagdollSettings *self) {
+const JPH_Array *JPH_RagdollSettings_GetConstraintIndexToBodyIdxPair(const JPH_RagdollSettings *self) {
     return ToCpp(self)->GetConstraintIndexToBodyIdxPair();
 }
 
@@ -8070,7 +8070,7 @@ JPH_BodyID JPH_Ragdoll_GetBodyID(const JPH_Ragdoll *self, int32_t inBodyIndex) {
     return ToCpp(self)->GetBodyID(inBodyIndex);
 }
 
-const Array<JPH_BodyID> *JPH_Ragdoll_GetBodyIDs(const JPH_Ragdoll *self) {
+const JPH_Array *JPH_Ragdoll_GetBodyIDs(const JPH_Ragdoll *self) {
     return ToCpp(self)->GetBodyIDs();
 }
 
@@ -8422,7 +8422,7 @@ void JPH_SwingTwistConstraint_RestoreState(JPH_SwingTwistConstraint *self, JPH_S
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_SwingTwistConstraint_GetConstraintSettings(const JPH_SwingTwistConstraint *self) {
+JPH_ConstraintSettings * JPH_SwingTwistConstraint_GetConstraintSettings(const JPH_SwingTwistConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -8658,7 +8658,7 @@ void JPH_HingeConstraint_RestoreState(JPH_HingeConstraint *self, JPH_StateRecord
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_HingeConstraint_GetConstraintSettings(const JPH_HingeConstraint *self) {
+JPH_ConstraintSettings * JPH_HingeConstraint_GetConstraintSettings(const JPH_HingeConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -8878,7 +8878,7 @@ void JPH_ConstraintManager_Remove(JPH_ConstraintManager *self, JPH_Constraint **
     ToCpp(self)->Remove(inConstraint, inNumber);
 }
 
-JPH_Constraints<Ref<JPH_Constraint>> JPH_ConstraintManager_GetConstraints(const JPH_ConstraintManager *self) {
+JPH_Constraints<JPH_Constraint *> JPH_ConstraintManager_GetConstraints(const JPH_ConstraintManager *self) {
     return ToCpp(self)->GetConstraints();
 }
 
@@ -9074,7 +9074,7 @@ void JPH_PhysicsSystem_RemoveConstraints(JPH_PhysicsSystem *self, JPH_Constraint
     ToCpp(self)->RemoveConstraints(inConstraints, inNumber);
 }
 
-JPH_Constraints<Ref<JPH_Constraint>> JPH_PhysicsSystem_GetConstraints(const JPH_PhysicsSystem *self) {
+JPH_Constraints<JPH_Constraint *> JPH_PhysicsSystem_GetConstraints(const JPH_PhysicsSystem *self) {
     return ToCpp(self)->GetConstraints();
 }
 
@@ -9390,7 +9390,7 @@ void JPH_SphereShapeSettings_ConstructWithRadiusMaterial(JPH_SphereShapeSettings
     new(ToCpp(self)) JPH::SphereShapeSettings(inRadius, inMaterial);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_SphereShapeSettings_Create(const JPH_SphereShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_SphereShapeSettings_Create(const JPH_SphereShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -9398,7 +9398,7 @@ void JPH_SphereShape_Construct(JPH_SphereShape *self) {
     new(ToCpp(self)) JPH::SphereShape();
 }
 
-void JPH_SphereShape_ConstructWithSettingsResult(JPH_SphereShape *self, const JPH_SphereShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_SphereShape_ConstructWithSettingsResult(JPH_SphereShape *self, const JPH_SphereShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::SphereShape(*inSettings, *outResult);
 }
 
@@ -9510,7 +9510,7 @@ void JPH_SoftBodyContactListener_OnSoftBodyContactAdded(JPH_SoftBodyContactListe
     ToCpp(self)->OnSoftBodyContactAdded(*inSoftBody, *inManifold);
 }
 
-const Array<JPH_SoftBodyVertex> *JPH_SoftBodyManifold_GetVertices(const JPH_SoftBodyManifold *self) {
+const JPH_Array *JPH_SoftBodyManifold_GetVertices(const JPH_SoftBodyManifold *self) {
     return ToCpp(self)->GetVertices();
 }
 
@@ -9546,7 +9546,7 @@ void JPH_CollideSoftBodyVertexIterator_ConstructWith(JPH_CollideSoftBodyVertexIt
     new(ToCpp(self)) JPH::CollideSoftBodyVertexIterator(*);
 }
 
-void JPH_CollideSoftBodyVertexIterator_ConstructWithPositionInvMassCollisionPlaneLargestPenetrationCollidingShapeIndex(JPH_CollideSoftBodyVertexIterator *self, const StridedPtr<const JPH_Vec3> *inPosition, const StridedPtr<const float> *inInvMass, const StridedPtr<JPH_Plane> *inCollisionPlane, const StridedPtr<float> *inLargestPenetration, const StridedPtr<int32_t> *inCollidingShapeIndex) {
+void JPH_CollideSoftBodyVertexIterator_ConstructWithPositionInvMassCollisionPlaneLargestPenetrationCollidingShapeIndex(JPH_CollideSoftBodyVertexIterator *self, const JPH_StridedPtr *inPosition, const JPH_StridedPtr *inInvMass, const JPH_StridedPtr *inCollisionPlane, const JPH_StridedPtr *inLargestPenetration, const JPH_StridedPtr *inCollidingShapeIndex) {
     new(ToCpp(self)) JPH::CollideSoftBodyVertexIterator(*inPosition, *inInvMass, *inCollisionPlane, *inLargestPenetration, *inCollidingShapeIndex);
 }
 
@@ -10046,7 +10046,7 @@ bool JPH_TaperedCapsuleShapeSettings_IsSphere(const JPH_TaperedCapsuleShapeSetti
     return ToCpp(self)->IsSphere();
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_TaperedCapsuleShapeSettings_Create(const JPH_TaperedCapsuleShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_TaperedCapsuleShapeSettings_Create(const JPH_TaperedCapsuleShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -10054,7 +10054,7 @@ void JPH_TaperedCapsuleShape_Construct(JPH_TaperedCapsuleShape *self) {
     new(ToCpp(self)) JPH::TaperedCapsuleShape();
 }
 
-void JPH_TaperedCapsuleShape_ConstructWithSettingsResult(JPH_TaperedCapsuleShape *self, const JPH_TaperedCapsuleShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_TaperedCapsuleShape_ConstructWithSettingsResult(JPH_TaperedCapsuleShape *self, const JPH_TaperedCapsuleShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::TaperedCapsuleShape(*inSettings, *outResult);
 }
 
@@ -10158,7 +10158,7 @@ void JPH_DecoratedShape_ConstructWithSubTypeInnerShape(JPH_DecoratedShape *self,
     new(ToCpp(self)) JPH::DecoratedShape(inSubType, inInnerShape);
 }
 
-void JPH_DecoratedShape_ConstructWithSubTypeSettingsResult(JPH_DecoratedShape *self, JPH_EShapeSubType inSubType, const JPH_DecoratedShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_DecoratedShape_ConstructWithSubTypeSettingsResult(JPH_DecoratedShape *self, JPH_EShapeSubType inSubType, const JPH_DecoratedShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::DecoratedShape(inSubType, *inSettings, *outResult);
 }
 
@@ -10234,7 +10234,7 @@ void JPH_RotatedTranslatedShapeSettings_ConstructWithVec3QuatShapePtr(JPH_Rotate
     new(ToCpp(self)) JPH::RotatedTranslatedShapeSettings(inPosition, inRotation, inShape);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_RotatedTranslatedShapeSettings_Create(const JPH_RotatedTranslatedShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_RotatedTranslatedShapeSettings_Create(const JPH_RotatedTranslatedShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -10242,7 +10242,7 @@ void JPH_RotatedTranslatedShape_Construct(JPH_RotatedTranslatedShape *self) {
     new(ToCpp(self)) JPH::RotatedTranslatedShape();
 }
 
-void JPH_RotatedTranslatedShape_ConstructWithSettingsResult(JPH_RotatedTranslatedShape *self, const JPH_RotatedTranslatedShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_RotatedTranslatedShape_ConstructWithSettingsResult(JPH_RotatedTranslatedShape *self, const JPH_RotatedTranslatedShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::RotatedTranslatedShape(*inSettings, *outResult);
 }
 
@@ -10374,7 +10374,7 @@ void JPH_ScaledShapeSettings_ConstructWithShapePtrVec3(JPH_ScaledShapeSettings *
     new(ToCpp(self)) JPH::ScaledShapeSettings(inShape, inScale);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_ScaledShapeSettings_Create(const JPH_ScaledShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_ScaledShapeSettings_Create(const JPH_ScaledShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -10382,7 +10382,7 @@ void JPH_ScaledShape_Construct(JPH_ScaledShape *self) {
     new(ToCpp(self)) JPH::ScaledShape();
 }
 
-void JPH_ScaledShape_ConstructWithSettingsResult(JPH_ScaledShape *self, const JPH_ScaledShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_ScaledShape_ConstructWithSettingsResult(JPH_ScaledShape *self, const JPH_ScaledShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::ScaledShape(*inSettings, *outResult);
 }
 
@@ -10502,11 +10502,11 @@ void JPH_MeshShapeSettings_Construct(JPH_MeshShapeSettings *self) {
     new(ToCpp(self)) JPH::MeshShapeSettings();
 }
 
-void JPH_MeshShapeSettings_ConstructWithTrianglesMaterials(JPH_MeshShapeSettings *self, const JPH_TriangleList<JPH_Triangle> *inTriangles, JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> inMaterials) {
+void JPH_MeshShapeSettings_ConstructWithTrianglesMaterials(JPH_MeshShapeSettings *self, const JPH_TriangleList<JPH_Triangle> *inTriangles, JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> inMaterials) {
     new(ToCpp(self)) JPH::MeshShapeSettings(*inTriangles, inMaterials);
 }
 
-void JPH_MeshShapeSettings_ConstructWithVerticesTrianglesMaterials(JPH_MeshShapeSettings *self, JPH_VertexList<JPH_Float3> inVertices, JPH_IndexedTriangleList<JPH_IndexedTriangle> inTriangles, JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> inMaterials) {
+void JPH_MeshShapeSettings_ConstructWithVerticesTrianglesMaterials(JPH_MeshShapeSettings *self, JPH_VertexList<JPH_Float3> inVertices, JPH_IndexedTriangleList<JPH_IndexedTriangle> inTriangles, JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> inMaterials) {
     new(ToCpp(self)) JPH::MeshShapeSettings(inVertices, inTriangles, inMaterials);
 }
 
@@ -10514,7 +10514,7 @@ void JPH_MeshShapeSettings_Sanitize(JPH_MeshShapeSettings *self) {
     ToCpp(self)->Sanitize();
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_MeshShapeSettings_Create(const JPH_MeshShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_MeshShapeSettings_Create(const JPH_MeshShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -10522,7 +10522,7 @@ void JPH_MeshShape_Construct(JPH_MeshShape *self) {
     new(ToCpp(self)) JPH::MeshShape();
 }
 
-void JPH_MeshShape_ConstructWithSettingsResult(JPH_MeshShape *self, const JPH_MeshShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_MeshShape_ConstructWithSettingsResult(JPH_MeshShape *self, const JPH_MeshShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::MeshShape(*inSettings, *outResult);
 }
 
@@ -10550,7 +10550,7 @@ const JPH_PhysicsMaterial *JPH_MeshShape_GetMaterial(const JPH_MeshShape *self, 
     return ToCpp(self)->GetMaterial(*inSubShapeID);
 }
 
-const JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *JPH_MeshShape_GetMaterialList(const JPH_MeshShape *self) {
+const JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *JPH_MeshShape_GetMaterialList(const JPH_MeshShape *self) {
     return ToCpp(self)->GetMaterialList();
 }
 
@@ -10598,7 +10598,7 @@ void JPH_MeshShape_SaveBinaryState(const JPH_MeshShape *self, JPH_StreamOut *inS
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-void JPH_MeshShape_SaveMaterialState(const JPH_MeshShape *self, JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *outMaterials) {
+void JPH_MeshShape_SaveMaterialState(const JPH_MeshShape *self, JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *outMaterials) {
     ToCpp(self)->SaveMaterialState(*outMaterials);
 }
 
@@ -10714,35 +10714,35 @@ bool JPH_AABBTreeBuilder_Node_HasChildren(const JPH_AABBTreeBuilder_Node *self) 
     return ToCpp(self)->HasChildren();
 }
 
-uint32_t JPH_AABBTreeBuilder_Node_GetMinDepth(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes) {
+uint32_t JPH_AABBTreeBuilder_Node_GetMinDepth(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes) {
     return ToCpp(self)->GetMinDepth(*inNodes);
 }
 
-uint32_t JPH_AABBTreeBuilder_Node_GetMaxDepth(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes) {
+uint32_t JPH_AABBTreeBuilder_Node_GetMaxDepth(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes) {
     return ToCpp(self)->GetMaxDepth(*inNodes);
 }
 
-uint32_t JPH_AABBTreeBuilder_Node_GetNodeCount(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes) {
+uint32_t JPH_AABBTreeBuilder_Node_GetNodeCount(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes) {
     return ToCpp(self)->GetNodeCount(*inNodes);
 }
 
-uint32_t JPH_AABBTreeBuilder_Node_GetLeafNodeCount(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes) {
+uint32_t JPH_AABBTreeBuilder_Node_GetLeafNodeCount(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes) {
     return ToCpp(self)->GetLeafNodeCount(*inNodes);
 }
 
-uint32_t JPH_AABBTreeBuilder_Node_GetTriangleCountInTree(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes) {
+uint32_t JPH_AABBTreeBuilder_Node_GetTriangleCountInTree(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes) {
     return ToCpp(self)->GetTriangleCountInTree(*inNodes);
 }
 
-void JPH_AABBTreeBuilder_Node_GetTriangleCountPerNode(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes, float *outAverage, uint32_t *outMin, uint32_t *outMax) {
+void JPH_AABBTreeBuilder_Node_GetTriangleCountPerNode(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes, float *outAverage, uint32_t *outMin, uint32_t *outMax) {
     ToCpp(self)->GetTriangleCountPerNode(*inNodes, *outAverage, *outMin, *outMax);
 }
 
-float JPH_AABBTreeBuilder_Node_CalculateSAHCost(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes, float inCostTraversal, float inCostLeaf) {
+float JPH_AABBTreeBuilder_Node_CalculateSAHCost(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes, float inCostTraversal, float inCostLeaf) {
     return ToCpp(self)->CalculateSAHCost(*inNodes, inCostTraversal, inCostLeaf);
 }
 
-void JPH_AABBTreeBuilder_Node_GetNChildren(const JPH_AABBTreeBuilder_Node *self, const Array<JPH_AABBTreeBuilder_Node> *inNodes, uint32_t inN, Array<const JPH_AABBTreeBuilder_Node *> *outChildren) {
+void JPH_AABBTreeBuilder_Node_GetNChildren(const JPH_AABBTreeBuilder_Node *self, const JPH_Array *inNodes, uint32_t inN, JPH_Array *outChildren) {
     ToCpp(self)->GetNChildren(*inNodes, inN, *outChildren);
 }
 
@@ -10754,11 +10754,11 @@ JPH_AABBTreeBuilder_Node *JPH_AABBTreeBuilder_Build(JPH_AABBTreeBuilder *self, J
     return ToCpp(self)->Build(*outStats);
 }
 
-const Array<JPH_AABBTreeBuilder_Node> *JPH_AABBTreeBuilder_GetNodes(const JPH_AABBTreeBuilder *self) {
+const JPH_Array *JPH_AABBTreeBuilder_GetNodes(const JPH_AABBTreeBuilder *self) {
     return ToCpp(self)->GetNodes();
 }
 
-const Array<JPH_IndexedTriangle> *JPH_AABBTreeBuilder_GetTriangles(const JPH_AABBTreeBuilder *self) {
+const JPH_Array *JPH_AABBTreeBuilder_GetTriangles(const JPH_AABBTreeBuilder *self) {
     return ToCpp(self)->GetTriangles();
 }
 
@@ -10838,7 +10838,7 @@ void JPH_NodeCodecQuadTreeHalfFloat_EncodingContext_PrepareNodeAllocate(const JP
     ToCpp(self)->PrepareNodeAllocate(inNode, *ioBufferSize);
 }
 
-size_t JPH_NodeCodecQuadTreeHalfFloat_EncodingContext_NodeAllocate(const JPH_NodeCodecQuadTreeHalfFloat_EncodingContext *self, const JPH_AABBTreeBuilder_Node *inNode, const JPH_Vec3 inNodeBoundsMin, const JPH_Vec3 inNodeBoundsMax, Array<const JPH_AABBTreeBuilder_Node *> *ioChildren, JPH_Vec3 outChildBoundsMin[4], JPH_Vec3 outChildBoundsMax[4], JPH_ByteBuffer *ioBuffer, const int8_t **outError) {
+size_t JPH_NodeCodecQuadTreeHalfFloat_EncodingContext_NodeAllocate(const JPH_NodeCodecQuadTreeHalfFloat_EncodingContext *self, const JPH_AABBTreeBuilder_Node *inNode, const JPH_Vec3 inNodeBoundsMin, const JPH_Vec3 inNodeBoundsMax, JPH_Array *ioChildren, JPH_Vec3 outChildBoundsMin[4], JPH_Vec3 outChildBoundsMax[4], JPH_ByteBuffer *ioBuffer, const int8_t **outError) {
     return ToCpp(self)->NodeAllocate(inNode, inNodeBoundsMin, inNodeBoundsMax, *ioChildren, outChildBoundsMin, outChildBoundsMax, *ioBuffer, *outError);
 }
 
@@ -10878,11 +10878,11 @@ void JPH_HeightFieldShapeSettings_Construct(JPH_HeightFieldShapeSettings *self) 
     new(ToCpp(self)) JPH::HeightFieldShapeSettings();
 }
 
-void JPH_HeightFieldShapeSettings_ConstructWithSamplesOffsetScaleSampleCountMaterialIndicesMaterialList(JPH_HeightFieldShapeSettings *self, const float *inSamples, const JPH_Vec3 inOffset, const JPH_Vec3 inScale, uint32_t inSampleCount, const uint8_t *inMaterialIndices, const JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *inMaterialList) {
+void JPH_HeightFieldShapeSettings_ConstructWithSamplesOffsetScaleSampleCountMaterialIndicesMaterialList(JPH_HeightFieldShapeSettings *self, const float *inSamples, const JPH_Vec3 inOffset, const JPH_Vec3 inScale, uint32_t inSampleCount, const uint8_t *inMaterialIndices, const JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *inMaterialList) {
     new(ToCpp(self)) JPH::HeightFieldShapeSettings(inSamples, inOffset, inScale, inSampleCount, inMaterialIndices, *inMaterialList);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_HeightFieldShapeSettings_Create(const JPH_HeightFieldShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_HeightFieldShapeSettings_Create(const JPH_HeightFieldShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -10898,7 +10898,7 @@ void JPH_HeightFieldShape_Construct(JPH_HeightFieldShape *self) {
     new(ToCpp(self)) JPH::HeightFieldShape();
 }
 
-void JPH_HeightFieldShape_ConstructWithSettingsResult(JPH_HeightFieldShape *self, const JPH_HeightFieldShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_HeightFieldShape_ConstructWithSettingsResult(JPH_HeightFieldShape *self, const JPH_HeightFieldShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::HeightFieldShape(*inSettings, *outResult);
 }
 
@@ -10906,7 +10906,7 @@ void JPH_HeightFieldShape_Destruct(JPH_HeightFieldShape *self) {
     ToCpp(self)->~HeightFieldShape();
 }
 
-Ref<JPH_HeightFieldShape> JPH_HeightFieldShape_Clone(const JPH_HeightFieldShape *self) {
+JPH_HeightFieldShape * JPH_HeightFieldShape_Clone(const JPH_HeightFieldShape *self) {
     return ToCpp(self)->Clone();
 }
 
@@ -11014,7 +11014,7 @@ void JPH_HeightFieldShape_SetHeights(JPH_HeightFieldShape *self, uint32_t inX, u
     ToCpp(self)->SetHeights(inX, inY, inSizeX, inSizeY, inHeights, inHeightsStride, *inAllocator, inActiveEdgeCosThresholdAngle);
 }
 
-const JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *JPH_HeightFieldShape_GetMaterialList(const JPH_HeightFieldShape *self) {
+const JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *JPH_HeightFieldShape_GetMaterialList(const JPH_HeightFieldShape *self) {
     return ToCpp(self)->GetMaterialList();
 }
 
@@ -11022,7 +11022,7 @@ void JPH_HeightFieldShape_GetMaterials(const JPH_HeightFieldShape *self, uint32_
     ToCpp(self)->GetMaterials(inX, inY, inSizeX, inSizeY, outMaterials, inMaterialsStride);
 }
 
-bool JPH_HeightFieldShape_SetMaterials(JPH_HeightFieldShape *self, uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, const uint8_t *inMaterials, intptr_t inMaterialsStride, const JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *inMaterialList, JPH_TempAllocator *inAllocator) {
+bool JPH_HeightFieldShape_SetMaterials(JPH_HeightFieldShape *self, uint32_t inX, uint32_t inY, uint32_t inSizeX, uint32_t inSizeY, const uint8_t *inMaterials, intptr_t inMaterialsStride, const JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *inMaterialList, JPH_TempAllocator *inAllocator) {
     return ToCpp(self)->SetMaterials(inX, inY, inSizeX, inSizeY, inMaterials, inMaterialsStride, inMaterialList, *inAllocator);
 }
 
@@ -11030,7 +11030,7 @@ void JPH_HeightFieldShape_SaveBinaryState(const JPH_HeightFieldShape *self, JPH_
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-void JPH_HeightFieldShape_SaveMaterialState(const JPH_HeightFieldShape *self, JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *outMaterials) {
+void JPH_HeightFieldShape_SaveMaterialState(const JPH_HeightFieldShape *self, JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *outMaterials) {
     ToCpp(self)->SaveMaterialState(*outMaterials);
 }
 
@@ -11078,7 +11078,7 @@ bool JPH_CapsuleShapeSettings_IsSphere(const JPH_CapsuleShapeSettings *self) {
     return ToCpp(self)->IsSphere();
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_CapsuleShapeSettings_Create(const JPH_CapsuleShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_CapsuleShapeSettings_Create(const JPH_CapsuleShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -11086,7 +11086,7 @@ void JPH_CapsuleShape_Construct(JPH_CapsuleShape *self) {
     new(ToCpp(self)) JPH::CapsuleShape();
 }
 
-void JPH_CapsuleShape_ConstructWithSettingsResult(JPH_CapsuleShape *self, const JPH_CapsuleShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_CapsuleShape_ConstructWithSettingsResult(JPH_CapsuleShape *self, const JPH_CapsuleShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::CapsuleShape(*inSettings, *outResult);
 }
 
@@ -11210,7 +11210,7 @@ void JPH_CylinderShapeSettings_ConstructWithHalfHeightRadiusConvexRadiusMaterial
     new(ToCpp(self)) JPH::CylinderShapeSettings(inHalfHeight, inRadius, inConvexRadius, inMaterial);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_CylinderShapeSettings_Create(const JPH_CylinderShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_CylinderShapeSettings_Create(const JPH_CylinderShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -11218,7 +11218,7 @@ void JPH_CylinderShape_Construct(JPH_CylinderShape *self) {
     new(ToCpp(self)) JPH::CylinderShape();
 }
 
-void JPH_CylinderShape_ConstructWithSettingsResult(JPH_CylinderShape *self, const JPH_CylinderShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_CylinderShape_ConstructWithSettingsResult(JPH_CylinderShape *self, const JPH_CylinderShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::CylinderShape(*inSettings, *outResult);
 }
 
@@ -11326,7 +11326,7 @@ void JPH_OffsetCenterOfMassShapeSettings_ConstructWithVec3ShapePtr(JPH_OffsetCen
     new(ToCpp(self)) JPH::OffsetCenterOfMassShapeSettings(inOffset, inShape);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_OffsetCenterOfMassShapeSettings_Create(const JPH_OffsetCenterOfMassShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_OffsetCenterOfMassShapeSettings_Create(const JPH_OffsetCenterOfMassShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -11334,7 +11334,7 @@ void JPH_OffsetCenterOfMassShape_Construct(JPH_OffsetCenterOfMassShape *self) {
     new(ToCpp(self)) JPH::OffsetCenterOfMassShape();
 }
 
-void JPH_OffsetCenterOfMassShape_ConstructWithSettingsResult(JPH_OffsetCenterOfMassShape *self, const JPH_OffsetCenterOfMassShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_OffsetCenterOfMassShape_ConstructWithSettingsResult(JPH_OffsetCenterOfMassShape *self, const JPH_OffsetCenterOfMassShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::OffsetCenterOfMassShape(*inSettings, *outResult);
 }
 
@@ -11446,7 +11446,7 @@ void JPH_TaperedCylinderShapeSettings_ConstructWithHalfHeightOfTaperedCylinderTo
     new(ToCpp(self)) JPH::TaperedCylinderShapeSettings(inHalfHeightOfTaperedCylinder, inTopRadius, inBottomRadius, inConvexRadius, inMaterial);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_TaperedCylinderShapeSettings_Create(const JPH_TaperedCylinderShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_TaperedCylinderShapeSettings_Create(const JPH_TaperedCylinderShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -11454,7 +11454,7 @@ void JPH_TaperedCylinderShape_Construct(JPH_TaperedCylinderShape *self) {
     new(ToCpp(self)) JPH::TaperedCylinderShape();
 }
 
-void JPH_TaperedCylinderShape_ConstructWithSettingsResult(JPH_TaperedCylinderShape *self, const JPH_TaperedCylinderShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_TaperedCylinderShape_ConstructWithSettingsResult(JPH_TaperedCylinderShape *self, const JPH_TaperedCylinderShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::TaperedCylinderShape(*inSettings, *outResult);
 }
 
@@ -11558,7 +11558,7 @@ void JPH_BoxShapeSettings_ConstructWithHalfExtentConvexRadiusMaterial(JPH_BoxSha
     new(ToCpp(self)) JPH::BoxShapeSettings(inHalfExtent, inConvexRadius, inMaterial);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_BoxShapeSettings_Create(const JPH_BoxShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_BoxShapeSettings_Create(const JPH_BoxShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -11566,7 +11566,7 @@ void JPH_BoxShape_Construct(JPH_BoxShape *self) {
     new(ToCpp(self)) JPH::BoxShape();
 }
 
-void JPH_BoxShape_ConstructWithSettingsResult(JPH_BoxShape *self, const JPH_BoxShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_BoxShape_ConstructWithSettingsResult(JPH_BoxShape *self, const JPH_BoxShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::BoxShape(*inSettings, *outResult);
 }
 
@@ -11662,11 +11662,11 @@ void JPH_ConvexHullShapeSettings_ConstructWithPointsNumPointsMaxConvexRadiusMate
     new(ToCpp(self)) JPH::ConvexHullShapeSettings(inPoints, inNumPoints, inMaxConvexRadius, inMaterial);
 }
 
-void JPH_ConvexHullShapeSettings_ConstructWithPointsConvexRadiusMaterial(JPH_ConvexHullShapeSettings *self, const Array<JPH_Vec3> *inPoints, float inConvexRadius, const JPH_PhysicsMaterial *inMaterial) {
+void JPH_ConvexHullShapeSettings_ConstructWithPointsConvexRadiusMaterial(JPH_ConvexHullShapeSettings *self, const JPH_Array *inPoints, float inConvexRadius, const JPH_PhysicsMaterial *inMaterial) {
     new(ToCpp(self)) JPH::ConvexHullShapeSettings(*inPoints, inConvexRadius, inMaterial);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_ConvexHullShapeSettings_Create(const JPH_ConvexHullShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_ConvexHullShapeSettings_Create(const JPH_ConvexHullShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -11674,7 +11674,7 @@ void JPH_ConvexHullShape_Construct(JPH_ConvexHullShape *self) {
     new(ToCpp(self)) JPH::ConvexHullShape();
 }
 
-void JPH_ConvexHullShape_ConstructWithSettingsResult(JPH_ConvexHullShape *self, const JPH_ConvexHullShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_ConvexHullShape_ConstructWithSettingsResult(JPH_ConvexHullShape *self, const JPH_ConvexHullShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::ConvexHullShape(*inSettings, *outResult);
 }
 
@@ -11750,7 +11750,7 @@ float JPH_ConvexHullShape_GetConvexRadius(const JPH_ConvexHullShape *self) {
     return ToCpp(self)->GetConvexRadius();
 }
 
-const Array<JPH_Plane> *JPH_ConvexHullShape_GetPlanes(const JPH_ConvexHullShape *self) {
+const JPH_Array *JPH_ConvexHullShape_GetPlanes(const JPH_ConvexHullShape *self) {
     return ToCpp(self)->GetPlanes();
 }
 
@@ -11842,7 +11842,7 @@ int32_t JPH_ConvexHullBuilder_GetNumVerticesUsed(const JPH_ConvexHullBuilder *se
     return ToCpp(self)->GetNumVerticesUsed();
 }
 
-bool JPH_ConvexHullBuilder_ContainsFace(const JPH_ConvexHullBuilder *self, const Array<int32_t> *inIndices) {
+bool JPH_ConvexHullBuilder_ContainsFace(const JPH_ConvexHullBuilder *self, const JPH_Array *inIndices) {
     return ToCpp(self)->ContainsFace(*inIndices);
 }
 
@@ -11882,7 +11882,7 @@ void JPH_CompoundShape_ConstructWithSubType(JPH_CompoundShape *self, JPH_EShapeS
     new(ToCpp(self)) JPH::CompoundShape(inSubType);
 }
 
-void JPH_CompoundShape_ConstructWithSubTypeSettingsResult(JPH_CompoundShape *self, JPH_EShapeSubType inSubType, const JPH_ShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_CompoundShape_ConstructWithSubTypeSettingsResult(JPH_CompoundShape *self, JPH_EShapeSubType inSubType, const JPH_ShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::CompoundShape(inSubType, *inSettings, *outResult);
 }
 
@@ -11966,7 +11966,7 @@ int32_t JPH_CompoundShape_GetIntersectingSubShapesWithOrientedBoxUint32_tPtrInt3
     return ToCpp(self)->GetIntersectingSubShapes(*inBox, outSubShapeIndices, inMaxSubShapeIndices);
 }
 
-bool JPH_CompoundShape_SubShape_FromSettings(JPH_CompoundShape_SubShape *self, const JPH_CompoundShapeSettings_SubShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+bool JPH_CompoundShape_SubShape_FromSettings(JPH_CompoundShape_SubShape *self, const JPH_CompoundShapeSettings_SubShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     return ToCpp(self)->FromSettings(*inSettings, *outResult);
 }
 
@@ -12082,7 +12082,7 @@ const void *JPH_MutableCompoundShapeSettings_CastTo(const JPH_MutableCompoundSha
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_MutableCompoundShapeSettings_Create(const JPH_MutableCompoundShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_MutableCompoundShapeSettings_Create(const JPH_MutableCompoundShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -12090,11 +12090,11 @@ void JPH_MutableCompoundShape_Construct(JPH_MutableCompoundShape *self) {
     new(ToCpp(self)) JPH::MutableCompoundShape();
 }
 
-void JPH_MutableCompoundShape_ConstructWithSettingsResult(JPH_MutableCompoundShape *self, const JPH_MutableCompoundShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_MutableCompoundShape_ConstructWithSettingsResult(JPH_MutableCompoundShape *self, const JPH_MutableCompoundShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::MutableCompoundShape(*inSettings, *outResult);
 }
 
-Ref<JPH_MutableCompoundShape> JPH_MutableCompoundShape_Clone(const JPH_MutableCompoundShape *self) {
+JPH_MutableCompoundShape * JPH_MutableCompoundShape_Clone(const JPH_MutableCompoundShape *self) {
     return ToCpp(self)->Clone();
 }
 
@@ -12286,7 +12286,7 @@ void JPH_PlaneShapeSettings_ConstructWithPlaneMaterialHalfExtent(JPH_PlaneShapeS
     new(ToCpp(self)) JPH::PlaneShapeSettings(*inPlane, inMaterial, inHalfExtent);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_PlaneShapeSettings_Create(const JPH_PlaneShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_PlaneShapeSettings_Create(const JPH_PlaneShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -12298,7 +12298,7 @@ void JPH_PlaneShape_ConstructWithPlaneMaterialHalfExtent(JPH_PlaneShape *self, c
     new(ToCpp(self)) JPH::PlaneShape(*inPlane, inMaterial, inHalfExtent);
 }
 
-void JPH_PlaneShape_ConstructWithSettingsResult(JPH_PlaneShape *self, const JPH_PlaneShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_PlaneShape_ConstructWithSettingsResult(JPH_PlaneShape *self, const JPH_PlaneShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::PlaneShape(*inSettings, *outResult);
 }
 
@@ -12374,7 +12374,7 @@ void JPH_PlaneShape_SaveBinaryState(const JPH_PlaneShape *self, JPH_StreamOut *i
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-void JPH_PlaneShape_SaveMaterialState(const JPH_PlaneShape *self, JPH_PhysicsMaterialList<RefConst<JPH_PhysicsMaterial>> *outMaterials) {
+void JPH_PlaneShape_SaveMaterialState(const JPH_PlaneShape *self, JPH_PhysicsMaterialList<JPH_PhysicsMaterial *> *outMaterials) {
     ToCpp(self)->SaveMaterialState(*outMaterials);
 }
 
@@ -12418,7 +12418,7 @@ void JPH_TriangleShapeSettings_ConstructWithV1V2V3ConvexRadiusMaterial(JPH_Trian
     new(ToCpp(self)) JPH::TriangleShapeSettings(inV1, inV2, inV3, inConvexRadius, inMaterial);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_TriangleShapeSettings_Create(const JPH_TriangleShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_TriangleShapeSettings_Create(const JPH_TriangleShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
@@ -12426,7 +12426,7 @@ void JPH_TriangleShape_Construct(JPH_TriangleShape *self) {
     new(ToCpp(self)) JPH::TriangleShape();
 }
 
-void JPH_TriangleShape_ConstructWithSettingsResult(JPH_TriangleShape *self, const JPH_TriangleShapeSettings *inSettings, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_TriangleShape_ConstructWithSettingsResult(JPH_TriangleShape *self, const JPH_TriangleShapeSettings *inSettings, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::TriangleShape(*inSettings, *outResult);
 }
 
@@ -12538,11 +12538,11 @@ const void *JPH_StaticCompoundShapeSettings_CastTo(const JPH_StaticCompoundShape
     return ToCpp(self)->CastTo(inRTTI);
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_StaticCompoundShapeSettings_Create(const JPH_StaticCompoundShapeSettings *self) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_StaticCompoundShapeSettings_Create(const JPH_StaticCompoundShapeSettings *self) {
     return ToCpp(self)->Create();
 }
 
-JPH_ShapeSettings_ShapeResult<Ref<JPH_Shape>> JPH_StaticCompoundShapeSettings_CreateWithTempAllocator(const JPH_StaticCompoundShapeSettings *self, JPH_TempAllocator *inTempAllocator) {
+JPH_ShapeSettings_ShapeResult<JPH_Shape *> JPH_StaticCompoundShapeSettings_CreateWithTempAllocator(const JPH_StaticCompoundShapeSettings *self, JPH_TempAllocator *inTempAllocator) {
     return ToCpp(self)->Create(*inTempAllocator);
 }
 
@@ -12550,7 +12550,7 @@ void JPH_StaticCompoundShape_Construct(JPH_StaticCompoundShape *self) {
     new(ToCpp(self)) JPH::StaticCompoundShape();
 }
 
-void JPH_StaticCompoundShape_ConstructWithSettingsTempAllocatorResult(JPH_StaticCompoundShape *self, const JPH_StaticCompoundShapeSettings *inSettings, JPH_TempAllocator *inTempAllocator, JPH_Shape_ShapeResult<Ref<JPH_Shape>> *outResult) {
+void JPH_StaticCompoundShape_ConstructWithSettingsTempAllocatorResult(JPH_StaticCompoundShape *self, const JPH_StaticCompoundShapeSettings *inSettings, JPH_TempAllocator *inTempAllocator, JPH_Shape_ShapeResult<JPH_Shape *> *outResult) {
     new(ToCpp(self)) JPH::StaticCompoundShape(*inSettings, *inTempAllocator, *outResult);
 }
 
@@ -13278,7 +13278,7 @@ void JPH_RackAndPinionConstraint_RestoreState(JPH_RackAndPinionConstraint *self,
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_RackAndPinionConstraint_GetConstraintSettings(const JPH_RackAndPinionConstraint *self) {
+JPH_ConstraintSettings * JPH_RackAndPinionConstraint_GetConstraintSettings(const JPH_RackAndPinionConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -13362,7 +13362,7 @@ void JPH_SliderConstraint_RestoreState(JPH_SliderConstraint *self, JPH_StateReco
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_SliderConstraint_GetConstraintSettings(const JPH_SliderConstraint *self) {
+JPH_ConstraintSettings * JPH_SliderConstraint_GetConstraintSettings(const JPH_SliderConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -13522,7 +13522,7 @@ void JPH_FixedConstraint_RestoreState(JPH_FixedConstraint *self, JPH_StateRecord
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_FixedConstraint_GetConstraintSettings(const JPH_FixedConstraint *self) {
+JPH_ConstraintSettings * JPH_FixedConstraint_GetConstraintSettings(const JPH_FixedConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -13602,7 +13602,7 @@ void JPH_DistanceConstraint_RestoreState(JPH_DistanceConstraint *self, JPH_State
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_DistanceConstraint_GetConstraintSettings(const JPH_DistanceConstraint *self) {
+JPH_ConstraintSettings * JPH_DistanceConstraint_GetConstraintSettings(const JPH_DistanceConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -13678,7 +13678,7 @@ void JPH_PathConstraintPath_SaveBinaryState(const JPH_PathConstraintPath *self, 
     ToCpp(self)->SaveBinaryState(*inStream);
 }
 
-JPH_PathConstraintPath_PathResult<Ref<JPH_PathConstraintPath>> JPH_PathConstraintPath_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_PathConstraintPath_PathResult<JPH_PathConstraintPath *> JPH_PathConstraintPath_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::PathConstraintPath::sRestoreFromBinaryState(*inStream);
 }
 
@@ -13758,7 +13758,7 @@ bool JPH_PathConstraint_IsActive(const JPH_PathConstraint *self) {
     return ToCpp(self)->IsActive();
 }
 
-Ref<JPH_ConstraintSettings> JPH_PathConstraint_GetConstraintSettings(const JPH_PathConstraint *self) {
+JPH_ConstraintSettings * JPH_PathConstraint_GetConstraintSettings(const JPH_PathConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -13942,7 +13942,7 @@ void JPH_GearConstraint_RestoreState(JPH_GearConstraint *self, JPH_StateRecorder
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_GearConstraint_GetConstraintSettings(const JPH_GearConstraint *self) {
+JPH_ConstraintSettings * JPH_GearConstraint_GetConstraintSettings(const JPH_GearConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -14054,7 +14054,7 @@ void JPH_PointConstraint_RestoreState(JPH_PointConstraint *self, JPH_StateRecord
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_PointConstraint_GetConstraintSettings(const JPH_PointConstraint *self) {
+JPH_ConstraintSettings * JPH_PointConstraint_GetConstraintSettings(const JPH_PointConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -14166,7 +14166,7 @@ void JPH_SixDOFConstraint_RestoreState(JPH_SixDOFConstraint *self, JPH_StateReco
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_SixDOFConstraint_GetConstraintSettings(const JPH_SixDOFConstraint *self) {
+JPH_ConstraintSettings * JPH_SixDOFConstraint_GetConstraintSettings(const JPH_SixDOFConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -14238,11 +14238,11 @@ JPH_Quat JPH_SixDOFConstraint_GetRotationInConstraintSpace(const JPH_SixDOFConst
     return ToCpp(self)->GetRotationInConstraintSpace();
 }
 
-JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettings(JPH_SixDOFConstraint *self, JPH_SixDOFConstraint_EAxis inAxis) {
+JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettingsWithEAxis(JPH_SixDOFConstraint *self, JPH_SixDOFConstraint_EAxis inAxis) {
     return ToCpp(self)->GetMotorSettings(inAxis);
 }
 
-const JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettingsConst(const JPH_SixDOFConstraint *self, JPH_SixDOFConstraint_EAxis inAxis) {
+const JPH_MotorSettings *JPH_SixDOFConstraint_GetMotorSettingsWithEAxis(const JPH_SixDOFConstraint *self, JPH_SixDOFConstraint_EAxis inAxis) {
     return ToCpp(self)->GetMotorSettings(inAxis);
 }
 
@@ -14366,7 +14366,7 @@ void JPH_ConeConstraint_RestoreState(JPH_ConeConstraint *self, JPH_StateRecorder
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_ConeConstraint_GetConstraintSettings(const JPH_ConeConstraint *self) {
+JPH_ConstraintSettings * JPH_ConeConstraint_GetConstraintSettings(const JPH_ConeConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -14490,7 +14490,7 @@ void JPH_PulleyConstraint_RestoreState(JPH_PulleyConstraint *self, JPH_StateReco
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_PulleyConstraint_GetConstraintSettings(const JPH_PulleyConstraint *self) {
+JPH_ConstraintSettings * JPH_PulleyConstraint_GetConstraintSettings(const JPH_PulleyConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -14538,11 +14538,11 @@ size_t JPH_PhysicsScene_GetNumBodies(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetNumBodies();
 }
 
-const Array<JPH_BodyCreationSettings> *JPH_PhysicsScene_GetBodiesConst(const JPH_PhysicsScene *self) {
+const JPH_Array *JPH_PhysicsScene_GetBodiesConst(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetBodies();
 }
 
-Array<JPH_BodyCreationSettings> *JPH_PhysicsScene_GetBodies(JPH_PhysicsScene *self) {
+JPH_Array *JPH_PhysicsScene_GetBodies(JPH_PhysicsScene *self) {
     return ToCpp(self)->GetBodies();
 }
 
@@ -14558,11 +14558,11 @@ size_t JPH_PhysicsScene_GetNumConstraints(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetNumConstraints();
 }
 
-const Array<JPH_PhysicsScene_ConnectedConstraint> *JPH_PhysicsScene_GetConstraintsConst(const JPH_PhysicsScene *self) {
+const JPH_Array *JPH_PhysicsScene_GetConstraintsConst(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetConstraints();
 }
 
-Array<JPH_PhysicsScene_ConnectedConstraint> *JPH_PhysicsScene_GetConstraints(JPH_PhysicsScene *self) {
+JPH_Array *JPH_PhysicsScene_GetConstraints(JPH_PhysicsScene *self) {
     return ToCpp(self)->GetConstraints();
 }
 
@@ -14570,11 +14570,11 @@ size_t JPH_PhysicsScene_GetNumSoftBodies(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetNumSoftBodies();
 }
 
-const Array<JPH_SoftBodyCreationSettings> *JPH_PhysicsScene_GetSoftBodiesConst(const JPH_PhysicsScene *self) {
+const JPH_Array *JPH_PhysicsScene_GetSoftBodiesConst(const JPH_PhysicsScene *self) {
     return ToCpp(self)->GetSoftBodies();
 }
 
-Array<JPH_SoftBodyCreationSettings> *JPH_PhysicsScene_GetSoftBodies(JPH_PhysicsScene *self) {
+JPH_Array *JPH_PhysicsScene_GetSoftBodies(JPH_PhysicsScene *self) {
     return ToCpp(self)->GetSoftBodies();
 }
 
@@ -14590,7 +14590,7 @@ void JPH_PhysicsScene_SaveBinaryState(const JPH_PhysicsScene *self, JPH_StreamOu
     ToCpp(self)->SaveBinaryState(*inStream, inSaveShapes, inSaveGroupFilter);
 }
 
-JPH_PhysicsScene_PhysicsSceneResult<Ref<JPH_PhysicsScene>> JPH_PhysicsScene_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
+JPH_PhysicsScene_PhysicsSceneResult<JPH_PhysicsScene *> JPH_PhysicsScene_sRestoreFromBinaryState(JPH_StreamIn *inStream) {
     return JPH::PhysicsScene::sRestoreFromBinaryState(*inStream);
 }
 
@@ -14634,7 +14634,7 @@ const JPH_VehicleConstraint *JPH_VehicleController_GetConstraintConst(const JPH_
     return ToCpp(self)->GetConstraint();
 }
 
-Ref<JPH_VehicleControllerSettings> JPH_VehicleController_GetSettings(const JPH_VehicleController *self) {
+JPH_VehicleControllerSettings * JPH_VehicleController_GetSettings(const JPH_VehicleController *self) {
     return ToCpp(self)->GetSettings();
 }
 
@@ -14998,11 +14998,11 @@ JPH_Wheels<JPH_Wheel *> *JPH_VehicleConstraint_GetWheels(JPH_VehicleConstraint *
     return ToCpp(self)->GetWheels();
 }
 
-JPH_Wheel *JPH_VehicleConstraint_GetWheel(JPH_VehicleConstraint *self, uint32_t inIdx) {
+JPH_Wheel *JPH_VehicleConstraint_GetWheelWithUint32_t(JPH_VehicleConstraint *self, uint32_t inIdx) {
     return ToCpp(self)->GetWheel(inIdx);
 }
 
-const JPH_Wheel *JPH_VehicleConstraint_GetWheelConst(const JPH_VehicleConstraint *self, uint32_t inIdx) {
+const JPH_Wheel *JPH_VehicleConstraint_GetWheelWithUint32_t(const JPH_VehicleConstraint *self, uint32_t inIdx) {
     return ToCpp(self)->GetWheel(inIdx);
 }
 
@@ -15086,7 +15086,7 @@ void JPH_VehicleConstraint_RestoreState(JPH_VehicleConstraint *self, JPH_StateRe
     ToCpp(self)->RestoreState(*inStream);
 }
 
-Ref<JPH_ConstraintSettings> JPH_VehicleConstraint_GetConstraintSettings(const JPH_VehicleConstraint *self) {
+JPH_ConstraintSettings * JPH_VehicleConstraint_GetConstraintSettings(const JPH_VehicleConstraint *self) {
     return ToCpp(self)->GetConstraintSettings();
 }
 
@@ -15338,7 +15338,7 @@ void JPH_WheeledVehicleController_SetTireMaxImpulseCallback(JPH_WheeledVehicleCo
     ToCpp(self)->SetTireMaxImpulseCallback(*inTireMaxImpulseCallback);
 }
 
-Ref<JPH_VehicleControllerSettings> JPH_WheeledVehicleController_GetSettings(const JPH_WheeledVehicleController *self) {
+JPH_VehicleControllerSettings * JPH_WheeledVehicleController_GetSettings(const JPH_WheeledVehicleController *self) {
     return ToCpp(self)->GetSettings();
 }
 
@@ -15458,7 +15458,7 @@ float JPH_MotorcycleController_GetLeanSmoothingFactor(const JPH_MotorcycleContro
     return ToCpp(self)->GetLeanSmoothingFactor();
 }
 
-Ref<JPH_VehicleControllerSettings> JPH_MotorcycleController_GetSettings(const JPH_MotorcycleController *self) {
+JPH_VehicleControllerSettings * JPH_MotorcycleController_GetSettings(const JPH_MotorcycleController *self) {
     return ToCpp(self)->GetSettings();
 }
 
@@ -15614,7 +15614,7 @@ JPH_VehicleTracks *JPH_TrackedVehicleController_GetTracks(JPH_TrackedVehicleCont
     return ToCpp(self)->GetTracks();
 }
 
-Ref<JPH_VehicleControllerSettings> JPH_TrackedVehicleController_GetSettings(const JPH_TrackedVehicleController *self) {
+JPH_VehicleControllerSettings * JPH_TrackedVehicleController_GetSettings(const JPH_TrackedVehicleController *self) {
     return ToCpp(self)->GetSettings();
 }
 
@@ -16146,7 +16146,7 @@ void JPH_SkeletonMapper_Chain_Construct(JPH_SkeletonMapper_Chain *self) {
     new(ToCpp(self)) JPH::SkeletonMapper::Chain();
 }
 
-void JPH_SkeletonMapper_Chain_ConstructWithJointIndices1JointIndices2(JPH_SkeletonMapper_Chain *self, Array<int32_t> * inJointIndices1, Array<int32_t> * inJointIndices2) {
+void JPH_SkeletonMapper_Chain_ConstructWithJointIndices1JointIndices2(JPH_SkeletonMapper_Chain *self, JPH_Array * inJointIndices1, JPH_Array * inJointIndices2) {
     new(ToCpp(self)) JPH::SkeletonMapper::Chain(inJointIndices1, inJointIndices2);
 }
 

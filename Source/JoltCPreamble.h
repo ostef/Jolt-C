@@ -105,3 +105,18 @@ typedef struct JPH_SharedMutexBase {
 typedef struct JPH_ThreadId {
     pthread_t handle;
 } JPH_ThreadId;
+
+typedef uint8_t JPH_Result_EState;
+enum {
+    JPH_Result_EState_Invalid = 0,
+    JPH_Result_EState_Valid = 1,
+    JPH_Result_EState_Error = 2,
+};
+
+#define JPH_ResultStruct(T) struct { \
+    union { \
+        T mResult; \
+        JPH_String mError; \
+    }; \
+    JPH_Result_EState mState; \
+}

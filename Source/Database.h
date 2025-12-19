@@ -344,6 +344,7 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity);
 CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
 #define AllocCppEntity(kind, cursor) ((Cpp##kind *)AllocCppEntityOfKind(CppEntity_##kind, sizeof(Cpp##kind), (cursor)))
 
+CppEntity *GetEntityByFullName(CppDatabase *db, const char *name);
 CppAggregate *GetBaseAggregate(CppAggregate *aggr, int index);
 
 CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name);
