@@ -56,9 +56,13 @@ enum CXChildVisitResult AggregateVisitor(CXCursor cursor, CXCursor parent, CXCli
             base->visibility = GetCursorCppVisibility(cursor);
             base->is_virtual = clang_isVirtualBase(cursor);
             base->type = GetCppType(ctx->db, clang_getCursorType(cursor));
-
             CppAggregate *aggr = (CppAggregate *)ctx->parent_entity;
             ArrayPush(&aggr->base_classes, base);
+
+            CppAggregate *base_aggr = GetBaseAggregate(aggr, aggr->base_classes.count - 1);
+            if (base_aggr && (base_aggr->flags & CppAggregateFlag_SharedVTable || base_aggr->flags & CppAggregateFlag_HasVTableType)) {
+                aggr->flags |= CppAggregateFlag_SharedVTable;
+            }
         } break;
         case CXCursor_CXXAccessSpecifier: { // public, protected, private
             // Nothing to do, access specifier is stored on each cursor
@@ -396,6 +400,10 @@ CppAggregate *ParseCppAggregate(CppParseContext *ctx, CXCursor cursor) {
 
     VisitRecurse(cursor, AggregateVisitor, ctx, &aggr->base);
 
+    if (!(aggr->flags & CppAggregateFlag_HasVTableType)) {
+        aggr->flags &= ~CppAggregateFlag_SharedVTable;
+    }
+
     return aggr;
 }
 
@@ -408,6 +416,15 @@ CppFunction *ParseCppFunction(CppParseContext *ctx, CXCursor cursor) {
     }
     if (clang_CXXMethod_isVirtual(cursor)) {
         func->flags |= CppFunctionFlag_Virtual;
+
+        CXCursor *overridden = NULL;
+        unsigned int num_overridden = 0;
+        clang_getOverriddenCursors(cursor, &overridden, &num_overridden);
+        clang_disposeOverriddenCursors(overridden);
+
+        if (num_overridden > 0) {
+            func->flags |= CppFunctionFlag_Override;
+        }
     }
     if (clang_CXXMethod_isPureVirtual(cursor)) {
         func->flags |= CppFunctionFlag_PureVirtual;

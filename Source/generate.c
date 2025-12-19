@@ -26,50 +26,6 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
 }
 
 static
-bool IsEmptyAggregate(CppAggregate *aggr) {
-    if (aggr->virtual_methods.count > 0 || aggr->fields.count > 0) {
-        return false;
-    }
-
-    foreach (i, aggr->base_classes) {
-        CppBaseClass *base = ArrayGet(aggr->base_classes, i);
-        if (base->type->kind != CppType_Named || base->type->type_named.entity == NULL) {
-            return false;
-        }
-
-        CppAggregate *base_aggr =  (CppAggregate *)base->type->type_named.entity;
-        if (!IsEmptyAggregate(base_aggr)) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-
-// Simple interface = one vtable, no fields, empty base classes
-static
-bool IsSimpleInterface(CppAggregate *aggr) {
-    if (aggr->virtual_methods.count == 0 || aggr->fields.count > 0) {
-        return false;
-    }
-
-    foreach (i, aggr->base_classes) {
-        CppBaseClass *base = ArrayGet(aggr->base_classes, i);
-        if (base->type->kind != CppType_Named || base->type->type_named.entity == NULL) {
-            return false;
-        }
-
-        CppAggregate *base_aggr =  (CppAggregate *)base->type->type_named.entity;
-        if (!IsEmptyAggregate(base_aggr)) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
-static
 bool ShouldUnwrap(GenerateOptions options, const char *entity_name) {
     return ArrayFindFirstPredicate(options.typedefs_to_unwrap, entity_name, StringCompareFunc) >= 0;
 }
@@ -82,11 +38,9 @@ bool ShouldPrintSpaceAfterType(CppType *type) {
 // @Todo: make sure types that contain opaque types are also treated as opaque (apart from 0 size base classes)
 static
 bool ShouldBeOpaque(CppAggregate *aggr) {
-    if (IsSimpleInterface(aggr)) {
-        return false;
-    }
+    return false;
 
-    return aggr->virtual_methods.count > 0 || aggr->fields.count == 0 || aggr->type->size == 0;
+    // return aggr->virtual_methods.count > 0 || aggr->fields.count == 0 || aggr->type->size == 0;
 }
 
 bool CppTypesAreEqual(CppType *a, CppType *b) {
@@ -312,7 +266,7 @@ void GenerateOpaqueAggrNewFunction(GenerateOptions options, CppDatabase *db, Cpp
         new_func->base.visibility = func->base.visibility;
         new_func->base.source_code_range = func->base.source_code_range;
     }
-    new_func->base.user_flags |= CppEntityUserFlag_OpaqueTypeNewConstructor;
+    new_func->base.user_flags |= CppEntityUserFlag_NewFunction;
 
     if (func) {
         new_func->flags = func->flags;
@@ -342,7 +296,7 @@ void GenerateOpaqueAggrDeleteFunction(GenerateOptions options, CppDatabase *db, 
 
     del_func->base.name = "Delete";
     del_func->base.c_name = "Delete";
-    del_func->base.user_flags |= CppEntityUserFlag_OpaqueTypeDeleteFunction;
+    del_func->base.user_flags |= CppEntityUserFlag_DeleteFunction;
 
     del_func->flags = CppFunctionFlag_Method;
 
@@ -671,7 +625,7 @@ void AppendCAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation)
 
     SBAppendString(ctx->builder, " {\n");
 
-    if (aggr->virtual_methods.count > 0) {
+    if (aggr->flags & CppAggregateFlag_HasVTableType && !(aggr->flags & CppAggregateFlag_SharedVTable)) {
         SBAppendIndentation(ctx->builder, indentation + 1);
         SBAppend(ctx->builder, "const %s_VTable *vtable;\n\n", aggr->base.fully_qualified_c_name);
     }
@@ -680,9 +634,14 @@ void AppendCAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation)
         CppBaseClass *base = ArrayGet(aggr->base_classes, i);
         assert(!base->is_virtual && "Virtual base classes are not supported");
 
-        CppAggregate *base_aggr = NULL;
-        if (base->type->kind == CppType_Named && base->type->type_named.entity != NULL && base->type->type_named.entity->kind == CppEntity_Aggregate) {
-            base_aggr = (CppAggregate *)base->type->type_named.entity;
+        CppAggregate *base_aggr = GetBaseAggregate(aggr, i);
+        if (i == 0 && aggr->flags & CppAggregateFlag_SharedVTable) {
+            SBAppendIndentation(ctx->builder, indentation + 1);
+            SBAppendString(ctx->builder, "union {\n");
+
+            indentation += 1;
+            SBAppendIndentation(ctx->builder, indentation + 1);
+            SBAppend(ctx->builder, "const %s_VTable *vtable;\n", aggr->base.fully_qualified_c_name);
         }
 
         // Inherited base classes with no fields and no vtable has size 0 because of EBO, so don't include them
@@ -709,6 +668,13 @@ void AppendCAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation)
 
             AppendCTypePostfix(ctx, base->type, indentation + 1);
             SBAppendString(ctx->builder, ";\n");
+
+            if (i == 0 && aggr->flags & CppAggregateFlag_SharedVTable) {
+                indentation -= 1;
+
+                SBAppendIndentation(ctx->builder, indentation + 1);
+                SBAppendString(ctx->builder, "};\n");
+            }
         }
     }
 
@@ -742,11 +708,62 @@ void AppendCAggregateForwardDecl(GenerateContext *ctx, CppAggregate *aggr) {
     SBAppend(ctx->builder, " %s;\n", aggr->base.fully_qualified_c_name);
 }
 
+const char *GetAggregateVTableType(CppAggregate *aggr) {
+    if (aggr->virtual_methods.count == 0) {
+        return "";
+    }
+
+    if (aggr->flags & CppAggregateFlag_HasVTableType) {
+        return aggr->base.fully_qualified_c_name;
+    }
+
+    if (aggr->base_classes.count > 0) {
+        CppAggregate *base_aggr = GetBaseAggregate(aggr, 0);
+        return GetAggregateVTableType(base_aggr);
+    }
+
+    return "";
+}
+
+// One vtable per base class, Derive extends the vtable of the first base class
+// if it has one
+// Itanium C++ ABI (gcc and clang):
+//  [0] offset-to-top (8 bytes)
+//  [1] RTTI (8 bytes)
+// Even if the destructor is not virtual, these slots are reserved:
+//  [2] delete destructor (8 bytes) -> called when calling delete
+//  [3] complete destructor (8 bytes) -> called when the object goes out of scope
+// MSVC is simpler, it only has one destructor only if virtual, has no
+// additionnal fields, and adds the new functions in order of appearence even
+// for destructors
 void AppendCAggregateVTableTypedef(GenerateContext *ctx, CppAggregate *aggr) {
     SBAppend(ctx->builder, "typedef struct %s_VTable {\n", aggr->base.fully_qualified_c_name);
 
+    if (aggr->flags & CppAggregateFlag_SharedVTable) {
+        CppAggregate *base_aggr = GetBaseAggregate(aggr, 0);
+
+        SBAppendIndentation(ctx->builder, 1);
+        SBAppend(ctx->builder, "%s_VTable base;\n", GetAggregateVTableType(base_aggr));
+    } else {
+        SBAppendIndentation(ctx->builder, 1);
+        SBAppendString(ctx->builder, "JOLTC_VTABLE_HEADER\n");
+    }
+
+    if (aggr->flags & CppAggregateFlag_HasDestructorInVTable) {
+        SBAppendIndentation(ctx->builder, 1);
+        SBAppendString(ctx->builder, "JOLTC_VTABLE_DESTRUCTOR\n");
+    }
+
     foreach (i, aggr->virtual_methods) {
         CppFunction *func = ArrayGet(aggr->virtual_methods, i);
+
+        if (func->flags & CppFunctionFlag_Destructor) { // Already handled
+            continue;
+        }
+
+        if (func->flags & CppFunctionFlag_Override) { // Not mine!
+            continue;
+        }
 
         SBAppendIndentation(ctx->builder, 1);
         AppendCFunctionSignature(ctx, func, 1, true);
@@ -905,17 +922,20 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                     AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
                     SBAppendString(builder, "\n");
 
-                    if (IsSimpleInterface(aggr)) {
+                    if (aggr->flags & CppAggregateFlag_HasVTableType) {
                         AppendCAggregateVTableTypedef(&ctx, aggr);
-                    } else if (aggr->virtual_methods.count > 0) {
-                        printf("%s is not a simple interface and needs wrapping\n", aggr->base.fully_qualified_name);
                     }
 
                     if (aggr->flags & CppAggregateFlag_Abstract) {
                         SBAppendString(builder, "// Abstract\n");
-                    } else if (aggr->virtual_methods.count > 0) {
+                    } else if (aggr->flags & CppAggregateFlag_HasVTableType) {
                         SBAppendString(builder, "// Has vtable\n");
                     }
+
+                    if (ShouldBeOpaque(aggr)) {
+                        SBAppendString(builder, "// Opaque\n");
+                    }
+
                     SBAppendString(builder, "typedef ");
                     AppendCAggregate(&ctx, aggr, 0);
                     SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
@@ -1106,12 +1126,12 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
             SBAppendString(builder, "return ");
         }
 
-        if (func->base.user_flags & CppEntityUserFlag_OpaqueTypeDeleteFunction) {
+        if (func->base.user_flags & CppEntityUserFlag_DeleteFunction) {
             SBAppendString(builder, "delete self;\n}\n\n");
             continue;
         }
 
-        if (func->base.user_flags & CppEntityUserFlag_OpaqueTypeNewConstructor) {
+        if (func->base.user_flags & CppEntityUserFlag_NewFunction) {
             SBAppend(builder, "new %s", aggr->base.fully_qualified_name);
         } else if (func->flags & CppFunctionFlag_Constructor) {
             SBAppend(builder, "new(ToCpp(self)) %s", aggr->base.fully_qualified_name);

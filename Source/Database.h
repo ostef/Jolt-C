@@ -264,9 +264,11 @@ typedef struct CppBaseClass {
 
 typedef uint32_t CppAggregateFlags;
 enum {
-    CppAggregateFlag_Abstract          = 1 << 0,
-    CppAggregateFlag_Template          = 1 << 1,
-    CppAggregateFlag_VirtualDestructor = 1 << 2,
+    CppAggregateFlag_Abstract              = 1 << 0,
+    CppAggregateFlag_HasVTableType         = 1 << 1,
+    CppAggregateFlag_SharedVTable          = 1 << 2,
+    CppAggregateFlag_HasDestructorInVTable = 1 << 3,
+    CppAggregateFlag_Template              = 1 << 4,
 };
 
 typedef struct CppAggregate {
@@ -320,9 +322,10 @@ enum {
     CppFunctionFlag_Method      = 1 << 2,
     CppFunctionFlag_Virtual     = 1 << 3,
     CppFunctionFlag_PureVirtual = 1 << 4,
-    CppFunctionFlag_Const       = 1 << 5,
-    CppFunctionFlag_Operator    = 1 << 6,
-    CppFunctionFlag_Overloaded  = 1 << 7,
+    CppFunctionFlag_Override    = 1 << 5,
+    CppFunctionFlag_Const       = 1 << 6,
+    CppFunctionFlag_Operator    = 1 << 7,
+    CppFunctionFlag_Overloaded  = 1 << 8,
 };
 
 typedef struct CppFunction {
@@ -339,6 +342,8 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity);
 
 CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor);
 #define AllocCppEntity(kind, cursor) ((Cpp##kind *)AllocCppEntityOfKind(CppEntity_##kind, sizeof(Cpp##kind), (cursor)))
+
+CppAggregate *GetBaseAggregate(CppAggregate *aggr, int index);
 
 CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name);
 

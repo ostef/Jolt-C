@@ -125,8 +125,12 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
                     if (func->flags & CppFunctionFlag_Virtual) {
                         ArrayPush(&aggr->virtual_methods, entity);
 
-                        if (func->flags & CppFunctionFlag_Destructor) {
-                            aggr->flags |= CppAggregateFlag_VirtualDestructor;
+                        if (!(func->flags & CppFunctionFlag_Override)) {
+                            aggr->flags |= CppAggregateFlag_HasVTableType;
+
+                            if (func->flags & CppFunctionFlag_Destructor) {
+                                aggr->flags |= CppAggregateFlag_HasDestructorInVTable;
+                            }
                         }
                     } else {
                         ArrayPush(&aggr->functions, entity);
@@ -182,6 +186,20 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
             ArrayPush(*overloads, entity);
         } break;
     }
+}
+
+CppAggregate *GetBaseAggregate(CppAggregate *aggr, int index) {
+    CppBaseClass *base = ArrayGet(aggr->base_classes, index);
+    if (base->type->kind != CppType_Named || !base->type->type_named.entity) {
+        return NULL;
+    }
+
+    CppAggregate *base_aggr = (CppAggregate *)base->type->type_named.entity;
+    if (base_aggr->base.kind != CppEntity_Aggregate) {
+        return NULL;
+    }
+
+    return base_aggr;
 }
 
 CppNamespace *GetCppNamespace(CppDatabase *db, CppEntity *parent, char *name) {
