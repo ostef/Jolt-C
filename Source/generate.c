@@ -44,7 +44,15 @@ CppType *UnwrapTemplate(GenerateOptions options, CppDatabase *db, CppType *type)
         return type;
     }
 
-    return options.template_unwrap_func(options, db, type);
+    CppType *new_type = options.template_unwrap_func(options, db, type);
+    if (type->size >= 0 && new_type->size != type->size) {
+        printf("WARNING: when unwrapping template %s, new type has size %d and old type has size %d\n", type->type_named.name, (int)new_type->size, (int)type->size);
+    }
+    if (type->alignment >= 0 && new_type->alignment != type->alignment) {
+        printf("WARNING: when unwrapping template %s, new type has alignment %d and old type has alignment %d\n", type->type_named.name, (int)new_type->alignment, (int)type->alignment);
+    }
+
+    return new_type;
 }
 
 // @Todo: make sure types that contain opaque types are also treated as opaque (apart from 0 size base classes)

@@ -80,6 +80,7 @@ static CppType g_type_jph_vector3;
 static CppType g_type_jph_matrix22;
 static CppType g_type_jph_matrix33;
 static CppType g_type_jph_collision_collector;
+static CppType g_type_jph_ref_target;
 
 void InitTypes() {
     static bool initialized = false;
@@ -129,9 +130,14 @@ void InitTypes() {
     g_type_jph_matrix33.type_named.name = "JPH_Matrix33";
 
     g_type_jph_collision_collector.kind = CppType_Named;
-    g_type_jph_collision_collector.size = 2 * sizeof(void *);
+    g_type_jph_collision_collector.size = 3 * sizeof(void *);
     g_type_jph_collision_collector.alignment = sizeof(void *);
     g_type_jph_collision_collector.type_named.name = "JPH_CollisionCollector";
+
+    g_type_jph_ref_target.kind = CppType_Named;
+    g_type_jph_ref_target.size = sizeof(uint32_t);
+    g_type_jph_ref_target.alignment = sizeof(uint32_t);
+    g_type_jph_ref_target.type_named.name = "JPH_RefTarget";
 }
 
 CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *type) {
@@ -171,6 +177,8 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
 
         CppType *result = Alloc(CppType);
         result->kind = CppType_Named;
+        result->size = type->size;
+        result->alignment = type->alignment;
 
         StringBuilder builder = {};
         SBAppendString(&builder, "JPH_ResultStruct(");
@@ -193,6 +201,8 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
 
         CppType *result = Alloc(CppType);
         result->kind = CppType_Pointer;
+        result->size = sizeof(void *);
+        result->alignment = sizeof(void *);
         result->type_pointer.pointee_type = ref_type;
 
         return result;
@@ -203,6 +213,8 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
 
         CppType *result = Alloc(CppType);
         result->kind = CppType_Pointer;
+        result->size = sizeof(void *);
+        result->alignment = sizeof(void *);
         result->flags = CppTypeFlag_Const;
         result->type_pointer.pointee_type = ref_type;
 
@@ -210,6 +222,9 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
     }
     if (StrEq(type->type_named.name, "CollisionCollector")) {
         return &g_type_jph_collision_collector;
+    }
+    if (StrEq(type->type_named.name, "RefTarget")) {
+        return &g_type_jph_ref_target;
     }
 
     return type;

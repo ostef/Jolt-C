@@ -1,5 +1,9 @@
 // Preamble: hand-written types
 
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+
 #ifdef _MSC_VER
 
 #define JOLTC_VTABLE_HEADER
@@ -38,6 +42,8 @@ typedef struct JPH_Array {
     void *mElements;
 } JPH_Array;
 
+const size_t a = sizeof(JPH_Array);
+
 // StaticArray:
 // struct {
 //     uint64_t mSize
@@ -54,6 +60,10 @@ typedef struct JPH_HashTable {
 
 typedef JPH_HashTable JPH_UnorderedMap;
 typedef JPH_HashTable JPH_UnorderedSet;
+
+typedef struct JPH_RefTarget {
+    uint32_t mRefCount;
+} JPH_RefTarget;
 
 typedef struct JPH_Vector2 {
     float mF32[2];

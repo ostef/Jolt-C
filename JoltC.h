@@ -13,6 +13,10 @@ extern "C" {
 
 // Preamble: hand-written types
 
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+
 #ifdef _MSC_VER
 
 #define JOLTC_VTABLE_HEADER
@@ -51,6 +55,8 @@ typedef struct JPH_Array {
     void *mElements;
 } JPH_Array;
 
+const size_t a = sizeof(JPH_Array);
+
 // StaticArray:
 // struct {
 //     uint64_t mSize
@@ -67,6 +73,10 @@ typedef struct JPH_HashTable {
 
 typedef JPH_HashTable JPH_UnorderedMap;
 typedef JPH_HashTable JPH_UnorderedSet;
+
+typedef struct JPH_RefTarget {
+    uint32_t mRefCount;
+} JPH_RefTarget;
 
 typedef struct JPH_Vector2 {
     float mF32[2];
@@ -2345,7 +2355,7 @@ typedef struct JPH_ConstraintSettings {
         const JPH_ConstraintSettings_VTable *vtable;
         JPH_SerializableObject baseSerializableObject;
     };
-    RefTarget<JPH_ConstraintSettings> base1;
+    JPH_RefTarget base1;
 
     bool mEnabled;
     uint32_t mConstraintPriority;
@@ -2383,7 +2393,7 @@ typedef struct JPH_Constraint_VTable {
 typedef struct JPH_Constraint {
     const JPH_Constraint_VTable *vtable;
 
-    RefTarget<JPH_Constraint> base0;
+    JPH_RefTarget base0;
     // JPH_NonCopyable base class has size 0, so it is not included
 
     uint32_t mConstraintIndex;
@@ -2575,7 +2585,7 @@ typedef struct JPH_ShapeSettings {
         const JPH_ShapeSettings_VTable *vtable;
         JPH_SerializableObject baseSerializableObject;
     };
-    RefTarget<JPH_ShapeSettings> base1;
+    JPH_RefTarget base1;
 
     uint64_t mUserData;
     JPH_ShapeSettings_ShapeResult<JPH_Shape *> mCachedResult;
@@ -2668,7 +2678,7 @@ typedef struct JPH_Shape_VTable {
 typedef struct JPH_Shape {
     const JPH_Shape_VTable *vtable;
 
-    RefTarget<JPH_Shape> base0;
+    JPH_RefTarget base0;
     // JPH_NonCopyable base class has size 0, so it is not included
 
     uint64_t mUserData;
@@ -2707,7 +2717,7 @@ typedef struct JPH_PhysicsMaterial {
         const JPH_PhysicsMaterial_VTable *vtable;
         JPH_SerializableObject baseSerializableObject;
     };
-    RefTarget<JPH_PhysicsMaterial> base1;
+    JPH_RefTarget base1;
 } JPH_PhysicsMaterial;
 
 void JPH_PhysicsMaterial_Construct(JPH_PhysicsMaterial *self);
@@ -2948,7 +2958,7 @@ typedef struct JPH_GroupFilter {
         const JPH_GroupFilter_VTable *vtable;
         JPH_SerializableObject baseSerializableObject;
     };
-    RefTarget<JPH_GroupFilter> base1;
+    JPH_RefTarget base1;
 } JPH_GroupFilter;
 
 JPH_GroupFilter_GroupFilterResult<JPH_GroupFilter *> JPH_GroupFilter_sRestoreFromBinaryState(JPH_StreamIn *inStream);
@@ -3829,7 +3839,7 @@ void JPH_SoftBodySharedSettings_RodBendTwist_ConstructWithRod1Rod2Compliance(JPH
 
 // JoltPhysics/Jolt/Physics/SoftBody/SoftBodySharedSettings.h:15:1
 typedef struct JPH_SoftBodySharedSettings {
-    RefTarget<JPH_SoftBodySharedSettings> base;
+    JPH_RefTarget base;
 
     JPH_Array mVertices;
     JPH_Array mFaces;
@@ -4369,7 +4379,7 @@ typedef JPH_Array JPH_Skeleton_JointVector;
 
 // JoltPhysics/Jolt/Skeleton/Skeleton.h:17:1
 typedef struct JPH_Skeleton {
-    RefTarget<JPH_Skeleton> base;
+    JPH_RefTarget base;
 
     JPH_Skeleton_JointVector<JPH_Skeleton_Joint> mJoints;
 } JPH_Skeleton;
@@ -4420,7 +4430,7 @@ typedef JPH_ResultStruct(JPH_SkeletalAnimation *) JPH_SkeletalAnimation_Animatio
 
 // JoltPhysics/Jolt/Skeleton/SkeletalAnimation.h:17:1
 typedef struct JPH_SkeletalAnimation {
-    RefTarget<JPH_SkeletalAnimation> base;
+    JPH_RefTarget base;
 
     JPH_SkeletalAnimation_AnimatedJointVector<JPH_SkeletalAnimation_AnimatedJoint> mAnimatedJoints;
     bool mIsLooping;
@@ -4500,7 +4510,7 @@ typedef JPH_Array JPH_RagdollSettings_AdditionalConstraintVector;
 
 // JoltPhysics/Jolt/Physics/Ragdoll/Ragdoll.h:21:1
 typedef struct JPH_RagdollSettings {
-    RefTarget<JPH_RagdollSettings> base;
+    JPH_RefTarget base;
 
     JPH_Skeleton * mSkeleton;
     JPH_RagdollSettings_PartVector<JPH_RagdollSettings_Part> mParts;
@@ -4525,7 +4535,7 @@ JPH_RagdollSettings_BodyIdxPair<int32_t, int32_t> JPH_RagdollSettings_GetBodyInd
 
 // JoltPhysics/Jolt/Physics/Ragdoll/Ragdoll.h:131:1
 typedef struct JPH_Ragdoll {
-    RefTarget<JPH_Ragdoll> base0;
+    JPH_RefTarget base0;
     // JPH_NonCopyable base class has size 0, so it is not included
 
     JPH_RagdollSettings * mRagdollSettings;
@@ -6882,7 +6892,7 @@ typedef struct JPH_CharacterBaseSettings_VTable {
 typedef struct JPH_CharacterBaseSettings {
     const JPH_CharacterBaseSettings_VTable *vtable;
 
-    RefTarget<JPH_CharacterBaseSettings> base;
+    JPH_RefTarget base;
 
     JPH_Vec3 mUp;
     JPH_Plane mSupportingVolume;
@@ -6906,7 +6916,7 @@ typedef struct JPH_CharacterBase_VTable {
 typedef struct JPH_CharacterBase {
     const JPH_CharacterBase_VTable *vtable;
 
-    RefTarget<JPH_CharacterBase> base0;
+    JPH_RefTarget base0;
     // JPH_NonCopyable base class has size 0, so it is not included
 
     JPH_PhysicsSystem *mSystem;
@@ -7457,7 +7467,7 @@ typedef struct JPH_PathConstraintPath {
         const JPH_PathConstraintPath_VTable *vtable;
         JPH_SerializableObject baseSerializableObject;
     };
-    RefTarget<JPH_PathConstraintPath> base1;
+    JPH_RefTarget base1;
 
     bool mIsLooping;
 } JPH_PathConstraintPath;
@@ -7824,7 +7834,7 @@ typedef JPH_ResultStruct(JPH_PhysicsScene *) JPH_PhysicsScene_PhysicsSceneResult
 
 // JoltPhysics/Jolt/Physics/PhysicsScene.h:17:1
 typedef struct JPH_PhysicsScene {
-    RefTarget<JPH_PhysicsScene> base;
+    JPH_RefTarget base;
 
     JPH_Array mBodies;
     JPH_Array mConstraints;
@@ -7863,7 +7873,7 @@ typedef struct JPH_VehicleControllerSettings {
         const JPH_VehicleControllerSettings_VTable *vtable;
         JPH_SerializableObject baseSerializableObject;
     };
-    RefTarget<JPH_VehicleControllerSettings> base1;
+    JPH_RefTarget base1;
 } JPH_VehicleControllerSettings;
 
 // JoltPhysics/Jolt/Physics/Vehicle/VehicleController.h:40:1
@@ -7905,7 +7915,7 @@ typedef struct JPH_VehicleCollisionTester_VTable {
 typedef struct JPH_VehicleCollisionTester {
     const JPH_VehicleCollisionTester_VTable *vtable;
 
-    RefTarget<JPH_VehicleCollisionTester> base0;
+    JPH_RefTarget base0;
     // JPH_NonCopyable base class has size 0, so it is not included
 
     const JPH_BroadPhaseLayerFilter *mBroadPhaseLayerFilter;
@@ -7981,7 +7991,7 @@ typedef struct JPH_WheelSettings {
         const JPH_WheelSettings_VTable *vtable;
         JPH_SerializableObject baseSerializableObject;
     };
-    RefTarget<JPH_WheelSettings> base1;
+    JPH_RefTarget base1;
 
     JPH_Vec3 mPosition;
     JPH_Vec3 mSuspensionForcePoint;
@@ -8589,7 +8599,7 @@ typedef JPH_Array JPH_SkeletonMapper_LockedVector;
 
 // JoltPhysics/Jolt/Skeleton/SkeletonMapper.h:13:1
 typedef struct JPH_SkeletonMapper {
-    RefTarget<JPH_SkeletonMapper> base;
+    JPH_RefTarget base;
 
     JPH_SkeletonMapper_MappingVector<JPH_SkeletonMapper_Mapping> mMappings;
     JPH_SkeletonMapper_ChainVector<JPH_SkeletonMapper_Chain> mChains;
