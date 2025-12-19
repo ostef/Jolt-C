@@ -77,4 +77,3 @@ typedef struct JPH_CollisionCollector {
     float mEarlyOutFraction;
     struct JPH_TransformedShape *mContext;
 } JPH_CollisionCollector;
-

@@ -847,13 +847,6 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
         SBAppendString(builder, options.preamble);
     }
 
-    foreach (i, db->all_namespaces) {
-        CppNamespace *ns = ArrayGet(db->all_namespaces, i);
-        if (ns->base.fully_qualified_name[0]) {
-            SBAppend(builder, "// Namespace %s\n", ns->base.fully_qualified_name);
-        }
-    }
-
     SBAppendString(builder, "\n// Forward declarations\n\n");
 
     foreach (i, db->all_aggregates) {

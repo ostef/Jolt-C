@@ -91,16 +91,6 @@ typedef struct JPH_CollisionCollector {
     struct JPH_TransformedShape *mContext;
 } JPH_CollisionCollector;
 
-// Namespace JPH
-// Namespace std
-// Namespace JPH::literals
-// Namespace JPH::StreamUtils
-// Namespace JPH::ScaleHelpers
-// Namespace JPH::ClosestPoint
-// Namespace JPH::ActiveEdges
-// Namespace JPH::HalfFloatConversion
-// Namespace JPH::HeightFieldShapeConstants
-
 // Forward declarations
 
 struct JPH_Float4;
