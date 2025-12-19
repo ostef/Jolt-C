@@ -183,6 +183,12 @@ enum {
     CppVisibility_Private,
 };
 
+static const char *CppVisibility_Str[] = {
+    "public",
+    "protected",
+    "private",
+};
+
 typedef uint8_t CppEntityKind;
 enum {
     CppEntity_Invalid,
