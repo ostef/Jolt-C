@@ -77,3 +77,31 @@ typedef struct JPH_CollisionCollector {
     float mEarlyOutFraction;
     struct JPH_TransformedShape *mContext;
 } JPH_CollisionCollector;
+
+// From libstdc++-v3 (GCC standard library):
+
+typedef struct JPH_StringView {
+    size_t length;
+    const char *str;
+} JPH_StringView;
+
+typedef struct JPH_String {
+    char *ptr;
+    size_t length;
+    union {
+        char local_buffer[16];
+        size_t capacity;
+    };
+} JPH_String;
+
+typedef struct JPH_MutexBase {
+    pthread_mutex_t mutex;
+} JPH_MutexBase;
+
+typedef struct JPH_SharedMutexBase {
+    pthread_rwlock_t rw_lock;
+} JPH_SharedMutexBase;
+
+typedef struct JPH_ThreadId {
+    pthread_t handle;
+} JPH_ThreadId;

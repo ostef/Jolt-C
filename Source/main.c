@@ -20,6 +20,11 @@ static const char *Declarations_To_Exclude[] = {
     "std::hash",
     "JPH::Hash",
 
+    "JPH::String",
+    "JPH::IStringStream",
+    "JPH::MutexBase",
+    "JPH::SharedMutexBase",
+
     "JPH::UnorderedMap",
     "JPH::UnorderedSet",
 

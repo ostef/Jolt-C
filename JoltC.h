@@ -91,6 +91,34 @@ typedef struct JPH_CollisionCollector {
     struct JPH_TransformedShape *mContext;
 } JPH_CollisionCollector;
 
+// From libstdc++-v3 (GCC standard library):
+
+typedef struct JPH_StringView {
+    size_t length;
+    const char *str;
+} JPH_StringView;
+
+typedef struct JPH_String {
+    char *ptr;
+    size_t length;
+    union {
+        char local_buffer[16];
+        size_t capacity;
+    };
+} JPH_String;
+
+typedef struct JPH_MutexBase {
+    pthread_mutex_t mutex;
+} JPH_MutexBase;
+
+typedef struct JPH_SharedMutexBase {
+    pthread_rwlock_t rw_lock;
+} JPH_SharedMutexBase;
+
+typedef struct JPH_ThreadId {
+    pthread_t handle;
+} JPH_ThreadId;
+
 // Forward declarations
 
 struct JPH_Float4;
@@ -963,12 +991,6 @@ typedef void (*JPH_TraceFunction)(const int8_t *);
 // JoltPhysics/Jolt/Core/IssueReporting.h:20:2
 typedef bool (*JPH_AssertFailedFunction)(const int8_t *, const int8_t *, const int8_t *, uint32_t);
 
-// JoltPhysics/Jolt/Core/STLAllocator.h:107:1
-typedef std::basic_string<char, std::char_traits<char>, JPH::STLAllocator<char>> JPH_String;
-
-// JoltPhysics/Jolt/Core/STLAllocator.h:108:1
-typedef std::basic_istringstream<char, std::char_traits<char>, JPH::STLAllocator<char>> JPH_IStringStream;
-
 // JoltPhysics/Jolt/Math/Float4.h:10:1
 typedef struct JPH_Float4 {
     float x;
@@ -1685,12 +1707,6 @@ typedef struct JPH_JobSystemWithBarrier {
 void JPH_JobSystemWithBarrier_ConstructWithMaxBarriers(JPH_JobSystemWithBarrier *self, uint32_t inMaxBarriers);
 void JPH_JobSystemWithBarrier_Construct(JPH_JobSystemWithBarrier *self);
 void JPH_JobSystemWithBarrier_Init(JPH_JobSystemWithBarrier *self, uint32_t inMaxBarriers);
-
-// JoltPhysics/Jolt/Core/Mutex.h:112:1
-typedef std::mutex JPH_MutexBase;
-
-// JoltPhysics/Jolt/Core/Mutex.h:113:1
-typedef std::shared_mutex JPH_SharedMutexBase;
 
 // JoltPhysics/Jolt/Core/Mutex.h:121:1
 typedef struct JPH_Mutex {
