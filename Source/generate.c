@@ -801,7 +801,12 @@ void AppendCFunctionSignature(GenerateContext *ctx, CppFunction *func, int inden
             SBAppendString(ctx->builder, "const ");
         }
 
-        SBAppendString(ctx->builder, aggr->base.fully_qualified_c_name);
+        if (for_vtable) {
+            SBAppendString(ctx->builder, "void");
+        } else {
+            SBAppendString(ctx->builder, aggr->base.fully_qualified_c_name);
+        }
+
         SBAppendString(ctx->builder, " *self");
 
         if (func->parameters.count > 0) {
