@@ -510,6 +510,21 @@ void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
             } else {
                 SBAppend(ctx->builder, "< ? named (size=%d, align=%d)>", (int)type->size, (int)type->alignment);
             }
+
+            if (type->type_named.template_type_arguments.count > 0) {
+                SBAppendString(ctx->builder, "<");
+
+                foreach (i, type->type_named.template_type_arguments) {
+                    if (i > 0) {
+                        SBAppendString(ctx->builder, ", ");
+                    }
+
+                    CppType *arg_type = ArrayGet(type->type_named.template_type_arguments, i);
+                    AppendCType(ctx, arg_type, indentation);
+                }
+
+                SBAppendString(ctx->builder, ">");
+            }
         } break;
         case CppType_Function: {
             AppendCType(ctx, type->type_function.result_type, indentation);

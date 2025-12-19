@@ -128,6 +128,7 @@ typedef struct CppTypeNamed {
     const char *name;
     CXCursor cursor;
     struct CppEntity *entity;
+    Array template_type_arguments;
 } CppTypeNamed;
 
 typedef struct CppTypeFunction {

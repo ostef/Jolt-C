@@ -325,9 +325,17 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
         case CXType_Record:
         case CXType_Enum: {
             result->kind = CppType_Named;
-            result->type_named.name = clang_getCString(clang_getTypeSpelling(type));
             result->type_named.cursor = clang_getCanonicalCursor(clang_getTypeDeclaration(type));
+            result->type_named.name = GetDeclName(result->type_named.cursor);
             result->type_named.entity = GetCppEntityFromCursor(db, result->type_named.cursor);
+
+            int template_args = clang_Type_getNumTemplateArguments(type);
+            for (int i = 0; i < template_args; i += 1) {
+                CXType arg = clang_Type_getTemplateArgumentAsType(type, i);
+                CppType *arg_type = GetCppType(db, arg);
+
+                ArrayPush(&result->type_named.template_type_arguments, arg_type);
+            }
 
             // if (!result->type_named.entity) {
             //     printf("Could not get entity for %s (%s)\n", clang_getCString(clang_getCursorSpelling(result->type_named.cursor)), clang_getCString(clang_getCursorKindSpelling(clang_getCursorKind(result->type_named.cursor))));
