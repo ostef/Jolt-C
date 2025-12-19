@@ -79,6 +79,7 @@ static CppType g_type_jph_vector2;
 static CppType g_type_jph_vector3;
 static CppType g_type_jph_matrix22;
 static CppType g_type_jph_matrix33;
+static CppType g_type_jph_collision_collector;
 
 void InitTypes() {
     static bool initialized = false;
@@ -126,6 +127,11 @@ void InitTypes() {
     g_type_jph_matrix33.size = 3 * 3 * sizeof(float);
     g_type_jph_matrix33.alignment = sizeof(float);
     g_type_jph_matrix33.type_named.name = "JPH_Matrix33";
+
+    g_type_jph_collision_collector.kind = CppType_Named;
+    g_type_jph_collision_collector.size = 2 * sizeof(void *);
+    g_type_jph_collision_collector.alignment = sizeof(void *);
+    g_type_jph_collision_collector.type_named.name = "JPH_CollisionCollector";
 }
 
 CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *type) {
@@ -201,6 +207,9 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
         result->type_pointer.pointee_type = ref_type;
 
         return result;
+    }
+    if (StrEq(type->type_named.name, "CollisionCollector")) {
+        return &g_type_jph_collision_collector;
     }
 
     return type;

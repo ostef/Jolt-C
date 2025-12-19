@@ -2534,19 +2534,19 @@ typedef struct JPH_ReversedShapeFilter {
 void JPH_ReversedShapeFilter_Construct(JPH_ReversedShapeFilter *self, const JPH_ShapeFilter *inFilter);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:44:1
-typedef CollisionCollector<JPH_RayCastResult, JPH_CollisionCollectorTraitsCastRay> JPH_CastRayCollector;
+typedef JPH_CollisionCollector JPH_CastRayCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:45:1
-typedef CollisionCollector<JPH_ShapeCastResult, JPH_CollisionCollectorTraitsCastShape> JPH_CastShapeCollector;
+typedef JPH_CollisionCollector JPH_CastShapeCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:46:1
-typedef CollisionCollector<JPH_CollidePointResult, JPH_CollisionCollectorTraitsCollideShape> JPH_CollidePointCollector;
+typedef JPH_CollisionCollector JPH_CollidePointCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:47:1
-typedef CollisionCollector<JPH_CollideShapeResult, JPH_CollisionCollectorTraitsCollideShape> JPH_CollideShapeCollector;
+typedef JPH_CollisionCollector JPH_CollideShapeCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:48:1
-typedef CollisionCollector<JPH_TransformedShape, JPH_CollisionCollectorTraitsCollideShape> JPH_TransformedShapeCollector;
+typedef JPH_CollisionCollector JPH_TransformedShapeCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/Shape.h:50:1
 typedef JPH_Shape * JPH_ShapeRefC;
@@ -4247,13 +4247,13 @@ const JPH_PhysicsMaterial *JPH_BodyInterface_GetMaterial(const JPH_BodyInterface
 void JPH_BodyInterface_InvalidateContactCache(JPH_BodyInterface *self, const JPH_BodyID *inBodyID);
 
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h:22:1
-typedef CollisionCollector<JPH_BroadPhaseCastResult, JPH_CollisionCollectorTraitsCastRay> JPH_RayCastBodyCollector;
+typedef JPH_CollisionCollector JPH_RayCastBodyCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h:23:1
-typedef CollisionCollector<JPH_BroadPhaseCastResult, JPH_CollisionCollectorTraitsCastShape> JPH_CastShapeBodyCollector;
+typedef JPH_CollisionCollector JPH_CastShapeBodyCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h:24:1
-typedef CollisionCollector<JPH_BodyID, JPH_CollisionCollectorTraitsCollideShape> JPH_CollideShapeBodyCollector;
+typedef JPH_CollisionCollector JPH_CollideShapeBodyCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhaseQuery.h:28:1
 typedef struct JPH_BroadPhaseQuery_VTable {
@@ -4275,7 +4275,7 @@ typedef struct JPH_BroadPhaseQuery {
 } JPH_BroadPhaseQuery;
 
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhase.h:22:1
-typedef CollisionCollector<JPH_BodyPair, JPH_CollisionCollectorTraitsCollideShape> JPH_BodyPairCollector;
+typedef JPH_CollisionCollector JPH_BodyPairCollector;
 
 // JoltPhysics/Jolt/Physics/Collision/BroadPhase/BroadPhase.h:44:2
 typedef struct JPH_BroadPhase_UpdateState {
@@ -5111,7 +5111,7 @@ void JPH_PhysicsUpdateContext_Destruct(JPH_PhysicsUpdateContext *self);
 int32_t JPH_PhysicsUpdateContext_GetMaxConcurrency(const JPH_PhysicsUpdateContext *self);
 
 // JoltPhysics/Jolt/Physics/PhysicsSystem.h:100:2
-typedef function<void(const JPH_Body *, const JPH_Body *, const JPH_Mat44 *, const JPH_Mat44 *, JPH_CollideShapeSettings *, CollisionCollector<JPH_CollideShapeResult, JPH_CollisionCollectorTraitsCollideShape> *, const JPH_ShapeFilter *)> JPH_PhysicsSystem_SimCollideBodyVsBody;
+typedef function<void(const JPH_Body *, const JPH_Body *, const JPH_Mat44 *, const JPH_Mat44 *, JPH_CollideShapeSettings *, JPH_CollisionCollector *, const JPH_ShapeFilter *)> JPH_PhysicsSystem_SimCollideBodyVsBody;
 
 // JoltPhysics/Jolt/Physics/PhysicsSystem.h:225:2
 typedef JPH_BodyManager_BodyStats JPH_PhysicsSystem_BodyStats;
@@ -5287,10 +5287,10 @@ float JPH_ShapeCastResult_GetEarlyOutFraction(const JPH_ShapeCastResult *self);
 JPH_ShapeCastResult JPH_ShapeCastResult_Reversed(const JPH_ShapeCastResult *self, const JPH_Vec3 inWorldSpaceCastDirection);
 
 // JoltPhysics/Jolt/Physics/Collision/CollisionDispatch.h:72:2
-typedef void (*JPH_CollisionDispatch_CollideShape)(const JPH_Shape *, const JPH_Shape *, JPH_Vec3, JPH_Vec3, const JPH_Mat44 *, const JPH_Mat44 *, const JPH_SubShapeIDCreator *, const JPH_SubShapeIDCreator *, const JPH_CollideShapeSettings *, CollisionCollector<JPH_CollideShapeResult, JPH_CollisionCollectorTraitsCollideShape> *, const JPH_ShapeFilter *);
+typedef void (*JPH_CollisionDispatch_CollideShape)(const JPH_Shape *, const JPH_Shape *, JPH_Vec3, JPH_Vec3, const JPH_Mat44 *, const JPH_Mat44 *, const JPH_SubShapeIDCreator *, const JPH_SubShapeIDCreator *, const JPH_CollideShapeSettings *, JPH_CollisionCollector *, const JPH_ShapeFilter *);
 
 // JoltPhysics/Jolt/Physics/Collision/CollisionDispatch.h:75:2
-typedef void (*JPH_CollisionDispatch_CastShape)(const JPH_ShapeCast *, const JPH_ShapeCastSettings *, const JPH_Shape *, JPH_Vec3, const JPH_ShapeFilter *, const JPH_Mat44 *, const JPH_SubShapeIDCreator *, const JPH_SubShapeIDCreator *, CollisionCollector<JPH_ShapeCastResult, JPH_CollisionCollectorTraitsCastShape> *);
+typedef void (*JPH_CollisionDispatch_CastShape)(const JPH_ShapeCast *, const JPH_ShapeCastSettings *, const JPH_Shape *, JPH_Vec3, const JPH_ShapeFilter *, const JPH_Mat44 *, const JPH_SubShapeIDCreator *, const JPH_SubShapeIDCreator *, JPH_CollisionCollector *);
 
 void JPH_CollisionDispatch_sCollideShapeVsShape(const JPH_Shape *inShape1, const JPH_Shape *inShape2, const JPH_Vec3 inScale1, const JPH_Vec3 inScale2, const JPH_Mat44 * inCenterOfMassTransform1, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, const JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector<JPH_CollideShapeResult, JPH_CollisionCollectorTraitsCollideShape> *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_CollisionDispatch_sCastShapeVsShapeLocalSpace(const JPH_ShapeCast *inShapeCastLocal, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_Shape *inShape, const JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const JPH_Mat44 * inCenterOfMassTransform2, const JPH_SubShapeIDCreator *inSubShapeIDCreator1, const JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector<JPH_ShapeCastResult, JPH_CollisionCollectorTraitsCastShape> *ioCollector);
