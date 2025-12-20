@@ -3787,7 +3787,7 @@ void JPH_MassProperties_RestoreBinaryState(JPH_MassProperties *self, struct JPH_
 
 // JoltPhysics/Jolt/Physics/Collision/CollisionCollector.h:40:1
 /// Traits to use for CollidePoint
-typedef JPH_CollisionCollectorTraitsCollideShape JPH_CollisionCollectorTraitsCollidePoint;
+typedef struct JPH_CollisionCollectorTraitsCollideShape JPH_CollisionCollectorTraitsCollidePoint;
 
 // JoltPhysics/Jolt/Physics/Collision/ShapeFilter.h:16:1
 typedef struct JPH_ShapeFilter_VTable {
@@ -3943,7 +3943,7 @@ typedef struct JPH_Shape_VTable {
     JPH_AABox (*GetWorldSpaceBoundsWithMat44Vec3)(const void *self, const struct JPH_Mat44 * inCenterOfMassTransform, const struct JPH_Vec3 inScale);
     float (*GetInnerRadius)(const void *self);
     JPH_MassProperties (*GetMassProperties)(const void *self);
-    const JPH_Shape *(*GetLeafShape)(const void *self, const struct JPH_SubShapeID *inSubShapeID, struct JPH_SubShapeID *outRemainder);
+    const struct JPH_Shape *(*GetLeafShape)(const void *self, const struct JPH_SubShapeID *inSubShapeID, struct JPH_SubShapeID *outRemainder);
     const struct JPH_PhysicsMaterial *(*GetMaterial)(const void *self, const struct JPH_SubShapeID *inSubShapeID);
     JPH_Vec3 (*GetSurfaceNormal)(const void *self, const struct JPH_SubShapeID *inSubShapeID, const struct JPH_Vec3 inLocalSurfacePosition);
     void (*GetSupportingFace)(const void *self, const struct JPH_SubShapeID *inSubShapeID, const struct JPH_Vec3 inDirection, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform, JPH_Shape_SupportingFace *outVertices);
@@ -9126,11 +9126,11 @@ typedef struct JPH_CollideShapeSettings {
 
 // JoltPhysics/Jolt/Physics/Collision/ShapeCast.h:73:1
 typedef struct JPH_RShapeCast {
-    ShapeCastT<JPH_RVec3, JPH_RMat44, JPH_RShapeCast> base;
+    ShapeCastT<JPH_RVec3, JPH_RMat44, struct JPH_RShapeCast> base;
 } JPH_RShapeCast;
 
 /// Convert from ShapeCast, converts single to double precision
-void JPH_RShapeCast_Construct(JPH_RShapeCast *self, const JPH_ShapeCast *inCast);
+void JPH_RShapeCast_Construct(JPH_RShapeCast *self, const struct JPH_ShapeCast *inCast);
 
 // JoltPhysics/Jolt/Physics/Collision/ShapeCast.h:91:1
 /// Settings to be passed with a shape cast
@@ -9185,7 +9185,7 @@ typedef void (*JPH_CollisionDispatch_CollideShape)(const struct JPH_Shape *, con
 
 // JoltPhysics/Jolt/Physics/Collision/CollisionDispatch.h:75:2
 /// Function that casts a shape vs another shape (see sCastShapeVsShapeLocalSpace)
-typedef void (*JPH_CollisionDispatch_CastShape)(const JPH_ShapeCast *, const JPH_ShapeCastSettings *, const struct JPH_Shape *, JPH_Vec3, const JPH_ShapeFilter *, const JPH_Mat44 *, const struct JPH_SubShapeIDCreator *, const struct JPH_SubShapeIDCreator *, JPH_CollisionCollector *);
+typedef void (*JPH_CollisionDispatch_CastShape)(const struct JPH_ShapeCast *, const JPH_ShapeCastSettings *, const struct JPH_Shape *, JPH_Vec3, const JPH_ShapeFilter *, const JPH_Mat44 *, const struct JPH_SubShapeIDCreator *, const struct JPH_SubShapeIDCreator *, JPH_CollisionCollector *);
 
 /// Collide 2 shapes and pass any collision on to ioCollector
 /// @param inShape1 The first shape
@@ -9211,11 +9211,11 @@ void JPH_CollisionDispatch_sCollideShapeVsShape(const struct JPH_Shape *inShape1
 /// @param inSubShapeIDCreator1 Class that tracks the current sub shape ID for the casting shape
 /// @param inSubShapeIDCreator2 Class that tracks the current sub shape ID for the shape we're casting against
 /// @param ioCollector The collector that receives the results.
-void JPH_CollisionDispatch_sCastShapeVsShapeLocalSpace(const JPH_ShapeCast *inShapeCastLocal, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_CollisionDispatch_sCastShapeVsShapeLocalSpace(const struct JPH_ShapeCast *inShapeCastLocal, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 /// See: sCastShapeVsShapeLocalSpace.
 /// The only difference is that the shape cast (inShapeCastWorld) is provided in world space.
 /// Note: A shape cast contains the center of mass start of the shape, if you have the world transform of the shape you probably want to construct it using ShapeCast::sFromWorldTransform.
-void JPH_CollisionDispatch_sCastShapeVsShapeWorldSpace(const JPH_ShapeCast *inShapeCastWorld, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_CollisionDispatch_sCastShapeVsShapeWorldSpace(const struct JPH_ShapeCast *inShapeCastWorld, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 /// Initialize all collision functions with a function that asserts and returns no collision
 void JPH_CollisionDispatch_sInit();
 /// Register a collide shape function in the collision table
@@ -9225,7 +9225,7 @@ void JPH_CollisionDispatch_sRegisterCastShape(JPH_EShapeSubType inType1, JPH_ESh
 /// An implementation of CollideShape that swaps inShape1 and inShape2 and swaps the result back, can be registered if the collision function only exists the other way around
 void JPH_CollisionDispatch_sReversedCollideShape(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 /// An implementation of CastShape that swaps inShape1 and inShape2 and swaps the result back, can be registered if the collision function only exists the other way around
-void JPH_CollisionDispatch_sReversedCastShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_CollisionDispatch_sReversedCastShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/StateRecorderImpl.h:12:1
 /// Implementation of the StateRecorder class that uses a stringstream as underlying store and that implements checking if the state doesn't change upon reading
@@ -9251,11 +9251,11 @@ size_t JPH_StateRecorderImpl_GetDataSize(JPH_StateRecorderImpl *self);
 
 // JoltPhysics/Jolt/Physics/Collision/RayCast.h:51:1
 typedef struct JPH_RRayCast {
-    RayCastT<JPH_RVec3, JPH_RMat44, JPH_RRayCast> base;
+    RayCastT<JPH_RVec3, JPH_RMat44, struct JPH_RRayCast> base;
 } JPH_RRayCast;
 
 /// Convert from RayCast, converts single to double precision
-void JPH_RRayCast_Construct(JPH_RRayCast *self, const JPH_RayCast *inRay);
+void JPH_RRayCast_Construct(JPH_RRayCast *self, const struct JPH_RayCast *inRay);
 
 // JoltPhysics/Jolt/Physics/Collision/RayCast.h:69:1
 /// Settings to be passed with a ray cast
@@ -9297,7 +9297,7 @@ typedef struct JPH_RayCastResult {
 // JoltPhysics/Jolt/Physics/Collision/CastConvexVsTriangles.h:13:1
 /// Collision detection helper that casts a convex object vs one or more triangles
 typedef struct JPH_CastConvexVsTriangles {
-    const JPH_ShapeCast *mShapeCast;
+    const struct JPH_ShapeCast *mShapeCast;
     const JPH_ShapeCastSettings *mShapeCastSettings;
     const JPH_Mat44 *mCenterOfMassTransform2;
     JPH_Vec3 mScale;
@@ -9318,7 +9318,7 @@ typedef struct JPH_CastConvexVsTriangles {
 /// @param inCenterOfMassTransform2 Is the center of mass transform of shape 2 (excluding scale), this is used to provide a transform to the shape cast result so that local quantities can be transformed into world space.
 /// @param inSubShapeIDCreator1 Class that tracks the current sub shape ID for the casting shape
 /// @param ioCollector The collector that receives the results.
-void JPH_CastConvexVsTriangles_Construct(JPH_CastConvexVsTriangles *self, const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector);
+void JPH_CastConvexVsTriangles_Construct(JPH_CastConvexVsTriangles *self, const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector);
 /// Cast convex object with a single triangle
 /// @param inV0 , inV1 , inV2: CCW triangle vertices
 /// @param inActiveEdges bit 0 = edge v0..v1 is active, bit 1 = edge v1..v2 is active, bit 2 = edge v2..v0 is active
@@ -9351,7 +9351,7 @@ typedef struct JPH_CastSphereVsTriangles {
 /// @param inCenterOfMassTransform2 Is the center of mass transform of shape 2 (excluding scale), this is used to provide a transform to the shape cast result so that local quantities can be transformed into world space.
 /// @param inSubShapeIDCreator1 Class that tracks the current sub shape ID for the casting shape
 /// @param ioCollector The collector that receives the results.
-void JPH_CastSphereVsTriangles_Construct(JPH_CastSphereVsTriangles *self, const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector);
+void JPH_CastSphereVsTriangles_Construct(JPH_CastSphereVsTriangles *self, const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector);
 /// Cast sphere with a single triangle
 /// @param inV0 , inV1 , inV2: CCW triangle vertices
 /// @param inActiveEdges bit 0 = edge v0..v1 is active, bit 1 = edge v1..v2 is active, bit 2 = edge v2..v0 is active
@@ -9788,7 +9788,7 @@ const JPH_EPAConvexHullBuilder_Edge *JPH_EPAConvexHullBuilder_Triangle_GetNextEd
 /// Struct that stores both a triangle or a next pointer in case the triangle is unused
 typedef union JPH_EPAConvexHullBuilder_TriangleFactory_Block {
     uint8_t mTriangle[96];
-    JPH_EPAConvexHullBuilder_TriangleFactory_Block *mNextFree;
+    union JPH_EPAConvexHullBuilder_TriangleFactory_Block *mNextFree;
 } JPH_EPAConvexHullBuilder_TriangleFactory_Block;
 
 // JoltPhysics/Jolt/Geometry/EPAConvexHullBuilder.h:103:2
@@ -10134,7 +10134,7 @@ void JPH_QuadTree_RemoveBodies(JPH_QuadTree *self, const JPH_BodyVector *inBodie
 /// Call whenever the aabb of a body changes.
 void JPH_QuadTree_NotifyBodiesAABBChanged(JPH_QuadTree *self, const JPH_BodyVector *inBodies, const JPH_QuadTree_TrackingVector *inTracking, const struct JPH_BodyID *ioBodyIDs, int32_t inNumber);
 /// Cast a ray and get the intersecting bodies in ioCollector.
-void JPH_QuadTree_CastRay(const JPH_QuadTree *self, const JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_QuadTree_TrackingVector *inTracking);
+void JPH_QuadTree_CastRay(const JPH_QuadTree *self, const struct JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_QuadTree_TrackingVector *inTracking);
 /// Get bodies intersecting with inBox in ioCollector
 void JPH_QuadTree_CollideAABox(const JPH_QuadTree *self, const struct JPH_AABox *inBox, JPH_CollideShapeBodyCollector *ioCollector, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_QuadTree_TrackingVector *inTracking);
 /// Get bodies intersecting with a sphere in ioCollector
@@ -10388,9 +10388,9 @@ JPH_Vec3 JPH_RotatedTranslatedShape_TransformScale(const JPH_RotatedTranslatedSh
 void JPH_RotatedTranslatedShape_sCollideRotatedTranslatedVsShape(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_RotatedTranslatedShape_sCollideShapeVsRotatedTranslated(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_RotatedTranslatedShape_sCollideRotatedTranslatedVsRotatedTranslated(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
-void JPH_RotatedTranslatedShape_sCastShapeVsRotatedTranslated(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
-void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsRotatedTranslated(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_RotatedTranslatedShape_sCastShapeVsRotatedTranslated(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsRotatedTranslated(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/ScaledShape.h:16:1
 /// Class that constructs a ScaledShape
@@ -10425,8 +10425,8 @@ JPH_Vec3 JPH_ScaledShape_GetScale(const JPH_ScaledShape *self);
 // Helper functions called by CollisionDispatch
 void JPH_ScaledShape_sCollideScaledVsShape(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_ScaledShape_sCollideShapeVsScaled(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_ScaledShape_sCastScaledVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
-void JPH_ScaledShape_sCastShapeVsScaled(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_ScaledShape_sCastScaledVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_ScaledShape_sCastShapeVsScaled(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Core/ByteBuffer.h:12:1
 /// Underlying data type for ByteBuffer
@@ -10509,8 +10509,8 @@ void JPH_MeshShape_DecodeSubShapeID(const JPH_MeshShape *self, const struct JPH_
 // Helper functions called by CollisionDispatch
 void JPH_MeshShape_sCollideConvexVsMesh(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_MeshShape_sCollideSphereVsMesh(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_MeshShape_sCastConvexVsMesh(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
-void JPH_MeshShape_sCastSphereVsMesh(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_MeshShape_sCastConvexVsMesh(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_MeshShape_sCastSphereVsMesh(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Collision/CollideSoftBodyVerticesVsTriangles.h:13:1
 /// Collision detection helper that collides soft body vertices vs triangles
@@ -11082,8 +11082,8 @@ uint8_t JPH_HeightFieldShape_GetEdgeFlags(const JPH_HeightFieldShape *self, uint
 // Helper functions called by CollisionDispatch
 void JPH_HeightFieldShape_sCollideConvexVsHeightField(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_HeightFieldShape_sCollideSphereVsHeightField(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_HeightFieldShape_sCastConvexVsHeightField(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
-void JPH_HeightFieldShape_sCastSphereVsHeightField(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_HeightFieldShape_sCastConvexVsHeightField(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_HeightFieldShape_sCastSphereVsHeightField(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 /// For block (inBlockX, inBlockY) get the range block and the entry in the range block
 void JPH_HeightFieldShape_GetRangeBlock(JPH_HeightFieldShape *self, uint32_t inBlockX, uint32_t inBlockY, uint32_t inRangeBlockOffset, uint32_t inRangeBlockStride, JPH_HeightFieldShape_RangeBlock **outBlock, uint32_t *outIndexInBlock);
 
@@ -11249,8 +11249,8 @@ JPH_Vec3 JPH_OffsetCenterOfMassShape_GetOffset(const JPH_OffsetCenterOfMassShape
 // Helper functions called by CollisionDispatch
 void JPH_OffsetCenterOfMassShape_sCollideOffsetCenterOfMassVsShape(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_OffsetCenterOfMassShape_sCollideShapeVsOffsetCenterOfMass(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_OffsetCenterOfMassShape_sCastOffsetCenterOfMassVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
-void JPH_OffsetCenterOfMassShape_sCastShapeVsOffsetCenterOfMass(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_OffsetCenterOfMassShape_sCastOffsetCenterOfMassVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_OffsetCenterOfMassShape_sCastShapeVsOffsetCenterOfMass(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/TaperedCylinderShape.h:13:1
 /// Class that constructs a TaperedCylinderShape
@@ -11420,7 +11420,7 @@ uint32_t JPH_ConvexHullShape_GetNumVerticesInFace(const JPH_ConvexHullShape *sel
 /// @return Number of vertices in face, if this is bigger than inMaxVertices, not all vertices were retrieved.
 uint32_t JPH_ConvexHullShape_GetFaceVertices(const JPH_ConvexHullShape *self, uint32_t inFaceIndex, uint32_t inMaxVertices, uint32_t *outVertices);
 /// Helper function that returns the min and max fraction along the ray that hits the convex hull. Returns false if there is no hit.
-bool JPH_ConvexHullShape_CastRayHelper(const JPH_ConvexHullShape *self, const JPH_RayCast *inRay, float *outMinFraction, float *outMaxFraction);
+bool JPH_ConvexHullShape_CastRayHelper(const JPH_ConvexHullShape *self, const struct JPH_RayCast *inRay, float *outMinFraction, float *outMaxFraction);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/PolyhedronSubmergedVolumeCalculator.h:147:2
 /// A helper class that contains cached information about a polyhedron vertex
@@ -11488,9 +11488,9 @@ typedef struct JPH_ConvexHullBuilder_Edge {
     ///< Face that this edge belongs to
     struct JPH_ConvexHullBuilder_Face *mFace;
     ///< Next edge of this face
-    JPH_ConvexHullBuilder_Edge *mNextEdge;
+    struct JPH_ConvexHullBuilder_Edge *mNextEdge;
     ///< Edge that this edge is connected to
-    JPH_ConvexHullBuilder_Edge *mNeighbourEdge;
+    struct JPH_ConvexHullBuilder_Edge *mNeighbourEdge;
     ///< Vertex index in mPositions that indicates the start vertex of this edge
     int32_t mStartIdx;
 } JPH_ConvexHullBuilder_Edge;
@@ -11799,7 +11799,7 @@ uint32_t JPH_CompoundShape_GetSubShapeIDBits(const JPH_CompoundShape *self);
 /// Determine the inner radius of this shape
 void JPH_CompoundShape_CalculateInnerRadius(JPH_CompoundShape *self);
 // Helper functions called by CollisionDispatch
-void JPH_CompoundShape_sCastCompoundVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_CompoundShape_sCastCompoundVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/MutableCompoundShape.h:14:1
 /// Class that constructs a MutableCompoundShape.
@@ -11884,20 +11884,20 @@ void JPH_MutableCompoundShape_CalculateLocalBounds(JPH_MutableCompoundShape *sel
 // Helper functions called by CollisionDispatch
 void JPH_MutableCompoundShape_sCollideCompoundVsShape(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_MutableCompoundShape_sCollideShapeVsCompound(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_MutableCompoundShape_sCastShapeVsCompound(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_MutableCompoundShape_sCastShapeVsCompound(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:20:1
 // Visitors for collision detection
 typedef struct JPH_CastRayVisitor {
     JPH_RayInvDirection mInvDirection;
-    const JPH_RayCast *mRay;
+    const struct JPH_RayCast *mRay;
     JPH_RayCastResult *mHit;
     struct JPH_SubShapeIDCreator mSubShapeIDCreator;
     uint32_t mSubShapeBits;
     bool mReturnValue;
 } JPH_CastRayVisitor;
 
-void JPH_CastRayVisitor_Construct(JPH_CastRayVisitor *self, const JPH_RayCast *inRay, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
+void JPH_CastRayVisitor_Construct(JPH_CastRayVisitor *self, const struct JPH_RayCast *inRay, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit);
 /// Returns true when collision detection should abort because it's not possible to find a better hit
 bool JPH_CastRayVisitor_ShouldAbort(const JPH_CastRayVisitor *self);
 /// Test ray against 4 bounding boxes and returns the distance where the ray enters the bounding box
@@ -11908,7 +11908,7 @@ void JPH_CastRayVisitor_VisitShape(JPH_CastRayVisitor *self, const JPH_CompoundS
 // JoltPhysics/Jolt/Physics/Collision/Shape/CompoundShapeVisitors.h:65:1
 typedef struct JPH_CastRayVisitorCollector {
     JPH_RayInvDirection mInvDirection;
-    const JPH_RayCast *mRay;
+    const struct JPH_RayCast *mRay;
     JPH_CastRayCollector *mCollector;
     struct JPH_SubShapeIDCreator mSubShapeIDCreator;
     uint32_t mSubShapeBits;
@@ -11916,7 +11916,7 @@ typedef struct JPH_CastRayVisitorCollector {
     const JPH_ShapeFilter *mShapeFilter;
 } JPH_CastRayVisitorCollector;
 
-void JPH_CastRayVisitorCollector_Construct(JPH_CastRayVisitorCollector *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
+void JPH_CastRayVisitorCollector_Construct(JPH_CastRayVisitorCollector *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 /// Returns true when collision detection should abort because it's not possible to find a better hit
 bool JPH_CastRayVisitorCollector_ShouldAbort(const JPH_CastRayVisitorCollector *self);
 /// Test ray against 4 bounding boxes and returns the distance where the ray enters the bounding box
@@ -11947,7 +11947,7 @@ typedef struct JPH_CastShapeVisitor {
     JPH_Vec3 mBoxCenter;
     JPH_Vec3 mBoxExtent;
     JPH_Vec3 mScale;
-    const JPH_ShapeCast *mShapeCast;
+    const struct JPH_ShapeCast *mShapeCast;
     const JPH_ShapeCastSettings *mShapeCastSettings;
     const JPH_ShapeFilter *mShapeFilter;
     JPH_CastShapeCollector *mCollector;
@@ -11957,7 +11957,7 @@ typedef struct JPH_CastShapeVisitor {
     uint32_t mSubShapeBits;
 } JPH_CastShapeVisitor;
 
-void JPH_CastShapeVisitor_Construct(JPH_CastShapeVisitor *self, const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_CompoundShape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_CastShapeVisitor_Construct(JPH_CastShapeVisitor *self, const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_CompoundShape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 /// Returns true when collision detection should abort because it's not possible to find a better hit
 bool JPH_CastShapeVisitor_ShouldAbort(const JPH_CastShapeVisitor *self);
 /// Tests the shape cast against 4 bounding boxes, returns the distance along the shape cast where the shape first enters the bounding box
@@ -12082,7 +12082,7 @@ void JPH_PlaneShape_GetVertices(const JPH_PlaneShape *self, JPH_Vec3 *outVertice
 void JPH_PlaneShape_CalculateLocalBounds(JPH_PlaneShape *self);
 // Helper functions called by CollisionDispatch
 void JPH_PlaneShape_sCollideConvexVsPlane(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_PlaneShape_sCastConvexVsPlane(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_PlaneShape_sCastConvexVsPlane(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/TriangleShape.h:12:1
 /// Class that constructs a TriangleShape
@@ -12127,8 +12127,8 @@ float JPH_TriangleShape_GetConvexRadius(const JPH_TriangleShape *self);
 // Helper functions called by CollisionDispatch
 void JPH_TriangleShape_sCollideConvexVsTriangle(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_TriangleShape_sCollideSphereVsTriangle(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_TriangleShape_sCastConvexVsTriangle(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
-void JPH_TriangleShape_sCastSphereVsTriangle(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_TriangleShape_sCastConvexVsTriangle(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_TriangleShape_sCastSphereVsTriangle(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/StaticCompoundShape.h:17:1
 /// Class that constructs a StaticCompoundShape. Note that if you only want a compound of 1 shape, use a RotatedTranslatedShape instead.
@@ -12183,7 +12183,7 @@ void JPH_StaticCompoundShape_sPartition4(uint32_t *ioBodyIdx, struct JPH_AABox *
 // Helper functions called by CollisionDispatch
 void JPH_StaticCompoundShape_sCollideCompoundVsShape(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
 void JPH_StaticCompoundShape_sCollideShapeVsCompound(const struct JPH_Shape *inShape1, const struct JPH_Shape *inShape2, const struct JPH_Vec3 inScale1, const struct JPH_Vec3 inScale2, const struct JPH_Mat44 * inCenterOfMassTransform1, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, const struct JPH_CollideShapeSettings *inCollideShapeSettings, JPH_CollideShapeCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter);
-void JPH_StaticCompoundShape_sCastShapeVsCompound(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
+void JPH_StaticCompoundShape_sCastShapeVsCompound(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector);
 
 // JoltPhysics/Jolt/Physics/Character/CharacterBase.h:20:1
 typedef struct JPH_CharacterBaseSettings_VTable {
@@ -15356,9 +15356,9 @@ typedef struct JPH_ConvexHullBuilder2D_Edge {
     ///< Positions associated with this edge (that are closest to this edge). Last entry is the one furthest away from the edge, remainder is unsorted.
     JPH_ConvexHullBuilder2D_ConflictList mConflictList;
     ///< Previous edge in circular list
-    JPH_ConvexHullBuilder2D_Edge *mPrevEdge;
+    struct JPH_ConvexHullBuilder2D_Edge *mPrevEdge;
     ///< Next edge in circular list
-    JPH_ConvexHullBuilder2D_Edge *mNextEdge;
+    struct JPH_ConvexHullBuilder2D_Edge *mNextEdge;
     ///< Position index of start of this edge
     int32_t mStartIdx;
     ///< Squared distance of furthest point from the conflict list to the edge

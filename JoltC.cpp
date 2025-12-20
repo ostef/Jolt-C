@@ -9669,7 +9669,7 @@ JPH_CollideShapeResult JPH_CollideShapeResult_Reversed(const JPH_CollideShapeRes
     return ToCpp(self)->Reversed();
 }
 
-void JPH_RShapeCast_Construct(JPH_RShapeCast *self, const JPH_ShapeCast *inCast) {
+void JPH_RShapeCast_Construct(JPH_RShapeCast *self, const struct JPH_ShapeCast *inCast) {
     new(ToCpp(self)) JPH::RShapeCast(*inCast);
 }
 
@@ -9697,11 +9697,11 @@ void JPH_CollisionDispatch_sCollideShapeVsShape(const struct JPH_Shape *inShape1
     JPH::CollisionDispatch::sCollideShapeVsShape(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_CollisionDispatch_sCastShapeVsShapeLocalSpace(const JPH_ShapeCast *inShapeCastLocal, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_CollisionDispatch_sCastShapeVsShapeLocalSpace(const struct JPH_ShapeCast *inShapeCastLocal, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::CollisionDispatch::sCastShapeVsShapeLocalSpace(*inShapeCastLocal, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_CollisionDispatch_sCastShapeVsShapeWorldSpace(const JPH_ShapeCast *inShapeCastWorld, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_CollisionDispatch_sCastShapeVsShapeWorldSpace(const struct JPH_ShapeCast *inShapeCastWorld, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::CollisionDispatch::sCastShapeVsShapeWorldSpace(*inShapeCastWorld, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -9721,7 +9721,7 @@ void JPH_CollisionDispatch_sReversedCollideShape(const struct JPH_Shape *inShape
     JPH::CollisionDispatch::sReversedCollideShape(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_CollisionDispatch_sReversedCastShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_CollisionDispatch_sReversedCastShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::CollisionDispatch::sReversedCastShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -9769,7 +9769,7 @@ size_t JPH_StateRecorderImpl_GetDataSize(JPH_StateRecorderImpl *self) {
     return ToCpp(self)->GetDataSize();
 }
 
-void JPH_RRayCast_Construct(JPH_RRayCast *self, const JPH_RayCast *inRay) {
+void JPH_RRayCast_Construct(JPH_RRayCast *self, const struct JPH_RayCast *inRay) {
     new(ToCpp(self)) JPH::RRayCast(*inRay);
 }
 
@@ -9785,7 +9785,7 @@ void JPH_BroadPhaseCastResult_Reset(JPH_BroadPhaseCastResult *self) {
     ToCpp(self)->Reset();
 }
 
-void JPH_CastConvexVsTriangles_Construct(JPH_CastConvexVsTriangles *self, const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector) {
+void JPH_CastConvexVsTriangles_Construct(JPH_CastConvexVsTriangles *self, const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector) {
     new(ToCpp(self)) JPH::CastConvexVsTriangles(*inShapeCast, *inShapeCastSettings, inScale, inCenterOfMassTransform2, *inSubShapeIDCreator1, *ioCollector);
 }
 
@@ -9793,7 +9793,7 @@ void JPH_CastConvexVsTriangles_Cast(JPH_CastConvexVsTriangles *self, const struc
     ToCpp(self)->Cast(inV0, inV1, inV2, inActiveEdges, *inSubShapeID2);
 }
 
-void JPH_CastSphereVsTriangles_Construct(JPH_CastSphereVsTriangles *self, const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector) {
+void JPH_CastSphereVsTriangles_Construct(JPH_CastSphereVsTriangles *self, const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Vec3 inScale, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, JPH_CastShapeCollector *ioCollector) {
     new(ToCpp(self)) JPH::CastSphereVsTriangles(*inShapeCast, *inShapeCastSettings, inScale, inCenterOfMassTransform2, *inSubShapeIDCreator1, *ioCollector);
 }
 
@@ -9889,11 +9889,11 @@ void JPH_SphereShape_GetSubmergedVolume(const JPH_SphereShape *self, const struc
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-bool JPH_SphereShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_SphereShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_SphereShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_SphereShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_SphereShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_SphereShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_SphereShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_SphereShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -10301,7 +10301,7 @@ void JPH_BroadPhaseBruteForce_NotifyBodiesLayerChanged(JPH_BroadPhaseBruteForce 
     ToCpp(self)->NotifyBodiesLayerChanged(ioBodies, inNumber);
 }
 
-void JPH_BroadPhaseBruteForce_CastRay(const JPH_BroadPhaseBruteForce *self, const JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const struct JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter) {
+void JPH_BroadPhaseBruteForce_CastRay(const JPH_BroadPhaseBruteForce *self, const struct JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const struct JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter) {
     ToCpp(self)->CastRay(*inRay, *ioCollector, *inBroadPhaseLayerFilter, *inObjectLayerFilter);
 }
 
@@ -10493,7 +10493,7 @@ void JPH_QuadTree_NotifyBodiesAABBChanged(JPH_QuadTree *self, const JPH_BodyVect
     ToCpp(self)->NotifyBodiesAABBChanged(*inBodies, *inTracking, ioBodyIDs, inNumber);
 }
 
-void JPH_QuadTree_CastRay(const JPH_QuadTree *self, const JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_QuadTree_TrackingVector *inTracking) {
+void JPH_QuadTree_CastRay(const JPH_QuadTree *self, const struct JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const JPH_ObjectLayerFilter *inObjectLayerFilter, const JPH_QuadTree_TrackingVector *inTracking) {
     ToCpp(self)->CastRay(*inRay, *ioCollector, *inObjectLayerFilter, *inTracking);
 }
 
@@ -10645,7 +10645,7 @@ void JPH_BroadPhaseQuadTree_NotifyBodiesLayerChanged(JPH_BroadPhaseQuadTree *sel
     ToCpp(self)->NotifyBodiesLayerChanged(ioBodies, inNumber);
 }
 
-void JPH_BroadPhaseQuadTree_CastRay(const JPH_BroadPhaseQuadTree *self, const JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const struct JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter) {
+void JPH_BroadPhaseQuadTree_CastRay(const JPH_BroadPhaseQuadTree *self, const struct JPH_RayCast *inRay, JPH_RayCastBodyCollector *ioCollector, const struct JPH_BroadPhaseLayerFilter *inBroadPhaseLayerFilter, const JPH_ObjectLayerFilter *inObjectLayerFilter) {
     ToCpp(self)->CastRay(*inRay, *ioCollector, *inBroadPhaseLayerFilter, *inObjectLayerFilter);
 }
 
@@ -10957,11 +10957,11 @@ void JPH_RotatedTranslatedShape_GetSubmergedVolume(const JPH_RotatedTranslatedSh
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-bool JPH_RotatedTranslatedShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_RotatedTranslatedShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_RotatedTranslatedShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_RotatedTranslatedShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_RotatedTranslatedShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_RotatedTranslatedShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_RotatedTranslatedShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_RotatedTranslatedShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -11029,15 +11029,15 @@ void JPH_RotatedTranslatedShape_sCollideRotatedTranslatedVsRotatedTranslated(con
     JPH::RotatedTranslatedShape::sCollideRotatedTranslatedVsRotatedTranslated(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::RotatedTranslatedShape::sCastRotatedTranslatedVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_RotatedTranslatedShape_sCastShapeVsRotatedTranslated(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_RotatedTranslatedShape_sCastShapeVsRotatedTranslated(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::RotatedTranslatedShape::sCastShapeVsRotatedTranslated(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsRotatedTranslated(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_RotatedTranslatedShape_sCastRotatedTranslatedVsRotatedTranslated(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::RotatedTranslatedShape::sCastRotatedTranslatedVsRotatedTranslated(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -11117,11 +11117,11 @@ void JPH_ScaledShape_GetSubmergedVolume(const JPH_ScaledShape *self, const struc
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-bool JPH_ScaledShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_ScaledShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_ScaledShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_ScaledShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_ScaledShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_ScaledShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_ScaledShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_ScaledShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -11181,11 +11181,11 @@ void JPH_ScaledShape_sCollideShapeVsScaled(const struct JPH_Shape *inShape1, con
     JPH::ScaledShape::sCollideShapeVsScaled(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_ScaledShape_sCastScaledVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_ScaledShape_sCastScaledVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::ScaledShape::sCastScaledVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_ScaledShape_sCastShapeVsScaled(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_ScaledShape_sCastShapeVsScaled(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::ScaledShape::sCastShapeVsScaled(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -11269,11 +11269,11 @@ void JPH_MeshShape_GetSupportingFace(const JPH_MeshShape *self, const struct JPH
     ToCpp(self)->GetSupportingFace(*inSubShapeID, inDirection, inScale, inCenterOfMassTransform, *outVertices);
 }
 
-bool JPH_MeshShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_MeshShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_MeshShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_MeshShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_MeshShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_MeshShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_MeshShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_MeshShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -11341,11 +11341,11 @@ void JPH_MeshShape_sCollideSphereVsMesh(const struct JPH_Shape *inShape1, const 
     JPH::MeshShape::sCollideSphereVsMesh(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_MeshShape_sCastConvexVsMesh(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_MeshShape_sCastConvexVsMesh(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::MeshShape::sCastConvexVsMesh(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_MeshShape_sCastSphereVsMesh(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_MeshShape_sCastSphereVsMesh(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::MeshShape::sCastSphereVsMesh(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -11705,11 +11705,11 @@ void JPH_HeightFieldShape_GetSubmergedVolume(const JPH_HeightFieldShape *self, c
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-bool JPH_HeightFieldShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_HeightFieldShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_HeightFieldShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_HeightFieldShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_HeightFieldShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_HeightFieldShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_HeightFieldShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_HeightFieldShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -11865,11 +11865,11 @@ void JPH_HeightFieldShape_sCollideSphereVsHeightField(const struct JPH_Shape *in
     JPH::HeightFieldShape::sCollideSphereVsHeightField(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_HeightFieldShape_sCastConvexVsHeightField(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_HeightFieldShape_sCastConvexVsHeightField(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::HeightFieldShape::sCastConvexVsHeightField(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_HeightFieldShape_sCastSphereVsHeightField(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_HeightFieldShape_sCastSphereVsHeightField(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::HeightFieldShape::sCastSphereVsHeightField(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -11957,7 +11957,7 @@ const JPH_ConvexShape_Support *JPH_CapsuleShape_GetSupportFunction(const JPH_Cap
     return ToCpp(self)->GetSupportFunction(inMode, *inBuffer, inScale);
 }
 
-bool JPH_CapsuleShape_CastRay(const JPH_CapsuleShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_CapsuleShape_CastRay(const JPH_CapsuleShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
@@ -12085,7 +12085,7 @@ const JPH_ConvexShape_Support *JPH_CylinderShape_GetSupportFunction(const JPH_Cy
     return ToCpp(self)->GetSupportFunction(inMode, *inBuffer, inScale);
 }
 
-bool JPH_CylinderShape_CastRay(const JPH_CylinderShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_CylinderShape_CastRay(const JPH_CylinderShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
@@ -12209,11 +12209,11 @@ void JPH_OffsetCenterOfMassShape_GetSubmergedVolume(const JPH_OffsetCenterOfMass
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-bool JPH_OffsetCenterOfMassShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_OffsetCenterOfMassShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_OffsetCenterOfMassShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_OffsetCenterOfMassShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_OffsetCenterOfMassShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_OffsetCenterOfMassShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_OffsetCenterOfMassShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_OffsetCenterOfMassShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -12265,11 +12265,11 @@ void JPH_OffsetCenterOfMassShape_sCollideShapeVsOffsetCenterOfMass(const struct 
     JPH::OffsetCenterOfMassShape::sCollideShapeVsOffsetCenterOfMass(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_OffsetCenterOfMassShape_sCastOffsetCenterOfMassVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_OffsetCenterOfMassShape_sCastOffsetCenterOfMassVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::OffsetCenterOfMassShape::sCastOffsetCenterOfMassVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_OffsetCenterOfMassShape_sCastShapeVsOffsetCenterOfMass(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_OffsetCenterOfMassShape_sCastShapeVsOffsetCenterOfMass(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::OffsetCenterOfMassShape::sCastShapeVsOffsetCenterOfMass(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -12449,11 +12449,11 @@ const JPH_ConvexShape_Support *JPH_BoxShape_GetSupportFunction(const JPH_BoxShap
     return ToCpp(self)->GetSupportFunction(inMode, *inBuffer, inScale);
 }
 
-bool JPH_BoxShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_BoxShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_BoxShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_BoxShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_BoxShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_BoxShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_BoxShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_BoxShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -12557,11 +12557,11 @@ void JPH_ConvexHullShape_GetSubmergedVolume(const JPH_ConvexHullShape *self, con
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-bool JPH_ConvexHullShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_ConvexHullShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_ConvexHullShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_ConvexHullShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_ConvexHullShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_ConvexHullShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_ConvexHullShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_ConvexHullShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -12625,7 +12625,7 @@ void JPH_ConvexHullShape_RestoreBinaryState(JPH_ConvexHullShape *self, struct JP
     ToCpp(self)->RestoreBinaryState(*inStream);
 }
 
-bool JPH_ConvexHullShape_CastRayHelper(const JPH_ConvexHullShape *self, const JPH_RayCast *inRay, float *outMinFraction, float *outMaxFraction) {
+bool JPH_ConvexHullShape_CastRayHelper(const JPH_ConvexHullShape *self, const struct JPH_RayCast *inRay, float *outMinFraction, float *outMaxFraction) {
     return ToCpp(self)->CastRayHelper(*inRay, *outMinFraction, *outMaxFraction);
 }
 
@@ -13037,7 +13037,7 @@ void JPH_CompoundShape_CalculateInnerRadius(JPH_CompoundShape *self) {
     ToCpp(self)->CalculateInnerRadius();
 }
 
-void JPH_CompoundShape_sCastCompoundVsShape(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_CompoundShape_sCastCompoundVsShape(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::CompoundShape::sCastCompoundVsShape(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -13065,11 +13065,11 @@ JPH_MutableCompoundShape * JPH_MutableCompoundShape_Clone(const JPH_MutableCompo
     return ToCpp(self)->Clone();
 }
 
-bool JPH_MutableCompoundShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_MutableCompoundShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_MutableCompoundShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_MutableCompoundShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_MutableCompoundShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_MutableCompoundShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_MutableCompoundShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_MutableCompoundShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -13149,11 +13149,11 @@ void JPH_MutableCompoundShape_sCollideShapeVsCompound(const struct JPH_Shape *in
     JPH::MutableCompoundShape::sCollideShapeVsCompound(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_MutableCompoundShape_sCastShapeVsCompound(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_MutableCompoundShape_sCastShapeVsCompound(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::MutableCompoundShape::sCastShapeVsCompound(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_CastRayVisitor_Construct(JPH_CastRayVisitor *self, const JPH_RayCast *inRay, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+void JPH_CastRayVisitor_Construct(JPH_CastRayVisitor *self, const struct JPH_RayCast *inRay, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     new(ToCpp(self)) JPH::CastRayVisitor(*inRay, inShape, *inSubShapeIDCreator, *ioHit);
 }
 
@@ -13169,7 +13169,7 @@ void JPH_CastRayVisitor_VisitShape(JPH_CastRayVisitor *self, const JPH_CompoundS
     ToCpp(self)->VisitShape(*inSubShape, inSubShapeIndex);
 }
 
-void JPH_CastRayVisitorCollector_Construct(JPH_CastRayVisitorCollector *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_CastRayVisitorCollector_Construct(JPH_CastRayVisitorCollector *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const JPH_CompoundShape *inShape, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     new(ToCpp(self)) JPH::CastRayVisitorCollector(*inRay, *inRayCastSettings, inShape, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -13201,7 +13201,7 @@ void JPH_CollidePointVisitor_VisitShape(JPH_CollidePointVisitor *self, const JPH
     ToCpp(self)->VisitShape(*inSubShape, inSubShapeIndex);
 }
 
-void JPH_CastShapeVisitor_Construct(JPH_CastShapeVisitor *self, const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_CompoundShape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_CastShapeVisitor_Construct(JPH_CastShapeVisitor *self, const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const JPH_CompoundShape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     new(ToCpp(self)) JPH::CastShapeVisitor(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -13337,11 +13337,11 @@ void JPH_PlaneShape_GetSupportingFace(const JPH_PlaneShape *self, const struct J
     ToCpp(self)->GetSupportingFace(*inSubShapeID, inDirection, inScale, inCenterOfMassTransform, *outVertices);
 }
 
-bool JPH_PlaneShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_PlaneShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_PlaneShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_PlaneShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_PlaneShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_PlaneShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_PlaneShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_PlaneShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -13409,7 +13409,7 @@ void JPH_PlaneShape_sCollideConvexVsPlane(const struct JPH_Shape *inShape1, cons
     JPH::PlaneShape::sCollideConvexVsPlane(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_PlaneShape_sCastConvexVsPlane(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_PlaneShape_sCastConvexVsPlane(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::PlaneShape::sCastConvexVsPlane(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -13493,11 +13493,11 @@ void JPH_TriangleShape_GetSubmergedVolume(const JPH_TriangleShape *self, const s
     ToCpp(self)->GetSubmergedVolume(inCenterOfMassTransform, inScale, *inSurface, *outTotalVolume, *outSubmergedVolume, *outCenterOfBuoyancy);
 }
 
-bool JPH_TriangleShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_TriangleShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_TriangleShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_TriangleShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_TriangleShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_TriangleShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_TriangleShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_TriangleShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -13549,11 +13549,11 @@ void JPH_TriangleShape_sCollideSphereVsTriangle(const struct JPH_Shape *inShape1
     JPH::TriangleShape::sCollideSphereVsTriangle(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_TriangleShape_sCastConvexVsTriangle(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_TriangleShape_sCastConvexVsTriangle(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::TriangleShape::sCastConvexVsTriangle(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
-void JPH_TriangleShape_sCastSphereVsTriangle(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_TriangleShape_sCastSphereVsTriangle(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::TriangleShape::sCastSphereVsTriangle(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 
@@ -13581,11 +13581,11 @@ void JPH_StaticCompoundShape_ConstructWithSettingsTempAllocatorResult(JPH_Static
     new(ToCpp(self)) JPH::StaticCompoundShape(*inSettings, *inTempAllocator, *outResult);
 }
 
-bool JPH_StaticCompoundShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_StaticCompoundShape *self, const JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
+bool JPH_StaticCompoundShape_CastRayWithRaySubShapeIDCreatorIoHit(const JPH_StaticCompoundShape *self, const struct JPH_RayCast *inRay, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_RayCastResult *ioHit) {
     return ToCpp(self)->CastRay(*inRay, *inSubShapeIDCreator, *ioHit);
 }
 
-void JPH_StaticCompoundShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_StaticCompoundShape *self, const JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
+void JPH_StaticCompoundShape_CastRayWithRayRayCastSettingsSubShapeIDCreatorIoCollectorShapeFilter(const JPH_StaticCompoundShape *self, const struct JPH_RayCast *inRay, const JPH_RayCastSettings *inRayCastSettings, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator, JPH_CastRayCollector *ioCollector, const JPH_ShapeFilter *inShapeFilter) {
     ToCpp(self)->CastRay(*inRay, *inRayCastSettings, *inSubShapeIDCreator, *ioCollector, *inShapeFilter);
 }
 
@@ -13633,7 +13633,7 @@ void JPH_StaticCompoundShape_sCollideShapeVsCompound(const struct JPH_Shape *inS
     JPH::StaticCompoundShape::sCollideShapeVsCompound(inShape1, inShape2, inScale1, inScale2, inCenterOfMassTransform1, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *inCollideShapeSettings, *ioCollector, *inShapeFilter);
 }
 
-void JPH_StaticCompoundShape_sCastShapeVsCompound(const JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
+void JPH_StaticCompoundShape_sCastShapeVsCompound(const struct JPH_ShapeCast *inShapeCast, const JPH_ShapeCastSettings *inShapeCastSettings, const struct JPH_Shape *inShape, const struct JPH_Vec3 inScale, const JPH_ShapeFilter *inShapeFilter, const struct JPH_Mat44 * inCenterOfMassTransform2, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator1, const struct JPH_SubShapeIDCreator *inSubShapeIDCreator2, JPH_CastShapeCollector *ioCollector) {
     JPH::StaticCompoundShape::sCastShapeVsCompound(*inShapeCast, *inShapeCastSettings, inShape, inScale, *inShapeFilter, inCenterOfMassTransform2, *inSubShapeIDCreator1, *inSubShapeIDCreator2, *ioCollector);
 }
 

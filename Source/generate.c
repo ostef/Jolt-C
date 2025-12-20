@@ -994,7 +994,6 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
         switch (entity->kind) {
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)entity;
-                aggr->base.user_flags |= CppEntityUserFlag_AggrTypedefOutputted;
 
                 if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
                     continue;
@@ -1024,6 +1023,8 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                     SBAppendString(builder, "typedef ");
                     AppendCAggregate(&ctx, aggr, 0);
                     SBAppend(builder, " %s;\n\n", aggr->base.fully_qualified_c_name);
+
+                    aggr->base.user_flags |= CppEntityUserFlag_AggrTypedefOutputted;
                 }
 
                 int num_functions = 0;
