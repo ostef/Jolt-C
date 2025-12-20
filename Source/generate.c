@@ -156,7 +156,7 @@ bool CppTypesAreEqual(CppType *a, CppType *b) {
                 }
             }
 
-            return false;
+            return true;
         } break;
 
         case CppType_Function: {
