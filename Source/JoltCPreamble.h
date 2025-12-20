@@ -32,7 +32,7 @@ typedef struct JPH_StridedPtr {
     int mStride;
 } JPH_StridedPtr;
 
-#define JPH_StaticArrayStruct(T, N) struct { \
+#define JPH_StaticArrayT(T, N) struct { \
     uint32_t mSize; \
     T mElements[N]; \
 }
@@ -57,6 +57,18 @@ typedef JPH_HashTable JPH_UnorderedSet;
 typedef struct JPH_RefTarget {
     uint32_t mRefCount;
 } JPH_RefTarget;
+
+#define JOLTC_DECLARE_REFTARGET_FUNCTIONS(T) \
+    void T ## _SetEmbedded(T *self); \
+    uint32_t T ## _GetRefCount(const T *self); \
+    void T ## _AddRef(T *self); \
+    void T ## _Release(T *self);
+
+#define JOLTC_IMPL_REFTARGET_FUNCTIONS(T) \
+    void T ## _SetEmbedded(T *self) { ToCpp(self)->SetEmbedded(); } \
+    uint32_t T ## _GetRefCount(const T *self) { return ToCpp(self)->GetRefCount(); } \
+    void T ## _AddRef(T *self) { ToCpp(self)->AddRef(); } \
+    void T ## _Release(T *self) { ToCpp(self)->Release(); }
 
 typedef struct JPH_Vector2 {
     float mF32[2];
@@ -116,10 +128,14 @@ enum {
     JPH_Result_EState_Error = 2,
 };
 
-#define JPH_ResultStruct(T) struct { \
+#define JPH_ResultT(T) struct { \
     union { \
         T mResult; \
         JPH_String mError; \
     }; \
     JPH_Result_EState mState; \
 }
+
+typedef struct alignas(16) JPH_Function {
+    uint8_t opaque[32];
+} JPH_Function;

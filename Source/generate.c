@@ -216,25 +216,6 @@ bool CppFunctionsHaveSameParamNames(CppFunction *a, CppFunction *b) {
     return true;
 }
 
-bool CppFunctionsHaveSameParams(CppFunction *a, CppFunction *b) {
-    if (a->parameters.count != b->parameters.count) {
-        return false;
-    }
-
-    foreach (i, a->parameters) {
-        CppVariable *a_param = ArrayGet(a->parameters, i);
-        CppVariable *b_param = ArrayGet(b->parameters, i);
-        if (!CppTypesAreEqual(a_param->type, b_param->type)) {
-            return false;
-        }
-        if (!StrEq(a_param->base.c_name, b_param->base.c_name)) {
-            return false;
-        }
-    }
-
-    return true;
-}
-
 void SetUniqueCName(CppEntity *entity, char *name) {
     entity->unique_c_name = name;
 
@@ -374,6 +355,18 @@ void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db) {
             continue;
         }
 
+        foreach (j, aggr->base_classes) {
+            CppBaseClass *base = ArrayGet(aggr->base_classes, j);
+            if (base->type->kind != CppType_Named) {
+                continue;
+            }
+
+            if (StrEq(base->type->type_named.name, "RefTarget")) {
+                aggr->base.user_flags |= CppEntityUserFlag_AggrInheritsRefTarget;
+                break;
+            }
+        }
+
         bool acts_as_namespace = true;
         if (aggr->fields.count > 0) {
             acts_as_namespace = false;
@@ -437,14 +430,13 @@ void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db) {
 
                 CppFunction *other = ArrayGet(*overloads, j);
 
-                if (CppFunctionsHaveSameParams(func, other)) {
+                if (CppFunctionsHaveSameParamTypes(func, other)) {
+                    different_by_param_types = false;
+                    different_by_param_names = false;
+
                     bool a_const = (func->flags & CppFunctionFlag_Const) != 0;
                     bool b_const = (other->flags & CppFunctionFlag_Const) != 0;
                     different_by_const = a_const != b_const;
-                    different_by_param_types = false;
-                    different_by_param_names = false;
-                } else if (CppFunctionsHaveSameParamTypes(func, other)) {
-                    different_by_param_types = false;
                 } else if (CppFunctionsHaveSameParamNames(func, other)) {
                     different_by_param_names = false;
                 }
@@ -560,6 +552,17 @@ void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
                     return;
                 }
 
+                if (e->kind == CppEntity_Aggregate) {
+                    CppAggregate *aggr = (CppAggregate *)e;
+                    if (aggr->base.flags & CppEntityFlag_ForwardDecl || !(aggr->base.user_flags & CppEntityUserFlag_AggrTypedefOutputted)) {
+                        if (aggr->kind == CppAggregate_Union) {
+                            SBAppendString(ctx->builder, "union ");
+                        } else {
+                            SBAppendString(ctx->builder, "struct ");
+                        }
+                    }
+                }
+
                 SBAppendString(ctx->builder, type->type_named.entity->fully_qualified_c_name);
             } else if (type->type_named.name && type->type_named.name[0]) {
                 SBAppendString(ctx->builder, type->type_named.name);
@@ -592,6 +595,8 @@ void AppendCTypePrefix(GenerateContext *ctx, CppType *type, int indentation) {
 }
 
 void AppendCTypePostfix(GenerateContext *ctx, CppType *type, int indentation) {
+    type = UnwrapTemplate(ctx->options, ctx->db, type);
+
     switch (type->kind) {
         case CppType_Named: {
             if (type->type_named.entity) {
@@ -989,6 +994,7 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
         switch (entity->kind) {
             case CppEntity_Aggregate: {
                 CppAggregate *aggr = (CppAggregate *)entity;
+                aggr->base.user_flags |= CppEntityUserFlag_AggrTypedefOutputted;
 
                 if (aggr->base.flags & CppEntityFlag_ForwardDecl) {
                     continue;
@@ -1041,6 +1047,10 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
 
                 if (num_functions > 0) {
                     SBAppendString(ctx.builder, "\n");
+                }
+
+                if (aggr->base.user_flags & CppEntityUserFlag_AggrInheritsRefTarget) {
+                    SBAppend(ctx.builder, "JOLTC_DECLARE_REFTARGET_FUNCTIONS(%s);\n\n", aggr->base.fully_qualified_c_name);
                 }
             } break;
 
@@ -1148,7 +1158,6 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
     }
 
     SBAppendString(builder, "\n");
-    return;
 
     SBAppendString(builder, "// Cpp conversion functions\n\n");
 
@@ -1184,6 +1193,10 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
         SBAppend(builder, "static inline const %s *ToCpp(const %s *val) { ", aggr->base.fully_qualified_name, aggr->base.fully_qualified_c_name);
         SBAppend(builder, "return reinterpret_cast<const %s *>(val);", aggr->base.fully_qualified_name);
         SBAppendString(builder, " }\n");
+
+        if (aggr->base.user_flags & CppEntityUserFlag_AggrInheritsRefTarget) {
+            SBAppend(builder, "\nJOLTC_IMPL_REFTARGET_FUNCTIONS(%s);\n\n", aggr->base.fully_qualified_c_name);
+        }
     }
 
     SBAppendString(builder, " \n");

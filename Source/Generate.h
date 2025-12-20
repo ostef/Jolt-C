@@ -25,9 +25,11 @@ typedef struct GenerateContext {
 } GenerateContext;
 
 enum {
-    CppEntityUserFlag_NewFunction          = 1 << 0,
-    CppEntityUserFlag_DeleteFunction       = 1 << 1,
-    CppEntityUserFlag_AggregateAsNamespace = 1 << 2,
+    CppEntityUserFlag_NewFunction           = 1 << 0,
+    CppEntityUserFlag_DeleteFunction        = 1 << 1,
+    CppEntityUserFlag_AggregateAsNamespace  = 1 << 2,
+    CppEntityUserFlag_AggrInheritsRefTarget = 1 << 3,
+    CppEntityUserFlag_AggrTypedefOutputted  = 1 << 4,
 };
 
 void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db);

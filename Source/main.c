@@ -85,6 +85,7 @@ static CppType g_type_jph_matrix22;
 static CppType g_type_jph_matrix33;
 static CppType g_type_jph_collision_collector;
 static CppType g_type_jph_ref_target;
+static CppType g_type_jph_function;
 
 void InitTypes() {
     static bool initialized = false;
@@ -142,6 +143,11 @@ void InitTypes() {
     g_type_jph_ref_target.size = sizeof(uint32_t);
     g_type_jph_ref_target.alignment = sizeof(uint32_t);
     g_type_jph_ref_target.type_named.name = "JPH_RefTarget";
+
+    g_type_jph_function.kind = CppType_Named;
+    g_type_jph_function.size = 32;
+    g_type_jph_function.alignment = 8;
+    g_type_jph_function.type_named.name = "JPH_Function";
 }
 
 CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *type) {
@@ -166,6 +172,9 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
         CppType *ty = ArrayGet(type->type_named.template_type_arguments, 0);
         return UnwrapTemplate(options, db, ty);
     }
+    if (StrEq(type->type_named.name, "function")) {
+        return &g_type_jph_function;
+    }
     if (StrEq(type->type_named.name, "StaticArray")) {
         CppType *type_of_array = ArrayGet(type->type_named.template_type_arguments, 0);
         type_of_array = UnwrapTemplate(options, db, type_of_array);
@@ -178,7 +187,7 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
         result->alignment = type->alignment;
 
         StringBuilder builder = {};
-        SBAppendString(&builder, "JPH_StaticArrayStruct(");
+        SBAppendString(&builder, "JPH_StaticArrayT(");
 
         GenerateContext ctx = {};
         ctx.builder = &builder;
@@ -209,7 +218,7 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
         result->alignment = type->alignment;
 
         StringBuilder builder = {};
-        SBAppendString(&builder, "JPH_ResultStruct(");
+        SBAppendString(&builder, "JPH_ResultT(");
 
         GenerateContext ctx = {};
         ctx.builder = &builder;
@@ -278,7 +287,7 @@ int main() {
     // Avoid Windows.h bloat
     ArrayPush(&parse_options.defines, "WIN32_LEAN_AND_MEAN");
 
-    ArrayPush(&parse_options.defines, "JPH_OBJECT_STREAM");
+    // ArrayPush(&parse_options.defines, "JPH_OBJECT_STREAM");
     ArrayPush(&parse_options.defines, "JPH_USE_AVX");
     ArrayPush(&parse_options.defines, "JPH_USE_AVX2");
     ArrayPush(&parse_options.defines, "JPH_USE_F16C");
