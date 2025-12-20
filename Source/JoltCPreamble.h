@@ -1,9 +1,5 @@
 // Preamble: hand-written types
 
-#include <stdint.h>
-#include <stddef.h>
-#include <stdbool.h>
-
 #ifdef _MSC_VER
 
 #define JOLTC_VTABLE_HEADER
@@ -36,19 +32,16 @@ typedef struct JPH_StridedPtr {
     int mStride;
 } JPH_StridedPtr;
 
+#define JPH_StaticArrayStruct(T, N) struct { \
+    uint32_t mSize; \
+    T mElements[N]; \
+}
+
 typedef struct JPH_Array {
     uint64_t mSize;
     uint64_t mCapacity;
     void *mElements;
 } JPH_Array;
-
-const size_t a = sizeof(JPH_Array);
-
-// StaticArray:
-// struct {
-//     uint64_t mSize
-//     T mElements[N]
-// }
 
 typedef struct JPH_HashTable {
     void *mData;

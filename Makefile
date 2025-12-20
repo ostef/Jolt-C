@@ -36,6 +36,9 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+JoltCpp:
+	g++ -DJPH_OBJECT_STREAM -IJoltPhysics JoltC.cpp
+
+.PHONY: all clean fclean re JoltCpp
 
 

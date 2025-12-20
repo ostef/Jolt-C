@@ -50,6 +50,11 @@ CppEntity *AllocCppEntityOfKind(CppEntityKind kind, int size, CXCursor cursor) {
 
     e->source_code_range = GetCppSourceCodeRange(cursor);
     e->cursor = clang_getCanonicalCursor(cursor);
+    e->comment = clang_getCString(clang_Cursor_getRawCommentText(e->cursor));
+    if (e->comment && !e->comment[0]) {
+        e->comment = NULL;
+    }
+
     e->visibility = GetCursorCppVisibility(cursor);
 
     if (!clang_isCursorDefinition(cursor)) {

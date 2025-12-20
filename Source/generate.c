@@ -11,7 +11,7 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
         return true;
     }
 
-    if (entity->visibility == CppVisibility_Private) {
+    if (options.exclude_non_public_entities && entity->visibility != CppVisibility_Public) {
         return true;
     }
 
@@ -22,7 +22,18 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
         return true;
     }
 
-    return false;
+    if (options.declarations_to_include.count > 0) {
+        if (ArrayFindFirstPredicate(options.declarations_to_include, entity->fully_qualified_name, StringCompareFunc) >= 0) {
+            return false;
+        }
+        if (ArrayFindFirstPredicate(options.declarations_to_include, entity->name, StringCompareFunc) >= 0) {
+            return false;
+        }
+
+        return true;
+    } else {
+        return false;
+    }
 }
 
 static
@@ -638,6 +649,9 @@ void AppendCEnum(GenerateContext *ctx, CppEnum *e, int indentation) {
 
     foreach (i, e->constants) {
         CppEnumConstant *value = ArrayGet(e->constants, i);
+
+        SBAppendComment(ctx->builder, value->base.comment, indentation);
+
         SBAppendIndentation(ctx->builder, indentation + 1);
         SBAppendString(ctx->builder, value->base.fully_qualified_c_name);
         SBAppend(ctx->builder, " = %llu,\n", value->value);
@@ -740,6 +754,8 @@ void AppendCAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation)
         }
 
         CppVariable *var = ArrayGet(aggr->fields, i);
+
+        SBAppendComment(ctx->builder, var->base.comment, indentation + 1);
 
         SBAppendIndentation(ctx->builder, indentation + 1);
         AppendCVariable(ctx, var, false, indentation + 1);
@@ -941,6 +957,8 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
         AppendCppSourceCodeLocation(&ctx, GetStartLocation(e->base.source_code_range));
         SBAppendString(builder, "\n");
 
+        SBAppendComment(ctx.builder, e->base.comment, 0);
+
         AppendCEnumDecl(&ctx, e, 0);
     }
 
@@ -981,6 +999,8 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                         AppendCAggregateVTableTypedef(&ctx, aggr);
                     }
 
+                    SBAppendComment(ctx.builder, aggr->base.comment, 0);
+
                     if (aggr->flags & CppAggregateFlag_Abstract) {
                         SBAppendString(builder, "// Abstract\n");
                     } else if (aggr->flags & CppAggregateFlag_HasVTableType) {
@@ -1009,9 +1029,8 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
 
                     num_functions += 1;
 
-                    if (func->flags & CppFunctionFlag_Constructor) {
+                    SBAppendComment(ctx.builder, func->base.comment, 0);
 
-                    }
                     AppendCFunctionSignature(&ctx, func, 0, false);
                     SBAppendString(ctx.builder, ";\n");
                 }
@@ -1031,6 +1050,8 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                 SBAppendString(builder, "// ");
                 AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
                 SBAppendString(builder, "\n");
+
+                SBAppendComment(ctx.builder, ty->base.comment, 0);
 
                 SBAppendString(builder, "typedef ");
                 AppendCTypePrefix(&ctx, ty->type, 0);
@@ -1058,6 +1079,13 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
             if (func->flags & CppFunctionFlag_Operator) {
                 continue;
             }
+
+
+            SBAppendString(builder, "// ");
+            AppendCppSourceCodeLocation(&ctx, GetStartLocation(func->base.source_code_range));
+            SBAppendString(builder, "\n");
+
+            SBAppendComment(builder, func->base.comment, 0);
 
             AppendCFunctionSignature(&ctx, func, 0, false);
             SBAppendString(ctx.builder, ";\n");
@@ -1116,6 +1144,8 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
     }
 
     SBAppendString(builder, "\n");
+    return;
+
     SBAppendString(builder, "// Cpp conversion functions\n\n");
 
     foreach (i, db->all_enums) {

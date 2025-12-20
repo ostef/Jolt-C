@@ -36,6 +36,10 @@ static const char *Declarations_To_Exclude[] = {
     "sRegister",
 };
 
+static const char *Declarations_To_Include[] = {
+    // "EXCLUDE_EVERYTHING",
+};
+
 static const char *Typedefs_To_Unwrap[] = {
     "JPH::uint",
     "JPH::uint8",
@@ -163,7 +167,31 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
         return UnwrapTemplate(options, db, ty);
     }
     if (StrEq(type->type_named.name, "StaticArray")) {
-        // @Todo
+        CppType *type_of_array = ArrayGet(type->type_named.template_type_arguments, 0);
+        type_of_array = UnwrapTemplate(options, db, type_of_array);
+        uint32_t array_count = 1;
+
+        CppType *result = Alloc(CppType);
+        result->kind = CppType_Named;
+        result->size = AlignForward(sizeof(uint32_t), type_of_array->alignment);
+        result->size += type_of_array->size * array_count;
+        result->alignment = type->alignment;
+
+        StringBuilder builder = {};
+        SBAppendString(&builder, "JPH_StaticArrayStruct(");
+
+        GenerateContext ctx = {};
+        ctx.builder = &builder;
+        ctx.db = db;
+        ctx.options = options;
+
+        AppendCType(&ctx, type_of_array, 0);
+        SBAppend(&builder, ", %u)", array_count);
+
+        result->type_named.name = SBBuild(&builder);
+
+        return result;
+
     }
     if (StrEq(type->type_named.name, "Vector")) {
         // @Todo
@@ -268,6 +296,9 @@ int main() {
     GenerateOptions gen_options = {};
     for (uint64_t i = 0; i < StaticArraySize(Declarations_To_Exclude); i += 1) {
         ArrayPush(&gen_options.declarations_to_exclude, (void *)Declarations_To_Exclude[i]);
+    }
+    for (uint64_t i = 0; i < StaticArraySize(Declarations_To_Include); i += 1) {
+        ArrayPush(&gen_options.declarations_to_include, (void *)Declarations_To_Include[i]);
     }
     for (uint64_t i = 0; i < StaticArraySize(Typedefs_To_Unwrap); i += 1) {
         ArrayPush(&gen_options.typedefs_to_unwrap, (void *)Typedefs_To_Unwrap[i]);

@@ -38,6 +38,8 @@
 
 #define StaticArraySize(arr) (sizeof(arr) / sizeof(*(arr)))
 
+#define AlignForward(x, align) ((((x) + (align) - 1) / (align)) * (align))
+
 typedef struct {
     int64_t capacity;
     int64_t count;
@@ -687,6 +689,44 @@ static
 void SBAppendIndentation(StringBuilder *builder, int indentation) {
     for (int i = 0; i < indentation; i += 1) {
         SBAppendString(builder, "    ");
+    }
+}
+
+static
+void SBAppendComment(StringBuilder *builder, const char *comment, int indentation) {
+    if (!comment) {
+        return;
+    }
+
+    SBAppendIndentation(builder, indentation);
+
+    bool newline = false;
+    bool line_start = true;
+    for (int64_t i = 0; comment[i]; i += 1) {
+        if (newline) {
+            SBAppendIndentation(builder, indentation);
+            newline = false;
+            line_start = true;
+        }
+
+        char c = comment[i];
+        if (line_start) {
+            if (c == '\t' || c == ' ') {
+                continue;
+            }
+
+            line_start = false;
+        }
+
+        SBAppendByte(builder, c);
+
+        if (c == '\n') {
+            newline = true;
+        }
+    }
+
+    if (!newline) {
+        SBAppendByte(builder, '\n');
     }
 }
 

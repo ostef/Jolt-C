@@ -9,10 +9,12 @@ typedef CppType *(*TemplateUnwrapFunc)(struct GenerateOptions options, CppDataba
 
 typedef struct GenerateOptions {
     Array declarations_to_exclude;
+    Array declarations_to_include;
     Array typedefs_to_unwrap;
     const char *preamble;
     const char *postamble;
     bool exclude_non_class_functions;
+    bool exclude_non_public_entities;
     TemplateUnwrapFunc template_unwrap_func;
 } GenerateOptions;
 

@@ -175,6 +175,8 @@ enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClie
 }
 
 CppType *GetCppType(CppDatabase *db, CXType type) {
+    CXType original_type = type;
+
     CppType *result = Alloc(CppType);
     result->cx_type = type;
     result->size = clang_Type_getSizeOf(type);
@@ -329,17 +331,16 @@ CppType *GetCppType(CppDatabase *db, CXType type) {
             result->type_named.name = GetDeclName(result->type_named.cursor);
             result->type_named.entity = GetCppEntityFromCursor(db, result->type_named.cursor);
 
-            int template_args = clang_Type_getNumTemplateArguments(type);
-            for (int i = 0; i < template_args; i += 1) {
-                CXType arg = clang_Type_getTemplateArgumentAsType(type, i);
-                CppType *arg_type = GetCppType(db, arg);
+            bool decl_is_template = clang_Cursor_getNumTemplateArguments(result->type_named.cursor) > 0;
+            if (decl_is_template) {
+                int template_args = clang_Type_getNumTemplateArguments(type);
+                for (int i = 0; i < template_args; i += 1) {
+                    CXType arg = clang_Type_getTemplateArgumentAsType(type, i);
+                    CppType *arg_type = GetCppType(db, arg);
 
-                ArrayPush(&result->type_named.template_type_arguments, arg_type);
+                    ArrayPush(&result->type_named.template_type_arguments, arg_type);
+                }
             }
-
-            // if (!result->type_named.entity) {
-            //     printf("Could not get entity for %s (%s)\n", clang_getCString(clang_getCursorSpelling(result->type_named.cursor)), clang_getCString(clang_getCursorKindSpelling(clang_getCursorKind(result->type_named.cursor))));
-            // }
         } break;
     }
 
