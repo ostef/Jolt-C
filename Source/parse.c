@@ -357,17 +357,7 @@ CppEnum *ParseCppEnum(CppParseContext *ctx, CXCursor cursor) {
         e->flags |= CppEnumFlag_Scoped;
     }
 
-    if (clang_Cursor_isAnonymous(cursor)) {
-        CppVariable *var = AllocCppEntity(Variable, cursor);
-        var->type = Alloc(CppType);
-        var->type->kind = CppType_Enum;
-        var->type->type_enum.cursor = cursor;
-        var->type->type_enum.e = e;
-
-        PushCppEntity(ctx->db, ctx->parent_entity, &var->base);
-    } else {
-        PushCppEntity(ctx->db, ctx->parent_entity, &e->base);
-    }
+    PushCppEntity(ctx->db, ctx->parent_entity, &e->base);
 
     VisitRecurse(cursor, EnumVisitor, ctx, &e->base);
 
