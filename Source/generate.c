@@ -87,6 +87,10 @@ bool CppTypesAreEqual(CppType *a, CppType *b) {
         return false;
     }
 
+    if (a->flags != b->flags) {
+        return false;
+    }
+
     switch (a->kind) {
         case CppType_Unknown: {
             return false;
