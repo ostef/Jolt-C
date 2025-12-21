@@ -38,6 +38,11 @@ static const char *Declarations_To_Exclude[] = {
 
 static const char *Declarations_To_Include[] = {
     // "EXCLUDE_EVERYTHING",
+
+static const char *Opaque_Classes[] = {
+    "JobSystem",
+    "JobSystemThreadPool",
+    "JobSystemSingleThreaded",
 };
 
 static const char *Typedefs_To_Unwrap[] = {
@@ -317,6 +322,9 @@ int main() {
     }
     for (uint64_t i = 0; i < StaticArraySize(Declarations_To_Include); i += 1) {
         ArrayPush(&gen_options.declarations_to_include, (void *)Declarations_To_Include[i]);
+    }
+    for (uint64_t i = 0; i < StaticArraySize(Opaque_Classes); i += 1) {
+        ArrayPush(&gen_options.opaque_classes, (void *)Opaque_Classes[i]);
     }
     for (uint64_t i = 0; i < StaticArraySize(Typedefs_To_Unwrap); i += 1) {
         ArrayPush(&gen_options.typedefs_to_unwrap, (void *)Typedefs_To_Unwrap[i]);
