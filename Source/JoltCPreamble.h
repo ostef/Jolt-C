@@ -10,7 +10,9 @@
 // Itanium C++ ABI (gcc, clang) puts additional information.
 // offset_to_top is the number of bytes between the vtable pointer and the
 // derived class.
-// rtti is a pointer to runtime type information.
+// rtti is a pointer to runtime type information. Jolt is compiled using
+// -fno-rtti by default, but it does not change the layout of this struct,
+// only that this pointer is NULL (otherwise ABI compatibility would be broken).
 // Delete and Destruct are two versions of the destructors called either when
 // calling delete or when the object goes out of scope (on the stack). They
 // are always present even if the class does not have a virtual destructor.
