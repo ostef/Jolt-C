@@ -67,6 +67,24 @@ typedef struct JPH_HashTable {
 typedef JPH_HashTable JPH_UnorderedMap;
 typedef JPH_HashTable JPH_UnorderedSet;
 
+struct JPH_LFHMAllocator;
+
+typedef struct JPH_LockFreeHashMap {
+    struct JPH_LFHMAllocator *mAllocator;
+#ifdef JPH_ENABLE_ASSERTS
+    uint32_t mNumKeyValues;
+#endif
+    uint32_t *mBuckets;
+    uint32_t mNumBuckets;
+    uint32_t mMaxBuckets;
+} JPH_LockFreeHashMap;
+
+#define JPH_LockFreeHashMap_KeyValueT(Key, Value) struct { \
+    Key mKey; \
+    uint32_t mNextOffset; \
+    Value mValue; \
+}
+
 typedef struct JPH_RefTarget {
     uint32_t mRefCount;
 } JPH_RefTarget;
@@ -5242,10 +5260,10 @@ void JPH_AxisConstraintPart_SaveState(const JPH_AxisConstraintPart *self, JPH_St
 void JPH_AxisConstraintPart_RestoreState(JPH_AxisConstraintPart *self, JPH_StateRecorder *inStream);
 
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h:50:2
-typedef Vector<<invalid>> JPH_DualAxisConstraintPart_Vec2;
+typedef JPH_Vector2 JPH_DualAxisConstraintPart_Vec2;
 
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h:51:2
-typedef Matrix<<invalid>, <invalid>> JPH_DualAxisConstraintPart_Mat22;
+typedef JPH_Matrix22 JPH_DualAxisConstraintPart_Mat22;
 
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/DualAxisConstraintPart.h:47:1
 /**
@@ -5355,7 +5373,7 @@ typedef struct JPH_ContactConstraintManager_CachedContactPoint {
     JPH_Float3 mPosition2;
     /// Total applied impulse during the last update that it was used
     float mNonPenetrationLambda;
-    Vector<<invalid>> mFrictionLambda;
+    JPH_Vector2 mFrictionLambda;
 } JPH_ContactConstraintManager_CachedContactPoint;
 
 /// Saving / restoring state for replay
@@ -5388,7 +5406,7 @@ void JPH_ContactConstraintManager_CachedManifold_RestoreState(JPH_ContactConstra
 
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:320:2
 /// Define a map that maps SubShapeIDPair -> manifold
-typedef LockFreeHashMap<JPH_SubShapeIDPair, JPH_ContactConstraintManager_CachedManifold> JPH_ContactConstraintManager_ManifoldMap;
+typedef JPH_LockFreeHashMap JPH_ContactConstraintManager_ManifoldMap;
 
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:321:2
 typedef KeyValue JPH_ContactConstraintManager_MKeyValue;
@@ -5415,7 +5433,7 @@ void JPH_ContactConstraintManager_CachedBodyPair_RestoreState(JPH_ContactConstra
 
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:348:2
 /// Define a map that maps BodyPair -> CachedBodyPair
-typedef LockFreeHashMap<JPH_BodyPair, JPH_ContactConstraintManager_CachedBodyPair> JPH_ContactConstraintManager_BodyPairMap;
+typedef JPH_LockFreeHashMap JPH_ContactConstraintManager_BodyPairMap;
 
 // JoltPhysics/Jolt/Physics/Constraints/ContactConstraintManager.h:349:2
 typedef KeyValue JPH_ContactConstraintManager_BPKeyValue;
@@ -8228,10 +8246,10 @@ JPH_Vec3 JPH_SwingTwistConstraint_GetTotalLambdaMotor(const JPH_SwingTwistConstr
 void JPH_SwingTwistConstraint_UpdateLimits(JPH_SwingTwistConstraint *self);
 
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/HingeRotationConstraintPart.h:46:2
-typedef Vector<<invalid>> JPH_HingeRotationConstraintPart_Vec2;
+typedef JPH_Vector2 JPH_HingeRotationConstraintPart_Vec2;
 
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/HingeRotationConstraintPart.h:47:2
-typedef Matrix<<invalid>, <invalid>> JPH_HingeRotationConstraintPart_Mat22;
+typedef JPH_Matrix22 JPH_HingeRotationConstraintPart_Mat22;
 
 // JoltPhysics/Jolt/Physics/Constraints/ConstraintPart/HingeRotationConstraintPart.h:43:1
 /**
@@ -8410,7 +8428,7 @@ JPH_SpringSettings *JPH_HingeConstraint_GetLimitsSpringSettings(JPH_HingeConstra
 void JPH_HingeConstraint_SetLimitsSpringSettings(JPH_HingeConstraint *self, const JPH_SpringSettings *inLimitsSpringSettings);
 ///@name Get Lagrange multiplier from last physics update (the linear/angular impulse applied to satisfy the constraint)
 JPH_Vec3 JPH_HingeConstraint_GetTotalLambdaPosition(const JPH_HingeConstraint *self);
-Vector<<invalid>> JPH_HingeConstraint_GetTotalLambdaRotation(const JPH_HingeConstraint *self);
+JPH_Vector2 JPH_HingeConstraint_GetTotalLambdaRotation(const JPH_HingeConstraint *self);
 float JPH_HingeConstraint_GetTotalLambdaRotationLimits(const JPH_HingeConstraint *self);
 float JPH_HingeConstraint_GetTotalLambdaMotor(const JPH_HingeConstraint *self);
 // Internal helper function to calculate the values below
@@ -13239,7 +13257,7 @@ const JPH_SpringSettings *JPH_SliderConstraint_GetLimitsSpringSettingsConst(cons
 JPH_SpringSettings *JPH_SliderConstraint_GetLimitsSpringSettings(JPH_SliderConstraint *self);
 void JPH_SliderConstraint_SetLimitsSpringSettings(JPH_SliderConstraint *self, const JPH_SpringSettings *inLimitsSpringSettings);
 ///@name Get Lagrange multiplier from last physics update (the linear/angular impulse applied to satisfy the constraint)
-Vector<<invalid>> JPH_SliderConstraint_GetTotalLambdaPosition(const JPH_SliderConstraint *self);
+JPH_Vector2 JPH_SliderConstraint_GetTotalLambdaPosition(const JPH_SliderConstraint *self);
 float JPH_SliderConstraint_GetTotalLambdaPositionLimits(const JPH_SliderConstraint *self);
 JPH_Vec3 JPH_SliderConstraint_GetTotalLambdaRotation(const JPH_SliderConstraint *self);
 float JPH_SliderConstraint_GetTotalLambdaMotor(const JPH_SliderConstraint *self);
@@ -13483,10 +13501,10 @@ float JPH_PathConstraint_GetTargetVelocity(const JPH_PathConstraint *self);
 void JPH_PathConstraint_SetTargetPathFraction(JPH_PathConstraint *self, float inFraction);
 float JPH_PathConstraint_GetTargetPathFraction(const JPH_PathConstraint *self);
 ///@name Get Lagrange multiplier from last physics update (the linear/angular impulse applied to satisfy the constraint)
-Vector<<invalid>> JPH_PathConstraint_GetTotalLambdaPosition(const JPH_PathConstraint *self);
+JPH_Vector2 JPH_PathConstraint_GetTotalLambdaPosition(const JPH_PathConstraint *self);
 float JPH_PathConstraint_GetTotalLambdaPositionLimits(const JPH_PathConstraint *self);
 float JPH_PathConstraint_GetTotalLambdaMotor(const JPH_PathConstraint *self);
-Vector<<invalid>> JPH_PathConstraint_GetTotalLambdaRotationHinge(const JPH_PathConstraint *self);
+JPH_Vector2 JPH_PathConstraint_GetTotalLambdaRotationHinge(const JPH_PathConstraint *self);
 JPH_Vec3 JPH_PathConstraint_GetTotalLambdaRotation(const JPH_PathConstraint *self);
 // Internal helper function to calculate the values below
 void JPH_PathConstraint_CalculateConstraintProperties(JPH_PathConstraint *self, float inDeltaTime);
