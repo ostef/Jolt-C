@@ -36,7 +36,7 @@
 
 #define Alloc(T) memset(malloc(sizeof(T)), 0, sizeof(T))
 
-#define StaticArraySize(arr) (sizeof(arr) / sizeof(*(arr)))
+#define StaticArraySize(arr) ((int64_t)(sizeof(arr) / sizeof(*(arr))))
 
 #define AlignForward(x, align) ((((x) + (align) - 1) / (align)) * (align))
 

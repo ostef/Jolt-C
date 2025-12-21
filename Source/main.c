@@ -318,16 +318,16 @@ int main() {
     ParseCppFiles(parse_options, &db);
 
     GenerateOptions gen_options = {};
-    for (uint64_t i = 0; i < StaticArraySize(Declarations_To_Exclude); i += 1) {
+    for (int64_t i = 0; i < StaticArraySize(Declarations_To_Exclude); i += 1) {
         ArrayPush(&gen_options.declarations_to_exclude, (void *)Declarations_To_Exclude[i]);
     }
-    for (uint64_t i = 0; i < StaticArraySize(Declarations_To_Include); i += 1) {
+    for (int64_t i = 0; i < StaticArraySize(Declarations_To_Include); i += 1) {
         ArrayPush(&gen_options.declarations_to_include, (void *)Declarations_To_Include[i]);
     }
-    for (uint64_t i = 0; i < StaticArraySize(Opaque_Classes); i += 1) {
+    for (int64_t i = 0; i < StaticArraySize(Opaque_Classes); i += 1) {
         ArrayPush(&gen_options.opaque_classes, (void *)Opaque_Classes[i]);
     }
-    for (uint64_t i = 0; i < StaticArraySize(Typedefs_To_Unwrap); i += 1) {
+    for (int64_t i = 0; i < StaticArraySize(Typedefs_To_Unwrap); i += 1) {
         ArrayPush(&gen_options.typedefs_to_unwrap, (void *)Typedefs_To_Unwrap[i]);
     }
 
