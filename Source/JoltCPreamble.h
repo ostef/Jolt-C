@@ -54,6 +54,24 @@ typedef struct JPH_HashTable {
 typedef JPH_HashTable JPH_UnorderedMap;
 typedef JPH_HashTable JPH_UnorderedSet;
 
+struct JPH_LFHMAllocator;
+
+typedef struct JPH_LockFreeHashMap {
+    struct JPH_LFHMAllocator *mAllocator;
+#ifdef JPH_ENABLE_ASSERTS
+    uint32_t mNumKeyValues;
+#endif
+    uint32_t *mBuckets;
+    uint32_t mNumBuckets;
+    uint32_t mMaxBuckets;
+} JPH_LockFreeHashMap;
+
+#define JPH_LockFreeHashMap_KeyValueT(Key, Value) struct { \
+    Key mKey; \
+    uint32_t mNextOffset; \
+    Value mValue; \
+}
+
 typedef struct JPH_RefTarget {
     uint32_t mRefCount;
 } JPH_RefTarget;
