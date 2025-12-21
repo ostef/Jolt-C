@@ -585,7 +585,6 @@ struct JPH_ConvexHullBuilder2D;
 
 // JoltPhysics/Jolt/Math/Swizzle.h:10:1
 /// Enum indicating which component to use when swizzling
-typedef uint32_t JPH_;
 enum {
 ///< Use the X component
     JPH__SWIZZLE_X = 0,
@@ -1203,7 +1202,6 @@ enum {
 
 // JoltPhysics/Jolt/AABBTree/NodeCodec/NodeCodecQuadTreeHalfFloat.h:36:2
 /// Node properties
-typedef uint32_t JPH_NodeCodecQuadTreeHalfFloat_;
 enum {
     JPH_NodeCodecQuadTreeHalfFloat__TRIANGLE_COUNT_BITS = 4,
     JPH_NodeCodecQuadTreeHalfFloat__TRIANGLE_COUNT_SHIFT = 28,
@@ -1232,7 +1230,6 @@ enum {
 
 // JoltPhysics/Jolt/Physics/Collision/Shape/StaticCompoundShape.h:111:2
 /// Bits used in Node::mNodeProperties
-typedef uint32_t JPH_StaticCompoundShape_;
 enum {
 ///< If this bit is set, the other bits index in mSubShape, otherwise in mNodes
     JPH_StaticCompoundShape__IS_SUBSHAPE = 2147483648,

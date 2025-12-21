@@ -671,16 +671,18 @@ void AppendCEnum(GenerateContext *ctx, CppEnum *e, int indentation) {
 }
 
 void AppendCEnumDecl(GenerateContext *ctx, CppEnum *e, int indentation) {
-    SBAppendString(ctx->builder, "typedef ");
-    AppendCTypePrefix(ctx, e->base_type, indentation);
+    if (strlen(e->base.c_name) > 0) {
+        SBAppendString(ctx->builder, "typedef ");
+        AppendCTypePrefix(ctx, e->base_type, indentation);
 
-    if (ShouldPrintSpaceAfterType(e->base_type)) {
-        SBAppendString(ctx->builder, " ");
+        if (ShouldPrintSpaceAfterType(e->base_type)) {
+            SBAppendString(ctx->builder, " ");
+        }
+        SBAppendString(ctx->builder, e->base.fully_qualified_c_name);
+
+        AppendCTypePostfix(ctx, e->base_type, indentation);
+        SBAppendString(ctx->builder, ";\n");
     }
-    SBAppendString(ctx->builder, e->base.fully_qualified_c_name);
-
-    AppendCTypePostfix(ctx, e->base_type, indentation);
-    SBAppendString(ctx->builder, ";\n");
 
     SBAppendIndentation(ctx->builder, indentation);
     AppendCEnum(ctx, e, indentation);
@@ -1138,6 +1140,10 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
             continue;
         }
 
+        if (strlen(e->base.c_name) == 0) {
+            continue;
+        }
+
         SBAppend(builder, "static_assert(sizeof(%s) == sizeof(%s), \"Type size mismatch for %s\");\n", e->base.fully_qualified_name, e->base.fully_qualified_c_name, e->base.fully_qualified_c_name);
         SBAppend(builder, "static_assert(alignof(%s) == alignof(%s), \"Type align mismatch for %s\");\n", e->base.fully_qualified_name, e->base.fully_qualified_c_name, e->base.fully_qualified_c_name);
     }
@@ -1166,6 +1172,10 @@ void GenerateCppSource(GenerateOptions options, StringBuilder *builder, CppDatab
     foreach (i, db->all_enums) {
         CppEnum *e = ArrayGet(db->all_enums, i);
         if (ShouldExcludeEntity(options, &e->base)) {
+            continue;
+        }
+
+        if (strlen(e->base.c_name) == 0) {
             continue;
         }
 

@@ -5,57 +5,102 @@
 
 // Type assertions
 
-static_assert(sizeof(JPH::) == sizeof(JPH_), "Type size mismatch for JPH_");
 static_assert(sizeof(JPH::LargeIslandSplitter::EStatus) == sizeof(JPH_LargeIslandSplitter_EStatus), "Type size mismatch for JPH_LargeIslandSplitter_EStatus");
+static_assert(alignof(JPH::LargeIslandSplitter::EStatus) == alignof(JPH_LargeIslandSplitter_EStatus), "Type align mismatch for JPH_LargeIslandSplitter_EStatus");
 static_assert(sizeof(JPH::LargeIslandSplitter::Splits::EIterationStatus) == sizeof(JPH_LargeIslandSplitter_Splits_EIterationStatus), "Type size mismatch for JPH_LargeIslandSplitter_Splits_EIterationStatus");
+static_assert(alignof(JPH::LargeIslandSplitter::Splits::EIterationStatus) == alignof(JPH_LargeIslandSplitter_Splits_EIterationStatus), "Type align mismatch for JPH_LargeIslandSplitter_Splits_EIterationStatus");
 static_assert(sizeof(JPH::EConstraintType) == sizeof(JPH_EConstraintType), "Type size mismatch for JPH_EConstraintType");
+static_assert(alignof(JPH::EConstraintType) == alignof(JPH_EConstraintType), "Type align mismatch for JPH_EConstraintType");
 static_assert(sizeof(JPH::EConstraintSubType) == sizeof(JPH_EConstraintSubType), "Type size mismatch for JPH_EConstraintSubType");
+static_assert(alignof(JPH::EConstraintSubType) == alignof(JPH_EConstraintSubType), "Type align mismatch for JPH_EConstraintSubType");
 static_assert(sizeof(JPH::EConstraintSpace) == sizeof(JPH_EConstraintSpace), "Type size mismatch for JPH_EConstraintSpace");
+static_assert(alignof(JPH::EConstraintSpace) == alignof(JPH_EConstraintSpace), "Type align mismatch for JPH_EConstraintSpace");
 static_assert(sizeof(JPH::EPhysicsUpdateError) == sizeof(JPH_EPhysicsUpdateError), "Type size mismatch for JPH_EPhysicsUpdateError");
+static_assert(alignof(JPH::EPhysicsUpdateError) == alignof(JPH_EPhysicsUpdateError), "Type align mismatch for JPH_EPhysicsUpdateError");
 static_assert(sizeof(JPH::EBackFaceMode) == sizeof(JPH_EBackFaceMode), "Type size mismatch for JPH_EBackFaceMode");
+static_assert(alignof(JPH::EBackFaceMode) == alignof(JPH_EBackFaceMode), "Type align mismatch for JPH_EBackFaceMode");
 static_assert(sizeof(JPH::EShapeType) == sizeof(JPH_EShapeType), "Type size mismatch for JPH_EShapeType");
+static_assert(alignof(JPH::EShapeType) == alignof(JPH_EShapeType), "Type align mismatch for JPH_EShapeType");
 static_assert(sizeof(JPH::EShapeSubType) == sizeof(JPH_EShapeSubType), "Type size mismatch for JPH_EShapeSubType");
+static_assert(alignof(JPH::EShapeSubType) == alignof(JPH_EShapeSubType), "Type align mismatch for JPH_EShapeSubType");
 static_assert(sizeof(JPH::ConvexShape::ESupportMode) == sizeof(JPH_ConvexShape_ESupportMode), "Type size mismatch for JPH_ConvexShape_ESupportMode");
+static_assert(alignof(JPH::ConvexShape::ESupportMode) == alignof(JPH_ConvexShape_ESupportMode), "Type align mismatch for JPH_ConvexShape_ESupportMode");
 static_assert(sizeof(JPH::ValidateResult) == sizeof(JPH_ValidateResult), "Type size mismatch for JPH_ValidateResult");
+static_assert(alignof(JPH::ValidateResult) == alignof(JPH_ValidateResult), "Type align mismatch for JPH_ValidateResult");
 static_assert(sizeof(JPH::EAllowedDOFs) == sizeof(JPH_EAllowedDOFs), "Type size mismatch for JPH_EAllowedDOFs");
+static_assert(alignof(JPH::EAllowedDOFs) == alignof(JPH_EAllowedDOFs), "Type align mismatch for JPH_EAllowedDOFs");
 static_assert(sizeof(JPH::EMotionQuality) == sizeof(JPH_EMotionQuality), "Type size mismatch for JPH_EMotionQuality");
+static_assert(alignof(JPH::EMotionQuality) == alignof(JPH_EMotionQuality), "Type align mismatch for JPH_EMotionQuality");
 static_assert(sizeof(JPH::EMotionType) == sizeof(JPH_EMotionType), "Type size mismatch for JPH_EMotionType");
+static_assert(alignof(JPH::EMotionType) == alignof(JPH_EMotionType), "Type align mismatch for JPH_EMotionType");
 static_assert(sizeof(JPH::EBodyType) == sizeof(JPH_EBodyType), "Type size mismatch for JPH_EBodyType");
+static_assert(alignof(JPH::EBodyType) == alignof(JPH_EBodyType), "Type align mismatch for JPH_EBodyType");
 static_assert(sizeof(JPH::ECanSleep) == sizeof(JPH_ECanSleep), "Type size mismatch for JPH_ECanSleep");
+static_assert(alignof(JPH::ECanSleep) == alignof(JPH_ECanSleep), "Type align mismatch for JPH_ECanSleep");
 static_assert(sizeof(JPH::Body::EFlags) == sizeof(JPH_Body_EFlags), "Type size mismatch for JPH_Body_EFlags");
+static_assert(alignof(JPH::Body::EFlags) == alignof(JPH_Body_EFlags), "Type align mismatch for JPH_Body_EFlags");
 static_assert(sizeof(JPH::ESpringMode) == sizeof(JPH_ESpringMode), "Type size mismatch for JPH_ESpringMode");
+static_assert(alignof(JPH::ESpringMode) == alignof(JPH_ESpringMode), "Type align mismatch for JPH_ESpringMode");
 static_assert(sizeof(JPH::EStateRecorderState) == sizeof(JPH_EStateRecorderState), "Type size mismatch for JPH_EStateRecorderState");
+static_assert(alignof(JPH::EStateRecorderState) == alignof(JPH_EStateRecorderState), "Type align mismatch for JPH_EStateRecorderState");
 static_assert(sizeof(JPH::ContactConstraintManager::CachedManifold::EFlags) == sizeof(JPH_ContactConstraintManager_CachedManifold_EFlags), "Type size mismatch for JPH_ContactConstraintManager_CachedManifold_EFlags");
+static_assert(alignof(JPH::ContactConstraintManager::CachedManifold::EFlags) == alignof(JPH_ContactConstraintManager_CachedManifold_EFlags), "Type align mismatch for JPH_ContactConstraintManager_CachedManifold_EFlags");
 static_assert(sizeof(JPH::EOverrideMassProperties) == sizeof(JPH_EOverrideMassProperties), "Type size mismatch for JPH_EOverrideMassProperties");
+static_assert(alignof(JPH::EOverrideMassProperties) == alignof(JPH_EOverrideMassProperties), "Type align mismatch for JPH_EOverrideMassProperties");
 static_assert(sizeof(JPH::SoftBodySharedSettings::EBendType) == sizeof(JPH_SoftBodySharedSettings_EBendType), "Type size mismatch for JPH_SoftBodySharedSettings_EBendType");
+static_assert(alignof(JPH::SoftBodySharedSettings::EBendType) == alignof(JPH_SoftBodySharedSettings_EBendType), "Type align mismatch for JPH_SoftBodySharedSettings_EBendType");
 static_assert(sizeof(JPH::SoftBodySharedSettings::ELRAType) == sizeof(JPH_SoftBodySharedSettings_ELRAType), "Type size mismatch for JPH_SoftBodySharedSettings_ELRAType");
+static_assert(alignof(JPH::SoftBodySharedSettings::ELRAType) == alignof(JPH_SoftBodySharedSettings_ELRAType), "Type align mismatch for JPH_SoftBodySharedSettings_ELRAType");
 static_assert(sizeof(JPH::SoftBodyUpdateContext::EState) == sizeof(JPH_SoftBodyUpdateContext_EState), "Type size mismatch for JPH_SoftBodyUpdateContext_EState");
+static_assert(alignof(JPH::SoftBodyUpdateContext::EState) == alignof(JPH_SoftBodyUpdateContext_EState), "Type align mismatch for JPH_SoftBodyUpdateContext_EState");
 static_assert(sizeof(JPH::SoftBodyMotionProperties::EStatus) == sizeof(JPH_SoftBodyMotionProperties_EStatus), "Type size mismatch for JPH_SoftBodyMotionProperties_EStatus");
+static_assert(alignof(JPH::SoftBodyMotionProperties::EStatus) == alignof(JPH_SoftBodyMotionProperties_EStatus), "Type align mismatch for JPH_SoftBodyMotionProperties_EStatus");
 static_assert(sizeof(JPH::EPhysicsLockTypes) == sizeof(JPH_EPhysicsLockTypes), "Type size mismatch for JPH_EPhysicsLockTypes");
+static_assert(alignof(JPH::EPhysicsLockTypes) == alignof(JPH_EPhysicsLockTypes), "Type align mismatch for JPH_EPhysicsLockTypes");
 static_assert(sizeof(JPH::EActivation) == sizeof(JPH_EActivation), "Type size mismatch for JPH_EActivation");
+static_assert(alignof(JPH::EActivation) == alignof(JPH_EActivation), "Type align mismatch for JPH_EActivation");
 static_assert(sizeof(JPH::EMotorState) == sizeof(JPH_EMotorState), "Type size mismatch for JPH_EMotorState");
+static_assert(alignof(JPH::EMotorState) == alignof(JPH_EMotorState), "Type align mismatch for JPH_EMotorState");
 static_assert(sizeof(JPH::ESwingType) == sizeof(JPH_ESwingType), "Type size mismatch for JPH_ESwingType");
+static_assert(alignof(JPH::ESwingType) == alignof(JPH_ESwingType), "Type align mismatch for JPH_ESwingType");
 static_assert(sizeof(JPH::SwingTwistConstraintPart::ERotationFlags) == sizeof(JPH_SwingTwistConstraintPart_ERotationFlags), "Type size mismatch for JPH_SwingTwistConstraintPart_ERotationFlags");
+static_assert(alignof(JPH::SwingTwistConstraintPart::ERotationFlags) == alignof(JPH_SwingTwistConstraintPart_ERotationFlags), "Type align mismatch for JPH_SwingTwistConstraintPart_ERotationFlags");
 static_assert(sizeof(JPH::EActiveEdgeMode) == sizeof(JPH_EActiveEdgeMode), "Type size mismatch for JPH_EActiveEdgeMode");
+static_assert(alignof(JPH::EActiveEdgeMode) == alignof(JPH_EActiveEdgeMode), "Type align mismatch for JPH_EActiveEdgeMode");
 static_assert(sizeof(JPH::ECollectFacesMode) == sizeof(JPH_ECollectFacesMode), "Type size mismatch for JPH_ECollectFacesMode");
+static_assert(alignof(JPH::ECollectFacesMode) == alignof(JPH_ECollectFacesMode), "Type align mismatch for JPH_ECollectFacesMode");
 static_assert(sizeof(JPH::SoftBodyValidateResult) == sizeof(JPH_SoftBodyValidateResult), "Type size mismatch for JPH_SoftBodyValidateResult");
+static_assert(alignof(JPH::SoftBodyValidateResult) == alignof(JPH_SoftBodyValidateResult), "Type align mismatch for JPH_SoftBodyValidateResult");
 static_assert(sizeof(JPH::EPAPenetrationDepth::EStatus) == sizeof(JPH_EPAPenetrationDepth_EStatus), "Type size mismatch for JPH_EPAPenetrationDepth_EStatus");
+static_assert(alignof(JPH::EPAPenetrationDepth::EStatus) == alignof(JPH_EPAPenetrationDepth_EStatus), "Type align mismatch for JPH_EPAPenetrationDepth_EStatus");
 static_assert(sizeof(JPH::MeshShapeSettings::EBuildQuality) == sizeof(JPH_MeshShapeSettings_EBuildQuality), "Type size mismatch for JPH_MeshShapeSettings_EBuildQuality");
+static_assert(alignof(JPH::MeshShapeSettings::EBuildQuality) == alignof(JPH_MeshShapeSettings_EBuildQuality), "Type align mismatch for JPH_MeshShapeSettings_EBuildQuality");
 static_assert(sizeof(JPH::MeshShape::ETriangleFlags) == sizeof(JPH_MeshShape_ETriangleFlags), "Type size mismatch for JPH_MeshShape_ETriangleFlags");
+static_assert(alignof(JPH::MeshShape::ETriangleFlags) == alignof(JPH_MeshShape_ETriangleFlags), "Type align mismatch for JPH_MeshShape_ETriangleFlags");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EComponentData) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EComponentData), "Type size mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EComponentData");
+static_assert(alignof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EComponentData) == alignof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EComponentData), "Type align mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EComponentData");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexXY) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexXY), "Type size mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexXY");
+static_assert(alignof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexXY) == alignof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexXY), "Type align mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexXY");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexZY) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY), "Type size mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY");
+static_assert(alignof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexZY) == alignof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY), "Type align mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY");
 static_assert(sizeof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::ETriangleBlockHeaderFlags) == sizeof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_ETriangleBlockHeaderFlags), "Type size mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_ETriangleBlockHeaderFlags");
+static_assert(alignof(JPH::TriangleCodecIndexed8BitPackSOA4Flags::ETriangleBlockHeaderFlags) == alignof(JPH_TriangleCodecIndexed8BitPackSOA4Flags_ETriangleBlockHeaderFlags), "Type align mismatch for JPH_TriangleCodecIndexed8BitPackSOA4Flags_ETriangleBlockHeaderFlags");
 static_assert(sizeof(JPH::HalfFloatConversion::ERoundingMode) == sizeof(JPH_HalfFloatConversion_ERoundingMode), "Type size mismatch for JPH_HalfFloatConversion_ERoundingMode");
-static_assert(sizeof(JPH::NodeCodecQuadTreeHalfFloat::) == sizeof(JPH_NodeCodecQuadTreeHalfFloat_), "Type size mismatch for JPH_NodeCodecQuadTreeHalfFloat_");
+static_assert(alignof(JPH::HalfFloatConversion::ERoundingMode) == alignof(JPH_HalfFloatConversion_ERoundingMode), "Type align mismatch for JPH_HalfFloatConversion_ERoundingMode");
 static_assert(sizeof(JPH::ConvexHullBuilder::EResult) == sizeof(JPH_ConvexHullBuilder_EResult), "Type size mismatch for JPH_ConvexHullBuilder_EResult");
-static_assert(sizeof(JPH::StaticCompoundShape::) == sizeof(JPH_StaticCompoundShape_), "Type size mismatch for JPH_StaticCompoundShape_");
+static_assert(alignof(JPH::ConvexHullBuilder::EResult) == alignof(JPH_ConvexHullBuilder_EResult), "Type align mismatch for JPH_ConvexHullBuilder_EResult");
 static_assert(sizeof(JPH::CharacterBase::EGroundState) == sizeof(JPH_CharacterBase_EGroundState), "Type size mismatch for JPH_CharacterBase_EGroundState");
+static_assert(alignof(JPH::CharacterBase::EGroundState) == alignof(JPH_CharacterBase_EGroundState), "Type align mismatch for JPH_CharacterBase_EGroundState");
 static_assert(sizeof(JPH::EPathRotationConstraintType) == sizeof(JPH_EPathRotationConstraintType), "Type size mismatch for JPH_EPathRotationConstraintType");
+static_assert(alignof(JPH::EPathRotationConstraintType) == alignof(JPH_EPathRotationConstraintType), "Type align mismatch for JPH_EPathRotationConstraintType");
 static_assert(sizeof(JPH::SixDOFConstraintSettings::EAxis) == sizeof(JPH_SixDOFConstraintSettings_EAxis), "Type size mismatch for JPH_SixDOFConstraintSettings_EAxis");
+static_assert(alignof(JPH::SixDOFConstraintSettings::EAxis) == alignof(JPH_SixDOFConstraintSettings_EAxis), "Type align mismatch for JPH_SixDOFConstraintSettings_EAxis");
 static_assert(sizeof(JPH::ETransmissionMode) == sizeof(JPH_ETransmissionMode), "Type size mismatch for JPH_ETransmissionMode");
+static_assert(alignof(JPH::ETransmissionMode) == alignof(JPH_ETransmissionMode), "Type align mismatch for JPH_ETransmissionMode");
 static_assert(sizeof(JPH::ETrackSide) == sizeof(JPH_ETrackSide), "Type size mismatch for JPH_ETrackSide");
+static_assert(alignof(JPH::ETrackSide) == alignof(JPH_ETrackSide), "Type align mismatch for JPH_ETrackSide");
 static_assert(sizeof(JPH::ConvexHullBuilder2D::EResult) == sizeof(JPH_ConvexHullBuilder2D_EResult), "Type size mismatch for JPH_ConvexHullBuilder2D_EResult");
+static_assert(alignof(JPH::ConvexHullBuilder2D::EResult) == alignof(JPH_ConvexHullBuilder2D_EResult), "Type align mismatch for JPH_ConvexHullBuilder2D_EResult");
 static_assert(sizeof(JPH::Float4) == sizeof(JPH_Float4), "Type mismatch for JPH_Float4");
 static_assert(sizeof(JPH::Vec4) == sizeof(JPH_Vec4), "Type mismatch for JPH_Vec4");
 static_assert(sizeof(JPH::Float3) == sizeof(JPH_Float3), "Type mismatch for JPH_Float3");
@@ -466,7 +511,6 @@ static_assert(sizeof(JPH::ConvexHullBuilder2D) == sizeof(JPH_ConvexHullBuilder2D
 
 // Cpp conversion functions
 
-static inline JPH:: ToCpp(JPH_ val) { return static_cast<JPH::>(val); }
 static inline JPH::LargeIslandSplitter::EStatus ToCpp(JPH_LargeIslandSplitter_EStatus val) { return static_cast<JPH::LargeIslandSplitter::EStatus>(val); }
 static inline JPH::LargeIslandSplitter::Splits::EIterationStatus ToCpp(JPH_LargeIslandSplitter_Splits_EIterationStatus val) { return static_cast<JPH::LargeIslandSplitter::Splits::EIterationStatus>(val); }
 static inline JPH::EConstraintType ToCpp(JPH_EConstraintType val) { return static_cast<JPH::EConstraintType>(val); }
@@ -508,9 +552,7 @@ static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexXY ToCpp(JPH_Tr
 static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexZY ToCpp(JPH_TriangleCodecIndexed8BitPackSOA4Flags_EVertexZY val) { return static_cast<JPH::TriangleCodecIndexed8BitPackSOA4Flags::EVertexZY>(val); }
 static inline JPH::TriangleCodecIndexed8BitPackSOA4Flags::ETriangleBlockHeaderFlags ToCpp(JPH_TriangleCodecIndexed8BitPackSOA4Flags_ETriangleBlockHeaderFlags val) { return static_cast<JPH::TriangleCodecIndexed8BitPackSOA4Flags::ETriangleBlockHeaderFlags>(val); }
 static inline JPH::HalfFloatConversion::ERoundingMode ToCpp(JPH_HalfFloatConversion_ERoundingMode val) { return static_cast<JPH::HalfFloatConversion::ERoundingMode>(val); }
-static inline JPH::NodeCodecQuadTreeHalfFloat:: ToCpp(JPH_NodeCodecQuadTreeHalfFloat_ val) { return static_cast<JPH::NodeCodecQuadTreeHalfFloat::>(val); }
 static inline JPH::ConvexHullBuilder::EResult ToCpp(JPH_ConvexHullBuilder_EResult val) { return static_cast<JPH::ConvexHullBuilder::EResult>(val); }
-static inline JPH::StaticCompoundShape:: ToCpp(JPH_StaticCompoundShape_ val) { return static_cast<JPH::StaticCompoundShape::>(val); }
 static inline JPH::CharacterBase::EGroundState ToCpp(JPH_CharacterBase_EGroundState val) { return static_cast<JPH::CharacterBase::EGroundState>(val); }
 static inline JPH::EPathRotationConstraintType ToCpp(JPH_EPathRotationConstraintType val) { return static_cast<JPH::EPathRotationConstraintType>(val); }
 static inline JPH::SixDOFConstraintSettings::EAxis ToCpp(JPH_SixDOFConstraintSettings_EAxis val) { return static_cast<JPH::SixDOFConstraintSettings::EAxis>(val); }
@@ -9093,7 +9135,7 @@ JPH_Vec3 JPH_HingeConstraint_GetTotalLambdaPosition(const JPH_HingeConstraint *s
     return ToCpp(self)->GetTotalLambdaPosition();
 }
 
-Vector<<invalid>> JPH_HingeConstraint_GetTotalLambdaRotation(const JPH_HingeConstraint *self) {
+JPH_Vector2 JPH_HingeConstraint_GetTotalLambdaRotation(const JPH_HingeConstraint *self) {
     return ToCpp(self)->GetTotalLambdaRotation();
 }
 
@@ -14621,7 +14663,7 @@ void JPH_SliderConstraint_SetLimitsSpringSettings(JPH_SliderConstraint *self, co
     ToCpp(self)->SetLimitsSpringSettings(*inLimitsSpringSettings);
 }
 
-Vector<<invalid>> JPH_SliderConstraint_GetTotalLambdaPosition(const JPH_SliderConstraint *self) {
+JPH_Vector2 JPH_SliderConstraint_GetTotalLambdaPosition(const JPH_SliderConstraint *self) {
     return ToCpp(self)->GetTotalLambdaPosition();
 }
 
@@ -15021,7 +15063,7 @@ float JPH_PathConstraint_GetTargetPathFraction(const JPH_PathConstraint *self) {
     return ToCpp(self)->GetTargetPathFraction();
 }
 
-Vector<<invalid>> JPH_PathConstraint_GetTotalLambdaPosition(const JPH_PathConstraint *self) {
+JPH_Vector2 JPH_PathConstraint_GetTotalLambdaPosition(const JPH_PathConstraint *self) {
     return ToCpp(self)->GetTotalLambdaPosition();
 }
 
@@ -15033,7 +15075,7 @@ float JPH_PathConstraint_GetTotalLambdaMotor(const JPH_PathConstraint *self) {
     return ToCpp(self)->GetTotalLambdaMotor();
 }
 
-Vector<<invalid>> JPH_PathConstraint_GetTotalLambdaRotationHinge(const JPH_PathConstraint *self) {
+JPH_Vector2 JPH_PathConstraint_GetTotalLambdaRotationHinge(const JPH_PathConstraint *self) {
     return ToCpp(self)->GetTotalLambdaRotationHinge();
 }
 
