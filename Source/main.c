@@ -78,6 +78,7 @@ static CppType g_type_jph_array;
 static CppType g_type_jph_hash_table;
 static CppType g_type_jph_unordered_map;
 static CppType g_type_jph_unordered_set;
+static CppType g_type_jph_lock_free_hash_map;
 static CppType g_type_jph_strided_ptr;
 static CppType g_type_jph_vector2;
 static CppType g_type_jph_vector3;
@@ -108,6 +109,11 @@ void InitTypes() {
 
     g_type_jph_unordered_set = g_type_jph_hash_table;
     g_type_jph_unordered_set.type_named.name = "JPH_UnorderedSet";
+
+    g_type_jph_lock_free_hash_map.kind = CppType_Named;
+    g_type_jph_lock_free_hash_map.size = 32;
+    g_type_jph_lock_free_hash_map.alignment = sizeof(void *);
+    g_type_jph_lock_free_hash_map.type_named.name = "JPH_LockFreeHashMap";
 
     g_type_jph_strided_ptr.kind = CppType_Named;
     g_type_jph_strided_ptr.size = 2 * sizeof(uint64_t);
@@ -165,6 +171,9 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
     if (StrEq(type->type_named.name, "UnorderedSet")) {
         return &g_type_jph_unordered_set;
     }
+    if (StrEq(type->type_named.name, "LockFreeHashMap")) {
+        return &g_type_jph_lock_free_hash_map;
+    }
     if (StrEq(type->type_named.name, "StridedPtr")) {
         return &g_type_jph_strided_ptr;
     }
@@ -203,10 +212,10 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
 
     }
     if (StrEq(type->type_named.name, "Vector")) {
-        // @Todo
+        return &g_type_jph_vector2;
     }
     if (StrEq(type->type_named.name, "Matrix")) {
-        // @Todo
+        return &g_type_jph_matrix22;
     }
     if (StrEq(type->type_named.name, "Result")) {
         CppType *type_of_result = ArrayGet(type->type_named.template_type_arguments, 0);
