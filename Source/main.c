@@ -38,6 +38,7 @@ static const char *Declarations_To_Exclude[] = {
 
 static const char *Declarations_To_Include[] = {
     // "EXCLUDE_EVERYTHING",
+};
 
 static const char *Opaque_Classes[] = {
     "JobSystem",
