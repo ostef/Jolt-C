@@ -8,12 +8,14 @@ struct GenerateOptions;
 typedef CppType *(*TemplateUnwrapFunc)(struct GenerateOptions options, CppDatabase *db, CppType *type);
 
 typedef struct GenerateOptions {
-    Array declarations_to_exclude;
-    Array declarations_to_include;
+    Array non_enum_types_to_exclude;
+    Array non_enum_types_to_include;
+    Array functions_to_exclude;
     Array opaque_classes;
     Array typedefs_to_unwrap;
     const char *preamble;
     const char *postamble;
+    bool exclude_functions_containing_excluded_types;
     bool exclude_non_class_functions;
     bool exclude_non_public_entities;
     TemplateUnwrapFunc template_unwrap_func;
@@ -31,6 +33,7 @@ enum {
     CppEntityUserFlag_AggregateAsNamespace  = 1 << 2,
     CppEntityUserFlag_AggrInheritsRefTarget = 1 << 3,
     CppEntityUserFlag_AggrTypedefOutputted  = 1 << 4,
+    CppEntityUserFlag_OpaqueAggr            = 1 << 5,
 };
 
 void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db);

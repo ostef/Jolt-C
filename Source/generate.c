@@ -2,12 +2,13 @@
 #include "ClangUtils.h"
 
 static
+bool ShouldExcludeType(GenerateOptions options, CppType *type) {
+
+}
+
+static
 bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
     if (entity->flags & CppEntityFlag_ParentIsTemplate) {
-        return true;
-    }
-
-    if (entity->kind == CppEntity_Aggregate && (((CppAggregate *)entity)->flags & CppAggregateFlag_Template)) {
         return true;
     }
 
@@ -15,25 +16,77 @@ bool ShouldExcludeEntity(GenerateOptions options, CppEntity *entity) {
         return true;
     }
 
-    if (ArrayFindFirstPredicate(options.declarations_to_exclude, entity->fully_qualified_name, StringCompareFunc) >= 0) {
-        return true;
-    }
-    if (ArrayFindFirstPredicate(options.declarations_to_exclude, entity->name, StringCompareFunc) >= 0) {
-        return true;
+    switch (entity->kind) {
+        case CppEntity_Enum: {
+            if (entity->parent && entity->parent->kind == CppEntity_Aggregate) {
+                return ShouldExcludeEntity(options, entity->parent);
+            }
+
+            return false;
+        } break;
+
+        case CppEntity_Function: {
+            if (ArrayFindFirstPredicate(options.functions_to_exclude, entity->fully_qualified_name, StringCompareFunc) >= 0) {
+                return true;
+            }
+            if (ArrayFindFirstPredicate(options.functions_to_exclude, entity->name, StringCompareFunc) >= 0) {
+                return true;
+            }
+            if (ArrayFindFirstPredicate(options.functions_to_exclude, entity->unique_fully_qualified_c_name, StringCompareFunc) >= 0) {
+                return true;
+            }
+            if (ArrayFindFirstPredicate(options.functions_to_exclude, entity->unique_c_name, StringCompareFunc) >= 0) {
+                return true;
+            }
+            if (entity->parent && entity->parent->kind == CppEntity_Aggregate) {
+                if (ShouldExcludeEntity(options, entity->parent)) {
+                    return true;
+                }
+            } else if (options.exclude_non_class_functions) {
+                return true;
+            }
+
+            CppFunction *func = (CppFunction *)entity;
+            // if (options.exclude_functions_containing_excluded_types) {
+            //     foreach (i, func->parameters) {
+            //         CppVariable *var =
+            //     }
+            // }
+
+            return false;
+        } break;
+
+        case CppEntity_Aggregate: {
+            CppAggregate *aggr = (CppAggregate *)entity;
+            if (aggr->flags & CppAggregateFlag_Template) {
+                return true;
+            }
+            // fallthrough
+
+        case CppEntity_Typedef: {
+            if (ArrayFindFirstPredicate(options.non_enum_types_to_exclude, entity->fully_qualified_name, StringCompareFunc) >= 0) {
+                return true;
+            }
+            if (ArrayFindFirstPredicate(options.non_enum_types_to_exclude, entity->name, StringCompareFunc) >= 0) {
+                return true;
+            }
+
+            if (options.non_enum_types_to_include.count > 0) {
+                if (ArrayFindFirstPredicate(options.non_enum_types_to_include, entity->fully_qualified_name, StringCompareFunc) >= 0) {
+                    return false;
+                }
+                if (ArrayFindFirstPredicate(options.non_enum_types_to_include, entity->name, StringCompareFunc) >= 0) {
+                    return false;
+                }
+
+                return true;
+            } else {
+                return false;
+            }
+        } } break;
     }
 
-    if (options.declarations_to_include.count > 0) {
-        if (ArrayFindFirstPredicate(options.declarations_to_include, entity->fully_qualified_name, StringCompareFunc) >= 0) {
-            return false;
-        }
-        if (ArrayFindFirstPredicate(options.declarations_to_include, entity->name, StringCompareFunc) >= 0) {
-            return false;
-        }
-
-        return true;
-    } else {
-        return false;
-    }
+    return false;
 }
 
 static
@@ -66,12 +119,9 @@ CppType *UnwrapTemplate(GenerateOptions options, CppDatabase *db, CppType *type)
     return new_type;
 }
 
-// @Todo: make sure types that contain opaque types are also treated as opaque (apart from 0 size base classes)
 static
 bool ShouldBeOpaque(CppAggregate *aggr) {
-    return false;
-
-    // return aggr->virtual_methods.count > 0 || aggr->fields.count == 0 || aggr->type->size == 0;
+    return (aggr->base.user_flags & CppEntityUserFlag_OpaqueAggr) != 0;
 }
 
 bool CppTypesAreEqual(CppType *a, CppType *b) {
@@ -293,6 +343,7 @@ static
 void GenerateOpaqueAggrNewFunction(GenerateOptions options, CppDatabase *db, CppAggregate *aggr, CppFunction *func) {
     CppFunction *new_func = AllocCppEntity(Function, clang_getNullCursor());
 
+    new_func->base.comment = "// Opaque type New";
     new_func->base.name = "New";
     new_func->base.c_name = "New";
     if (func) {
@@ -328,6 +379,7 @@ static
 void GenerateOpaqueAggrDeleteFunction(GenerateOptions options, CppDatabase *db, CppAggregate *aggr) {
     CppFunction *del_func = AllocCppEntity(Function, clang_getNullCursor());
 
+    del_func->base.comment = "// Opaque type Delete";
     del_func->base.name = "Delete";
     del_func->base.c_name = "Delete";
     del_func->base.user_flags |= CppEntityUserFlag_DeleteFunction;
@@ -355,6 +407,12 @@ void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db) {
             continue;
         }
 
+        if (ArrayFindFirstPredicate(options.opaque_classes, aggr->base.fully_qualified_name, StringCompareFunc) >= 0) {
+            aggr->base.user_flags |= CppEntityUserFlag_OpaqueAggr;
+        } else if (ArrayFindFirstPredicate(options.opaque_classes, aggr->base.name, StringCompareFunc) >= 0) {
+            aggr->base.user_flags |= CppEntityUserFlag_OpaqueAggr;
+        }
+
         foreach (j, aggr->base_classes) {
             CppBaseClass *base = ArrayGet(aggr->base_classes, j);
             if (base->type->kind != CppType_Named) {
@@ -363,6 +421,43 @@ void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db) {
 
             if (StrEq(base->type->type_named.name, "RefTarget")) {
                 aggr->base.user_flags |= CppEntityUserFlag_AggrInheritsRefTarget;
+                break;
+            }
+
+            CppAggregate *base_aggr = (CppAggregate *)base->type->type_named.entity;
+            if (base_aggr && (base_aggr->base.user_flags & CppEntityUserFlag_OpaqueAggr)) {
+                aggr->base.user_flags |= CppEntityUserFlag_OpaqueAggr;
+            }
+        }
+
+        bool all_private = true;
+        foreach (j, aggr->fields) {
+            CppVariable *field = ArrayGet(aggr->fields, j);
+            if (field->base.visibility == CppVisibility_Public) {
+                all_private = false;
+                break;
+            }
+        }
+
+        if (all_private) {
+            printf("INFO: %s has no public fields (can be set to opaque no problem)\n", aggr->base.fully_qualified_name);
+        }
+
+        foreach (j, aggr->fields) {
+            CppVariable *field = ArrayGet(aggr->fields, j);
+            if (field->type->kind != CppType_Named) {
+                continue;
+            }
+            if (!field->type->type_named.entity) {
+                continue;
+            }
+            if (field->type->type_named.entity->kind != CppEntity_Aggregate) {
+                continue;
+            }
+
+            CppAggregate *aggr_type = (CppAggregate *)field->type->type_named.entity;
+            if (ShouldBeOpaque(aggr_type)) {
+                aggr->base.user_flags |= CppEntityUserFlag_OpaqueAggr;
                 break;
             }
         }
@@ -389,16 +484,22 @@ void ProcessCppDatabaseBeforeCodegen(GenerateOptions options, CppDatabase *db) {
         bool opaque = ShouldBeOpaque(aggr);
 
         if (!acts_as_namespace) {
+            bool generated_new_func = false;
             foreach (j, aggr->functions) {
                 CppFunction *func = ArrayGet(aggr->functions, j);
 
                 // Generate New functions for each constructor
                 if (func->flags & CppFunctionFlag_Constructor && opaque) {
+                    generated_new_func = true;
                     GenerateOpaqueAggrNewFunction(options, db, aggr, func);
                 }
             }
 
             if (opaque) {
+                if (!generated_new_func) {
+                    GenerateOpaqueAggrNewFunction(options, db, aggr, NULL);
+                }
+
                 GenerateOpaqueAggrDeleteFunction(options, db, aggr);
             }
         }
@@ -659,7 +760,7 @@ void AppendCEnum(GenerateContext *ctx, CppEnum *e, int indentation) {
     foreach (i, e->constants) {
         CppEnumConstant *value = ArrayGet(e->constants, i);
 
-        SBAppendComment(ctx->builder, value->base.comment, indentation);
+        SBAppendComment(ctx->builder, value->base.comment, indentation + 1);
 
         SBAppendIndentation(ctx->builder, indentation + 1);
         SBAppendString(ctx->builder, value->base.fully_qualified_c_name);
@@ -769,6 +870,11 @@ void AppendCAggregate(GenerateContext *ctx, CppAggregate *aggr, int indentation)
         SBAppendComment(ctx->builder, var->base.comment, indentation + 1);
 
         SBAppendIndentation(ctx->builder, indentation + 1);
+
+        if (var->base.visibility != CppVisibility_Public) {
+            SBAppend(ctx->builder, "/* %s */ ", CppVisibility_Str[var->base.visibility]);
+        }
+
         AppendCVariable(ctx, var, false, indentation + 1);
         SBAppendString(ctx->builder, ";\n");
     }
@@ -1006,20 +1112,21 @@ void GenerateCHeader(GenerateOptions options, StringBuilder *builder, CppDatabas
                     AppendCppSourceCodeLocation(&ctx, GetStartLocation(entity->source_code_range));
                     SBAppendString(builder, "\n");
 
-                    if (aggr->flags & CppAggregateFlag_HasVTableType) {
+                    if (!ShouldBeOpaque(aggr) && (aggr->flags & CppAggregateFlag_HasVTableType) != 0) {
                         AppendCAggregateVTableTypedef(&ctx, aggr);
                     }
 
                     SBAppendComment(ctx.builder, aggr->base.comment, 0);
 
-                    if (aggr->flags & CppAggregateFlag_Abstract) {
+                    if (ShouldBeOpaque(aggr)) {
+                        SBAppendString(builder, "// Opaque\n");
+                    } else if (aggr->flags & CppAggregateFlag_Abstract) {
                         SBAppendString(builder, "// Abstract\n");
                     } else if (aggr->flags & CppAggregateFlag_HasVTableType) {
                         SBAppendString(builder, "// Has vtable\n");
                     }
-
-                    if (ShouldBeOpaque(aggr)) {
-                        SBAppendString(builder, "// Opaque\n");
+                    if (aggr->type->flags & CppTypeFlag_IsPOD) {
+                        SBAppendString(builder, "// Is POD\n");
                     }
 
                     SBAppendString(builder, "typedef ");

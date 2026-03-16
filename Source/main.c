@@ -12,38 +12,186 @@ static const char *Jolt_Source_Files[] = {
     #include "JoltSourceFiles.txt"
 };
 
-static const char *Declarations_To_Exclude[] = {
-    "JPH::BroadPhaseLayer",
-    "JPH::BroadPhaseLayer::Type",
-    "JPH::ObjectLayer",
-
-    "std::hash",
-    "JPH::Hash",
-
-    "JPH::String",
-    "JPH::IStringStream",
-    "JPH::MutexBase",
-    "JPH::SharedMutexBase",
-
-    "JPH::UnorderedMap",
-    "JPH::UnorderedSet",
-
-    "JPH::BodyAccess",
-    "JPH::BodyAccess::EAccess",
-    "JPH::BodyAccess::Grant",
-
-    "sCreateRTTI",
-    "sRegister",
+static const char *Non_Enum_Types_To_Exclude[] = {
 };
 
-static const char *Declarations_To_Include[] = {
-    // "EXCLUDE_EVERYTHING",
+static const char *Functions_To_Exclude[] = {
+    "JPH::JobSystemThreadPool::SetThreadInitFunction",
+    "JPH::JobSystemThreadPool::SetThreadExitFunction",
+
+    "JPH_Float3_Construct",
+    "JPH_Float3_ConstructWithRHS",
+    "JPH_Float3_ConstructWithXYZ",
+
+    "JPH_Float4_Construct",
+    "JPH_Float4_ConstructWithRHS",
+    "JPH_Float4_ConstructWithXYZW",
+
+    "JPH_Double3_Construct",
+    "JPH_Double3_ConstructWithRHS",
+    "JPH_Double3_ConstructWithXYZ",
+
+    "JPH_Double4_Construct",
+    "JPH_Double4_ConstructWithRHS",
+    "JPH_Double4_ConstructWithXYZW",
 };
 
-static const char *Opaque_Classes[] = {
+static const char *Non_Enum_Types_To_Include[] = {
+    "ObjectLayer",
+    "BroadPhaseLayer",
+
+    // Math
+    "Float3",
+    "Float4",
+    "Double3",
+    "Double4",
+    "Vec3",
+    "JPH::Vec3::Type",
+    "JPH::Vec3::TypeArg",
+    "DVec3",
+    "JPH::DVec3::Type",
+    "JPH::DVec3::TypeArg",
+    "RVec3",
+    "Vec4",
+    "JPH::Vec4::Type",
+    "JPH::Vec4::TypeArg",
+    "DVec4",
+    "JPH::DVec4::Type",
+    "JPH::DVec4::TypeArg",
+    "RVec4",
+    "Quat",
+    "Mat44",
+    "JPH::Mat44::Type",
+    "JPH::Mat44::TypeArg",
+    "DMat44",
+    "JPH::DMat44::Type",
+    "JPH::DMat44::TypeArg",
+    "JPH::DMat44::DTypeArg",
+    "RMat44",
+
+    // Geometry
+    "AABox",
+    "Sphere",
+    "Plane",
+    "Triangle",
+
+    "PhysicsSystem",
     "JobSystem",
     "JobSystemThreadPool",
     "JobSystemSingleThreaded",
+    "BodyInterface",
+    "BodyLockInterface",
+    "BodyLockInterfaceLocking",
+    "BodyLockInterfaceNoLock",
+    "Body",
+    "BodyCreationSettings",
+    "SoftBodyCreationSettings",
+    "MassProperties",
+    "BodyID",
+    "MotionProperties",
+    "GroupFilter",
+    "CollisionGroup",
+    "GroupID",
+    "SubGroupID",
+
+    // Shapes
+    "TransformedShape",
+    "ShapeResult",
+    "ShapeSettings",
+    "Shape",
+    "SphereShapeSettings",
+    "SphereShape",
+    "BoxShapeSettings",
+    "BoxShape",
+    "CapsuleShapeSettings",
+    "CapsuleShape",
+    "TaperedCapsuleShapeSettings",
+    "TaperedCapsuleShape",
+    "CylinderShapeSettings",
+    "CylinderShape",
+    "TriangleShapeSettings",
+    "TriangleShape",
+    "PlaneShapeSettings",
+    "PlaneShape",
+    "ConvexShapeSettings",
+    "ConvexShape",
+    "DecoratedShapeSettings",
+    "DecoratedShape",
+    "CompoundShapeSettings",
+    "CompoundShape",
+    "StaticCompoundShapeSettings",
+    "StaticCompoundShape",
+    "MutableCompoundShapeSettings",
+    "MutableCompoundShape",
+    "MeshShapeSettings",
+    "MeshShape",
+    "SoftBodyShapeSettings",
+    "SoftBodyShape",
+    "HeightFieldShapeSettings",
+    "HeightFieldShape",
+    "EmptyShapeSettings",
+    "EmptyShape",
+    "ScaledShapeSettings",
+    "ScaledShape",
+    "RotatedTranslatedShapeSettings",
+    "RotatedTranslatedShape",
+    "OffsetCenterOfMassShapeSettings",
+    "OffsetCenterOfMassShape",
+    "ShapeID",
+    "SubShapeID",
+};
+
+static const char *Opaque_Classes[] = {
+    "PhysicsSystem",
+    "JobSystem",
+    "JobSystemThreadPool",
+    "JobSystemSingleThreaded",
+    "BodyInterface",
+    "BodyLockInterface",
+    "BodyLockInterfaceLocking",
+    "BodyLockInterfaceNoLock",
+    "GroupFilter",
+
+    "ShapeSettings",
+    "Shape",
+    "SphereShapeSettings",
+    "SphereShape",
+    "BoxShapeSettings",
+    "BoxShape",
+    "CapsuleShapeSettings",
+    "CapsuleShape",
+    "TaperedCapsuleShapeSettings",
+    "TaperedCapsuleShape",
+    "CylinderShapeSettings",
+    "CylinderShape",
+    "TriangleShapeSettings",
+    "TriangleShape",
+    "PlaneShapeSettings",
+    "PlaneShape",
+    "ConvexShapeSettings",
+    "ConvexShape",
+    "DecoratedShapeSettings",
+    "DecoratedShape",
+    "CompoundShapeSettings",
+    "CompoundShape",
+    "StaticCompoundShapeSettings",
+    "StaticCompoundShape",
+    "MutableCompoundShapeSettings",
+    "MutableCompoundShape",
+    "MeshShapeSettings",
+    "MeshShape",
+    "SoftBodyShapeSettings",
+    "SoftBodyShape",
+    "HeightFieldShapeSettings",
+    "HeightFieldShape",
+    "EmptyShapeSettings",
+    "EmptyShape",
+    "ScaledShapeSettings",
+    "ScaledShape",
+    "RotatedTranslatedShapeSettings",
+    "RotatedTranslatedShape",
+    "OffsetCenterOfMassShapeSettings",
+    "OffsetCenterOfMassShape",
 };
 
 static const char *Typedefs_To_Unwrap[] = {
@@ -78,6 +226,8 @@ static const char *Typedefs_To_Unwrap[] = {
     "JPH::DMat44::ArgType",
     "JPH::RMat44Arg",
     "JPH::ColorArg",
+
+    "JPH::BroadPhaseLayer::Type",
 };
 
 static CppType g_type_jph_array;
@@ -197,8 +347,7 @@ CppType *UnwrapTemplateFunc(GenerateOptions options, CppDatabase *db, CppType *t
 
         CppType *result = Alloc(CppType);
         result->kind = CppType_Named;
-        result->size = AlignForward(sizeof(uint32_t), type_of_array->alignment);
-        result->size += type_of_array->size * array_count;
+        result->size = type->size;
         result->alignment = type->alignment;
 
         StringBuilder builder = {};
@@ -318,11 +467,14 @@ int main() {
     ParseCppFiles(parse_options, &db);
 
     GenerateOptions gen_options = {};
-    for (int64_t i = 0; i < StaticArraySize(Declarations_To_Exclude); i += 1) {
-        ArrayPush(&gen_options.declarations_to_exclude, (void *)Declarations_To_Exclude[i]);
+    for (int64_t i = 0; i < StaticArraySize(Non_Enum_Types_To_Exclude); i += 1) {
+        ArrayPush(&gen_options.non_enum_types_to_exclude, (void *)Non_Enum_Types_To_Exclude[i]);
     }
-    for (int64_t i = 0; i < StaticArraySize(Declarations_To_Include); i += 1) {
-        ArrayPush(&gen_options.declarations_to_include, (void *)Declarations_To_Include[i]);
+    for (int64_t i = 0; i < StaticArraySize(Functions_To_Exclude); i += 1) {
+        ArrayPush(&gen_options.functions_to_exclude, (void *)Functions_To_Exclude[i]);
+    }
+    for (int64_t i = 0; i < StaticArraySize(Non_Enum_Types_To_Include); i += 1) {
+        ArrayPush(&gen_options.non_enum_types_to_include, (void *)Non_Enum_Types_To_Include[i]);
     }
     for (int64_t i = 0; i < StaticArraySize(Opaque_Classes); i += 1) {
         ArrayPush(&gen_options.opaque_classes, (void *)Opaque_Classes[i]);
@@ -331,7 +483,9 @@ int main() {
         ArrayPush(&gen_options.typedefs_to_unwrap, (void *)Typedefs_To_Unwrap[i]);
     }
 
+    gen_options.exclude_functions_containing_excluded_types = true;
     gen_options.exclude_non_class_functions = true;
+    gen_options.exclude_non_public_entities = true;
     gen_options.template_unwrap_func = UnwrapTemplateFunc;
 
     gen_options.preamble = ReadEntireFile("Source/JoltCPreamble.h", NULL);

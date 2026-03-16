@@ -77,8 +77,13 @@ void PushCppEntity(CppDatabase *db, CppEntity *parent, CppEntity *entity) {
 
     assert(entity->c_name != NULL);
     if (parent && parent->fully_qualified_name && parent->fully_qualified_name[0]) {
-        entity->fully_qualified_name = SPrintf("%s::%s", parent->fully_qualified_name, entity->name);
-        entity->fully_qualified_c_name = SPrintf("%s_%s", parent->fully_qualified_c_name, entity->c_name);
+        if (entity->name[0]) {
+            entity->fully_qualified_name = SPrintf("%s::%s", parent->fully_qualified_name, entity->name);
+            entity->fully_qualified_c_name = SPrintf("%s_%s", parent->fully_qualified_c_name, entity->c_name);
+        } else {
+            entity->fully_qualified_name = parent->fully_qualified_name;
+            entity->fully_qualified_c_name = parent->fully_qualified_c_name;
+        }
     } else {
         entity->fully_qualified_name = entity->name;
         entity->fully_qualified_c_name = entity->c_name;

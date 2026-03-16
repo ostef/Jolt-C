@@ -134,11 +134,12 @@ static
 enum CXChildVisitResult TopLevelVisitor(CXCursor cursor, CXCursor parent, CXClientData client_data) {
     VISITOR_PREAMBLE();
 
-    // CppSourceCodeRange range = GetCppSourceCodeRange(cursor);
-    // const char *name = clang_getCString(clang_getCursorSpelling(cursor));
-    // printf("%s(%d) %s::%s at %s:%d:%d\n", clang_getCString(clang_getCursorKindSpelling(kind)), kind, GetDeclName(parent), name, range.filename, (int)range.start_line, (int)range.start_character);
-
     switch (kind) {
+        // case CXCursor_MacroExpansion: {
+        //     CppSourceCodeRange range = GetCppSourceCodeRange(cursor);
+        //     const char *name = clang_getCString(clang_getCursorSpelling(cursor));
+        //     printf("%s(%d) %s::%s at %s:%d:%d\n", clang_getCString(clang_getCursorKindSpelling(kind)), kind, GetDeclName(parent), name, range.filename, (int)range.start_line, (int)range.start_character);
+        // } break;
         case CXCursor_InclusionDirective: {
             return CXChildVisit_Recurse;
         } break;
